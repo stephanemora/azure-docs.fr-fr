@@ -1,6 +1,6 @@
 ---
 title: Concept de la sécurité d’Azure IoT Hub X.509 | Microsoft Docs
-description: Présentation du concept des certificats de l’autorité de certification X.509 en matière d’authentification et de fabrication de l’appareil IoT.
+description: Présentation du concept des certificats d'autorité de certification X.509 en matière d'authentification et de fabrication de l'appareil IoT.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61320235"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019901"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
@@ -28,6 +28,8 @@ Cet article aborde les points suivants :
 * Comment configurer une chaîne logistique de fabrication pour l’authentification basée sur l’autorité de certification X.509
 
 * Comment les appareils approuvés par l’autorité de certification X.509 se connectent à IoT Hub
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -63,13 +65,13 @@ La réalisation de ces étapes diffère en fonction des prestataires de services
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Achat d’un certificat de l’autorité de certification X.509
 
-En achetant un certificat d’autorité de certification, une autorité de certification racine connue agit comme un tiers de confiance pour garantir la légitimité de vos appareils IoT lors de leur connexion. L’entreprise X optera pour cette option si elle souhaite que ses widgets Smart-X interagissent avec des produits ou services tiers après la connexion initiale à IoT Hub.
+En achetant un certificat d’autorité de certification, une autorité de certification racine connue agit comme un tiers de confiance pour garantir la légitimité de vos appareils IoT lors de leur connexion. L'entreprise X optera pour cette option si elle souhaite que ses widgets Smart-X interagissent avec des produits ou services tiers après la connexion initiale à IoT Hub.
 
 Pour acheter un certificat de l’autorité de certification X.509, l’entreprise X choisira un prestataire de services de certificats racine. Pour trouver de bons prospects, il suffit de rechercher « Autorité de certification racine » sur Internet. L’autorité de certification racine aidera l’entreprise X à créer la paire de clés publique/privée et à générer une demande de signature de certificat pour ses services. Une demande de signature de certificat correspond au processus formel de demande de certificat auprès d’une autorité de certification. Le résultat de cet achat est un certificat à utiliser comme certificat d’autorité. Étant donné l’omniprésence des certificats X.509, le certificat aura certainement été correctement mis en forme conformément à la norme RFC 5280 de l’IETF.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Création d’un certificat de l’autorité de certification X.509 auto-signé
 
-Le processus de création d’un certificat de l’autorité de certification X.509 auto-signé est similaire au processus d’achat, hormis qu’un signataire tiers, comme l’autorité de certification racine, est impliqué. Dans notre exemple, l’entreprise X signe son certificat d’autorité à la place d’une autorité de certification racine. L’entreprise X peut choisir cette option à des fins de test, jusqu'à ce qu’elle soit prête à acheter un certificat d’autorité. L’entreprise X peut également utiliser un certificat de l’autorité de certification X.509 auto-signé en production, si le widget Smart-X n’est pas destiné à se connecter à des services tiers en dehors d’IoT Hub.
+Le processus de création d'un certificat d'autorité de certification X.509 auto-signé est similaire au processus d'achat, hormis qu'un signataire tiers, comme l'autorité de certification racine, est impliqué. Dans notre exemple, l’entreprise X signe son certificat d’autorité à la place d’une autorité de certification racine. L’entreprise X peut choisir cette option à des fins de test, jusqu'à ce qu’elle soit prête à acheter un certificat d’autorité. L'entreprise X peut également utiliser un certificat d'autorité de certification X.509 auto-signé en production, si le widget Smart-X n'est pas destiné à se connecter à des services tiers en dehors d'IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Inscrire le certificat X.509 dans IoT Hub
 

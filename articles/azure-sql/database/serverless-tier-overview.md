@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121355"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565087"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,11 +114,12 @@ Une mise en pause automatique est déclenchée si toutes les conditions suivante
 
 Une option permet de désactiver la mise en pause automatique si vous le souhaitez.
 
-Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Autrement dit, si l’une des fonctionnalités suivantes est utilisée, la base de données reste en ligne quelle que soit sa durée d’inactivité :
+Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l'une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données reste en ligne quelle que soit sa durée de l'inactivité :
 
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
 - Base de données de synchronisation utilisée dans SQL Data Sync.  Contrairement aux bases de données de synchronisation, les bases de données de hub et de membres prennent en charge la mise en pause automatique.
+- Alias DNS
 - Base de données de travail utilisée dans les travaux élastiques (préversion).
 
 La mise en pause automatique est temporairement indisponible durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.  Dans ce cas, la mise en pause automatique est réactivée dès que la mise à jour du service est terminée.

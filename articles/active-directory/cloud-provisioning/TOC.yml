@@ -1,13 +1,13 @@
 - name: Provisionnement cloud
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que le provisionnement d’identités\_?"
       href: what-is-provisioning.md
     - name: "Qu’est-ce que le provisionnement cloud Azure AD Connect\_?"
       href: what-is-cloud-provisioning.md
       maintainContext: true
-- name: Tutoriels
+- name: Didacticiels
   expanded: true
   items:
     - name: Intégrer une seule forêt AD à un seul locataire Azure AD
@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: Configuration du provisionnement cloud
           href: how-to-configure.md
+        - name: Approvisionnement à la demande
+          href: how-to-on-demand-provision.md
+        - name: Mappage d’attributs
+          href: how-to-attribute-mapping.md
         - name: Utiliser l’authentification unique
           href: how-to-sso.md
     - name: Planifier et concevoir
@@ -56,7 +60,7 @@
           href: how-to-troubleshoot.md
         - name: Attributs en double
           href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
-- name: Informations de référence
+- name: Référence
   items:
     - name: Historique des versions de l’agent de provisionnement cloud Azure AD Connect
       href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context

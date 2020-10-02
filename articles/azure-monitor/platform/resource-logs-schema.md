@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 133847abada718acbf42baf723e598c132d64e14
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392610"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421915"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -49,7 +49,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Service | Schéma et documentation |
 | --- | --- |
 | Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Azure Analysis Services - Configurer la journalisation des diagnostics](../../analysis-services/analysis-services-logging.md) |
 | Gestion des API | [Journaux de ressource de Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Passerelles d’application |[Journalisation pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |

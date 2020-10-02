@@ -42,8 +42,10 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: À propos des passerelles redondantes interzone pour les Zones de disponibilité
       href: about-zone-redundant-vnet-gateways.md
-    - name: Contrôles de sécurité intégrés
-      href: vpn-gateway-security-controls.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: edf66af2df56785977418a118847991165ab3702
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025630"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441015"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Lorsque vous suivez les didacticiels et utilisez l’application, concentrez-vou
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Didacticiels de l’application SaaS Wingtip de SQL Database
 
-Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces didacticiels explorent des modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, d’Azure SQL Data Warehouse et d’autres services Azure. Les didacticiels incluent des scripts PowerShell avec des explications détaillées. Les explications simplifient la compréhension et l’implémentation des modèles de gestion SaaS dans vos applications.
+Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces tutoriels explorent des modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, d'Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) et d'autres services Azure. Les didacticiels incluent des scripts PowerShell avec des explications détaillées. Les explications simplifient la compréhension et l’implémentation des modèles de gestion SaaS dans vos applications.
 
 
 | Didacticiel | Description |

@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979439"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -55,7 +55,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
 2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. La supervision des applications ASP.NET est activée par défaut avec deux niveaux de collecte différents.
 
-    ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new.png)
+    ![Capture d'écran de la page des extensions de site Application Insights, sur laquelle l'option Créer une ressource est sélectionnée.](./media/azure-web-apps/choose-options-new.png)
  
  Voici un résumé des données collectées pour chaque itinéraire :
         

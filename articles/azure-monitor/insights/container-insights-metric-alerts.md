@@ -3,12 +3,12 @@ title: Alertes métriques d’Azure Monitor pour les conteneurs | Microsoft Doc
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Azure Monitor pour les conteneurs en préversion publique.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563362"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019884"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertes métriques recommandées (préversion) d’Azure Monitor pour les conteneurs
 
@@ -144,7 +144,7 @@ Les étapes de base sont les suivantes :
 
 2. Pour déployer un modèle personnalisé via le portail, sélectionnez **Créer une ressource**, dans le [portail Azure](https://portal.azure.com).
 
-3. Recherchez **modèle**, puis sélectionnez **Modèle**. déploiement.
+3. Recherchez **modèle**, puis sélectionnez **Déploiement de modèle**.
 
 4. Sélectionnez **Create** (Créer).
 

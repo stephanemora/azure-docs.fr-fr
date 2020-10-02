@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799800"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088287"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles à l’aide d’Azure Policy
 Cet article explique comment activer Azure Monitor pour machines virtuelles sur des machines virtuelles Azure ou une machine virtuelle hybride connectée à Azure Arc (préversion) à l’aide d’Azure Policy. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents nécessaires à Azure Monitor pour machines virtuelles dans votre environnement Azure et activent automatiquement la supervision des machines virtuelles à mesure qu’elles sont créées. Azure Monitor pour machines virtuelles offre une fonctionnalité permettant de découvrir et corriger les machines virtuelles non conformes dans votre environnement. Utilisez cette fonctionnalité au lieu d’utiliser directement Azure Policy.
@@ -102,7 +102,7 @@ Pour créer une tâche de correction afin d’atténuer les problèmes de confor
 
 Cliquez sur **Corriger** pour créer la tâche de correction, puis cliquez sur **Corriger** pour la démarrer. Vous devrez probablement créer plusieurs tâches de correction (une pour chaque définition de stratégie). Vous ne pouvez pas créer de tâche de correction pour une initiative.
 
-[![Correction](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Capture d'écran du volet de correction des stratégies de Monitor | Machines virtuelles.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Après l’exécution des tâches de correction, vos machines virtuelles doivent être conformes aux agents installés et activées pour Azure Monitor pour machines virtuelles. 

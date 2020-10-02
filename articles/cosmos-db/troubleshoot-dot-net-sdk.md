@@ -3,18 +3,18 @@ title: Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit 
 description: Utilisez des fonctionnalités telles que la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre des problèmes liés à Azure Cosmos DB lors de l’utilisation du Kit de développement logiciel .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021899"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086985"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Cet article traite des problèmes courants, des solutions de contournement, des 
 Le Kit de développement logiciel (SDK) .NET fournit la représentation logique côté client pour accéder à l’API SQL Azure Cosmos DB. Cet article décrit les outils et les approches qui peuvent vous aider si vous rencontrez des problèmes.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Liste de contrôle pour la résolution des problèmes
+
 Examinez la liste de contrôle avant de mettre votre application en production. L’utilisation de la liste de contrôle empêche l’affichage de plusieurs problèmes courants. Elle permet également de diagnostiquer rapidement quand un problème se produit :
 
 *    Utilisez le dernier [Kit de développement logiciel (SDK)](sql-api-sdk-dotnet-standard.md). Le Kit de développement logiciel (SDK) en préversion ne doit pas être utilisé en production. Cela vous évitera de rencontrer des problèmes connus déjà corrigés.
@@ -99,10 +100,15 @@ Cette latence peut avoir plusieurs causes :
     * Activez la [mise en réseau accélérée sur une machine virtuelle existante](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Envisagez d’utiliser un [ordinateur virtuel haut de gamme](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Performances des requêtes lentes
-Les [métriques de requête](sql-api-query-metrics.md) vous aident à déterminer où la requête passe la majeure partie du temps. Elle vous permettent de voir quelle portion du temps est consacrée au serveur principal et au client.
+### <a name="common-query-issues"></a>Problèmes courants liés aux requêtes
+
+Les [métriques de requête](sql-api-query-metrics.md) vous aident à déterminer où la requête passe la majeure partie du temps. Elle vous permettent de voir quelle portion du temps est consacrée au serveur principal et au client. Découvrez-en plus sur [la résolution des problèmes liés aux performances des requêtes](troubleshoot-query-performance.md).
+
 * Si la requête principale retourne rapidement des résultats, et passe beaucoup de temps sur le client, vérifiez la charge de la machine. Il est probable que les ressources sont insuffisantes et que le Kit de développement logiciel (SDK) attend que des ressources soient disponibles pour gérer la réponse.
-* Si la requête principale est lente, essayez de l’[optimiser](optimize-cost-queries.md) et d’examiner la [stratégie d’indexation](index-overview.md) actuelle. 
+* Si la requête principale est lente, essayez de l'[optimiser](troubleshoot-query-performance.md) et d'examiner la [stratégie d'indexation](index-overview.md) actuelle.
+
+    > [!NOTE]
+    > Le processus hôte Windows 64 bits est recommandé pour améliorer les performances. Le kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

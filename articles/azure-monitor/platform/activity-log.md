@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516139"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983208"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
 Le journal d’activité est un [journal de plateforme](platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
@@ -259,7 +259,7 @@ La méthode héritée pour l’envoi du journal d’activité dans un espace de 
 1. Dans la section **Sources de données de l’espace de travail** du menu de l’espace de travail, sélectionnez **Journal d’activité Azure**.
 1. Cliquez sur l’abonnement que vous souhaitez connecter.
 
-    ![Workspaces](media/activity-log-collect/workspaces.png)
+    ![Capture d'écran de l'espace de travail Log Analytics, dans lequel un journal d'activité Azure est sélectionné.](media/activity-log-collect/workspaces.png)
 
 1. Cliquez sur **Connecter** pour connecter le journal d’activité de l’abonnement à l’espace de travail sélectionné. Si l’abonnement est déjà connecté à un autre espace de travail, cliquez d'abord sur **Déconnecter** pour le déconnecter.
 

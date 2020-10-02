@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290095"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441168"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Configurer SQL Database, SQL Managed Instance et Azure Synapse Analytics pour autoriser l'accès aux bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Cet article porte sur les points suivants :
 
-- Options de configuration d'Azure SQL Database, d'Azure SQL Managed Instance et d'Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) pour permettre aux utilisateurs d'effectuer des tâches d'administration et d'accéder aux données stockées dans ces bases de données
+- Options de configuration d'Azure SQL Database, d'Azure SQL Managed Instance et d'Azure Synapse Analytics (anciennement SQL Data Warehouse) pour permettre aux utilisateurs d'effectuer des tâches d'administration et d'accéder aux données stockées dans ces bases de données
 - Configuration de l'accès et des autorisations après la création initiale d'un serveur
 - Ajout de connexions et de comptes d'utilisateur dans la base de données MASTER, puis attribution des autorisations d'administration aux comptes
 - Ajout de comptes d'utilisateur dans des bases de données utilisateur, associés à des connexions ou en tant que comptes d'utilisateur autonomes

@@ -3,12 +3,12 @@ title: Tableau de bord de vue d’ensemble d’Azure Application Insights | Micr
 description: Analysez les applications avec des fonctionnalités Azure Application Insights et de tableau de bord de vue d’ensemble.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322531"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970616"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -36,7 +36,7 @@ Le tableau de bord de l’application tire parti de la technologie de tableau de
 
 Pour accéder au tableau de bord par défaut, sélectionnez _Tableau de bord de l’application_ dans le coin supérieur gauche.
 
-![Vue du tableau de bord](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Capture d'écran sur laquelle le bouton Tableau de bord d'application est en surbrillance.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Lors du premier accès au tableau de bord, cette action lance une vue par défaut :
 

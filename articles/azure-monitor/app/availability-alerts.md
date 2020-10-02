@@ -1,17 +1,17 @@
 ---
 title: Configurer les alertes de disponibilité avec Azure Application Insights | Microsoft Docs
-description: Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
+description: Apprenez à configurer des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970742"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 

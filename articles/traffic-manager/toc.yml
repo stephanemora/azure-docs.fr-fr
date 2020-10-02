@@ -44,6 +44,10 @@
       items:
         - name: Hiérarchie par pays/région utilisée par Traffic Manager
           href: traffic-manager-geographic-regions.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Profils Traffic Manager imbriqués
       href: traffic-manager-nested-profiles.md
     - name: Types de point de terminaison

@@ -3,12 +3,12 @@ title: Exporter vers Power BI à partir d’Azure Application Insights | Micros
 description: Les requêtes Analytics peuvent être affichées dans Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979158"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](https://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](./app-insights-overview.md).
@@ -67,11 +67,11 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Collez le script de langage M exporté dans l’Éditeur avancé. 
 
-   ![Capture d’écran de Power BI Desktop, avec l’Éditeur avancé mis en surbrillance](./media/export-power-bi/advancedquery.png)
+   ![Capture d'écran de Power BI Desktop, avec l'Éditeur avancé mis en surbrillance](./media/export-power-bi/advancedquery.png)
 
 4. Sélectionnez des éléments dans la requête et choisissez une visualisation en entonnoir.
 
-   ![Capture d’écran des options de visualisation de Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![Capture d'écran des options de visualisation en entonnoir de Power BI Desktop](./media/export-power-bi/selectsequence.png)
 
 5. Changez le titre pour le rendre plus significatif et publiez votre rapport sur votre espace de travail cloud Power BI. 
 
@@ -86,7 +86,7 @@ Cela peut se produire si votre jeton d’actualisation n’a pas été mis à jo
 
 1. Connectez-vous au Portail Azure et vérifiez que vous avez accès à la ressource.
 2. Essayez d’actualiser les informations d’identification du tableau de bord.
-3. Essayez d’effacer le cache de votre bureau PowerBI.
+3. Essayez d'effacer le cache de votre instance de Power BI Desktop.
 
 
    Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.
@@ -121,14 +121,14 @@ Cette méthode crée un tableau de bord complet des données de télémétrie. L
 1. Connectez-vous à [Power BI](https://app.powerbi.com/).
 2. Ouvrez **Obtenir les données** ![Screenshot of GetData Icon in lower left corner](./media/export-power-bi/001.png), puis **Services**.
 
-    ![Captures d’écran de l’obtention à partir d’une source de données Application Insights](./media/export-power-bi/002.png)
+    ![Captures d'écran du bouton Obtenir dans la fenêtre Services.](./media/export-power-bi/002.png)
 
 3. Sélectionnez **Obtenir** sous Application Insights.
 
    ![Captures d’écran de l’obtention à partir d’une source de données Application Insights](./media/export-power-bi/003.png)
 4. Fournissez les détails de votre ressource Application Insights, puis **connectez-vous**.
 
-    ![Capture d’écran de l’obtention à partir d’une source de données Application Insights](./media/export-power-bi/005.png)
+    ![Capture d'écran de la fenêtre Se connecter à Application Insights.](./media/export-power-bi/005.png)
 
      Vous trouverez ces informations dans le volet Vue d’ensemble d’Application Insights :
 

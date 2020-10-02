@@ -3,12 +3,12 @@ title: Exporter à l’aide de Stream Analytics à partir d’Azure Application 
 description: Stream Analytics peut transformer, filtrer et acheminer en continu les données que vous exportez depuis Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324350"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979174"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utiliser Stream Analytics pour traiter des données exportées depuis Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) est l’outil idéal pour traiter des données [exportées depuis Application Insights](export-telemetry.md). Stream Analytics peut extraire des données de diverses sources. Il peut transformer et filtrer les données, puis les acheminer vers plusieurs récepteurs.
@@ -196,7 +196,7 @@ Ouvrez Power BI avec votre compte professionnel ou scolaire, puis sélectionnez 
 
 Vous pouvez maintenant utiliser ce jeu de données dans des rapports et des tableaux de bord dans [Power BI](https://powerbi.microsoft.com).
 
-![Dans Power BI, sélectionnez votre dataset et vos champs.](./media/export-stream-analytics/210.png)
+![Capture d'écran d'un exemple de rapport créé à partir d'un jeu de données dans Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Pas de données ?
 * Vérifiez que vous avez [défini le format de date](#set-path-prefix-pattern) correctement sur AAAA-MM-JJ (avec des tirets).
