@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: bf4974fdd0c587bd537c63a454b5d5efeb54415b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378489"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030825"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Vue d’ensemble de l’agent Azure Monitor (préversion)
 L’agent Azure Monitor (AMA) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles et les remet à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor, notamment son installation et la configuration de la collecte de données.
@@ -88,7 +88,7 @@ Les systèmes d’exploitation suivants sont actuellement pris en charge par l�
   - CentOS 6<sup>1</sup>, 7
   - Debian 9, 10
   - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
+  - RHEL 6<sup>1</sup>, 7
   - SLES 11, 12, 15
   - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
 
@@ -99,6 +99,8 @@ Les systèmes d’exploitation suivants sont actuellement pris en charge par l�
 ## <a name="security"></a>Sécurité
 L’agent Azure Monitor n’a besoin d’aucune clé, mais nécessite une [identité managée affectée par le système](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Vous devez disposer d’une identité managée affectée par le système activée sur chaque machine virtuelle avant de déployer l’agent.
 
+## <a name="networking"></a>Mise en réseau
+L’agent Azure Monitor prend en charge les étiquettes de service Azure (les étiquettes AzureMonitor et AzureResourceManager sont exigées), mais il ne fonctionne pas encore avec les étendues de liaison privée Azure Monitor ou les proxys directs.
 
 ## <a name="install-the-azure-monitor-agent"></a>Installer l’agent Azure Monitor
 L’agent Azure Monitor est implémenté en tant qu’[extension de machine virtuelle Azure](../../virtual-machines/extensions/overview.md) avec les détails dans le tableau suivant. 

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011188"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506675"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -242,6 +242,30 @@ Le corps de demande suivant définit les propriétés requises pour déclencher 
     }
   }
 }
+```
+
+### <a name="restore-disks-selectively"></a>Restaurer des disques de manière sélective
+
+Si vous [sauvegardez des disques de manière sélective](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la liste de disques sauvegardés est fournie dans le [résumé des points de récupération](#select-recovery-point) et la [réponse détaillée](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Vous pouvez également restaurer des disques de manière sélective. Plus de détails sont disponibles [ici](selective-disk-backup-restore.md#selective-disk-restore). Pour restaurer un disque de manière sélective dans la liste des disques sauvegardés, recherchez le numéro d’unité logique du disque à partir de la réponse du point de récupération et ajoutez la propriété **restoreDiskLunList** au [corps de la demande ci-dessus](#example-request) comme indiqué ci-dessous.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 Une fois que vous effectuez le suivi de la réponse comme expliqué [ci-dessus](#responses) et que le long travail est terminé, les disques et la configuration de la machine virtuelle sauvegardée (« VMConfig.json ») sont présents dans le compte de stockage indiqué.

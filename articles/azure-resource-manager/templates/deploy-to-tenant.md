@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002761"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468553"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
@@ -151,7 +151,7 @@ Pour cibler un groupe d’administration au sein du locataire, ajoutez un déplo
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,9 +167,11 @@ Pour les déploiements au niveau du locataire, il existe quelques considération
 * La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
 * La fonction [subscription()](template-functions-resource.md#subscription) n’est **pas** prise en charge.
 * Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* Utilisez la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid) pour obtenir l’ID des ressources déployées au niveau du locataire.
+* N'utilisez pas [resourceId()](template-functions-resource.md#resourceid) pour obtenir l'ID des ressources déployées au niveau du locataire.
 
-  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
+  Utilisez plutôt la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid).
+
+  Par exemple, pour obtenir l'ID de ressource d'une définition de stratégie intégrée, utilisez :
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))

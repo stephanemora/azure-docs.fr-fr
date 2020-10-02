@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525156"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606478"
 ---
 1. Sur la page du portail de votre réseau étendu virtuel, dans la section **Connectivité**, sélectionnez **Sites VPN** pour ouvrir la page correspondante.
 2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
 
-   ![Concepts de base](./media/virtual-wan-tutorial-site-include/basics.png "Concepts de base")
+   ![Capture d’écran montrant la fenêtre VPN de site à site, avec le volet Créer un site VPN ouvert.](./media/virtual-wan-tutorial-site-include/basics.png "Concepts de base")
 3. Sur la page **Créer un site VPN**, sous l’onglet **De base**, renseignez les champs suivants :
 
     * **Région** : précédemment appelée « Emplacement ». Il s’agit de l’emplacement auquel vous souhaitez créer cette ressource de site.
@@ -29,7 +29,7 @@ ms.locfileid: "86525156"
     * **Hubs** : concentrateur auquel votre site doit se connecter. Un site ne peut être connecté qu’aux hubs disposant d’une passerelle VPN. Si vous ne voyez pas de hub, créez d’abord une passerelle VPN dans ce hub.
 4. Sélectionnez **Liens** pour ajouter des informations sur les liens physiques au niveau de la branche. Si vous disposez de l’appareil CPE Virtual WAN d’un partenaire, vérifiez auprès de ce dernier que ces informations sont échangées avec Azure dans le cadre de la configuration du chargement des informations de branche à partir de ses systèmes.
 
-   ![links](./media/virtual-wan-tutorial-site-include/links.png "Liens")
+   ![Capture d’écran montrant le volet Créer un site VPN avec l’onglet Liens sélectionné.](./media/virtual-wan-tutorial-site-include/links.png "Liens")
 
     * **Nom du lien** : nom que vous souhaitez fournir pour le lien physique sur le site VPN. Exemple : mylink1.
     * **Nom du fournisseur** : nom du lien physique sur le site VPN. Exemple : ATT, Verizon.

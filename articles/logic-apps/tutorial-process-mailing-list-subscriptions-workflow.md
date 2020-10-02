@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c802fafa92ace2260002f7156b0df9841af8338c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132396"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029577"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
 
@@ -40,7 +40,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 * Un compte MailChimp qui contient une liste nommée « test-members-ML » dans laquelle votre application logique peut ajouter les adresses e-mail des membres approuvés. Si vous n’avez pas de compte, [créez un compte gratuit](https://login.mailchimp.com/signup/) et découvrez [comment créer une liste MailChimp](https://us17.admin.mailchimp.com/lists/#).
 
-* Un compte de courrier Office 365 Outlook ou Outlook.com, qui prend en charge les workflows d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
+* Un compte de messagerie Outlook pour Microsoft 365 ou Outlook.com, qui prend en charge les workflows d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 

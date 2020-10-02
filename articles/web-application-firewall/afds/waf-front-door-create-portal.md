@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475839"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602215"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutoriel : Créer une stratégie de pare-feu d’applications web dans Azure Front Door à l’aide du portail Azure
 
-Ce tutoriel explique comment créer une stratégie de pare-feu d’applications web (WAF) Azure de base et comment l’appliquer sur un hôte front-end dans Azure Front Door.
+Ce tutoriel explique comment créer une stratégie Azure Web Application Firewall (WAF) simple et comment l’appliquer sur un hôte front-end dans Azure Front Door.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -68,7 +68,7 @@ Pour voir le fonctionnement de WAF, passez du mode **Détection** au mode **Pré
 
 Vous pouvez créer une règle personnalisée en sélectionnant **Ajouter une règle personnalisée** sous la section **Règles personnalisées**. Cette action ouvre la page de configuration d’une règle personnalisée. Voici un exemple de configuration d’une règle personnalisée qui bloque une requête si la chaîne de requête contient **blockme**.
 
-![Changer le mode de stratégie WAF](../media/waf-front-door-create-portal/customquerystring2.png)
+![Règles personnalisées](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>Ensemble de règles par défaut
 
@@ -76,8 +76,11 @@ L’ensemble de règles par défaut managées par Azure est activé par défaut.
 
  ![Changer l’ensemble de règles WAF](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources associées.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur le pare-feu d’applications web Azure](../overview.md)
 > [En savoir plus sur Azure Front Door](../../frontdoor/front-door-overview.md)

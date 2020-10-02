@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507497"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004270"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Les clients seront informés très tôt de toute modification apportée aux pass
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+### <a name="october-2020"></a>Octobre 2020
+
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
+- Allemagne Centre-Ouest : 51.116.240.0, 51.116.248.0
+
+Ces passerelles SQL devraient commencer à accepter le trafic client le 12 octobre 2020. 
+
 ### <a name="september-2020"></a>Septembre 2020
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le **15 septembre 2020** :
 

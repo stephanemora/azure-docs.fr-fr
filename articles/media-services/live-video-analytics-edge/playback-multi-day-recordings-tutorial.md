@@ -3,12 +3,12 @@ title: Lecture d’enregistrements sur plusieurs jours - Azure
 description: Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649089"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530571"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours  
 
@@ -72,11 +72,11 @@ Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contie
 
 Dans Visual Studio Code, vous pouvez cliquer sur l’icône Exécuter sur la gauche (ou Ctrl+Maj+D) pour lancer l’exécution des applications disponibles :
 
-![Exécuter](./media/playback-multi-day-recordings-tutorial/run.png)
+![Capture d’écran montrant un menu dans Visual Studio Code avec l’élément Exécuter sélectionné.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Sélectionnez l’application AMS Asset Player dans la zone de liste déroulante, comme illustré ci-dessous, et appuyez sur F5 pour lancer le débogage.
 
-![Débogage](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Capture d’écran montrant un menu dans Visual Studio Code avec l’élément AMS Asset Player sélectionné.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 L’exemple d’application va créer et lancer votre application de navigation par défaut, et ouvrir la page AMS Asset Player.
 

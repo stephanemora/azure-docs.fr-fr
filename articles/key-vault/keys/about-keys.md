@@ -1,25 +1,37 @@
 ---
-title: À propos des clés Azure Key Vault - Azure Key Vault
+title: À propos des clés - Azure Key Vault
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967550"
 ---
-# <a name="about-azure-key-vault-keys"></a>À propos des clés Azure Key Vault
+# <a name="about-keys"></a>À propos des clés
 
-Azure Key Vault prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur élevée.
+Azure Key Vault fournit deux types de ressources pour stocker et gérer les clés de chiffrement :
+
+|Type de ressource|Méthodes de protection des clés|URL de base du point de terminaison de plan de données|
+|--|--|--|
+| **Coffres** | Protégés par logiciel<br/><br/>et<br/><br/>Protégés par HSM (avec la référence SKU Premium)</li></ul> | https://{nom-coffre}.vault.azure.net |
+| **Pools HSM managés** | Protégés par HSM | https://{nom-hsm}.managedhsm.azure.net |
+||||
+
+- **Coffres** : ils fournissent une solution de gestion des clés adaptée aux scénarios d’applications cloud les plus courants. Cette solution est peu coûteuse, facile à déployer, multilocataire, résiliente aux zones (si disponible) et à haute disponibilité.
+- **HSM managés** : ils offrent une solution monolocataire, résiliente aux zones (si disponible) et à haute disponibilité pour le stockage et la gestion de vos clés de chiffrement. Ils sont particulièrement adaptés aux scénarios d’usage et d’applications qui utilisent des clés de grande valeur. Ils aident également à remplir les exigences les plus strictes en matière de sécurité, de conformité et de réglementation. 
+
+> [!NOTE]
+> Les coffres vous permettent également de stocker et de gérer plusieurs types d’objets tels que les secrets, les certificats et les clés de compte de stockage, en plus des clés de chiffrement.
 
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JSON (JavaScript Object Notation) et JOSE (JavaScript Object Signing and Encryption) sont :
 
@@ -28,30 +40,49 @@ Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets 
 -   [Algorithmes web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [Signature web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques lors de l’implémentation du coffre de clés. Par exemple, l’importation de clés avec l’empaquetage spécifique au fournisseur HSM permet de sécuriser le transport des clés susceptibles d’être utilisées uniquement dans les modules HSM Key Vault. 
+Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques dans les implémentations de coffres Azure Key Vault et de HSM managés. 
 
-Azure Key Vault prend en charge les clés protégées par logiciel et les clés protégées par HSM :
+Les clés protégées par HSM (aussi appelées clés HSM) sont traitées dans un HSM (module de sécurité matériel) et restent toujours dans les limites de la protection par HSM. 
 
-- **Clés protégées par logiciel** : clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos avec une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC (Elliptic Curve) existante ou demander à Key Vault d’en générer une.
-- **Clés protégées par HSM** : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme protégée par logiciel ou en l’exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut key_hsm à la JWK pour le transport du matériel de clé HSM.
+- Les coffres utilisent des HSM conformes à la norme **FIPS 140-2 niveau 2** pour protéger les clés HSM dans une infrastructure back-end HSM partagée. 
+- Les pools HSM managés utilisent des HSM conformes à la norme **FIPS 140-2 niveau 3** pour protéger vos clés. Chaque pool HSM est une instance monolocataire isolée qui a son propre [domaine de sécurité](../managed-hsm/security-domain.md), offrant ainsi une isolation de chiffrement complète de tous les autres pools HSM partageant la même infrastructure matérielle.
 
-Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
+Ces clés sont protégées dans des pools HSM monolocataires. Vous pouvez importer une clé RSA, EC et symétrique sous forme logicielle ou en l’exportant à partir d’un matériel HSM pris en charge. Vous pouvez aussi générer des clés dans les pools HSM. Lorsque vous importez des clés HSM à l’aide de la méthode décrite dans la spécification [BYOK (Bring Your Own Key)](../keys/byok-specification.md), vous sécurisez les éléments de clé de transport dans des pools de HSM managés. 
 
-## <a name="cryptographic-protection"></a>Protection par chiffrement
+Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)
 
-Key Vault prend en charge les clés RSA et Elliptic Curve uniquement. 
+## <a name="key-types-protection-methods-and-algorithms"></a>Types de clés, méthodes de protection et algorithmes
 
--   **EC** : clé Elliptic Curve protégée par logiciel.
--   **EC-HSM** : clé « matérielle » à courbe elliptique.
--   **RSA** : clé RSA protégée par logiciel.
--   **RSA-HSM** : clé « matérielle » RSA.
+Key Vault prend en charge les clés RSA, EC et symétriques. 
 
-Key Vault prend en charge les clés RSA de taille 2 048, 3 072 et 4 096. Key Vault prend en charge les clés Elliptic Curve de type P-256, P-384, P-521 et P-256K (SECP256K1).
+### <a name="hsm-protected-keys"></a>Clés protégées par HSM
 
-Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conformes aux standards FIPS (Federal Information Processing Standards). Aucune action spéciale ne doit être effectuée pour l’exécution en mode FIPS. Les clés **créées** ou **importées** comme clés protégées par HSM sont traitées dans un module HSM, et sont conformes à FIPS 140-2 niveau 2. Les clés **créées** ou **importées** comme clés protégées par logiciel sont traitées dans des module de chiffrement conformes à FIPS 140-2 niveau 1.
+|Type de clé|Coffres (SKU Premium uniquement)|Pools de HSM managés|
+|--|--|--|--|
+**EC-HSM** : clé Elliptic Curve|HSM FIPS 140-2 niveau 2|HSM FIPS 140-2 niveau 3
+**RSA-HSM** : clé RSA|HSM FIPS 140-2 niveau 2|HSM FIPS 140-2 niveau 3
+**oct-HSM** : Symétrique|Non pris en charge|HSM FIPS 140-2 niveau 3
+||||
+
+### <a name="software-protected-keys"></a>Clés protégées par logiciel
+
+|Type de clé|Coffres|Pools de HSM managés|
+|--|--|--|--|
+**RSA** : clé RSA « protégée par logiciel »|FIPS 140-2 niveau 1|Non pris en charge
+**EC** : clé Elliptic Curve « protégée par logiciel »|FIPS 140-2 niveau 1|Non pris en charge
+||||
+
+### <a name="supported-algorithms"></a>Algorithmes pris en charge
+
+|Types de clés/tailles/courbes| Chiffrer/Déchiffrer<br>(Inclure/Ne pas inclure dans un wrapper) | Signer/Vérifier | 
+| --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, EC-521|N/D|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES 128 bits, 256 bits| AES-KW<br>AES-GCM<br>AES-CBC| N/D| 
+|||
 
 ###  <a name="ec-algorithms"></a>Algorithmes EC
- Les identificateurs d’algorithme suivants sont pris en charge avec les clés EC et EC-HSM dans Key Vault. 
+ Les identificateurs d’algorithme suivants sont pris en charge avec les clés EC-HSM
 
 #### <a name="curve-types"></a>Types de courbe
 
@@ -68,12 +99,13 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 -   **ES512** : ECDSA pour codes de hachage SHA-512 et clés créées avec la courbe P-521. Cet algorithme est décrit dans [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algorithmes RSA  
- Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA et RSA-HSM dans Key Vault.  
+ Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA et RSA-HSM  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
 -   **RSA1_5** : chiffrement à clé RSAES-PKCS1-V1_5 [RFC3447]  
 -   **RSA-OAEP** : RSAES utilisant OAEP (Optimal Asymmetric Encryption Padding) [RFC3447], avec les paramètres par défaut spécifiés par RFC 3447, section A.2.1. Ces paramètres par défaut utilisent une fonction de hachage de SHA-1 et une fonction de génération de masque de MGF1 avec SHA-1.  
+-  **RSA-OAEP-256** : RSAES utilisant OAEP (Optimal Asymmetric Encryption Padding) avec une fonction de hachage SHA-256 et une fonction de génération de masque MGF1 avec SHA-256
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
@@ -83,11 +115,19 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 -   **RS256** : RSASSA-PKCS-v1_5 utilisant SHA-256. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-256 et doit être d’une longueur de 32 octets.  
 -   **RS384** : RSASSA-PKCS-v1_5 utilisant SHA-384. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-384 et doit être d’une longueur de 48 octets.  
 -   **RS512** : RSASSA-PKCS-v1_5 utilisant SHA-512. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-512 et doit être d’une longueur de 64 octets.  
--   **RSNULL** : consultez [RFC2437], un cas d’utilisation spécial permettant certains scénarios TLS.  
+-   **RSNULL** : consultez [RFC2437](https://tools.ietf.org/html/rfc2437), un cas d’usage spécial permettant certains scénarios TLS.  
+
+###  <a name="symmetric-key-algorithms"></a>Algorithmes de clé symétrique
+- **AES-KW** : AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM** : chiffrement AES Galois Counter Mode ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** : chiffrement AES Cipher Block Chaining Mode ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+
+> [!NOTE] 
+> L’implémentation AES-GCM actuelle et les API correspondantes sont en phase d’expérimentation. L’implémentation et les API pourront être substantiellement différentes dans les itérations futures. 
 
 ##  <a name="key-operations"></a>Opérations sur les clés
 
-Key Vault prend en charge les opérations sur les objets de clés suivantes :  
+Le HSM managé prend en charge les opérations suivantes sur les clés :  
 
 -   **Créer** : permet à un client de créer une clé dans Key Vault. La valeur de la clé est générée par le coffre de clés et stockée, mais n’est pas communiquée au client. Les clés asymétriques peuvent être créées dans un coffre de clés.  
 -   **Importer** : permet à un client d’importer une clé existante dans Key Vault. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 
@@ -142,8 +182,8 @@ Pour plus d’informations sur les autres attributs possibles, consultez [Clé w
 
 Vous pouvez spécifier des métadonnées spécifiques à l’application supplémentaires sous la forme de balises. Key Vault prend en charge jusqu’à 15 balises, chacune d’entre elles pouvant avoir un nom de 256 caractères et une valeur de 256 caractères.  
 
->[!Note]
->Les balises peuvent être lues par un appelant s’il dispose de l’autorisation *list* ou *get* sur ce type d’objet (clés, secrets ou certificats).
+> [!NOTE] 
+> Les étiquettes peuvent être lues par un appelant qui a l’autorisation *list* ou *get* sur cette clé.
 
 ##  <a name="key-access-control"></a>Contrôle d’accès aux clés
 
@@ -176,10 +216,10 @@ Les autorisations suivantes peuvent être accordées, par utilisateur/principal 
 Pour plus d’informations sur l’utilisation des clés, consultez [Informations de référence sur les opérations de clé dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 - [À propos de Key Vault](../general/overview.md)
-- [Présentation des clés, des secrets et des certificats](../general/about-keys-secrets-certificates.md)
+- [À propos de HSM managé](../managed-hsm/overview.md)
 - [À propos des secrets](../secrets/about-secrets.md)
 - [À propos des certificats](../certificates/about-certificates.md)
+- [Vue d’ensemble de l’API REST Azure Key Vault](../general/about-keys-secrets-certificates.md)
 - [Authentification, requêtes et réponses](../general/authentication-requests-and-responses.md)
 - [Guide du développeur Key Vault](../general/developers-guide.md)

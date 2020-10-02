@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4459547300f5dfc7b7c22d1e531b928a13aa66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213429"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459145"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utiliser des étiquettes pour instrumenter des requêtes dans un pool SQL Synapse
 
 Cet article inclut des conseils pour développer des solutions utilisant des étiquettes afin d’instrumenter les requêtes d’un pool SQL.
 
-Conseils relatifs à l’utilisation de libellés pour instrumenter des requêtes dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+Conseils relatifs à l’utilisation d’étiquettes pour instrumenter des requêtes dans Azure Synapse Analytics pour le développement de solutions.
 
 ## <a name="what-are-labels"></a>Que sont les étiquettes ?
 

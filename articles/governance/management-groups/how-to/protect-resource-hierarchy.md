@@ -3,12 +3,12 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: e73a72339b58a30a3fc5b1008ea1b70e449f77c7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401691"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469777"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -74,7 +74,7 @@ Pour faire à nouveau du groupe d’administration par défaut le groupe d’adm
 
 Par défaut, n’importe quel utilisateur peut créer de nouveaux groupes d’administration au sein d’un locataire. Les administrateurs d’un locataire peuvent juger souhaitable de n’attribuer ces autorisations qu’à certains utilisateurs de façon à préserver la cohérence et la conformité dans la hiérarchie du groupe d’administration. S’il y est autorisé, un utilisateur a besoin de l’opération `Microsoft.Management/managementGroups/write` sur le groupe d’administration racine pour créer de nouveaux groupes d’administration enfants.
 
-### <a name="set-default-management-group-in-portal"></a>Définir un groupe d'administration par défaut dans le portail
+### <a name="set-require-authorization-in-portal"></a>Définir l’exigence d’une autorisation dans le portail
 
 Pour configurer ce paramètre dans le portail Azure, procédez comme suit :
 

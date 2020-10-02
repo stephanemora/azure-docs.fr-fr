@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 43ed46f56be1ad4fa2aa643a6ed06f8fbe094a5b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f8be96fb008471d040839141a230c13b8f1657a5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351783"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708170"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Surveiller votre espace de travail Synapse
 
@@ -51,5 +51,4 @@ Ouvrez Synapse Studio et accédez au hub **Monitor**. À cet emplacement, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (espaces de travail, préversion)](overview-what-is.md)
-
+> [Explorer le Centre de connaissances](get-started-knowledge-center.md)

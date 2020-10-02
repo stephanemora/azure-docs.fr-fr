@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325523"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983607"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -21,7 +21,7 @@ Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à
 ## <a name="workbooks"></a>Workbooks
 Les [classeurs](./platform/workbooks-overview.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
 
-![Classeur](media/visualizations/workbook.png)
+![Schéma illustrant des captures d’écran de plusieurs pages d’un classeur, notamment Analyse des consultations de page, Utilisation et Temps passé sur la page.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Avantages
 - Prend en charge les métriques et les journaux d’activité.
@@ -39,7 +39,7 @@ Les [classeurs](./platform/workbooks-overview.md) sont des documents interactifs
 ## <a name="azure-dashboards"></a>Tableaux de bord Azure
 Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constituent la principale technologie de création de tableaux de bord pour Azure. Ils sont particulièrement efficaces pour fournir un panorama unique de vos infrastructure et services Azure, ce qui vous permet d’identifier rapidement les problèmes importants.
 
-![tableau de bord](media/visualizations/dashboard.png)
+![Capture d’écran montrant un exemple de tableau de bord Azure avec des informations personnalisables.](media/visualizations/dashboard.png)
 
 Voici une procédure vidéo expliquant la création de tableaux de bord.
 
@@ -88,7 +88,7 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) est une plateforme ouverte qui convient parfaitement dans les tableaux de bord opérationnels. Elle est particulièrement utile pour détecter, isoler et trier les incidents opérationnels. Vous pouvez ajouter le [plug-in de source de données Azure Monitor pour Grafana](platform/grafana-plugin.md) à votre abonnement Azure afin qu’il visualise vos données de métriques Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![Capture d’écran montrant des visualisations Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Avantages
 - Visualisations riches.
@@ -120,7 +120,7 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent de créer des visualisations personnalisées avec les données de journal stockées. Les [solutions de supervision](insights/solutions.md) s’en servent pour présenter les données qu’elles collectent.
 
 
-![Affichage](media/visualizations/view.png)
+![Capture d’écran montrant une vignette Solution de supervision de conteneur et la vue détaillée Azure Monitor qui s’ouvre lorsque vous la sélectionnez.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Avantages
 - Visualisations riches des données de journal.

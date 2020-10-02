@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889938"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604408"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -33,6 +33,10 @@ Sur votre pare-feu, créez une _règle d’application_ autorisant le trafic ver
 >
 > Pour plus d’informations sur la configuration du pare-feu Azure, consultez [Déployer et configurer le pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## <a name="routes"></a>Itinéraires
+
+Lors de la configuration de la route sortante pour le sous-réseau qui contient des ressources Azure Machine Learning, utilisez les instructions de la section sur le [tunneling forcé](how-to-secure-training-vnet.md#forced-tunneling) pour la sécurisation de l’environnement d’entraînement.
+
 ## <a name="microsoft-hosts"></a>Hôtes Microsoft
 
 S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail. Un grand nombre de noms d’hôtes sont utilisés à la fois par l’espace de travail Azure Machine Learning.
@@ -41,6 +45,8 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 
 | **Nom d’hôte** | **Objectif** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Authentification |
+| **management.azure.com** | Utilisé pour obtenir les informations sur l’espace de travail |
 | **\*.batchai.core.windows.net** | Clusters d’entraînement |
 | **ml.azure.com** | Azure Machine Learning Studio |
 | **default.exp-tas.com** | Utilisé par Azure Machine Learning Studio |
@@ -59,13 +65,16 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | **\*.notebooks.azure.net** | Requis par les notebooks dans Azure Machine Learning Studio. |
 | **graph.windows.net** | Nécessaire pour les notebooks |
 
+> [!TIP]
+> Si vous envisagez d’utiliser une identité fédérée, suivez les instructions de l’article [Bonnes pratiques pour sécuriser les services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+
 ## <a name="python-hosts"></a>Hôtes Python
 
 Les hôtes de cette section sont utilisés pour installer les packages Python. Ils sont requis lors du développement, de l’entraînement et du déploiement. 
 
 | **Nom d’hôte** | **Objectif** |
 | ---- | ---- |
-| **anaconda.com** | Utilisé pour installer les packages par défaut. |
+| **anaconda.com**</br>**\*.anaconda.com** | Utilisé pour installer les packages par défaut. |
 | **\*.anaconda.org** | Utilisé pour récupérer les données des dépôts. |
 | **pypi.org** | Utilisé pour lister les dépendances de l’index par défaut, le cas échéant, et si l’index n’a pas été remplacé par les paramètres utilisateur. Si l’index a été remplacé, vous devez également autoriser **\*.pythonhosted.org**. |
 
@@ -92,4 +101,4 @@ URL nécessaires pour les régions Azure Government.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md)
-* [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md)
+* [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-network-security-overview.md)

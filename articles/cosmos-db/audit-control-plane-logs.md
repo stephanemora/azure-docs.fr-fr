@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023685"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462443"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Guide pratique pour auditer les opérations de plan de contrôle Azure Cosmos DB
 
@@ -69,17 +69,17 @@ Après avoir activé la journalisation, suivez les étapes ci-dessous pour effec
 
 Les captures d’écran suivantes capturent des journaux lorsqu’un niveau de cohérence est modifié par un compte Azure Cosmos :
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Journaux du plan de contrôle lors de l’ajout d’un réseau virtuel":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
 
 Les captures d’écran suivantes capturent les journaux lorsque l’espace de clés ou une table d’un compte Cassandra sont créés et lorsque le débit est mis à jour. Les journaux du plan de contrôle pour les opérations de création et de mise à jour sur la base de données et le conteneur sont consignés séparément, comme le montre la capture d’écran suivante :
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Journaux du plan de contrôle lors de la mise à jour du débit":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifier l’identité associée à une opération spécifique
 
 Si vous souhaitez effectuer un débogage supplémentaire, vous pouvez identifier une opération spécifique dans le **journal d’activité** à l’aide de l’ID d’activité ou de l’horodatage de l’opération. L’horodatage est utilisé pour certains clients Resource Manager dans les cas où l’ID d’activité n’est pas explicitement passée. Le journal d’activité fournit des détails sur l’identité sous laquelle l’opération a été lancée. La capture d’écran suivante montre comment utiliser l’ID d’activité et rechercher les opérations qui lui sont associées dans le journal d’activité :
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Utiliser l’ID d’activité et rechercher les opérations":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Activer la journalisation des demandes du plan de contrôle":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Opérations du plan de contrôle pour le compte Azure Cosmos
 
@@ -193,6 +193,22 @@ AzureDiagnostics 
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersThroughputUpdate"
+```
+
+Lancez une requête pour obtenir l’activityId et l’appelant à l’origine de l’opération de suppression de conteneur :
+
+```kusto
+(AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName == "SqlContainersDelete"
+| where TimeGenerated >= todatetime('9/3/2020, 5:30:29.300 PM')
+| summarize by activityId_g )
+| join (
+AzureActivity
+| parse HTTPRequest with * "clientRequestId\": \"" activityId_g "\"" * 
+| summarize by Caller, HTTPRequest, activityId_g)
+on activityId_g
+| project Caller, activityId_g
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,16 +4,16 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117911"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089987"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -26,22 +26,21 @@ Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos
 
 Si vous réduisez les frais en RU d’une requête, vous diminuez presque certainement aussi la latence.
 
-Cet article fournit des exemples que vous pouvez recréer à l’aide du jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+Cet article fournit des exemples que vous pouvez recréer à l’aide du [jeu de données nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Problèmes courants du Kit de développement logiciel (SDK)
 
 Avant de lire ce guide, il est utile de prendre en compte les problèmes courants liés au Kit de développement logiciel (SDK) et qui ne sont pas liés au moteur de requête.
 
-- Pour des performances optimales, suivez les [conseils relatifs aux performances](performance-tips.md).
-    > [!NOTE]
-    > Le processus hôte Windows 64 bits est recommandé pour améliorer les performances. Le kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée.
+- Suivez les [conseils relatifs aux performances du kit SDK](performance-tips.md).
+    - [Guide de résolution des problèmes du kit SDK .NET](troubleshoot-dot-net-sdk.md)
+    - [Guide de résolution des problèmes du kit SDK Java](troubleshoot-java-sdk-v4-sql.md)
 - Le Kit de développement logiciel (SDK) permet de définir un paramètre `MaxItemCount` pour vos requêtes, mais vous ne pouvez pas spécifier un nombre minimal d’éléments.
     - Le code doit gérer toute taille de page comprise entre zéro et le `MaxItemCount`.
-    - Le nombre d’éléments dans une page est toujours inférieur ou égal au `MaxItemCount`spécifié. Toutefois, `MaxItemCount` est strictement une valeur maximum et le nombre de résultats peut y être inférieur.
 - Parfois, les requêtes peuvent avoir des pages vides, même si des résultats se trouvent sur une page ultérieure. Les raisons peuvent être les suivantes :
     - Le Kit de développement logiciel (SDK) peut effectuer plusieurs appels réseau.
     - La requête peut prendre beaucoup de temps pour récupérer les documents.
-- Toutes les requêtes ont un jeton de continuation qui permet à la requête de continuer. Veillez à vider complètement la requête. Examinez les exemples du kit de développement logiciel (SDK) et utilisez une boucle `while` sur `FeedIterator.HasMoreResults` pour vider l’intégralité de la requête.
+- Toutes les requêtes ont un jeton de continuation qui permet à la requête de continuer. Veillez à vider complètement la requête. En savoir plus sur la [gestion de plusieurs pages de résultats](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Obtenir les métriques de requête
 

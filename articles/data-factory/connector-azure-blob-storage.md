@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182562"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657267"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -67,7 +67,7 @@ Ce connecteur de stockage d’objets blob prend en charge les types d’authenti
 - [Identités managées pour l’authentification des ressources Azure](#managed-identity)
 
 >[!NOTE]
->Lorsque vous utilisez PolyBase pour charger des données dans Azure SQL Data Warehouse, si votre stockage d’objets blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser une authentification par identité managée comme l’exige PolyBase. Vous devez également utiliser le runtime d’intégration auto-hébergé avec la version 3.18 ou une version ultérieure. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
+>Lorsque vous utilisez PolyBase pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse), si votre stockage d’objets blob source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser une authentification par identité managée comme l’exige PolyBase. Vous devez également utiliser le runtime d’intégration auto-hébergé avec la version 3.18 ou une version ultérieure. Pour en savoir plus sur la configuration requise, consultez la section sur [Authentification par identité managée](#managed-identity).
 
 >[!NOTE]
 >Les activités Azure HDInsight et Azure Machine Learning prennent en charge uniquement l’authentification utilisant des clés de compte de stockage d’objets blob Azure.
@@ -234,6 +234,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage**ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant dans l’angle supérieur droit du portail Azure. | Oui |
@@ -252,6 +253,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Pour des informations générales sur l’authentification de Stockage Azure, co
     - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
 
 >[!IMPORTANT]
->Si vous utilisez PolyBase pour charger des données à partir d’un stockage d’objets blob (source ou intermédiaire) dans SQL Data Warehouse, lorsque vous utilisez une authentification par identité managée pour le stockage d’objets blob, veillez également à suivre les étapes 1 et 2 de [ces conseils](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si votre stockage d’objets blob est configuré avec un point de terminaison de réseau virtuel Azure, pour utiliser PolyBase afin de charger des données à partir de celui-ci, vous devez utiliser une authentification par identité managée comme l’exige PolyBase.
+>Si vous utilisez PolyBase pour charger des données à partir d’un stockage d’objets blob (source ou intermédiaire) dans Azure Synapse Analytics (anciennement SQL Data Warehouse), lorsque vous utilisez une authentification par identité managée pour le stockage d’objets blob, veillez également à suivre les étapes 1 et 2 de [ces conseils](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si votre stockage d’objets blob est configuré avec un point de terminaison de réseau virtuel Azure, pour utiliser PolyBase afin de charger des données à partir de celui-ci, vous devez utiliser une authentification par identité managée comme l’exige PolyBase.
 
 Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :
 
@@ -289,6 +291,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage**ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

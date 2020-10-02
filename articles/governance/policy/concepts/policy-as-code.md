@@ -3,12 +3,12 @@ title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047324"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651884"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
@@ -43,7 +43,9 @@ Des exemples de ces formats de fichier sont accessibles dans le [référentiel G
 
 Le workflow Policy as Code général recommandé se présente comme ce diagramme :
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Vue d’ensemble du workflow de type Policy as Code" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagramme montrant les cadres du workflow Policy as Code de la création jusqu’au déploiement, en passant par les tests." border="false":::
+   Diagramme montrant les cadres du workflow Policy as Code. « Créer » couvre la création des définitions de stratégie et d’initiative. « Tester » couvre l’attribution avec le mode d’application désactivé. Une vérification de l’état de conformité de la passerelle est suivie en accordant des autorisations MSI et en corrigeant les ressources.  « Déployer » couvre la mise à jour de l’attribution avec le mode d’application activé.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Créer et mettre à jour des définitions de stratégies
 

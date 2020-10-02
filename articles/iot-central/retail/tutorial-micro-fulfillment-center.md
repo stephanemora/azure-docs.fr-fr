@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001268"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980537"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
@@ -62,11 +62,11 @@ Une fois le modèle d’application déployé, le **tableau de bord du centre de
    * Examiner le plan d’étage et l’emplacement des robots porteurs au sein de la structure de traitement.
    * Déclencher des commandes pour réinitialiser le système de contrôle, mettre à jour le microprogramme du porteur et reconfigurer le réseau, par exemple.
 
-     ![Capture d’écran du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Capture d’écran montrant la moitié supérieure du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Consulter un exemple du tableau de bord dont peut se servir un opérateur pour superviser les conditions au sein du centre de traitement. 
    * Superviser l’intégrité des charges utiles qui s’exécutent sur l’appareil de passerelle au sein du centre de traitement.    
 
-     ![Capture d’écran du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Capture d’écran montrant la moitié inférieure du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modèle d’appareil
 Si vous sélectionnez l’onglet Modèles d’appareil, vous constatez qu’il existe deux types d’appareils dans le modèle : 
@@ -91,6 +91,9 @@ Si vous ne comptez pas continuer à utiliser cette application, supprimez le mod
 ![Capture d’écran de la page des paramètres de l’application du centre de microtraitement](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez plus en détail l’[architecture des solutions de centre de microtraitement](./architecture-micro-fulfillment-center.md).
-* Découvrez d’autres [modèles de vente au détail Azure IoT Central](./overview-iot-central-retail.md).
-* Consultez la [vue d’ensemble d’Azure IoT Central](../preview/overview-iot-central.md).
+
+En savoir plus sur
+> [!div class="nextstepaction"]
+> [Architecture de la solution du centre de microtraitement](./architecture-micro-fulfillment-center.md)
+* En savoir plus sur les [modèles de vente Azure IoT Central](./overview-iot-central-retail.md)
+* En savoir plus sur [Azure IoT Central](../preview/overview-iot-central.md)

@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2020
-ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 09/04/2020
+ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837342"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484186"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guide de publication d’offres de machines virtuelles
 
 La publication d’images de machine virtuelle constitue l’un des principaux moyens de publier une solution sur la Place de marché Azure. Utilisez ce guide pour comprendre les exigences propres à ce type d’offre. 
 
-Les offres de machine virtuelle sont des offres de transaction qui sont déployées et facturées via la Place de marché Azure. L’appel à l’action qu’un utilisateur voit est *Obtenir maintenant*.
+Les offres de machine virtuelle sont des offres de transaction qui sont déployées et facturées via la Place de marché Azure. L’option de référencement qu’un utilisateur voit est *Obtenir maintenant*.
 
 ## <a name="free-trial"></a>Essai gratuit 
 

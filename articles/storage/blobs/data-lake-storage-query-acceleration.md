@@ -1,26 +1,23 @@
 ---
-title: Accélération des requêtes Azure Data Lake Storage (préversion)
-description: L’accélération des requêtes (préversion) est une nouvelle capacité d’Azure Data Lake Storage qui permet aux applications et aux infrastructures d’analytique d’optimiser considérablement le traitement des données en extrayant uniquement les données requises pour une opération de traitement.
+title: Accélération des requêtes Azure Data Lake Storage
+description: L’accélération des requêtes permet aux applications et aux infrastructures d’analytique d’optimiser considérablement le traitement des données en extrayant uniquement les données requises pour une opération de traitement.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176700"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657639"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Accélération des requêtes Azure Data Lake Storage (préversion)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Accélération des requêtes Azure Data Lake Storage
 
 L’accélération des requêtes (préversion) est une nouvelle capacité d’Azure Data Lake Storage qui permet aux applications et aux infrastructures d’analytique d’optimiser considérablement le traitement des données en extrayant uniquement les données requises pour effectuer une opération donnée. Cela permet de réduire le temps et la puissance de traitement nécessaires pour obtenir un aperçu essentiel des données stockées.
-
-> [!NOTE]
-> La fonctionnalité d’accélération des requêtes est disponible en préversion publique dans les régions Canada Centre et France Centre. Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire à la préversion, voir [ce formulaire](https://aka.ms/adls/qa-preview-signup).  
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -77,8 +74,7 @@ Malgré la modification apportée au modèle de facturation, le modèle de tarif
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Formulaire d’inscription à l’accélération des requêtes](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrer des données à l’aide de l’accélération des requêtes Azure Data Lake Storage (préversion)](data-lake-storage-query-acceleration-how-to.md)
-- [Informations de référence sur l’accélération des requêtes en langage SQL (préversion)](query-acceleration-sql-reference.md)
+- [Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
+- [Informations de référence sur l’accélération des requêtes en langage SQL](query-acceleration-sql-reference.md)
 
 

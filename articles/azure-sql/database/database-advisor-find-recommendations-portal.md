@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921212"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970677"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ Pour rechercher des suggestions en matière de performances sur le Portail Azure
 
 Les recommandations en matière de performances s’affichent dans un tableau similaire à celui de la figure suivante :
 
-![Recommandations](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![La capture d’écran montre les recommandations en matière de performances dans une table présentant des descriptions d’action et les recommandations correspondantes.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Les recommandations sont triées en fonction de leur impact potentiel sur les performances dans les catégories suivantes :
 

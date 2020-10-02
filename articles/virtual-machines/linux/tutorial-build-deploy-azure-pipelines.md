@@ -10,13 +10,13 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.custom: devops, devx-track-js
+ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320198"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -147,6 +147,7 @@ Vous aurez besoin d’un pipeline de build d’intégration continue (CI) pour p
 Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAML ci-dessous qui permet de générer votre projet Java et d’exécuter les tests avec Apache Maven :
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Définir les étapes d’un déploiement continu sur une machine virtuelle Linux
 
-1. Modifiez le pipeline ci-dessus en y ajoutant un [travail de déploiement](/azure/devops/pipelines/process/deployment-jobs), puis en référençant l’environnement et les ressources de machine virtuelle dont vous disposez à l’aide de la syntaxe YAML ci-dessous :
+1. Modifiez le fichier YAML pour le pipeline ci-dessus en y ajoutant un [travail de déploiement](/azure/devops/pipelines/process/deployment-jobs), puis en référençant l’environnement et les ressources de machine virtuelle dont vous disposez à l’aide de la syntaxe YAML ci-dessous :
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Vous pouvez sélectionner des groupes de machines virtuelles appartenant à l’environnement pour recevoir le déploiement en spécifiant les **étiquettes** que vous avez définies pour chaque machine virtuelle de l’environnement.
 Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job).

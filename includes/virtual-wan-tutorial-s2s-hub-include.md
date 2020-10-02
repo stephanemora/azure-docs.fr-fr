@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977923"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606850"
 ---
 1. Localisez l’instance Virtual WAN que vous avez créée. Dans la page Virtual WAN, sous la section **Connectivité**, sélectionnez **Hubs**.
 2. Dans la page Hubs, cliquez sur **+Nouveau hub** pour ouvrir la page **Créer un hub virtuel**.
 
-    ![Concepts de base](./media/virtual-wan-tutorial-hub-include/basics.png "Concepts de base")
+    ![Capture d’écran montrant le volet Créer un hub virtuel avec l’onglet Informations de base sélectionné.](./media/virtual-wan-tutorial-hub-include/basics.png "Concepts de base")
 3. Dans la page **Créer un hub virtuel**, sous l’onglet **Fonctions de base**, renseignez les champs suivants :
 
     **Détails du projet**
@@ -28,7 +28,7 @@ ms.locfileid: "84977923"
    * Espace d’adressage privé du hub. L’espace d’adressage minimal pour créer un hub est /24. Cela implique que toute plage comprise entre /25 et /32 produit une erreur lors de la création. Le service Azure Virtual WAN, qui est géré par Microsoft, crée les sous-réseaux appropriés dans le hub virtuel pour les divers passerelles/services (par exemple, les passerelles VPN, les passerelles ExpressRoute, les passerelles VPN utilisateur/point à site, le pare-feu, le routage, etc.). L’utilisateur n’a pas besoin de planifier explicitement l’espace d’adressage de sous-réseau pour les services dans le hub virtuel, car Microsoft s’en charge dans le cadre du service.
 4. Sélectionnez **Suivant : Site à site**.
 
-    ![Site à site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "De site à site")
+    ![Capture d’écran montrant le volet Créer un hub virtuel avec l’option Site à site sélectionnée.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "De site à site")
 
 5. Sous l’onglet **Site à site**, complétez les champs suivants :
 

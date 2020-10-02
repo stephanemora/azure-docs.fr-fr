@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018142"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969585"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configurer le contrôle d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
 
@@ -62,7 +62,7 @@ En tant que propriétaire d’une application Azure Active Directory, vous pouve
 
 1. Vérifiez que vous êtes propriétaire de l’application en cliquant sur l’application, puis sur **Propriétaires**. Dans la capture d’écran suivante, **Contoso admin** est propriétaire de l’application **contoso-rm4** :
 
-    ![Propriétaires](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Capture d'écran sur laquelle l'option Gérer les propriétaires est sélectionnée et affichant les propriétaires de l'application contoso r m 4.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     Si vous n’êtes pas propriétaire, vous devez demander à un propriétaire existant de vous ajouter à la liste. Seuls les propriétaires peuvent assigner des rôles d’application tels que les rôles **administrateur** ou **lecture seule** à d’autres utilisateurs.
 

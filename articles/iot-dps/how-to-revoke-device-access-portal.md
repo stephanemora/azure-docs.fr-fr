@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299254"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532339"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 
 La gestion adéquate des informations d’identification des appareils est essentielle pour les systèmes de grande envergure tels que les solutions IoT. Pour ces systèmes, une bonne pratique consiste à disposer d’un plan indiquant clairement comment révoquer l’accès pour les appareils quand leurs informations d’identification, qu’il s’agisse d’un jeton de signature d’accès partagé (SAP) ou d’un certificat X.509, peuvent être compromises. 
 
-En inscrivant un appareil dans le service Device Provisioning, vous activez son [provisionnement automatique](concepts-auto-provisioning.md). Un appareil provisionné est une instance inscrite auprès d’IoT Hub, qui peut recevoir son état initial de [jumeau d’appareil](~/articles/iot-hub/iot-hub-devguide-device-twins.md) et commencer à générer des rapports sur les données de télémétrie. Cet article vous explique comment désinscrire un appareil de votre instance du service de provisionnement, en empêchant ainsi tout provisionnement ultérieur.
+En inscrivant un appareil dans le service Device Provisioning, vous activez son [approvisionnement](about-iot-dps.md#provisioning-process). Un appareil provisionné est une instance inscrite auprès d’IoT Hub, qui peut recevoir son état initial de [jumeau d’appareil](~/articles/iot-hub/iot-hub-devguide-device-twins.md) et commencer à générer des rapports sur les données de télémétrie. Cet article vous explique comment désinscrire un appareil de votre instance du service de provisionnement, en empêchant ainsi tout provisionnement ultérieur.
 
 > [!NOTE] 
 > Tenez compte de la stratégie de nouvelle tentative applicable aux appareils pour lesquels vous révoquer l’accès. Par exemple, un appareil qui utilise une stratégie de nouvelles tentatives infinies peut tenter de s’inscrire de manière continue auprès du service de provisionnement. Cette situation consomme des ressources de service et peut affecter les performances.

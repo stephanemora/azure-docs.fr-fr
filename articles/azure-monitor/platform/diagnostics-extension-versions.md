@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305089"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568658"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Historique et versions des schémas de configuration de l’extension Diagnostics Azure pour Windows (WAD)
 Cet article indique l’historique des versions de schéma de l’[extension Diagnostics Azure pour Windows (WAD)](diagnostics-extension-overview.md) fournies dans le cadre du SDK Microsoft Azure.  

@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41b74ed713485679576fdf7f4f0df54803b56caa
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6e6038e2c0aa4f6b41c4a4da9bde6e98555ceb31
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192111"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613564"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Présentation de SQL Server sur les machines virtuelles Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,6 +28,9 @@ ms.locfileid: "88192111"
 SQL Server sur les machines virtuelles Azure vous permet d’utiliser des versions complètes de SQL Server dans le cloud sans devoir gérer du matériel local. Les machines virtuelles SQL Server simplifient également les coûts de licence lorsque vous payez à l’utilisation.
 
 Les machines virtuelles Azure sont exécutées dans différentes [régions géographiques](https://azure.microsoft.com/regions/) du monde entier. Elles offrent également un éventail de [tailles de machine](../../../virtual-machines/windows/sizes.md). La galerie d’images de machine virtuelle vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Les machines virtuelles constituent ainsi une bonne solution pour différentes charges de travail SQL Server. 
+
+Si vous ne connaissez pas Azure SQL, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure*, qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Démarrer avec les machines virtuelles SQL Server
 
@@ -54,9 +57,9 @@ Quand vous configurez SQL Server sur Linux, vous installez le package Moteur de 
 
 | Distribution | [Moteur de base de données](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [outils](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agent SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Recherche en texte intégral](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Module complémentaire HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
-| SLES | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![non](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
-| Ubuntu | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Oui](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| RHEL | ![RHEL et moteur de base de données](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL et outils](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL et agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL et recherche en texte intégral](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL et SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL et module complémentaire HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| SLES | ![SLES et moteur de base de données](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES et outils](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES et agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES et recherche en texte intégral](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES et SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES et module complémentaire HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
+| Ubuntu | ![Ubuntu et moteur de base de données](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu et outils](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu et agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu et recherche en texte intégral](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu et SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu et module complémentaire HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## <a name="related-products-and-services"></a>Produits et services associés
 

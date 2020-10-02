@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b0070b35d6ee85f698960708363e7b4d226a8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070265"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988062"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio (préversion)
 
@@ -31,7 +31,7 @@ L’option « SQL à la demande » est grisée dans la liste déroulante « S
 
 L’exécution de la requête contenant « SQL à la demande » génère le message d’erreur « Échec de l’établissement de la connexion au serveur ».
 
-![Symptôme 2](media/troubleshooting-synapse-studio/symptom2.png)
+![La capture d’écran montre un message d’échec de l’établissement d’une connexion au serveur.](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 
@@ -54,7 +54,7 @@ Assurez-vous que l’option « Désactiver le cache » dans le panneau « Ré
 
 Réessayez l’opération que vous avez effectuée dans Azure Synapse Studio. Vous pouvez voir les nouveaux éléments affichés dans la liste « Réseau » dans « Outils de développement ». Notez votre heure système actuelle à fournir dans le ticket de support.
 
-![panneau-réseau](media/troubleshooting-synapse-studio/network-panel.png)
+![La capture d’écran montre la fenêtre DevTools avec la sélection du réseau et de la désactivation du cache en ligne.](media/troubleshooting-synapse-studio/network-panel.png)
 
 Recherchez l’élément dont la colonne URL correspond au modèle suivant :
 
@@ -66,7 +66,7 @@ Si l’un d’eux autre chose que « 20x », et que :
 
 - l’état commence par « (failed) », élargissez la colonne « Status » ou pointez sur le texte de l’état pour le voir en entier. Incluez le texte et/ou la capture d’écran lors de l’ouverture du ticket de support.
 
-    ![texte-état](media/troubleshooting-synapse-studio/status-text.png)
+    ![La capture d’écran montre les résultats, y compris une valeur indiquant l’échec dans la colonne État.](media/troubleshooting-synapse-studio/status-text.png)
 
     - Si vous voyez ERR_NAME_NOT_RESOLVED et avez créé votre espace de travail en 10 minutes, patientez 10 minutes, puis réessayez pour voir si le problème persiste.
     - Si vous voyez ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, cela peut indiquer que la connexion réseau de votre PC rencontre des problèmes. Vérifiez votre connexion réseau, puis retentez l’opération.
@@ -83,21 +83,21 @@ Si l’en-tête de réponse contient l’une des valeurs ci-dessus, cela signifi
 
 Si vous ne voyez pas l’en-tête ou si l’en-tête n’a pas l’une des valeurs mentionnées ci-dessus, joignez une capture d’écran des détails de l’élément lorsque vous ouvrez le ticket.
 
-![détails-élément](media/troubleshooting-synapse-studio/item-details.png)
+![La capture d’écran montre la fenêtre DevTools avec une URL mise en surbrillance dans les en-têtes de réponse.](media/troubleshooting-synapse-studio/item-details.png)
 
 Si les étapes ci-dessus ne résolvent pas votre problème, vous devrez peut-être ouvrir un ticket de support. Lorsque vous soumettez votre ticket de support, incluez l’« ID de session » ou les « informations de diagnostic » téléchargés au début de ce guide.
 
 Lorsque vous signalez le problème, vous pouvez éventuellement prendre une capture d’écran de l’onglet « console » dans « Outils de développement » et l’attacher au ticket de support. Faites défiler le contenu et prenez plusieurs captures d’écran si nécessaire pour capturer l’intégralité du message.
 
-![développeur-outil-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![La capture d’écran montre la fenêtre DevTools, dimensionnée de façon à afficher l’intégralité du message pour une capture d’écran possible.](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Si vous joignez des captures d’écran, indiquez l’heure (ou un intervalle de temps estimé) à laquelle vous avez pris les captures d’écran. Cela nous aidera à examiner le problème.
 
 Certains navigateurs prennent en charge l’affichage des horodatages sous l’onglet « Console ». Pour Chromium Edge/Chrome, ouvrez la boîte de dialogue « Paramètres » dans « Outils de développement », puis vérifiez « Afficher les horodateurs » sous l’onglet « Préférences ».
 
-![développeur-outil-console-paramètres](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![La capture d’écran montre la fenêtre DevTools avec Paramètres sélectionné dans un menu contextuel.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![afficher-horodatage](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![La capture d’écran montre la fenêtre DevTools avec l’option Afficher les horodatages sélectionnée.](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si les étapes précédentes ne permettent pas de résoudre le problème, [créez un ticket de support](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028547"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090650"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -29,7 +29,15 @@ L’extension de machine virtuelle Diagnostics des performances Azure permet de 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cette extension peut s’installer sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016, de même que sur Windows 8.1 et Windows 10.
+Cette extension peut être installée sur
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 Le code JSON suivant montre le schéma de l’extension de machine virtuelle Diagnostics des performances Azure. Elle a besoin du nom et de la clé d’un compte de stockage pour stocker la sortie et le rapport de diagnostic. Ces valeurs sont sensibles. La clé de compte de stockage doit être stockée dans une configuration de paramètres protégés. Les données des paramètres protégés de l’extension de machine virtuelle Azure sont chiffrées, et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **storageAccountName** et **storageAccountKey** respectent la casse. Les autres paramètres obligatoires sont indiqués dans la section ci-dessous.

@@ -1,6 +1,6 @@
 ---
 title: Masquer une application d’entreprise de l’expérience utilisateur dans Azure AD
-description: Guide pratique pour masquer une application d’entreprise de l’expérience utilisateur dans les panneaux d’accès Azure Active Directory ou les lanceurs Office 365.
+description: Guide pratique pour masquer une application d’entreprise de l’expérience utilisateur dans les panneaux d’accès Azure Active Directory ou les lanceurs Microsoft 365.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,26 +12,26 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367697"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601137"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Masquer des applications d’entreprise aux utilisateurs finaux dans Azure Active Directory
 
-Instructions pour masquer les applications du panneau MyApps ou du Lanceur Office 365 à l’utilisateur final. Lorsqu’une application est masquée, les utilisateurs ont toujours les autorisations à celle-ci. 
+Instructions pour masquer les applications du panneau MyApps ou du Lanceur Microsoft 365 à l’utilisateur final. Lorsqu’une application est masquée, les utilisateurs ont toujours les autorisations à celle-ci. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les privilèges d’administrateur d’application sont nécessaires pour masquer une application du panneau MyApps et du Lanceur Office 365.
+Les privilèges Administrateur d’application sont nécessaires pour masquer une application du panneau MyApps et du Lanceur Microsoft 365.
 
-Les privilèges d’administrateur général sont nécessaires pour masquer toutes les applications Office 365.
+Les privilèges Administrateur général sont nécessaires pour masquer toutes les applications Microsoft 365.
 
 
 ## <a name="hide-an-application-from-the-end-user"></a>Masquer une application à l’utilisateur final
-Suivez ces étapes pour masquer une application dans le panneau MyApps et dans le lanceur d’applications Office 365.
+Suivez ces étapes pour masquer une application dans le panneau MyApps et dans le lanceur d’applications Microsoft 365.
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général de votre annuaire.
 2.  Sélectionnez **Azure Active Directory**.
@@ -59,9 +59,9 @@ $tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 
-## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Masquer des applications Office 365 dans le panneau MyApps
+## <a name="hide-microsoft-365-applications-from-the-myapps-panel"></a>Masquer des applications Microsoft 365 dans le panneau MyApps
 
-Procédez comme suit pour masquer toutes les applications Office 365 dans le panneau MyApps. Les applications sont toujours visibles dans le portail Office 365.
+Procédez comme suit pour masquer toutes les applications Microsoft 365 dans le panneau MyApps. Les applications sont toujours visibles dans le portail Office 365.
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général de votre annuaire.
 2.  Sélectionnez **Azure Active Directory**.

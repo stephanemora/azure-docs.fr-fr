@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104688"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562449"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gérer un serveur Azure Database for MariaDB à l’aide du Portail Azure
 Cet article vous explique comment gérer vos serveurs Azure Database for MariaDB. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
@@ -34,7 +34,7 @@ Vous pouvez passer du niveau Usage général au niveau Mémoire optimisée et in
 
 2. Sélectionnez **Usage général** ou **Mémoire optimisée**, selon le niveau souhaité. 
 
-    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![Capture d’écran montrant le portail Azure avec le niveau tarifaire sélectionné et une valeur de mémoire optimisée sélectionnée.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > Le changement de niveau entraîne un redémarrage du serveur.
@@ -79,7 +79,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Capture d’écran montrant la boîte de dialogue Réinitialiser le mot de passe avec les zones Mot de passe et Confirmer le mot de passe.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Sélectionnez **OK** pour enregistrer le nouveau mot de passe.
 
@@ -94,7 +94,7 @@ Vous pouvez supprimer votre serveur si vous n’en avez plus besoin.
 
 2. Entrez le nom du serveur dans la zone d’entrée pour confirmer qu’il s’agit du serveur à supprimer.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![Capture d’écran montrant une boîte de dialogue qui vérifie si vous souhaitez supprimer une base de données, ce qui constitue une opération irréversible.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > La suppression d’un serveur est irréversible.

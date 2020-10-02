@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047450"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457989"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
@@ -51,7 +51,7 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 
 | Améliorations du service | Détails |
 | --- | --- |
-|**Chiffrement au niveau des colonnes (Préversion publique)**|Protégez les informations sensibles dans votre entrepôt de données Synapse SQL en appliquant un chiffrement symétrique à une colonne de données à l’aide de Transact-SQL. Le chiffrement au niveau des colonnes offre des fonctions intégrées que vous pouvez utiliser pour chiffrer les données à l’aide de clés symétriques qui sont en outre protégées par un certificat, un mot de passe, une clé symétrique ou une clé asymétrique. Pour plus d’informations, consultez [Chiffrer une colonne de données](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Chiffrement au niveau des colonnes (Préversion publique)**|Protégez les informations sensibles dans votre instance Azure Synapse Analytics en appliquant un chiffrement symétrique à une colonne de données avec Transact-SQL. Le chiffrement au niveau des colonnes offre des fonctions intégrées que vous pouvez utiliser pour chiffrer les données à l’aide de clés symétriques qui sont en outre protégées par un certificat, un mot de passe, une clé symétrique ou une clé asymétrique. Pour plus d’informations, consultez [Chiffrer une colonne de données](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Prise en charge du niveau de compatibilité (GA)**|Avec cette version, les utilisateurs peuvent désormais définir le niveau de compatibilité d'une base de données pour obtenir le langage Transact-SQL et les comportements de traitement des requêtes d'une version spécifique du moteur Synapse SQL. Pour plus d’informations, consultez [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et [Modifier la configuration délimitée à la base de données](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sécurité au niveau des lignes**|Cette version comprend une amélioration des opérations de mise à jour et de suppression sur les lignes sur lesquelles SNL est appliquée. Avec cette version, les opérations de mise à jour et de suppression avec des fonctions intrinsèques telles que « is_rolemember » réussissent si l’intrinsèque ne fait référence à aucune colonne de la table cible DML. Avant cette amélioration, ces opérations échouaient en raison d’une limitation des opérations DML sous-jacentes.|
 |**DBCC SHRINKDATABASE (GA)**|Vous pouvez maintenant réduire la taille des fichiers de données et journaux dans la base de données spécifiée. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|

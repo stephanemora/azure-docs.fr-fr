@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845695"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440199"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics
 Dans ce tutoriel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant Azure Synapse Analytics pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire créé consiste à prédire si un trajet va faire l’objet d’un pourboire.  Les modèles incluent une classification multiclasse (qu'il y ait pourboire ou non) et une régression (distribution des montants des pourboires versés).
@@ -91,14 +91,14 @@ Pour configurer votre environnement de science des données Azure, procédez com
   * **Nom du conteneur** (dans lequel vous souhaitez stocker les données dans l’espace de stockage d’objets blob Azure)
 
 **Approvisionnez votre instance Azure Synapse Analytics.**
-Pour approvisionner une instance Azure Synapse Analytics, suivez la documentation [Créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Assurez-vous de prendre note des informations d’identification suivantes d'Azure Synapse Analytics dont vous aurez besoin dans les étapes ultérieures.
+Pour provisionner une instance Azure Synapse Analytics, suivez la documentation [Créer et interroger une instance Azure Synapse Analytics avec le portail Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Assurez-vous de prendre note des informations d’identification suivantes d'Azure Synapse Analytics dont vous aurez besoin dans les étapes ultérieures.
 
 * **Nom du serveur** : \<server Name>.database.windows.net
 * **Nom SQL DW (base de données)**
 * **Nom d’utilisateur**
 * **Mot de passe**
 
-**Installez Visual Studio et SQL Server Data Tools.** Pour obtenir des instructions, consultez [Bien démarrer avec Visual Studio 2019 pour SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installez Visual Studio et SQL Server Data Tools.** Pour obtenir des instructions, consultez [Bien démarrer avec Visual Studio 2019 pour Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connectez-vous à Azure Synapse Analytics avec Visual Studio.** Pour obtenir des instructions, consultez les étapes 1 et 2 décrites dans [Se connecter à SQL Analytics dans Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007789"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611716"
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
 Reliable Actors désignent des objets monothread capables d’encapsuler la logique et l’état. Étant donné que les acteurs s’exécutent sur Reliable Services, ils peuvent conserver leur état de façon fiable à l’aide des mêmes mécanismes de persistance et de réplication. De cette façon, les acteurs ne perdent pas leur état après des incidents, après une réactivation consécutive à un nettoyage de la mémoire, ou encore après leur déplacement entre des nœuds d’un cluster dans le cadre d’un équilibrage des ressources ou de mises à niveau.
@@ -115,7 +115,7 @@ Ceci est essentiel pour les performances et l’utilisation des ressources de vo
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gérer correctement le cycle de vie de l’acteur
 Vous devez disposer d’une stratégie claire pour la gestion de la taille de l’état dans chaque partition d’un service d’acteur. Votre service d’acteur doit avoir un nombre fixe d’acteurs et les réutiliser aussi souvent que possible. Si vous créez sans cesse des acteurs, vous devez les supprimer une fois qu’ils ont terminé leur travail. L’infrastructure des acteurs stocke des métadonnées sur chaque acteur existant. La suppression de tous les états d’un acteur ne supprime pas les métadonnées associées. Vous devez supprimer l’acteur (voir [Suppression des acteurs et de leur état](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) pour supprimer toutes les informations stockées dans le système. Au titre de vérification supplémentaire, vous devez interroger le service d’acteur (voir [Énumération des acteurs](service-fabric-reliable-actors-enumerate.md)) de temps à autre pour vous assurer que le nombre d’acteurs s’inscrit dans la plage attendue.
  
-Si la taille du fichier de base de données d’un service d’acteur augmente au-delà de la taille attendue, suivez les recommandations ci-dessus. Si malgré cela vous avez toujours des problèmes de taille de fichier de base de données, vous devez [ouvrir un ticket de support](service-fabric-support.md) auprès de l’équipe de produit pour obtenir de l’aide.
+Si la taille du fichier de base de données d’un service d’acteur augmente au-delà de la taille attendue, suivez les recommandations ci-dessus. Si vous suivez ces recommandations et que vous rencontrez toujours des problèmes de taille de fichier de base de données, vous devez [ouvrir un ticket de support](service-fabric-support.md) auprès de l'équipe produit pour obtenir de l'aide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

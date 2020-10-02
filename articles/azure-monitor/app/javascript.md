@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224850"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656943"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -204,8 +204,7 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 
 Par défaut, ce kit SDK **ne gère pas** les modifications de route basées sur l’état qui se produisent dans les applications monopages. Pour activer le suivi automatique des modifications de route pour votre application monopage, vous pouvez ajouter `enableAutoRouteTracking: true` à la configuration de votre installation.
 
-Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que vous pouvez initialiser avec ce SDK. Il effectue également le suivi des modifications de route pour vous, ainsi que la collecte [d’autres données de télémétrie spécifiques à React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Actuellement, nous proposons un [plug-in React](javascript-react-plugin.md) distinct que vous pouvez initialiser avec ce SDK. Il effectue également le suivi des modifications de route pour vous, ainsi que la collecte d’autres données de télémétrie spécifiques à React.
 > [!NOTE]
 > Utilisez `enableAutoRouteTracking: true` uniquement si vous n’utilisez **pas** le plug-in REACT. Tous deux peuvent envoyer de nouveaux PageViews lorsque la route change. Si les deux sont activés, il est possible que des PageViews en double soient envoyés.
 
@@ -213,12 +212,13 @@ Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que 
 
 En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](../platform/metrics-custom-overview.md) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](../platform/metrics-getting-started.md) en tant que « métrique basée sur le journal ».
 
-## <a name="react-extensions"></a>Extensions React
+## <a name="extensions"></a>Extensions
 
 | Extensions |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## <a name="correlation"></a>Corrélation
 
@@ -315,7 +315,7 @@ Cette version fournit un strict minimum de fonctionnalités et vous laisse la co
 
 ## <a name="examples"></a>Exemples
 
-Pour obtenir des exemples exécutables, consultez [Exemples du SDK JavaScript Application Insights](https://github.com/topics/applicationinsights-js-demo)
+Pour obtenir des exemples exécutables, consultez [Exemples du SDK JavaScript Application Insights](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Mise à niveau de l’ancienne version d’Application Insights
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814609"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706300"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -124,7 +124,7 @@ Suivez le processus illustré dans l’image suivante pour demander le provision
 
 ## <a name="update-or-remove-an-existing-listing"></a>Mettre à jour ou supprimer un listing existant
 
-Pour mettre à jour ou supprimer une application existante dans la galerie d’applications Azure AD, vous devez tout d’abord envoyer la demande dans le [portail Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte Office 365, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft, tel qu’Outlook ou Hotmail, pour vous connecter.
+Pour mettre à jour ou supprimer une application existante dans la galerie d’applications Azure AD, vous devez tout d’abord envoyer la demande dans le [portail Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte professionnel ou scolaire, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft, tel qu’Outlook ou Hotmail, pour vous connecter.
 
 - Sélectionnez l’option appropriée, comme illustré dans l’image suivante.
 

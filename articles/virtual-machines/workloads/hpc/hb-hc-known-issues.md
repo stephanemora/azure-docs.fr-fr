@@ -1,6 +1,6 @@
 ---
-title: Problèmes connus avec les machines virtuelles des séries HC et HB - Machines virtuelles Microsoft Azure | Microsoft Docs
-description: En savoir plus sur les problèmes connus avec les tailles de machines virtuelles de série HB dans Azure.
+title: Résolution des problèmes connus avec les machines virtuelles HPC et GPU - Machines virtuelles Azure | Microsoft Docs
+description: Découvrez comment résoudre les problèmes connus liés aux tailles des machines virtuelles HPC et GPU dans Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -10,19 +10,47 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004202"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
-Cet article présente les problèmes les plus courants et les solutions correspondantes lors de l’utilisation de machines virtuelles de série [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
+Cet article présente les problèmes les plus courants et les solutions correspondantes lors de l’utilisation de machines virtuelles HPC et GPU des séries [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
+
+## <a name="infiniband-driver-installation-on-n-series-vms"></a>Installation du pilote InfiniBand sur les machines virtuelles de la série N
+
+NC24r_v3 et ND40r_v2 sont compatibles avec SR-IOV alors que NC24r et NC24r_v2 ne le sont pas. Vous trouverez des détails sur la bifurcation [ici](../../sizes-hpc.md#rdma-capable-instances).
+InfiniBand (IB) peut être configuré sur les tailles de machine virtuelle compatibles avec SR-IOV à l’aide de pilotes OFED tandis que les tailles de machine virtuelle non compatibles avec SR-IOV requièrent des pilotes ND. Cette prise en charge IB est disponible de manière appropriée sur [CentOS-HPC VMIs](configure.md). Pour Ubuntu, consultez les instructions disponibles [ici](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) pour installer les pilotes OFED et ND, comme décrit dans la [documentation](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Adresse MAC en doublon avec cloud-init avec Ubuntu sur des machines virtuelles des séries H et N
+
+Il existe un problème connu avec cloud-init sur les images de machine virtuelle Ubuntu quand il tente d’activer l’interface IB. Ceci peut se produire lors du redémarrage de la machine virtuelle ou lors de la tentative de création d’une image de machine virtuelle après la généralisation. Les journaux de démarrage de la machine virtuelle peuvent indiquer une erreur de ce type : «Démarrage du service réseau... RuntimeError : une adresse MAC en doublon a été trouvée ! « eth1 » et « ib0 » ont une adresse MAC ».
+
+Ce problème « Adresse MAC en doublon avec cloud-init sur Ubuntu » est connu. La solution de contournement est :
+1) Déployer l’image de machine virtuelle de la Place de marché (Ubuntu 18.04)
+2) Installer les packages logiciels nécessaires pour activer IB ([les instructions sont ici](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
+3) Éditer le fichier waagent.conf et changer EnableRDMA=y
+4) Désactiver le réseau dans cloud-init
+    ```console
+    echo network: {config: disabled} | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    ```
+5) Éditer le fichier de configuration réseau de netplan généré par cloud-init pour supprimer l’adresse MAC
+    ```console
+    sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
+    network:
+        ethernets:
+        eth0:
+            dhcp4: true
+        version: 2
+    EOF
+    ```
 
 ## <a name="dram-on-hb-series"></a>DRAM sur la série HB
 
@@ -30,7 +58,7 @@ Les machines virtuelles de série HB peuvent exposer seulement 228 Go de RAM aux
 
 ## <a name="accelerated-networking"></a>Mise en réseau accélérée
 
-La mise en réseau accélérée Azure n’est pas activée pour l’instant, mais elle le sera à mesure que nous avançons dans la période de préversion. Nous informerons les clients lorsque cette fonctionnalité sera prise en charge.
+L’accélération réseau Azure sur des machines virtuelles HPC et GPU compatibles IB n’est pas activée pour l’instant. Nous informerons les clients lorsque cette fonctionnalité sera prise en charge.
 
 ## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
 
@@ -48,7 +76,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 Sur les systèmes HPC, il est souvent utile de nettoyer la mémoire une fois qu’une tâche est terminée, avant que l’utilisateur suivant soit affecté au même nœud. Après l’exécution d’applications dans Linux, vous pouvez constater que la mémoire disponible se réduit alors que votre mémoire tampon augmente, alors que vous n’exécutez aucune application.
 
-![Capture d’écran de l’invite de commande](./media/known-issues/cache-cleaning-1.png)
+![Capture d’écran de l’invite de commandes avant le nettoyage](./media/known-issues/cache-cleaning-1.png)
 
 Utiliser `numactl -H` affichera les NUMAnodes mis en mémoire tampon (potentiellement tous). Sous Linux, les utilisateurs peuvent nettoyer les caches de trois façons pour « libérer » la mémoire tampon ou en cache. Vous devez disposer des autorisations de sudo ou root.
 
@@ -58,11 +86,11 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Capture d’écran de l’invite de commande](./media/known-issues/cache-cleaning-2.png)
+![Capture d’écran de l’invite de commandes après le nettoyage](./media/known-issues/cache-cleaning-2.png)
 
 ## <a name="kernel-warnings"></a>Avertissements du noyau
 
-Vous pouvez voir les messages d’avertissement du noyau suivants lors du démarrage d’une machine virtuelle HB sous Linux.
+Vous pouvez ignorer les messages d’avertissement liés au noyau suivants lors du démarrage d’une machine virtuelle de la série HB sous Linux. Il s’agit d’une limitation connue de l’hyperviseur Azure, qui sera corrigée en temps voulu.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -81,14 +109,6 @@ Vous pouvez voir les messages d’avertissement du noyau suivants lors du démar
 [  0.004000] [<ffffffffb7c000d5>] start_cpu+0x5/0x14
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
-
-Vous pouvez ignorer cet avertissement. Il s’agit d’une limitation connue de l’hyperviseur Azure, qui sera corrigée en temps voulu.
-
-
-## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Installation du pilote InfiniBand sur les tailles de machine virtuelle de série N compatibles avec InfiniBand
-
-NC24r_v3 et ND40r_v2 sont compatibles avec SR-IOV alors que NC24r et NC24r_v2 ne le sont pas. Vous trouverez des détails sur la bifurcation [ici](../../sizes-hpc.md#rdma-capable-instances).
-InfiniBand (IB) peut être configuré sur les tailles de machine virtuelle compatibles avec SR-IOV à l’aide de pilotes OFED tandis que les tailles de machine virtuelle non compatibles avec SR-IOV requièrent des pilotes ND. Cette prise en charge IB est disponible de manière appropriée sur [CentOS-HPC VMIs](configure.md). Pour Ubuntu, consultez les instructions disponibles [ici](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) pour installer les pilotes OFED et ND, comme décrit dans la [documentation](enable-infiniband.md#vm-images-with-infiniband-drivers).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

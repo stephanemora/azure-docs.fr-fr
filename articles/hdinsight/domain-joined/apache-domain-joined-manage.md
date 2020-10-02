@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079732"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595782"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 
@@ -47,7 +47,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
 
 Enterprise Security Package (anciennement HDInsight Premium) permet à plusieurs utilisateurs d’accéder au cluster avec une authentification gérée par Active Directory et une autorisation exécutée par Apache Ranger et les ACL Storage (ACL ADLS). L’autorisation définit des limites sécurisées entre plusieurs utilisateurs et permet uniquement aux utilisateurs disposant de privilèges d’accéder aux données en fonction des stratégies d’autorisation.
 
-La sécurité et l’isolement des utilisateurs sont des aspects importants pour un cluster HDInsight qui utilise Enterprise Security Package. Pour répondre à ces exigences, l’accès SSH au cluster avec Enterprise Security Package est bloqué. Le tableau suivant présente les méthodes d’accès recommandées pour chaque type de cluster :
+La sécurité et l’isolement des utilisateurs sont des aspects importants pour un cluster HDInsight qui utilise Enterprise Security Package. Pour répondre à ces exigences, l’accès SSH au cluster avec le Pack Sécurité Entreprise est pris en charge pour l’utilisateur local sélectionné au moment de la création du cluster, ainsi que pour les utilisateurs disponibles dans AAD-DS (c.-à-d. Kerberos). Le tableau suivant présente les méthodes d’accès recommandées pour chaque type de cluster :
 
 |Charge de travail|Scénario|Méthode d'accès|
 |--------|--------|-------------|

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226741"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482587"
 ---
 # <a name="supported-data-types"></a>Types de données pris en charge
 
@@ -27,10 +27,10 @@ Le tableau suivant répertorie les types de données qu’Azure Time Series Insi
 | **double** | 64 bits double précision  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
 | **long** | Entier 64 bits signé  | `"value" : 31` | `$event.value.Long` ou `$event['value'].Long` |  `value_long`
 | **string** | Les valeurs de texte doivent être au format UTF-8 valide. Les chaînes Null et vides sont traitées de la même façon. |  `"site": "DIM_MLGGG"`| `$event.site.String` ou `$event['site'].String`| `site_string`
-| **dynamic** | Type complexe (non primitif) constitué d’un tableau ou d’un conteneur de propriétés (dictionnaire). À l’heure actuelle, seuls des tableaux JSON convertis de primitives ou des tableaux d’objets ne contenant pas l’ID TS ou les propriétés d’horodatage sont stockés comme dynamiques. Pour comprendre la façon dont les objets sont aplatis et les tableaux peuvent être déroulés, lisez cet [article](./concepts-json-flattening-escaping-rules.md) . Les propriétés de charge utile stockées avec ce type sont accessibles uniquement en sélectionnant `Explore Events` dans l’Explorateur TSI pour afficher les événements bruts, ou via l’[`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API de requête pour l’analyse côté client. |  `"values": "[197, 194, 189, 188]"` | Le référencement de types dynamiques dans une expression Time Series (TSX) n’est pas encore pris en charge | `values_dynamic`
+| **dynamic** | Type complexe (non primitif) constitué d’un tableau ou d’un conteneur de propriétés (dictionnaire). À l’heure actuelle, seuls des tableaux JSON convertis de primitives ou des tableaux d’objets ne contenant pas l’ID TS ou les propriétés d’horodatage sont stockés comme dynamiques. Pour comprendre la façon dont les objets sont aplatis et les tableaux peuvent être déroulés, lisez cet [article](./concepts-json-flattening-escaping-rules.md) . Les propriétés de charge utile stockées avec ce type sont accessibles uniquement en sélectionnant `Explore Events` dans l’Explorateur Time Series Insights pour afficher les événements bruts, ou via l’[`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API de requête pour l’analyse côté client. |  `"values": "[197, 194, 189, 188]"` | Le référencement de types dynamiques dans une expression Time Series (TSX) n’est pas encore pris en charge | `values_dynamic`
 
 > [!NOTE]
-> Les valeurs entières de 64 bits sont prises en charge, mais le plus grand nombre que l’Explorateur Azure Time Series Insights peut correctement exprimer est 9 007 199 254 740 991 (2^53-1) en raison de limitations propres à JavaScript. Si vous utilisez des nombres plus grands dans votre modèle de données, vous pouvez réduire la taille en créant une [variable de modèle Time Series](/concepts-variables#numeric-variables) et en [convertissant](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) la valeur.
+> Les valeurs entières de 64 bits sont prises en charge, mais le plus grand nombre que l’Explorateur Azure Time Series Insights peut correctement exprimer est 9 007 199 254 740 991 (2^53-1) en raison de limitations propres à JavaScript. Si vous utilisez des nombres plus grands dans votre modèle de données, vous pouvez réduire la taille en créant une [variable de modèle Time Series](/azure/time-series-insights/concepts-variables#numeric-variables) et en [convertissant](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) la valeur.
 
 > [!NOTE]
 > Le type **String** n’accepte pas les valeurs Null :

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078627"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090252"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Impossible de connecter un bureau à distance à une machine virtuelle car l'interface réseau est désactivée
 
@@ -28,6 +28,11 @@ Cet article explique comment résoudre un problème où une connexion Bureau à 
 
 Vous ne pouvez pas établir de connexion RDP ni aucun autre type de connexion à d'autres ports d'une machine virtuelle Azure car l'interface réseau de la machine virtuelle est désactivée.
 
+![Capture d’écran montrant une machine virtuelle dans laquelle l’interface réseau est déconnectée.](./media/troubleshoot-rdp-nic-disabled/disconnected.png)
+
+![Capture d’écran montrant une machine virtuelle dans laquelle l’interface réseau est désactivée.](./media/troubleshoot-rdp-nic-disabled/disabled.png)
+
+
 ## <a name="solution"></a>Solution
 
 Avant de suivre cette procédure, faites en sauvegarde en prenant un instantané du disque du système d’exploitation de la machine virtuelle affectée. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
@@ -36,8 +41,7 @@ Pour activer l'interface de la machine virtuelle, utilisez la console série ou 
 
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
-1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l'interface réseau](#reset-network-interface).
+1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l'interface réseau](#reset-network-interface).
 2. Vérifiez l’état de l’interface réseau :
 
     ```console

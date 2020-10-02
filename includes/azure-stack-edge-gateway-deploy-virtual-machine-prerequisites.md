@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 14d1e466a7e84ff3454284c596a09ebcabf9d603
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303982"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419393"
 ---
 Avant de pouvoir déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez configurer votre client pour qu’il se connecte à l’appareil via Azure Resource Manager sur Azure PowerShell. Pour obtenir des instructions détaillées, accédez à [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -28,7 +28,7 @@ Assurez-vous de pouvoir effectuer les étapes suivantes pour accéder à l’app
 
     Indiquez le nom d’utilisateur *EdgeARMuser* et le mot de passe utilisés pour vous connecter via Azure Resource Manager.
 
-1. Si vous avez configuré **Calcul** pour Kubernetes, vous pouvez ignorer cette étape. Assurez-vous maintenant que vous avez activé une interface réseau pour le calcul. Dans l’interface utilisateur locale, accédez aux paramètres **Calcul**. Sélectionnez l’interface réseau que vous allez utiliser pour créer un commutateur virtuel. Les machines virtuelles que vous créez seront attachées à un commutateur virtuel, lui-même attaché à ce port et au réseau associé. Choisissez un réseau qui correspond à l’adresse IP statique que vous allez utiliser pour la machine virtuelle.  
+1. Si vous avez configuré **Calcul** pour Kubernetes, vous pouvez ignorer cette étape. Assurez-vous maintenant que vous avez activé une interface réseau pour le calcul. Dans l’interface utilisateur locale, accédez aux paramètres **Calcul**. Sélectionnez l’interface réseau que vous allez utiliser pour créer un commutateur virtuel. Les machines virtuelles que vous créez seront attachées à un commutateur virtuel, lui-même attaché à ce port et au réseau associé. Choisissez un réseau qui correspond à l’adresse IP que vous allez utiliser pour la machine virtuelle.  
 
     ![Activer les paramètres de calcul 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 

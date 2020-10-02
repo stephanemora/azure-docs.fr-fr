@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75450825"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606468"
 ---
 1. Sélectionnez **Connecter des sites VPN** pour ouvrir la page **Connecter des sites**.
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "se connecter")
+    ![Capture d’écran montrant le volet Sites connectés pour le hub virtuel, prêt pour une clé prépartagée et les paramètres associés.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "se connecter")
 
    Renseignez les champs suivants :
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450825"
 2. Sélectionnez **Connecter**.
 3. En quelques minutes, le site affiche la connexion et l’état de la connectivité.
 
-   ![statut](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Capture d’écran montrant une connexion de site à site VPN et un état de connectivité.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **État de la connexion :** Il s’agit de l’état de la ressource Azure pour la connexion qui connecte le site VPN à la passerelle VPN du hub Azure. Une fois cette opération de plan de contrôle réussie, la passerelle VPN Azure et le périphérique VPN local continuent d’établir la connectivité.
 

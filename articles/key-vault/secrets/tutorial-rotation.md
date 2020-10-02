@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086868"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
@@ -24,7 +24,7 @@ La meilleure façon de s’authentifier auprès des services Azure consiste à u
 
 Ce tutoriel montre comment automatiser la rotation régulière des secrets pour les bases de données et les services qui utilisent un seul jeu d’informations d’authentification. Plus précisément, ce tutoriel permute les mots de passe SQL Server stockés dans Azure Key Vault à l’aide d’une fonction déclenchée par une notification Azure Event Grid :
 
-![Diagramme de la solution de permutation](../media/rotate1.png)
+![Diagramme de la solution de permutation](../media/rotate-1.png)
 
 1. Trente jours avant la date d’expiration d’un secret, Key Vault publie l’événement « Expiration proche » sur Event Grid.
 1. Event Grid vérifie les abonnements aux événements et utilise HTTP POST pour appeler le point de terminaison de l’application de fonction abonné à l’événement.
@@ -49,7 +49,7 @@ Vous pouvez utiliser le lien de déploiement ci-dessous, si vous n’avez pas de
 1. Sélectionnez **Revoir + créer**.
 1. Sélectionnez **Créer**
 
-    ![Créer un groupe de ressources](../media/rotate2.png)
+    ![Créer un groupe de ressources](../media/rotate-2.png)
 
 Vous disposez maintenant d’un coffre de clés et d’une instance SQL Server. Vous pouvez vérifier cette configuration dans l’interface de ligne de commande (CLI) Azure en exécutant la commande suivante :
 
@@ -91,7 +91,7 @@ L’application de fonction nécessite les composants suivants :
 1. Sélectionnez **Revoir + créer**.
 1. Sélectionnez **Create** (Créer).
 
-   ![Sélectionnez Vérifier + créer.](../media/rotate3.png)
+   ![Sélectionnez Vérifier + créer.](../media/rotate-3.png)
 
 Après avoir effectué les étapes précédentes, vous disposez d’un compte de stockage, d’une batterie de serveurs et d’une application de fonction. Vous pouvez vérifier cette configuration dans l’interface de ligne de commande Azure CLI en exécutant la commande suivante :
 
@@ -207,11 +207,11 @@ La création d’un secret avec une date d’expiration proche entraîne la publ
 
 Pour vérifier que le secret a permuté, accédez à **Key Vault** > **Secrets** :
 
-![Accéder à Secrets](../media/rotate8.png)
+![Accéder à Secrets](../media/rotate-8.png)
 
 Ouvrez le secret **sqlPassword**, et visualisez la version d’origine et la version permutée :
 
-![Ouvrir le secret sqluser](../media/rotate9.png)
+![Ouvrir le secret sqluser](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
@@ -245,6 +245,6 @@ Lorsque l’application s’ouvre dans le navigateur, vous voyez la **Valeur du 
 ## <a name="learn-more"></a>En savoir plus
 
 - Tutoriel : [Rotation pour les ressources avec deux jeux d’informations d’identification](tutorial-rotation-dual.md)
-- Présentation : [Monitoring de Key Vault avec Azure Event Grid (préversion)](../general/event-grid-overview.md)
+- Présentation : [Supervision de Key Vault avec Azure Event Grid](../general/event-grid-overview.md)
 - Procédure : [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](../general/event-grid-logicapps.md)
-- [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../../event-grid/event-schema-key-vault.md)
+- [Schéma des événements Azure Event Grid pour Azure Key Vault](../../event-grid/event-schema-key-vault.md)

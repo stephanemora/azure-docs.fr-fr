@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949777"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888949"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 
-Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Les pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Les pools de nœuds système et les pools de nœuds utilisateur sont deux modes de pool de nœuds différents pour vos clusters AKS. Les pools de nœuds système sont principalement utilisés pour héberger des pods système critiques, tels que CoreDNS et tunnelfront. Les pools de nœuds utilisateur sont principalement utilisés pour héberger vos pods d'application. Cela étant, les pods d’application peuvent être planifiés sur des pools de nœuds système si vous souhaitez n'avoir qu’un pool dans votre cluster AKS. Chaque cluster AKS doit contenir au moins un pool de nœuds système avec au moins un nœud.
+Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Les pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Les pools de nœuds système et les pools de nœuds utilisateur sont deux modes de pool de nœuds différents pour vos clusters AKS. Les pools de nœuds système sont principalement utilisés pour héberger des pods système critiques, tels que `CoreDNS` et `metrics-server`. Les pools de nœuds utilisateur sont principalement utilisés pour héberger vos pods d'application. Cela étant, les pods d’application peuvent être planifiés sur des pools de nœuds système si vous souhaitez n'avoir qu’un pool dans votre cluster AKS. Chaque cluster AKS doit contenir au moins un pool de nœuds système avec au moins un nœud.
 
 > [!Important]
 > Si vous exécutez un pool de nœuds système unique pour votre cluster AKS dans un environnement de production, nous vous recommandons d’utiliser au moins trois nœuds pour le pool de nœuds.
@@ -46,6 +46,7 @@ Les pools de nœuds système présentent les restrictions suivantes :
 * Les pools de nœuds système nécessitent une référence SKU de machine virtuelle d’au moins 2 processeurs virtuels et de 4 Go de mémoire.
 * Les pools de nœuds système doivent prendre en charge au moins 30 pods, comme décrit par la [formule des valeurs minimale et maximale pour les pods][maximum-pods].
 * Les pools de nœuds Spot nécessitent des pools de nœuds utilisateur.
+* L’ajout d’un pool de nœuds système supplémentaire ou la modification du pool de nœuds système ne déplace *PAS* automatiquement les pods. Les pods système peuvent continuer à s’exécuter sur le même pool de nœuds, même si vous le transformez en pool de nœuds utilisateur. Si vous supprimez ou réduisez la taille d’un pool de nœuds exécutant des pods système correspondant précédemment à un pool de nœuds système, ces pods système sont redéployés avec la planification préféré vers le nouveau pool de nœuds système.
 
 Vous pouvez effectuer les opérations suivantes avec des pools de nœuds :
 
@@ -163,7 +164,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Pour utiliser des pools de nœuds système sur des clusters AKS avant l’API version 2020-03-02, ajoutez un nouveau pool de nœuds système, puis supprimez le pool de nœuds par défaut d’origine.
 
-Avant, vous ne pouviez pas supprimer le pool de nœuds système, qui était le pool de nœuds par défaut initial dans un cluster AKS. Vous avez maintenant la possibilité de supprimer n’importe quel pool de nœuds de vos clusters. Comme les clusters AKS nécessitent au moins un pool de nœuds système, vous devez disposer d’au moins deux pools de nœuds système sur votre cluster AKS pour pouvoir en supprimer un.
+Vous devez disposer d’au moins deux pools de nœuds système sur votre cluster AKS pour pouvoir en supprimer un.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool

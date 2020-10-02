@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 46b3a782d93a55ed7f6eee6c76886f27c2652572
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087009"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469641"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -86,7 +86,7 @@ La résolution de noms fournie par Azure présente les avantages suivants :
 Le DNS inversé est pris en charge dans tous les réseaux virtuels basés sur ARM. Vous pouvez émettre des requêtes DNS inverses (requêtes PTR) pour mapper les adresses IP des machines virtuelles aux noms de domaine complets des machines virtuelles.
 * Toutes les requêtes PTR visant à obtenir les adresses IP de machines virtuelles retournent des noms de domaine complets de la forme \[vmname\].internal.cloudapp.net
 * La recherche directe sur des noms de domaine complets de la forme \[vmname\].internal.cloudapp.net est résolue en adresse IP affectée à la machine virtuelle.
-* Si le réseau virtuel est lié à [Azure DNS Private Zones](../dns/private-dns-overview.md) en tant que réseau virtuel d’inscription, les requêtes DNS inverses retournent deux enregistrements. L’un des enregistrements se présente sous la forme \[vmname\].[privatednszonename] et l’autre sous la forme \[vmname\].internal.cloudapp.net
+* Si le réseau virtuel est lié à [Azure DNS Private Zones](../dns/private-dns-overview.md) en tant que réseau virtuel d’inscription, les requêtes DNS inverses retournent deux enregistrements. L’un des enregistrements se présente sous la forme \[vmname\].[privatednszonename], et l’autre sous la forme \[vmname\].internal.cloudapp.net
 * L’étendue de la recherche DNS inverse est limitée à un réseau virtuel donné, même s’il est appairé à d’autres réseaux virtuels. Les requêtes DNS inverses (requêtes PTR) pour les adresses IP des machines virtuelles situées dans des réseaux virtuels appairés retournent NXDOMAIN.
 * Si vous souhaitez désactiver la fonction DNS inverse dans un réseau virtuel, vous pouvez le faire en créant une zone de recherche inversée à l’aide de [zones privées Azure DNS](../dns/private-dns-overview.md) et lier cette zone à votre réseau virtuel. Par exemple, si l’espace d’adressage IP de votre réseau virtuel est 10.20.0.0/16, vous pouvez créer une zone DNS privée vide 20.10.in-addr.arpa et la lier au réseau virtuel. Lors de la liaison de la zone à votre réseau virtuel, vous devez désactiver l’inscription automatique sur le lien. Cette zone remplace les zones de recherche inversée par défaut pour le réseau virtuel et, étant donné que cette zone est vide, vous obtenez NXDOMAIN pour vos requêtes DNS inverses. Pour plus d’informations sur la création d’une zone DNS privée et sa liaison à un réseau virtuel, consultez notre [guide de démarrage rapide](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal).
 

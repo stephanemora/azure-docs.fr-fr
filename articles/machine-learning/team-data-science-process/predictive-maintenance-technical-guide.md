@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290715"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030899"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution pour la maintenance prédictive dans l'industrie aérospatiale
 
@@ -182,7 +182,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    * Dans la fenêtre contextuelle suivante, deux options s’affichent dans le volet gauche (**Windows** et **Base de données**). Cliquez sur **Base de données** et renseignez vos **Nom d’utilisateur** et **Mot de passe** (il s’agit du nom d’utilisateur et du mot de passe que vous avez entrés au moment du déploiement de la solution et de la création d’une base de données Azure SQL Database). Dans ***Sélectionnez le niveau auquel appliquer ces paramètres***, cochez l’option du niveau de base de données. Cliquez ensuite sur **Se connecter**.
    * Cliquez sur la deuxième table **PMResult**, puis cliquez sur ![l’icône de navigation](./media/predictive-maintenance-technical-guide/icon-navigation.png) à côté de **'Source'** sous **'ÉTAPES APPLIQUÉES'** sur le panneau **Paramètres de requête** de droite, et mettez à jour les noms de serveur et de base de données comme lors des étapes ci-dessus, puis cliquez sur OK.
    * Une fois redirigé sur la page précédente, fermez la fenêtre. Un message s’affiche ; cliquez sur **Appliquer**. Pour finir, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications. Votre fichier Power BI a maintenant établi la connexion au serveur. Si vos visualisations sont vides, veillez à désactiver les sélections de visualisation pour visualiser toutes les données en cliquant sur l’icône de suppression en haut à droite des légendes. Utilisez le bouton Actualiser pour afficher les nouvelles données sur les visualisations. Au départ, vous voyez uniquement les données d’amorçage sur vos visualisations, étant donné que la fabrique de données est planifiée pour s’actualiser toutes les 3 heures. Au bout de 3 heures, les nouvelles prédictions sont reflétées dans vos visualisations lorsque vous actualisez les données.
-3. (Facultatif) Publier le tableau de bord de chemin à froid dans [Power BI en ligne](https://www.powerbi.com/). Vous avez besoin d’un compte Power BI (ou d’un compte Office 365) pour cette étape.
+3. (Facultatif) Publier le tableau de bord de chemin à froid dans [Power BI en ligne](https://www.powerbi.com/). Pour cette étape, vous avez besoin d’un compte Power BI (ou d’un compte professionnel ou scolaire).
    
    * Cliquez sur **Publier** et attendez quelques secondes : une fenêtre s’affiche pour confirmer que la publication dans Power BI a bien été effectuée, avec une coche verte. Cliquez sur le lien sous « Ouvrir PredictiveMaintenanceAerospace.pbix dans Power BI ». Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Pour créer un tableau de bord : cliquez sur le signe **+** en regard de la section **Tableaux de bord** dans le volet gauche. Entrez le nom de ce tableau de bord, dans notre exemple « Démo de maintenance prédictive ».

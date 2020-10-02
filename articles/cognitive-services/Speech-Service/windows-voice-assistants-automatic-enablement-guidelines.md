@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981759"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987397"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Assistants vocaux Windows - Directives en matière de confidentialité
 
@@ -31,7 +31,7 @@ Les développeurs qui créent des assistants vocaux sous Windows doivent inclure
 Les utilisateurs de Windows peuvent voir et contrôler la disponibilité de leurs applications d'assistant sous **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![privacy-app-listing](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Entrée de paramètre de confidentialité d'activation vocale Windows pour une application d'assistant")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![La capture d’écran montre des options permettant de contrôler la disponibilité de Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Entrée de paramètre de confidentialité d'activation vocale Windows pour une application d'assistant")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Pour être éligible et être inclus dans cette liste, contactez Microsoft à l’adresse winvoiceassistants@microsoft.com. Par défaut, les utilisateurs doivent activer explicitement l’activation vocale pour un nouvel assistant dans **`Settings > Privacy > Voice Activation`** , auquel une application peut effectuer une liaison de protocole avec `ms-settings:privacy-voiceactivation`. Une application autorisée s’affiche dans la liste une fois qu’elle a été exécutée et a utilisé les API `Windows.ApplicationModel.ConversationalAgent`. Ses paramètres d’activation vocale pourront être modifiés une fois que l’application aura obtenu le consentement relatif au microphone de la part de l’utilisateur.
 

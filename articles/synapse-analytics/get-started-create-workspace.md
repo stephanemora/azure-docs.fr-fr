@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255016"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707524"
 ---
 # <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
 
@@ -24,18 +24,14 @@ Dans ce tutoriel, vous allez découvrir comment créer un espace de travail Syna
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et, en haut, recherchez **Synapse**.
 1. Dans les résultats de la recherche, sous **Services**, sélectionnez **Azure Synapse Analytics (préversion des espaces de travail)** .
-1. Sélectionnez **Ajouter** pour créer un espace de travail avec ces paramètres :
-
-    |Onglet|Paramètre | Valeur suggérée | Description |
-    |---|---|---|---|
-    |Concepts de base|**Nom de l’espace de travail**|Vous pouvez lui donner le nom que vous voulez.| Dans ce document, nous l’appellerons **myworkspace**.|
-    |Concepts de base|**Région**|Choisissez la même région que le compte de stockage.|
-
+1. Sélectionnez **Ajouter** pour créer un espace de travail.
+1. Dans **Paramètres de base**, choisissez un nom d’espace de travail. Dans ce tutoriel, nous utiliserons **myworkspace**.
 1. Un compte ADLS Gen2 est nécessaire pour créer un espace de travail. Le choix le plus simple consiste à en créer un. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
 1. OPTION 1 Création d’un nouveau compte ADLS Gen2 : 
-    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Créer** et nommez-le **contosolake**.
-    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Système de fichiers** et nommez-le **users**.
-1. OPTION 2 Consultez les instructions **Préparation d’un compte de stockage** qui se trouvent à la fin de ce document.
+    1. Accédez à **Sélectionner Data Lake Storage Gen2**. 
+    1. Cliquez sur **Créer**, puis nommez-le **contosolake**.
+    1. Cliquez sur **Système de fichiers**, puis nommez-le **users**.
+1. OPTION 2 Utilisation d’un compte ADLSGEN2 existant. Consultez les instructions fournies dans **Préparation d’un compte de stockage ADLSGEN2** qui se trouvent à la fin de ce document.
 1. Votre espace de travail Azure Synapse utilisera ce compte de stockage comme compte de stockage « principal » et le conteneur pour stocker les données de l’espace de travail. L’espace de travail stocke les données dans des tables Apache Spark. Il stocke les journaux des applications Spark dans un dossier appelé **/synapse/workspacename**.
 1. Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
 
@@ -94,29 +90,23 @@ Contrairement aux autres types de pools, la facturation du pool SQL à la demand
 * Le pool SQL à la demande possède ses propres bases de données SQL à la demande qui existent indépendamment de tout pool SQL à la demande.
 * Un espace de travail a toujours un seul pool SQL à la demande nommé **SQL à la demande**.
 
-## <a name="prepare-a-storage-account"></a>Préparer un compte de stockage
+## <a name="preparing-a-adlsgen2-storage-account"></a>Préparation d’un compte de stockage ADLSGEN2
+
+### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Effectuez les étapes suivantes AVANT de créer votre espace de travail.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Créez un compte de stockage avec les paramètres suivants :
-
-    |Onglet|Paramètre | Valeur suggérée | Description |
-    |---|---|---|---|
-    |Concepts de base|**Nom du compte de stockage**| Choisissez n’importe quel nom.| Dans ce document, nous allons utiliser **contosolake**.|
-    |Concepts de base|**Type de compte**| **StorageV2** ||
-    |Concepts de base|**Lieu**|Choisissez un emplacement.| Nous vous conseillons de choisir votre espace de travail Azure Synapse Analytics et votre compte Azure Data Lake Storage Gen2 dans la même région.|
-    |Avancé|**Data Lake Storage Gen2**|**Activé**| Azure Synapse fonctionne seulement avec les comptes de stockage pour lesquels ce paramètre est activé.|
-    |||||
-
-1. Après avoir créé le compte de stockage, sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche. Attribuez ensuite les rôles suivants ou vérifiez qu’ils sont déjà attribués :
+1. Accéder à votre compte de stockage existant
+1. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche. 
+1. Attribuez les rôles suivants ou vérifiez qu’ils sont déjà attribués :
     * Attribuez-vous le rôle **Propriétaire**.
     * Attribuez-vous le rôle **Propriétaire des données Blob du stockage**.
 1. Dans le volet de gauche, sélectionnez **Conteneurs** et créez un conteneur.
-1. Attribuez au conteneur un nom de votre choix. Dans ce document, nous appellerons le conteneur **users**.
+1. Vous pouvez attribuer un nom au conteneur. Dans ce document, nous utiliserons le nom **users**.
 1. Acceptez le paramètre par défaut **Niveau d’accès public**, puis sélectionnez **Créer**.
 
-### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configuration de l’accès au compte de stockage à partir de votre espace de travail
+### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Effectuez les étapes suivantes APRÈS avoir créé votre espace de travail.
 
-Les identités managées pour votre espace de travail Azure Synapse ont peut-être déjà accès au compte de stockage. Vérifiez ce point en effectuant ces étapes :
+Configurez l’accès au compte de stockage à partir de votre espace de travail. Les identités managées pour votre espace de travail Azure Synapse ont peut-être déjà accès au compte de stockage. Vérifiez ce point en effectuant ces étapes :
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et le compte de stockage principal choisi pour votre espace de travail.
 1. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .

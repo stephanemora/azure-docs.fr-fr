@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043953"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612155"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Tester une tâche Azure Stream Analytics sur le portail
 
@@ -96,6 +96,21 @@ Au lieu d’utiliser des données actives, vous pouvez utiliser des exemples de 
    ![Sortie sélectionnée Azure Stream Analytics](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Après avoir vérifié les résultats affichés dans le navigateur, vous pouvez **Démarrer** le travail.
+
+## <a name="limitations"></a>Limites
+
+1.  La stratégie de temps n’est pas prise en charge dans le test du portail :
+
+   * Désordre : tous les événements entrants seront classés.
+   * Arrivée tardive : il n’y aura pas d’événement d’arrivée tardive puisque Stream Analytics ne peut utiliser que des données existantes pour le test.
+   
+2.  Une fonction définie par l’utilisateur en C# n’est pas prise en charge.
+
+3.  Tous les tests sont exécutés avec un travail disposant d’une seule unité de streaming.
+
+4.  La durée du délai d’expiration est d’une minute. Par conséquent, toute requête avec une taille de fenêtre supérieure à une minute ne peut obtenir aucune donnée.
+
+5.  Le machine learning n’est pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer une solution IoT à l'aide de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics) : ce tutoriel vous aidera à créer une solution de bout en bout avec un générateur de données qui simulera le trafic à un poste de péage.

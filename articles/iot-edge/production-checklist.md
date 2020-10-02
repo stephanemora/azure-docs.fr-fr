@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 90a6c287b1341b21f50a808d46cc681b0527f1c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300338"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669600"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -41,7 +41,7 @@ Il existe de nombreux types d’appareils IoT Edge : un Raspberry Pi, un portabl
 Un certificat d’autorité de certification doit être installé sur chaque appareil IoT Edge en production. Il est ensuite déclaré auprès du runtime IoT Edge dans le fichier config.yaml. Pour faciliter les scénarios de développement et de test, le runtime IoT Edge crée des certificats temporaires si aucun certificat n’est déclaré dans le fichier config.yaml. Toutefois, ces certificats temporaires expirent au bout de trois mois et ne sont pas sécurisés pour les scénarios de production. Dans les scénarios de production, vous devez fournir votre propre certificat d’autorité de certification d’appareil, soit issu d’une autorité de certification auto-signée, soit acheté auprès d’une autorité de certification commerciale.
 
 > [!NOTE]
-> Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2050 ou après cette date.
+> Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2038 ou après cette date.
 
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 

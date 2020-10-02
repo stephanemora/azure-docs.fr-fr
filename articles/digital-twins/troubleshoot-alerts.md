@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854859"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087204"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Dépannage d’Azure Digital Twins : Alertes
 
@@ -31,29 +31,30 @@ Voici comment activer des alertes pour votre instance Azure Digital Twins :
 3. Dans la page *Créer une règle d’alerte* qui suit, vous pouvez suivre les invites pour définir les conditions, les actions à déclencher et les détails de l’alerte.     
     * Les informations **Étendue** doivent être renseignées automatiquement avec les informations de votre instance
     * Vous allez définir les informations **Condition** et **Groupe d’actions** pour personnaliser les déclencheurs d’alerte et les réponses
-    * Dans la section **Détails de la règle d’alerte**, entrez votre _Nom de règle d’alerte_, _Description (facultative)_ . Vous pouvez cocher la case _Activer la règle d’alerte lors de la création_ si vous souhaitez que l’alerte devienne active dès qu’elle est créée.
-    * Selon certaines conditions et actions que vous ajoutez, vous devez sélectionner _Enregistrer la règle d’alerte dans le groupe de ressources_ et _Gravité_ dans les listes déroulantes respectives.
+    * Dans la section **Détails de la règle d’alerte**, entrez un nom et une description (facultative) pour votre règle. Vous pouvez cocher la case _Activer la règle d’alerte lors de la création_ si vous souhaitez que l’alerte devienne active dès qu’elle est créée.
+        - C’est également là que vous sélectionnez un _groupe de ressources_ et un niveau de _gravité_.
 
 4. Sélectionnez le bouton _Créer une règle d’alerte_ pour créer votre règle d’alerte.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition et le groupe d’actions" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
-
-:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Capture d’écran montrant la section Détails de la règle d’alerte de création d’une règle d’alerte" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Pour une procédure pas à pas guidée de la saisie de ces champs, consultez [*Vue d’ensemble des alertes dans Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Voici quelques exemples de ce à quoi ressemblera les étapes pour Azure Digital Twins.
 
+### <a name="select-conditions"></a>Sélectionner les conditions
+
 Voici un extrait du processus *Sélectionner une condition* illustrant les types de signaux d’alerte disponibles pour Azure Digital Twins. Sur cette page, vous pouvez filtrer le type de signal et sélectionner le signal souhaité dans une liste.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran montrant la première page Configurer la logique du signal. La zone Type de signal est mise en surbrillance pour sélectionner des métriques ou des journaux d’activité, ainsi qu’une liste des métriques que vous pouvez sélectionner en dessous":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte":::
 
 Après avoir sélectionné un signal, vous êtes invité à configurer la logique de l’alerte. Vous pouvez filtrer sur une dimension, définir une valeur seuil pour votre alerte et définir la fréquence des vérifications pour la condition. Voici un exemple de configuration d’une alerte lorsque la métrique du taux moyen d’échec de routage dépasse 5 %.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran montrant la deuxième page Configurer la logique du signal. La page affiche l’historique des métriques, a une zone à filtrer sur une dimension telle que les opérations Event Grid et une section pour la définition de la logique d’alerte telle que « moyenne est supérieure à 5 ».":::
- 
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte":::
+
+### <a name="verify-success"></a>Vérifier la réussite de l’exécution
+
 Une fois les alertes configurées, elles s’affichent sur la page *Alertes* de votre instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran montrant la page Alertes et le bouton à ajouter. Une alerte est configurée" lightbox="media/troubleshoot-alerts/alerts-post.png":::
-
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Capture d’écran montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

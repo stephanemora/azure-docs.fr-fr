@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145652"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986510"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -41,10 +41,11 @@ Par ailleurs, vous risquez de devoir faire deux choses dans certaines circonstan
 
 ### <a name="modify-storage-replication"></a>Modifier la réplication du stockage
 
-Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md).
+Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Si le coffre est votre principal mécanisme de sauvegarde, nous vous recommandons d’utiliser le GRS.
-* Vous pouvez opter pour le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json), qui est plus économique.
+* Vous pouvez opter pour le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), qui est plus économique.
+* [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région.
 
 Modifiez le type de réplication de stockage comme suit :
 

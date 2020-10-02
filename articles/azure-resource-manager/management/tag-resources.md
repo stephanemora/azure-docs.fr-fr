@@ -4,12 +4,12 @@ description: Indique comment appliquer des étiquettes afin d'organiser des ress
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499991"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086757"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>Gestion des espaces
 
-Si les noms ou les valeurs de vos étiquettes incluent des espaces, vous devez effectuer quelques étapes supplémentaires. L’exemple suivant applique toutes les étiquettes d’un groupe de ressources à ses ressources quand les étiquettes peuvent contenir des espaces.
+Si les noms ou valeurs de vos étiquettes incluent des espaces, vous devez accomplir quelques étapes supplémentaires. 
+
+Les paramètres `--tags` dans Azure CLI peuvent accepter une chaîne constituée d’un tableau de chaînes. L’exemple suivant remplace les étiquettes d’un groupe de ressources où les étiquettes contiennent des espaces et des traits d’union : 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+Vous pouvez utiliser la même syntaxe lors de la création ou de la mise à jour d’un groupe de ressources ou de ressources à l’aide du paramètre `--tags` .
+
+Pour mettre à jour les étiquettes à l’aide du paramètre `--set`, vous devez passer la clé et la valeur en tant que chaîne. L’exemple suivant ajoute une étiquette unique à un groupe de ressources :
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+Dans ce cas, la valeur de l’étiquette est marquée avec des apostrophes car elle comporte un trait d’union.
+
+Il se peut que vous deviez également appliquer des étiquettes à de nombreuses ressources. L’exemple suivant applique toutes les étiquettes d’un groupe de ressources à ses ressources quand les étiquettes pourraient contenir des espaces :
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -579,7 +599,7 @@ Les balises appliquées au groupe de ressources ou à l’abonnement ne sont pas
 
 Vous pouvez utiliser des étiquettes pour regrouper vos données de facturation. Par exemple, si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux étiquettes afin de regrouper l'utilisation par centre de coûts. Vous pouvez également utiliser des étiquettes pour catégoriser les coûts par environnement d'exécution ; par exemple, l'utilisation de la facturation pour les machines virtuelles en cours d'exécution dans l'environnement de production.
 
-Vous pouvez récupérer des informations sur les étiquettes par le biais des [API Resource Usage et RateCard](../../cost-management-billing/manage/usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Téléchargez le fichier d’utilisation depuis le [Centre des comptes Azure](https://account.azure.com/Subscriptions) ou depuis le portail Azure. Pour plus d’informations, consultez [Télécharger et consulter votre facture Azure et vos données d’utilisation quotidienne](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Lorsque vous téléchargez le fichier d’utilisation depuis le Centre des comptes Azure, sélectionnez **Version 2**. Pour les services qui prennent en charge les étiquettes avec la facturation, les étiquettes s'affichent dans la colonne **Étiquettes**.
+Vous pouvez récupérer des informations sur les étiquettes par le biais des [API Resource Usage et RateCard](../../cost-management-billing/manage/usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Vous téléchargez le fichier d’utilisation à partir du portail Azure. Pour plus d’informations, consultez [Télécharger et consulter votre facture Azure et vos données d’utilisation quotidienne](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Lorsque vous téléchargez le fichier d’utilisation depuis le Centre des comptes Azure, sélectionnez **Version 2**. Pour les services qui prennent en charge les étiquettes avec la facturation, les étiquettes s'affichent dans la colonne **Étiquettes**.
 
 Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](/rest/api/billing/).
 

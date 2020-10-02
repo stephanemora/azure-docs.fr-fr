@@ -3,14 +3,14 @@ title: Vue d’ensemble du Runbook Worker hybride d’Azure Automation
 description: Cet article fournit une vue d’ensemble du Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des machines de votre centre de données local ou de votre fournisseur de cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448079"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087884"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -63,7 +63,7 @@ Si vous utilisez un serveur proxy pour la communication entre Azure Automation e
 
 ### <a name="firewall-use"></a>Utilisation du pare-feu
 
-Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer le pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les Runbook Workers hybrides. Consultez [Configuration de la passerelle Log Analytics pour les Automation Hybrid Workers](../azure-monitor/platform/gateway.md).
+Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer le pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les Runbook Workers hybrides. Consultez [Configurer de la passerelle Log Analytics pour les Runbooks Workers hybrides Azure Automation](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Étiquettes de service
 
@@ -115,6 +115,20 @@ Si la machine hôte du runbook Worker hybride redémarre, tous les travaux du ru
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Autorisations des runbooks pour un runbook Worker hybride
 
 Étant donné qu’ils accèdent à des ressources non-Azure, les runbooks s’exécutant sur un runbook Worker hybride ne peuvent pas utiliser le mécanisme d’authentification généralement utilisé par les runbooks pour s’authentifier auprès des ressources Azure. Un runbook peut fournir sa propre authentification auprès des ressources locales ou en configurer une à l’aide d’[identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Vous pouvez également spécifier un compte d’identification pour fournir un contexte utilisateur pour l’ensemble des runbooks.
+
+## <a name="view-hybrid-runbook-workers"></a>Afficher les Runbooks Workers hybrides
+
+Une fois la fonctionnalité Update Management activée sur les serveurs ou machines virtuelles Windows, vous pouvez inventorier la liste du groupe Runbooks Workers hybrides du système sur le portail Azure. Vous pouvez afficher un maximum de 2 000 Workers sur le portail en sélectionnant l'onglet **Groupe de Workers hybrides du système** de l'option **Groupe de Workers hybrides** dans le volet de gauche du compte Automation sélectionné.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Page des groupes de Workers hybrides du système sur le compte Automation" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Si vous disposez de plus de 2 000 Workers hybrides, pour obtenir la liste complète de ceux-ci, vous pouvez exécuter le script PowerShell suivant :
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

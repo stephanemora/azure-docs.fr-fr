@@ -1,5 +1,5 @@
 ---
-title: Charger des données de vente au détail de Contoso dans un entrepôt de données SQL Synapse
+title: Chargement de données de vente au détail Contoso dans SQL Synapse
 description: Utilisez des commandes PolyBase et T-SQL pour charger deux tables de données de vente au détail Contoso dans SQL Synapse.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213310"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461695"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Chargement de données de vente au détail Contoso dans SQL Synapse 
 
-Ce tutoriel explique comment utiliser des commandes PolyBase et T-SQL pour charger deux tables de données de vente au détail de Contoso dans un entrepôt de données SQL Synapse.
+Ce tutoriel explique comment utiliser des commandes PolyBase et T-SQL pour charger deux tables de données de vente au détail de Contoso dans Synapse SQL.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -30,11 +30,11 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour exécuter ce tutoriel, vous avez besoin d’un compte Azure possédant d’un entrepôt de données SQL Synapse. Si aucun entrepôt de données n'est approvisionné, consultez [Créer un entrepôt de données et définir une règle de pare-feu au niveau du serveur](create-data-warehouse-portal.md).
+Pour effectuer ce tutoriel, vous avez besoin d’un compte Azure ayant déjà une instance Synapse SQL. Si aucun entrepôt de données n'est approvisionné, consultez [Créer un entrepôt de données et définir une règle de pare-feu au niveau du serveur](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurer la source de données
 
-PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objets externes sont stockées dans votre entrepôt de données SQL Synapse. Les données sont stockées en externe.
+PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objet externe sont stockées dans Synapse SQL. Les données sont stockées en externe.
 
 ## <a name="create-a-credential"></a>Créer des informations d’identification
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimiser la compression columnstore
 
-Par défaut, l’entrepôt de données SQL Synapse stocke la table sous forme d’index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore](sql-data-warehouse-tables-index.md).
+Par défaut, Synapse SQL stocke la table comme index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore](sql-data-warehouse-tables-index.md).
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes.
 

@@ -3,17 +3,17 @@ title: Utiliser un tableau de bord pour un laboratoire de classe dans Azure Lab 
 description: Découvrez comment utiliser un tableau de bord pour un laboratoire de classe dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444316"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528259"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Tableau de bord pour les laboratoires de classe
 Cet article décrit la vue du tableau de bord d’un laboratoire de classe dans Azure Lab Services. 
 
-![tableau de bord](./media/use-dashboard/dashboard.png)
+![Capture d’écran montrant la vue du tableau de bord d’un laboratoire de classe dans Azure Lab Services.](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Vignette Coûts et facturation
 Cette vignette fournit les détails d’estimation de coût suivants :

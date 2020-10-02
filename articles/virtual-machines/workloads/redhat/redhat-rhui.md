@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869216"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612511"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -89,11 +89,11 @@ Au moment de la rédaction de ce document, la prise en charge d’EUS est termin
 * La prise en charge de RHEL 7.6 EUS se terminera le 31 mai 2021.
 * La prise en charge de RHEL 7.7 EUS se terminera le 30 août 2021.
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Faites basculer une machine virtuelle RHEL vers EUS (verrouillage sur une version mineure spécifique)
-Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL sur une version mineure en particulier (en exécutant les opérations en tant que racine) :
+### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>Faire passer une machine virtuelle RHEL 7.x à EUS (verrouillage sur une version mineure spécifique)
+Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL 7.x sur une version mineure spécifique (à exécuter comme utilisateur root) :
 
 >[!NOTE]
-> Ceci s’applique uniquement aux versions RHEL pour laquelle EUS est disponible. Au moment de la rédaction de cet article, cela inclut RHEL 7.2-7.7. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+> Ceci s’applique uniquement aux versions RHEL 7.x pour laquelle EUS est disponible. Au moment de la rédaction de cet article, cela inclut RHEL 7.2-7.7. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 1. Désactivez les dépôts non-EUS :
     ```bash
@@ -111,14 +111,52 @@ Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL 
     ```
 
     >[!NOTE]
-    > L’instruction ci-dessus verrouille la version mineure de RHEL sur la version mineure actuelle. Entrez une version mineure spécifique si vous souhaitez mettre à niveau et verrouiller une version mineure ultérieure qui n’est pas la dernière version. Par exemple, `echo 7.5 > /etc/yum/vars/releasever` verrouille votre version RHEL sur RHEL 7.5
+    > L’instruction ci-dessus verrouille la version mineure de RHEL sur la version mineure actuelle. Entrez une version mineure spécifique si vous souhaitez mettre à niveau et verrouiller une version mineure ultérieure qui n’est pas la dernière version. Par exemple, `echo 7.5 > /etc/yum/vars/releasever` verrouille votre version de RHEL sur RHEL 7.5.
 
 1. Mettre à jour votre machine virtuelle RHEL
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Faites basculer une machine virtuelle RHEL vers une infrastructure non EUS (en supprimant le verrouillage de version)
+### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>Faire passer une machine virtuelle RHEL 8.x à EUS (verrouillage sur une version mineure spécifique)
+Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL 8.x sur une version mineure spécifique (à exécuter comme utilisateur root) :
+
+>[!NOTE]
+> Ceci s’applique uniquement aux versions RHEL 8.x pour laquelle EUS est disponible. Au moment de la rédaction de cet article, ceci inclut RHEL 8.1 - 8.2. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+
+1. Désactivez les dépôts non-EUS :
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8'
+    ```
+
+1. Procurez-vous le fichier de configuration de dépôt EUS :
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
+1. Ajoutez les dépôts EUS :
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+    ```
+
+1. Verrouillez la variable `releasever` (en exécutant les opérations en tant que racine) :
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > L’instruction ci-dessus verrouille la version mineure de RHEL sur la version mineure actuelle. Entrez une version mineure spécifique si vous souhaitez mettre à niveau et verrouiller une version mineure ultérieure qui n’est pas la dernière version. Par exemple, `echo 8.1 > /etc/yum/vars/releasever` verrouille votre version RHEL sur RHEL 8.1.
+
+    >[!NOTE]
+    > S’il existe des problèmes d’autorisation pour accéder au releasever, vous pouvez éditer le fichier en utilisant « nano /etc/yum/vars/releaseve », ajouter les détails de la version de l’image et enregistrer (« Ctrl+O », puis appuyer sur Entrée, puis sur « Ctrl+X »).  
+
+1. Mettre à jour votre machine virtuelle RHEL
+    ```bash
+    sudo yum update
+    ```
+
+
+### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>Rétablir une machine virtuelle RHEL 7.x à une version non-EUS (supprimer un verrouillage de version)
 Exécutez l’opération suivante, en tant que racine :
 1. Supprimez le fichier `releasever` :
     ```bash
@@ -135,6 +173,33 @@ Exécutez l’opération suivante, en tant que racine :
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
 
+1. Mettre à jour votre machine virtuelle RHEL
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>Rétablir une machine virtuelle RHEL 8.x à une version non-EUS (supprimer un verrouillage de version)
+Exécutez l’opération suivante, en tant que racine :
+1. Supprimez le fichier `releasever` :
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Désactivez le référentiel EUS :
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. Procurez-vous le fichier de configuration de dépôt standard :
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    ```
+
+1. Ajoutez les dépôts EUS :
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. Mettre à jour votre machine virtuelle RHEL
     ```bash
     sudo yum update

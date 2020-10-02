@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036480"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437443"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database, Azure Synapse Analytics, Data Factory et Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Dans ce didacticiel, vous suivez un scénario d’analyse de bout en bout. Le scénario illustre comment les analyses sur les données des clients peuvent aider les fournisseurs de logiciels à prendre des décisions intelligentes. À l’aide de données extraites de la base de données de chaque client, vous utilisez les analyses pour obtenir des informations sur un comportement de client, y compris son utilisation de l’exemple d’application Wingtip Tickets SaaS. Ce scénario implique trois étapes :
 
-1. **Extrayez des données** à partir de chaque base de données dans un magasin d’analytique, dans le cas présent, SQL Data Warehouse.
+1. **Extrayez des données** à partir de chaque base de données de locataire dans un magasin d’analytique, dans le cas présent, un pool SQL.
 2. **Optimisez les données extraites** pour le traitement analytique.
 3. Utilisez les outils **d’Aide à la décision** pour en tirer des informations utiles, qui peuvent guider la prise de décision.
 
@@ -45,7 +45,7 @@ Les applications SaaS maintiennent une quantité potentiellement grande de donn�
 
 L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur des milliers de bases de données. Une façon de maîtriser la complexité consiste à extraire les données à une base de données analytique ou un entrepôt de données pour les requêtes.
 
-Ce didacticiel présente un scénario d’analytique de bout en bout pour l’application Wingtip Tickets. Tout d’abord, [Azure Data Factory (ADF)](../../data-factory/introduction.md) est utilisé comme outil d’orchestration pour extraire les ventes de tickets et les données associées de chaque base de données client. Ces données sont chargées dans des tables de mise en lots dans un magasin d’analytique. Le magasin d'analytique peut être une instance de SQL Database ou de SQL Data Warehouse. Ce didacticiel utilise [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) comme magasin d’analytique.
+Ce didacticiel présente un scénario d’analytique de bout en bout pour l’application Wingtip Tickets. Tout d’abord, [Azure Data Factory (ADF)](../../data-factory/introduction.md) est utilisé comme outil d’orchestration pour extraire les ventes de tickets et les données associées de chaque base de données client. Ces données sont chargées dans des tables de mise en lots dans un magasin d’analytique. Le magasin d’analytique peut être une instance de SQL Database ou un pool SQL. Ce tutoriel utilise [Azure Synapse Analytics (anciennement SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) comme magasin d’analytique.
 
 Ensuite, les données extraites sont transformées et chargées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées :
 
@@ -83,11 +83,11 @@ Ce didacticiel explore les analytiques sur les données de ventes de ticket. À 
     - **$DemoScenario** = **1**Acheter des tickets pour des événements dans tous les lieux
 2. Appuyez sur **F5** pour exécuter le script et créez un historique d’achat de tickets pour tous les lieux. Avec 20 clients, le script génère des dizaines de milliers de tickets et peut prendre 10 minutes ou plus.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Déployer SQL Data Warehouse, Data Factory, et le stockage d’objets blob
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Déployer Azure Synapse Analytics, Data Factory et le stockage Blob
 
-Dans l’application Wingtip Tickets, les données transactionnelles des clients sont distribuées sur de nombreuses bases de données. Azure Data Factory (ADF) est utilisé pour orchestrer l’extraction, le chargement et la transformation (ELT) de ces données dans l’entrepôt de données. Pour charger des données plus efficacement dans SQL Data Warehouse, ADF extrait des données dans des fichiers d’objets blob intermédiaires, puis utilise [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) pour charger les données dans l’entrepôt de données.
+Dans l’application Wingtip Tickets, les données transactionnelles des clients sont distribuées sur de nombreuses bases de données. Azure Data Factory (ADF) est utilisé pour orchestrer l’extraction, le chargement et la transformation (ELT) de ces données dans l’entrepôt de données. Pour charger des données plus efficacement dans Azure Synapse Analytics (anciennement SQL Data Warehouse), ADF extrait des données dans des fichiers d’objets blob intermédiaires, puis utilise [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) pour charger les données dans l’entrepôt de données.
 
-Au cours de cette étape, vous allez déployer les ressources supplémentaires utilisées dans le tutoriel : une instance de SQL Data Warehouse appelée _tenantanalytics_, une instance d'Azure Data Factory appelée _dbtodwload-\<user\>_ et un compte de stockage Azure appelé _wingtipstaging\<user\>_ . Le compte de stockage est utilisé pour stocker temporairement des fichiers de données extraits en tant qu’objets blob avant leur chargement dans l’entrepôt de données. Cette étape déploie également le schéma d’entrepôt de données et définit les pipelines ADF qui orchestrent le processus ELT.
+Au cours de cette étape, vous allez déployer les ressources supplémentaires utilisées dans le tutoriel : un pool SQL appelé _tenantanalytics_, une instance d’Azure Data Factory appelée _dbtodwload-\<user\>_ et un compte de stockage Azure appelé _wingtipstaging\<user\>_ . Le compte de stockage est utilisé pour stocker temporairement des fichiers de données extraits en tant qu’objets blob avant leur chargement dans l’entrepôt de données. Cette étape déploie également le schéma d’entrepôt de données et définit les pipelines ADF qui orchestrent le processus ELT.
 
 1. Dans PowerShell ISE, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*, et configurez :
     - **$DemoScenario** = **2** déployer l’entrepôt de données analytiques, le stockage d’objets blob et la fabrique de données du client
@@ -159,7 +159,7 @@ Les trois pipelines imbriqués sont : SQLDBToDW, DBCopy et TableCopy.
 
 **Pipeline 3 - tableauCopier** utilise les numéros de version des lignes dans SQL Database (_rowversion_) pour identifier les lignes modifiées ou mises à jour. Cette activité recherche la version de la ligne du début et de fin pour extraire des lignes à partir des tables sources. La table **CopyTracker** stockée dans chaque base de données client effectue le suivi de la dernière ligne extraite à partir de chaque table source durant chaque exécution. Les lignes nouvelles ou modifiées sont copiées dans les tables de mise en lots correspondantes dans l’entrepôt de données : **raw_Tickets**, **raw_customers**, **raw_Events** et **raw_Venues**. Enfin, la version de la dernière ligne est enregistrée dans la table **CopyTracker** pour l’utiliser comme version de la ligne initiale lors de la prochaine extraction.
 
-Il existe également trois services liés paramétrables qui lient la fabrique de données aux bases de données SQL sources, à l’entrepôt de données SQL cible et au stockage d’objets Blob intermédiaire. Dans l’onglet **Auteur**, cliquez sur **Connexions** pour explorer les services liés, comme indiqué dans l’image suivante :
+Il existe également trois services liés paramétrables qui lient la fabrique de données aux bases de données SQL sources, au pool SQL cible et au stockage Blob intermédiaire. Dans l’onglet **Auteur**, cliquez sur **Connexions** pour explorer les services liés, comme indiqué dans l’image suivante :
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Correspondant aux trois services liés, il existe trois jeux de données faisant
   
 ### <a name="data-warehouse-pattern-overview"></a>Vue d’ensemble du modèle de l’entrepôt de données
 
-Azure Synapse (anciennement Azure SQL Data Warehouse) est utilisé comme magasin d'analytique pour effectuer l'agrégation sur les données des locataires. Dans cet exemple, PolyBase est utilisé pour charger des données dans l'entrepôt de données. Les données brutes sont chargées dans des tables de mise en lots qui ont une colonne d’identité pour suivre des lignes transformées dans les tables du schéma en étoile. L’illustration suivante montre le modèle de chargement : ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (anciennement SQL Data Warehouse) est utilisé comme magasin d’analytique pour effectuer l’agrégation sur les données des locataires. Dans cet exemple, PolyBase est utilisé pour charger des données dans l'entrepôt de données. Les données brutes sont chargées dans des tables de mise en lots qui ont une colonne d’identité pour suivre des lignes transformées dans les tables du schéma en étoile. L’illustration suivante montre le modèle de chargement : ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 Les tables de dimension du type 1 de SCD (Slowly Changing Dimension) sont utilisées dans cet exemple. Chaque dimension possède une clé de substitution définie à l’aide d’une colonne d’identité. Comme meilleure pratique, la table de dimension de date est préremplie afin de gagner du temps. Pour les autres tables de dimension, une instruction CREATE TABLE AS SELECT... (CTAS) est utilisée pour créer une table temporaire contenant les lignes existantes non modifiées et modifiées, avec des clés de substitution. Cette opération s’effectue avec IDENTITY_INSERT=ON. De nouvelles lignes sont ensuite insérées dans la table avec IDENTITY_INSERT=OFF. Pour une restauration facile, la table de dimension existante est renommée et la table temporaire est renommée pour devenir la nouvelle table de dimension. Avant chaque exécution, l’ancienne table de dimension est supprimée.
 

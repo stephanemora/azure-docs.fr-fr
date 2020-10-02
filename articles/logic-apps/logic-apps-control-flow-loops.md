@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495605"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657480"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -45,7 +45,7 @@ pour référencer et traiter chaque élément du tableau. Si vous spécifiez des
 
 Cet exemple d’application logique envoie un résumé quotidien pour le flux RSS d’un site web. L’application utilise une boucle « Foreach » qui envoie un e-mail pour chaque nouvel élément.
 
-1. [Créez cet exemple d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avec un compte Outlook.com ou Office 365 Outlook.
+1. [Créez cet exemple d'application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avec un compte Outlook.com ou avec un compte professionnel ou scolaire.
 
 2. Entre le déclencheur RSS et l’action Envoyer un courrier électronique, ajoutez une bouche « Foreach ». 
 

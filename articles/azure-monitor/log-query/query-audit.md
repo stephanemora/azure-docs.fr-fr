@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893609"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458635"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Requêtes d’audit dans les journaux Azure Monitor (préversion)
 Les journaux d’audit des requêtes de journaux fournissent des données de télémétrie sur les requêtes de journal exécutées dans Azure Monitor : par exemple, le moment où la requête a été exécutée, l’utilisateur qui l’a exécutée, l’outil utilisé, le texte de la requête et les statistiques de performances qui décrivent l’exécution de la requête.
-
-## <a name="current-limitations"></a>Limites actuelles
-Les limitations suivantes s’appliquent lors de la préversion publique :
-
-- Seules les requêtes orientées espace de travail sont journalisées. Les requêtes exécutées en mode orienté ressources ou sur une instance Application Insights non configurée comme basée sur un espace de travail ne sont pas consignées.
 
 
 ## <a name="configure-query-auditing"></a>Configuration de l’audit des requêtes
@@ -55,10 +50,11 @@ Un enregistrement d’audit est créé chaque fois qu’une requête s’exécut
 | QueryTimeRangeEnd     | Fin de l’intervalle de temps sélectionné pour la requête. Il existe des cas où ce champ n’est pas rempli, par exemple lorsque la requête est lancée à partir de Log Analytics et que l’intervalle de temps est spécifié à l’intérieur de la requête plutôt que dans le sélecteur d’heure.  |
 | QueryText             | Texte de la requête qui a été exécutée. |
 | RequestTarget         | URL de l’API utilisée pour envoyer la requête.  |
-| RequestContext        | Liste des ressources sur lesquelles la requête doit s’exécuter. Ce champ peut contenir trois tableaux de chaînes maximum : espaces de travail, applications et ressources. Les ressources ciblant un abonnement ou un groupe de ressources apparaissent sous l’intitulé *ressources*. La cible impliquée par RequestTarget est incluse. |
+| RequestContext        | Liste des ressources sur lesquelles la requête doit s’exécuter. Ce champ peut contenir trois tableaux de chaînes maximum : espaces de travail, applications et ressources. Les ressources ciblant un abonnement ou un groupe de ressources apparaissent sous l’intitulé *ressources*. La cible impliquée par RequestTarget est incluse.<br>L’ID de ressource de chaque ressource sera inclus s’il peut être résolu. Il est possible qu’il ne puisse pas être résolu si une erreur est retournée lors de l’accès à la ressource. Dans ce cas, le texte spécifique à partir de la requête sera utilisé.<br>Si la requête utilise un nom ambigu, tel qu’un nom d’espace de travail existant dans plusieurs abonnements, ce nom ambigu sera utilisé. |
 | RequestContextFilters | Ensemble de filtres spécifiés dans le cadre de l’appel de requête. Ce champ peut contenir trois tableaux de chaînes maximum :<br>- ResourceTypes : type de ressource permettant de limiter l’étendue de la requête<br>- Workspaces : liste des espaces de travail auxquels la requête sera limitée<br>- WorkspaceRegions : liste des régions d’espaces de travail permettant de limiter la requête |
 | ResponseCode          | Code de réponse HTTP renvoyé lors de l’envoi de la requête. |
 | ResponseDurationMs    | Heure à laquelle la réponse doit être retournée.  |
+| ResponseRowCount     | Nombre total de lignes renvoyées par la requête. |
 | StatsCPUTimeMs       | Temps de calcul total utilisé pour le calcul, l’analyse et l’extraction de données. Ce champ n’est renseigné que si la requête retourne le code de statut 200. |
 | StatsDataProcessedKB | Volume de données consultées pour traiter la requête. Influencé par la taille de la table cible, l’intervalle de temps utilisé, les filtres appliqués et le nombre de colonnes référencées. Ce champ n’est renseigné que si la requête retourne le code de statut 200. |
 | StatsDataProcessedStart | Heure des données les plus anciennes consultées pour traiter la requête. Ce champ est influencé par l’intervalle de temps explicite de la requête et par les filtres appliqués. Il peut être plus élevé que l’intervalle de temps explicite en raison du partitionnement des données. Ce champ n’est renseigné que si la requête retourne le code de statut 200. |
@@ -66,7 +62,11 @@ Un enregistrement d’audit est créé chaque fois qu’une requête s’exécut
 | StatsWorkspaceCount | Nombre d’espaces de travail auxquels la requête accède. Ce champ n’est renseigné que si la requête retourne le code de statut 200. |
 | StatsRegionCount | Nombre de régions auxquels la requête accède. Ce champ n’est renseigné que si la requête retourne le code de statut 200. |
 
+## <a name="considerations"></a>Considérations
 
+- Les statistiques de performances ne sont pas disponibles pour les requêtes provenant du proxy Azure Data Explorer. L’intégralité des autres données pour ces requêtes seront quand même remplies.
+- L’indicateur *h* sur les chaînes, qui [obfusque les littéraux de chaîne](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals), n’aura pas d’effet sur les journaux d’audit de requête. Les requêtes sont capturées exactement comme elles sont envoyées, sans que la chaîne soit obfusquée. Vous devez vous assurer que seuls les utilisateurs disposant de droits de conformité pour voir ces données, peuvent le faire au moyen des différents modes RBAC disponibles dans les espaces de travail Log Analytics.
+- Pour les requêtes qui comportent des données provenant de plusieurs espaces de travail, la requête sera uniquement capturée dans les espaces de travail auxquels l’utilisateur a accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

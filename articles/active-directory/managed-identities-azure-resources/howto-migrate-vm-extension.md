@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260184"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969198"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Comment cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser Azure Instance Metadata Service
 
@@ -37,8 +37,8 @@ De par certaines limitations décrites dans la section suivante, l’extension d
 
 Lorsque vous configurez une machine virtuelle ou un groupe de machines virtuelles identiques pour disposer d’une identité managée, vous pouvez éventuellement choisir d’approvisionner les identités managées pour l’extension de machine virtuelle pour ressources Azure en utilisant le paramètre `-Type` dans la cmdlet [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). Vous pouvez passer `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux` selon le type de machine virtuelle et lui affecter un nom en utilisant le paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
-```powershell
-   $settings = @{ "port" = 50342 }
+```azurepowershell-interactive
+$settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
@@ -68,7 +68,7 @@ Vous pouvez également utiliser le modèle de déploiement Azure Resource Manage
     
 Si vous utilisez des groupes de machines virtuelles identiques, vous pouvez également approvisionner les identités managées pour l’extension de groupe de machines virtuelles identiques pour ressources Azure en utilisant la cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Vous pouvez passer `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux` selon le type de groupe de machines virtuelles identiques et lui affecter un nom en utilisant le paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
-   ```powershell
+   ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
@@ -96,7 +96,7 @@ Pour approvisionner l’extension de groupe de machines virtuelles identiques av
 L’approvisionnement de l’extension de machine virtuelle peut échouer en raison d’échecs de recherche DNS. Si cela se produit, redémarrez la machine virtuelle, puis réessayez. 
 
 ### <a name="remove-the-extension"></a>Supprimer l’extension 
-Pour supprimer l’extension, utilisez le commutateur `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (selon le type de machine virtuelle) avec [az vm extension delete](/cli/azure/vm/) ou [az vmss extension delete](/cli/azure/vmss) pour les groupes de machines virtuelles identiques à l’aide d’Azure CLI ou `Remove-AzVMExtension` pour Powershell :
+Pour supprimer l’extension, utilisez le commutateur `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (selon le type de machine virtuelle) avec [az vm extension delete](/cli/azure/vm/) ou [az vmss extension delete](/cli/azure/vmss) pour les groupes de machines virtuelles identiques à l’aide d’Azure CLI ou `Remove-AzVMExtension` pour PowerShell :
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -106,7 +106,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
 ```
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
@@ -162,7 +162,7 @@ Content-Type: application/json
 
 Sur Windows et certaines versions de Linux, si l’extension s’arrête, la cmdlet suivante peut être utilisée pour redémarrer manuellement l’extension :
 
-```powershell
+```azurepowershell-interactive
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 

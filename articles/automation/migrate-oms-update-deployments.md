@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987597"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Effectuer la migration des déploiements de mise à jour des journaux Azure Monitor vers le portail Azure
 
@@ -33,7 +33,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 
 3. Dans votre compte Automation, cliquez sur **Update Management**.
 
-    ![Update Management](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Capture d'écran de la page Gestion des mises à jour.":::
 
 4. Dans le portail Azure, sélectionnez **Comptes Automation** sous **Tous les services**. 
 
@@ -43,7 +43,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 
 Tous les déploiements de mises à jour créés dans le portail OMS ont une [recherche enregistrée](../azure-monitor/platform/computer-groups.md), également appelée « groupe d’ordinateurs », avec le même nom que le déploiement de mises à jour existant. La recherche enregistrée contient la liste des ordinateurs pour lesquels le déploiement de mises à jour a été planifié.
 
-![Update Management](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Capture d'écran de la page Gestion des mises à jour.":::
 
 Pour utiliser cette recherche enregistrée existante, suivez ces étapes :
 

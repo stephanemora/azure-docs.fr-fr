@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022426"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458295"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
 
@@ -36,7 +36,6 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
    > * Vous devez utiliser le même fournisseur que lorsque vous vous êtes inscrit à Video Indexer.
    > * Les comptes Google et Microsoft (Outlook/Live) personnels ne peuvent être utilisés que pour les comptes d’évaluation. Les comptes connectés à Azure nécessitent Azure AD.
    > * Il ne peut y avoir qu’un seul compte actif par e-mail. Si un utilisateur tente de se connecter avec user@gmail.com pour LinkedIn et après avec user@gmail.com pour Google, ce dernier affiche une page d’erreur, indiquant que l’utilisateur existe déjà.
-
 2. Abonnez-vous.
 
     Sélectionnez l’onglet [Produits](https://api-portal.videoindexer.ai/products). Ensuite, sélectionnez Autorisation et abonnez-vous.
@@ -46,7 +45,7 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
     > [!NOTE]
     > Les nouveaux utilisateurs sont automatiquement abonnés à l’API Autorisation.
     
-    Une fois abonné, vous pourrez voir votre abonnement et vos clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
+    Après vous être abonné, vous pouvez trouver votre abonnement sous **Produits** -> **Autorisation**. Dans la page d’abonnement, vous trouverez les clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
 
     ![Abonnement et clés dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 

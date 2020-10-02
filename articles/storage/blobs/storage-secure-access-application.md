@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967512"
 ---
 # <a name="secure-access-to-application-data"></a>Sécuriser l’accès aux données d’application
 
@@ -160,7 +160,7 @@ Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche 
 
 [Le chiffrement du stockage Azure](../common/storage-service-encryption.md) vous permet de protéger et de préserver vos données en chiffrant les données au repos et en gérant le chiffrement et le déchiffrement. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
-Vous pouvez choisir de laisser la gestion des clés de chiffrement à Microsoft, ou vous pouvez apporter vos propres clés à l’aide de clés gérées par le client avec Azure Key Vault. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+Vous pouvez choisir de laisser la gestion des clés de chiffrement à Microsoft, ou vous pouvez apporter vos propres clés, c’est-à-dire les clés gérées par le client qui sont stockées dans Azure Key Vault ou dans Key Vault Managed Hardware Security Model (HSM) (préversion). Pour plus d’informations, consultez [Clés gérées par le client pour le chiffrement Azure Storage](../common/customer-managed-keys-overview.md).
 
 Le chiffrement du stockage Azure chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de stockage Azure (blob, file d’attente, table et fichier).
 

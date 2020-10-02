@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974713"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor (préversion)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906800"
 
 La fonction **Champs personnalisés** d’Azure Monitor vous permet de compléter les enregistrements existants dans votre espace de travail Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
-![Vue d’ensemble](media/custom-fields/overview.png)
+![Le schéma montre un enregistrement d’origine associé à un enregistrement modifié dans un espace de travail Log Analytics avec des paires de valeurs de propriété ajoutées à la propriété d’origine dans l’enregistrement modifié.](media/custom-fields/overview.png)
 
 Par exemple, l’enregistrement ci-dessous contient des données utiles dans la description de l’événement. L’extraction de ces données dans une propriété séparée les rend disponibles pour des opérations de tri et de filtrage.
 
@@ -81,7 +81,7 @@ La section suivante décrit la procédure complète de création d’un champ pe
 
 Nous spécifions la requête suivante pour renvoyer tous les événements du Gestionnaire de contrôle des services dont l’ID d’événement est 7036, c’est-à-dire l’événement indiquant le démarrage ou l’arrêt d’un service.
 
-![Requête](media/custom-fields/query.png)
+![La capture d’écran montre une requête pour une source et un ID d’événement.](media/custom-fields/query.png)
 
 Ensuite, nous sélectionnons puis développons un enregistrement ayant l’ID d’événement 7036.
 

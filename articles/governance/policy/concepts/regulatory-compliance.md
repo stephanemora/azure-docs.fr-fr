@@ -3,12 +3,12 @@ title: Conformité réglementaire dans les définitions d’initiative
 description: Décrit comment utiliser une définition d’initiative pour regrouper des stratégies par domaine réglementaire, par exemple le contrôle d’accès, la gestion de la configuration, etc.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544619"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645527"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformité réglementaire dans Azure Policy
 
@@ -33,18 +33,18 @@ Quand une définition d’initiative est créée avec des [groupes](./initiative
 
 Un nouvel onglet, **Contrôles** est ajouté à la page. Un filtrage est disponible par **domaine de conformité**. De plus, les définitions de stratégie sont regroupées en fonction du champ `title` de l’objet **policyMetadata**. Chaque ligne représente un **contrôle** qui indique son état de conformité, le **domaine de conformité** dont il fait partie, les informations de responsabilité ainsi que le nombre de définitions de stratégie non conformes et conformes qui composent ce **contrôle**.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Exemple de vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Capture d’écran de la vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4, montrant des contrôles conformes et non conformes.":::
 
 La sélection d’un **contrôle** entraîne l’ouverture d’une page de détails pour ce contrôle. La **vue d’ensemble** contient les informations de `description` et `requirements`. Sous l’onglet **Stratégies** se trouvent toutes les définitions de stratégie individuelles qui font partie de l’initiative et qui contribuent à ce **contrôle**. L’onglet **Conformité des ressources** fournit une vue précise de chaque ressource évaluée par une stratégie membre du contrôle **affiché**.
 
 > [!NOTE]
 > Le type d’évaluation **Géré par Microsoft** correspond au `type` de définition de stratégie [statique](./definition-structure.md#type).
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Exemples de définitions de stratégie de conformité réglementaire dans le contrôle Protection de la limite du domaine Protection du système et des communications de la définition intégrée NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Capture d’écran de la vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4, montrant des contrôles conformes et non conformes.":::
 
 À partir de la même page de **contrôle**, le passage à l’onglet **Conformité des ressources** permet d’afficher toutes les ressources incluses dans les définitions de stratégie de ce **contrôle**. Des filtres sont disponibles pour le nom ou l’ID, l’état de conformité, le type de ressource ainsi que l’emplacement.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Exemples de ressources de conformité réglementaire impactées par les définitions de stratégie dans le contrôle Protection de la limite du domaine Protection du système et des communications de la définition intégrée NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Capture d’écran de la vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4, montrant des contrôles conformes et non conformes.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformité réglementaire dans le kit SDK
 

@@ -4,21 +4,21 @@ description: Découvrez comment créer une étendue de chiffrement pour isoler d
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870253"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972191"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Créer et gérer des étendues de chiffrement (version préliminaire)
 
-Les étendues de chiffrement (version préliminaire) vous permettent de gérer le chiffrement au niveau d’un objet blob ou d’un conteneur individuel. Une étendue de chiffrement isole les données blob dans une enclave sécurisée dans un compte de stockage. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents. Pour plus d’informations sur les étendues de chiffrement, consultez [Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Les étendues de chiffrement (version préliminaire) vous permettent de gérer le chiffrement au niveau d’un objet blob ou d’un conteneur individuel. Une étendue de chiffrement isole les données blob dans une enclave sécurisée dans un compte de stockage. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents. Pour plus d’informations sur les étendues de chiffrement, consultez [Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)](encryption-scope-overview.md).
 
 Cet article montre comment créer une étendue de chiffrement. Il montre également comment spécifier une étendue de chiffrement lorsque vous créez un objet blob ou un conteneur.
 
@@ -26,7 +26,7 @@ Cet article montre comment créer une étendue de chiffrement. Il montre égalem
 
 ## <a name="create-an-encryption-scope"></a>Créer une étendue de chiffrement
 
-Vous pouvez créer des étendues de chiffrement avec une clé gérée par Microsoft ou une clé gérée par le client qui est stockée dans Azure Key Vault. Pour créer une étendue de chiffrement avec une clé gérée par le client, vous devez d’abord créer un coffre de clés Azure et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés doit posséder les propriétés **Suppression réversible** et **Protection de la suppression** activées et doivent se trouver dans la même région que le compte de stockage. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+Vous pouvez créer une étendue de chiffrement avec une clé gérée par Microsoft ou une clé gérée par le client qui est stockée dans Azure Key Vault ou Azure Key Vault Managed Hardware Security Model (HSM) (préversion). Pour créer une étendue de chiffrement avec une clé gérée par le client, vous devez d’abord créer un coffre de clés ou un HSM managé et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés ou le HSM managé doit avoir la protection contre le vidage activée et se trouver dans la même région que le compte de stockage.
 
 Une étendue de chiffrement est automatiquement activée lorsque vous la créez. Après avoir créé l’étendue de chiffrement, vous pouvez la spécifier lorsque vous créez un objet blob. Vous pouvez également spécifier une étendue de chiffrement par défaut lorsque vous créez un conteneur, qui s’applique automatiquement à tous les objets blob du conteneur.
 
@@ -41,11 +41,9 @@ Pour créer une étendue de chiffrement dans le Portail Azure, effectuez les ét
 1. Dans le volet **Créer une étendue de chiffrement**, entrez un nom pour la nouvelle étendue.
 1. Sélectionnez le type de chiffrement, soit des **clés gérées par Microsoft**, soit des **clés gérées par le client**.
     - Si vous avez sélectionné **Clés gérées par Microsoft**, cliquez sur **Créer** pour créer l’étendue de chiffrement.
-    - Si vous avez sélectionné **Clés gérées par le client**, spécifiez un coffre de clés, une clé et une version de clé à utiliser pour cette étendue de chiffrement, comme illustré dans l’image suivante.
+    - Si vous avez sélectionné **Clés gérées par le client**, spécifiez un coffre de clés ou un HSM managé, une clé et une version de clé à utiliser pour cette étendue de chiffrement, comme illustré dans l’image suivante.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
-
-Pour plus d’informations sur la configuration des clés gérées par le client avec Azure Key Vault pour le chiffrement du stockage Azure, consultez [Configurer des clés gérées par le client avec Azure Key Vault à l’aide du Portail Azure](../common/storage-encryption-keys-portal.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -76,9 +74,9 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par clients
 
-Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client avec Azure Key Vault, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés afin que le compte de stockage dispose des autorisations nécessaires pour y accéder. Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant PowerShell](../common/storage-encryption-keys-powershell.md).
+Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client stockées dans un coffre de clés ou un HSM managé, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés ou un HSM managé afin que le compte de stockage dispose des autorisations nécessaires pour y accéder.
 
-Pour configurer des clés gérées par le client en vue d’une utilisation avec une étendue de chiffrement, les propriétés **Suppression réversible** et **Protection de la suppression** doivent être activées sur le coffre de clés. Le coffre de clés doit se trouver dans la même région que le compte de stockage. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+Pour configurer des clés gérées par le client en vue d’une utilisation avec une étendue de chiffrement, la protection contre le vidage doit être activée sur le coffre de clés ou le HSM managé. Le coffre de clés ou le HSM managé doit se trouver dans la même région que le compte de stockage.
 
 N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
@@ -132,9 +130,9 @@ az storage account encryption-scope create \
 
 Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 
-Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client avec Azure Key Vault, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés afin que le compte de stockage dispose des autorisations nécessaires pour y accéder. Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant Azure CLI](../common/storage-encryption-keys-cli.md).
+Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client dans un coffre de clés ou un HSM managé, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés afin que le compte de stockage dispose des autorisations nécessaires pour y accéder. Pour plus d’informations, consultez [Clés gérées par le client pour le chiffrement Stockage Azure](../common/customer-managed-keys-overview.md).
 
-Pour configurer des clés gérées par le client en vue d’une utilisation avec une étendue de chiffrement, les propriétés **Suppression réversible** et **Protection de la suppression** doivent être activées sur le coffre de clés. Le coffre de clés doit se trouver dans la même région que le compte de stockage. Pour plus d’informations, consultez [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md).
+Pour configurer des clés gérées par le client en vue d’une utilisation avec une étendue de chiffrement, la protection contre le vidage doit être activée sur le coffre de clés ou le HSM managé. Le coffre de clés ou le HSM managé doit se trouver dans la même région que le compte de stockage.
 
 N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
@@ -173,24 +171,26 @@ az storage account encryption-scope create \
 
 ---
 
+Pour savoir comment configurer le chiffrement du service Stockage Azure avec des clés gérées par le client dans un coffre de clés, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md). Pour configurer des clés gérées par le client stockées dans un HSM managé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans un HSM managé par Azure Key Vault (préversion)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+
 ## <a name="list-encryption-scopes-for-storage-account"></a>Répertorier les étendues de chiffrement pour un compte de stockage
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
 Pour afficher les étendues de chiffrement pour un compte de stockage dans le Portail Azure, accédez au paramètre **Étendues de chiffrement** pour le compte de stockage. Dans ce volet, vous pouvez activer ou désactiver une étendue de chiffrement ou modifier la clé d’une étendue de chiffrement.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Capture d’écran montrant une liste des étendues de chiffrement dans le Portail Azure":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Pour obtenir la liste des étendues de chiffrement disponibles pour un compte de stockage avec PowerShell, appelez la commande Get-AzStorageEncryptionScope. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
+Pour obtenir la liste des étendues de chiffrement disponibles pour un compte de stockage avec PowerShell, appelez la commande **Get-AzStorageEncryptionScope**. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
 ```powershell
 Get-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
-Pour répertorier toutes les étendues de chiffrement dans un groupe de ressources par compte de stockage, utilisez la syntaxe de pipeline comme suit :
+Pour répertorier toutes les étendues de chiffrement dans un groupe de ressources par compte de stockage, utilisez la syntaxe de pipeline :
 
 ```powershell
 Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
@@ -210,6 +210,10 @@ az storage account encryption-scope list \
 
 ## <a name="create-a-container-with-a-default-encryption-scope"></a>Créer un conteneur avec une étendue de chiffrement par défaut
 
+Lorsque vous créez un conteneur, vous pouvez spécifier une étendue de chiffrement par défaut. Les objets blob de ce conteneur utiliseront cette étendue par défaut.
+
+Un objet blob individuel peut être créé avec sa propre étendue de chiffrement, sauf si le conteneur est configuré pour exiger que tous les objets blob utilisent sa portée par défaut.
+
 # <a name="portal"></a>[Portail](#tab/portal)
 
 Pour créer un conteneur avec une étendue de chiffrement par défaut dans le Portail Azure, commencez par créer l’étendue de chiffrement comme décrit dans [Créer une étendue de chiffrement](#create-an-encryption-scope). Ensuite, effectuez les étapes suivantes pour créer le conteneur :
@@ -219,13 +223,13 @@ Pour créer un conteneur avec une étendue de chiffrement par défaut dans le Po
 1. Dans la liste déroulante **Étendue de chiffrement**, sélectionnez l’étendue de chiffrement par défaut pour le conteneur.
 1. Pour exiger que tous les objets blob du conteneur utilisent l’étendue de chiffrement par défaut, activez la case à cocher pour **Utiliser cette étendue de chiffrement pour tous les objets blob dans le conteneur.** Si cette case à cocher est activée, un objet blob individuel dans le conteneur ne peut pas remplacer l’étendue de chiffrement par défaut.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Capture d’écran montrant le conteneur avec l’étendue de chiffrement par défaut":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Pour créer un conteneur avec une étendue de chiffrement par défaut avec PowerShell, appelez la commande [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer), en spécifiant l’étendue du paramètre `-DefaultEncryptionScope`. La commande **New-AzRmStorageContainer** crée un conteneur à l’aide du fournisseur de ressources de stockage Azure, qui permet la configuration des étendues de chiffrement et d’autres opérations de gestion des ressources.
 
-Un objet blob individuel peut être créé avec sa propre étendue de chiffrement, sauf si le conteneur est configuré pour exiger que tous les objets blob utilisent sa portée par défaut. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `-PreventEncryptionScopeOverride` sur `true`.
+Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `-PreventEncryptionScopeOverride` sur `true`.
 
 ```powershell
 $containerName1 = "container1"
@@ -241,7 +245,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour créer un conteneur avec une étendue de chiffrement par défaut avec Azure CLI, appelez la commande [az storage container create](/cli/azure/storage/container#az-storage-container-create), en spécifiant l’étendue du paramètre `--default-encryption-scope`. Un objet blob individuel peut être créé avec sa propre étendue de chiffrement, sauf si le conteneur est configuré pour exiger que tous les objets blob utilisent sa portée par défaut. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `--prevent-encryption-scope-override` sur `true`.
+Pour créer un conteneur avec une étendue de chiffrement par défaut avec Azure CLI, appelez la commande [az storage container create](/cli/azure/storage/container#az-storage-container-create), en spécifiant l’étendue du paramètre `--default-encryption-scope`. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `--prevent-encryption-scope-override` sur `true`.
 
 L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Vous pouvez également utiliser la clé d'accès au compte. Pour plus d’informations, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md).
 
@@ -261,7 +265,7 @@ Si un client tente de spécifier une étendue lors du téléchargement d’un ob
 
 ## <a name="upload-a-blob-with-an-encryption-scope"></a>Charger un objet blob avec une étendue de chiffrement
 
-Lorsque vous téléchargez un objet blob, vous pouvez spécifier une étendue de chiffrement pour cet objet ou utiliser l’étendue de chiffrement par défaut pour le conteneur, le cas échéant. 
+Lorsque vous téléchargez un objet blob, vous pouvez spécifier une étendue de chiffrement pour cet objet ou utiliser l’étendue de chiffrement par défaut pour le conteneur, le cas échéant.
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -273,7 +277,7 @@ Pour créer un blob avec une étendue de chiffrement par défaut dans le Portail
 1. Recherchez la section de liste déroulante **Étendue de chiffrement**. Par défaut, l’objet blob est créé avec l’étendue de chiffrement par défaut pour le conteneur, si elle a été spécifiée. Si le conteneur exige que les blobs utilisent le champ de chiffrement par défaut, cette section est désactivée.
 1. Pour spécifier une autre étendue pour l’objet blob que vous chargez, sélectionnez **Choisir une étendue existante**, puis sélectionnez l’étendue souhaitée dans la liste déroulante.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Capture d’écran montrant comment charger un objet blob avec une étendue de chiffrement":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -309,6 +313,8 @@ az storage blob upload \
 
 ## <a name="change-the-encryption-key-for-a-scope"></a>Modifier la clé de chiffrement pour une étendue
 
+Pour modifier la clé qui protège une étendue de chiffrement d’une clé gérée par Microsoft à une clé gérée par le client, commencez par vérifier que vous avez activé les clés gérées par le client avec Azure Key Vault ou un HSM Key Vault pour le compte de stockage. Pour plus d’informations, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md) ou [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md).
+
 # <a name="portal"></a>[Portail](#tab/portal)
 
 Pour modifier la clé qui protège une étendue dans le Portail Azure, procédez comme suit :
@@ -329,7 +335,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageEncryption
 ```
 
-Pour modifier la clé qui protège une étendue de chiffrement d’une clé gérée par Microsoft à une clé gérée par le client, commencez par vérifier que vous avez activé les clés gérées par le client avec Azure Key Vault pour le compte de stockage. Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant PowerShell](../common/storage-encryption-keys-powershell.md). Ensuite, appelez la commande **Update-AzStorageEncryptionScope** et transmettez les paramètres `-KeyUri` et `-KeyvaultEncryption` :
+Ensuite, appelez la commande **Update-AzStorageEncryptionScope** et transmettez les paramètres `-KeyUri` et `-KeyvaultEncryption` :
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -351,7 +357,7 @@ az storage account encryption-scope update \
     --key-source Microsoft.Storage
 ```
 
-Pour modifier la clé qui protège une étendue de chiffrement d’une clé gérée par Microsoft à une clé gérée par le client, commencez par vérifier que vous avez activé les clés gérées par le client avec Azure Key Vault pour le compte de stockage. Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant Azure CLI](../common/storage-encryption-keys-cli.md). Ensuite, appelez la commande **az storage account encryption-scope update**, transmettez le paramètre `--key-uri` et transmettez le paramètre `--key-source` avec la valeur `Microsoft.KeyVault` :
+Ensuite, appelez la commande **az storage account encryption-scope update**, transmettez le paramètre `--key-uri` et transmettez le paramètre `--key-source` avec la valeur `Microsoft.KeyVault` :
 
 ```powershell
 az storage account encryption-scope update \
@@ -365,6 +371,8 @@ az storage account encryption-scope update \
 ---
 
 ## <a name="disable-an-encryption-scope"></a>Désactiver une étendue de chiffrement
+
+Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé pour celle-ci. Désactivez les étendues de chiffrement qui ne sont pas nécessaires pour éviter les frais inutiles. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../common/storage-service-encryption.md).
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -398,4 +406,5 @@ az storage account encryption-scope update \
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](../common/storage-service-encryption.md)
-- [Utiliser des clés gérées par le client avec Azure Key Vault pour gérer le chiffrement du stockage Azure](../common/encryption-customer-managed-keys.md)
+- [Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)](encryption-scope-overview.md)
+- [Clés gérées par le client pour le chiffrement du service Stockage Azure](../common/customer-managed-keys-overview.md)

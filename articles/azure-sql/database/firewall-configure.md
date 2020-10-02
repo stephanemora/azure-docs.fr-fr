@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085087"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442698"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Lorsque vous créez dans Azure SQL Database ou Azure Synapse Analytics un serveur nommé *mysqlserver*, par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net*). Par souci de simplicité, le terme *SQL Database* est utilisé pour désigner à la fois SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse).
+Lorsque vous créez dans Azure SQL Database ou Azure Synapse Analytics un serveur nommé *mysqlserver*, par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net*). Par souci de simplicité, *SQL Database* est utilisé pour désigner tant SQL Database qu’Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à *Azure SQL Managed Instance*. Pour plus d'informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).

@@ -4,15 +4,15 @@ description: Résoudre les problèmes de niveau de performance connus avec les p
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782368"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707592"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -200,6 +200,36 @@ Latence de l’accès à Azure Files pour des charges de travail intensives d’
 11. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 12. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
+
+Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Créer des alertes si un partage de fichiers Premium tend à être limité
+
+1. Accédez à votre **compte de stockage** dans le **portail Azure**.
+2. Dans la section Surveillance, cliquez sur **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est contoso, sélectionnez la ressource contoso/file.
+4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
+5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Egress**.
+
+  > [!NOTE]
+  > Vous devez créer 3 alertes distinctes pour être alerté lorsque Entrée, Sortie ou Transactions dépasse la valeur seuil que vous définissez. Cela est dû au fait qu’une alerte est uniquement déclenchée lorsque toutes les conditions sont réunies. Dès lors, si vous placez toutes les conditions dans une alerte, vous ne recevez d’alerte que si Entrée, Sortie et Transactions dépassent leur valeur seuil.
+
+6. Faites défiler vers le bas. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
+7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+8. Définissez les **paramètres d’alerte** (valeur de seuil, opérateur, granularité d’agrégation et fréquence), puis cliquez sur **Terminé**.
+
+  > [!NOTE]
+  > Les métriques Sortie, Entrée et Transactions sont effectuées par minute et ce, même si vous avez configuré Sortie, Entrée et IOPS par seconde. (évoquer la granularité de l’agrégation-> par minute = plus bruyante, en choisir une autre) Par exemple, si votre sortie configurée est de 90 Mio/seconde et que vous souhaitez que votre seuil s’élève à 80 % de la sortie configurée, vous devez sélectionner les paramètres d’alerte suivants : 75497472 pour une **valeur de seuil**, supérieure ou égale pour **opérateur** et moyenne pour **type d’agrégation**. Selon le bruit souhaité pour votre alerte, vous pouvez choisir les valeurs à sélectionner pour la granularité de l’agrégation et la fréquence d’évaluation. Par exemple, si je souhaite que mon alerte examine l’entrée moyenne sur une période d’une heure et que ma règle d’alerte soit exécutée toutes les heures, je sélectionne 1 heure pour **granularité d’agrégation** et 1 heure pour **fréquence d’évaluation**.
+
+9. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+10. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
+11. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
+
+  > [!NOTE]
+  > Pour être informé si votre partage de fichiers Premium est sur le point d’être limité en raison d’une entrée configurée, suivez la même procédure, mais à l’étape 5, sélectionnez la métrique **Entrée**.
+
+  > [!NOTE]
+  > Pour être informé si votre partage de fichiers Premium est sur le point d’être limité en raison des IOPS configurées, vous devez apporter quelques modifications. À l’étape 5, sélectionnez la mesure **Transactions**. De plus, à l’étape 10, la seule option pour **Type d’agrégation** est total. Par conséquent, la valeur de seuil dépend de la granularité de votre agrégation sélectionnée. Par exemple, si vous souhaitez que votre seuil corresponde à 80 % des IOPS de la ligne de base configurées et que vous avez sélectionné 1 heure pour **granularité d’agrégation**, votre **valeur de seuil** correspond à vos IOPS de ligne de base (en octets) x 0,8 x 3 600. En plus de ces modifications, suivez la même procédure que celle indiquée ci-dessus. 
 
 Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

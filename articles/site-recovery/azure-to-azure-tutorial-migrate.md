@@ -1,6 +1,6 @@
 ---
-title: Déplacer des machines virtuelles Azure IaaS vers une autre région à l’aide d’Azure Site Recovery
-description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles IaaS Azure d’une région Azure à l’autre.
+title: Déplacer des machines virtuelles Azure vers une autre région Azure à l’aide d’Azure Site Recovery
+description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles Azure d’une région Azure vers une autre.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425923"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006412"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
+# <a name="move-vms-to-another-azure-region"></a>Déplacer des machines virtuelles vers une autre région Azure
 
-Il existe différents scénarios dans lesquels vous pourriez souhaiter déplacer vos machines virtuelles Azure IaaS existantes d’une région à une autre. Par exemple, vous souhaitez améliorer la fiabilité et la disponibilité de vos machines virtuelles existantes, améliorer la facilité de gestion, ou effectuer un déplacement pour des raisons de gouvernance. Pour plus d’informations, consultez la [présentation du déplacement de machines virtuelles Azure](azure-to-azure-move-overview.md). 
+Il existe des scénarios dans lesquels vous pourriez souhaiter déplacer vos machines virtuelles Azure IaaS existantes d’une région à une autre. Par exemple, vous souhaitez améliorer la fiabilité et la disponibilité de vos machines virtuelles existantes, améliorer la facilité de gestion, ou effectuer un déplacement pour des raisons de gouvernance. Pour plus d’informations, consultez la [présentation du déplacement de machines virtuelles Azure](azure-to-azure-move-overview.md). 
 
-Vous pouvez utiliser le service [Azure Site Recovery](site-recovery-overview.md) pour gérer et orchestrer la reprise d’activité après sinistre des machines locales et machines virtuelles Azure à des fins de continuité d’activité et reprise d’activité (BCDR). Vous pouvez également utiliser Site Recovery pour gérer le déplacement de machines virtuelles Azure vers une région secondaire.
+Vous pouvez utiliser le service [Azure Site Recovery](site-recovery-overview.md) pour déplacer des machines virtuelles Azure vers une région secondaire.
 
-Ce didacticiel présente les procédures suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ Ce didacticiel présente les procédures suivantes :
 > * Copier les données et activer la réplication
 > * Tester la configuration et effectuer le déplacement
 > * Supprimer les ressources dans la région source
-> 
+
+
+> [!IMPORTANT]
+> Pour déplacer des machines virtuelles Azure vers une autre région, nous recommandons l’utilisation de [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Azure Resource Mover est en préversion publique et fournit ce qui suit :
+> - Un hub unique pour déplacer des ressources entre les régions
+> - Une réduction de la complexité et du temps de déplacement. Tout ce dont vous avez besoin se trouve dans un même emplacement.
+> - Une expérience simple et cohérente pour le déplacement des différents types de ressources Azure.
+> - Un moyen simple d’identifier les dépendances des ressources que vous souhaitez déplacer. Cela vous permet de déplacer les ressources associées ensemble, pour que tout fonctionne comme prévu dans la région cible après le déplacement.
+> - Le nettoyage automatique des ressources dans la région source, si vous souhaitez les supprimer après le déplacement
+> - Tests. Vous pouvez essayer un déplacement, puis l’annuler si vous ne souhaitez pas effectuer un déplacement complet.
+
+
+
 > [!NOTE]
 > Ce tutoriel montre comment déplacer des machines virtuelles Azure d’une région à une autre telles quelles. Si vous avez besoin d’améliorer la disponibilité en déplaçant des machines virtuelles d’un groupe à haute disponibilité vers des machines virtuelles épinglées de zone dans une autre région, consultez le [tutoriel Déplacer des machines virtuelles Azure vers des zones de disponibilité](move-azure-vms-avset-azone.md).
 

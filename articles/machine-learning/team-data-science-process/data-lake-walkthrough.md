@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48e6d8870baad60c79cf392894db8b71003bb875
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276956"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440403"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données évolutive avec Azure Data Lake : procédure complète
 Cette procédure de bout en bout montre comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de données et de classification binaire sur un échantillon de jeu de données NYC taxi trip and fare afin de prédire si le pourboire est compris dans le prix du billet. Elle vous guide tout au long du [processus de science des données pour les équipes](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de bout en bout, depuis l’acquisition de données à l’apprentissage du modèle et au déploiement d’un service web qui publie le modèle.
@@ -34,7 +34,7 @@ Les technologies suivantes sont utilisées lors de cette procédure pas à pas.
 ### <a name="azure-data-lake-analytics"></a>Service Analytique Azure Data Lake
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) dispose de toutes les fonctionnalités requises pour faciliter le travail des scientifiques de données relatif au stockage des données de toute taille, forme et vitesse et à la réalisation du traitement des données, d’analyses avancées et de modélisation de l’apprentissage automatique de manière hautement évolutive et à moindre coût.   Le paiement s’effectue par travail effectué, seulement lorsque les données sont réellement en cours de traitement. Azure Data Lake Analytics inclut U-SQL, un langage mêlant la nature déclarative du langage SQL à la puissance expressive de C# pour offrir une capacité de requête distribuée évolutive. Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d’intégrer une logique personnalisée et des fonctions définies par l’utilisateur (UDF), et a l’extensibilité nécessaire pour permettre un contrôle précis de l’exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, consultez [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Il est également un composant essentiel de Cortana Analytics Suite et fonctionne avec Azure SQL Data Warehouse, Power BI et Data Factory. Cette combinaison vous permet de disposer d'une plateforme complète de Big Data et d'analyse avancée dans le cloud.
+Data Lake Analytics est également un composant essentiel de Cortana Analytics Suite et fonctionne avec Azure Synapse Analytics, Power BI et Data Factory. Cette combinaison vous permet de disposer d'une plateforme complète de Big Data et d'analyse avancée dans le cloud.
 
 Cette procédure pas à pas commence par la description de l'installation des conditions préalables et des ressources nécessaires pour effectuer les tâches du processus de science des données. Elle décrit ensuite les étapes de traitement des données avec U-SQL et conclut en montrant comment utiliser Python et Hive avec Azure Machine Learning Studio (classique) pour générer et déployer les modèles prévisionnels.
 
@@ -756,7 +756,7 @@ En suivant cette procédure pas à pas, vous avez créé un environnement de sci
 ## <a name="whats-next"></a>Quelle est l’étape suivante ?
 Le parcours d’apprentissage du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) fournit des liens vers des rubriques qui décrivent chaque étape du processus d’analyse avancée. Il existe une série de procédures pas à pas détaillées à la page [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) qui mettent en évidence l’utilisation des ressources et des services dans les différents scénarios d’analyse prédictive :
 
-* [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse](sqldw-walkthrough.md)
+* [Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics](sqldw-walkthrough.md)
 * [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](hive-walkthrough.md)
 * [Processus TDSP (Team Data Science Process) : utilisation de SQL Server](sql-walkthrough.md)
 * [Vue d’ensemble du processus de science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md)

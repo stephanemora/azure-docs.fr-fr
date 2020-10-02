@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500144"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488862"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,11 +114,11 @@ Oui, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 Hyperscale prend en charge toutes les charges de travail SQL Server, mais il est principalement optimisé pour OLTP. Vous pouvez également exécuter des charges de travail hybrides (HTAP) et analytiques (mini-Data Warehouse).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Comment puis-je choisir entre Azure SQL Data Warehouse et Azure SQL Database Hyperscale ?
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Comment choisir entre Azure Synapse Analytics et Azure SQL Database Hyperscale ?
 
 Si vous exécutez actuellement des requêtes analytiques interactives avec SQL Server comme entrepôt de données, Hyperscale est une option intéressante, car vous pouvez héberger des entrepôts de données de taille petite et moyenne (par exemple de quelques To jusqu’à 100 To) à un coût inférieur, et vous pouvez migrer les charges de travail de votre entrepôt de données SQL Server vers Hyperscale avec des modifications minimales du code T-SQL.
 
-Si vous exécutez de l’analytique des données à grande échelle avec des requêtes complexes et des taux d’ingestion supérieurs à 100 Mo/s, ou en utilisant Parallel Data Warehouse, Teradata ou d’autres entrepôts de données MPP (Massively Parallel Processing), SQL Data Warehouse peut être le meilleur choix.
+Si vous exécutez l’analytique des données à grande échelle avec des requêtes complexes et des taux d’ingestion supérieurs à 100 Mo/s, ou en utilisant Parallel Data Warehouse, Teradata ou d’autres entrepôts de données MPP (Massively Parallel Processing), Azure Synapse Analytics (anciennement SQL Data Warehouse) peut être le meilleur choix.
   
 ## <a name="hyperscale-compute-questions"></a>Questions sur la capacité de calcul d’Hyperscale
 
@@ -229,7 +229,7 @@ Le temps d’arrêt pour la migration vers Hyperscale est le même que quand vou
 
 Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées, mais le temps nécessaire pour déplacer des données dans des bases de données dans Azure SQL Database est également affecté par le débit du réseau disponible, la vitesse de lecture de la source et l’objectif de niveau de service de la base de données cible.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>Puis-je lire des données dans un stockage d’objets blob (comme PolyBase dans SQL Data Warehouse) et faire un chargement rapide ?
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Est-ce que je peux lire les données d’un stockage d’objets blob (comme PolyBase dans Azure Synapse Analytics) et faire un chargement rapide ?
 
 Vous pouvez faire en sorte qu’une application cliente lise des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (tout comme vous pouvez le faire avec n’importe quelle autre base de données dans Azure SQL Database). Actuellement, PolyBase n’est pas pris en charge dans Azure SQL Database. Comme alternative pour fournir une charge rapide, vous pouvez utiliser [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou utiliser un travail Spark dans [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) avec le [connecteur Spark pour SQL](spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
 
@@ -269,7 +269,7 @@ Oui.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>Quel est l’objectif de point de récupération (RPO)/objectif de délai de récupération (RTO) pour la restauration de base de données dans Hyperscale ?
 
-L’objectif de point de récupération est de 0 minute. L’objectif de délai de récupération est inférieur à 10 minutes, quelle que soit la taille de la base de données.
+Le RPO est de 0 min. La plupart des opérations de restauration se terminent en 60 minutes, quelle que soit la taille de la base de données. La durée de restauration peut être plus longue pour des bases de données plus volumineuses et si la base de données a fait l’objet d’une activité d’écriture importante avant et jusqu’au point de restauration dans le temps.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>La sauvegarde de base de données affecte-t-elle les performances de calcul sur mes réplicas principaux ou secondaires ?
 
@@ -345,9 +345,9 @@ Le scale-up ou le scale-down entraînent la suppression des connexions existante
 
 Utilisateur final. Pas automatique.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>La taille de ma base de données `tempdb` augmente-t-elle également au fur et à mesure que le calcul est mis à l’échelle ?
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>La taille de ma base de données `tempdb` et du cache RBPEX augmente-t-elle également au fur et à mesure que le calcul est mis à l’échelle ?
 
-Oui. La base de données `tempdb` augmente automatiquement lors du scale-up de la capacité de calcul.  
+Oui. La taille de la base de données `tempdb` et du [cache RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) sur les nœuds de calcul augmente automatiquement à mesure que le nombre de cœurs augmente.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Puis-je approvisionner plusieurs réplicas de calcul principaux, comme un système multimaître où plusieurs têtes de calcul principales peuvent gérer un niveau de concurrence plus élevé ?
 
@@ -361,7 +361,7 @@ Nous créons par défaut un réplica secondaire pour les bases de données Hyper
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Comment se connecter à ces réplicas de calcul secondaires ?
 
-Vous pouvez vous connecter à ces réplicas de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `ReadOnly`. Les connexions marquées avec `ReadOnly` sont automatiquement routées vers un des réplicas de calcul supplémentaires en lecture seule.  
+Vous pouvez vous connecter à ces réplicas de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `ReadOnly`. Les connexions marquées avec `ReadOnly` sont automatiquement routées vers un des réplicas de calcul supplémentaires en lecture seule. Pour plus d’informations, consultez [Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Comment faire pour vérifier si la connexion au réplica de calcul secondaire a bien été établie à l’aide de SSMS ou d’autres outils clients ?
 
@@ -390,7 +390,7 @@ Non. Les bases de données Hyperscale ont un stockage partagé, ce qui signifie 
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quel est le décalage entre le réplica de calcul principal et le réplica de calcul secondaire ?
 
-La latence des données entre le moment où une transaction est validée sur le réplica principal et le moment où elle est visible sur un réplica secondaire dépend du taux de génération de journal actuel. La latence des données ne prend généralement que quelques millisecondes.
+La latence des données entre le moment où une transaction est validée sur le réplica principal et le moment où elle est lisible sur un réplica secondaire dépend de la vitesse de génération de journal actuelle, de la taille de la transaction, de la charge sur le réplica et d’autres facteurs. La latence des données standard pour les petites transactions est de l’ordre de dizaines de millisecondes, mais il n’y a pas de limite supérieure à la latence des données. Les données situées sur un réplica secondaire donné sont toujours cohérentes au niveau transactionnel. Toutefois, à un moment donné, la latence des données peut être différente pour différents réplicas secondaires. Les charges de travail qui doivent lire les données validées immédiatement doivent s’exécuter sur le réplica principal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

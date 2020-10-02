@@ -4,12 +4,12 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142211"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973594"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -148,7 +148,7 @@ Comme avec les métriques, vous pouvez spécifier un critère arbitraire sur les
 
 Consultez les informations détaillées d’un élément dans le flux temps réel en cliquant dessus. Vous pouvez interrompre le flux en cliquant sur **Suspendre**, en faisant simplement défiler ou en cliquant sur un élément. Le flux temps réel reprend lorsque vous refaites défiler vers le haut, ou en cliquant sur le compteur d’éléments collectés alors qu’il était suspendu.
 
-![Échecs dynamiques échantillonnés](./media/live-stream/sample-telemetry.png)
+![Capture d’écran montrant la fenêtre d’exemple de télémétrie, avec une exception sélectionnée et les détails de l’exception affichés au bas de la fenêtre.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtrer par instance de serveur
 

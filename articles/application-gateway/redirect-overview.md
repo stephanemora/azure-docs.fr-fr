@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb01d5a4923410f693b682d66be8d5d09f9019d0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253849"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561576"
 ---
 # <a name="application-gateway-redirect-overview"></a>Vue d’ensemble de la redirection Application Gateway
 
@@ -37,7 +37,7 @@ La prise en charge de la redirection Application Gateway offre les fonctionnalit
    Ce type de redirection permet la redirection HTTP vers HTTPS uniquement sur une zone de site spécifique, par exemple une zone de panier d’achat indiquée par /cart/*.
 - **Redirection vers un site externe**
 
-![redirection](./media/redirect-overview/redirect.png)
+![Diagramme montrant les utilisateurs et une passerelle d’application, ainsi que les connexions entre les deux, avec une flèche rouge HTTP déverrouillé, une flèche rouge directe 301 non autorisé, et une flèche verte HTTP verrouillé.](./media/redirect-overview/redirect.png)
 
 Dans le cadre de cette modification, les clients doivent créer un nouvel objet de configuration de redirection, qui spécifie l’écouteur cible ou le site externe vers lequel une redirection est souhaitée. L’élément de configuration prend également en charge des options qui permettent d’ajouter le chemin d’URI et la chaîne de requête à l’URL redirigée. Vous pouvez aussi choisir le type de redirection. Une fois créée, cette configuration de redirection est attachée à l’écouteur source au moyen d’une nouvelle règle. Lorsque vous utilisez une règle de base, la configuration de redirection est associée à un écouteur source et correspond à une redirection globale. Dans le cadre d’une règle par chemin d’accès, la configuration de redirection est définie sur le mappage de chemins d’accès d’URL. Elle s’applique donc exclusivement à la zone de chemin d’accès d’un site.
 

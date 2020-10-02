@@ -9,24 +9,22 @@ ms.subservice: ''
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fdf3dc56575a45ad0c9e716054184ba2691133ba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 51422bd47b5bd2d7d5103c154e90eaa910396024
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831700"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661024"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analyser des types de données complexes dans Azure Synapse Analytics
 
-Cet article s’applique aux fichiers et aux conteneurs Parquet de la section [Synapse Link pour Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Il explique comment les utilisateurs peuvent utiliser Spark ou SQL pour lire ou transformer des données à l’aide de schémas complexes tels que des tableaux ou des structures imbriquées. L’exemple suivant n’utilise qu’un seul document, mais il peut facilement être mis à l’échelle pour inclure des milliards de documents avec Spark ou SQL. Le code inclus dans cet article utilise PySpark (Python).
+Cet article s’applique aux fichiers et aux conteneurs Parquet de la section [Azure Synapse Link pour Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Vous pouvez utiliser Spark ou SQL pour lire ou transformer des données avec des schémas complexes, comme des tableaux ou des structures imbriquées. L’exemple suivant n’utilise qu’un seul document, mais il peut facilement être mis à l’échelle pour inclure des milliards de documents avec Spark ou SQL. Le code inclus dans cet article utilise PySpark (Python).
 
-## <a name="use-case"></a>Cas d’usage
+## <a name="use-case"></a>Cas d’utilisation
 
-Les types de données complexes sont de plus en plus courants et représentent un défi pour les ingénieurs de données, car l’analyse des schémas et des tableaux imbriqués a tendance à inclure des requêtes SQL longues et complexes. Il peut être également difficile de renommer ou de caster le type de données des colonnes imbriquées. En outre, des problèmes de performances surviennent lors de l’utilisation d’objets profondément imbriqués.
+Les types de données complexes sont de plus en plus courants et représentent un défi pour les ingénieurs Données. L’analyse des schémas et des tableaux imbriqués peut impliquer des requêtes SQL complexes et demandant un temps considérable. Il peut être également difficile de renommer ou de caster le type de données des colonnes imbriquées. En outre, quand vous utilisez des objets imbriqués profondément, vous pouvez rencontrer des problèmes de performances.
 
-Les ingénieurs de données doivent savoir comment traiter efficacement des types de données complexes et les rendre facilement accessibles à tous.
-
-Dans l’exemple suivant, Synapse Spark est utilisé pour lire et transformer des objets en une structure plate par le biais de trames de données. Synapse SQL serverless permet d’interroger directement ces objets et de retourner les résultats sous la forme d’un tableau standard.
+Les ingénieurs Données doivent comprendre comment traiter efficacement des types de données complexes et les rendre facilement accessibles à tous. Dans l’exemple suivant, vous utilisez Spark dans Azure Synapse Analytics pour lire et transformer des objets en une structure plate via des trames de données. Vous utilisez le modèle serverless de SQL dans Azure Synapse Analytics pour interroger directement ces objets et retourner ces résultats sous la forme d’un tableau standard.
 
 ## <a name="what-are-arrays-and-nested-structures"></a>Que sont les tableaux et les structures imbriquées ?
 
@@ -70,24 +68,26 @@ L’objet suivant provient d’[Application Insights](https://docs.microsoft.com
 ```
 
 ### <a name="schema-example-of-arrays-and-nested-structures"></a>Exemple de schéma de tableaux et de structures imbriquées
-Lors de l’impression du schéma de la trame de données de cet objet (appelée **df**) à l’aide de la commande `df.printschema`, nous obtenons la représentation suivante :
+Quand vous affichez le schéma de la trame de données (appelée **df**) de cet objet avec la commande `df.printschema`, vous voyez la représentation suivante :
 
-* La couleur jaune représente une structure imbriquée.
-* La couleur verte représente un tableau avec deux éléments.
+* Le jaune représente les structure imbriquées.
+* Le vert représente un tableau avec deux éléments.
 
-[![Origine du schéma](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
+[![Code avec mise en évidence en jaune et en vert, montrant l’origine du schéma](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-**_rid**, **_ts** et **_etag** ont été ajoutés au système à mesure que le document était ingéré dans le magasin transactionnel Azure Cosmos DB.
+`_rid`, `_ts` et `_etag` ont été ajoutés au système à mesure que le document était ingéré dans le magasin transactionnel d’Azure Cosmos DB.
 
-Le nombre de trames de données ci-dessus représente 5 colonnes et 1 ligne uniquement. Après la transformation, la trame de données organisée aura 13 colonnes et 2 lignes, dans un format tabulaire.
+Le nombre de trames de données ci-dessus a 5 colonnes et 1 ligne seulement. Après la transformation, la trame de données organisée aura 13 colonnes et 2 lignes, dans un format tabulaire.
 
-## <a name="flatten-nested-structures-and-explode-arrays-with-apache-spark"></a>Aplatir des structures imbriquées et éclater des tableaux avec Apache Spark
+## <a name="flatten-nested-structures-and-explode-arrays"></a>Aplatir des structures imbriquées et éclater des tableaux
 
-Grâce à Synapse Spark, vous pouvez facilement transformer des structures imbriquées en colonnes et des éléments de tableau en plusieurs lignes. Les étapes suivantes peuvent être utilisées pour l’implémentation.
+Avec Spark dans Azure Synapse Analytics, vous pouvez facilement transformer des structures imbriquées en colonnes et des éléments de tableau en plusieurs lignes. Utilisez les étapes suivantes pour l’implémentation.
 
-[![Étapes de transformations Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
+[![Organigramme montrant les étapes des transformations Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Étape 1** : Nous définissons une fonction pour aplatir le schéma imbriqué. Cette fonction peut être utilisée telle quelle. Créez une cellule dans un [notebook PySpark](quickstart-apache-spark-notebook.md) à l’aide de la fonction suivante :
+### <a name="define-a-function-to-flatten-the-nested-schema"></a>Définir une fonction pour aplatir le schéma imbriqué
+
+Vous pouvez utiliser cette fonction sans modification. Créez une cellule dans un [notebook PySpark](quickstart-apache-spark-notebook.md) à l’aide de la fonction suivante :
 
 ```python
 from pyspark.sql.functions import col
@@ -120,7 +120,9 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Étape 2** : Utilisez cette fonction pour aplatir le schéma imbriqué de la trame de données (**df**) dans une nouvelle trame de données `df_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Utiliser la fonction pour aplatir le schéma imbriqué
+
+Dans cette étape, vous aplatissez le schéma imbriqué de la trame de données (**df**) dans une nouvelle trame de données (`df_flat`) :
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -130,7 +132,9 @@ display(df_flat.limit(10))
 
 La fonction d’affichage doit retourner 10 colonnes et 1 ligne. Le tableau et ses éléments imbriqués sont toujours là.
 
-**Étape 3** : Transformez le tableau `context_custom_dimensions` de la trame de données `df_flat` en une nouvelle trame de données `df_flat_explode`. Dans le code suivant, nous définissons également la colonne à sélectionner :
+### <a name="transform-the-array"></a>Transformer le tableau
+
+Ici, vous transformez le tableau `context_custom_dimensions` de la trame de données `df_flat` en une nouvelle trame de données `df_flat_explode`. Dans le code suivant, vous définissez aussi la colonne à sélectionner :
 
 ```python
 from pyspark.sql.functions import explode
@@ -144,7 +148,9 @@ display(df_flat_explode.limit(10))
 
 La fonction d’affichage doit retourner 10 colonnes et 2 lignes. L’étape suivante consiste à aplatir les schémas imbriqués avec la fonction définie à l’étape 1.
 
-**Étape 4** : Utilisez cette fonction pour aplatir le schéma imbriqué de la trame de données `df_flat_explode` dans une nouvelle trame de données `df_flat_explode_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Utiliser la fonction pour aplatir le schéma imbriqué
+
+Enfin, vous utilisez cette fonction pour aplatir le schéma imbriqué de la trame de données `df_flat_explode` en une nouvelle trame de données `df_flat_explode_flat` :
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
@@ -154,26 +160,23 @@ La fonction d’affichage doit retourner 13 colonnes et 2 lignes.
 
 La fonction `printSchema` de la trame de données `df_flat_explode_flat` retourne le résultat suivant :
 
-[![Schéma final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
+[![Code montrant le schéma final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## <a name="read-arrays-and-nested-structures-directly-with-sql-serverless"></a>Lire des tableaux et des structures imbriquées directement avec SQL Server serverless
+## <a name="read-arrays-and-nested-structures-directly"></a>Lire directement des tableaux et des structures imbriquées
 
-SQL Server serverless permet d’interroger et de créer des vues et des tables avec de tels objets.
+Avec le modèle serverless de SQL, vous pouvez interroger et créer des vues et des tables sur ces objets.
 
-Tout d’abord, en fonction du mode de stockage des données, les utilisateurs doivent utiliser la taxonomie suivante. Tout ce qui est indiqué EN MAJUSCULES est spécifique à votre cas d’usage :
+Tout d’abord, en fonction du mode de stockage des données, les utilisateurs doivent utiliser la taxonomie suivante. Tout ce qui est indiqué en majuscules est spécifique à votre cas d’usage :
 
-| BULK              | FORMAT |
-| -------------------- | --- |
-| 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet ' |'Parquet' (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Synapse Link)|
+| Bloc | Format |
+| ------ | ------ |
+| 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
+| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Azure Synapse Link)|
 
-
-> [!NOTE]
-> SQL serverless prendra en charge le service lié pour Synapse Link pour Azure Cosmos DB et le transfert direct AAD. Cette fonctionnalité est actuellement en préversion limitée pour Synapse Link.
 
 Remplacez chaque champ comme suit :
-* « YOUR BULK ABOVE » par la chaîne de connexion de la source de données à laquelle vous vous connectez
-* « YOUR TYPE ABOVE » par le format que vous utilisez pour vous connecter à la source
+* « YOUR BULK ABOVE » est la chaîne de connexion de la source de données à laquelle vous vous connectez.
+* « YOUR TYPE ABOVE » est le format que vous utilisez pour vous connecter à la source.
 
 ```sql
 select *
@@ -200,20 +203,20 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 Il existe deux types d’opérations :
 
-Le premier type d’opération est indiqué dans la ligne de code suivante, qui définit la colonne appelée `contextdataeventTime` faisant référence à l’élément imbriqué : Context.Data.eventTime 
-```sql
-contextdataeventTime varchar(50) '$.context.data.eventTime'
-```
+- Le premier type d’opération est indiqué dans la ligne de code suivante, qui définit la colonne appelée `contextdataeventTime` qui fait référence à l’élément imbriqué `Context.Data.eventTime`. 
+  ```sql
+  contextdataeventTime varchar(50) '$.context.data.eventTime'
+  ```
 
-Cette ligne définira la colonne appelée contextdataeventTime qui fait référence à l’élément imbriqué : Context>Data>eventTime
+  Cette ligne définit la colonne appelée `contextdataeventTime` qui fait référence à l’élément imbriqué `Context>Data>eventTime`.
 
-Le deuxième type d’opération utilise `cross apply` pour créer de nouvelles lignes pour chaque élément sous le tableau, puis définit chaque objet imbriqué semblable au premier point de la liste à puces : 
-```sql
-cross apply openjson (contextcustomdimensions) 
-with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
-```
+- Le deuxième type d’opération utilise `cross apply` pour créer de nouvelles lignes pour chaque élément sous le tableau. Ensuite, il définit chaque objet imbriqué. 
+  ```sql
+  cross apply openjson (contextcustomdimensions) 
+  with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
+  ```
 
-Si le tableau comporte 5 éléments avec 4 structures imbriquées, SQL serverless retourne 5 lignes et 4 colonnes. SQL serverless peut interroger sur place, mapper le tableau dans 2 lignes, et afficher toutes les structures imbriquées dans des colonnes.
+  Si le tableau comporte 5 éléments avec 4 structures imbriquées, le modèle serverless de SQL retourne 5 lignes et 4 colonnes. Le modèle serverless de SQL peut interroger sur place, mapper le tableau dans 2 lignes, et afficher toutes les structures imbriquées dans des colonnes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

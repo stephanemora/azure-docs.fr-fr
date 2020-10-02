@@ -4,12 +4,12 @@ description: Écrivez une application console C# pour les WebSockets de connexio
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934257"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527426"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -52,7 +52,7 @@ Dans Visual Studio, écrivez une application console C# pour envoyer des message
 2. Exécutez l’application cliente et entrez du texte.
 3. Vérifiez que la console d’application de serveur affiche le texte entré dans l’application cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Fenêtres de console testant les applications serveur et clientes.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Félicitations, vous avez créé une application de connexions hybrides complète !
 

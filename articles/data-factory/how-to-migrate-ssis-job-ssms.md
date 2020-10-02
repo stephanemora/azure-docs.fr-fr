@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82627583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984905"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrer des travaux SQL Server Agent vers ADF avec SSMS
 
@@ -46,7 +46,7 @@ La fonctionnalité décrite dans cet article nécessite SQL Server Management St
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migrer des travaux SSIS vers ADF
 
 1. Dans SSMS, dans l’Explorateur d’objets, sélectionnez SQL Server Agent, Travaux, puis cliquez avec le bouton droit et sélectionnez **Migrer des travaux SSIS vers ADF**.
-![menu](media/how-to-migrate-ssis-job-ssms/menu.png)
+![La capture d’écran montre l’Explorateur d’objets de SQL Server Management Studio, dans lequel vous pouvez sélectionner des travaux, puis migrer des travaux SSIS vers ADF.](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Connectez-vous à Azure, sélectionnez Abonnement Azure, Data Factory et Integration Runtime. Stockage Azure est facultatif. Il est utilisé à l’étape de mappage d’emplacement de package si les travaux SSIS à migrer ont des packages de système de fichiers SSIS.
 ![menu](media/how-to-migrate-ssis-job-ssms/step1.png)
@@ -57,28 +57,28 @@ La fonctionnalité décrite dans cet article nécessite SQL Server Management St
     1. Mettre à jour un chemin de dossier source. Les chemins valides sont les chemins de dossier ou les chemins de dossier parent des packages.
     1. Mettre à jour un chemin de dossier de destination. La valeur par défaut est le chemin relatif au compte de stockage par défaut, qui est sélectionné à l’étape 1.
     1. Supprimer un mappage sélectionné à l’aide de **Supprimer le mappage**.
-![étape2](media/how-to-migrate-ssis-job-ssms/step2.png)
-![étape2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![Capture d’écran montrant la page Mapper les chemins des packages SSIS et des fichiers de configuration, dans laquelle vous pouvez ajouter un mappage.](media/how-to-migrate-ssis-job-ssms/step2.png)
+![Capture d’écran montrant la page Mapper les chemins des packages SSIS et des fichiers de configuration, dans laquelle vous pouvez mettre à jour les chemins d’accès aux dossiers source et de destination.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Sélectionnez les travaux applicables à migrer et configurez les paramètres de l’*activité Exécuter le package SSIS*.
 
     - *Paramètres par défaut* s’applique à toutes les étapes sélectionnées par défaut. Pour plus d’informations sur chaque propriété, consultez l’*onglet Paramètres* de l’activité [Exécuter le package SSIS](how-to-invoke-ssis-package-ssis-activity.md) quand l’emplacement du package est *Système de fichiers (package)* .
-    ![étape3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    ![Capture d’écran montrant la page Sélectionner des travaux SSIS, dans laquelle vous pouvez configurer les paramètres de l’activité de package SSIS exécuté correspondante.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
     - *Paramètre de l’étape* : configurez le paramètre pour une étape sélectionnée.
         
         **Appliquer les paramètres par défaut** : par défaut, cette case est cochée. Décochez-la pour configurer le paramètre pour l’étape sélectionnée uniquement.  
         Pour plus d’informations les autres propriétés, consultez l’*onglet Paramètres* de l’activité [Exécuter le package SSIS](how-to-invoke-ssis-package-ssis-activity.md) quand l’emplacement du package est *Système de fichiers (package)* .
-    ![étape3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    ![Capture d’écran montrant la page Sélectionner des travaux SSIS, dans laquelle vous pouvez appliquer les paramètres par défaut.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Générez et déployez le modèle ARM.
     1. Sélectionnez ou entrez le chemin de sortie des modèles ARM des pipelines ADF migrés. Le dossier sera créé automatiquement s’il n’existe pas.
     2. Sélectionnez l’option de **Déployer des modèles ARM dans votre fabrique de données** :
         - Par défaut, cette case est décochée. Vous pourrez déployer des modèles ARM générés plus tard manuellement.
         - Sélectionnez cette option pour déployer les modèles ARM générés directement dans la fabrique de données.
-    ![étape4](media/how-to-migrate-ssis-job-ssms/step4.png)
+    ![Capture d’écran montrant la page Configurer la migration, dans laquelle vous pouvez sélectionner ou entrer le chemin de sortie des modèles ARM des pipelines ADF migrés, et sélectionner l’option Déployer des modèles ARM dans votre fabrique de données.](media/how-to-migrate-ssis-job-ssms/step4.png)
 
 1. Procédez à la migration, puis vérifiez les résultats.
-![étape5](media/how-to-migrate-ssis-job-ssms/step5.png)
+![Capture d’écran montrant la page Résultat de la migration, qui affiche la progression de la migration.](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949952"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983623"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
@@ -38,7 +38,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 
 3. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-   ![Scénario 1](media/pricing-concepts/scenario1.png)
+   ![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, qui est acheminé vers un service lié A W S S3. Elle est également acheminée vers un jeu de données de sortie, qui acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario1.png)
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -69,7 +69,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 2. Une activité Azure Databricks pour la transformation de données.
 3. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-![Scénario 2](media/pricing-concepts/scenario2.png)
+![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité DataBricks exécutée sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario2.png)
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -103,7 +103,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 3. Une activité Azure Databricks pour la transformation de données.
 4. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-![Scénario 3](media/pricing-concepts/scenario3.png)
+![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité de recherche qui est acheminée vers une activité DataBricks exécutée sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario3.png)
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -130,9 +130,13 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Utilisation du débogage des flux de données de mappage pour une journée de travail normale
 
-En tant qu’ingénieur des données, vous êtes tous les jours en charge de la conception, de la création et du test du mappage des flux de données. Le matin, vous vous connectez à l’IU ADF et vous activez le mode de débogage pour les flux de données. La durée TTL par défaut pour les sessions de débogage est de 60 minutes. Vous travaillez 8 heures par jour, si bien que votre session de débogage n’expire jamais. Par conséquent, le montant facturé pour la journée sera :
+En tant qu’ingénieur Données, Sam est en charge au quotidien de la conception, de la création et du test des flux de données de mappage. Le matin, Sam se connecte à l’IU ADF et active le mode débogage pour les flux de données. La durée TTL par défaut pour les sessions de débogage est de 60 minutes. Sam travaillant 8 heures par jour, la session de débogage n’expire jamais. Par conséquent, les frais quotidiens de Sam sont les suivants :
 
 **8 (heures) x 8 (cœurs optimisés pour le calcul) x 0,193 $ = 12,35 $**
+
+En même temps, Chris, un autre ingénieur Données, se connecte également à l’interface utilisateur du navigateur ADF pour le profilage des données et le travail de conception des tâches d’extraction, de transformation et de chargement (ETL). Chris n’opère pas toute la journée dans ADF comme Sam. Chris a uniquement besoin d’utiliser le débogueur de flux de données pendant 1 heure durant la même période et le même jour que Sam ci-dessus. Les frais que Chris expose pour le débogage sont les suivants :
+
+**1 (heure) x 8 (cœurs à usage général) x 0,274 USD = 2,19 USD**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformer des données dans le magasin d’objets blob à l’aide des flux de données de mappage
 

@@ -9,24 +9,67 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: e2e1d0479b8edacaae8816d74db061eeedb805a7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325217"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015498"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analyser des données avec des pools SQL
 
 Azure Synapse Analytics vous offre la possibilité d’analyser les données avec un pool SQL. Dans ce tutoriel, vous allez utiliser les exemples de données NYC Taxi pour explorer les fonctionnalités d’analyse d’un pool SQL.
 
-## <a name="load-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Charger les données de l’exemple NYC Taxi dans la base de données SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Charger les données NYC Taxi dans SQLDB1
 
-1. Dans Synapse Studio, sur le menu bleu tout en haut, sélectionnez l’icône de point d’interrogation ( **?** ).
-1. Sélectionnez **Démarrer** > **Hub Démarrer**.
-1. Dans la carte **Exemple de données de requête**, sélectionnez le pool SQL nommé **SQLDB1**.
-1. Sélectionnez **Données de requête**. Une notification de chargement de l’exemple de données s’affiche brièvement. La barre d’état de couleur bleu clair située en haut de Synapse Studio indique que les données sont en cours de chargement dans SQLDB1.
-1. Quand la barre d’état devient verte, fermez-la.
+1. Dans Synapse Studio, accédez au hub **Développer**, puis créez un script SQL.
+1. Entrez le code suivant :
+    ```
+    CREATE TABLE [dbo].[Trip]
+    (
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
+
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
+    WITH
+    (
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
+    )
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
+    ```
+1. L’exécution de ce script prendra environ 1 minute. Il charge 2 millions lignes de données NYC Taxi dans une table appelée **dbo.Trip**.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Explorer les données NYC Taxi dans le pool SQL
 

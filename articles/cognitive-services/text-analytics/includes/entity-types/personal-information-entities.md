@@ -8,25 +8,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010930"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662933"
 ---
 > [!NOTE]
-> Pour détecter `PHI` (informations médicales protégées), utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
+> Pour détecter des informations médicales protégées, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
 >
 > Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
-Les catégories d’entité suivantes sont retournées lors de l’envoi de demandes au point de terminaison `/v3.1-preview.1/entities/recognition/pii`.
+Les catégories d’entité suivantes sont retournées lorsque vous envoyez des requêtes au point de terminaison `/v3.1-preview.1/entities/recognition/pii`.
 
 | Category   | Sous-catégorie | Description                          | Version de modèle de départ | Notes |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Personne     | N/A         | Noms des personnes.  | `2019-10-01`  | Également retourné avec `domain=phi`. |
 | PersonType | N/A         | Type de tâche ou rôle d’une personne. | `2020-02-01` | |
-| PhoneNumber | N/A | Numéros de téléphone (Numéros de téléphone américains et européens uniquement). | `2019-10-01` | Également retourné avec `domain=phi` |
+| PhoneNumber | N/A | Numéros de téléphone (Numéros de téléphone américains et européens uniquement). | `2019-10-01` | Également retourné avec `domain=phi`. |
 |Organisation  | N/A | Sociétés, partis politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques.  | `2019-10-01` | Les nationalités et les religions ne sont pas incluses dans ce type d’entité.  |
 |Organisation | Médecine | Sociétés et groupes médicaux. | `2020-04-01` |  |
 |Organisation | Bourse | Groupes de bourse. | `2020-04-01` |  |
@@ -47,17 +47,17 @@ Cette catégorie d’entité englobe les informations identifiables d’Azure, n
 
 | Sous-catégorie                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Clé d’autorisation Azure DocumentDB             | Clé d’autorisation d’un serveur Azure DocumentDB.                           |
+| Clé d’autorisation Azure DocumentDB             | Clé d’autorisation d’un serveur Azure CosmosDB.                           |
 | Chaîne de connexion à la base de données Azure IAAS et chaîne de connexion Azure SQL | Chaîne de connexion pour une base de données IaaS (infrastructure as a service) Azure et chaîne de connexion SQL. |
 | Chaîne de connexion Azure SQL           | Chaîne de connexion pour une base de données dans Azure SQL Database.                                |
-| Chaîne de connexion Azure IoT           | Chaîne de connexion pour Azure Internet des objets (IoT).                        |
+| Chaîne de connexion Azure IoT           | Chaîne de connexion pour Azure IoT.                        |
 | Mot de passe de paramètre de publication Azure        | Mot de passe pour les paramètres de publication Azure.                                        |
-| Chaîne de connexion Azure Cache pour Redis   | Chaîne de connexion pour Azure Cache pour Redis.                             |
+| Chaîne de connexion Azure Cache pour Redis   | Chaîne de connexion pour un cache Redis                             |
 | Azure SAAS                             | Chaîne de connexion pour SaaS (software as a service) Azure.                     |
 | Chaîne de connexion Azure Service Bus   | Chaîne de connexion pour Azure Service Bus.                                 |
 | Clé du compte de Stockage Azure             | Clé d’un compte de stockage Azure.                                   |
 | Clé du compte de Stockage Azure (générique)   | Clé générique d’un compte de stockage Azure.                           |
-| Chaîne de connexion SQL Server          | Chaîne de connexion d’un serveur SQL Server.                                         |
+| Chaîne de connexion SQL Server          | Chaîne de connexion pour un ordinateur exécutant SQL Server.                                         |
 
 ## <a name="identification"></a>Identification
 

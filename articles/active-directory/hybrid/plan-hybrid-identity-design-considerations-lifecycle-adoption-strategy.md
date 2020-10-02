@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6d2638ff86d110cb79cc72519dfabb2c68b3794
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278426"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658543"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Déterminer la stratégie d’adoption du cycle de vie des identités hybrides
 Dans cette tâche, vous allez définir la stratégie de gestion des identités pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans [Déterminer les tâches de gestion des identités hybrides](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -81,7 +81,7 @@ L’intégration de vos annuaires locaux avec Azure AD améliore la productivit�
 
 * Les organisations peuvent fournir aux utilisateurs une identité hybride commune entre différents services locaux ou cloud exploitant Windows Server Active Directory et la connexion à Azure Active Directory.
 * Les administrateurs peuvent fournir un accès conditionnel basé sur des ressources d’application, des identités d’appareil et d’utilisateur, un emplacement réseau et une authentification multifacteur.
-* Les utilisateurs peuvent exploiter leur identité commune via des comptes dans d’Azure AD vers Office 365, Intune, des applications SaaS et des applications tierces.
+* Les utilisateurs peuvent tirer parti de leur identité commune par le biais de comptes Azure AD dans Microsoft 365, Intune, des applications SaaS et des applications tierces.
 * Les développeurs peuvent créer des applications qui exploitent le modèle d’identité commune en intégrant des applications dans une version locale d’Active Directory ou des applications cloud Azure.
 
 La figure suivante est un exemple d’une vue d’ensemble du processus de synchronisation d’identité.

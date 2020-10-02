@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 08/12/2020
+ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146910"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602385"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -48,13 +48,13 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Arc](../../azure-arc/index.yml) :
 
-- Gérer des serveurs hybrides à l’échelle – [Azure Arc pour serveurs (préversion)](../../azure-arc/servers/overview.md) :
-  - [Connecter des machines Windows Server ou Linux en dehors d’Azure](../../azure-arc/servers/onboard-portal.md) à des abonnements et/ou à des groupes de ressources délégués dans Azure
+- Gérer des serveurs hybrides à grande échelle – [Serveurs activés par Azure Arc (préversion)](../../azure-arc/servers/overview.md) :
+  - [Gérer des machines Windows Server ou Linux en dehors d’Azure, qui sont connectées](../../azure-arc/servers/onboard-portal.md) à des abonnements et/ou à des groupes de ressources délégués dans Azure
   - Gérer des machines connectées à l’aide de constructions Azure, comme Azure Policy et le marquage
   - S’assurer que le même ensemble de stratégies est appliqué dans les environnements hybrides des clients
   - Utiliser Azure Security Center pour surveiller la conformité des environnements hybrides des clients
 - Gérer des clusters Kubernetes hybrides à grande échelle – [Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md) :
-  - [Connecter un cluster Kubernetes à Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), à des abonnements délégués et/ou à des groupes de ressources dans Azure
+  - [Gérer des clusters Kubernetes connectés](../../azure-arc/kubernetes/connect-cluster.md) à des abonnements délégués et/ou à des groupes de ressources dans Azure
   - [Utiliser GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) dans des clusters connectés
   - Appliquer des stratégies entre les clusters connectés
 
@@ -64,7 +64,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Sauvegarde Azure](../../backup/index.yml) :
 
-- Sauvegarder et restaurer des données dans des locataires du client
+- Sauvegarder et restaurer des données client [à partir de charges de travail locales, de machines virtuelles Azure, de partages de fichiers Azure, etc.](../..//backup/backup-overview.md#what-can-i-back-up)
 - Utilisez l'[Explorateur de sauvegarde](../../backup/monitor-azure-backup-with-backup-explorer.md) pour visualiser les informations opérationnelles des éléments de sauvegarde (y compris les ressources Azure qui n'ont pas encore été configurées pour la sauvegarde) et les informations de supervision (travaux et alertes) des abonnements délégués. Pour l’instant, l’Explorateur de sauvegarde est uniquement disponible pour les données de machines virtuelles Azure.
 - Utilisez [Rapports de sauvegarde](../../backup/configure-reports.md) dans les abonnements délégués pour suivre les tendances historiques, analyser la consommation du stockage de sauvegarde et auditer les sauvegardes et les restaurations.
 
@@ -82,6 +82,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
+- Créer des paramètres de diagnostic dans des locataires clients pour envoyer des journaux de ressources à des espaces de travail dans le locataire gérant
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md) :

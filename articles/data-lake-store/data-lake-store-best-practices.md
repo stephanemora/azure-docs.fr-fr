@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981433"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440828"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 prend en charge l’option d’activation d’un pare-feu
 
 ![Paramètres du pare-feu dans Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Paramètres du pare-feu dans Data Lake Storage Gen1")
 
-Une fois le pare-feu activé, seuls les services Azure tels qu’HDInsight, Data Factory, SQL Data Warehouse, etc., pourront accéder à Data Lake Storage Gen1. En raison de la traduction d’adresses réseau interne utilisée par Azure, le pare-feu Data Lake Storage Gen1 ne prend pas en charge la restriction de services spécifiques par adresse IP, et n’est prévu que pour des restrictions de points de terminaison hors d’Azure, comme les points de terminaison locaux.
+Une fois le pare-feu activé, seuls les services Azure tels que HDInsight, Data Factory, Azure Synapse Analytics (anciennement SQL Data Warehouse), etc., pourront accéder à Data Lake Storage Gen1. En raison de la traduction d’adresses réseau interne utilisée par Azure, le pare-feu Data Lake Storage Gen1 ne prend pas en charge la restriction de services spécifiques par adresse IP, et n’est prévu que pour des restrictions de points de terminaison hors d’Azure, comme les points de terminaison locaux.
 
 ## <a name="performance-and-scale-considerations"></a>Considérations sur les performances et l’échelle
 

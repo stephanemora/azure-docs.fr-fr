@@ -4,25 +4,23 @@ description: Découvrez comment envoyer des notifications vers des utilisateurs 
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.custom: mvc
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018040"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090055"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications à des utilisateurs spécifiques avec Azure Notification Hubs
 
@@ -30,7 +28,7 @@ ms.locfileid: "89018040"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal WebAPI ASP.NET est utilisé pour authentifier les clients. Lorsque le serveur principal authentifie un utilisateur de l’application client, il ajoute automatiquement une balise à l’enregistrement des notifications. Le serveur principal utilise cette balise pour envoyer des notifications à l’utilisateur spécifique.
+Ce tutoriel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur d’une application sur un appareil spécifique. Un serveur principal WebAPI ASP.NET est utilisé pour authentifier les clients. Lorsque le serveur principal authentifie un utilisateur de l’application client, il ajoute automatiquement une balise à l’enregistrement des notifications. Le serveur principal utilise cette balise pour envoyer des notifications à l’utilisateur spécifique.
 
 > [!NOTE]
 > Le code complet de ce didacticiel est disponible sur [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
@@ -66,7 +64,7 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
 5. Dans la liste des résultats, cliquez sur **System.Net.Http**, puis cliquez sur **Installer**. Terminez l'installation.
 6. De retour dans la zone **Recherche** NuGet, tapez **Json.net**. Installez le package **Newtonsoft.json** , puis fermez la fenêtre du Gestionnaire de package NuGet.
 7. Dans l’Explorateur de solutions, dans le projet **WindowsApp**, double-cliquez sur **MainPage.xaml** pour l’ouvrir dans l’éditeur de Visual Studio.
-8. Dans le code XML `MainPage.xaml`, remplacez la section `<Grid>` par le code suivant : Ce code ajoute une zone de texte Nom d’utilisateur et Mot de passe pour l’authentification de l’utilisateur. Il ajoute également des zones de texte pour le message de notification et la balise de nom d’utilisateur qui doivent recevoir la notification :
+8. Dans le fichier `MainPage.xaml`, remplacez la section `<Grid>` par le code suivant : Ce code ajoute une zone de texte Nom d’utilisateur et Mot de passe pour l’authentification de l’utilisateur. Il ajoute également des zones de texte pour le message de notification et la balise de nom d’utilisateur qui doivent recevoir la notification :
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
         </StackPanel>
     </Grid>
     ```
+
 9. Dans l’Explorateur de solutions, ouvrez le fichier `MainPage.xaml.cs` pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)** . Ajoutez les instructions `using` suivantes au début des deux fichiers :
 
     ```csharp
@@ -128,11 +127,13 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. Dans `MainPage.xaml.cs` pour le projet **WindowsApp**, ajoutez le membre suivant à la classe `MainPage`. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. Ajoutez le code ci-dessous à la classe MainPage dans `MainPage.xaml.cs` pour les projets **(Windows 8.1)** et **(Windows Phone 8.1)** .
 
     La méthode `PushClick` correspond au gestionnaire de clic du bouton **Envoyer des notifications Push** . Elle appelle le serveur principal pour déclencher une notification vers tous les appareils avec une balise de nom d’utilisateur correspondant au paramètre `to_tag` . Le message de notification est envoyé en tant que contenu JSON dans le corps de la demande.
@@ -215,13 +216,15 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Ouvrez `App.xaml.cs` et recherchez l’appel vers `InitNotificationsAsync()` dans le gestionnaire d’événements `OnLaunched()`. Commentez ou supprimez l’appel vers `InitNotificationsAsync()`. Le gestionnaire de bouton initialise les inscriptions aux notifications.
+
+12. Ouvrez `App.xaml.cs` et recherchez l’appel vers `InitNotificationsAsync()` dans le gestionnaire d’événements `OnLaunched()`. Commentez ou supprimez l’appel vers `InitNotificationsAsync()`. Le gestionnaire de bouton initialise les inscriptions aux notifications :
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
+
 13. Cliquez avec le bouton droit sur le projet **WindowsApp**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la classe `RegisterClient.cs`, puis cliquez sur **OK** pour générer la classe.
 
     Cette classe encapsule les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Il utilise un jeton d'autorisation qui se trouve dans le stockage local lorsque vous cliquez sur le bouton **Se connecter et s'inscrire**.
@@ -236,7 +239,8 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
     using System.Threading.Tasks;
     using System.Linq;
     ```
-15. Ajoutez le code suivant dans la définition de classe `RegisterClient` .
+
+15. Ajoutez le code suivant dans la définition de classe `RegisterClient` :
 
     ```csharp
     private string POST_URL;
@@ -323,6 +327,7 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
 
     }
     ```
+
 16. Enregistrez toutes vos modifications.
 
 ## <a name="test-the-application"></a>Tester l'application
@@ -332,8 +337,8 @@ Dans cette section, vous mettez à jour le code du projet que vous avez terminé
 3. Cliquez sur **Se connecter et s’inscrire** et vérifiez le contenu de la boîte de dialogue indiquant que vous êtes connecté. Ce code active également le bouton **Envoyer des notifications Push**.
 
     ![Capture d’écran de l’application Notification Hubs montrant le nom d’utilisateur et le mot de passe renseignés.][14]
-5. Puis, dans le champ **Balise de nom d’utilisateur**, entrez le nom d’utilisateur enregistré. Entrez un message de notification, puis cliquez sur **Envoyer des notifications Push**.
-6. Seuls les appareils enregistrés avec la balise de nom d’utilisateur correspondant reçoivent le message de notification.
+4. Puis, dans le champ **Balise de nom d’utilisateur**, entrez le nom d’utilisateur enregistré. Entrez un message de notification, puis cliquez sur **Envoyer des notifications Push**.
+5. Seuls les appareils enregistrés avec la balise de nom d’utilisateur correspondant reçoivent le message de notification.
 
     ![Capture d’écran de l’application Notification Hubs montrant le message ayant fait l’objet d’un envoi (push).][15]
 

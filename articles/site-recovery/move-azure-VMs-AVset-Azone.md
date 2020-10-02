@@ -1,5 +1,6 @@
 ---
 title: Déplacer des machines virtuelles vers une région Azure avec des zones de disponibilité à l’aide d’Azure Site Recovery
+description: Découvrez comment déplacer des machines virtuelles vers une zone de disponibilité située dans une autre région avec Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425470"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605105"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
+
+Cet article explique comment déplacer des machines virtuelles Azure vers une zone de disponibilité située dans une autre région. Si vous souhaitez déplacer des machines virtuelles vers une autre zone de la même région, [consultez cet article](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md).
 
 Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* dans une région spécifique, et souhaitez améliorer leur disponibilité en les déplaçant vers une zone de disponibilité, vous le pouvez en utilisant Azure Site Recovery. Cette action peut encore être catégorisée comme suit :
@@ -23,7 +28,15 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 - Déplacer des machines virtuelles d’un groupe à haute disponibilité vers des zones de disponibilité dans une région cible
 
 > [!IMPORTANT]
-> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre. Il prend uniquement en charge le déplacement entre les zones d’une région, dans quelques régions. [Plus d’informations](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
+> Pour déplacer des machines virtuelles Azure vers une zone de disponibilité située dans une autre région, nous recommandons d’utiliser [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Azure Resource Mover est en préversion publique et fournit ce qui suit :
+> - Un hub unique pour déplacer des ressources entre les régions
+> - Une réduction de la complexité et du temps de déplacement. Tout ce dont vous avez besoin se trouve à un même emplacement.
+> - Une expérience simple et cohérente pour le déplacement des différents types de ressources Azure.
+> - Un moyen simple d’identifier les dépendances des ressources que vous souhaitez déplacer. Cela vous permet de déplacer les ressources associées ensemble, pour que tout fonctionne comme prévu dans la région cible après le déplacement.
+> - Le nettoyage automatique des ressources dans la région source, si vous souhaitez les supprimer après le déplacement
+> - Tests. Vous pouvez essayer un déplacement, puis l’annuler si vous ne souhaitez pas effectuer un déplacement complet.
+
+
 
 ## <a name="check-prerequisites"></a>Vérifier les conditions préalables
 

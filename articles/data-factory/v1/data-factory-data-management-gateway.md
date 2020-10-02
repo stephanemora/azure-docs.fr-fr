@@ -1,6 +1,6 @@
 ---
 title: Passerelle de gestion des données pour Data Factory
-description: Mettez en place une passerelle de données pour déplacer vos données entre un emplacement local et le cloud. Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données.
+description: Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5ef7e79ffa50bc16df9d03dbf530fda98e660557
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297669"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441117"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -121,7 +121,7 @@ Pour créer une passerelle dans le portail et obtenir la clé à partir de la pa
     ![Lien de téléchargement dans le portail](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. Dans la page **Configurer**, cliquez sur **Recréer une clé**. Dans le message d’avertissement, cliquez sur Oui après l’avoir lu attentivement.
 
-    ![Recréer une clé](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Bouton Recréer une clé](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Cliquez sur le bouton Copier en regard de la clé. La clé est copiée dans le Presse-papiers.
 
     ![Copier la clé](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -158,7 +158,7 @@ Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Si
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copier des données d’une banque de données source vers une banque de données de récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de l’ordinateur de passerelle, ainsi que sur le magasin de données lui-même. Activer ces règles permet à la passerelle de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour copier à partir d’une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse**, effectuez les opérations suivantes :
+Par exemple, pour copier à partir d'une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure Synapse Analytics (anciennement SQL Data Warehouse)** , procédez comme suit :
 
 * Autorisez le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et le pare-feu d’entreprise.
 * Configurez les paramètres de pare-feu du serveur SQL logique pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste d’adresses IP autorisées.
@@ -175,7 +175,7 @@ Si votre environnement de réseau d’entreprise utilise un serveur proxy pour a
 
 La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliquez sur le lien **Modifier** pendant l’installation initiale. La boîte de dialogue **Paramètre proxy** s’affiche.
 
-![Définir le proxy avec le gestionnaire de configuration](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Définir le proxy avec le gestionnaire de configuration 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 Il existe trois options de configuration :
 
@@ -194,7 +194,7 @@ Une fois la passerelle enregistrée avec succès, si vous souhaitez afficher ou 
 
 Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Gestionnaire de Configuration.
 
-![Définir le proxy avec le gestionnaire de configuration](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Définir le proxy avec le gestionnaire de configuration 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > Si vous configurez un serveur proxy avec l’authentification NTLM, le service hôte de la passerelle s’exécute sous le compte du domaine. Si vous modifiez le mot de passe du compte du domaine ultérieurement, veillez à mettre à jour les paramètres de configuration pour le service et à redémarrer ce dernier en conséquence. En raison de cette exigence, nous vous conseillons d’utiliser un compte de domaine dédié qui ne nécessite pas de mettre à jour le mot de passe fréquemment pour accéder au serveur proxy.
@@ -425,7 +425,7 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
     ![Gestionnaire de configuration](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Dans la page **Configurer** du portail, cliquez sur **Recréer une clé** dans la barre de commandes, puis, dans le message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé qui copie la clé dans le presse-papiers. La passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.
 
-    ![Recréer une clé](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Recréer une clé 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Collez la **clé** dans la zone de texte sur la page **Inscrire la passerelle** du **Gestionnaire de configuration de passerelle de gestion des données** sur votre machine. (Facultatif) Cochez la case **Afficher la clé de passerelle** pour afficher le texte de la clé.
 
     ![Copier la clé et s’inscrire](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

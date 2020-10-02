@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048418"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567931"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048418"
 
 Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Pour ce faire, vous devez connecter des composants ou des nœuds de la manière souhaitée. Le diagramme ci-dessous fournit une représentation graphique d’un graphe multimédia.  
 
-![Représentation graphique d’un graphe multimédia](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Graphe multimédia":::
 
 Live Video Analytics sur IoT Edge prend en charge différents types de sources, de processeurs et de récepteurs.
 
@@ -39,7 +40,8 @@ Les valeurs des paramètres de la topologie sont spécifiées lorsque vous crée
 
 Le cycle de vie des topologies de graphe et des instances de graphe est illustré dans le diagramme d’état suivant.
 
-![Cycle de vie des instances et des topologies de graphe](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graphe multimédia":::
 
 Commencez par [créer une topologie de graphe](direct-methods.md#graphtopologyset). Ensuite, pour chaque flux vidéo en direct que vous souhaitez traiter avec cette topologie, vous [créez une instance de graphe](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ Le nœud processeur de filtre de fréquence d’images vous permet d’échantil
 
 #### <a name="http-extension-processor"></a>Processeur d’extension HTTP
 
-Le nœud processeur d’extension HTTP vous permet de connecter votre propre module IoT Edge à un graphe multimédia. Ce nœud prend les images vidéo décodées comme entrée et les transmet à un point de terminaison REST HTTP exposé par votre module. Ce nœud peut s’authentifier auprès du point de terminaison REST, le cas échéant. En outre, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées vers le point de terminaison REST. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP.
+Le nœud processeur d’extension HTTP vous permet de connecter votre propre module IoT Edge à un graphe multimédia. Ce nœud prend les images vidéo décodées comme entrée et les transmet à un point de terminaison REST HTTP exposé par votre module. Ce nœud peut s’authentifier auprès du point de terminaison REST, le cas échéant. En outre, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées vers le point de terminaison REST. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP. Découvrez-en plus sur le processeur [ici](media-graph-extension-concept.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Processeur d’extension gRPC
 
-Le nœud du processeur d’extension gRPC prend les images vidéo décodées comme entrée et les relaie à un point de terminaison [gRPC](terminology.md#grpc) exposé par votre module. De plus, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles soient relayées au point de terminaison gRPC. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP.
+Le nœud du processeur d’extension gRPC prend les images vidéo décodées comme entrée et les relaie à un point de terminaison [gRPC](terminology.md#grpc) exposé par votre module. Le nœud prend en charge le transfert de données à l’aide de la [mémoire partagée](https://en.wikipedia.org/wiki/Shared_memory) ou l’incorporation directe du contenu dans le corps des messages gRPC. De plus, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles soient relayées au point de terminaison gRPC. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP. Découvrez-en plus sur le processeur [ici](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Processeur de porte de signal  
 

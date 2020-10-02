@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121440"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483743"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -164,6 +164,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C** . Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine. Notez que certaines fonctionnalités comme la sauvegarde automatisée, la mise à jour corrective automatisée et Azure Key Vault Integration s’exécutent uniquement sur l’instance par défaut ou sur une instance nommée qui a été correctement configurée (voir la question 3). Les clients qui disposent d’une couverture [Software Assurance via Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) ou du modèle de licence **Paiement à l’utilisation** peuvent installer plusieurs instances SQL Server sur la machine virtuelle sans entraîner de frais de licence supplémentaires. Des instances SQL Server supplémentaires risquent de surcharger les ressources système, sauf si elles sont correctement configurées. 
 
+1. **Quel est le nombre maximal d’instances sur une machine virtuelle ?**
+   De SQL Server 2012 à SQL Server 2019, [50](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP)instances peuvent être prises en charge sur un serveur autonome. La même limite s’applique localement et dans Azure. Consultez les [bonnes pratiques](performance-guidelines-best-practices.md#multiple-instances) pour découvrir comment mieux préparer votre environnement. 
+
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 
    Oui, mais il existe quelques considérations à prendre en compte. Premièrement, la facturation associée à SQL Server peut continuer à s’appliquer en fonction du modèle de licence de la machine virtuelle. Deuxièmement, comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS, cette dernière continue de rechercher l’instance par défaut et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
@@ -179,6 +182,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL Server ?**
 
    Oui, mais vous serez toujours facturé pour votre machine virtuelle SQL Server de la manière décrite dans [Tarification des machines virtuelles SQL Server Azure](pricing-guidance.md). Si vous n’avez plus besoin de SQL Server, vous pouvez déployer une nouvelle machine virtuelle et y migrer les données et les applications. Vous pouvez ensuite supprimer la machine virtuelle SQL Server.
+
+1. **Puis-je utiliser le portail Azure pour gérer plusieurs instances sur la même machine virtuelle ?**
+   Non. La gestion du portail est assurée par le fournisseur de ressources de machine virtuelle SQL qui s’appuie sur l’extension de l’agent IaaS SQL Server. Par conséquent, les mêmes limitations s’appliquent au fournisseur de ressources qu’à l’extension. Le portail peut uniquement gérer une instance par défaut, ou une instance nommée, à condition qu’elle soit correctement configurée. Pour plus d’informations, consultez [Extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
    
 ## <a name="updating-and-patching"></a>Mise à jour et mise à jour corrective
 

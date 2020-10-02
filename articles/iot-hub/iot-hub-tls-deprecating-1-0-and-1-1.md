@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: fcf7620f53c9bfdb51eb62598f2c8b441574eca6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849516"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006078"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Dépréciation de TLS 1.0 et 1.1 dans IoT Hub
 
@@ -38,9 +38,9 @@ IoT Hub continuera à prendre en charge TLS 1.0/1.1 jusqu’à nouvel ordre. To
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-## <a name="tls-12-ciphers"></a>Chiffrements TLS 1.2
+## <a name="tls-12-cipher-suites"></a>Suites de chiffrement TLS 1.2
 
-Consultez [Chiffrements recommandés TLS 1.2 IoT Hub](iot-hub-tls-support.md#recommended-ciphers).
+Consultez [Suites de chiffrement TLS 1.2 dans IoT Hub](iot-hub-tls-support.md#cipher-suites).
  
 ## <a name="customer-feedback"></a>Feedback des clients
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75864075"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439825"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Guides d’application du processus TDSP (Team Data Science Process)
 
@@ -32,7 +32,7 @@ Voici une brève description de ce qu’apportent ces exemples de guides sur leu
 - [Guides HDInsight Hadoop avec Hive](walkthroughs-hdinsight-hadoop.md) Ces guides utilisent Hive avec un cluster HDInsight Hadoop pour effectuer des analyses prédictives.
 - [Guides Azure Data Lake avec U-SQL](walkthroughs-azure-data-lake.md) Ces guides utilisent U-SQL avec Azure Data Lake pour effectuer des analyses prédictives.
 - [SQL Server](walkthroughs-sql-server.md) Ces guides utilisent SQL Server, SQL Server R Services et SQL Server Python Services pour effectuer des analyses prédictives.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) Ces guides utilisent SQL Data Warehouse pour effectuer des analyses prédictives. 
+- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) Ces procédures pas à pas utilisent Azure Synapse Analytics pour effectuer une analyse prédictive. 
 
 
 

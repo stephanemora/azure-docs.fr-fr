@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190671"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068760"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -234,7 +234,7 @@ Tenez compte des restrictions suivantes pour les noms de règle d’alerte d’i
 - Les noms de règle d’alerte d’indicateurs de performance ne peuvent pas être modifiés (renommés) une fois créés
 - Les noms de règles d’alerte des indicateurs de performance doivent être uniques au sein d’un groupe de ressources
 - Les noms de règle d’alerte des indicateurs de performance ne peuvent pas contenir les caractères suivants : * # & + : < > ? @ % { } \ / 
-- Les noms de règle d’alerte des indicateurs de performance ne peuvent pas se terminer par le caractère suivant : .
+- Les noms de règle d’alerte ne peuvent pas se terminer par un espace ni par un point
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrictions lors de l’utilisation de dimensions dans une règle d’alerte des indicateurs de performance avec plusieurs conditions

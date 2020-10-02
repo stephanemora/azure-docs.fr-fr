@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566282"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979695"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -96,7 +96,7 @@ Procédez comme suit pour déplacer votre espace de travail via le portail Azure
 4. Sélectionnez un **abonnement** de destination et un **groupe de ressources**. Si vous déplacez l’espace de travail vers un autre groupe de ressources dans le même abonnement, vous ne verrez pas l’option **Abonnement**.
 5. Cliquez sur **OK** pour déplacer l’espace de travail et les ressources sélectionnées.
 
-    ![Portail](media/move-workspace/portal.png)
+    ![Capture d’écran affichant le volet Vue d’ensemble de l’espace de travail Log Analytics avec les options permettant de modifier le groupe de ressources et le nom de l’abonnement.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Pour déplacer votre espace de travail à l’aide de PowerShell, utilisez la cmdlet [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) comme dans l’exemple suivant :

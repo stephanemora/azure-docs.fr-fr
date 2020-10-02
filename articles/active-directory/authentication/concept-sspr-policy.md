@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194061"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052713"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Le tableau suivant décrit les stratégies de nom d’utilisateur qui s’appliq
 
 Une stratégie de mot de passe est appliquée à tous les comptes d’utilisateur qui sont créés et gérés directement dans Azure AD. Cette stratégie de mot de passe ne peut pas être modifiée, même si vous pouvez [configurer des mots de passe interdits personnalisés pour la protection par mot de passe Azure AD](tutorial-configure-custom-password-protection.md).
 
-La stratégie de mot de passe ne s’applique pas aux comptes d’utilisateur synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect.
+La stratégie de mot de passe ne s’applique pas aux comptes d’utilisateur synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect, sauf si vous activez EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 Les options de stratégie de mot de passe suivantes sont définies :
 
@@ -108,7 +108,7 @@ Un *administrateur général* ou un *administrateur d’utilisateurs* peut utili
 
 Vous pouvez également utiliser des applets de commande PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer.
 
-Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Office 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
+Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Microsoft 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
 > [!NOTE]
 > Seuls les mots de passe de comptes d’utilisateurs non synchronisés par le biais d’Azure AD Connect peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter AD à Azure AD](../hybrid/whatis-hybrid-identity.md).

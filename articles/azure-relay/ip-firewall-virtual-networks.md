@@ -3,12 +3,12 @@ title: Configurer le pare-feu IP pour l’espace de noms Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu pour autoriser les connexions d’adresses IP spécifiques à des espaces de noms Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976013"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurer le pare-feu IP pour un espace de noms Azure Relay
 Par défaut, les espaces de noms Azure Relay sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -29,7 +29,7 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
 1. Accédez à votre **espace de noms Azure Relay** sur le [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez l’option **Réseaux**. Si vous sélectionnez l’option **Tous les réseaux** dans la section **Autoriser l’accès à partir de**, l’espace de noms Azure Relay accepte les connexions depuis n’importe quelle adresse IP. Ce paramètre est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
 
-    ![Pare-feu – Option Tous les réseaux sélectionnée](./media/ip-firewall/all-networks-selected.png)
+    ![La capture d’écran montre la page Mise en réseau avec l’option Tous les réseaux sélectionnée.](./media/ip-firewall/all-networks-selected.png)
 1. Pour restreindre l’accès à des réseaux et des adresses IP spécifiques, sélectionnez l’option **Réseaux sélectionnés**. Dans la section **Pare-feu**, suivez ces étapes :
     1. Sélectionnez l’option **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms. 
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 

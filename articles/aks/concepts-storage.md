@@ -3,13 +3,13 @@ title: 'Concepts : stockage dans AKS (Azure Kubernetes Service)'
 description: Découvrez le stockage dans AKS (Azure Kubernetes Service), notamment les volumes, les volumes persistants, les classes de stockage et les revendications
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406960"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421150"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -32,8 +32,6 @@ Les volumes traditionnels pour stocker et récupérer les données sont créés 
 
 - Les *disques Azure* permettent de créer une ressource *DataDisk* Kubernetes. Les disques peuvent utiliser un stockage Azure Premium, assorti de disques SSD hautes performances, ou le stockage Azure Standard, assorti de disques HDD standards. Pour la plupart des charges de travail de production et de développement, utilisez le stockage Premium. Les disques Azure étant montés avec le mode d’accès *ReadWriteOnce*, ils ne sont disponibles que pour un seul pod. Pour les volumes de stockage accessibles par plusieurs pods simultanément, utilisez Azure Files.
 - *Azure Files* permet de monter un partage SMB 3.0 assorti d’un compte Stockage Azure sur des pods. Avec Azure Files, vous pouvez partager des données entre plusieurs nœuds et pods. Les fichiers peuvent utiliser un stockage Azure Standard, assorti de disques HDD standard, ou un stockage Azure Premium, assorti de disques SSD hautes performances.
-> [!NOTE] 
-> Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou une version ultérieure.
 
 Dans Kubernetes, les volumes ne se limitent pas forcément à un disque classique sur lequel des informations peuvent être stockées et récupérées. Les volumes Kubernetes peuvent également servir à injecter des données dans un pod en vue de leur utilisation par les conteneurs. Voici certains types de volume supplémentaires courants dans Kubernetes :
 
@@ -55,12 +53,18 @@ Un volume persistant peut être créé *statiquement* par un administrateur de c
 
 Pour définir différents niveaux de stockage, tels que Premium et Standard, vous pouvez créer une classe de stockage (*StorageClass*). La classe de stockage définit également la stratégie de récupération (*reclaimPolicy*). Cette stratégie de récupération contrôle le comportement de la ressource de stockage Azure sous-jacente quand le pod est supprimé et que le volume persistant n’est peut-être plus nécessaire. La ressource de stockage sous-jacente peut être supprimée ou conservée en vue de son utilisation par un pod futur.
 
-Dans AKS, 4 classes de stockage initiales sont créées :
+Dans AKS, quatre `StorageClasses` initiales sont créées pour le cluster à l’aide des plug-ins de stockage dans l’arborescence :
 
-- *default* : utilise le stockage Azure StandardSSD pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
-- *managed-premium* : utilise le stockage Azure Premium pour créer le disque managé. La stratégie de récupération indique à nouveau que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
-- *azurefile* : utilise le stockage Azure Standard pour créer un partage de fichiers Azure. La stratégie de récupération indique que le partage de fichiers Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
-- *azurefile-premium* : utilise le stockage Azure Premium pour créer un partage de fichiers Azure. La stratégie de récupération indique que le partage de fichiers Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- `default` : utilise le stockage Azure StandardSSD pour créer un disque managé. La stratégie de récupération veille à ce que le disque Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- `managed-premium` : utilise un stockage Premium Azure pour créer un disque managé. La stratégie de récupération veille à nouveau à ce que le disque Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- `azurefile` : utilise le stockage Azure Standard pour créer un partage de fichiers Azure. La stratégie de récupération veille à ce que le partage de fichiers Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- `azurefile-premium` : utilise le stockage Azure Premium pour créer un partage de fichiers Azure. La stratégie de récupération veille à ce que le partage de fichiers Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
+
+Pour les clusters qui utilisent les nouveaux plug-ins externes d’interface de stockage de conteneur (Container Storage interface CSI) (préversion), les `StorageClasses` supplémentaires suivantes sont créées :
+- `managed-csi` : utilise un stockage localement redondant (LRS) Azure StandardSSD pour créer un disque managé. La stratégie de récupération veille à ce que le disque Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé. La classe de stockage configure également les volumes persistants pour qu’ils soient extensibles. Il vous suffit de modifier la revendication de volume persistant avec la nouvelle taille.
+- `managed-csi-premium` : utilise un stockage localement redondant (LRS) Azure Premium pour créer un disque managé. La stratégie de récupération veille à nouveau à ce que le disque Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé. De même, cette classe de stockage permet l’extension des volumes persistants.
+- `azurefile-csi` : utilise le stockage Azure Standard pour créer un partage de fichiers Azure. La stratégie de récupération veille à ce que le partage de fichiers Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- `azurefile-csi-premium` : utilise le stockage Azure Premium pour créer un partage de fichiers Azure. La stratégie de récupération veille à ce que le partage de fichiers Azure sous-jacent soit supprimé quand le volume persistant qui l’a utilisé est supprimé.
 
 Si aucune classe de stockage n’est spécifiée pour un volume persistant, la classe de stockage par défaut est utilisée. Quand vous demandez des volumes persistants, veillez à ce qu’ils utilisent le stockage dont vous avez besoin. Vous pouvez créer une classe de stockage pour des besoins supplémentaires à l’aide de `kubectl`. L’exemple suivant utilise la fonctionnalité Disques managés Premium et spécifie que le disque Azure sous-jacent doit être *conservé* quand le pod est supprimé :
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808454"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969517"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Intégration de l’approvisionnement Azure Active Directory avec SAP SuccessFactors 
 
@@ -199,11 +199,11 @@ La conversion de worker est le processus qui consiste à convertir un employé �
 1. Faites défiler vers le bas et cliquez sur **Afficher les options avancées .** .
 1. Cliquez sur le lien **Passez en revue votre schéma ici** pour ouvrir l’éditeur de schéma. 
 
-   >![review-schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Capture d’écran montrant le lien Examiner votre schéma ici qui ouvre l’éditeur de schéma.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Cliquez sur le lien **Télécharger** pour enregistrer une copie du schéma avant de le modifier. 
 
-   >![download-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Capture d’écran montrant l’Éditeur de schéma avec l’option Télécharger sélectionnée pour enregistrer une copie du schéma.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. Dans l’éditeur de schéma, appuyez sur Ctrl-H pour ouvrir le contrôle rechercher/remplacer.
 1. Dans la zone de texte Rechercher, copiez et collez la valeur `$.employmentNav.results[0]`
 1. Dans la zone de texte Remplacer, copiez et collez la valeur `$.employmentNav.results[?(@.userNav != null)]`. Notez l’espace blanc qui entoure l’opérateur `!=`, ce qui est important pour réussir le traitement de l’expression JSONPath. 

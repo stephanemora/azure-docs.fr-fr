@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983717"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
@@ -55,7 +55,7 @@ Les connexions propagent dynamiquement des routes dans une table de routage. Ave
 
 Une **table de routage None** est également disponible pour chaque hub virtuel. La propagation dans la table de routage None implique qu’aucune route ne doit être propagée à partir de la connexion. Les connexions VPN, ExpressRoute et VPN utilisateur propagent des routes dans le même ensemble de tables de routage.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagation":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Association":::
 
 ### <a name="labels"></a><a name="static"></a>Étiquettes
 Les étiquettes fournissent un mécanisme permettant de regrouper logiquement des tables de routage. Cela est particulièrement utile lors de la propagation d’itinéraires à partir de connexions vers plusieurs tables de routage. Par exemple, la table de routage par défaut a une étiquette intégrée appelée « Par défaut ». Quand des utilisateurs propagent des itinéraires de connexion à l’étiquette « Par défaut », ceux-ci s’appliquent automatiquement à toutes les tables de routage par défaut sur chaque hub du Virtual WAN. 
@@ -87,6 +87,7 @@ Lors de la configuration du routage de Virtual WAN, tenez compte de ce qui suit�
 * Lorsque vous utilisez le Pare-feu Azure dans plusieurs régions, tous les réseaux virtuels en étoile doivent être associés à la même table de routage. Par exemple, il n’est pas possible d’avoir un sous-ensemble de réseaux virtuels transitant par le Pare-feu Azure, tandis que d’autres réseaux virtuels contournent celui-ci dans le même hub virtuel.
 * Vous ne pouvez configurer qu'une seule adresse IP par connexion de réseau virtuel pour le tronçon suivant.
 * Le hub virtuel ne prend pas en charge l'itinéraire statique de 0.0.0.0/0 et la connexion au réseau virtuel du tronçon suivant (ou l'adresse IP d'une appliance dans la connexion de réseau virtuel).
+* Toutes les informations relatives à l'itinéraire 0.0.0.0/0 sont limitées à la table de routage d'un hub local. Cet itinéraire ne se propage pas entre les hubs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8328b961c8166247caaf0b9cd5cc288c420d089e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279990"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440692"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -236,6 +236,10 @@ Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/lo
 
 Les recommandations vont souvent au-delà des conditions minimales requise par SAP, comme indiqué plus haut dans cet article. Les recommandations listées sont un compromis entre les recommandations de taille de SAP et le débit de stockage maximal fourni par les différents types de machines virtuelles.
 
+> [!NOTE]
+> Le disque Ultra Azure impose au minimum 2 IOPS par Go de capacité d’un disque
+
+
 | Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | Volume /hana/data | Débit d’e/s /hana/data | IOPS /hana/data | Volume /hana/log | Débit d’e/s /hana/log | IOPS /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 Gio | 480 Mo/s | 200 Go | 400 Mbits/s | 2 500 | 80 Go | 250 Mo | 1 800 |
@@ -249,11 +253,11 @@ Les recommandations vont souvent au-delà des conditions minimales requise par S
 | M64s | 1 000 Gio | 1 000 Mo/s |  1 200 GO | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
 | M64ms | 1 750 Gio | 1 000 Mo/s | 2 100 Gio | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
 | M128s | 2 000 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
-| M128ms | 3,800 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M128ms | 3,800 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M208s_v2 | 2 850 Gio | 1 000 Mo/s | 3 500 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
-| M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 7 200 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
-| M416s_v2 | 5 700 Gio | 2 000 Mo/s | 7 200 Go | 1 000 Mbits/s | 9 000 | 512 Go | 400 Mbits/s  | 4 000 | 
-| M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 14 400 Go | 1 500 Mbits/s | 9 000 | 512 Go | 400 Mbits/s  | 4 000 |   
+| M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 7 200 Go | 750 Mo/s | 14 400 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M416s_v2 | 5 700 Gio | 2 000 Mo/s | 7 200 Go | 1 000 Mbits/s | 14 400 | 512 Go | 400 Mbits/s  | 4 000 | 
+| M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 14 400 Go | 1 500 Mbits/s | 28 800 | 512 Go | 400 Mbits/s  | 4 000 |   
 
 **Les valeurs répertoriées sont destinées à être un point de départ et doivent être évaluées en fonction de la demande réelle.** L’avantage du disque Ultra Azure est que les valeurs d’IOPS et de débit peuvent être adaptées sans avoir à arrêter la machine virtuelle, ni la charge de travail appliquée au système.   
 

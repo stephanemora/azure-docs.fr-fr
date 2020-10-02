@@ -3,12 +3,12 @@ title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934291"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567552"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -20,7 +20,8 @@ Vous allez également découvrir comment contrôler les journaux générés par 
 
 Live Video Analytics sur IoT Edge émet des événements ou des données de télémétrie selon la taxonomie suivante.
 
-![Schéma des données de télémétrie Live Video Analytics sur IoT Edge](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomie des événements&quot;:::
 
 * Opérationnel : événements générés dans le cadre des actions effectuées par un utilisateur, ou lors de l’exécution d’un [graphe multimédia](media-graph-concept.md).
    
@@ -31,16 +32,16 @@ Live Video Analytics sur IoT Edge émet des événements ou des données de tél
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -71,6 +72,7 @@ Live Video Analytics sur IoT Edge émet des événements ou des données de tél
    * Exemples :
       
       Mouvement détecté (ci-dessous), résultat de l’inférence.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ Live Video Analytics sur IoT Edge émet des événements ou des données de tél
      }
    }
    ```
+
 Les événements émis par le module sont envoyés au [hub IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), et depuis ce dernier, ils peuvent être routés vers d’autres destinations. 
 
 ### <a name="timestamps-in-analytic-events"></a>Timestamps des événements analytiques
-Comme indiqué ci-dessus, un timestamp est associé aux événements générés dans le cadre de l'analyse vidéo. Si vous avez [enregistré la vidéo en direct](video-recording-concept.md) dans le cadre de votre topologie graphique, ce timestamp vous aide à localiser où un événement particulier s'est produit dans la vidéo enregistrée. Les instructions suivantes expliquent comment mapper le timestamp d'un événement analytique avec la chronologie de la vidéo enregistrée dans un [élément multimédia Azure Media Service](terminology.md#asset).
+
+Comme indiqué ci-dessus, un timestamp est associé aux événements générés dans le cadre de l'analyse vidéo. Si vous avez [enregistré la vidéo en direct](video-recording-concept.md) dans le cadre de votre topologie graphique, cet horodatage vous permet de trouver où un événement particulier s’est produit dans la vidéo enregistrée. Les instructions suivantes expliquent comment mapper le timestamp d'un événement analytique avec la chronologie de la vidéo enregistrée dans un [élément multimédia Azure Media Service](terminology.md#asset).
 
 Tout d'abord, extrayez la valeur `eventTime`. Utilisez cette valeur dans un [filtre d'intervalle de temps](playback-recordings-how-to.md#time-range-filters) pour extraire une portion appropriée de l'enregistrement. Par exemple, vous souhaitez peut-être extraire une vidéo qui commence 30 secondes avant `eventTime` et se termine 30 secondes après. Avec l'exemple ci-dessus, où `eventTime` correspond à 2020-05-12T23:33:09.381Z, une demande de manifeste HLS pour la fenêtre +/- 30s ressemblerait à ceci :
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 L'URL ci-dessus renverrait une [playlist principale](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming) contenant les URL des playlists multimédias. La playlist multimédia contiendrait des entrées semblables aux suivantes :
 
 ```

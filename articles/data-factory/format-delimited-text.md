@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 1793517a76fce3c252c95fb73299d4c4e8c5a216
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042834"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531812"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 
@@ -39,7 +39,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | firstRowAsHeader | Spécifie s’il faut considérer/faire de la première ligne une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut).<br>Lorsque la première ligne en tant qu’en-tête a la valeur false, notez que la sortie de l’activité de recherche et d’aperçu des données de l’interface utilisateur génère automatiquement des noms de colonnes tels que Prop_{n} (à partir de 0). L’activité de copie requiert un [mappage explicite](copy-activity-schema-and-type-mapping.md#explicit-mapping) de la source au récepteur, et recherche les colonnes par ordinal (à partir de 1). Et le flux de données de mappage répertorie et recherche les colonnes par leur nom, par exemple Column_{n} (à partir de 1).  | Non       |
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
 | encodingName     | Le type de codage utilisé pour lire/écrire des fichiers de test. <br>Les valeurs autorisées sont les suivantes : « UTF-8 », « UTF-16 », « UTF-16BE », « UTF-32 », « UTF-32BE NE », « US-ASCII », « UTF-7 », « BIG5 », « EUC-JP », « EUC-KR », « GB2312 », « GB18030 », « JOHAB », « SHIFT-JIS », « CP875 », « CP866 », « IBM00858 », « IBM037 », « IBM273 », « IBM437 », « IBM500 », « IBM737 », « IBM775 », « IBM850 », » IBM852 », « IBM855 », « IBM857 », « IBM860 », « IBM861 », « IBM863 », « IBM864 », « IBM865 », « IBM869 », « IBM870 », « IBM01140 », « IBM01141 », « IBM01142 », « IBM01143 », « IBM01144 », « IBM01145 », « IBM01146 », « IBM01147 », « IBM01148 », « IBM01149 », « ISO-2022-JP », « ISO-2022-KR «, « ISO-8859-1 », « ISO-8859-2 », « ISO-8859-3", « ISO-8859-4 », « ISO-8859-5 », « ISO-8859-6 », « ISO-8859-7 », « ISO-8859-8 », « ISO-8859-9 », « ISO-8859-13 », « ISO-8859-15 », « WINDOWS-874 », « WINDOWS-1250 », « WINDOWS-1251 », « WINDOWS-1252 », « WINDOWS-1253 », » WINDOWS-1254 », « WINDOWS-1255 », « WINDOWS-1256 », « WINDOWS-1257 », « WINDOWS-1258 ».<br>Notez que le flux de données de mappage ne prend pas en charge le codage UTF-7. | Non       |
-| compressionCodec | Le codec de compression utilisé pour lire/écrire des fichiers texte. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, ou **lz4**. La valeur par défaut n’est pas compressée. <br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ». <br>**Notez** que lors de l'utilisation de l'activité de copie pour décompresser des fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source zip file>/`, utilisez `preserveZipFileNameAsFolder` sur [source de l'activité de copie](#delimited-text-as-source) pour déterminer si le nom du fichier zip doit être conservé comme structure de dossier. | Non       |
+| compressionCodec | Le codec de compression utilisé pour lire/écrire des fichiers texte. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy** et **lz4**. La valeur par défaut n’est pas compressée. <br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ». <br>**Notez** que lors de l'utilisation de l'activité de copie pour décompresser des fichiers **ZipDeflate**/**TarGzip** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source compressed file>/`, utilisez `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` sur [source de l'activité de copie](#delimited-text-as-source) pour déterminer si le nom du fichier compressé doit être conservé comme structure de dossier. | Non       |
 | compressionLevel | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données de texte délimité sur Stockage Blob Azure :
@@ -81,7 +81,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | Propriété       | Description                                                  | Obligatoire |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSource**. | Oui      |
-| formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres de lecture du texte délimité** ci-dessous. | Non       |
+| formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres de lecture du texte délimité** ci-dessous. |  Non       |
 | storeSettings  | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. | Non       |
 
 Prise en charge des **paramètres de lecture du texte délimité** sous `formatSettings`:
@@ -91,7 +91,8 @@ Prise en charge des **paramètres de lecture du texte délimité** sous `formatS
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSettings**. | Oui      |
 | skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. | Non       |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* ) |  S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
+| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings`* )  | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d'éviter toute course ou tout comportement inattendu. | Non |
 
 ```json
 "activities": [
@@ -128,7 +129,7 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 | Propriété       | Description                                                  | Obligatoire |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSink**. | Oui      |
-| formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres d’écriture du texte délimité** ci-dessous. |          |
+| formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres d’écriture du texte délimité** ci-dessous. |    Non      |
 | storeSettings  | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`.  | Non       |
 
 Prise en charge des **paramètres d’écriture du texte délimité** sous `formatSettings`:
@@ -137,6 +138,8 @@ Prise en charge des **paramètres d’écriture du texte délimité** sous `form
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextWriteSettings**. | Oui                                                   |
 | fileExtension | Extension de fichier utilisée pour nommer les fichiers de sortie, par exemple : `.csv`, `.txt`. Elle doit être spécifiée lorsque `fileName` n’est pas spécifié dans le jeu de données de sortie DelimitedText. Quand le nom de fichier est configuré dans le jeu de données de sortie, il est utilisé comme nom de fichier du récepteur et le paramètre d’extension de fichier est ignoré.  | Oui lorsque le nom de fichier n’est pas spécifié dans le jeu de données de sortie |
+| maxRowsPerFile | Lorsque vous écrivez des données dans un dossier, vous pouvez choisir d'écrire dans plusieurs fichiers et de spécifier le nombre maximal de lignes par fichier.  | Non |
+| fileNamePrefix | Applicable lorsque `maxRowsPerFile` est configuré.<br> Spécifiez le préfixe du nom de fichier lors de l'écriture de données dans plusieurs fichiers, ce qui génère ce modèle : `<fileNamePrefix>_00000.<fileExtension>`. S'il n'est pas spécifié, le préfixe du nom de fichier est généré automatiquement. Cette propriété ne s'applique pas lorsque la source est un magasin basé sur des fichiers ou un [magasin de données avec option de partition](copy-activity-performance-features.md).  | Non |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 

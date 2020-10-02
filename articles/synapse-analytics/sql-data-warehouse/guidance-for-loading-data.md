@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201631"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441219"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Bonnes pratiques en matière de chargement de données à l’aide du pool SQL Synapse
 
@@ -175,6 +175,6 @@ Aucune autre modification des sources de données externes sous-jacentes n’est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’instruction COPY ou PolyBase lors de la conception d’un processus d’extraction, de chargement et transformation (ELT), consultez [Conception d’un processus d’extraction, de chargement et de transformation (ELT) pour SQL Data Warehouse](design-elt-data-loading.md).
+- Pour plus d’informations sur l’instruction COPY ou PolyBase lors de la conception d’un processus d’extraction, de chargement et transformation (ELT), consultez [Conception d’un processus d’extraction, de chargement et de transformation (ELT) pour Azure Synapse Analytics](design-elt-data-loading.md).
 - Pour un didacticiel sur le chargement, consultez [Utiliser l’instruction COPY pour charger des données du Stockage Blob Azure vers Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Pour surveiller les charges de données, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).

@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641022"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601943"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
 Les appareils mobiles sont régulièrement utilisés pour effectuer des tâches aussi bien personnelles que professionnelles. Tout en veillant à ce que le personnel puisse être productif, les organisations veulent également empêcher la perte de données depuis des applications potentiellement non sécurisées. Avec l’accès conditionnel, les organisations peuvent limiter l’accès aux seules applications clientes approuvées (avec une authentification moderne) auxquelles des stratégies Intune App Protection sont appliquées.
 
-Cet article présente trois scénarios permettant de configurer des stratégies d’accès conditionnel pour des ressources comme Office 365, Exchange Online et SharePoint Online.
+Cet article présente trois scénarios permettant de configurer des stratégies d’accès conditionnel pour des ressources comme Microsoft 365, Exchange Online et SharePoint.
 
-- [Scénario 1 : Les applications Office 365 demandent des applications approuvées avec des stratégies de protection d’application](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [Scénario 1 : Les applications Microsoft 365 demandent des applications approuvées avec des stratégies de protection d’application](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [Scénario 2 : Des applications de navigateur requièrent des applications approuvées avec des stratégies de protection d’application](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [Scénario 3 : Exchange Online et SharePoint Online demandent une application cliente approuvée et une stratégie de protection d’application](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [Scénario 3 : Exchange Online et SharePoint demandent une application cliente approuvée et une stratégie de protection d’application](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 Dans l’accès conditionnel, on dit que ces applications clientes sont protégées par une stratégie de protection d’application. Pour obtenir plus d’informations sur les stratégies de protection d’application, consultez l’article [Présentation des stratégies de protection d’application](/intune/apps/app-protection-policy)
 
@@ -36,13 +36,13 @@ Dans l’accès conditionnel, on dit que ces applications clientes sont protég�
 > [!NOTE]
 > Le contrôle « Demander un des contrôles sélectionnés » sous les contrôles d’octroi est semblable à une clause OR. Il est utilisé dans la stratégie pour permettre aux utilisateurs d’utiliser les applications prenant en charge les contrôles d’octroi **Exiger une stratégie de protection des applications** ou **Demander une application cliente approuvée**. **Exiger une stratégie de protection des applications** est appliqué si une application est prise en charge dans les deux stratégies. Pour plus d’informations sur les applications prenant en charge le contrôle d'octroi **Exiger une stratégie de protection des applications**, consultez [Présence obligatoire d’une stratégie de protection des applications](concept-conditional-access-grant.md#require-app-protection-policy).
 
-## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 1 : Les applications Office 365 demandent des applications approuvées avec des stratégies de protection d’application
+## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 1 : Les applications Microsoft 365 demandent des applications approuvées avec des stratégies de protection d’application
 
-Dans ce scénario, Contoso a décidé que tout accès mobile aux ressources Office 365 doit utiliser des applications clientes approuvées, telles que Outlook Mobile et OneDrive, protégées par une stratégie de protection d’application avant de recevoir l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+Dans ce scénario, Contoso a décidé que tout accès mobile aux ressources Microsoft 365 doit utiliser des applications clientes approuvées, telles que Outlook Mobile et OneDrive, protégées par une stratégie de protection d’application avant de recevoir l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
 
 Les organisations doivent effectuer les étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles.
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Office 365**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Microsoft 365**
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -89,11 +89,11 @@ Consultez l’article [Guide pratique pour créer et assigner des stratégies de
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 2 : Des applications de navigateur requièrent des applications approuvées avec des stratégies de protection d’application
 
-Dans ce scénario, Contoso a décidé que tout accès mobile par navigation web aux ressources Office 365 doit utiliser une application cliente approuvée, telle Edge pour iOS et Android, protégée par une stratégie de protection des applications avant de se voir octroyer l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+Dans ce scénario, Contoso a décidé que tout accès mobile par navigation web aux ressources Microsoft 365 doit utiliser une application cliente approuvée, telle Edge pour iOS et Android, protégée par une stratégie de protection des applications avant de se voir octroyer l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
 
 Les organisations doivent effectuer les étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles.
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Office 365**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Microsoft 365**
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -120,13 +120,13 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
 
 Consultez l’article [Guide pratique pour créer et assigner des stratégies de protection d’application](/intune/apps/app-protection-policies) afin de connaître les étapes de création des stratégies de protection d’application pour Android et iOS. 
 
-## <a name="scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy"></a>Scénario 3 : Exchange Online et SharePoint Online demandent une application cliente approuvée et une stratégie de protection d’application
+## <a name="scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy"></a>Scénario 3 : Exchange Online et SharePoint Online demandent une application cliente approuvée et une stratégie de protection d’application
 
 Dans ce scénario, Contoso a décidé que les utilisateurs peuvent uniquement accéder aux e-mails et aux données SharePoint sur les appareils mobiles, à condition qu’ils utilisent une application cliente approuvée, comme Outlook Mobile, protégée par une stratégie de protection d’application avant de recevoir l’accès. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
 
 Les organisations doivent effectuer les trois étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles et des clients ActiveSync.
 
-**Étape 1 : Stratégie pour les clients à authentification moderne basés sur Android et iOS, nécessitant l’utilisation d’une application cliente approuvée et une stratégie de protection d’application lors de l’accès à Exchange Online et SharePoint Online**
+**Étape 1 : Stratégie pour les clients à authentification moderne basés sur Android et iOS, nécessitant l’utilisation d’une application cliente approuvée et une stratégie de protection d’application lors de l’accès à Exchange Online et SharePoint.**
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**

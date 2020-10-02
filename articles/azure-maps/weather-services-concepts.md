@@ -1,23 +1,23 @@
 ---
-title: Concepts relatifs aux services météo | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir les concepts qui s’appliquent aux services météo de Microsoft Azure Maps.
+title: Concepts relatifs aux services météo dans Microsoft Azure Maps
+description: Découvrez les concepts qui s’appliquent aux services météo de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972034"
 ---
 # <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
 
-Cet article présente les concepts qui s’appliquent aux [Services météo d’Azure Maps](https://aka.ms/AzureMapsWeatherService). Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo. 
+Cet article présente les concepts qui s’appliquent aux [Services météo d’Azure Maps](https://aka.ms/AzureMapsWeatherService). Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
 
 ## <a name="unit-types"></a>Types d’unités
 
@@ -472,3 +472,169 @@ La palette de couleurs détaillée pour les mosaïques de satellite infrarouges 
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>ID d’index et ID de groupes d’index
+
+L’[API Obtenir des index quotidiens](https://aka.ms/AzureMapsWeatherDailyIndices) permet aux utilisateurs de limiter les résultats renvoyés à des types ou groupes d’index spécifiques.
+
+Vous trouverez ci-dessous une table des ID d’index disponibles, leurs noms et un lien vers leurs ensembles de plages. Le tableau ci-dessous répertorie les différents groupes d’index.
+
+  Nom de l'index |  id  | Plage de valeurs
+  -------------------------- |---|-----
+  Douleur arthritique             |21 | [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Asthme                     |23|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Plage et piscine               |10| [Médiocre-Excellent 1](#poor-excellent-1)
+  Cyclisme                  |4| [Médiocre-Excellent 1](#poor-excellent-1)
+  Rhume                |25|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Compostage                 |38| [Médiocre-Excellent 1](#poor-excellent-1)
+  Construction               |14| [Médiocre-Excellent 1](#poor-excellent-1)
+  COPD                       |44|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Promenade avec chien        |43| [Médiocre-Excellent 1](#poor-excellent-1)
+  Conduite                    |40|  [Médiocre-Excellent 2](#poor-excellent-2)
+  Poussière et phanères              |18| [Faible-Extrême 1](#low-extreme-1)
+  Préparation du terrain            |32| [Médiocre-Excellent 1](#poor-excellent-1)
+  Pêche                    |13| [Médiocre-Excellent 1](#poor-excellent-1)
+  Retards des vols              |-3|  [Très peu probable- Très probable 2](#very-unlikely-very-likely-2)
+  Grippe                        |26|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Index des voyages en avion        |31| [Excellent-Médiocre](#excellent-poor)
+  Économie de carburant               |37| [Médiocre-Excellent 1](#poor-excellent-1)
+  Météo pour le golf               |5| [Médiocre-Excellent 1](#poor-excellent-1)
+  Pousse du gazon              |33| [Médiocre-Excellent 1](#poor-excellent-1)
+  Frisottis                 |42| [Peu probable-Urgence](#unlikely-emergency)
+  Bonne santé cardiaque      |16| [Médiocre-Excellent 1](#poor-excellent-1)
+  Randonnée                     |3| [Médiocre-Excellent 1](#poor-excellent-1)
+  Efficacité énergétique du domicile     |36| [Médiocre-Excellent 1](#poor-excellent-1)
+  Chasse                    | 20| [Médiocre-Excellent 1](#poor-excellent-1)
+  Activité intérieure            | -2| [Médiocre-Excellent 1](#poor-excellent-1)
+  Jogging                    |2| [Médiocre-Excellent 1](#poor-excellent-1)
+  Cerf-volant                |9| [Médiocre-Excellent 1](#poor-excellent-1)
+  Tonte du gazon                |28| [Médiocre-Excellent 1](#poor-excellent-1)
+  Migraine          |27|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Bus scolaire du matin         |35| [Médiocre-Excellent 1](#poor-excellent-1)
+  Moustiques          |17|[Faible-Extrême 1](#low-extreme-1)
+  Activité extérieure           |29| [Médiocre-Excellent 1](#poor-excellent-1)
+  Barbecue en plein air           |24| [Médiocre-Excellent 1](#poor-excellent-1)
+  Concert en plein air            |8| [Médiocre-Excellent 1](#poor-excellent-1)
+  En cours d’exécution                    |1|  [Médiocre-Excellent 1](#poor-excellent-1)
+  Tennis                     |6| [Médiocre-Excellent 1](#poor-excellent-1)
+  Soif                     |41| [Faible-Extrême 2](#low-extreme-2)
+  Voile                    |11| [Médiocre-Excellent 1](#poor-excellent-1)
+  Achats                   |39| [Médiocre-Excellent 1](#poor-excellent-1)
+  Sinusite             |30|  [Bénéfique-À risque extrême](#beneficial-at-extreme-risk)
+  Skateboard              | 7| [Médiocre-Excellent 1](#poor-excellent-1)
+  Météo des pistes de ski                | 15| [Médiocre-Excellent 1](#poor-excellent-1)
+  Jours de neige                  | 19| [Très peu probable - Très probable](#very-unlikely-very-likely)
+  Humidité du sol              | 34| [Médiocre-Excellent 1](#poor-excellent-1)
+  Observation des étoiles                 | 12| [Médiocre-Excellent 1](#poor-excellent-1)
+
+Voici la liste des groupes d’index disponibles (indexGroupId) :
+
+  id   | Nom du groupe | Index dans ce groupe |
+  -------- | ------------------|------
+  1       |Tous | Tous
+  2       |Douleurs et maux | Douleur arthritique (21) </br> Migraine (27) </br> Sinusite (30)
+  3       |Respiration | Asthme (23) </br> Rhume (25) </br> Prévision de grippe (26)
+  4       |Jardinage | Préparation du terrain (32) </br> Tonte du gazon (28) </br> Humidité du sol (34)</br>
+  5       |Environnement | Compostage (38) </br> Efficacité énergétique du domicile (36) </br> Économie de carburant (37)
+  6       |Plein air | Barbecue en plein air (24) </br> Moustiques (17)
+  7       |Plage et activités nautiques | Plage et piscine (10) </br> Pêche (13) </br> Voile (11)
+  8       |Sports | Pêche (13) </br> Chasse (20) </br> Activité extérieure (29)</br>
+  9       |Agriculture |  Préparation du terrain (32) </br>  Humidité du sol (34)
+  10      |Santé | Douleur arthritique (21) </br> Asthme (23) </br> Rhume (25) </br> Poussière et phanères (18) </br> Grippe (26) </br> Bonne santé cardiaque (16) </br> Migraine (27)
+  11      |Plein air | Barbecue en plein air (24) </br> Plage et piscine (10) </br> Cyclisme (4) </br> Concert en plein air (8) </br>  Préparation du terrain (32) </br> Pêche (13) </br> Météo pour le golf (5) </br> Randonnée (3) </br> Chasse (20) </br> Jogging (2) </br> Cerf-volant (9) </br> Moustiques (17)</br> Tonte du gazon (28) </br> Activité extérieure (29) </br> Course à pied (1) </br> Voile (11) </br> Skateboard (7) </br> Météo des pistes de ski (15) </br>  Humidité du sol (34)</br> Observation des étoiles (12) </br> Tennis (6)
+  12      |Sports | Cyclisme (4) </br> Météo pour le golf (5) </br> Randonnée (3) </br>  Jogging (2) </br> Course à pied (1) </br> Skateboard (7) </br> Météo des pistes de ski (15) </br>Tennis (6)
+  13      |Accueil | Efficacité énergétique du domicile (36) </br> Économie de carburant (37) </br> Activité intérieure (-2)
+
+## <a name="daily-index-range-sets"></a>Ensembles de plages d’index quotidiens
+
+L’[API Obtenir des index quotidiens](https://aka.ms/AzureMapsWeatherDailyIndices) renvoie la valeur de plage et son nom de catégorie associé pour chaque ID d’index. Les ensembles de plages ne sont pas identiques pour tous les index. Les tableaux ci-dessous montrent les différents ensembles de plages utilisés par les index pris en charge et répertoriés dans [ID d’index et de groupes d’index](#index-ids-and-index-groups-ids). Pour déterminer les index qui utilisent les ensembles de plages, consultez la section [ID d’index et groupes d’index](#index-ids-and-index-groups-ids) de ce document.
+
+### <a name="poor-excellent-1"></a>Médiocre-Excellent 1
+
+  | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Médiocre              |  0 |                2.99
+  Moyen              |  3  |               4.99
+  Bien              |  5  |              6,99
+  Très bien         |  7  |               8.99
+  Excellent         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Médiocre-Excellent 2
+
+ | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Médiocre           |0              |  3
+  Moyen           |3.01           |  6
+  Bien           |6.01           |  7,5
+  Très bien      |7.51           |  8.99
+  Excellent      |9              |  10
+
+### <a name="excellent-poor"></a>Excellent-Médiocre
+
+ | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Excellent      |     0,00        |    1.00
+  Très bien        |   1.01          |  3.00
+  Bien             |   3.01          |  5,00
+  Moyen             |   5,01          |  7,00
+  Médiocre             |   7.01          |  10.00
+
+### <a name="low-extreme-1"></a>Faible-Extrême 1
+
+   | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Faible                |  0         |        1.99
+  Modéré           |  2         |        3.99
+  Élevé               |  4         |        5,99
+  Très élevée          |  6         |        7.99
+  Extreme            |  8         |        10
+
+### <a name="low-extreme-2"></a>Faible-Extrême 2
+
+   | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Faible                |  0            |      2.99
+  Modéré           |  3            |      4.99
+  Élevé               |  5            |      6,99
+  Très élevée          |  7            |      8.99
+  Extreme            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Très peu probable- Très probable 2
+
+ | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Très peu probable      | 0     |           1.99
+  Peu probable           | 2     |           3.99
+  Possible           | 4     |           5,99
+  Probable             | 6     |           7.99
+  Très probablement        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Très peu probable- Très probable 2
+
+ | Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Très peu probable      |  0,00     |         1.00
+  Peu probable           |  1.01     |         3.00
+  Possible           |  3.01     |         5,00
+  Probable             |  5,01     |         7,00
+  Très probablement        |  7.01     |         10.00
+
+### <a name="unlikely-emergency"></a>Peu probable-Urgence
+
+| Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Peu probable         |  0     |          2.99
+  Espion            |  3     |          4.99
+  Conseil         |  5     |          6,99
+  Avertissement          |  7     |          8.99
+  Urgence        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Bénéfique-À risque extrême
+
+| Nom de catégorie | Plage de début | Plage de fin |
+  ----------------|--------------|------------
+  Bénéfique        |    0        |        1.99
+  Neutre           |    2        |        3.99
+  À risque           |    4        |        5,99
+  À risque élevé      |    6        |        7.99
+  À risque extrême   |    8        |        10

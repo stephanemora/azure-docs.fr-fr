@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586213"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060694"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -68,7 +68,20 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 
 ## <a name="release-history"></a>Historique des mises en production
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (Unreleased)
+### <a name="450-beta1-unreleased"></a>4.5.0-beta.1 (non commercialisé)
+
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Correction de RequestTimeoutException lors de l’activation de la dépendance `netty-tcnative-boringssl`.
+* Résolution d’un problème de fuite de mémoire sur les opérations `Delete` en mode `GATEWAY`.
+* Correction d’une fuite dans l’instanciation `CosmosClient` lorsque l’URI de point de terminaison est non valide.
+* Amélioration des diagnostics `CPU History`.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Correction d’un problème avec la requête `GROUP BY`, qui renvoyait une seule page.
+* Correction du format de chaîne de l’agent utilisateur pour respecter les directives centrales du kit SDK.
+* Amélioration des informations de diagnostic pour inclure les diagnostics du plan de requête.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (29/07/2020)
 #### <a name="new-features"></a>Nouvelles fonctionnalités

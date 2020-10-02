@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753688"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983675"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configurer un Pare-feu Azure dans un hub de réseau étendu virtuel
 
@@ -32,20 +32,20 @@ Pour créer un nouveau réseau étendu virtuel et un nouveau hub, suivez les ét
 
 La page **Vue d’ensemble** de votre réseau étendu virtuel affiche une liste des hubs virtuels et de hubs sécurisés. L’illustration suivante montre un réseau étendu virtuel sans hub sécurisé.
 
-[ ![vue d’ensemble](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[ ![Capture d'écran de la page de présentation d'un réseau étendu virtuel, avec une liste de hubs virtuels.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Convertir en hub sécurisé
 
 1. Sur la page **Vue d’ensemble** de votre réseau étendu virtuel, sélectionnez le hub que vous souhaitez convertir en hub sécurisé. Sur la page du hub virtuel, vous voyez deux options pour déployer le Pare-feu Azure dans ce hub. Sélectionnez l’une ou l’autre de ces options.
 
-   [ ![sécurité](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [ ![Capture d'écran de la page de présentation de votre réseau étendu virtuel, sur laquelle vous pouvez sélectionner Convertir en hub sécurisé ou Pare-feu Azure.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. Après avoir sélectionné l’une des options, vous voyez la page **Convertir en hub sécurisé**. Sélectionnez un hub à convertir, puis sélectionnez **suivant : Pare-feu Azure** en bas de la page.
 
    [ ![sélectionner un hub](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. Une fois le flux de travail terminé, sélectionnez **Confirmer**.
 
-   [ ![confirmer](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [ ![Capture d'écran du volet Convertir en hub sécurisé, dans lequel Confirmer est sélectionné.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. Une fois le hub converti en hub sécurisé, vous pouvez l’afficher sur la page **Vue d’ensemble** du réseau étendu virtuel.
 

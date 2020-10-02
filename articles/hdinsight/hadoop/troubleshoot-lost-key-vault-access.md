@@ -1,18 +1,18 @@
 ---
 title: Les clusters Azure HDInsight avec chiffrement de disque perdent l’accès à Key Vault
-description: Étapes de détection de problèmes et résolutions possibles pour les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
+description: Décrit les étapes de détection de problèmes et les résolutions possibles de problèmes d’accès à Key Vault rencontrés lors d’interactions avec des clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461529"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532560"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scénario : Les clusters Azure HDInsight avec chiffrement de disque perdent l’accès à Key Vault
 

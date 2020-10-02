@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932965"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056589"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
@@ -87,6 +87,9 @@ ms.locfileid: "88932965"
 | Turc               |     `tr`      |     ✓      |            |                                 |                    |
 
 #### <a name="key-phrase-extraction"></a>[Extraction de phrases clés](#tab/key-phrase-extraction)
+
+> [!NOTE]
+> Les versions de modèle d’extraction de phrases clés antérieures à 2020-07-01 ont une limite de 64 caractères. Cette limite n’est pas présente dans les versions de modèle ultérieures.
 
 | Langage              | Code langue | Prise en charge de v2 | Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|

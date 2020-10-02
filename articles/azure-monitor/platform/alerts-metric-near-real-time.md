@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661314"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595578"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -112,7 +112,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Web/sites | Oui | Non | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) et [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Oui | Non | [Slots App Service](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> pris en charge pour les mesures de plateforme uniquement (pas de mesures personnalisées)
+<sup>1</sup> Pas pris en charge pour les métriques de réseau des machines virtuelles (Octets entrants réseau totaux, Octets sortants réseau totaux, Flux entrants, Flux sortants, Taux de création maximal de flux entrants, Taux de création maximal de flux sortants) et les métriques personnalisées.
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235160"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069762"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
@@ -26,7 +26,7 @@ Cet article décrit une erreur qui peut se produire lors d’une tentative de co
 
 ## <a name="symptoms"></a>Symptômes
 
-Vous ne parvenez pas à vous connecter à une machine virtuelle Azure à l’aide du protocole RDP (Remote Desktop Protocol). Soit la connexion se bloque sur la section « Configuration de la connexion à distance », soit vous recevez le message d’erreur suivant :
+Vous ne parvenez pas à vous connecter à une machine virtuelle Azure en utilisant le protocole RDP (Remote Desktop Protocol). La connexion se bloque sur la section **Configuration de la connexion à distance** ou vous recevez le message d’erreur suivant :
 
 - Erreur interne RDP.
 - Une erreur interne s'est produite.
@@ -35,22 +35,26 @@ Vous ne parvenez pas à vous connecter à une machine virtuelle Azure à l’aid
 
 ## <a name="cause"></a>Cause :
 
-Ce problème peut se produire pour les raisons suivantes :
+Ce problème peut se produire pour les raisons suivantes :
 
+- La machine virtuelle peut avoir été attaquée.
 - Les clés de chiffrement RSA locales ne sont pas accessibles.
 - Le protocole TLS est désactivé.
 - Le certificat est endommagé ou a expiré.
 
 ## <a name="solution"></a>Solution
 
-Avant de suivre cette procédure, faites en sauvegarde en prenant un instantané du disque du système d’exploitation de la machine virtuelle affectée. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
+Pour résoudre ce problème, effectuez les étapes décrites dans les sections suivantes. Avant de commencer, prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée à titre de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
-Pour résoudre ce problème, utilisez la console série ou [réparez la machine virtuelle en mode hors connexion](#repair-the-vm-offline) en attachant le disque du système d’exploitation de la machine virtuelle à une machine virtuelle de récupération.
+### <a name="check-rdp-security"></a>Vérifier la sécurité de RDP
 
+Tout d’abord, vérifiez si le groupe de sécurité réseau pour le port RDP 3389 n’est pas sécurisé (ouvert). S’il n’est pas sécurisé et qu’il montre \* comme adresse IP source pour le trafic entrant, limitez le port RDP à l’adresse IP d’un utilisateur spécifique, puis testez l’accès RDP. Si cela échoue, effectuez les étapes de la section suivante.
 
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
-Connectez-vous à la [console série et ouvrez une instance de PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Utilisez la console série ou [réparez la machine virtuelle en mode hors connexion](#repair-the-vm-offline) en attachant le disque du système d’exploitation de la machine virtuelle à une machine virtuelle de récupération.
+
+Pour commencer, connectez-vous à la [console série et ouvrez une instance PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Si la console série n’est pas activée sur votre machine virtuelle, accédez à la section [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline).
 
 #### <a name="step-1-check-the-rdp-port"></a>Étape 1 : Vérifier le port RDP

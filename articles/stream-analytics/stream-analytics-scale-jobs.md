@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: d982cc94a9ab0517d6453a30371635c1e3100676
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835595"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488505"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
@@ -23,7 +23,7 @@ Comme prérequis, vous devrez peut-être consulter les articles suivants :
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Cas 1 : Votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée
 Si votre requête est par définition entièrement parallélisable sur plusieurs partitions d’entrée, vous pouvez suivre les étapes suivantes :
 1.  Créez une requête massivement parallèle en utilisant le mot clé **PARTITION BY**. Pour plus d’informations, consultez la section Travaux massivement parallèles [dans cette page](stream-analytics-parallelization.md).
-2.  En fonction des types de sorties utilisés dans votre requête, certaines sorties peuvent ne pas être parallélisables ou nécessiter une configuration supplémentaire pour être massivement parallèles. Par exemple, la sortie PowerBI n’est pas parallélisable. Les sorties sont toujours fusionnées avant l’envoi vers le récepteur de sortie. Les objets blob, les tables, ADLS, Service Bus et Azure Function sont automatiquement parallélisés. Les sorties SQL et SQL DW comportent une option pour la parallélisation. La configuration de PartitionKey pour Event Hub doit correspondre au champ **PARTITION BY** (généralement PartitionId). Pour Event Hub, assurez-vous également que le nombre de partitions d’entrée est égal au nombre de partitions de sortie pour éviter tout croisement entre les partitions. 
+2.  En fonction des types de sorties utilisés dans votre requête, certaines sorties peuvent ne pas être parallélisables ou nécessiter une configuration supplémentaire pour être massivement parallèles. Par exemple, la sortie PowerBI n’est pas parallélisable. Les sorties sont toujours fusionnées avant l’envoi vers le récepteur de sortie. Les objets blob, les tables, ADLS, Service Bus et Azure Function sont automatiquement parallélisés. Les sorties SQL et Azure Synapse Analytics comportent une option pour la parallélisation. La configuration de PartitionKey pour Event Hub doit correspondre au champ **PARTITION BY** (généralement PartitionId). Pour Event Hub, assurez-vous également que le nombre de partitions d’entrée est égal au nombre de partitions de sortie pour éviter tout croisement entre les partitions. 
 3.  Exécutez votre requête avec **6 unités de streaming** (ce qui est la capacité totale d’un seul nœud de calcul) pour mesurer le débit maximal réalisable et, si vous utilisez **GROUP BY**, pour mesurer le nombre de groupes (cardinalité) que le travail peut gérer. Les symptômes généraux qui indiquent que le travail a atteint les limites des ressources système sont les suivants.
     - La métrique % d’utilisation de SU est supérieure à 80 %. Cela indique une utilisation élevée de la mémoire. Les facteurs qui contribuent à l’augmentation de cette métrique sont décrits [ici](stream-analytics-streaming-unit-consumption.md). 
     -   L’horodatage de sortie est en retard par rapport au temps horloge. Selon la logique de votre requête, l’horodatage de sortie peut présenter un décalage logique par rapport au temps horloge. Toutefois, ils doivent avancer à peu près à la même vitesse. Si l’horodatage de sortie est de plus en plus en retard, cela indique que le système est surchargé. Cela peut être le résultat de la limitation du récepteur de sortie en aval ou d’une utilisation élevée du processeur. Comme nous ne fournissons pas de métrique d’utilisation du processeur à ce stade, il peut être difficile de différencier les deux.

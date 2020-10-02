@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982969"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -156,7 +156,8 @@ Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la co
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Le modèle de damier est rendu après le chargement du modèle
 
-Si l’image rendue se présente comme suit : ![Checkerboard](../reference/media/checkerboard.png), alors le renderer atteint les [limites de polygones pour la taille de configuration standard](../reference/vm-sizes.md). Pour atténuer ce problème, basculez vers une taille de configuration **Premium** ou réduisez le nombre de polygones visibles.
+Si l’image rendue se présente comme suit : ![La capture d’écran présente une grille de carrés noirs et blancs avec un menu Outils.](../reference/media/checkerboard.png)
+alors le renderer atteint les [limites de polygones pour la taille de configuration standard](../reference/vm-sizes.md). Pour atténuer ce problème, basculez vers une taille de configuration **Premium** ou réduisez le nombre de polygones visibles.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>L’image rendue dans Unity est à l’envers
 
@@ -216,7 +217,7 @@ Si vous avez effectué les étapes ci-dessus et que le Z-fighting restant est in
 
 ARR offre une fonctionnalité permettant de déterminer si des surfaces peuvent présenter un Z-fighting : la [mise en surbrillance du damier](../overview/features/z-fighting-mitigation.md). Vous pouvez également déterminer visuellement ce qui provoque le Z-fighting. La première animation ci-dessous montre un exemple de perte de précision de profondeur dans la distance, tandis que la deuxième montre un exemple de surfaces presque coplanaires :
 
-![Z-fighting - précision de profondeur](./media/depth-precision-z-fighting.gif)  ![Z-fighting - surfaces coplanaires](./media/coplanar-z-fighting.gif)
+![L’animation montre un exemple de perte de précision de profondeur sur la distance.](./media/depth-precision-z-fighting.gif)  ![L’animation montre un exemple de surfaces presque coplanaires.](./media/coplanar-z-fighting.gif)
 
 Comparez ces exemples à votre Z-fighting pour en déterminer la cause, ou suivez éventuellement ce workflow pas à pas :
 

@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Linux dans Azure Automation
 description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448005"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987226"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -56,7 +56,7 @@ La fonctionnalité de Runbook Worker hybride prend en charge les distributions s
 * Red Hat Enterprise Linux Server 5, 6 et 7 (x86/x64)
 * Debian GNU/Linux 6, 7 et 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS et 18.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 et 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>Configuration minimale requise
 
@@ -75,6 +75,12 @@ Voici la configuration minimale requise pour une fonctionnalité Runbook Worker 
 |PAM | Modules d’authentification enfichable|
 | **Package facultatif** | **Description** | **Version minimum**|
 | PowerShell Core | Pour exécuter des runbooks PowerShell, vous devez avoir installé PowerShell Core. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour connaître la procédure d’installation. | 6.0.0 |
+
+## <a name="supported-linux-hardening"></a>Renforcement de la sécurité Linux pris en charge
+
+Les éléments suivants ne sont pas encore pris en charge :
+
+* CIS
 
 ## <a name="supported-runbook-types"></a>Types de Runbook pris en charge
 

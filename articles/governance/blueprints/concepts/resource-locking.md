@@ -3,12 +3,12 @@ title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051500"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651929"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -103,7 +103,7 @@ Une fois l’affectation supprimée, les verrous créés par Azure Blueprints so
 
 Une action de refus de type [Refuser les attributions](../../../role-based-access-control/deny-assignments.md) de contrôle d’accès en fonction du rôle (RBAC) est appliquée aux ressources d’artefact lors de l’attribution d’un blueprint si cette attribution a sélectionné l’option **Lecture seule** ou **Ne pas supprimer**. L’action de refus est ajoutée par l’identité managée de l’attribution de blueprint, et ne peut être supprimée des ressources d’artefacts que par cette même identité managée. Cette mesure de sécurité a pour effet d’appliquer le mécanisme de verrouillage et d’empêcher la suppression du verrou du blueprint en dehors d’Azure Blueprints.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Affectation de refus blueprint sur groupe de ressources" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Capture d’écran de la page Contrôle d’accès (IAM) et de l’onglet Affectations de refus pour un groupe de ressources." border="false":::
 
 [Propriétés d’affectation de refus](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de chaque mode :
 

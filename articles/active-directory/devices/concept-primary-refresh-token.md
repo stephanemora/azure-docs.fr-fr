@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025878"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468604"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -86,6 +86,10 @@ Un PRT est renouvelé selon deux méthodes différentes :
 * **Plug-in Azure AD WAM pendant les demandes de jeton d’application** : Le plug-in WAM permet l’authentification unique sur les appareils Windows 10 en activant les demandes de jeton silencieuses pour les applications. Le plug-in WAM peut renouveler le PRT pendant ces demandes de jeton de deux manières différentes :
    * Une application demande au plug-in WAM un jeton d’accès silencieusement, mais aucun jeton d’actualisation n’est disponible pour cette application. Dans ce cas, WAM utilise le PRT pour demander un jeton pour l’application et récupère un nouveau PRT dans la réponse.
    * Une application demande un jeton d’accès au plug-in WAM, mais le PRT n’est pas valide ou Azure AD requiert une autorisation supplémentaire (par exemple une authentification multifacteur Azure). Dans ce scénario, WAM lance une ouverture de session interactive qui oblige l’utilisateur à s’authentifier de nouveau ou à effectuer une vérification supplémentaire, et un nouveau PRT est émis en cas d’authentification réussie.
+
+Dans un environnement ADFS, une ligne de vue directe sur le contrôleur de domaine n’est pas nécessaire pour renouveler le PRT. Le renouvellement du PRT requiert uniquement des points de terminaison /adfs/services/trust/2005/usernamemixed and /adfs/services/trust/13/usernamemixed activés sur le proxy à l’aide du protocole WS-Trust.
+
+Des points de terminaison de transport Windows sont requis pour l’authentification par mot de passe uniquement si un mot de passe est modifié, pas pour le renouvellement de PRT.
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 

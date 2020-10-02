@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135434"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614045"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -100,7 +100,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
      - **AllMetrics** achemine les métriques de plateforme d’une ressource dans le magasin Azure Logs, mais sous forme de journal. Ces métriques sont généralement envoyées uniquement à la base de données de série chronologique des métriques d’Azure Monitor. En les envoyant au magasin Azure Monitor Logs (qui peut faire l’objet d’une recherche via Log Analytics), vous pouvez les intégrer dans des requêtes qui effectuent des recherches dans d’autres journaux. Cette option peut ne pas être disponible pour tous les types de ressources. Lorsqu’elle est prise en charge, la catégorie [Métriques prises en charge par Azure Monitor](metrics-supported.md) répertorie les métriques collectées pour les types de ressources.
 
        > [!NOTE]
-       > Voir la limitation relative à l’acheminement de métriques vers des journaux d’Azure Monitor plus haut dans cet article.  
+       > Voir la limitation relative à l’acheminement de métriques vers les journaux Azure Monitor, plus haut dans cet article.  
 
 
      - **Journaux** répertorie les différentes catégories disponibles en fonction du type de ressource. Cochez chaque catégorie que vous souhaitez acheminer vers une destination.

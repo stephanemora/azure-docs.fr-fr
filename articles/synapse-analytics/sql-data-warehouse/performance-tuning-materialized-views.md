@@ -1,6 +1,6 @@
 ---
 title: Réglage des performances avec des vues matérialisées
-description: Recommandations et points à prendre en compte quand vous utilisez des vues matérialisées pour améliorer les performances de vos requêtes.
+description: Découvrez des recommandations et des points à prendre en compte quand vous utilisez des vues matérialisées pour améliorer les performances de vos requêtes.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956387"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984103"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -52,7 +52,7 @@ Une vue matérialisée correctement conçue offre les avantages suivants :
 
 Les vues matérialisées implémentées dans le pool SQL offrent également les avantages supplémentaires suivants :
 
-En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues matérialisées implémentées dans Azure SQL Data Warehouse offrent également les avantages supplémentaires suivants :
+En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues matérialisées implémentées dans Azure Synapse Analytics offrent également les avantages supplémentaires suivants :
 
 - Actualisation automatique et synchrone des données avec les modifications apportées aux données dans les tables de base. Aucune action de l'utilisateur n'est requise.
 - Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

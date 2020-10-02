@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559444"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514235"
 ---
 # <a name="upstream-settings"></a>Paramètres en amont
 
-L’amont est une fonctionnalité qui permet à Azure SignalR Service d’envoyer des messages et des événements de connexion à un ensemble de points de terminaison en mode serverless. Vous pouvez utiliser l’amont pour appeler une méthode Hub à partir de clients en mode serverless et laisser les points de terminaison recevoir des notifications lorsque des connexions client sont établies ou interrompues.
+En amont est une fonctionnalité d’évaluation qui permet à Azure SignalR Service d’envoyer des messages et des événements de connexion à un ensemble de points de terminaison en mode serverless. Vous pouvez utiliser l’amont pour appeler une méthode Hub à partir de clients en mode serverless et laisser les points de terminaison recevoir des notifications lorsque des connexions client sont établies ou interrompues.
 
 > [!NOTE]
 > Seul le mode serverless peut configurer des paramètres en amont.
@@ -59,6 +59,10 @@ Vous pouvez définir des règles pour les *règles de Hub*, les *règles de cat�
 - Utilisez un astérisque (*) pour faire correspondre tous les événements.
 - Utilisez une virgule (,) pour joindre plusieurs événements. Par exemple, `connected, disconnected` correspond aux événements connectés et déconnectés.
 - Utilisez le nom complet de l’événement pour correspondre à l’événement. Par exemple, `connected` correspond à l’événement connecté.
+
+> [!NOTE]
+> Si vous utilisez Azure Functions et le [déclencheur Signalr](../azure-functions/functions-bindings-signalr-service-trigger.md), celui-ci expose un seul point de terminaison au format suivant : `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
+> Vous pouvez simplement configurer le modèle d’url sur cette url.
 
 ### <a name="authentication-settings"></a>Authentication settings
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762264"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983644"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Afficher les routes effectives d’un hub virtuel
 
@@ -50,6 +50,8 @@ Utilisez la barre de défilement au bas de la table pour voir le « Chemin AS 
 * Le champ **Propager l’itinéraire par défaut** s’affiche dans le portail Azure Virtual WAN lorsque vous modifiez une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Ce champ affiche l’indicateur **enableInternetSecurity**, qui est toujours défini par défaut sur « false » pour les connexions ExpressRoute et VPN, mais sur « true » pour les connexions de réseau virtuel.
 
 * Lorsque vous consultez les itinéraires effectifs sur la carte réseau d'une machine virtuelle, si le tronçon suivant correspond à « Virtual Network Gateway », cela implique le routeur du hub virtuel si la machine virtuelle se trouve dans un réseau en étoile connecté à un hub Virtual WAN.
+
+* Le champ Afficher les itinéraires effectifs pour une table de routage de hub virtuel est renseigné uniquement si le hub virtuel est connecté à au moins un type de connexion (VPN/ER/VNET).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304188"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419178"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Tableau de bord analytique Évaluations et avis dans l’Espace partenaires
 
@@ -33,7 +33,7 @@ Le tableau de bord affiche une représentation graphique de l’activité client
 - Évaluations et avis  
 - Commentaires d’évaluation
 
-Utilisez les onglets de la **vitrine de la Place de marché** pour afficher séparément les métriques de votre offre sur Microsoft AppSource et la Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez l’offre dans la liste déroulante.
+Utilisez les onglets **Insights sur la Place de marché** pour afficher séparément les métriques de votre offre sur Microsoft AppSource et celles de la Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez l’offre dans la liste déroulante.
 
 ### <a name="ratings--reviews-summary"></a>Récapitulatif des évaluations et avis
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816267"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420929"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -48,11 +48,11 @@ Suivant le magasin en ligne, les catégories et les secteurs s’appliquent à d
 
 ### <a name="categories"></a>Catégories
 
-Microsoft AppSource et la Place de marché Azure sont deux magasins en ligne différents qui répondent à des besoins uniques des clients. La Place de marché Azure cible les professionnels de l’informatique et les développeurs qui créent des solutions sur Azure.  Microsoft AppSource cible les utilisateurs professionnels à la recherche d’applications SaaS métier et/ou sectorielles, de compléments Dynamics 365, de compléments Microsoft 365 et d’applications Power Platform.
+Microsoft AppSource et la Place de marché Azure sont des magasins en ligne qui offrent différents types de solutions. La Place de marché Azure propose des solutions informatiques créées sur ou pour Azure.  Microsoft AppSource propose des solutions d’entreprise, telles que des applications SaaS métier et/ou sectorielles, de compléments Dynamics 365, de compléments Microsoft 365 et d’applications Power Platform.
 
-Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du public cible. Votre offre sera publiée sur Microsoft AppSource ou la Place de marché Azure en fonction du type d’offre, des possibilités de transaction de l’offre et du choix de catégorie/sous-catégorie. 
+Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Votre offre sera publiée sur Microsoft AppSource ou la Place de marché Azure en fonction du type d’offre, des possibilités de transaction de l’offre et du choix de catégorie/sous-catégorie. 
 
-Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre offre et à votre public cible. Vous pouvez sélectionner :
+Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre type de solution. Vous pouvez sélectionner :
 
 * Jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
 * Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est sélectionnée, votre offre sera tout de même découvrable sur la catégorie sélectionnée uniquement.

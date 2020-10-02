@@ -3,12 +3,12 @@ title: Utiliser des paramètres pour créer des blueprints dynamiques
 description: Découvrez les paramètres statiques et dynamiques et comment les utiliser pour créer des blueprints sécurisés et dynamiques.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051557"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651957"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -61,11 +61,11 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 1. Les artefacts ajoutés au blueprint ayant des options de paramètre comportent la mention **X paramètres renseignés sur Y** dans la colonne **Paramètres**. Sélectionnez la ligne de l’artefact pour modifier ses paramètres.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Paramètres de blueprint sur une définition de blueprint" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Capture d’écran d’une définition de blueprint et du paramètre « X paramètres renseignés sur Y » en surbrillance." border="false":::
 
-1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sur lequel vous avez cliqué. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple ci-dessous, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
+1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sélectionné. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple ci-dessous, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Paramètres statiques de blueprint sur un artefact de blueprint" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Capture d’écran d’une définition de blueprint et du paramètre « X paramètres renseignés sur Y » en surbrillance." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Définition des paramètres statiques à partir de l’API REST
 
@@ -176,7 +176,7 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 1. Sur la page **Affecter le blueprint**, recherchez la section **Paramètres d’artefact**. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Paramètre dynamique de blueprint pendant l'affectation de blueprint" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Capture d’écran d’une définition de blueprint et du paramètre « X paramètres renseignés sur Y » en surbrillance." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Définition des paramètres dynamiques à partir de l’API REST
 

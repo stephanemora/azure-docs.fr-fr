@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270527"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987707"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 
@@ -42,7 +42,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
    * **Trafic d’entrée à partir du plan de contrôle d’Azure Bastion :** pour la connectivité du plan de contrôle, activez le port 443 pour un accès entrant à partir de l’étiquette de service **GatewayManager**. Ceci permet au plan de contrôle, c’est-à-dire au gestionnaire de passerelle, de communiquer avec Azure Bastion.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Entrant":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Groupe de sécurité réseau":::
 
 * **Trafic de sortie :**
 
@@ -50,7 +50,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
    * **Trafic de sortie vers d’autres points de terminaison publics dans Azure :** Azure Bastion doit pouvoir se connecter à différents points de terminaison publics dans Azure (par exemple, pour stocker les journaux de diagnostic et de mesure). Azure Bastion a donc besoin d’un accès sortant sur le port 443 vers l’étiquette de service **AzureCloud**.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Sortante":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Groupe de sécurité réseau":::
 
 ### <a name="target-vm-subnet"></a>Sous-réseau de la machine virtuelle cible
 Il s’agit du sous-réseau qui contient la machine virtuelle cible à laquelle vous souhaitez vous connecter via RDP/SSH.

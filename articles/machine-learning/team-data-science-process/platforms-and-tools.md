@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028124"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439995"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
@@ -63,11 +63,11 @@ Quand vous créez un cluster Spark dans HDInsight, vous créez des ressources de
 L’équipe TDSP de Microsoft a publié deux procédures pas à pas qui expliquent comment utiliser des clusters Azure HDInsight Spark pour créer deux solutions de science des données (l’une avec Python, l’autre avec Scala). Pour plus d’informations sur les **clusters Azure HDInsight Spark**, consultez [Présentation d’Apache Spark sur HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Python** sur un cluster Azure HDInsight Spark, consultez [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Scala** sur un cluster Azure HDInsight Spark, consultez [Science des données à l’aide de Scala et Spark sur Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse vous permet de mettre à l’échelle vos ressources de calcul facilement et en quelques secondes, sans surprovisionnement ni surfacturation. Ce service offre également la possibilité de suspendre l’utilisation des ressources de calcul, ce qui vous permet de mieux gérer les coûts associés au cloud. La possibilité de déployer des ressources de calcul évolutives rend possible le stockage de toutes vos données dans Azure SQL Data Warehouse. Les coûts de stockage sont faibles, et vous pouvez exécuter le calcul uniquement sur les parties des jeux de données que vous souhaitez analyser. 
+Azure Synapse Analytics vous permet de mettre à l’échelle des ressources de calcul facilement et en quelques secondes, sans surprovisionnement ni surfacturation. Ce service offre également la possibilité de suspendre l’utilisation des ressources de calcul, ce qui vous permet de mieux gérer les coûts associés au cloud. La possibilité de déployer des ressources de calcul scalables rend possible le stockage de toutes vos données dans Azure Synapse Analytics. Les coûts de stockage sont faibles, et vous pouvez exécuter le calcul uniquement sur les parties des jeux de données que vous souhaitez analyser. 
 
-Pour plus d’informations sur Azure SQL Data Warehouse, consultez le site web [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse). Pour découvrir comment créer des solutions analytiques avancées complètes avec SQL Data Warehouse, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse](sqldw-walkthrough.md).
+Pour plus d’informations sur Azure Synapse Analytics, consultez le site web [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse). Pour découvrir comment générer des solutions analytiques avancées de bout en bout avec Azure Synapse Analytics, consultez [Processus TDSP (Team Data Science Process) en action : utilisation d’Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake

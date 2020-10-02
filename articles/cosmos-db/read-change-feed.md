@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236792"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018967"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
 
-Vous pouvez utiliser le flux de modifications Azure Cosmos DB à l’aide d’un modèle d’envoi (push) ou de tirage (pull). Avec un modèle d’envoi (push), un serveur (flux de modification) envoie le travail à un client qui dispose d’une logique métier pour traiter ce travail. Toutefois, la complexité liée à la vérification du travail et au stockage de l’état du dernier travail traité est gérée sur le serveur.
+Vous pouvez utiliser le flux de modifications Azure Cosmos DB à l’aide d’un modèle d’envoi (push) ou de tirage (pull). Avec un modèle d’envoi (push), un serveur (le processeur de flux de modification) envoie (push) le travail à un client qui dispose d’une logique métier pour traiter ce travail. Toutefois, la complexité liée à la vérification du travail et au stockage de l’état du dernier travail traité est gérée sur le serveur.
 
 Avec un modèle d’extraction (pull), le client doit extraire le travail du serveur. Dans ce cas, le client dispose d’une logique métier pour non seulement traiter le travail, mais également stocker l’état du dernier travail traité, gérer l’équilibrage de charge entre plusieurs clients traitant un travail en parallèle et gérer les erreurs.
 
@@ -68,7 +68,7 @@ Vous pouvez paralléliser le traitement des modifications sur plusieurs clients,
 Il n’existe aucune garantie de remise « au moins une fois » avec le modèle pull. Le modèle pull vous permet de contrôler avec précision comment gérer les erreurs.
 
 > [!NOTE]
-> Le modèle pull du flux de modification n’est actuellement disponible qu’en [préversion dans le SDK .NET Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview). La préversion n’est pas encore disponible pour d’autres versions du SDK.
+> Le modèle pull du flux de modification n’est actuellement disponible qu’en [préversion dans le SDK .NET Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview). La préversion n’est pas encore disponible pour d’autres versions du SDK.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Flux de modification dans les API pour Cassandra et MongoDB
 

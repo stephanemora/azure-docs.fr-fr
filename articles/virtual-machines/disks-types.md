@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088491"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -71,7 +71,7 @@ Si vous souhaitez commencer à utiliser des disques Ultra, consultez notre artic
 
 Les disques SSD Premium Azure offrent une prise en charge très performante et une faible latence pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers des disques SSD Premium. Les disques SSD Premium sont adaptés aux applications de production critiques. Ces disques sont utilisables uniquement avec des séries de machines virtuelles compatibles avec le stockage Premium.
 
-Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Windows ou Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles dans Azure](sizes.md). Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles dans Azure](sizes.md). À partir de l'un ou l'autre de ces articles, vous devez vérifier chaque taille de machine virtuelle pour déterminer si elle est compatible avec le stockage Premium.
+Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Windows ou Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles dans Azure](sizes.md). À partir de cet article, vous devez vérifier chaque taille de machine virtuelle pour déterminer si elle est compatible avec le stockage Premium.
 
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]

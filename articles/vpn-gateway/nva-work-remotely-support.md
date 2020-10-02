@@ -5,14 +5,14 @@ services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337089"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595357"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Travail à distance : Considérations relatives aux appliances virtuelles réseau (NVA) pour le travail à distance
 
@@ -52,6 +52,8 @@ Chaque solution d’appliance virtuelle réseau possède ses propres outils et r
 La plupart de grands services d’appliances virtuelles réseau ont publié des conseils sur la préparation en vue d’une croissance soudaine et inattendue pendant l’épidémie de COVID-19. Voici quelques liens utiles vers les ressources des partenaires.
 
 [Barracuda facilite le travail à domicile tout en sécurisant vos données pendant l’épidémie de COVID-19](https://www.barracuda.com/covid-19/work-from-home "Faciliter le travail à domicile tout en sécurisant vos données pendant l’épidémie de COVID-19")
+
+[Check Point - Personnel en distanciel sécurisé pendant le coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Personnel en distanciel sécurisé pendant le coronavirus")
 
 [Implémentation de Cisco AnyConnect et informations de référence sur les performances et la mise à l’échelle pour la préparation pendant le COVID-19](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Implémentation de Cisco AnyConnect et informations de référence sur les performances et la mise à l’échelle pour la préparation pendant le COVID-19")
 

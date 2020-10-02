@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554656"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705399"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Présentation d’Azure Multi-Factor Authentication pour votre organisation
 
@@ -34,10 +34,10 @@ Les clients qui utilisent les avantages gratuits d’Azure AD peuvent utiliser l
 
 ## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 ou E5
 
-Les clients disposant d’Office 365 ont deux options :
+Deux options s’offrent aux clients disposant de Microsoft 365 :
 
 * Azure Multi-Factor Authentication est activé ou désactivé pour tous les utilisateurs, pour tous les événements de connexion. Il n’est pas possible d’activer l’authentification multifacteur uniquement pour un sous-ensemble d’utilisateurs ou pour certains scénarios. La gestion s’effectue via le portail Office 365. 
-* Pour une expérience utilisateur améliorée, effectuez une mise à niveau vers Azure AD Premium P1 ou P2, et utilisez un accès conditionnel. Pour plus d’informations, découvrez les ressources Office 365 sécurisées à l’aide de l’authentification multifacteur.
+* Pour une expérience utilisateur améliorée, effectuez une mise à niveau vers Azure AD Premium P1 ou P2, et utilisez un accès conditionnel. Pour plus d’informations, consultez Sécuriser les ressources Microsoft 365 à l’aide de l’authentification multifacteur.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
 

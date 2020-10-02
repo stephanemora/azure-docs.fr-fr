@@ -4,21 +4,21 @@ description: Découvrez comment mettre à l’échelle une instance d’Azure Si
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500485"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595765"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Comment mettre à l’échelle une instance d’Azure SignalR Service ?
 Cet article explique comment mettre à l’échelle votre instance d’Azure SignalR Service. Il existe deux scénarios de mise à l’échelle : le scale-up et le scale-out.
 
 * [Monter en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : obtenir plus d’unités, de connexions, de messages, etc. Vous pouvez effectuer un scale-up en faisant passer le niveau tarifaire de Gratuit à Standard.
-* [Effectuer un scale-out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmenter le nombre d’unités SignalR. Vous pouvez effectuer un scale-out allant jusqu’à 100 unités.
+* [Effectuer un scale-out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmenter le nombre d’unités SignalR. Vous pouvez effectuer un scale-out allant jusqu’à 100 unités. Des options d’unités limitées doivent être sélectionnées pour la mise à l’échelle : 1, 2, 5, 10, 20, 50 et 100 unités pour une instance SignalR Service unique.
 
 L’application des paramètres de mise à l’échelle prend quelques minutes. Dans de rares cas, cette opération peut durer environ 30 minutes. Ils ne nécessitent pas de changer votre code ou de redéployer votre application serveur.
 

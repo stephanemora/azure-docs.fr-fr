@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267239"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705722"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -78,9 +78,9 @@ Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure A
 
 Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur Azure (MFA) est configurée. Pour plus d’informations sur ces symptômes, consultez le document de support [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Problème potentiel** : si votre appareil est configuré pour requérir l’authentification multifacteur sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel Microsoft Passport for Work ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
+**Problème potentiel** : si votre appareil est configuré pour requérir l’authentification multifacteur sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel Microsoft Passport for Work ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Microsoft 365.
 
-**Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services de fédération Active Directory (AD FS) et que le jeton d’accès de l’appareil arrive à expiration. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
+**Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services de fédération Active Directory (AD FS) et que le jeton d’accès de l’appareil arrive à expiration. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Microsoft 365.
 
 ### <a name="event-viewer"></a>Observateur d'événements
 

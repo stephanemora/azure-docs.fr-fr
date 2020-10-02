@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539898"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980474"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
@@ -97,7 +97,7 @@ Ricardo commence par sélectionner le premier élément de la liste. Voici ce qu
 
 Tout d’abord, l’interaction entre les deux gabarits est améliorée
 
-![Interaction](./media/threat-modeling-tool-getting-started/interaction.png)
+![La capture d’écran montre deux gabarits et la flèche courbe qui les relie de manière plus prononcée.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Ensuite, des informations supplémentaires sur les menaces s’affichent dans la fenêtre Propriétés de la menace
 

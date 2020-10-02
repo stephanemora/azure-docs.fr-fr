@@ -1,25 +1,22 @@
 ---
-title: Configurer une connexion à une source de données à l’aide d’une identité managée (préversion)
+title: Configurer une connexion à une source de données à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée (préversion).
+description: Découvrez comment configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936586"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971543"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée (préversion)
-
-> [!IMPORTANT] 
-> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
 
 Un [indexeur](search-indexer-overview.md) dans Recherche cognitive Azure est un robot qui permet d’extraire des données de votre source de données vers Recherche cognitive Azure. Un indexeur obtient une connexion à la source de données à partir de l’objet source de données que vous créez. L’objet source de données comprend généralement les informations d’identification de la source de données cible. Par exemple, l’objet source de données peut inclure une clé de compte Stockage Azure si vous souhaitez indexer les données d’un conteneur de stockage blob.
 

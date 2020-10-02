@@ -4,12 +4,12 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961990"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506693"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -268,6 +268,10 @@ La configuration de l’expérience de sauvegarde sélective de disques pour une
 Quand vous activez la sauvegarde à partir du portail Azure, vous pouvez choisir l’option **Sauvegarder le disque du système d’exploitation uniquement**. Vous pouvez donc configurer la sauvegarde de votre machine virtuelle Azure avec le disque du système d’exploitation et exclure tous les disques de données qui y sont attachés.
 
 ![Configurer la sauvegarde pour le disque du système d’exploitation uniquement](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
+
+## <a name="using-azure-rest-api"></a>Utilisation de l’API REST Azure
+
+Vous pouvez configurer la sauvegarde de machines virtuelles Azure avec quelques disques sélectionnés ou modifier la protection d’une machine virtuelle existante pour inclure ou exclure plusieurs disques comme indiqué [ici](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
 
 ## <a name="selective-disk-restore"></a>Restauration sélective de disques
 

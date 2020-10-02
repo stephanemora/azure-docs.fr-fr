@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437069"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Diffuser des données en continu dans Azure SQL Database à l’aide d’une intégration Azure Stream Analytics (préversion)
 
@@ -31,7 +31,7 @@ Les utilisateurs peuvent désormais ingérer, traiter, afficher et analyser des 
 - Facilité d’utilisation accrue avec les données de préversion : Données de préversion entrantes à partir de la source des événements (Event Hub/IoT Hub) dans le contexte de la table sélectionnée
 
 > [!IMPORTANT]
-> Un travail Azure Stream Analytics peut sortir vers Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/sql-database-output.md).
+> Un travail Azure Stream Analytics peut sortir dans Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587308"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069592"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,12 +99,12 @@ Vous trouverez plus d’informations sur les [limites des ressources dans les po
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Caractéristiques d’E/S de fichier avec le niveau Usage général
 
-Avec le niveau de service Usage général, chaque fichier de base de données reçoit des IOPS et un débit dédiés qui dépendent de la taille du fichier. Les fichiers de données plus volumineux reçoivent plus d’IOPS et de débit. Les caractéristiques d’E/S des fichiers de base de données sont indiquées dans le tableau suivant :
+Avec le niveau de service Usage général, chaque fichier de base de données reçoit des IOPS et un débit dédiés qui dépendent de la taille du fichier. Les fichiers plus volumineux reçoivent plus d’IOPS et de débit. Les caractéristiques d’E/S des fichiers de base de données sont indiquées dans le tableau suivant :
 
-| Taille du fichier | >= 0 et <= 128 Gio | > 128 et <= 256 Gio | > 256 et <= 512 Gio | > 0,5 et <= 1 Tio    | > 1 et <= 2 Tio    | > 2 et <= 4 Tio | > 4 et <= 8 Tio |
+| Taille du fichier | >= 0 et <= 128 Gio | > 128 et <= 512 Gio | > 0,5 et <= 1 Tio    | > 1 et <= 2 Tio    | > 2 et <= 4 Tio | > 4 et <= 8 Tio |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS par fichier       | 500   | 1100 | 2300              | 5 000              | 7500              | 7500              | 12 500   |
-| Débit par fichier | 100 Mio/s | 125 Mio/s | 150 Mio/s | 200 Mio/s | 250 Mio/s | 250 Mio/s | 480 Mio/s | 
+| IOPS par fichier       | 500   | 2300              | 5 000              | 7500              | 7500              | 12 500   |
+| Débit par fichier | 100 Mio/s | 150 Mio/s | 200 Mio/s | 250 Mio/s | 250 Mio/s | 480 Mio/s | 
 
 Si vous constatez une latence élevée des E/S sur un fichier de base de données, ou si vous constatez que les IOPS ou le débit atteignent la limite, vous pouvez améliorer les performances en [augmentant la taille de fichier](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

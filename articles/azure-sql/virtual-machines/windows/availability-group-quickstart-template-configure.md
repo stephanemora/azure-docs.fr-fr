@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d1dedfcd4a93446b615d84e86666059fd210c18
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669237"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485751"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Les autorisations suivantes sont nécessaires pour configurer le groupe de dispo
 - Le compte d’utilisateur du domaine qui contrôle SQL Server. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Étape 1 : Créer le cluster de basculement et joindre des machines virtuelles SQL Server au cluster à l’aide du modèle de démarrage rapide 
+## <a name="create-cluster"></a>Créer un cluster
 Une fois que vos machines virtuelles SQL Server ont été inscrites auprès du fournisseur de ressources de machine virtuelle SQL, vous pouvez joindre vos machines virtuelles SQL Server à *SqlVirtualMachineGroups*. Cette ressource définit les métadonnées du cluster de basculement Windows. Les métadonnées englobent la version, l’édition, le nom de domaine complet, les comptes Active Directory nécessaires à la gestion du cluster et de SQL Server, ainsi que le compte de stockage en tant que témoin cloud. 
 
 L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualMachineGroup* amorce le service de cluster de basculement Windows pour créer le cluster et joint ces machines virtuelles SQL Server à ce cluster. Cette étape est automatisée avec le modèle de démarrage rapide **101-sql-vm-ag-setup**. Vous pouvez l’implémenter en effectuant les étapes suivantes :
@@ -83,13 +83,25 @@ L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualM
 > Les informations d’identification fournies durant le déploiement du modèle sont stockées uniquement pour la durée du déploiement. À l’issue du déploiement, ces mots de passe sont supprimés. Vous serez invité à les fournir à nouveau si vous ajoutez d’autres machines virtuelles SQL Server au cluster. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>Étape 2 : Créer manuellement le groupe de disponibilité 
+
+## <a name="validate-cluster"></a>Valider le cluster 
+
+Pour qu’un cluster de basculement soit pris en charge par Microsoft, il doit réussir la validation de cluster. Connectez-vous à la machine virtuelle via votre méthode préférée, telle que le protocole RDP (Remote Desktop Protocol) et confirmez que votre cluster a réussi la validation avant de continuer. Dans le cas contraire, votre cluster se trouve dans un état non pris en charge. 
+
+Vous pouvez valider le cluster à l’aide du Gestionnaire du cluster de basculement ou de la commande PowerShell suivante :
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
+
+## <a name="create-availability-group"></a>Créer un groupe de disponibilité 
 Créez manuellement le groupe de disponibilité comme vous le feriez normalement, en utilisant [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > Ne créez *pas* d’écouteur à ce stade, car le modèle de démarrage rapide **101-sql-vm-aglistener-setup** s’en chargera à l’étape 4. 
 
-## <a name="step-3-manually-create-the-internal-load-balancer"></a>Étape 3 : Créer manuellement l’équilibreur de charge interne
+## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 L’écouteur de groupe de disponibilité Always On a besoin d’une instance interne d’Azure Load Balancer. L’équilibreur de charge interne fournit une adresse IP « flottante » pour l’écouteur de groupe de disponibilité afin d’accélérer les opérations de basculement et de reconnexion. Si les machines virtuelles SQL Server d’un groupe de disponibilité font partie du même groupe à haute disponibilité, vous pouvez utiliser un équilibreur de charge de base. Dans le cas contraire, vous devez utiliser un équilibreur de charge standard. 
 
 > [!IMPORTANT]
@@ -122,7 +134,7 @@ Vous devez simplement créer l’équilibreur de charge interne. À l’étape 
 >[!IMPORTANT]
 > La ressource d’adresse IP publique de chaque machine virtuelle SQL Server doit avoir une référence SKU standard compatible avec l’équilibreur de charge standard. Pour déterminer la référence SKU de la ressource d’adresse IP publique de votre machine virtuelle, accédez à **Groupe de ressources**, sélectionnez votre ressource **Adresse IP publique** pour la machine virtuelle SQL Server, puis recherchez la valeur sous **Référence SKU** dans le volet **Vue d’ensemble**. 
 
-## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Étape 4 : Créer l’écouteur de groupe de disponibilité et configurer l’équilibreur de charge interne à l’aide du modèle de démarrage rapide
+## <a name="create-listener"></a>Créer un écouteur 
 
 Créez l’écouteur de groupe de disponibilité et configurez l’équilibreur de charge interne automatiquement à l’aide du modèle de démarrage rapide **101-sql-vm-aglistener-setup**. Le modèle provisionne la ressource Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener. Le modèle de démarrage rapide **101-sql-vm-aglistener-setup** effectue les actions suivantes par le biais du fournisseur de ressources de machine virtuelle SQL :
 
@@ -159,9 +171,9 @@ Pour configurer l’équilibreur de charge interne et créer l’écouteur de gr
 1. Pour superviser votre déploiement, sélectionnez le déploiement à partir de l’icône de cloche **Notifications** située dans la bannière de navigation du haut ou accédez à **Groupe de ressources** sur le portail Azure. Sélectionnez **Déploiements** sous **Paramètres**, puis choisissez le déploiement **Microsoft.Template**. 
 
 >[!NOTE]
->Si votre déploiement échoue en cours de route, vous devez [supprimer l’écouteur tout juste créé](#remove-the-availability-group-listener) manuellement à l’aide de PowerShell avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
+>Si votre déploiement échoue en cours de route, vous devez [supprimer l’écouteur tout juste créé](#remove-listener) manuellement à l’aide de PowerShell avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
 
-## <a name="remove-the-availability-group-listener"></a>Supprimer l’écouteur de groupe de disponibilité
+## <a name="remove-listener"></a>Supprimer un écouteur
 Si, par la suite, vous avez besoin de supprimer l’écouteur de groupe de disponibilité que le modèle a configuré, vous devez passer par le fournisseur de ressources de machine virtuelle SQL. Comme l’écouteur est inscrit par l’intermédiaire du fournisseur de ressources de machine virtuelle SQL, le supprimer via SQL Server Management Studio ne suffit pas. 
 
 La meilleure méthode consiste à le supprimer par l’intermédiaire du fournisseur de ressources de machine virtuelle SQL en utilisant l’extrait de code suivant dans PowerShell. Cela a pour effet de supprimer les métadonnées de l’écouteur de groupe de disponibilité au niveau du fournisseur de ressources de machine virtuelle SQL. De même, l’écouteur de groupe de disponibilité est supprimé physiquement du groupe de disponibilité. 
@@ -175,19 +187,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>Erreurs courantes
 Cette section décrit certains problèmes connus et leurs éventuelles solutions. 
 
-### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>L’écouteur de groupe de disponibilité existe déjà pour le groupe de disponibilité '\<AG-Name>'
-Le groupe de disponibilité sélectionné utilisé dans le modèle de démarrage rapide Azure pour l’écouteur de groupe de disponibilité contient déjà un écouteur. Soit il se trouve physiquement dans le groupe de disponibilité, soit ses métadonnées sont conservées dans le fournisseur de ressources de machine virtuelle SQL. Supprimez l’écouteur à l’aide de [PowerShell](#remove-the-availability-group-listener) avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
+**L’écouteur de groupe de disponibilité existe déjà pour le groupe de disponibilité « \<AG-Name> »** Le groupe de disponibilité sélectionné utilisé dans le modèle de démarrage rapide Azure pour l’écouteur de groupe de disponibilité contient déjà un écouteur. Soit il se trouve physiquement dans le groupe de disponibilité, soit ses métadonnées sont conservées dans le fournisseur de ressources de machine virtuelle SQL. Supprimez l’écouteur à l’aide de [PowerShell](#remove-listener) avant de redéployer le modèle de démarrage rapide **101-sql-vm-aglistener-setup**. 
 
-### <a name="connection-only-works-from-primary-replica"></a>La connexion fonctionne uniquement à partir du réplica principal
-Ce comportement est probablement lié à un échec de déploiement du modèle **101-sql-vm-aglistener-setup** qui a laissé la configuration de l’équilibreur de charge interne dans un état incohérent. Vérifiez que le pool back-end liste le groupe à haute disponibilité et qu’il existe des règles pour la sonde d’intégrité et l’équilibreur de charge. S’il manque quelque chose, la configuration de l’équilibreur de charge interne est dans un état incohérent. 
+**La connexion fonctionne uniquement à partir du réplica principal** Ce comportement est probablement lié à un échec de déploiement du modèle **101-sql-vm-aglistener-setup** qui a laissé la configuration de l’équilibreur de charge interne dans un état incohérent. Vérifiez que le pool back-end liste le groupe à haute disponibilité et qu’il existe des règles pour la sonde d’intégrité et l’équilibreur de charge. S’il manque quelque chose, la configuration de l’équilibreur de charge interne est dans un état incohérent. 
 
-Pour corriger ce comportement, supprimez l’écouteur à l’aide de [PowerShell](#remove-the-availability-group-listener), supprimez l’équilibreur de charge interne via le portail Azure, puis recommencez à l’étape 3. 
+Pour corriger ce comportement, supprimez l’écouteur à l’aide de [PowerShell](#remove-listener), supprimez l’équilibreur de charge interne via le portail Azure, puis recommencez à l’étape 3. 
 
-### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest : seule la liste des machines virtuelles SQL peut être mise à jour
-Cette erreur peut se produire quand vous déployez le modèle **101-sql-vm-aglistener-setup** si l’écouteur a été supprimé via SQL Server Management Studio (SSMS), mais qu’il n’a pas été supprimé au niveau du fournisseur de ressources de machine virtuelle SQL. La suppression de l’écouteur via SSMS n’a pas pour effet de supprimer les métadonnées de l’écouteur au niveau du fournisseur de ressources de machine virtuelle SQL. L’écouteur doit être supprimé du fournisseur de ressources via [PowerShell](#remove-the-availability-group-listener). 
+**BadRequest : seule la liste des machines virtuelles SQL peut être mise à jour** Cette erreur peut se produire quand vous déployez le modèle **101-sql-vm-aglistener-setup** si l’écouteur a été supprimé via SQL Server Management Studio (SSMS), mais qu’il n’a pas été supprimé au niveau du fournisseur de ressources de machine virtuelle SQL. La suppression de l’écouteur via SSMS n’a pas pour effet de supprimer les métadonnées de l’écouteur au niveau du fournisseur de ressources de machine virtuelle SQL. L’écouteur doit être supprimé du fournisseur de ressources via [PowerShell](#remove-listener). 
 
-### <a name="domain-account-does-not-exist"></a>Le compte de domaine n’existe pas
-Cette erreur peut avoir deux causes. Soit le compte de domaine spécifié n’existe pas, soit il manque les données de [Nom d’utilisateur principal (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). Le modèle **101-sql-vm-ag-setup** attend un compte de domaine sous la forme UPN (c’est-à-dire, user@domain.com), mais certains comptes de domaine peuvent ne pas contenir cette information. Cela se produit généralement quand un utilisateur local a été migré pour devenir le premier compte d’administrateur de domaine au moment où le serveur a été promu contrôleur de domaine ou quand un utilisateur a été créé via PowerShell. 
+**Le compte de domaine n’existe pas** Cette erreur peut avoir deux causes. Soit le compte de domaine spécifié n’existe pas, soit il manque les données de [Nom d’utilisateur principal (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). Le modèle **101-sql-vm-ag-setup** attend un compte de domaine sous la forme UPN (c’est-à-dire, user@domain.com), mais certains comptes de domaine peuvent ne pas contenir cette information. Cela se produit généralement quand un utilisateur local a été migré pour devenir le premier compte d’administrateur de domaine au moment où le serveur a été promu contrôleur de domaine ou quand un utilisateur a été créé via PowerShell. 
 
 Vérifiez que le compte existe. Si c’est le cas, vous vous trouvez peut-être dans le deuxième cas. Pour corriger ce problème, procédez comme suit :
 
@@ -202,7 +210,6 @@ Vérifiez que le compte existe. Si c’est le cas, vous vous trouvez peut-être 
 6. Sélectionnez **Appliquer** pour enregistrer vos modifications et fermez la boîte de dialogue en sélectionnant **OK**. 
 
 Après avoir apporté ces modifications, essayez encore une fois de déployer le modèle de démarrage rapide Azure. 
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,12 +3,12 @@ title: Configurer la supervision de GPU avec Azure Monitor pour conteneurs | Mic
 description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373272"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569694"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de GPU avec Azure Monitor pour conteneurs
 
@@ -22,9 +22,12 @@ Azure Monitor pour conteneurs prend en charge la supervision des clusters de GPU
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilisation de GPU sur les nœuds ainsi que les pods et les charges de travail demandant des ressources GPU en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
+Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilisation de GPU sur les nœuds ainsi que celle des demandes GPU en pods et en charges de travail, en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics**.
 
-|Nom de la métrique |Dimension de la métrique (balises) |Description |
+>[!NOTE]
+>Après le provisionnement d’un cluster avec les nœuds GPU, assurez-vous que le [pilote GPU](../../aks/gpu-cluster.md) est installé, comme exigé par AKS pour exécuter des charges de travail GPU. Azure Monitor pour conteneurs collecte les métriques GPU via des pods de pilote GPU s’exécutant dans le nœud. 
+
+|Nom de métrique |Dimension de la métrique (balises) |Description |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|Pourcentage de temps durant lequel le GPU est resté occupé/en cours de traitement pour un conteneur au cours de la période d’échantillonnage passée (60 secondes). Le cycle d’utilisation est un nombre compris entre 1 et 100. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |Chaque conteneur peut spécifier des limites pour un ou plusieurs GPU. Il n’est pas possible de demander ou de limiter une partie d’un GPU. |

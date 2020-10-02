@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055258"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604442"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +33,13 @@ Pour plus d’informations, consultez une présentation de [l’instance FCI ave
 Avant de suivre les instructions décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
 - Un abonnement Azure. Démarrer [gratuitement](https://azure.microsoft.com/free/). 
-- [Deux ou plusieurs machines virtuelles Windows Azure préparées pour les USA Centre-Ouest](failover-cluster-instance-prepare-vm.md) dans le même [groupe à haute disponibilité](../../../virtual-machines/linux/tutorial-availability-sets.md) et un [groupe de placement de proximité](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), avec le groupe à haute disponibilité créé à l’aide d’un domaine d'erreur et d’un domaine de mise à jour définis sur **1**. 
+- [Au moins deux machines virtuelles Windows Azure](failover-cluster-instance-prepare-vm.md). Les [groupes à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md) et les [groupes de placement de proximité](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG) sont tous pris en charge. Si vous utilisez un groupe PPG, tous les nœuds doivent exister dans le même groupe.
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
 - La dernière version de [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## <a name="add-azure-shared-disk"></a>Ajouter un disque partagé Azure
-Déployez un disque SSD Premium managé avec la fonctionnalité de disque partagé activée. Affectez la valeur **2** à `maxShares` pour que le disque soit partageable sur les deux nœuds d’instance FCI. 
+Déployez un disque SSD Premium managé avec la fonctionnalité de disque partagé activée. Définissez `maxShares` sur **aligner sur le nombre de nœuds de cluster** pour rendre le disque partageable sur tous les nœuds d’instance de cluster de basculement. 
 
 Ajoutez un disque partagé Azure en procédant comme suit : 
 
@@ -213,12 +213,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurer la connectivité 
 
-Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](hadr-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 et Windows Server 2016 (ou version ultérieure), vous pouvez vous servir de la fonctionnalité en préversion de [nom de réseau distribué](hadr-distributed-network-name-dnn-configure.md). 
+Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](hadr-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 CU2+ et Windows Server 2016 (ou version ultérieure), vous pouvez vous servir de la fonctionnalité en préversion de [nom de réseau distribué](hadr-distributed-network-name-dnn-configure.md). 
 
 ## <a name="limitations"></a>Limites
 
-- Seul SQL Server 2019 sur Windows Server 2019 est pris en charge. 
-- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d'administration léger](sql-vm-resource-provider-register.md#management-modes) est prise en charge.
+- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-vm-resource-provider-register.md#management-modes) est prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

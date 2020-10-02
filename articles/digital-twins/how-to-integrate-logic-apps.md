@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment connecter Logic Apps à Azure Digital Twins à l’aide d’un connecteur personnalisé
 author: baanders
 ms.author: baanders
-ms.date: 8/14/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401059"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983531"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Intégrer à Logic Apps à l’aide d’un connecteur personnalisé
 
@@ -26,8 +26,12 @@ Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.co
 ## <a name="prerequisites"></a>Prérequis
 
 Si vous ne disposez pas d’abonnement Azure, **créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** avant de commencer.
+Connectez-vous au [portail Azure](https://portal.azure.com) avec ce compte. 
 
-Connectez-vous au [portail Azure](https://portal.azure.com) avec ce compte.
+Le reste de cette section vous guidera dans les étapes suivantes :
+- Configurer une instance Azure Digital Twins
+- Obtenir le secret client d’inscription d’application
+- Ajouter un jumeau numérique
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurer l’instance Azure Digital Twins
 
@@ -49,7 +53,12 @@ Appuyez sur *Certificats et secrets* dans le menu de l’inscription, puis séle
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Entrez les valeurs de votre choix pour la description et l’expiration, puis appuyez sur *Ajouter*.
-Le secret sera ajouté à la liste des secrets clients dans la page *Certificats et secrets*. Prenez note de la valeur pour l’utiliser ultérieurement (vous pouvez également la copier dans le presse-papiers avec l’icône Copier).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
+
+À présent, vérifiez que la clé secrète client est visible dans la page _Certificats et secrets_ avec les champs _Expire_ et _Valeur_. Prenez note de sa _Valeur_ pour l’utiliser ultérieurement (vous pouvez également la copier dans le presse-papiers avec l’icône Copie).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 ### <a name="add-a-digital-twin"></a>Ajouter un jumeau numérique
 
@@ -65,11 +74,15 @@ Au cours de cette étape, vous allez créer un [connecteur Logic Apps personnali
 
 Accédez à la page [Connecteur personnalisé Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Appuyez sur *+ Ajouter*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Page « Connecteur personnalisé Logic Apps » dans le portail Azure. Bouton « Ajouter » mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
-Dans la page *Créer un connecteur personnalisé Logic Apps* qui suit, sélectionnez votre abonnement et votre groupe de ressources, ainsi qu’un nom et un emplacement de déploiement pour votre nouveau connecteur. Appuyez sur *Vérifier + créer*. Cela vous permet d’atteindre l’onglet *Vérifier + créer*, où vous pouvez appuyer sur *Créer* en bas pour créer votre ressource.
+Dans la page *Créer un connecteur personnalisé Logic Apps* qui suit, sélectionnez votre abonnement et votre groupe de ressources, ainsi qu’un nom et un emplacement de déploiement pour votre nouveau connecteur. Appuyez sur *Vérifier + créer*. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Onglet « Vérifier + créer » de la page « Créer un connecteur personnalisé Logic Apps » dans le portail Azure. Bouton « Créer » mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
+
+Cela vous permet d’atteindre l’onglet *Vérifier + créer*, où vous pouvez appuyer sur *Créer* en bas pour créer votre ressource.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Vous serez dirigé vers la page de déploiement pour le connecteur. Une fois le déploiement terminé, cliquez sur le bouton *Accéder à la ressource* pour afficher les détails du connecteur dans le portail.
 
@@ -81,7 +94,7 @@ Tout d’abord, téléchargez un fichier Swagger Azure Digital Twins personnalis
 
 Ensuite, accédez à la page Vue d’ensemble de votre connecteur dans le *portail Azure*, puis cliquez sur [Modifier](https://portal.azure.com).
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Page « Vue d’ensemble » pour le connecteur créé à l’étape précédente. Bouton « Modifier » mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Dans la page *Modifier le connecteur personnalisé Logic Apps* qui suit, configurez les informations suivantes :
 * **Connecteurs personnalisés**
@@ -89,14 +102,16 @@ Dans la page *Modifier le connecteur personnalisé Logic Apps* qui suit, configu
     - Mode d’importation : Fichier OpenAPI (conservez la valeur par défaut)
     - Fichier : Il s’agit du fichier Swagger personnalisé que vous avez téléchargé précédemment. Cliquez sur *Importer*, localisez le fichier sur votre machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*), puis cliquez sur *Ouvrir*.
 * **Informations générales**
-    - Icône, Couleur d’arrière-plan de l’icône, Description : Remplissez les valeurs de votre choix.
+    - Icône : Téléchargez une icône qui vous plaît
+    - Couleur d’arrière-plan de l’icône : Entrez le code hexadécimal au format « #xxxxxx » pour votre couleur.
+    - Description : Remplissez les valeurs de votre choix.
     - Schéma : HTTPS (conservez la valeur par défaut)
     - Hôte : Le *nom d’hôte* de votre instance Azure Digital Twins.
     - URL de base : / (conservez la valeur par défaut)
 
 Ensuite, appuyez sur le bouton *Sécurité* au bas de la fenêtre pour passer à l’étape de configuration suivante.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Capture d’écran du bas de la page « Modifier le connecteur personnalisé Logic Apps ». Mise en surbrillance du bouton permettant d’accéder à Sécurité":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 À l’étape Sécurité, appuyez sur *Modifier* et configurez les informations suivantes :
 * **Type d'authentification** : OAuth 2.0
@@ -112,13 +127,13 @@ Ensuite, appuyez sur le bouton *Sécurité* au bas de la fenêtre pour passer à
 
 Notez que le champ URL de redirection indique *Enregistrer le connecteur personnalisé pour générer l’URL de redirection*. Pour cela, appuyez sur *Mettre à jour le connecteur* en haut du volet pour confirmer les paramètres du connecteur.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Capture d’écran du haut de la page « Modifier le connecteur personnalisé Logic Apps ». Bouton « Mettre à jour le connecteur » mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 <!-- Success message? didn't see one -->
 
 Revenez au champ URL de redirection et copiez la valeur qui a été générée. Vous l’utiliserez à l’étape suivante.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Le champ URL de redirection de la page « Modifier le connecteur personnalisé Logic Apps » a désormais la valeur « https://logic-apis-westus2.consent.azure-apim.net/redirect  ». Le bouton permettant de copier la valeur est mis en surbrillance.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Il s’agit de toutes les informations nécessaires à la création de votre connecteur (inutile de passer de l’étape Sécurité à l’étape Définition). Vous pouvez fermer le volet *Modifier le connecteur personnalisé Logic Apps*.
 
@@ -133,11 +148,11 @@ Accédez à la page [Inscriptions d’applications](https://portal.azure.com/#bl
 
 Sous *Authentification* dans le menu de l’inscription, ajoutez un URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Page Authentification pour l’inscription de l’application dans le portail Azure. « Authentification » dans le menu est mis en surbrillance, et dans la page, le bouton « Ajouter un URI » est mis en surbrillance."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »"::: 
 
 Entrez *l’URL de redirection* du connecteur personnalisé dans le nouveau champ, puis cliquez sur l’icône *Enregistrer*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Page Authentification pour l’inscription de l’application dans le portail Azure. La nouvelle URL de redirection est mise en surbrillance, ainsi que le bouton « Enregistrer » pour la page.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Vous avez maintenant terminé la configuration d’un connecteur personnalisé qui peut accéder aux API Azure Digital Twins. 
 
@@ -145,11 +160,15 @@ Vous avez maintenant terminé la configuration d’un connecteur personnalisé q
 
 Ensuite, vous allez créer une application logique qui utilisera votre nouveau connecteur pour automatiser les mises à jour Azure Digital Twins.
 
-Accédez à la page [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Appuyez sur *Créer une application logique*.
+Accédez à la page [Logic Apps (consommation)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Appuyez sur le bouton *Ajouter* pour créer une application logique.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Page « Logic Apps » dans le portail Azure. Le bouton « Créer une application logique » est mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
-Dans la page *Logic Apps* qui suit, sélectionnez votre abonnement et votre groupe de ressources, ainsi qu’un nom et un emplacement de déploiement pour votre nouvelle application logique. Appuyez sur *Vérifier + créer*. Cela vous permet d’atteindre l’onglet *Vérifier + créer*, où vous pouvez appuyer sur *Créer* en bas pour créer votre ressource.
+Dans la page *Logic Apps (consommation)* qui suit, entrez votre abonnement, groupe de ressources. Choisissez également un nom pour votre application logique et sélectionnez l’emplacement.
+
+Sélectionnez le bouton _Vérifier + créer_.
+
+Cela vous permet d’atteindre l’onglet *Vérifier + créer*, dans lequel vous pouvez vérifier vos détails et appuyer sur *Créer* en bas pour créer votre ressource.
 
 Vous serez dirigé vers la page de déploiement pour l’application logique. Une fois le déploiement terminé, appuyez sur le bouton *Accéder à la ressource* pour accéder à *Concepteur Logic Apps*, où vous allez renseigner la logique du flux de travail.
 
@@ -157,7 +176,7 @@ Vous serez dirigé vers la page de déploiement pour l’application logique. Un
 
 Dans le *Concepteur Logic Apps*, sous *Démarrer avec un déclencheur courant*, sélectionnez _**Récurrence**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Page « Concepteur Logic Apps » dans le portail Azure. Déclencheur courant « Récurrence » mis en surbrillance":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Dans la page *Concepteur Logic Apps* qui suit, définissez la fréquence de **Récurrence** sur *Seconde*, afin que l’événement soit déclenché toutes les 3 secondes. Cela vous permettra de voir plus facilement les résultats, sans avoir à attendre très longtemps.
 
@@ -165,20 +184,22 @@ Appuyez sur *+ Nouvelle étape*.
 
 Cela ouvre une zone *Choisir une action*. Basculez vers l’onglet *Personnalisé*. Votre connecteur personnalisé précédemment doit s’afficher dans la zone supérieure.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Création d’un flux dans le Concepteur Logic Apps dans le portail Azure. Dans la zone « Choisir une action », l’onglet « Personnalisé » est sélectionné. Le connecteur personnalisé créé précédemment par l’utilisateur est affiché dans la zone, mis en surbrillance.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 Sélectionnez-le pour afficher la liste des API contenues dans ce connecteur. Utilisez la barre de recherche ou faites défiler la liste pour sélectionner **DigitalTwins_Add**. (Il s’agit de l’API utilisée dans cet article, mais vous pouvez également sélectionner n’importe quelle autre API comme choix valide pour une connexion Logic Apps).
 
 Vous serez peut-être invité à entrer vos informations d’identification Azure pour vous connecter au connecteur. Si une boîte de dialogue *Autorisations demandées* s’affiche, suivez les invites afin d’accorder le consentement pour votre application et d’accepter.
 
 Dans la nouvelle zone *DigitalTwinsAdd*, renseignez les champs comme suit :
-* id : Renseignez *l’ID de jumeau* du jumeau numérique dans votre instance que l’application logique doit mettre à jour.
-* Item - 1 : Ce champ vous permet d’entrer le corps requis par la demande d’API choisie. Pour *DigitalTwinsUpdate*, ce corps est sous la forme d’un code de correctif JSON. Pour plus d’informations sur la structuration d’un correctif JSON afin de mettre à jour votre jumeau, consultez la section [Mettre à jour un jumeau numérique](how-to-manage-twin.md#update-a-digital-twin) dans *Procédure : Gestion des jumeaux numériques*.
-* api-version : Dans la préversion publique actuelle, cette valeur est *2020-05-31-preview*
+* _ID_ : Renseignez *l’ID de jumeau* du jumeau numérique dans votre instance que l’application logique doit mettre à jour.
+* _jumeau_ : Ce champ vous permet d’entrer le corps requis par la demande d’API choisie. Pour *DigitalTwinsUpdate*, ce corps est sous la forme d’un code de correctif JSON. Pour plus d’informations sur la structuration d’un correctif JSON afin de mettre à jour votre jumeau, consultez la section [Mettre à jour un jumeau numérique](how-to-manage-twin.md#update-a-digital-twin) dans *Procédure : Gestion des jumeaux numériques*.
+* _api-version_ : Dans la préversion publique actuelle, cette valeur est *2020-05-31-preview*
 
 Appuyez sur *Enregistrer* dans le Concepteur Logic Apps.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vue finale de l’application dans le connecteur Logic App. La zone DigitalTwinsAdd est renseignée avec les valeurs décrites ci-dessus, notamment un exemple de corps de correctif JSON. Le bouton « Enregistrer » de la fenêtre est mis en surbrillance.":::
+Vous pouvez choisir d’autres opérations en sélectionnant _+ Nouvelle étape_ dans la même fenêtre.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
 ## <a name="query-twin-to-see-the-update"></a>Interroger le jumeau pour voir la mise à jour
 

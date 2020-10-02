@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970051"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -51,7 +51,7 @@ Dans la navigation gauche de la page de l’application, faites défiler jusqu�
 
 Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **F1**. Les DNS personnalisés ne sont pas disponibles dans le niveau **F1**. 
 
-![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Capture d’écran montrant le menu de navigation gauche de la page d’application avec l’option Monter en puissance (plan App Service) sélectionnée.":::
 
 Si le plan App Service n’est pas dans le niveau **F1**, fermez la page **Monter en puissance** et passez à [Acheter le domaine](#buy-the-domain).
 
@@ -61,7 +61,7 @@ Sélectionnez un niveau payant (**D1**, **B1**, **B2**, **B3** ou n’importe qu
 
 Cliquez sur **Appliquer**.
 
-![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Capture d’écran montrant le menu de navigation gauche de la page d’application avec l’option Monter en puissance (plan App Service) sélectionnée.":::
 
 Lorsque la notification suivante s’affiche, cela signifie que l’opération est terminée.
 

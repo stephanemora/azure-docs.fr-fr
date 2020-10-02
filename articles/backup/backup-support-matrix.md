@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892182"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985008"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -149,9 +149,9 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Toutes les régions publiques Azure.  |
-| Agent MARS/En local | Non                                                           | N/A               |
-| SQL /SAP HANA          | Non                                                           | N/A               |
+| Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Ensemble des régions publiques Azure et des clouds souverains.  |
+| SQL /SAP HANA | Oui                                                          | Ensemble des régions publiques Azure et des clouds souverains.             |
+| Agent MARS/En local  | Non                                                           | N/A               |
 | AFS                    | Non                                                           | N/A               |
 
 ## <a name="next-steps"></a>Étapes suivantes

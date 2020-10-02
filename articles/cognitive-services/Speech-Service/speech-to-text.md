@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 42696728427c34d5000881af8bbbf97ae2313111
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401263"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569218"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
@@ -34,23 +34,11 @@ Avec une entrée de texte de référence supplémentaire, le service de reconnai
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
+## <a name="get-started"></a>Bien démarrer
 
-Le service de reconnaissance vocale est disponible via le [SDK Speech](speech-sdk.md). Plusieurs scénarios courants sont disponibles sous forme de démarrages rapides, dans différentes langues et plateformes :
+Consultez le [guide de démarrage rapide](get-started-speech-to-text.md) pour démarrer avec la reconnaissance vocale. Ce service est disponible via le [kit SDK Speech](speech-sdk.md), l’[API REST](rest-speech-to-text.md#pronunciation-assessment-parameters) et l’[interface CLI Speech](spx-overview.md).
 
- - [Démarrage rapide : Reconnaître la parole avec entrée au microphone](quickstarts/speech-to-text-from-microphone.md)
- - [Démarrage rapide : Reconnaître la voix à partir d’un fichier](quickstarts/speech-to-text-from-file.md)
- - [Démarrage rapide : Reconnaître la parole stockée dans un stockage d’objets blob](quickstarts/from-blob.md)
-
-Si vous préférez utiliser le service REST de reconnaissance vocale, consultez [API REST](rest-speech-to-text.md).
-
- - [Démarrage rapide : Évaluation de la prononciation avec entrée de référence](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## <a name="tutorials-and-sample-code"></a>Tutoriels et exemple de code
-
-Une fois que vous aurez eu l’occasion d’utiliser le service Speech, essayez notre tutoriel qui vous apprendra à reconnaître les intentions d’un discours à l’aide du SDK Speech et de LUIS.
-
-- [Tutoriel : Reconnaître les intentions d’un discours avec le SDK Speech et LUIS, en utilisant C#](how-to-recognize-intents-from-speech-csharp.md)
+## <a name="sample-code"></a>Exemple de code
 
 Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples couvrent des scénarios courants tels que la lecture du signal audio d’un fichier ou d’un flux, la reconnaissance continue et ponctuelle, et l’utilisation de modèles personnalisés.
 

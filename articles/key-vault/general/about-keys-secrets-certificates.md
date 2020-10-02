@@ -1,5 +1,5 @@
 ---
-title: À propos des clés, des secrets et des certificats Azure Key Vault - Azure Key Vault
+title: Vue d’ensemble de l’API REST Azure Key Vault
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés, les secrets et les certificats.
 services: key-vault
 author: msmbaldwin
@@ -9,23 +9,49 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043629"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983272"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
+# <a name="azure-key-vault-rest-api-overview"></a>Vue d’ensemble de l’API REST Azure Key Vault
 
-Azure Key Vault permet aux utilisateurs et aux applications Microsoft Azure de stocker et d’utiliser plusieurs types de données de secret/clé :
+Azure Key Vault permet aux applications Microsoft Azure et à leurs utilisateurs de stocker et d’utiliser plusieurs types de données de secret/clé. Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les coffres et les HSM managés.
 
-- Clés de chiffrement : Prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés ayant une valeur importante. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
-- Secrets : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).
-- Certificats : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md).
-- Stockage Azure : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. Pour plus d’informations, consultez [Gérer les clés de compte de stockage avec Key Vault](../secrets/overview-storage-keys.md).
+## <a name="dns-suffixes-for-base-url"></a>Suffixes DNS pour l’URL de base
+ Le tableau ci-dessous indique le suffixe DNS utilisé dans l’URL de base du point de terminaison de plan de données pour les coffres et les pools de HSM managés dans différents environnements cloud.
 
-Pour plus d’informations générales sur Key Vault, consultez [À propos d’Azure Key Vault](overview.md).
+Environnement cloud | Suffixe DNS pour les coffres | Suffixe DNS pour les HSM managés
+---|---|---
+Cloud Azure | .vault.azure.net | .managedhsm.azure.net
+Cloud Azure Chine | .vault.azure.cn | Non pris en charge
+Azure US Government | .vault.usgovcloudapi.net | Non pris en charge
+Cloud Azure – Allemagne | .vault.microsoftazure.de | Non pris en charge
+|||
+
+
+## <a name="object-types"></a>Types d’objets
+ Le tableau ci-dessous présente les types d’objets et leurs suffixes utilisés dans l’URL de base.
+
+Type d'objet|Suffixe d'URL|Coffres|Pools de HSM managés
+--|--|--|--
+**Clés de chiffrement**||
+Clés protégées par HSM|/keys|Prise en charge|Prise en charge
+Clés protégées par logiciel|/keys|Prise en charge|Non pris en charge
+**Autres types d’objets**||
+Secrets|/secrets|Prise en charge|Non pris en charge
+Certificats|/certificates|Prise en charge|Non pris en charge
+Clés de compte de stockage|/storageaccount|Prise en charge|Non pris en charge
+|||
+- **Clés de chiffrement** : Prend en charge plusieurs algorithmes et types de clés, et permet l’utilisation de clés protégées par logiciel et par HSM. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
+- **Secrets** : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).
+- **Certificats** : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md).
+- **Clés de compte Stockage Azure** : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. Pour plus d’informations, consultez [Gérer les clés de compte de stockage avec Key Vault](../secrets/overview-storage-keys.md).
+
+Pour plus d’informations générales sur Key Vault, consultez [À propos d’Azure Key Vault](overview.md). Pour plus d’informations sur les pools de HSM managés, consultez [Qu’est-ce qu’Azure Key Vault Managed HSM ?](../managed-hsm/overview.md)
+
 
 ## <a name="data-types"></a>Types de données
 
@@ -52,15 +78,20 @@ Les objets sont identifiés de façon unique dans Key Vault avec une URL. Il n�
 
 Pour plus d’informations, consultez [Authentification, requêtes et réponses](authentication-requests-and-responses.md)
 
-Un identificateur d’objet a le format général suivant :  
+Un identificateur d’objet a le format général suivant (selon le type de conteneur) :  
 
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Pour les coffres** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+
+- **Pour les pools Managed HSM** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+
+> [!NOTE]
+> Pour connaître les types d’objets pris en charge par chaque type de conteneur, consultez [Types d’objets](#object-types).
 
 Où :  
 
 | Élément | Description |  
 |-|-|  
-|`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de coffre de clés sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
+|`vault-name` ou `hsm-name`|Nom d’un coffre ou d’un pool Managed HSM dans le service Microsoft Azure Key Vault.<br /><br />Les noms de coffre et de pool Managed HSM sont choisis par l’utilisateur et sont globalement uniques.<br /><br />Le nom d’un coffre ou d’un pool Managed HSM doit être une chaîne de 3 à 24 caractères, qui peut contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-type`|Type de l’objet : « keys », « secrets » ou « certificates ».|  
 |`object-name`|Un `object-name` est un nom fourni par l’utilisateur et doit être unique dans un coffre de clés. Le nom doit être une chaîne comprise entre 1 et 127 caractères, commençant par une lettre et qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-version`|Un `object-version` est un identificateur de chaîne de 32 caractères généré par le système qui peut être utilisé pour une version unique d’un objet.|  

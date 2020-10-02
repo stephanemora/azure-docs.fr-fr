@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011002"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662841"
 ---
 Cette catégorie d’entité comprend les informations financières et les formes officielles d’identification. Disponible à partir de la version `2019-10-01` du modèle. Les sous-types sont listés ci-dessous. 
 
@@ -27,14 +27,14 @@ Cette catégorie d’entité comprend les informations financières et les forme
 | Numéro de compte bancaire international (IBAN)                  | Codes IBAN pour les informations sur les instructions de paiement.                            |
 
 
-### <a name="government-and-countryregion-specific-identification"></a>Identification propres aux gouvernements et pays/régions
+### <a name="government-and-countryregion-specific-identification"></a>Identification propre aux gouvernements et pays/régions
 
 > [!NOTE]
 > Les entités financières et propres au pays suivantes ne sont pas retournées avec le paramètre `domain=phi` :
 > * Numéros de passeport
 > * Numéros d’identification fiscale
 
-Les entités ci-dessous sont regroupées et listées par pays :
+Les entités suivantes sont regroupées et listées par pays :
 
 Argentine
 * Numéro d’identité nationale (DNI) en Argentine
@@ -116,7 +116,7 @@ France
 * Carte nationale d’identité (CNI) en France
 * Numéro de passeport en France
 * Numéro de sécurité sociale (INSEE) en France
-* Numéros d’identification fiscale en France (numéro SPI.)
+* Numéro d’identification fiscale en France (numéro SPI)
 * Numéro de TVA en France
 
 Allemagne

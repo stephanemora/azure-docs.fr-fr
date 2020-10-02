@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508234"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984589"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutoriel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
 
@@ -36,7 +36,7 @@ Pour accéder au tableau de bord de Security Center, dans le menu du portail Azu
 
 Security Center va au-delà de la découverte de données et fournit des recommandations concernant les problèmes qu’il détecte. Par exemple, si une machine virtuelle a été déployée sans groupe de sécurité réseau associé, Security Center affiche une recommandation ainsi que des étapes de correction que vous pouvez suivre. Vous bénéficiez d’une correction automatisée sans quitter le contexte de Security Center.  
 
-![Recommandations](./media/tutorial-azure-security/recommendations.png)
+![La capture d’écran montre la page Recommandations, qui comprend une description, une ressource, un état, ainsi que le niveau de gravité des recommandations.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurer la collecte de données
 

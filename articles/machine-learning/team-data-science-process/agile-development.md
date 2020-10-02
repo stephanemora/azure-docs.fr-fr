@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722099"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440284"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
 
@@ -51,7 +51,7 @@ Voici les définitions des types d’éléments de travail :
   
 - **Tâche** : les tâches sont des éléments de travail assignables qui doivent être réalisées pour effectuer un récit utilisateur spécifique. Par exemple, les tâches du récit utilisateur *Obtention des données* pourraient être les suivantes :
   - Récupérer les informations d’identification SQL Server
-  - Charger les données sur SQL Data Warehouse
+  - Charger des données dans Azure Synapse Analytics
   
 - **Bogue** : les bogues sont des problèmes dans le code ou les documents existants qui doivent être corrigés pour effectuer une tâche. Si des bogues sont provoqués par des éléments de travail manquants, ils peuvent devenir des récits utilisateur ou des tâches. 
 

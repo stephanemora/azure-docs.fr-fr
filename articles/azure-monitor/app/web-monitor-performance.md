@@ -4,12 +4,12 @@ description: Prise en main d'Application Insights. Analyze usage, availability a
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323449"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987147"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
@@ -112,11 +112,11 @@ Vous pouvez utiliser l’expérience d’analyse des performances d’Applicatio
 
 Pour obtenir une meilleure idée de l’environnement utilisateur de cette opération, nous pouvons sélectionner une plage temporelle plus longue. Nous pouvons ensuite également réduire l’examen à une fenêtre temporelle spécifique, au cours de laquelle l’opération s’est avérée lente. Dans l’exemple suivant, nous sommes passés de la plage par défaut de 24 heures à une plage de 7 jours, puis avons ciblé la fenêtre de temps de 9 h 47 à 12 h 47 entre le mardi 12 et le mercredi 13. La distribution de durée et le nombre d’exemples et de traces du profileur ont été mis à jour sur la droite.
 
-![Trois pics de durée pour GET Customers/Details sur une plage de 7 jours avec une fenêtre de temps](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Capture d’écran montrant les performances (préversion) avec trois pics de durée sur une plage de 7 jours avec une fenêtre de temps](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Pour mieux cibler les environnements trop lents, nous pouvons ensuite effectuer un zoom sur les durées qui tombent entre le 95e et 99e centile. Celles-ci représentent les 4 % d’interactions utilisateur qui se sont avérées lentes.
 
-![Trois pics de durée pour GET Customers/Details sur une plage de 7 jours avec une fenêtre de temps](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Capture d’écran illustrant trois pics de durée pour GET Customers/Details sur une plage de 7 jours avec une fenêtre de temps.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Vous pouvez maintenant consulter des exemples représentatifs, en cliquant sur le bouton d’exemples ou sur les traces du profileur représentatives, en cliquant sur le bouton Traces du profileur. Dans cet exemple, quatre traces ont été collectées pour l’opération GET Customers/Details dans la fenêtre de temps et la durée de plage souhaitées.
 
@@ -126,7 +126,7 @@ Il peut arriver que le problème ne se situe pas dans le code, mais dans une dé
 
 L’expérience d’analyse des performances montre des informations pertinentes en plus de l’exemple de jeu sur lequel vous avez décidé de vous concentrer. La meilleure façon d’examiner toutes les analyses disponibles consiste à passer sur une période de 30 jours, puis à sélectionner Global pour avoir une visibilité sur toutes les opérations du mois passé.
 
-![Trois pics de durée pour GET Customers/Details sur une plage de 7 jours avec une fenêtre de temps](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Capture d’écran montrant les performances (préversion) avec la fenêtre globale ouverte et les insights sélectionnés.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes

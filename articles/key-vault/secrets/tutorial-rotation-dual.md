@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: b9478d3b171189decb4e2cca7fc93ba2fa75e32e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482780"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529415"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources dotées de deux jeux d’informations d’authentification
 
@@ -80,7 +80,7 @@ Les fonctions de rotation de l’application de fonction requièrent les composa
 
 1. Sélectionnez le lien de déploiement d’un modèle Azure : 
 
-   [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+   [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. Dans la liste **Groupe de ressources**, sélectionnez **akvrotation**.
 1. Dans **Nom du compte de stockage**, tapez le nom du compte de stockage doté des clés d’accès auxquelles appliquer la rotation.
@@ -204,7 +204,7 @@ az storage account keys list -n akvrotationstorage
 - [Cache Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="learn-more"></a>En savoir plus
-- Présentation : [Monitoring de Key Vault avec Azure Event Grid (préversion)](../general/event-grid-overview.md)
+- Présentation : [Supervision de Key Vault avec Azure Event Grid](../general/event-grid-overview.md)
 - Procédure : [Créer votre première fonction sur le Portail Azure](../../azure-functions/functions-create-first-azure-function.md)
 - Procédure : [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](../general/event-grid-logicapps.md)
-- [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../../event-grid/event-schema-key-vault.md)
+- [Schéma des événements Azure Event Grid pour Azure Key Vault](../../event-grid/event-schema-key-vault.md)

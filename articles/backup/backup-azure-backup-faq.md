@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986427"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -45,7 +45,7 @@ Oui. Pour déplacer un coffre Recovery Services, consultez cet [article](backup-
 
 Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être déplacées vers un autre coffre.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Puis-je passer du stockage GRS au stockage LRS après une sauvegarde ?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Puis-je modifier le paramètre de redondance du stockage après une sauvegarde ?
 
 Le type de réplication de stockage par défaut est défini sur Stockage géoredondant (GRS). Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée et non modifiable.
 

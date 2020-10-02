@@ -9,16 +9,32 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 4011cd93879d9203d8231f24bbf531d14e6e815a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93ebc1c5e89e54f4813f270b9f8b7b13f672fbe3
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093492"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016110"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analyser des données avec SQL à la demande
 
 Dans ce tutoriel, vous allez découvrir comment analyser des données avec SQL à la demande en utilisant des données qui se trouvent dans des bases de données Spark. 
+
+## <a name="analyze-nyc-taxi-data-in-blob-storage--using-sql-on-demand"></a>Analyser les données NYC Taxi du stockage Blob avec SQL à la demande
+
+1. Dans le hub **Données** situé sous **Liées**, cliquez avec le bouton droit sur **Stockage Blob Azure > Exemples de jeux de données > nyc_tlc_yellow**, puis sélectionnez **100 premières lignes**.
+1. Un script SQL sera créé avec le code suivant :
+
+    ```
+    SELECT
+        TOP 100 *
+    FROM
+        OPENROWSET(
+            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
+            FORMAT = 'parquet'
+        ) AS [result];
+    ```
+1. Cliquez sur **Exécuter**.
 
 ## <a name="analyze-nyc-taxi-data-in-spark-databases-using-sql-on-demand"></a>Analyser les données NYC Taxi dans des bases de données Spark à l’aide de SQL à la demande
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5e32a6a9817f2a3176e96e39c5e261875e8f4ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093477"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667480"
 ---
 # <a name="orchestrate-with-pipelines"></a>Orchestrer avec des pipelines
 
@@ -26,7 +26,7 @@ Vous pouvez orchestrer un large éventail de tâches dans Azure Synapse.
 
 1. Dans Synapse Studio, accédez au hub **Orchestrer**.
 1. Sélectionnez **+**  > **Pipeline** pour créer un pipeline.
-1. Accédez au hub **Développer** et recherchez le notebook que vous avez créé précédemment.
+1. Accédez au hub **Développer**, puis sélectionnez l’un des notebooks que vous avez créés précédemment.
 1. Faites glisser ce notebook dans le pipeline.
 1. Dans le pipeline, sélectionnez **Ajouter un déclencheur** > **Nouveau/modifier**.
 1. Dans **Choisissez un déclencheur**, sélectionnez **Nouveau** et, pour la **périodicité**, définissez le déclencheur pour qu’il s’exécute toutes les heures.

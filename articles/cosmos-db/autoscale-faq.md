@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449513"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708000"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Les ressources qui ont été créées avec le modèle de niveau précédent sont
 
 Par exemple, si vous avez précédemment sélectionné le niveau de mise à l’échelle entre 400 et 4 000 RU/s, la base de données ou le conteneur s’affiche désormais avec un maximum de 4 000 RU/s, ce qui permet une mise à l’échelle de 400 à 4 000 RU/s. À partir de là, vous pouvez modifier la RU/s maximale en valeur personnalisée pour l’adapter à votre charge de travail. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Quelle est la vitesse de la mise à l’échelle vers le haut ou vers le bas en mode de mise à l’échelle automatique en fonction des pics de trafic ?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>À quelle vitesse la mise à l’échelle automatique effectuera un scale-up en fonction des pics de trafic ?
 Avec la mise à l’échelle automatique, le système met à l’échelle le débit (RU/s) `T` vers le haut ou vers le haut au sein du `0.1 * Tmax` et de la plage de `Tmax`, en fonction du trafic entrant. Étant donné que la mise à l’échelle est automatique et instantanée, à tout moment, vous pouvez consommer jusqu’à `Tmax` approvisionné sans retard. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Comment déterminer la RU/s sur laquelle le système est actuellement mis à l’échelle ?

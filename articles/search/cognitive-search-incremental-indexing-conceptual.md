@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971634"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enrichissement incrémentiel et mise en cache dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> L’enrichissement incrémentiel est actuellement en version préliminaire publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Les [versions d’API REST de 2019-05-06-Preview et 2020-06-30-Preview](search-api-preview.md) offrent cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
+> L’enrichissement incrémentiel est actuellement en version préliminaire publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [Les préversions de l'API REST](search-api-preview.md) offrent cette fonctionnalité. Il n’y a pas de prise en charge de portail ou de SDK .NET pour l’instant.
 
 *L’enrichissement incrémentiel* est une fonctionnalité qui cible des [ensembles de compétences](cognitive-search-working-with-skillsets.md). Elle tire parti du Stockage Azure pour enregistrer la sortie de traitement émise par un pipeline d’enrichissement en vue d’une réutilisation dans de futures exécutions de l’indexeur. Dans la mesure du possible, l’indexeur réutilise toute sortie mise en cache qui est toujours valide. 
 
@@ -166,7 +167,7 @@ La version `2020-06-30-Preview` de l’API REST fournit un enrichissement incré
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’enrichissement incrémentiel est une fonctionnalité puissante qui étend le suivi aux ensembles de compétences et à l’enrichissement par IA. L’enrichissement incrémentiel permet de réutiliser le contenu traité existant au fur et à mesure que vous itérez au sein de la conception de compétences.
+L’enrichissement incrémentiel est une fonctionnalité puissante qui étend le suivi aux ensembles de compétences et à l’enrichissement par IA. L'enrichissement incrémentiel permet de réutiliser le contenu traité existant au fur et à mesure que vous itérez au sein de la conception de compétences.
 
 En guise d’étape suivante, activez la mise en cache sur un indexeur existant ou ajoutez un cache lors de la définition d’un nouvel indexeur.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043510"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437392"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Les applications SaaS mutualisées ont généralement une grande quantité de do
 
 L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur potentiellement des milliers de bases de données. Une façon de maîtriser la complexité et minimiser l’impact des requêtes analytique sur les données transactionnelles consiste à extraire les données dans un entrepôt de données ou une base de données analytique que vous préparerez à cette fin.
 
-Ce didacticiel présente un scénario complet d’analytique pour l’application Wingtip Tickets. Tout d’abord, les *travaux élastiques* permettent d’extraire les données de chaque base de données client et de les charger dans les tables d’un magasin d’analytique intermédiaire. Le magasin d’analytique peut être une base de données SQL ou un entrepôt de données SQL. Pour l’extraction de données à grande échelle, [Azure Data Factory](../../data-factory/introduction.md) est recommandé.
+Ce didacticiel présente un scénario complet d’analytique pour l’application Wingtip Tickets. Tout d’abord, les *travaux élastiques* permettent d’extraire les données de chaque base de données client et de les charger dans les tables d’un magasin d’analytique intermédiaire. Le magasin d’analytique peut être une instance de SQL Database ou un pool SQL. Pour l’extraction de données à grande échelle, [Azure Data Factory](../../data-factory/introduction.md) est recommandé.
 
 Ensuite, les données agrégées sont transformées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées.  Pour Wingtip Tickets :
 

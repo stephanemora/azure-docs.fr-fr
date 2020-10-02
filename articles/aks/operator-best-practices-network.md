@@ -5,12 +5,12 @@ description: Découvrez les meilleures pratiques de l’opérateur pour les ress
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542702"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482723"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Cet article porte sur les meilleures pratiques en matière de connectivité rés
 Les réseaux virtuels assurent une connectivité de base pour les nœuds AKS et les clients qui accèdent à vos applications. Il existe deux façons différentes de déployer des clusters AKS dans des réseaux virtuels :
 
 * **Mise en réseau Kubenet** : Azure gère les ressources de réseau virtuel pendant le déploiement du cluster et utilise le plug-in Kubernetes [Kubenet][kubenet].
-* **Mise en réseau Azure CNI** : le déploiement se fait dans un réseau virtuel existant, avec le plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking]. Les pods reçoivent des adresses IP individuelles qui peuvent communiquer avec d’autres services réseau ou ressources locales.
+* **Mise en réseau Azure CNI** : effectue le déploiement dans un réseau virtuel, et utilise le plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking]. Les pods reçoivent des adresses IP individuelles qui peuvent communiquer avec d’autres services réseau ou ressources locales.
 
 L’interface Azure CNI est un protocole indépendant du fournisseur qui permet au runtime du conteneur d’adresser des demandes à un fournisseur de réseau. Elle affecte des adresses IP aux pods et aux nœuds et offre des fonctionnalités de Gestion des adresses IP (IPAM) pour la connexion à des réseaux virtuels Azure existants. Chaque ressource de type nœud ou pod reçoit une adresse IP dans le réseau virtuel Azure, sans qu’aucun routage supplémentaire soit nécessaire pour communiquer avec d’autres ressources ou services.
 

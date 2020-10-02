@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318679"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052135"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
 
@@ -81,7 +81,7 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 * **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
 * **Réduction du bruit** : Nettoie les enregistrements contenant du bruit ou de l’audio de téléphonie (en fonction des filtres Skype).
 * **Personnalisation de la transcription** (CRIS) : Entraîne des modèles de reconnaissance vocale personnalisés pour créer des transcriptions spécifiques au secteur. Pour plus d’informations, consultez [Personnaliser un modèle de langue depuis le site web Video Indexer](customize-language-model-with-website.md) et [Personnaliser un modèle de langue avec l’API Video Indexer](customize-language-model-with-api.md).
-* **Énumération de l’orateur** : Mappe et comprend quel orateur a prononcé tels mots et à quel moment.
+* **Énumération de l’orateur** : Mappe et comprend quel orateur a prononcé tels mots et à quel moment. Seize intervenants peuvent être détectés dans un seul fichier audio.
 * **Statistiques de l’orateur** : Fournit des statistiques concernant les ratios de parole des orateurs.
 * **Modération du contenu textuel** : Détecte le texte explicite dans la transcription audio.
 * **Effets audio** : Identifie les effets audio tels que les applaudissements, la parole et le silence.

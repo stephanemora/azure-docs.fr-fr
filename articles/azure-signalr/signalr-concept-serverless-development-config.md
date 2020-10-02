@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928562"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513936"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Développement et configuration Azure Functions avec Azure SignalR Service
 
@@ -51,7 +51,9 @@ Pour en savoir plus sur la création d’un jeton authentifié, reportez-vous à
 
 Utilisez la liaison de déclencheur *SignalR* pour gérer les messages envoyés par SignalR Service. Le déclenchement peut s’effectuer quand des clients envoient des messages ou quand ils sont connectés ou déconnectés.
 
-Pour plus d’informations, consultez les [informations de référence sur la liaison de *déclencheur SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
+Pour plus d'informations, consultez les [informations de référence sur la liaison de *déclencheur SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+Vous devez également configurer le point de terminaison de votre fonction en amont afin que le service déclenche la fonction là où il y a un message du client. Pour plus d'informations sur la configuration en amont, consultez ce [document](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envoi de messages et gestion de l’appartenance au groupe
 
@@ -109,7 +111,7 @@ Toutes les fonctions qui souhaitent tirer parti du modèle basé sur la classe d
 
 ### <a name="define-hub-method"></a>Définir la méthode de hub
 
-Toutes les méthodes de hub **doivent** avoir un attribut `[SignalRTrigger]` et **doivent** utiliser un constructeur sans paramètre. Le **nom de la méthode** est alors traité comme **événement** de paramètre.
+Toutes les méthodes de hub **doivent** avoir un argument `InvocationContext` décoré par l'attribut `[SignalRTrigger]` et utiliser un constructeur sans paramètre. Le **nom de la méthode** est alors traité comme **événement** de paramètre.
 
 Par défaut, `category=messages` sauf le nom de la méthode est l’un des noms suivants :
 
@@ -202,7 +204,11 @@ Pour plus d’informations sur la façon d’utiliser le SDK client SignalR, con
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Envoi de messages à partir d’un client au service
 
-Bien que le SDK SignalR permette aux applications clientes d’appeler la logique back-end dans un hub SignalR, cette fonctionnalité n’est pas encore prise en charge quand vous utilisez SignalR Service avec Azure Functions. Utilisez des requête HTTP pour appeler Azure Functions.
+Si votre ressource SignalR bénéficie d'une configuration [en amont](concept-upstream.md), vous pouvez envoyer des messages entre le client et votre instance d'Azure Functions à l'aide de n'importe quel client SignalR. Voici un exemple en JavaScript :
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Configuration Azure Functions
 

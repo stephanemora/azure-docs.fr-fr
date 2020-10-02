@@ -1,17 +1,17 @@
 ---
 title: Mise à niveau de vos visualisations de tableau de bord Log Analytics
-description: Requêtes que vous pouvez prendre en main et modifier en cas de besoin
+description: Apprenez à mettre à niveau vos visualisations du tableau de bord Log Analytics avec des requêtes pouvant fournir de puissants insights.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505769"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988254"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Mise à niveau de vos visualisations de tableau de bord Log Analytics
 

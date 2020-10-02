@@ -1,6 +1,6 @@
 ---
 title: Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure | Microsoft Docs
-description: Réhébergez vos charges de travail mainframe IBM z/OS en utilisant l’environnement de développement et de test Micro Focus sur des machines virtuelles Azure.
+description: Dans cet article, découvrez comment exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c4afc6c0adb8d499e38abf3d709a951774dda4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083461"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974060"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure
 

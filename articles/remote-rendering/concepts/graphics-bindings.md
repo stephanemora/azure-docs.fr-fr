@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f769036ac9e5a6945e7ecad30e021d377cabd358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020267"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561871"
 ---
 # <a name="graphics-binding"></a>Liaison graphique
 
@@ -116,7 +116,6 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 }
 ```
 
-
 Où le `ptr` ci-dessus doit être un pointeur vers un objet `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` natif qui définit le système de coordonnées de l’espace universel dans lequel les coordonnées de l’API sont exprimées.
 
 #### <a name="render-remote-image"></a>Afficher l’image distante
@@ -138,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Simulation
 
 `GraphicsApiType.SimD3D11` est la liaison de simulation et, si elle est sélectionnée, elle crée la liaison graphique `GraphicsBindingSimD3d11`. Cette interface est utilisée pour simuler le mouvement de la tête, par exemple dans une application de bureau, et affiche une image monoscopique.
+
+Pour implémenter la liaison de simulation, il est important de comprendre la différence entre la caméra locale et l'image distante, comme décrit sur la page [caméra](../overview/features/camera.md).
+
+Deux caméras sont nécessaires :
+
+* **Caméra locale** : cette caméra correspond à la position actuelle de la caméra pilotée par la logique d'application.
+* **Caméra proxy** : cette caméra correspond à l'*image distante* actuelle qui a été envoyée par le serveur. Comme il y a un délai entre la demande de l'image par le client et l'arrivée de celle-ci, l'*image distante* est toujours un peu en retard par rapport au déplacement de la caméra locale.
+
+L'approche de base est la suivante : l'image distante et le contenu local sont rendus dans une cible hors écran à l'aide de la caméra proxy. L'image proxy est ensuite reprojetée dans l'espace de la caméra locale. Pour plus d'informations, consultez [Reprojection en phase tardive](../overview/features/late-stage-reprojection.md).
+
 La configuration est un peu plus complexe et fonctionne comme suit :
 
 #### <a name="create-proxy-render-target"></a>Créer un proxy de cible de rendu
 
-Le contenu local et distant doit être affiché sur une cible de rendu des couleurs et de la profondeur hors écran appelée « proxy » à l’aide des données de la caméra proxy fournies par la fonction `GraphicsBindingSimD3d11.Update`. Le proxy doit correspondre à la résolution de la mémoire tampon d’arrière-plan. Une fois qu’une session est prête, `GraphicsBindingSimD3d11.InitSimulation` doit être appelée avant de l’y connecter :
+Le contenu local et distant doit être affiché sur une cible de rendu des couleurs et de la profondeur hors écran appelée « proxy » à l’aide des données de la caméra proxy fournies par la fonction `GraphicsBindingSimD3d11.Update`.
+
+Le proxy doit correspondre à la résolution de la mémoire tampon d'arrière-plan, et doit être au format *DXGI_FORMAT_R8G8B8A8_UNORM* ou *DXGI_FORMAT_B8G8R8A8_UNORM*. Une fois qu’une session est prête, `GraphicsBindingSimD3d11.InitSimulation` doit être appelée avant de l’y connecter :
 
 ```cs
 AzureSession currentSession = ...;
@@ -232,6 +243,19 @@ else
 }
 ```
 
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [RemoteManagerStatic.StartupRemoteRendering() C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [Classe GraphicsBinding C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [Classe GraphicsBindingWmrD3d11 C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [Classe GraphicsBindingSimD3d11 C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [Struct RemoteRenderingInitialization C++](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
+* [Classe GraphicsBinding C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
+* [Classe GraphicsBindingWmrD3d11 C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [Classe GraphicsBindingSimD3d11 C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Appareil photo](../overview/features/camera.md)
+* [Reprojection en phase tardive](../overview/features/late-stage-reprojection.md)
 * [Tutoriel : Affichage de modèles rendus à distance](../tutorials/unity/view-remote-models/view-remote-models.md)

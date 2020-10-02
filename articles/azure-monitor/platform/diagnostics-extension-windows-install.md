@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069576"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974546"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)
 L’[extension Diagnostics Azure](diagnostics-extension-overview.md) est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité, des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article fournit des détails sur l’installation et la configuration de l’extension de diagnostic Windows et une description de la façon dont les données sont stockées dans un compte Stockage Azure.
@@ -51,7 +51,7 @@ Vous pouvez installer et configurer l’extension de diagnostics sur une machine
 
 6. Dans l’onglet **Journaux**, sélectionnez les journaux à collecter sur la machine virtuelle. Les journaux peuvent être envoyés au stockage ou à des Event Hubs, mais pas à Azure Monitor. Utilisez l’[agent Log Analytics ](log-analytics-agent.md) pour collecter des journaux d’invité et les envoyer à Azure Monitor.
 
-   ![Journaux d’activité](media/diagnostics-extension-windows-install/logs.png)
+   ![Capture d’écran présentant l’onglet Journaux avec différents journaux sélectionnés pour une machine virtuelle.](media/diagnostics-extension-windows-install/logs.png)
 
 7. Dans l’onglet **Vidages sur incident**, spécifiez les processus pour collecter des images mémoire après un incident. Les données seront écrites dans le compte de stockage pour le paramètre de diagnostic, et vous pouvez éventuellement spécifier un conteneur de blobs.
 
@@ -59,7 +59,7 @@ Vous pouvez installer et configurer l’extension de diagnostics sur une machine
 
 8. Dans l’onglet **Récepteurs**, indiquez si vous souhaitez envoyer les données vers des emplacements autres que le stockage Azure. Si vous sélectionnez **Azure Monitor**, les données de performances de l’invité seront envoyées aux métriques Azure Monitor. Vous ne pouvez pas configurer le récepteur d’Event Hubs dans le portail Azure.
 
-   ![Récepteurs](media/diagnostics-extension-windows-install/sinks.png)
+   ![Capture d’écran présentant l’onglet Récepteurs dont l’option Envoyer des données de diagnostic à Azure Monitor est activée.](media/diagnostics-extension-windows-install/sinks.png)
    
    Si vous n’avez pas activé une identité affectée par le système configurée pour votre machine virtuelle, l’avertissement ci-dessous peut s’afficher lorsque vous enregistrez une configuration avec le récepteur Azure Monitor. Cliquez sur la bannière pour activer l’identité affectée par le système.
    
@@ -67,7 +67,7 @@ Vous pouvez installer et configurer l’extension de diagnostics sur une machine
 
 9. Dans l’onglet **Agent**, vous pouvez modifier le compte de stockage, définir le quota de disque et spécifier s’il faut collecter les journaux de l’infrastructure de diagnostic.  
 
-   ![Agent](media/diagnostics-extension-windows-install/agent.png)
+   ![Capture d’écran présentant l’onglet Agent avec l’option qui permet de définir le compte de stockage.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Pour enregistrer la configuration, cliquez sur **Enregistrer**. 
 

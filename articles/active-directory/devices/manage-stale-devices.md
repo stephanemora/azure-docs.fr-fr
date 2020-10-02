@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184939"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705535"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -175,9 +175,9 @@ Pour en savoir plus sur les différents types, consultez l’article [Vue d’en
 
 Toute authentification auprès d’Azure AD effectuée avec l’appareil est refusée. Voici des exemples courants :
 
-- **Appareil joint à une version hybride d’Azure AD**  : les utilisateurs peuvent être autorisés à utiliser l’appareil pour se connecter à leur domaine local. Toutefois, ils ne peuvent pas accéder aux ressources Azure AD telles qu’Office 365.
+- **Appareil joint à une version hybride d’Azure AD**  : les utilisateurs peuvent être autorisés à utiliser l’appareil pour se connecter à leur domaine local. Toutefois, ils ne peuvent pas accéder aux ressources Azure AD telles que Microsoft 365.
 - **Appareil joint à Azure AD** : les utilisateurs ne peuvent pas utiliser l’appareil pour se connecter. 
-- **Appareils mobiles** : les utilisateurs ne peuvent pas accéder aux ressources Azure AD telles qu’Office 365. 
+- **Appareils mobiles** : les utilisateurs ne peuvent pas accéder aux ressources Azure AD telles que Microsoft 365. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

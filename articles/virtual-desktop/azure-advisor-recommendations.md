@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89081830"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033028"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Résolution des recommandations Azure Advisor
 
@@ -34,7 +34,7 @@ Pour activer un environnement de validation :
 
 2. Ensuite, sélectionnez le pool d’hôtes que vous souhaitez passer d’un environnement de production à un environnement de validation.
 
-3. Dans votre pool d’hôtes, sélectionnez l’onglet **Propriétés** dans la colonne à droite de l’écran. Ensuite, faites défiler la page vers le bas jusqu’à voir « Environnement de validation ». Sélectionnez **Oui**, puis **Appliquer**.
+3. Dans votre pool d’hôtes, sélectionnez **Propriétés** dans la colonne de gauche. Ensuite, faites défiler la page vers le bas jusqu’à voir « Environnement de validation ». Sélectionnez **Oui**, puis **Appliquer**.
 
 >[!div class="mx-imgBorder"]
 >![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "Yes" bubble is selected.](media/validation-yes.png)
