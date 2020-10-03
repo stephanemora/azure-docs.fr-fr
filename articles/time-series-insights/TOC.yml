@@ -131,13 +131,11 @@
           href: time-series-insights-send-events.md
         - name: Mettre à l’échelle votre environnement
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Modeler JSON pour les entrées et les requêtes
-          href: how-to-shape-query-json.md
         - name: Résoudre la limitation
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostiquer et résoudre les problèmes
           href: time-series-insights-diagnose-and-solve-problems.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Time Series Insights
       items:

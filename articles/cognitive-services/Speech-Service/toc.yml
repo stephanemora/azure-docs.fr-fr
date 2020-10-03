@@ -148,7 +148,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Référence
+    - name: Informations de référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Exemples et questions fréquemment posées
               href: windows-voice-assistants-faq.md
-    - name: Mot clé personnalisé
-      items:
-        - name: Vue d’ensemble des mots clés personnalisés
-          href: custom-keyword-overview.md
-        - name: Principes de base des mots clés personnalisés
-          href: custom-keyword-basics.md
 - name: Reconnaissance de l’orateur
   items:
     - name: Présentation de la reconnaissance de l’orateur
@@ -465,6 +459,12 @@
       items:
         - name: API REST de reconnaissance de l’orateur
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Mot clé personnalisé
+  items:
+    - name: Vue d’ensemble des mots clés personnalisés
+      href: custom-keyword-overview.md
+    - name: Principes de base des mots clés personnalisés
+      href: custom-keyword-basics.md
 - name: Outils
   items:
     - name: Kit de développement logiciel (SDK) de reconnaissance vocale
