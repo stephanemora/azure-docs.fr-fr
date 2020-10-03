@@ -51,6 +51,8 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: Haute disponibilité
+      href: cache-high-availability.md
     - name: Basculement et correctif
       href: cache-failover.md
     - name: Meilleures pratiques
@@ -90,8 +92,6 @@
           href: cache-reserved-pricing.md
         - name: Migrer vers Azure Cache pour Redis
           href: cache-migration-guide.md
-        - name: Migrer à partir du Service de cache géré (déprécié)
-          href: cache-migrate-to-redis.md
         - name: Forum aux questions sur la planification
           href: cache-planning-faq.md
     - name: Build
