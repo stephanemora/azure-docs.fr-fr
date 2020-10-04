@@ -3,12 +3,12 @@ title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
 description: Dans ce tutoriel, vous créez un laboratoire dans Azure DevTest Labs à l’aide du portail Azure. Un administrateur de laboratoire définit un laboratoire, crée dans celui-ci des machines virtuelles et configure des stratégies.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324278"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
@@ -56,7 +56,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     2. Pour **Nom d’utilisateur**, entrez un nom pour l’utilisateur qui a accès à la machine virtuelle. 
     3. Dans le champ **Mot de passe**, entrez le mot de passe de l’utilisateur. 
 
-        ![Choisir une base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Capture d’écran montrant les paramètres de base de la page « Créer une ressource de laboratoire ».](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Sélectionnez l’onglet **Paramètres avancés**.
     1. Pour **Rendre cette machine exigible**, sélectionnez **Oui**.
     2. Vérifiez que le **nombre d’instances** est défini sur **1**. Si vous le définissez sur **2**, 2 machines virtuelles sont créées avec les noms : `<base image name>00' and <base image name>01`. Par exemple : `win10vm00` et `win10vm01`.     
