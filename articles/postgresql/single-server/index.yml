@@ -3,17 +3,17 @@ title: Documentation Azure Database pour PostgreSQL - Serveur unique
 summary: Azure Database pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source.  Serveur unique est l’une des différentes options de déploiement pour créer un serveur postgres. Découvrez comment utiliser Serveur unique avec nos guides de démarrage rapide, nos tutoriels et nos exemples.
 metadata:
   description: Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud Microsoft qui est conçu pour les développeurs basés sur le moteur de base de données PostgreSQL open source.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928832"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710153"
 landingContent:
 - title: À propos de Serveur unique
   linkLists:

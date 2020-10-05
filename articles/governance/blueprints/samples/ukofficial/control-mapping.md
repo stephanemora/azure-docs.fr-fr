@@ -3,12 +3,12 @@ title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078990"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540385"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -76,7 +76,7 @@ Ce blueprint vous aide à protéger les ressources du système d’informations 
 
 ## <a name="9-secure-user-management"></a>9 Gestion sécurisée des utilisateurs 
 
-Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint vous permet de limiter et de contrôler les droits d’accès en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire ou de lecture/écriture, et les comptes avec des autorisations de propriétaire, de lecture ou d’écriture pour lesquels l’authentification multifacteur n’est pas activée.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer les utilisateurs qui ont accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint vous permet de limiter et de contrôler les droits d’accès en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire ou de lecture/écriture, et les comptes avec des autorisations de propriétaire, de lecture ou d’écriture pour lesquels l’authentification multifacteur n’est pas activée.
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement

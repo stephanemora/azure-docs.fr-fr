@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254971"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566599"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutoriel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -171,7 +171,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
 1. Confirmez que vous voyez s’afficher à la fois **AzureStorageLinkedService** et **HDInsightOnDemandLinkedService** dans l’arborescence à gauche de l’écran.
 
-    ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Capture d’écran montrant qu’AzureStorageLinkedService et HDInsightOnDemandLinkedService sont liés entre eux.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 Dans cette étape, vous créez des jeux de données afin de représenter les données d’entrée et de sortie pour le traitement Hive. Ces jeux de données font référence au service AzureStorageLinkedService que vous avez créé précédemment dans ce didacticiel. Le service lié mène à un compte de stockage. Les jeux de données spécifient le conteneur, le dossier et le nom du fichier dans le stockage qui contient les données d’entrée et de sortie.   

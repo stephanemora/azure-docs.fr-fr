@@ -3,17 +3,17 @@ title: Documentation Azure Database pour PostgreSQL
 summary: Azure Database pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source. Il s’agit d’une base de données en tant que service complètement managée, qui peut gérer des charges de travail stratégiques avec une sécurité, une haute disponibilité, des performances prévisibles et une scalabilité dynamique.
 metadata:
   description: Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud Microsoft qui est conçu pour les développeurs basés sur le moteur de base de données PostgreSQL open source.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: c14cab875ab017feb913269e277e8b5c12a3ee08
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 4931a50d2258902c551cb276a8b47b129a176551
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90895639"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91704291"
 landingContent:
 - title: À propos d’Azure Database pour PostgreSQL
   linkLists:
