@@ -3,12 +3,12 @@ title: Configurer un laboratoire de classe à l’aide d’Azure Lab Services | 
 description: Dans ce tutoriel, vous allez utiliser Azure Lab Services pour configurer un laboratoire de classe composé de machines virtuelles utilisées par les étudiants de votre classe.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336732"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -37,7 +37,7 @@ Dans cette étape, vous créez un laboratoire pour votre classe dans Azure.
 2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
 3. Sélectionnez **Nouveau labo**. 
     
-    ![Créer un laboratoire de classe](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Capture d’écran montrant « Azure Lab Services » avec le bouton « Nouveau labo » sélectionné.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
     1. Spécifiez un **nom** pour votre labo et sélectionnez **Suivant**.  
 
@@ -90,7 +90,7 @@ Créez un événement planifié pour le labo de sorte que les machines virtuelle
 
 1. Basculez vers la page **Planifications**, puis, dans la barre d’outils, sélectionnez **Ajouter un événement planifié**. 
 
-    ![Bouton Ajouter une planification dans la page Planifications](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Capture d’écran montrant le bouton « Ajouter un événement planifié » sur la page « Planifications ».](./media/how-to-create-schedules/add-schedule-button.png)
 2. Dans la page **Ajouter un événement planifié**, effectuez les étapes suivantes :
     1. Vérifiez que **Standard** est sélectionné pour **Type d’événement**.  
     2. Sélectionnez la **date de démarrage** pour la classe. 

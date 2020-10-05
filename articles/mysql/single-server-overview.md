@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944444"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564780"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database pour MySQL - Serveur unique
 
@@ -20,7 +20,7 @@ Deux modes de déploiement sont disponibles pour [Azure Database pour MySQL](ove
 - Serveur unique 
 - Serveur flexible (préversion)
 
-Cet article contient une vue d'ensemble et une présentation des concepts de base du modèle de déploiement Serveur unique. Pour en savoir plus sur le mode de déploiement Serveur flexible, consultez [Vue d'ensemble du mode Serveur flexible](flexible-server/index.yml).
+Cet article contient une vue d'ensemble et une présentation des concepts de base du modèle de déploiement Serveur unique. Pour en savoir plus sur le mode de déploiement Serveur flexible, consultez [Vue d'ensemble du mode Serveur flexible](flexible-server/index.yml). Pour plus d’informations sur la façon de déterminer l’option de déploiement qui convient à votre charge de travail, consultez [choix de l’option de serveur MySQL appropriée dans Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -51,7 +51,7 @@ Le service effectue une mise à jour corrective automatisée du matériel, du sy
 
 ## <a name="automatic-backups"></a>Sauvegardes automatiques
 
-Le service à serveur unique crée automatiquement des sauvegardes de serveur et les conserve sur un stockage géoredondant ou redondant localement configuré par l'utilisateur. Les sauvegardes peuvent être utilisées pour restaurer votre serveur à n'importe quel point dans le temps au cours de la période de rétention des sauvegardes. La période de rétention de sauvegarde par défaut est de sept jours. Facultatif : la rétention peut être configurée sur une durée maximum de 35 jours. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Pour plus d'informations, consultez [Sauvegardes](concepts-backup.md).
+Le service à serveur unique crée automatiquement des sauvegardes de serveur et les conserve sur un stockage géoredondant ou redondant localement configuré par l'utilisateur. Les sauvegardes peuvent être utilisées pour restaurer votre serveur à n'importe quel point dans le temps au cours de la période de rétention des sauvegardes. La période de rétention de sauvegarde par défaut est de sept jours. La rétention peut être configurée sur une durée maximum de 35 jours. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Pour plus d'informations, consultez [Sauvegardes](concepts-backup.md).
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
 

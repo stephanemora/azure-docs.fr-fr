@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et F5.
+description: Dans cet article, découvrez les étapes que vous devez effectuer pour intégrer la touche F5 à Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306172"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory (AD) à F5
 
@@ -39,8 +39,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* F5 prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
-* La fonctionnalité d’authentification unique F5 peut être configurée de trois façons différentes.
+F5 prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+
+La fonctionnalité d’authentification unique F5 peut être configurée de trois façons différentes :
 
 - [Configurer l’authentification unique F5 pour une application Kerberos avancée](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
