@@ -1,16 +1,16 @@
 ---
 title: Présentation de la configuration de la sauvegarde périodique
-description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
+description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour configurer la sauvegarde périodique de vos services avec état fiable ou Reliable Actors.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530911"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 

@@ -1,24 +1,24 @@
 ---
 title: Guide de publication d’offres pour Microsoft AppSource
-description: Guide pas à pas et listes de contrôle de la publication pour publier des applications dans Microsoft AppSource pour Office 365, Dynamics 365, Power BI et Power Apps
+description: Guide pas à pas et check-lists pour publier des applications dans Microsoft AppSource pour Microsoft 365, Dynamics 365, Power BI et Power Apps.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: c0052b515d87ecb744783d57942d2557fc1db913
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110281"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484814"
 ---
-# <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Guide de publication des offres Office 365, Dynamics 365, Power Apps et Power BI
+# <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Guide de publication des offres Microsoft 365, Dynamics 365, Power Apps et Power BI
 
-Microsoft AppSource comprend des offres ou des extensions des produits Dynamics 365, Office 365, Power BI et Power Apps. Chacun de ces produits dispose d’une documentation spécifique pour vous guider dans le processus de publication. 
+Microsoft AppSource comprend des offres ou des extensions des produits Dynamics 365, Microsoft 365, Power BI et Power Apps. Chacun de ces produits dispose d’une documentation spécifique pour vous guider dans le processus de publication. 
 
-AppSource dispose d’offres payantes, de liste et d’essai avec les appels à l’action *Obtenir maintenant*, *Me contacter* et *Essayer maintenant*.
+AppSource dispose d’offres payantes, de liste et d’essai avec les options de référencement *Obtenir maintenant*, *Me contacter* et *Essayer maintenant*.
 
 ## <a name="product-specific-guides"></a>Guides spécifiques aux produits
 
@@ -26,7 +26,7 @@ Pour obtenir des liens vers des processus et des instructions de publication pou
 
 | Produit    | Conseils de publication  |
 | :------------------- | :-------------------|
-| Office 365 | Examinez le [processus et les instructions de publication](/office/dev/store/submit-to-appsource-via-partner-center). |
+| Microsoft 365 | Examinez le [processus et les instructions de publication](/office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 Business Central](./partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 pour la finance et les opérations | Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md).  |
 | Dynamics 365 for Customer Engagement | Examinez le [processus et les instructions de publication](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 for Customer Engagement et Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md).  |

@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924484"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662274"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similarité et scoring dans Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ Un profil de score fait partie de la définition d'index, composée de champs, f
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>Statistiques de scoring et sessions rémanentes
 
-À des fins de scalabilité, Recherche cognitive Azure distribue chaque index horizontalement par le biais d’un processus de partitionnement, ce qui signifie que les portions d’un index sont physiquement séparées.
+À des fins de scalabilité, Recherche cognitive Azure distribue chaque index horizontalement par le biais d’un processus de sharding, ce qui signifie que les [portions d’un index sont physiquement séparées](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 Par défaut, le score d’un document est calculé en fonction de propriétés statistiques des données *au sein d’une partition*. Cette approche n’est généralement pas un problème pour un corpus important de données, et elle offre de meilleures performances que le calcul du score à partir des informations de l’ensemble des partitions. Cela dit, avec cette optimisation des performances, deux documents très similaires (ou même des documents identiques) risquent de se retrouver avec des scores de pertinence différents s’ils figurent dans des partitions différentes.
 

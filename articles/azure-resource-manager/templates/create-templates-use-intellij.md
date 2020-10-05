@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321817"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973329"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Créer et déployer des modèles Resource Manager à l’aide d’IntelliJ IDEA
 
@@ -66,7 +66,7 @@ Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de 
 
 1. Vous pouvez modifier les deux fichiers sur cette page et déployer les modifications dans Azure. Dans le cas présent, nous modifions la valeur de **storageAccountType** dans les fichiers de paramètres en remplaçant `Standard_LRS` par `Standard_GRS`. Ensuite, cliquez sur **Mettre à jour un déploiement** en bas de l’écran, puis confirmez la mise à jour.
 
-    ![Modèle Resource Manager : modifier le déploiement](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![La capture d’écran montre le modèle Resource Manager avec l’invite de mise à jour du déploiement affichée.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Une fois le déploiement mis à jour, vous pouvez accéder au portail pour vérifier que le compte de stockage créé est remplacé par `Standard_GRS`.
 

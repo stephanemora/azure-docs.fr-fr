@@ -1,20 +1,20 @@
 ---
-title: Exemples d’analytique des journaux pour le Pare-feu Azure
+title: Journaux Azure Monitor pour Pare-feu Azure
 description: Vous pouvez utiliser les journaux d’activité Azure Monitor pour analyser votre Pare-feu Azure. Un exemple de fichier est généré dans le concepteur de vues d’Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705971"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023871"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exemples d’analytique des journaux pour le Pare-feu Azure
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Journaux Azure Monitor pour Pare-feu Azure
 
 Vous pouvez utiliser les exemples de journaux Azure Monitor suivants pour analyser vos journaux Pare-feu Azure. L’exemple de fichier est créé dans le Concepteur de vues dans Azure Monitor. L’article [Concepteur de vues dans Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) contient plus d’informations sur le concept de Concepteur de vues.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 Les exemples de journaux suivants montrent les données incluses dans une entrée de journal.
 
-![entrée du journal](media/log-analytics-samples/log1.png)
+![entrée de journal 1](media/log-analytics-samples/log1.png)
 
-![entrée du journal](media/log-analytics-samples/log2.png)
+![entrée de journal 2 ](media/log-analytics-samples/log2.png)
 
-![entrée du journal](media/log-analytics-samples/log3.png)
+![entrée de journal 3](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : surveiller les journaux d’activité du Pare-feu Azure et les métriques](tutorial-diagnostics.md).

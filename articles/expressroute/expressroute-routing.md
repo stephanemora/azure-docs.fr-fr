@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 8cac675f91e0ca65f9654d7a13577b9ab7e3ed0a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394939"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569609"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -83,7 +83,7 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
 Vous pouvez choisir d’utiliser des adresses IPv4 publiques ou privées pour le peering privé. Nous fournissons une isolation de bout en bout du trafic. Ainsi, le chevauchement des adresses avec d’autres clients n’est pas possible dans le cas d’un peering privé. Ces adresses ne sont pas publiées sur Internet. 
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
-Le chemin d’accès de peering Microsoft vous permet de vous connecter aux services de cloud computing Microsoft. La liste des services inclut les services Office 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et Microsoft Teams. Microsoft prend en charge la connectivité bidirectionnelle sur le peering Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
+Le chemin d’accès de peering Microsoft vous permet de vous connecter aux services de cloud computing Microsoft. La liste des services comprend les services Microsoft 365, notamment Exchange Online, SharePoint Online, Skype Entreprise et Microsoft Teams. Microsoft prend en charge la connectivité bidirectionnelle sur le peering Microsoft. Le trafic destiné aux services de cloud Microsoft doit utiliser des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft.
 
 Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre nom dans l’un des registres ci-dessous :
 
@@ -100,7 +100,7 @@ Si vos préfixes et le numéro ASN ne vous sont pas affectés dans les registres
 Un numéro ASN privé est autorisé avec le peering Microsoft, mais nécessite également une validation manuelle. Nous supprimons également les numéros AS privés dans le chemin AS PATH pour les préfixes reçus. En conséquence, vous ne pouvez pas ajouter de numéros AS privés au chemin AS PATH pour [influencer le routage pour le peering Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Ne publiez pas le même itinéraire d’adresse IP publique sur l’Internet public et sur ExpressRoute. Pour réduire tout risque de configuration incorrecte pouvant entraîner un routage asymétrique, nous recommandons vivement que les[adresses IP NAT](expressroute-nat.md) transmises à Microsoft via ExpressRoute proviennent d’une plage qui n’est pas du tout publiée sur Internet. Si ce n’est pas possible, il est essentiel de vous assurer d’utiliser une plage plus spécifique via ExpressRoute que celle sur la connexion Internet. En plus de l’itinéraire public pour NAT, vous pouvez publier sur ExpressRoute les adresses IP publiques utilisées par les serveurs de votre réseau local, qui communiquent avec des points de terminaison Office 365 dans Microsoft. 
+> Ne publiez pas le même itinéraire d’adresse IP publique sur l’Internet public et sur ExpressRoute. Pour réduire tout risque de configuration incorrecte pouvant entraîner un routage asymétrique, nous recommandons vivement que les[adresses IP NAT](expressroute-nat.md) transmises à Microsoft via ExpressRoute proviennent d’une plage qui n’est pas du tout publiée sur Internet. Si ce n’est pas possible, il est essentiel de vous assurer d’utiliser une plage plus spécifique via ExpressRoute que celle sur la connexion Internet. En plus de la route publique pour NAT, vous pouvez publier sur ExpressRoute les adresses IP publiques utilisées par les serveurs de votre réseau local, qui communiquent avec des points de terminaison Microsoft 365 dans Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions de peering 
 * Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l’utilisateur.
 
 > [!NOTE]
-> La publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
+> La publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) pour contourner ce problème.
 > 
 > 
 

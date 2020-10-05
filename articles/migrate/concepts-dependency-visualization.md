@@ -2,13 +2,13 @@
 title: Analyse des dépendances dans l’outil d’évaluation de serveur Azure Migrate
 description: Décrit comment utiliser l’analyse des dépendances pour l’évaluation à l’aide de l’outil d’évaluation de serveur Azure Migrate.
 ms.topic: conceptual
-ms.date: 06/14/2020
-ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/15/2020
+ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118798"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530248"
 ---
 # <a name="dependency-analysis"></a>Analyse des dépendances
 
@@ -75,11 +75,11 @@ Les différences entre la visualisation sans agent et la visualisation basée su
 --- | --- | ---
 **Support** | En version préliminaire pour les machines virtuelles VMware uniquement. [Vérifiez](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) quels sont les systèmes d’exploitation pris en charge. | En disponibilité générale.
 **Agent** | Aucun agent nécessaire sur les machines à analyser. | Agents requis sur chaque machine locale à analyser.
-**Log Analytics** | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/insights/service-map.md) dans les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) pour l’analyse des dépendances. 
+**Log Analytics** | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/insights/service-map.md) dans les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) pour l’analyse des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics à un projet Azure Migrate. L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 **Processus** | Capture les données de connexion TCP. Après la découverte, il collecte des données toutes les cinq minutes. | Les agents Service Map installés sur un ordinateur collectent des données sur les processus TCP et sur les connexions entrantes/sortantes pour chaque processus.
 **Données** | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port. | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port.<br/><br/> Le nombre de connexions, la latence et les informations de transfert de données sont collectés et mis à la disposition des requêtes Log Analytics. 
 **Visualisation** | La carte des dépendances d’un serveur unique peut être affichée sur une durée allant d’une heure à 30 jours. | Carte des dépendances d’un serveur unique.<br/><br/> Carte des dépendances d’un groupe de serveurs.<br/><br/>  La carte peut être affichée pendant une heure uniquement.<br/><br/> Ajoutez et supprimez des serveurs dans un groupe à partir de la vue cartographique.
-Exportation de données | Les données des 30 derniers jours peuvent être téléchargées au format CSV. | Les données peuvent être interrogées avec Log Analytics.
+Exportation de données | Les données des 30 derniers jours peuvent être téléchargées dans un format CSV. | Les données peuvent être interrogées avec Log Analytics.
 
 
 

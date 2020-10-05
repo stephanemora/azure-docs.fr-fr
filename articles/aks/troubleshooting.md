@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056520"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068827"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -98,6 +98,10 @@ La raison de ces avertissements est que RBAC est activé sur le cluster et que l
 
 Vérifiez que les ports 22, 9000 et 1194 sont ouverts pour la connexion au serveur d’API. Vérifiez que le pod `tunnelfront` ou `aks-link` s’exécute dans l’espace de noms *kube-system* à l’aide de la commande `kubectl get pods --namespace kube-system`. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Je reçois un message `"tls: client offered only unsupported versions"` de la part de mon client lors de la connexion à l’API AKS. Que dois-je faire ?
+
+La version TLS minimale prise en charge dans AKS est TLS 1.2.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur `"Changing property 'imageReference' is not allowed"`. Comment résoudre ce problème ?
 
 Cette erreur s’affiche peut-être parce que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification ou la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_* peuvent entraîner des résultats inattendus. La modification des ressources du groupe MC_* dans le cluster AKS empêche d’atteindre l’objectif de niveau de service (SLO).
@@ -176,9 +180,9 @@ Essayez les solutions de contournement suivantes pour résoudre le problème :
 * Si vous utilisez des scripts d’automatisation, augmentez les délais entre la création du principal de service et la création du cluster AKS.
 * Si vous utilisez le portail Azure, revenez aux paramètres du cluster au moment de la création, puis recommencez la page de validation après quelques minutes.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Je reçois un message `"AADSTS7000215: Invalid client secret is provided."` lors de l’utilisation de l’API AKS. Que dois-je faire ?
 
-
-
+Cela est généralement dû à l’expiration des informations d’identification du principal de service. [Mettez à jour les informations d’identification d’un cluster AKS.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Je reçois des erreurs après avoir restreint mon trafic de sortie.
 
@@ -446,3 +450,15 @@ Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Pourquoi les mises à niveau vers Kubernetes 1.16 échouent lors de l’utilisation d’étiquettes de nœud avec un préfixe kubernetes.io ?
+
+À compter de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/), [seul un sous-ensemble défini d’étiquettes avec le préfixe kubernetes.io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) peut être appliqué par le kubelet à des nœuds. AKS ne peut pas supprimer d’étiquettes actives en votre nom sans votre consentement, car cela peut entraîner un temps d’arrêt des charges de travail affectées.
+
+Par conséquent, pour atténuer ce risque, vous pouvez :
+
+1. Mettre à niveau votre plan de contrôle de cluster vers la version 1.16 ou ultérieure.
+2. Ajouter un nouveau pool de nœuds sur la version 1.16 ou ultérieure sans les étiquettes kubernetes.io non prises en charge.
+3. Supprimer l’ancien pool de nœuds.
+
+AKS étudie actuellement la capacité à muter des étiquettes actives sur un pool de nœuds afin d’améliorer cette atténuation.

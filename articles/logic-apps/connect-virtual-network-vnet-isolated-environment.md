@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816658"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647555"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -44,7 +44,14 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
   > [!IMPORTANT]
   > Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Votre réseau virtuel doit avoir quatre sous-réseaux *vides*, qui sont nécessaires pour créer et déployer des ressources dans votre ISE et qui sont utilisés par les composants internes de Logic Apps, tels que les connecteurs et la mise en cache pour les performances. Vous pouvez créer ces sous-réseaux à l’avance, ou vous pouvez attendre jusqu’à la création de votre ISE afin de créer les sous-réseaux en même temps. Toutefois, avant de créer vos sous-réseaux, examinez les [exigences relatives aux sous-réseaux](#create-subnet).
+* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Votre réseau virtuel doit avoir quatre sous-réseaux *vides*, nécessaires à la création et au déploiement de ressources dans votre environnement ISE et utilisés par ces composants internes et masqués :
+
+  * Logic Apps Compute
+  * App Service Environment interne (connecteurs)
+  * Gestion des API interne (connecteurs)
+  * Redis interne pour la mise en cache et les performances
+  
+  Vous pouvez créer ces sous-réseaux à l’avance, ou vous pouvez attendre jusqu’à la création de votre ISE afin de créer les sous-réseaux en même temps. Toutefois, avant de créer vos sous-réseaux, examinez les [exigences relatives aux sous-réseaux](#create-subnet).
 
   > [!IMPORTANT]
   >

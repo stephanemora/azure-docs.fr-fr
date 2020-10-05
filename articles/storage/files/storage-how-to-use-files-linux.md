@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053165"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004780"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -69,7 +69,7 @@ uname -r
 
 * **La dernière version de l’interface de ligne de commande Azure (CLI).** Pour plus d'informations sur l'installation d’Azure CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et sélectionnez votre système d’exploitation. Si vous préférez utiliser le module Azure PowerShell dans PowerShell 6+, rien ne vous en empêche. Sachez cependant que les instructions ci-dessous s’appliquent à Azure CLI.
 
-* **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 de la machine cliente.  Remplacez **<your-resource-group>** et **<your-storage-account>**
+* **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 de la machine cliente.  Remplacez `<your-resource-group>` et `<your-storage-account>`, puis exécutez le script suivant :
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -114,6 +114,7 @@ Vous pouvez monter le même partage de fichiers Azure sur plusieurs points de mo
 1. **Utilisez la commande de montagne pour monter le partage de fichiers Azure**. Dans l’exemple ci-dessous, les autorisations de dossiers et de fichiers Linux locales sont par défaut 0755, ce qui signifie lecture, écriture et exécution pour le propriétaire (en fonction du propriétaire Linux des fichiers/répertoires), lecture et exécution pour les utilisateurs du groupe propriétaire, et lecture et exécution pour les autres utilisateurs du système. Vous pouvez utiliser les options de montage `uid` et `gid` pour définir l’ID d’utilisateur et l’ID de groupe pour le montage. Vous pouvez aussi utiliser `dir_mode` et `file_mode` pour définir des autorisations personnalisées comme vous le souhaitez. Pour plus d’informations sur la façon de définir les autorisations, consultez la [notation numérique UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) sur Wikipédia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -176,6 +177,7 @@ Quand vous avez terminé d’utiliser le partage de fichiers Azure, vous pouvez 
 1. **Utilisez la commande suivante pour ajouter la ligne suivante à `/etc/fstab`**  : Dans l’exemple ci-dessous, les autorisations de dossiers et de fichiers Linux locales sont par défaut 0755, ce qui signifie lecture, écriture et exécution pour le propriétaire (en fonction du propriétaire Linux des fichiers/répertoires), lecture et exécution pour les utilisateurs du groupe propriétaire, et lecture et exécution pour les autres utilisateurs du système. Vous pouvez utiliser les options de montage `uid` et `gid` pour définir l’ID d’utilisateur et l’ID de groupe pour le montage. Vous pouvez aussi utiliser `dir_mode` et `file_mode` pour définir des autorisations personnalisées comme vous le souhaitez. Pour plus d’informations sur la façon de définir les autorisations, consultez la [notation numérique UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) sur Wikipédia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \

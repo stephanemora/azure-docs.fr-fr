@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8324b0b861829b02b589f8145121559114b7435
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289577"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490086"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
@@ -198,7 +198,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 *  Prise en charge des outils de diagnostic dans le Gestionnaire de configuration
 *  Prise en charge des colonnes de table pour les sources de données tabulaires pour Microsoft Azure Data Factory
-*  Prise en charge de SQL DW pour Microsoft Azure Data Factory
+*  Prise en charge d’Azure Synapse Analytics pour Azure Data Factory
 *  Prise en charge de Reclusive dans BlobSource et FileSource pour Microsoft Azure Data Factory
 *  Prise en charge de CopyBehavior (MergeFiles, PreserveHierarchy et FlattenHierarchy) dans BlobSink et FileSink avec copie binaire pour Microsoft Azure Data Factory
 *  Prise en charge du signalement de progression de l’activité de copie pour Microsoft Azure Data Factory

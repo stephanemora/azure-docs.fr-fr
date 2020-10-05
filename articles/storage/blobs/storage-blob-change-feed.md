@@ -1,21 +1,21 @@
 ---
-title: Flux de modification dans Stockage Blob Azure (préversion) | Microsoft Docs
+title: Flux de modification dans Stockage Blob Azure | Microsoft Docs
 description: En savoir plus sur les journaux de flux de modification dans Stockage Blob Azure et leur utilisation.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055418"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568232"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Prise en charge du flux de modification dans Stockage Blob Azure
 
 L’objectif du flux de modification est de fournir des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Le flux de modification fournit un journal **ordonné**, **garanti**, **durable**, **immuable** et **en lecture seule** de ces changements. Les applications clientes peuvent lire ces journaux à tout moment, soit en diffusion en continu, soit en mode de traitement par lot. Le flux de modification vous permet de créer des solutions efficaces et évolutives qui traitent les événements de modification qui se produisent dans votre compte Stockage Blob à moindre coût.
 
@@ -56,9 +56,6 @@ Voici quelques éléments à prendre en compte lorsque vous activez le flux de m
 
 - Seuls les comptes de stockage GPv2 et Blob peuvent activer le flux de modification. Les comptes BlockBlobStorage Premium et les comptes prenant en charge les espaces de noms hiérarchiques ne sont actuellement pas pris en charge. Les comptes de stockage GPv1 ne sont pas pris en charge, mais peuvent être mis à niveau vers GPv2 sans temps d’arrêt. Pour plus d’informations, consultez [Mettre à niveau vers un compte de stockage GPv2](../common/storage-account-upgrade.md).
 
-> [!IMPORTANT]
-> Le flux de modification est en préversion publique et est disponible dans les régions **USA Centre-Ouest**, **USA Ouest 2**, **France Centre**, **France Sud**, **Canada Centre** et **Canada Est**. Consultez la section [Conditions](#conditions) de cet article. Pour vous inscrire à la préversion, consultez la section [Inscrire votre abonnement](#register) de cet article. Vous devez inscrire votre abonnement avant de pouvoir activer le flux de modification sur vos comptes de stockage.
-
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Activez le flux de modification sur votre compte de stockage à l’aide du portail Azure :
@@ -85,10 +82,10 @@ Activez le flux de modification à l’aide de PowerShell :
 
 2. Fermez, puis rouvrez la console PowerShell.
 
-3. Installez le module d’aperçu **Az.Storage**.
+3. Installez la version 2.5.0 ou une version ultérieure du module **Az.Storage**.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Connectez-vous à votre abonnement Azure avec la commande `Connect-AzAccount` et suivez les instructions à l’écran pour l’authentification.
@@ -289,43 +286,18 @@ Pour obtenir une description de chaque propriété, consultez [Schéma d’évé
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Inscrire votre abonnement (préversion)
-
-Étant donné que le flux de modification est uniquement en préversion publique, vous devez inscrire votre abonnement pour utiliser la fonctionnalité.
-
-### <a name="register-by-using-powershell"></a>S’inscrire à l’aide de PowerShell
-
-Dans une console PowerShell, exécutez ces commandes :
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>S’inscrire à l’aide d’Azure CLI
-
-Dans Azure Cloud Shell, exécutez ces commandes :
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Conditions et problèmes connus (préversion)
+## <a name="conditions-and-known-issues"></a>Conditions et problèmes connus
 
-Cette section décrit les problèmes connus et les conditions de la préversion publique actuelle du flux de modification. 
-- Pour la préversion, vous devez d’abord [inscrire votre abonnement](#register) avant de pouvoir activer le flux de modification pour votre compte de stockage dans les régions USA Centre-Ouest, USA Ouest 2, France Centre, France Sud, Canada Centre et Canada Est. 
-- Le flux de modification capture uniquement les opérations de création, de mise à jour, de suppression et de copie. Les modifications de propriété et de métadonnées d’objet Blob sont également capturées. Toutefois, la propriété de niveau d’accès n’est pas capturée actuellement. 
+Cette section décrit les problèmes connus et les conditions de la version actuelle du flux de modification. 
+
 - Les enregistrements d’événements de modification d’une modification unique peuvent apparaître plusieurs fois dans votre flux de modification.
 - Vous ne pouvez pas encore gérer la durée de vie des fichiers journaux du flux de modification en définissant une stratégie de rétention basée sur la durée et vous ne pouvez pas supprimer les objets Blob.
 - La propriété `url` du fichier journal est actuellement toujours vide.
 - La propriété `LastConsumable` du fichier segments.json ne répertorie pas le tout premier segment que le flux de modification finalise. Ce problème se produit uniquement après la finalisation du premier segment. Tous les segments suivants après la première heure sont capturés avec précision dans la propriété `LastConsumable`.
 - Actuellement, vous ne pouvez pas voir le conteneur **$blobchangefeed** quand vous appelez l’API ListContainers, et le conteneur n’apparaît pas dans le Portail Azure ou l’Explorateur Stockage. Vous pouvez afficher le contenu en appelant l’API ListBlobs directement sur le conteneur $blobchangefeed.
-- Les comptes de stockage qui ont lancé précédemment un [basculement de compte](../common/storage-disaster-recovery-guidance.md) peuvent rencontrer des problèmes de non-affichage du fichier journal. Tout basculement de compte ultérieur peut également avoir un impact sur le fichier journal pendant la préversion.
+- Les comptes de stockage qui ont lancé précédemment un [basculement de compte](../common/storage-disaster-recovery-guidance.md) peuvent rencontrer des problèmes de non-affichage du fichier journal. Tout basculement de compte ultérieur peut également avoir un impact sur le fichier journal.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

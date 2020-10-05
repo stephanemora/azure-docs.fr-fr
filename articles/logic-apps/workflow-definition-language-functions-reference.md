@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/04/2020
+ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932948"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488301"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -85,6 +85,7 @@ Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Générer un identificateur global unique (GUID) sous forme de chaîne. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Renvoyer la position de départ d’une sous-chaîne. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourne la position de départ de la dernière occurrence d’une sous-chaîne. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Renvoyer le nombre d’éléments d’une chaîne ou d’un tableau. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Remplacer une sous-chaîne par la chaîne spécifiée et renvoyer la chaîne mise à jour. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourne un tableau qui contient des sous-chaînes, séparées par des virgules, extraites à partir d’une chaîne plus grande sur la base d’un caractère délimiteur spécifié dans la chaîne d’origine. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Vérifie si une chaîne commence par une sous-chaîne spécifique. |
@@ -3914,8 +3915,7 @@ Et retourne ce résultat : `10`
 
 ### <a name="substring"></a>substring
 
-Retourne les caractères d’une chaîne, en commençant à partir de la position spécifiée ou de l’index.
-Les valeurs d’index commencent par le chiffre 0.
+Retourne les caractères d’une chaîne, en commençant à partir de la position spécifiée ou de l’index. Les valeurs d’index commencent par le chiffre 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3927,6 +3927,10 @@ substring('<text>', <startIndex>, <length>)
 | <*startIndex*> | Oui | Integer | Une valeur positive supérieure ou égale à 0 que vous souhaitez utiliser comme la valeur de position ou l’index de départ |
 | <*length*> | Oui | Integer | Nombre positif de caractères que vous souhaitez dans la sous-chaîne |
 |||||
+
+> [!NOTE]
+> Vérifiez que la somme issue de l’addition des valeurs de paramètre *startIndex* et *length* est inférieure à la longueur de la chaîne que vous fournissez pour le paramètre *text*.
+> Si ce n’est pas le cas, vous obtenez une erreur, à la différence de fonctions similaires dans d’autres langages où le résultat correspond au substring entre *startIndex* et la fin de la chaîne.
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |

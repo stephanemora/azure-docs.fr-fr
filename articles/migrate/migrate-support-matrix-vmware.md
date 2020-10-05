@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles VMware à l’aide d’Azure Migrate Server Assessment.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 3d975b35ff5db9bf77ed33e040eb49b6b15f3cf9
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277780"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660278"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -89,7 +89,7 @@ L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet
 **Informations d’identification de vCenter Server** | La visualisation des dépendances a besoin d’un compte vCenter Server disposant d’un accès en lecture seule et de privilèges activés pour Machines virtuelles > Opérations d’invité.
 **Autorisations des machines virtuelles Windows** |  Pour l’analyse des dépendances, l’appliance Azure Migrate nécessite un compte d’administrateur de domaine, ou un compte d’administrateur local, pour accéder aux machines virtuelles Windows.
 **Machines virtuelles Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Compte Linux** | Pour l’analyse des dépendances sur les machines Linux, l’appareil Azure Migrate a besoin d’un compte d’utilisateur avec un privilège racine.<br/><br/> Sinon, le compte d’utilisateur a besoin des autorisations suivantes sur les fichiers /bin/netstat et /bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
+**Compte Linux** | Pour l’analyse des dépendances sur les machines Linux, l’appareil Azure Migrate a besoin d’un compte d’utilisateur avec un privilège racine.<br/><br/> Sinon, le compte d’utilisateur a besoin des autorisations suivantes sur les fichiers /bin/netstat et /bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE. Définissez ces fonctionnalités à l’aide des commandes suivantes : <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
 **Agents nécessaires** | Aucun agent n’est nécessaire sur les machines à analyser.
 **VMware Tools** | VMware Tools (version ultérieure à 10.2) doit être installé et en cours d’exécution sur chaque machine virtuelle à analyser.
 

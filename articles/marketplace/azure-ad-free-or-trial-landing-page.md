@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/03/2020
-ms.openlocfilehash: 655caa05eff16bcf3e598dccd3c9845928b2fcff
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378829"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488607"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale
 
@@ -27,7 +27,7 @@ L’objectif de la page d’accueil est simplement de recevoir l’utilisateur a
 
 Étant donné que les informations nécessaires pour activer l’abonnement sont limitées et fournies par Azure AD et Microsoft Graph, il ne devrait pas être nécessaire de demander des informations qui nécessitent plus que le consentement de base. Si vous avez besoin de détails sur l’utilisateur qui nécessitent un consentement supplémentaire pour votre application, vous devriez demander ces informations une fois l’activation de l’abonnement terminée. Ceci permet l’activation fluide de l’abonnement pour l’utilisateur et diminue le risque d’abandon.
 
-La page d’accueil comprend généralement les informations et les appels à l’action ci-dessous :
+La page d’arrivée comprend généralement les informations et les options de référencement suivantes :
 
 - Affichez le nom et les détails de l’essai ou de l’abonnement gratuit. Par exemple, spécifiez les limites d’utilisation ou la durée d’un essai.
 - Détails du compte de l’utilisateur, notamment le prénom et le nom, l’organisation et l’adresse e-mail.

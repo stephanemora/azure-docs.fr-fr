@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080690"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487298"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Explorateur Azure Time Series Insights Gen1
 
 Cet article décrit les fonctionnalités et options pour l’[application web Explorateur](https://insights.timeseries.azure.com/) Azure Time Series Insights Gen1. L’Explorateur Azure Time Series Insights fait preuve de puissantes capacités de visualisation de données fournies par le service et est accessible au sein de votre propre environnement.
 
-Azure Time Series Insights est un service entièrement managé d’analyse, de stockage et de visualisation qui simplifie la découverte et l’analyse simultanées de milliards d’événements IoT. Cette solution vous donne une vue globale de vos données, ce qui vous permet de valider rapidement votre solution IoT et d’éviter des temps morts coûteux d’appareils stratégiques. Vous pouvez découvrir des tendances masquées, détecter les anomalies et effectuer des analyses de cause première quasiment en temps réel. 
+Azure Time Series Insights est un service entièrement managé d’analyse, de stockage et de visualisation qui simplifie la découverte et l’analyse simultanées de milliards d’événements IoT. Cette solution vous donne une vue globale de vos données, ce qui vous permet de valider rapidement votre solution IoT et d’éviter des temps morts coûteux d’appareils stratégiques. Vous pouvez découvrir des tendances masquées, détecter les anomalies et effectuer des analyses de cause première quasiment en temps réel.
 
 > [!TIP]
 > Pour une visite guidée de l’environnement de démonstration, consultez le [Guide de démarrage rapide Azure Time Series Insights](time-series-quickstart.md).
@@ -108,7 +108,7 @@ Quelques minutes après la connexion de votre source d’événements à votre e
 
 1. Utilisez la **carte thermique** pour identifier rapidement les séries de données uniques ou anormales dans une requête donnée. Un seul terme de recherche peut être visualisé comme une carte thermique.
 
-    [![Graphique de la carte thermique de l’Explorateur Gen1](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Graphique de la carte thermique dans l’Explorateur Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Lorsque vous explorez des événements en les sélectionnant ou en cliquant dessus, le panneau **ÉVÉNEMENTS** est affiché. Ici, vous pouvez passer en revue tous les événements bruts, et exporter vos événements sous forme de fichiers JSON ou CSV. Azure Time Series Insights stocke toutes les données brutes.
 

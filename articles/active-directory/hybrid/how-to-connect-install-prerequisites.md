@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17209919e9bcd93a9a0184d8d4df9c29fff62ef9
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277321"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662170"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -34,10 +34,10 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
   * Le [portail Azure](https://portal.azure.com).
   * Le [portail Office](https://portal.office.com).
 * [Ajoutez et vérifiez le domaine](../fundamentals/add-custom-domain.md) que vous prévoyez d’utiliser dans Azure AD. Par exemple, si vous envisagez d’utiliser contoso.com pour vos utilisateurs, assurez-vous que ce domaine a été vérifié et que vous n’utilisez pas uniquement le domaine par défaut contoso.onmicrosoft.com.
-* Un locataire Azure AD prend en charge 50 000 objets par défaut. Lorsque vous vérifiez votre domaine, la limite passe à 300 000 objets. Si vous avez besoin de davantage d’objets dans Azure AD, ouvrez une demande de support pour que la limite soit augmentée en conséquence. Si vous avez besoin de plus de 500 000 objets, il vous faut une licence comme Office 365, Azure AD Premium ou Enterprise Mobility + Security.
+* Un locataire Azure AD prend en charge 50 000 objets par défaut. Lorsque vous vérifiez votre domaine, la limite passe à 300 000 objets. Si vous avez besoin de davantage d’objets dans Azure AD, ouvrez une demande de support pour que la limite soit augmentée en conséquence. Si vous avez besoin de plus de 500 000 objets, il vous faut une licence telle que Microsoft 365, Azure AD Premium ou Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Préparez vos données locales
-* Utilisez [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) pour identifier les erreurs comme les problèmes de mise en forme dans votre annuaire et repérer les doublons avant d’effectuer la synchronisation avec Azure AD et Office 365.
+* Utilisez [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) pour identifier les erreurs comme les problèmes de mise en forme dans votre annuaire et repérer les doublons avant d’effectuer la synchronisation avec Azure AD et Microsoft 365.
 * Vérifiez [les fonctionnalités de synchronisation facultatives que vous pouvez activer dans Azure AD](how-to-connect-syncservice-features.md) et évaluez quelles fonctionnalités vous devez activer.
 
 ### <a name="on-premises-active-directory"></a>Active Directory local

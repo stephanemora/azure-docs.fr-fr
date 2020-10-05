@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce7041cd74a6bfd3ac736d3ae774324122ed737b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277066"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662479"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API du point de terminaison v2 pour la synchronisation Azure AD Connect (préversion publique) 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
@@ -26,7 +26,7 @@ Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connec
  - gains de performances lors de l’exportation et de l’importation vers Azure AD
  
 > [!NOTE]
-> Actuellement, le nouveau point de terminaison n’a pas de limite de taille de groupe configurée pour les groupes O365 écrits en différé. Cela peut avoir un effet sur vos latences Active Directory et du cycle de synchronisation.  Il est recommandé d’augmenter la taille des groupes de façon incrémentielle.  
+> Actuellement, le nouveau point de terminaison n’a pas de limite de taille de groupe configurée pour les groupes Microsoft 365 réécrits. Cela peut avoir un effet sur vos latences Active Directory et du cycle de synchronisation. Il est recommandé d’augmenter la taille des groupes de façon incrémentielle.  
 
 
 ## <a name="pre-requisites"></a>Conditions préalables  
@@ -51,7 +51,7 @@ Les étapes suivantes vous guideront tout au long du déploiement du point de te
 
 1. Déployez le point de terminaison v2 sur le serveur de la zone de transit actuel. Ce serveur sera connu sous le nom de **serveur v2** dans les étapes ci-dessous. Le serveur actif actuel continuera à traiter la charge de travail de production à l’aide du point de terminaison v1, qui sera appelé le **serveur v1** ci-dessous.
 1. Vérifiez que le **serveur v2** traite toujours les importations comme prévu. À ce niveau, les groupes de grande taille ne seront pas approvisionnés vers Azure AD ou AD local, mais vous serez en mesure de vérifier que la mise à niveau n’a pas abouti à un autre impact inattendu sur le processus de synchronisation existant. 
-2. Une fois la validation terminée, basculez le **serveur v2** pour qu’il soit le serveur actif et le **serveur v1** pour qu’il soit le serveur de mise en lots. À ce stade, les groupes volumineux qui doivent être synchronisés sont approvisionnés vers Azure AD. De même, les grands groupes unifiés O365 seront approvisionnés dans AD si l’écriture différée des groupes est activée.
+2. Une fois la validation terminée, basculez le **serveur v2** pour qu’il soit le serveur actif et le **serveur v1** pour qu’il soit le serveur de mise en lots. À ce stade, les groupes volumineux qui doivent être synchronisés sont provisionnés dans Azure AD. De même, les grands groupes unifiés Microsoft 365 seront provisionnés dans AD si la réécriture des groupes est activée.
 3. Vérifiez que le **serveur v2** exécute et traite correctement les groupes de grande taille. Vous pouvez choisir de rester à cette étape et d’analyser le processus de synchronisation pendant une période donnée.
   >[!NOTE]
   > Si vous devez revenir à votre configuration précédente, vous pouvez effectuer une migration Swing à partir du **serveur v2** vers le **serveur v1**. Étant donné que le point de terminaison v1 ne prend pas en charge les groupes avec plus de 50 000 membres, les grands groupes approvisionnés par Azure AD Connect, dans Azure AD ou AD local, seront supprimés par la suite. 
@@ -153,7 +153,7 @@ Lors des augmentations ultérieures de la limite des membres du groupe dans la r
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Si vous avez des groupes unifiés O365 qui comportent plus de 50 000 membres, les groupes sont lus dans Azure AD Connect et si l’écriture différée des groupes est activée, ils sont écrits dans votre AD local. 
+> Si vous avez des groupes unifiés Microsoft 365 qui comportent plus de 50 000 membres, les groupes sont lus dans Azure AD Connect et, si la réécriture des groupes est activée, ils sont écrits dans votre annuaire AD local. 
 
 ## <a name="rollback"></a>Restauration 
 Si vous avez activé le point de terminaison v2 et que vous devez effectuer une restauration, procédez comme suit : 
@@ -181,7 +181,7 @@ Si vous avez activé le point de terminaison v2 et que vous devez effectuer une 
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Lorsque vous basculez de nouveau du point de terminaison v2 vers v1, les groupes synchronisés avec plus de 50 000 membres seront supprimés après l’exécution d’une synchronisation complète, pour les deux groupes AD approvisionnés dans Azure AD et les groupes unifiés O365 approvisionnés dans AD. 
+> Lorsque vous basculez de nouveau du point de terminaison v2 vers v1, les groupes synchronisés avec plus de 50 000 membres seront supprimés après l’exécution d’une synchronisation complète, à la fois pour les groupes AD provisionnés dans Azure AD et les groupes unifiés Microsoft 365 provisionnés dans AD. 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions  
 **Q : Un client peut-il utiliser cette fonctionnalité en production ?**   

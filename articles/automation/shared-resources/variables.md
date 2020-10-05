@@ -2,19 +2,15 @@
 title: Gérer les variables dans Azure Automation
 description: Cet article explique comment utiliser des variables dans les runbooks et les configurations DSC.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/14/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055290"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004560"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gérer les variables dans Azure Automation
 
@@ -30,7 +26,7 @@ Les variables Automation sont utiles pour les scénarios suivants :
 
 Azure Automation conserve les variables et les rend disponibles même en cas d’échec d’une configuration runbook ou DSC. Ce comportement permet à un runbook ou à une configuration DSC de définir une valeur par la suite utilisée par un autre runbook, ou par le même runbook ou la même configuration DSC lors de son exécution suivante.
 
-Azure Automation stocke chaque variable chiffrée de manière sécurisée. Lorsque vous créez une variable, vous pouvez spécifier son mode de chiffrement et de stockage par Azure Automation sous la forme d’une ressource sécurisée. Après avoir créé la variable, vous ne pouvez pas modifier son état de chiffrement sans recréer la variable. Une suggestion Azure Security Center consiste à chiffrer toutes les variables Azure Automation, comme décrit dans [les variables de compte Automation doivent être chiffrées](../../security-center/recommendations-reference.md#recs-computeapp). 
+Azure Automation stocke chaque variable chiffrée de manière sécurisée. Lorsque vous créez une variable, vous pouvez spécifier son mode de chiffrement et de stockage par Azure Automation sous la forme d’une ressource sécurisée. Après avoir créé la variable, vous ne pouvez pas modifier son état de chiffrement sans recréer la variable. Une suggestion Azure Security Center consiste à chiffrer toutes les variables Azure Automation, comme décrit dans [les variables de compte Automation doivent être chiffrées](../../security-center/recommendations-reference.md#recs-computeapp).
 
 >[!NOTE]
 >Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation en utilisant une clé unique générée pour chaque compte Automation. Azure Automation stocke la clé dans le coffre de clés géré par le système. Avant de stocker une ressource sécurisée, Automation charge la clé à partir de Key Vault, puis l’utilise pour chiffrer la ressource. 
@@ -45,7 +41,7 @@ Lorsque vous créez une variable avec le portail Azure, vous devez spécifier un
 * Boolean
 * Null
 
-La variable n’est pas limitée au type de données spécifié. Vous devez définir la variable à l'aide de Windows PowerShell si vous souhaitez spécifier une valeur d'un type différent. Si vous indiquez `Not defined`, la valeur de la variable est définie sur Null. Vous devez définir la valeur avec l’applet de commande [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) ou l’applet de commande interne `Set-AutomationVariable`.
+La variable n’est pas limitée au type de données spécifié. Vous devez définir la variable à l'aide de Windows PowerShell si vous souhaitez spécifier une valeur d'un type différent. Si vous indiquez `Not defined`, la valeur de la variable est définie sur Null. Vous devez définir la valeur avec l’applet de commande [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) ou l’applet de commande interne `Set-AutomationVariable`.
 
 Vous ne pouvez pas utiliser le portail Azure pour créer ou modifier la valeur d’un type de variable complexe. Toutefois, vous pouvez fournir une valeur de n’importe quel type à l’aide de Windows PowerShell. Les types complexes sont récupérés en tant que [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
@@ -60,10 +56,10 @@ Les applets de commande du tableau suivant créent et gèrent les variables Auto
 
 | Applet de commande | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Récupère la valeur d'une variable existante. Si la valeur est un type simple, ce même type est récupéré. S’il s’agit d’un type complexe, le type `PSCustomObject` est récupéré. <br>**Remarque :**  Vous ne pouvez pas utiliser cette applet de commande pour récupérer la valeur d’une variable chiffrée. La seule façon de procéder consiste à utiliser l’applet de commande interne `Get-AutomationVariable` dans un runbook ou une configuration DSC. Consultez [Applets de commande internes pour accéder aux variables](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Crée une variable et définit sa valeur.|
-|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Supprime une variable existante.|
-|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Définit la valeur d'une variable existante. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Récupère la valeur d'une variable existante. Si la valeur est un type simple, ce même type est récupéré. S’il s’agit d’un type complexe, le type `PSCustomObject` est récupéré. <br>**Remarque :**  Vous ne pouvez pas utiliser cette applet de commande pour récupérer la valeur d’une variable chiffrée. La seule façon de procéder consiste à utiliser l’applet de commande interne `Get-AutomationVariable` dans un runbook ou une configuration DSC. Consultez [Applets de commande internes pour accéder aux variables](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Crée une variable et définit sa valeur.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Supprime une variable existante.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Définit la valeur d'une variable existante. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>Applets de commande internes pour accéder aux variables
 
@@ -103,16 +99,16 @@ Les fonctions du tableau suivant sont utilisées pour accéder aux variables d�
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Créer et obtenir une variable à l’aide du portail Azure
 
-1. À partir de votre compte Automation, cliquez sur la vignette **Ressources** puis, dans le panneau **Ressources**, sélectionnez **Variables**.
-2. Sur la vignette **Variables**, sélectionnez **Ajouter une variable**.
-3. Définissez les options dans le panneau **Nouvelle variable** et cliquez sur **Créer** pour enregistrer la nouvelle variable.
+1. À partir de votre compte Automation, dans le volet gauche, sélectionnez **Variables** sous **Ressources partagées**.
+2. Dans la page **Variables**, sélectionnez **Ajouter une variable**.
+3. Définissez les options dans la page **Nouvelle variable** puis sélectionnez **Créer** pour enregistrer la nouvelle variable.
 
 > [!NOTE]
 > Une fois que vous avez enregistré une variable chiffrée, vous ne pouvez plus la voir dans le portail. Elle peut uniquement être mise à jour.
 
 ### <a name="create-and-get-a-variable-in-windows-powershell"></a>Créer et obtenir une variable dans Windows PowerShell
 
-Votre runbook ou votre configuration DSC utilise l’applet de commande `New-AzAutomationVariable` pour créer une variable et définir sa valeur initiale. Si la variable est chiffrée, l’appel doit utiliser le paramètre `Encrypted`. Votre script peut récupérer la valeur de la variable avec `Get-AzAutomationVariable`. 
+Votre runbook ou votre configuration DSC utilise l’applet de commande `New-AzAutomationVariable` pour créer une variable et définir sa valeur initiale. Si la variable est chiffrée, l’appel doit utiliser le paramètre `Encrypted`. Votre script peut récupérer la valeur de la variable avec `Get-AzAutomationVariable`.
 
 >[!NOTE]
 >Un script PowerShell ne peut pas récupérer une valeur chiffrée. La seule façon d’y parvenir consiste à utiliser l’applet de commande interne `Get-AutomationVariable`.
@@ -127,7 +123,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-L’exemple suivant montre comment créer une variable de type complexe, puis récupérer ses propriétés. Dans ce cas, un objet de machine virtuelle issu de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) est utilisé.
+L’exemple suivant montre comment créer une variable de type complexe, puis récupérer ses propriétés. Dans ce cas, un objet de machine virtuelle issu de [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) est utilisé.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

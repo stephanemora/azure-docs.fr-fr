@@ -1,6 +1,6 @@
 ---
 title: Attribuer des étiquettes de sensibilité à des groupes-Azure AD | Microsoft Docs
-description: Comment créer des règles d’appartenance pour remplir automatiquement des groupes, et documentation de référence sur les règles.
+description: Découvrez comment attribuer des étiquettes de sensibilité à des groupes. Consultez les informations de dépannage et les ressources supplémentaires disponibles.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795318"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056266"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Attribuer des étiquettes de sensibilité aux groupes Microsoft 365 dans Azure Active Directory
 
-Azure Active Directory (Azure AD) prend en charge l’application d’étiquettes de sensibilité publiées par le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage) dans les groupes Microsoft 365. Les étiquettes de sensibilité s’appliquent au groupe parmi des services tels qu’Outlook, Microsoft Teams et SharePoint. Cette fonctionnalité est actuellement en disponibilité générale publique. Pour plus d’informations sur la prise en charge des applications Office 365, consultez la [prise en charge d’Office 365 pour les étiquettes de sensibilité](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) prend en charge l’application d’étiquettes de sensibilité publiées par le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage) dans les groupes Microsoft 365. Les étiquettes de sensibilité s’appliquent au groupe parmi des services tels qu’Outlook, Microsoft Teams et SharePoint. Cette fonctionnalité est actuellement en disponibilité générale publique. Pour plus d’informations sur la prise en charge des applications Microsoft 365, consultez [Prise en charge de Microsoft 365 pour les étiquettes de sensibilité](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Pour configurer cette fonctionnalité, au moins une licence Azure Active Directory Premium P1 doit être active dans votre organisation Azure AD.
@@ -68,7 +68,7 @@ Pour appliquer des étiquettes publiées à des groupes, vous devez d’abord ac
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Vous avez terminé. Vous avez activé la fonctionnalité et vous pouvez appliquer des étiquettes publiées à des groupes.
+Vous devrez également synchroniser vos étiquettes de sensibilité dans Azure AD. Pour obtenir des instructions, consultez [Guide pratique pour activer des étiquettes de sensibilité pour des conteneurs et synchroniser des étiquettes](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Attribuer une étiquette à un nouveau groupe dans le Portail Azure
 
@@ -113,7 +113,8 @@ Une fois cette fonctionnalité activée, les classifications « classiques » 
 L’option Étiquette de sensibilité s’affiche uniquement pour les groupes lorsque toutes les conditions suivantes sont remplies :
 
 1. Les étiquettes sont publiées dans le centre de conformité Microsoft 365 pour cette organisation Azure AD.
-1. La fonctionnalité est activée, EnableMIPLabels possède la valeur true dans PowerShell.
+1. La fonctionnalité est activée, EnableMIPLabels est défini sur True dans le module PowerShell Azure AD.
+1. Les étiquettes sont synchronisées avec Azure AD avec l’applet de commande Execute-AzureAdLabelSync dans le module PowerShell Security & Compliance.
 1. Le groupe est un groupe Microsoft 365.
 1. L’organisation dispose d’une licence active Azure Active Directory Premium P1.
 1. L’utilisateur actuellement connecté dispose de privilèges suffisants pour attribuer des étiquettes. L’utilisateur doit être un administrateur général, un administrateur de groupe ou le propriétaire du groupe.

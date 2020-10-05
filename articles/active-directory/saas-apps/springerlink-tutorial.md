@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 41713554273ed5d6548a35d0ac956d8ff5c74191
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory avec Springer Link
 
@@ -39,7 +39,7 @@ Pour configurer l’intégration d’Azure AD avec Springer Link, vous avez beso
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce tutoriel, vous configurez et testez l’authentification unique Azure AD.
 
 * Springer Link prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
 
@@ -68,7 +68,6 @@ Pour configurer l’intégration de Springer Link avec Azure AD, vous devez ajou
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Springer Link, sur un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Springer Link associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Springer Link, vous devez suivre les indications des sections suivantes :
 
@@ -76,8 +75,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Springer Li
 2. **[Configurer l’authentification unique Springer Link](#configure-springer-link-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Springer Link](#create-springer-link-test-user)** pour avoir un équivalent de Britta Simon dans Springer Link lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -120,21 +118,11 @@ Pour configurer l’authentification unique Azure AD avec Springer Link, procé
 
 6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/metadataxml.png)
-
-7. Dans la section **Configurer Springer Link**, copiez la ou les URL appropriées en fonction de vos besoins.
-
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
+    ![Lien de téléchargement des métadonnées](common/copy_metadataurl.png)
 
 ### <a name="configure-springer-link-single-sign-on"></a>Configurer l’authentification unique Springer Link
 
-Pour configurer l’authentification unique côté **Springer Link**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** copiée et les URL copiées appropriées à partir du portail Azure vers l’[équipe du support technique Springer Link](mailto:identity@springernature.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Springer Link**, vous devez envoyer l’ **’URL des métadonnées de fédération de l’application** copiée à l’[’équipe du support technique Springer Link](mailto:onlineservice@springernature.com). L’équipe de support technique Springer Link utilise cette URL pour configurer correctement la connexion SSO SAML des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -186,10 +174,6 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
-### <a name="create-springer-link-test-user"></a>Créer un utilisateur de test Springer Link
-
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Springer Link. Pour ajouter des utilisateurs dans la plateforme Springer Link, collaborez avec l’ [équipe de support Springer Link](mailto:identity@springernature.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

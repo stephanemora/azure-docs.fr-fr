@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76a20d2cbc8a7b12b283c2858a13e9343499335
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321291"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565852"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
-Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
+Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Microsoft 365, qui utilisent Azure AD comme fournisseur d’identité.
 
 >[!NOTE]
->La personnalisation nécessite l’utilisation des éditions Azure Active Directory Premium 1, Premium 2 ou De base, ou encore une licence Office 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>La personnalisation nécessite l’utilisation des éditions Azure Active Directory Premium 1, Premium 2 ou De base, ou encore une licence Microsoft 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personnaliser votre page de connexion Azure AD
 Vous pouvez personnaliser les pages de connexion Azure AD qui s’affichent quand les utilisateurs se connectent à des applications propres aux locataires de votre organisation, comme `https://outlook.com/contoso.com`, ou lors de l’envoi d’une variable de domaine, comme `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
@@ -32,7 +32,7 @@ Vous pouvez personnaliser les pages de connexion Azure AD qui s’affichent qua
 Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs accèdent à des sites tels que www\.office.com. L’utilisateur doit se connecter avant que votre personnalisation n’apparaisse. Une fois que l’utilisateur est connecté, la personnalisation peut prendre une quinzaine de minutes pour s’afficher. 
 
 > [!NOTE]
-> Tous les éléments de personnalisation sont facultatifs. Par exemple, si vous spécifiez un logo de bannière sans image d’arrière-plan, la page de connexion affiche votre logo avec l’image d’arrière-plan par défaut du site de destination (par exemple, Office 365).<br><br>De plus, la personnalisation de la page de connexion ne s’étend pas aux comptes Microsoft personnels. Si les utilisateurs ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la personnalisation de votre organisation.
+> Tous les éléments de personnalisation sont facultatifs. Par exemple, si vous spécifiez un logo de bannière sans image d’arrière-plan, la page de connexion affiche votre logo avec l’image d’arrière-plan par défaut du site de destination (par exemple Microsoft 365).<br><br>De plus, la personnalisation de la page de connexion ne s’étend pas aux comptes Microsoft personnels. Si les utilisateurs ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la personnalisation de votre organisation.
 
 ### <a name="to-customize-your-branding"></a>Pour personnaliser votre marque
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.

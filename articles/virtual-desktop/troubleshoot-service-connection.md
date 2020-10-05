@@ -1,17 +1,17 @@
 ---
 title: Détecter un problème de connexion au service dans Windows Virtual Desktop – Azure
-description: Comment résoudre des problèmes lorsque vous configurez des connexions à un client dans un environnement de locataire Windows Virtual Desktop.
+description: Comment résoudre des problèmes lorsque vous configurez des connexions de service dans un environnement de locataire Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009373"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089902"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connexions au service Windows Virtual Desktop
 
@@ -39,6 +39,12 @@ Si l’utilisateur peut démarrer les clients Bureau à distance et s’authenti
 3. Si le client web est utilisé, vérifiez qu’il n’y a aucun problème d’informations d’identification mises en cache.
 
 4. Si l’utilisateur fait partie d’un groupe d’utilisateurs Azure Active Directory (AD), assurez-vous que le groupe d’utilisateurs est un groupe de sécurité au lieu d’un groupe de distribution. Le bureau virtuel Windows ne prend pas en charge les groupes de distribution Azure AD.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>L’utilisateur perd le flux existant et aucune ressource distante n’est affichée (aucun flux)
+
+Cette erreur se produit généralement lorsqu’un utilisateur a déplacé son abonnement d’un locataire Azure AD vers un autre. Par conséquent, le service perd le suivi de ses attributions d’utilisateurs, car celles-ci sont encore liées à l’ancien locataire Azure AD.
+
+Pour résoudre ce problème, il vous suffit de réaffecter les utilisateurs à leurs groupes d’applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

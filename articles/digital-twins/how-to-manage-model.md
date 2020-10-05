@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e782ee8e4afda1f8891979b6e50f99f3e0f1cc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299539"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536453"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -168,13 +168,18 @@ Les modèles ne sont pas nécessairement retournés exactement sous la même for
 
 ### <a name="update-models"></a>Mettre à jour les modèles
 
-Une fois qu’un modèle est chargé dans votre instance, l’interface de modèle entière est immuable. Cela signifie qu’il n’y a pas de « modification » traditionnelle des modèles.
+Une fois qu’un modèle est chargé dans votre instance Azure Digital Twins, l’interface de modèle entière est immuable. Cela signifie qu’il n’y a pas de « modification » traditionnelle des modèles. Azure Digital Twins n’autorise pas non plus le rechargement du même modèle.
 
-Au lieu de cela, si vous souhaitez apporter des modifications à un modèle dans Azure Digital Twins, vous pouvez charger une **version plus récente** du même modèle. Pendant la période de préversion, l’avancement d’une version de modèle vous permet uniquement de supprimer des champs, pas d’en ajouter de nouveaux (pour ajouter de nouveaux champs, vous devez simplement [créer un tout nouveau modèle](#create-models)).
+Mais si vous voulez apporter des modifications à un modèle (par exemple, modifier `displayName` ou `description`), vous pouvez le faire en chargeant une **version plus récente** de ce modèle. 
+
+#### <a name="model-versioning"></a>Gestion des versions des modèles
 
 Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour les champs à modifier.
 
-Ensuite, marquez cette version en tant que version plus récente du modèle en mettant à jour le champ `id` du modèle. La dernière section de l’ID de modèle, après le point-virgule (`;`), représente le numéro de modèle. Pour indiquer qu’il s’agit maintenant d’une version plus à jour de ce modèle, incrémentez le nombre à la fin de la valeur `id` en un nombre supérieur au numéro de version actuel.
+>[!NOTE]
+>Pendant la période de préversion, l’avancement d’une version de modèle vous permet uniquement d’ajouter de nouveaux champs, pas d’en supprimer. Pour supprimer des champs, vous devez simplement [créer un modèle](#create-models).
+
+Ensuite, marquez ce modèle comme une version plus récente en mettant à jour son champ `id`. La dernière section de l’ID de modèle, après le point-virgule (`;`), représente le numéro de modèle. Pour indiquer qu’il s’agit maintenant d’une version plus à jour de ce modèle, incrémentez le nombre à la fin de la valeur `id` en un nombre supérieur au numéro de version actuel.
 
 Par exemple, si votre ID de modèle précédent ressemble à ceci :
 
@@ -188,7 +193,17 @@ la version 2 de ce modèle peut se présenter comme suit :
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Ensuite, chargez la nouvelle version du modèle dans votre instance. Elle remplace l’ancienne version, tandis que les jumeaux que vous créez à l’aide de ce modèle utilisent désormais la version mise à jour.
+Ensuite, chargez la nouvelle version du modèle dans votre instance. 
+
+Cette version du modèle devient alors disponible dans votre instance pour les jumeaux numériques. Elle ne remplace **pas** les versions antérieures du modèle. Ainsi, plusieurs versions du modèle coexistent dans votre instance jusqu’à ce que vous [les supprimiez](#remove-models).
+
+#### <a name="impact-on-twins"></a>Impact sur les jumeaux
+
+Quand vous créez un jumeau, étant donné que la nouvelle version du modèle et l’ancienne coexistent, le nouveau jumeau peut utiliser l’une ou l’autre des versions.
+
+Cela signifie également que le chargement d’une nouvelle version d’un modèle n’affecte pas automatiquement les jumeaux existants. Les jumeaux existants vont simplement rester des instances de l’ancienne version du modèle.
+
+Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’**ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
 
 ### <a name="remove-models"></a>Supprimer des modèles
 

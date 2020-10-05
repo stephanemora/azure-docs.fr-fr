@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 5a40328274fbc776ea02efa0a86422763794d5be
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378812"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483624"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale
 
@@ -25,7 +25,7 @@ Les instructions de cet article vous aideront à certifier votre offre SaaS dans
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Lorsque vous [créez votre offre SaaS](./partner-center-portal/create-new-saas-offer.md) dans l’espace Partenaires, vous pouvez choisir parmi un ensemble d’options d’appel à l’action spécifiques qui seront affichées dans le référencement de l’offre. Votre choix détermine la manière dont votre offre est traitée dans la Place de marché commerciale. Les offres vendues par le biais de Microsoft sont appelées offres avec transaction. Nous facturons le client en votre nom pour toutes les offres avec transaction. Si vous choisissez de vendre par le biais de Microsoft et que vous avez des transactions hôtes en votre nom (l’option **Oui**), alors vous avez choisi de créer une offre avec transaction et cet article vous concerne. Nous vous recommandons de le lire dans son intégralité.
+Lorsque vous [créez votre offre SaaS](./partner-center-portal/create-new-saas-offer.md) dans l’Espace partenaires, vous pouvez choisir parmi un ensemble d’options de référencement spécifiques qui seront affichées dans le référencement de l’offre. Votre choix détermine la manière dont votre offre est traitée dans la Place de marché commerciale. Les offres vendues par le biais de Microsoft sont appelées offres avec transaction. Nous facturons le client en votre nom pour toutes les offres avec transaction. Si vous choisissez de vendre par le biais de Microsoft et que vous avez des transactions hôtes en votre nom (l’option **Oui**), alors vous avez choisi de créer une offre avec transaction et cet article vous concerne. Nous vous recommandons de le lire dans son intégralité.
 
 Si vous choisissez de répertorier uniquement votre offre par le biais de la place de marché commerciale et de traiter les transactions indépendamment (option **Non**), les clients potentiels pourront accéder à votre offre de trois façons : Obtenir maintenant (gratuit), Essai gratuit et Me contacter. Si vous sélectionnez **Obtenir maintenant (gratuit)** ou **Essai gratuit**, cet article ne vous concerne pas. Consultez plutôt l’article [Créer la page d’accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale](./azure-ad-free-or-trial-landing-page.md) pour plus d’informations. Si vous sélectionnez **Me contacter**, il n’y a aucune responsabilité directe pour l’éditeur. Continuez à créer votre offre dans l’Espace partenaires.
 
@@ -45,7 +45,7 @@ Les sections suivantes fournissent des détails sur la configuration requise pou
 
 Cette illustration montre les quatre étapes du processus de gestion des achats.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Illustre les quatre étapes du processus de gestion des achats.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Illustre la gestion des achats, la gestion des abonnements et les étapes facultatives du processus de gestion des utilisateurs.":::
 
 Ce tableau fournit des détails sur les étapes du processus de gestion des achats.
 
@@ -61,7 +61,7 @@ Ce tableau fournit des détails sur les étapes du processus de gestion des acha
 
 Cette illustration montre les deux étapes du processus de gestion des abonnements.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Illustre les deux étapes du processus de gestion des abonnements.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Illustre la gestion des achats, la gestion des abonnements et les étapes facultatives du processus de gestion des utilisateurs.":::
 
 Ce tableau décrit les étapes du processus de gestion des abonnements.
 
@@ -75,7 +75,7 @@ Ce tableau décrit les étapes du processus de gestion des abonnements.
 
 Cette illustration montre les trois étapes du processus de gestion des utilisateurs.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Illustre les trois étapes de processus facultatives pour la gestion des utilisateurs.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Illustre la gestion des achats, la gestion des abonnements et les étapes facultatives du processus de gestion des utilisateurs.":::
 
 Les étapes de processus 7 à 9 sont des étapes facultatives du processus de gestion des utilisateurs. Elles offrent des avantages supplémentaires pour les éditeurs qui prennent en charge l’authentification unique (SSO) Azure AD. Ce tableau décrit les étapes du processus de gestion des utilisateurs.
 

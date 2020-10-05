@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230158"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660644"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -51,7 +51,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |Vérifications exécutées|
 |---|
-|<ul><li>Le déploiement de l’emplacement de production est-il sain dans toutes les instances de rôle ?</li><li>Le rôle est-il sain dans toutes ses instances de machine virtuelle ?</li><li>Quel est l’état d’intégrité de chaque machine virtuelle au sein du rôle d’un service cloud ?</li><li>La modification de l’état de la machine virtuelle était-il dû à une opération initiée par la plateforme ou par le client ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li><li>Le matériel hôte est-il détérioré, avec la prévision d’une panne imminente ?</li></ul>|
+|<ul><li>Le déploiement de l’emplacement de production est-il sain dans toutes les instances de rôle ?</li><li>Le rôle est-il sain dans toutes ses instances de machine virtuelle ?</li><li>Quel est l’état d’intégrité de chaque machine virtuelle au sein du rôle d’un service cloud ?</li><li>La modification de l’état de la machine virtuelle était-il dû à une opération initiée par la plateforme ou par le client ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li><li>Le matériel hôte est-il détérioré, avec la prévision d’une panne imminente ?</li><li>[En savoir plus](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) sur les vérifications exécutées</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Vérifications exécutées|

@@ -2,18 +2,18 @@
 title: Tutoriel sur l’exportation de données à partir d’Azure Data Box | Microsoft Docs
 description: Découvrez les prérequis du déploiement et la façon d’exporter les données à partir d’Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783618"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053052"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box (préversion)
 
@@ -115,9 +115,20 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
    Pour voir un exemple de l’entrée XML, consultez [Exemple d’entrée XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Dans **Sélection des données**, passez en revue vos paramètres, puis sélectionnez **Suivant : Coordonnées>** .
+9. Dans **Sélection des données**, passez en revue vos paramètres, puis sélectionnez **Suivant : Sécurité>** .
 
    ![Coordonnées](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur le logiciel, sélectionnez **Activer le double chiffrement pour la commande**. 
+
+   Le chiffrement basé sur le logiciel est effectué en plus du chiffrement AES 256 bits des données sur Data Box.
+
+   > [!NOTE]
+   > L’activation de cette option peut augmenter le temps nécessaire au traitement des commandes et à la copie des données. Une fois votre commande créée, vous ne pouvez pas changer cette option.
+
+   ![Écran Sécurité pour l’importation de Data Box - Double chiffrement](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Sélectionnez **Suivant : Détails du contact** pour continuer.
 
 10. Dans **Coordonnées**, sélectionnez **+ Ajouter une adresse de livraison** pour entrer vos informations de livraison.
 

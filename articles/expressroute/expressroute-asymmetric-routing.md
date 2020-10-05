@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
-ms.openlocfilehash: aa3465940088d3a66f23dfd5d58a6ec3fd3053de
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397710"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566532"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
 Cet article explique comment le trafic réseau entrant et sortant peut emprunter différentes voies lorsque plusieurs chemins d’accès sont disponibles entre la source et la destination réseau.
@@ -64,5 +64,5 @@ Les problèmes de routage asymétrique peuvent également être résolus à l’
 ![Configuration réseau avec NAT basée sur la source](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Détection du routage asymétrique
-La détermination d’itinéraire constitue le meilleur moyen de vous assurer que le trafic réseau circule par le chemin attendu. Si vous souhaitez que le trafic entre votre serveur SMTP local et Microsoft passe par Internet, déterminez son itinéraire attendu à partir du serveur SMTP vers Office 365. Le résultat valide le passage du trafic sortant de votre réseau par Internet et non par ExpressRoute.
+La détermination d’itinéraire constitue le meilleur moyen de vous assurer que le trafic réseau circule par le chemin attendu. Si vous souhaitez que le trafic entre votre serveur SMTP local et Microsoft passe par Internet, déterminez son itinéraire attendu à partir du serveur SMTP vers Microsoft 365. Le résultat valide le passage du trafic sortant de votre réseau par Internet et non par ExpressRoute.
 

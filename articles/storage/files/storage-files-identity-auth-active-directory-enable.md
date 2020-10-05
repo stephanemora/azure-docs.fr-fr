@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272329"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563401"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
@@ -24,11 +24,12 @@ Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de 
 
 - Les identités AD DS utilisées pour l’authentification AD DS en local Azure Files doivent être synchronisées avec Azure AD. La synchronisation de hachage de mot de passe est facultative. 
 - Prend en charge les partages de fichiers Azure gérés par Azure File Sync.
-- Prend en charge l’authentification Kerberos avec AD et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES n’est pas encore pris en charge.
+- Prend en charge l’authentification Kerberos avec AD et le chiffrement RC4-HMAC et AES 256. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
 - Prend en charge l’authentification unique.
 - Pris en charge uniquement sur les clients exécutant des systèmes d’exploitation ultérieurs à Windows 7 ou Windows Server 2008 R2.
 - Pris en charge uniquement sur la forêt AD auprès de laquelle le compte de stockage est inscrit. Vous pouvez uniquement accéder aux partages de fichiers Azure avec les informations d’identification AD DS à partir d’une forêt unique par défaut. Si vous avez besoin d’accéder à votre partage de fichiers Azure à partir d’une autre forêt, vérifiez que l’approbation de forêt appropriée est configurée. Pour plus d’informations, consultez le [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
-- Ne prend pas en charge l’authentification sur des comptes d’ordinateur créés dans AD DS. 
+- Ne prend pas en charge l’authentification sur des comptes d’ordinateur créés dans AD DS.
+- Ne prend pas en charge l’authentification auprès des partages de fichiers NFS (Network File System).
 
 Quand vous activez AD DS pour les partages de fichiers Azure sur SMB, vos machines jointes à AD DS peuvent monter des partages de fichiers Azure à l’aide de vos informations d’identification AD DS existantes. Cette capacité peut être activée avec un environnement AD DS hébergé sur des machines locales ou hébergé dans Azure.
 

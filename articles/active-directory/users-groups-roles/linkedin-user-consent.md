@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542359"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053933"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentement et partage de données connexions de compte LinkedIn
 
@@ -73,7 +73,7 @@ Lorsque vous connectez vos comptes Microsoft et LinkedIn, vous autorisez Microso
 * Données de profil : cela inclut des informations telles que votre prénom, votre nom de famille, votre photo de profil, votre adresse e-mail, votre responsable et les personnes dont vous êtes responsable.
 * Données de calendrier : cela inclut les réunions inscrites dans vos calendriers, leurs horaires, leurs lieux et les informations de contact des participants. Les informations sur la réunion, comme l’ordre du jour, le contenu ou le titre de la réunion, ne sont pas incluses dans les données de calendrier.
 * Données d’intérêt : cela inclut les centres d’intérêt associés à votre compte, en fonction de votre utilisation des services Microsoft, comme Cortana et Bing for Business.
-* Données d’abonnement : cela inclut les abonnements fournis par votre organisation aux applications et services Microsoft, comme Office 365.
+* Données d’abonnement : cela inclut les abonnements fournis par votre organisation aux applications et services Microsoft, comme Microsoft 365.
 * Données de contact : cela inclut les listes de contacts dans Outlook, Skype et d’autres services de compte Microsoft, y compris les informations de contact des personnes avec lesquelles vous communiquez ou collaborez fréquemment. Les contacts seront régulièrement importés, stockés et utilisés par LinkedIn, par exemple pour suggérer des connexions, vous aider à organiser vos contacts et afficher les mises à jour sur les contacts.
 
 Les données accessibles à partir de Microsoft ne sont pas stockées définitivement avec LinkedIn, à l’exception des Contacts. Les Contacts Microsoft sont stockés sur LinkedIn jusqu’à ce que les utilisateurs les suppriment. En savoir plus sur la [suppression des contacts importés à partir de LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798429"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055212"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
 
@@ -40,10 +40,7 @@ Vous devez disposer du rôle Administrateur général pour configurer les param�
 
 Nous avons apporté des modifications aux contrôles existants du Portail Azure concernant les autorisations des utilisateurs invités.
 
-> [!IMPORTANT]
-> Pendant une brève période, les nouveaux contrôles du Portail concernant les autorisations des utilisateurs invités ne seront visibles qu’à l’aide de l’URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Il reste possible d’utiliser PowerShell et Microsoft Graph pour définir les contrôles, auquel cas les modifications seront prises en compte par le Portail.
-
-1. Connectez-vous au [Centre d’administration Azure AD](https://aka.ms/AADRestrictedGuestAccess) avec des autorisations d’administrateur général.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations d’administrateur général.
 1. Sur la page de présentation **Azure Active Directory** de votre organisation, sélectionnez **Paramètres utilisateur**.
 1. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
 1. Sur la page **Paramètres de collaboration externe** , sélectionnez l’option **L’accès utilisateur invité est limité aux propriétés et appartenances de leurs propres objets annuaire**.
@@ -157,7 +154,7 @@ Le service non pris en charge actuellement risquent de présenter des problèmes
 
 Question | Réponse
 -------- | ------
-Où ces autorisations s’appliquent-elles ? | Ces autorisations au niveau des répertoires sont appliquées dans les services et les portails Azure AD, notamment Microsoft Graph, PowerShell v2, le Portail Azure et le portail Mes applications. Les services Microsoft 365 qui utilisent des groupes Office 365 pour les scénarios de collaboration (en particulier Outlook, Microsoft Teams et SharePoint) sont également affectés.
+Où ces autorisations s’appliquent-elles ? | Ces autorisations au niveau des répertoires sont appliquées dans les services et les portails Azure AD, notamment Microsoft Graph, PowerShell v2, le Portail Azure et le portail Mes applications. Les services Microsoft 365 qui utilisent des groupes Microsoft 365 pour les scénarios de collaboration (en particulier Outlook, Microsoft Teams et SharePoint) sont également affectés.
 Quelles sont les parties du portail Mes applications affectées par cette fonctionnalité ? | La fonctionnalité de groupes du portail Mes applications tient compte de ces nouvelles autorisations. Cela comprend tous les chemins pour afficher la liste des groupes et les appartenances aux groupes dans Mes applications. Aucune modification n’a été apportée à la disponibilité des vignettes de groupe. La disponibilité des vignettes de groupe est toujours contrôlée par le paramètre de groupe existant sur le portail d’administration Azure.
 Ces autorisations remplacent-elles les paramètres invités SharePoint ou Microsoft Teams ? | Non. Ces paramètres existants contrôlent toujours l’expérience et l’accès dans ces applications. Si, par exemple, vous constatez des problèmes dans SharePoint, vérifiez vos paramètres de partage externe.
 Quels sont les problèmes de compatibilité connus dans le Planificateur et Yammer ? | <li>Si les autorisations sont définies sur « restreint », les invités qui sont connectés à l’application Planificateur ou accèdent au Planificateur dans Microsoft Teams n’ont pas accès à leurs plans ni à aucune tâche.<li>Lorsque les autorisations sont définies sur « restreint », les invités connectés à Yammer ne peuvent pas sortir du groupe.

@@ -4,25 +4,32 @@ description: Comprendre la planification d’un déploiement Azure Files. Vous p
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705909"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563436"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
 
-- **Montage direct d'un partage de fichiers Azure** : étant donné qu'Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l'aide du client SMB standard disponible sous Windows, macOS et Linux. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
+- **Montage direct d'un partage de fichiers Azure** : Étant donné qu’Azure Files fournit un accès SMB (Server Message Block) ou NFS (Network File System), vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l’aide des clients SMB ou NFS standard disponibles dans votre système d’exploitation. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
 
-- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en cache rapide de votre partage de fichiers Azure. 
+- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en un cache rapide de votre partage de fichiers SMB Azure. 
 
 Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Protocoles disponibles
+
+Azure Files offre deux protocoles pouvant être utilisés lors du montage de vos partages de fichiers, SMB et NFS (Network File System). Pour plus d’informations sur ces protocoles, consultez [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> L’essentiel du contenu de cet article s’applique uniquement aux partages SMB. Tout ce qui s’applique aux partages NFS indique spécifiquement être applicable.
 
 ## <a name="management-concepts"></a>Concepts de gestion
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Pour débloquer l’accès à votre partage de fichiers Azure, vous avez princip
 
 - Accéder aux partages de fichiers Azure via une connexion ExpressRoute ou VPN. Lorsque vous accédez à votre partage de fichiers Azure via un tunnel réseau, vous pouvez monter votre partage de fichiers Azure comme un partage de fichiers en local, car le trafic SMB ne traverse pas les limites de votre organisation.   
 
-Bien que d’un point de vue technique il soit beaucoup plus facile de monter vos partages de fichiers Azure via le point de terminaison public, nous pensons que la plupart des clients choisiront de monter leurs partages de fichiers Azure sur une connexion ExpressRoute ou VPN. Pour ce faire, vous devez configurer les éléments suivants pour votre environnement :  
+Bien que d’un point de vue technique il soit beaucoup plus facile de monter vos partages de fichiers Azure via le point de terminaison public, nous pensons que la plupart des clients choisiront de monter leurs partages de fichiers Azure sur une connexion ExpressRoute ou VPN. Le montage avec ces options est possible avec les partages SMB et NFS. Pour ce faire, vous devez configurer les éléments suivants pour votre environnement :  
 
 - **Tunneling réseau à l’aide d’un VPN ExpressRoute, de site à site ou de point à site**. Le tunneling dans un réseau virtuel permet d’accéder aux partages de fichiers Azure depuis l’environnement local, même si le port 445 est bloqué.
 - **Points de terminaison privés**. Les points de terminaison privés attribuent à votre compte de stockage une adresse IP dédiée depuis l’espace d’adressage du réseau virtuel. Le tunneling réseau est ainsi possible sans avoir à ouvrir de réseaux locaux sur la totalité des plages d’adresses IP détenues par les clusters de stockage Azure. 
@@ -66,6 +73,10 @@ Pour planifier la mise en réseau associée au déploiement d’un partage de fi
 Azure Files prend en charge deux types de chiffrement : le chiffrement en transit, qui se rapporte au chiffrement utilisé lors du montage/de l’accès au partage de fichiers Azure, et le chiffrement au repos, qui a trait à la façon dont les données sont chiffrées lorsqu’elles sont stockées sur le disque. 
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
+
+> [!IMPORTANT]
+> Cette section traite en détail du chiffrement en transit pour les partages SMB. Pour plus d’informations sur le chiffrement en transit avec les partages NFS, consultez [Sécurité](storage-files-compare-protocols.md#security).
+
 Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, lorsque vous montez un partage de fichiers sur SMB ou y accédez en utilisant le protocole FileREST (par exemple, via le portail Azure, PowerShell/CLI ou des kits de développement logiciel (SDK) Azure), Azure Files n’autorise la connexion que si elle est établie à l’aide des protocoles SMB 3.0+ avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.0, ou qui prennent en charge le protocole SMB 3.0 mais pas le chiffrement SMB, ne peuvent pas monter le partage de fichiers Azure si le chiffrement en transit est activé. Pour plus d’informations sur les systèmes d’exploitation prenant en charge SMB 3.0 avec chiffrement, consultez notre documentation détaillée pour [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md). Toutes les versions actuelles de PowerShell, de CLI et des SDK prennent en charge le protocole HTTPS.  
 
 Vous pouvez désactiver le chiffrement en transit pour un compte de stockage Azure. Lorsque le chiffrement est désactivé, Azure Files autorise également les protocoles SMB 2.1 et SMB 3.0 sans chiffrement, ainsi que les appels d’API FileREST non chiffrés via le protocole HTTP. La principale raison justifiant de désactiver le chiffrement en transit est la nécessité de prendre en charge une application héritée devant être exécutée sur un système d’exploitation plus ancien, tel que Windows Server 2008 R2 ou une distribution Linux non récente. Azure Files n’autorise que les connexions SMB 2.1 au sein de la même région Azure que le partage de fichiers Azure. Ainsi, un client SMB 2.1 situé en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, par exemple, localement ou dans une autre région Azure, ne peut pas accéder au partage de fichiers.

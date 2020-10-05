@@ -1,5 +1,5 @@
 ---
-title: Visualiser les données dans l’Explorateur TSI – Azure Time Series Insights Gen2 | Microsoft Docs
+title: Visualiser les données dans l’Explorateur Time Series Insights – Azure Time Series Insights Gen2 | Microsoft Docs
 description: Découvrez les fonctionnalités et options disponibles dans l’Explorateur Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227047"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488165"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 
@@ -200,11 +200,11 @@ L’Explorateur Azure Time Series Insights prend en charge deux thèmes :
 
   [![Thème sombre sélectionné](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Contrôles d’environnement Gen1
+## <a name="gen1-environment-controls"></a>Contrôles d’environnement Gen1
 
 ### <a name="gen2-terms-panel"></a>Volet des conditions Gen2
 
-Cette section s’applique uniquement aux environnements Gen1 existants qui tentent d’utiliser l’Explorateur dans l’interface utilisateur mise à jour. Vous souhaiterez peut-être utiliser le produit Gen1 et le produit Gen2 en combinaison. Nous avons ajouté certaines fonctionnalités de l’interface utilisateur existante à l’Explorateur mis à jour, mais vous pouvez bénéficier de l’expérience d’interface utilisateur complète pour un environnement Gen1 dans le nouvel Explorateur Azure Time Series Insights.
+Cette section s’applique uniquement aux environnements Gen1 existants qui tentent d’utiliser l’explorateur dans l’interface utilisateur mise à jour. Vous souhaiterez peut-être utiliser le produit Gen1 et le produit Gen2 combinés. Nous avons ajouté certaines fonctionnalités de l’interface utilisateur existante à l’explorateur mis à jour, mais vous pouvez bénéficier de l’expérience d’interface utilisateur complète pour un environnement Gen1 dans le nouvel Explorateur Azure Time Series Insights.
 
 Au lieu de la hiérarchie, le volet des conditions d’Azure Time Series Insights Gen2 s’affiche. Le panneau des termes vous permet de définir des requêtes dans votre environnement. Utilisez-le pour filtrer vos données en fonction d’un prédicat.
 

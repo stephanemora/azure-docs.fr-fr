@@ -1,14 +1,14 @@
 ---
 title: Résoudre les erreurs de transfert
-description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
+description: Résolvez les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou un nouvel abonnement.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055079"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054160"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Résoudre les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou abonnement
 

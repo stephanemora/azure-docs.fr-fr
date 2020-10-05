@@ -1,5 +1,5 @@
 ---
-title: Gestion des unités administratives (préversion) - Azure AD | Microsoft Docs
+title: Unités administratives dans Azure Active Directory | Microsoft Docs
 description: Utilisation d'unités administratives pour une délégation plus précise des autorisations dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376381"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447892"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestion des unités administratives dans Azure Active Directory (préversion)
+# <a name="administrative-units-in-azure-active-directory"></a>Unités administratives dans Azure Active Directory
 
-Cet article décrit les unités administratives dans Azure Active Directory (Azure AD). Une unité administrative est une ressource Azure AD qui peut être un conteneur pour d’autres ressources Azure AD. Dans cette préversion, une unité administrative peut contenir seulement des utilisateurs et des groupes.
+Cet article décrit les unités administratives dans Azure Active Directory (Azure AD). Une unité administrative est une ressource Azure AD qui peut être un conteneur pour d’autres ressources Azure AD. Une unité administrative peut contenir seulement des utilisateurs et des groupes.
 
 Les unités administratives vous permettent d’accorder des autorisations d’administrateur limitées à un service, une région ou un autre segment de votre organisation que vous définissez. Vous pouvez utiliser des unités administratives pour déléguer des autorisations à des administrateurs régionaux ou définir une stratégie à un niveau précis. Par exemple, un administrateur de comptes d’utilisateur peut mettre à jour des informations de profil, réinitialiser des mots de passe et attribuer des licences aux utilisateurs uniquement dans son unité administrative.
 
@@ -44,11 +44,11 @@ L’utilisation d’unités administratives nécessite une licence Azure Active 
 
 ## <a name="manage-administrative-units"></a>Gérer des unités administratives
 
-Dans cette préversion, vous pouvez créer et gérer des unités administratives en utilisant le portail Azure, des applets de commande et des scripts PowerShell, ou Microsoft Graph. Pour plus d’informations, vous pouvez vous reporter à notre documentation :
+Vous pouvez gérer des unités administratives en utilisant le Portail Azure, des applets de commande et des scripts PowerShell, ou Microsoft Graph. Pour plus d’informations, vous pouvez vous reporter à notre documentation :
 
 - [Créer, supprimer, remplir et ajouter des rôles aux unités administratives](roles-admin-units-manage.md) : Procédures complètes
-- [Utilisation des unités administratives](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0) : Comment utiliser les unités administratives avec PowerShell
-- [Prise en charge des unités administratives par Graph](/graph/api/resources/administrativeunit?view=graph-rest-beta) : Documentation détaillée sur Microsoft Graph pour les unités administratives.
+- [Utilisation des unités administratives](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true) : Comment utiliser les unités administratives avec PowerShell
+- [Prise en charge des unités administratives par Graph](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) : Documentation détaillée sur Microsoft Graph pour les unités administratives.
 
 ### <a name="planning-your-administrative-units"></a>Planification de vos unités administratives
 
@@ -95,9 +95,6 @@ Autorisations |   MS Graph/PowerShell   | Portail Azure AD | Centre d’administ
 Gestion limitée à une unité administrative des propriétés et des membres des groupes     |  Prise en charge   |    Prise en charge    |  Non pris en charge
 Gestion limitée à une unité administrative des licences de groupe   |    Prise en charge  |    Prise en charge   |   Non pris en charge
 
-> [!NOTE]
->
-> Les administrateurs limités à une unité administrative ne peuvent pas gérer les règles d’appartenance aux groupes dynamiques.
 
 Les unités administratives appliquent l’étendue seulement aux autorisations de gestion. Ils n’empêchent pas les membres ou les administrateurs d’utiliser leurs [autorisations utilisateur par défaut](../fundamentals/users-default-permissions.md) pour parcourir d’autres utilisateurs, groupes ou ressources en dehors de l’unité administrative. Dans le centre d’administration Microsoft 365, les utilisateurs en dehors des unités administratives d’un administrateur limité sont filtrés, mais vous pouvez parcourir d’autres utilisateurs dans le portail Azure AD, PowerShell et d’autres services Microsoft.
 

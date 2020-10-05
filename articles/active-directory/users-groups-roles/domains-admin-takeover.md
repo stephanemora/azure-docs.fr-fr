@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015882"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054702"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -34,7 +34,7 @@ Lors du processus de prise de contrôle par l’administrateur, vous pouvez prou
 
 ## <a name="internal-admin-takeover"></a>Prise de contrôle par administrateur interne
 
-Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne permettent pas la prise de contrôle externe. Si c’est votre scénario, ou si vous êtes administrateur et souhaitez prendre le contrôle d’une organisation Azure AD non gérée ou « fantôme » créée par des utilisateurs ayant utilisé l’inscription en libre-service, vous pouvez le faire avec une prise de contrôle par administrateur interne.
+Certains produits qui incluent SharePoint et OneDrive, comme Microsoft 365, ne permettent pas la prise de contrôle externe. Si c’est votre scénario, ou si vous êtes administrateur et souhaitez prendre le contrôle d’une organisation Azure AD non gérée ou « fantôme » créée par des utilisateurs ayant utilisé l’inscription en libre-service, vous pouvez le faire avec une prise de contrôle par administrateur interne.
 
 1. Créez un contexte utilisateur dans l’organisation non gérée en vous inscrivant à Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
 
@@ -52,7 +52,7 @@ Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne perm
 
 Quand les enregistrements TXT DNS sont vérifiés au niveau de votre bureau d’enregistrement de noms de domaine, vous pouvez gérer l’organisation Azure AD.
 
-Une fois les étapes précédentes terminées, vous devenez l’administrateur général de l’organisation Fourth Coffee dans Office 365. Pour intégrer le nom de domaine à vos autres services Azure, vous pouvez le supprimer d’Office 365 et l’ajouter à une autre organisation gérée dans Azure.
+Une fois les étapes précédentes terminées, vous devenez l’administrateur général de l’organisation Fourth Coffee dans Microsoft 365. Pour intégrer le nom de domaine à vos autres services Azure, vous pouvez le supprimer de Microsoft 365 et l’ajouter à une autre organisation gérée dans Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Ajout du nom de domaine à une organisation gérée dans Azure AD
 
@@ -61,9 +61,9 @@ Une fois les étapes précédentes terminées, vous devenez l’administrateur g
 3. Vérifiez que le compte d’utilisateur dispose des privilèges d’administrateur général pour l’organisation Azure AD.
 4. Ouvrez l’onglet **Domaines** dans le centre d’administration Microsoft 365, sélectionnez le nom de domaine, puis sélectionnez **Supprimer**. 
   
-   ![Supprimer le nom de domaine d’Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Supprimer le nom de domaine de Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple en *user\@fourthcoffeexyz.onmicrosoft.com*.
+5. Si vous avez des utilisateurs ou des groupes dans Microsoft 365 qui référencent le nom de domaine supprimé, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple en *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Connectez-vous au [centre d’administration d’Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général pour l’organisation Azure AD.
   
@@ -72,11 +72,11 @@ Une fois les étapes précédentes terminées, vous devenez l’administrateur g
    ![domaine vérifié comme ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Les utilisateurs du service Power BI ou Azure Rights Management qui disposent de licences au sein de l’organisation Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *user\@fourthcoffeexyz.onmicrosoft.com* plutôt que *user\@fourthcoffee.xyz*.
+> Les utilisateurs du service Power BI ou Azure Rights Management qui disposent de licences au sein de l’organisation Microsoft 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *user\@fourthcoffeexyz.onmicrosoft.com* plutôt que *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Prise de contrôle par administrateur externe
 
-Si vous gérez déjà une organisation avec les services Azure ou Office 365, vous ne pouvez pas ajouter un nom de domaine personnalisé si celui-ci est déjà vérifié dans une autre organisation Azure AD. Cependant, dans l’organisation que vous gérez dans Azure AD, vous pouvez prendre le contrôle d’une organisation non gérée en tant qu’administrateur externe. La procédure générale suit l’article [Ajouter un domaine personnalisé à Azure AD](../fundamentals/add-custom-domain.md).
+Si vous gérez déjà une organisation avec les services Azure ou Microsoft 365, vous ne pouvez pas ajouter un nom de domaine personnalisé si celui-ci est déjà vérifié dans une autre organisation Azure AD. Cependant, dans l’organisation que vous gérez dans Azure AD, vous pouvez prendre le contrôle d’une organisation non gérée en tant qu’administrateur externe. La procédure générale suit l’article [Ajouter un domaine personnalisé à Azure AD](../fundamentals/add-custom-domain.md).
 
 Quand vous confirmez la propriété du nom de domaine, Azure AD supprime le nom de domaine de l’organisation non gérée et le déplace vers votre organisation existante. La prise de contrôle par administrateur externe d’un annuaire non géré nécessite le même processus de validation TXT DNS que la prise de contrôle par administrateur interne. La différence est que les éléments suivants sont également déplacés avec le nom de domaine :
 
@@ -120,7 +120,7 @@ Applet de commande | Usage
 `new-msoldomain –name <domainname>` | Ajoute le nom de domaine à l’organisation avec l’état Non vérifié (aucune vérification DNS n’a encore été effectuée).
 `get-msoldomain` | Le nom de domaine est désormais inclus dans la liste des noms de domaine associés à votre organisation gérée, mais il s’affiche avec l’état **Non vérifié**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fournit les informations à placer dans le nouvel enregistrement TXT DNS pour le domaine (MS=xxxxx). La vérification peut ne pas se produire immédiatement, car un certain temps est nécessaire à la propagation de l’enregistrement TXT : attendez donc quelques minutes avant d’envisager l’utilisation de l’option **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si votre nom de domaine n’est pas encore vérifié, vous pouvez appliquer l’option **-ForceTakeover**. Elle vérifie que l’enregistrement TXT a été créé et lance le processus de prise de contrôle.<li>L’option **-ForceTakeover** doit être ajoutée à l’applet de commande uniquement lorsque la prise de contrôle par un administrateur externe est forcée, par exemple quand des services Office 365 bloquent la prise de contrôle de l’organisation non gérée.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si votre nom de domaine n’est pas encore vérifié, vous pouvez appliquer l’option **-ForceTakeover**. Elle vérifie que l’enregistrement TXT a été créé et lance le processus de prise de contrôle.<li>L’option **-ForceTakeover** doit être ajoutée à l’applet de commande uniquement lorsque la prise de contrôle par un administrateur externe est forcée, par exemple quand des services Microsoft 365 bloquent la prise de contrôle de l’organisation non gérée.
 `get-msoldomain` | La liste des domaines affiche maintenant le nom de domaine avec l’état **Vérifié**.
 
 > [!NOTE]

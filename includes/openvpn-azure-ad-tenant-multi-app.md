@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2eb2dbc43c59f4f6301c7f5073a73462639d35b2
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797135"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606540"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Créer le locataire Azure AD
 
@@ -77,7 +77,7 @@ Inscrivez le client VPN dans le locataire Azure AD.
 
 6. Lorsque vous y êtes invité, sélectionnez **Accepter**.
 
-    ![Acceptation](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![La capture d’écran montre une fenêtre avec le message Autorisations demandées Accepter pour votre organisation, et des informations sur la demande.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. Sous votre Azure AD, dans **Applications d’entreprise**, vous verrez **VPN Azure**.
 

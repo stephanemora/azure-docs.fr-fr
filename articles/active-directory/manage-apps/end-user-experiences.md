@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: d3b7dbbb9aab29e083795025ad5bf7381a4fa0ee
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231212"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605122"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory
 
 Azure Active Directory (Azure AD) offre plusieurs moyens personnalisables pour déployer des applications pour les utilisateurs finaux de votre organisation :
 
 * Mes applications Azure AD
-* Lanceur d’applications Office 365
+* Lanceur d’applications Microsoft 365
 * Authentification directe pour les applications fédérées
 * Liens ciblés vers des applications fédérées, avec mot de passe ou des applications existantes
 
@@ -35,13 +35,13 @@ Mes applications à l’adresse https://myapps.microsoft.com est un portail web 
 
 Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des collections pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des collections pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, consultez [Créer des collections sur le portail Mes applications](access-panel-collections.md). 
 
-Mes applications est distinct du portail Azure. Pour y accéder, les utilisateurs n’ont pas besoin d’un abonnement Azure ou Office 365.
+Mes applications est distinct du portail Azure. Pour y accéder, les utilisateurs n’ont pas besoin d’un abonnement Azure ou Microsoft 365.
 
 Pour plus d’informations sur Azure AD Mes applications, consultez l’[introduction à Mes applications](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="office-365-application-launcher"></a>Lanceur d’applications Office 365
+## <a name="microsoft-365-application-launcher"></a>Lanceur d’applications Microsoft 365
 
-Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs par le biais d’Azure AD apparaissent également sur le portail Office 365, à l’adresse [https://portal.office.com/myapps](https://portal.office.com/myapps). Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
+Pour les organisations ayant déployé Microsoft 365, les applications affectées aux utilisateurs par le biais d’Azure AD apparaissent également dans le portail Office 365, à l’adresse [https://portal.office.com/myapps](https://portal.office.com/myapps). Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Microsoft 365.
 
 Pour plus d’informations sur le lanceur d’applications Office 365, consultez [Faire apparaître votre application dans le lanceur d’applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
@@ -53,7 +53,7 @@ La plupart des applications fédérées qui prennent en charge la connexion SAML
 
 Azure AD prend également en charge les liens d’authentification unique directs vers les applications qui prennent en charge l’authentification unique par mot de passe, l’authentification unique liée et l’authentification unique fédérée.
 
-Ces liens sont des URL spécifiquement conçues qui font passer l’utilisateur par le processus de connexion Azure AD pour une application spécifique sans que l’utilisateur n’ait à la lancer dans Azure AD Mes applications ou Office 365. Ces **URL d’accès utilisateur** se trouvent sous les propriétés des applications d’entreprise disponibles. Sur le portail Azure, sélectionnez **Azure Active Directory** > **Applications d’entreprise**. Sélectionnez l’application, puis sélectionnez **Propriétés**.
+Ces liens sont des URL spécifiquement conçues qui font passer l’utilisateur par le processus de connexion Azure AD pour une application spécifique sans qu’il ait à la lancer à partir d’Azure AD Mes applications ou de Microsoft 365. Ces **URL d’accès utilisateur** se trouvent sous les propriétés des applications d’entreprise disponibles. Sur le portail Azure, sélectionnez **Azure Active Directory** > **Applications d’entreprise**. Sélectionnez l’application, puis sélectionnez **Propriétés**.
 
 ![Exemple d’URL d’accès utilisateur dans les propriétés Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
@@ -67,7 +67,7 @@ Comme pour les URL propres à l’organisation pour Mes applications, vous pouve
 
 Lorsqu’un utilisateur autorisé clique sur un de ces liens spécifiques de l’application, il voit tout d’abord la page de connexion de son organisation (en supposant qu’il n’est pas déjà connecté). Après la connexion, il est redirigé vers l’application sans s’arrêter au préalable sur Mes applications. Si l’utilisateur ne dispose pas des éléments requis pour accéder à l’application, par exemple l’extension de navigateur d’authentification unique basée sur mot de passe, le lien l’invite à installer l’extension manquante. L’URL du lien reste constante en cas de modification de la configuration de l’authentification unique de l’application.
 
-Ces liens utilisent les mêmes mécanismes de contrôle d’accès que Mes applications et Office 365 ; seuls les utilisateurs et les groupes qui ont été affectés à l’application sur le portail Azure seront en mesure de s’authentifier. Toutefois, tout utilisateur qui n’est pas autorisé voit un message qui explique qu’il n’a pas reçu l’accès. Lui est présenté un lien permettant de charger Mes applications pour afficher les applications disponibles auxquelles il a accès.
+Ces liens utilisent les mêmes mécanismes de contrôle d’accès que Mes applications et Microsoft 365 ; seuls les utilisateurs et les groupes qui ont été affectés à l’application dans le portail Azure seront en mesure de s’authentifier. Toutefois, tout utilisateur qui n’est pas autorisé voit un message qui explique qu’il n’a pas reçu l’accès. Lui est présenté un lien permettant de charger Mes applications pour afficher les applications disponibles auxquelles il a accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

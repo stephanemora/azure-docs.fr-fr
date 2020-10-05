@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377197"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052772"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -39,7 +39,7 @@ Un utilisateur peut réinitialiser ou changer son mot de passe à l’aide du [p
 
 Quand un utilisateur sélectionne le lien **Impossible d’accéder à votre compte** à partir d’une application ou d’une page, ou qu’il accède directement à [https://aka.ms/sspr](https://passwordreset.microsoftonline.com), la langue utilisée dans le portail SSPR est basée sur les options suivantes :
 
-* Par défaut, les paramètres régionaux du navigateur sont utilisés pour afficher le portail SSPR dans la langue appropriée. L’expérience utilisateur de réinitialisation de mot de passe est localisée dans les mêmes langues que celles [prises en charge par Office 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* Par défaut, les paramètres régionaux du navigateur sont utilisés pour afficher le portail SSPR dans la langue appropriée. L’expérience de réinitialisation de mot de passe est localisée dans les mêmes langues que celles [prises en charge par Microsoft 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Si vous souhaitez créer un lien vers le portail SSPR dans une langue localisée spécifique, ajoutez `?mkt=` à la fin de l’URL de réinitialisation de mot de passe avec les paramètres régionaux nécessaires.
     * Par exemple, pour spécifier les paramètres régionaux de la langue espagnole *es-us*, utilisez `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
@@ -77,7 +77,7 @@ Pour que les utilisateurs puissent réinitialiser ou changer leur mot de passe �
 
 Vous pouvez activer l’option qui permet d’obliger un utilisateur à s’inscrire à SSPR, s’il se connecte à des applications via Azure AD. Ce workflow inclut les applications suivantes :
 
-* Office 365
+* Microsoft 365
 * Portail Azure
 * Volet d'accès
 * Applications fédérées
@@ -226,7 +226,7 @@ SSPR effectue l’équivalent d’une réinitialisation de mot de passe lancée 
 
 La réinitialisation et la modification du mot de passe sont totalement prises en charge sur toutes les configurations B2B. La réinitialisation du mot de passe utilisateur B2B est prise en charge dans les trois cas suivants :
 
-* **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous respectons les stratégies de réinitialisation de mot de passe activées sur ce locataire. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Cela n’entraîne aucuns frais supplémentaires pour les clients Office 365.
+* **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous respectons les stratégies de réinitialisation de mot de passe activées sur ce locataire. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Cela n’entraîne aucuns frais supplémentaires pour les clients Microsoft 365.
 * **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité d’[inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
 * **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../external-identities/what-is-b2b.md) peuvent également réinitialiser leur mot de passe à l’aide de l’adresse e-mail indiquée durant l’inscription.
 

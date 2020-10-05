@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 9cf8a76f74e6dda6ade98ea348f5401eab15c53e
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 9d6951456593c57f9def80990e582a5ff54cc5d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312603"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fivetran
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Fivetran à Azure Acti
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Fivetran pour lequel l’authentification unique (SSO) est activée.
+* Un compte Fivetran.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -96,7 +96,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer Fivetran**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Fivetran**, copiez les valeurs **URL de connexion** et **Identificateur Azure Ad**.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -126,7 +126,22 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-fivetran-sso"></a>Configurer l’authentification unique Fivetran
 
-Pour configurer l’authentification unique côté **Fivetran**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL que vous avez copiées à partir du portail Azure à l’[équipe du support technique Fivetran](mailto:support@fivetran.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Dans cette section, vous allez configurer l’authentification unique du côté **Fivetran**.
+
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre compte Fivetran en tant que propriétaire du compte.
+1. Sélectionnez la flèche dans le coin supérieur gauche de la fenêtre, puis sélectionnez **Gérer le compte** dans la liste déroulante.
+
+   ![Capture d’écran montrant l’option de menu Gérer le compte sélectionnée.](media/fivetran-tutorial/fivetran-1.png)
+
+1. Accédez à la section **Config SAML** de la page **Paramètres**.
+
+   ![Capture d’écran montrant le volet de configuration SAML avec les options de configuration mises en surbrillance.](media/fivetran-tutorial/fivetran-2.png)
+
+   1. Pour **Activer l’authentification SAML**, sélectionnez **ON**.
+   1. Dans **URL de connexion**, collez la valeur **URL de connexion** que vous avez copiée à partir du Portail Azure.
+   1. Dans **Émetteur**, collez la valeur **Identificateur Azure AD** que vous avez copiée à partir du Portail Azure.
+   1. Ouvrez votre fichier de certificat téléchargé dans un éditeur de texte, copiez le certificat dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat public**.
+   1. Sélectionnez **ENREGISTRER LA CONFIGURATION**.
 
 ### <a name="create-fivetran-test-user"></a>Créer un utilisateur de test Fivetran
 

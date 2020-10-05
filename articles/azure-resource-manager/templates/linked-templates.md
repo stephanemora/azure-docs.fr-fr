@@ -2,13 +2,13 @@
 title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086810"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535556"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -19,7 +19,9 @@ Pour les solutions petites et moyennes, un modèle unique est plus facile à com
 Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resource Manager liés](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Pour les modèles liés ou imbriqués, vous pouvez uniquement utiliser le mode de déploiement [Incremental](deployment-modes.md).
+> Pour les modèles liés ou imbriqués, vous pouvez définir le mode de déploiement seulement sur [Incrémentiel](deployment-modes.md). Toutefois, le modèle principal peut être déployé en mode complet. Si vous déployez le modèle principal en mode complet, et que le modèle lié ou imbriqué cible le même groupe de ressources, les ressources déployées dans le modèle lié ou imbriqué sont incluses dans l’évaluation pour le déploiement en mode complet. La collection combinée de ressources déployées dans le modèle principal et les modèles liés ou imbriqués est comparée aux ressources existantes dans le groupe de ressources. Les ressources qui ne sont pas incluses dans cette collection combinée sont supprimées.
+>
+> Si le modèle lié ou imbriqué cible un groupe de ressources différent, ce déploiement utilise le mode incrémentiel.
 >
 
 ## <a name="nested-template"></a>Modèle imbriqué
@@ -316,11 +318,6 @@ Lors du référencement d’un modèle lié, la valeur de `uri` ne doit pas êtr
 
 Resource Manager doit être en mesure d’accéder au modèle. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
 
-Les [specs de modèle](./template-specs.md) (actuellement en préversion privée) vous permettent de partager des modèles ARM avec d’autres utilisateurs de votre organisation. Les specs de modèle peuvent également être utilisées pour empaqueter un modèle principal et ses modèles liés. Pour plus d'informations, consultez les pages suivantes :
-
-- [Tutoriel : Créer une spec de modèle avec des modèles liés](./template-specs-create-linked.md).
-- [Tutoriel : Déployer une spec de modèle en tant que modèle lié](./template-specs-deploy-linked-template.md).
-
 ### <a name="parameters-for-linked-template"></a>Paramètres du modèle lié
 
 Les paramètres du modèle lié peuvent être indiqués dans un fichier externe ou inline. Lorsque vous fournissez un fichier de paramètres externe, utilisez la propriété **parametersLink** :
@@ -369,6 +366,15 @@ Pour passer des valeurs de paramètre inline, utilisez la propriété **paramete
 ```
 
 Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un fichier de paramètres. Si `parametersLink` et `parameters` sont spécifiés tous les deux, le déploiement échoue.
+
+## <a name="template-specs"></a>Spécifications de modèle
+
+Au lieu de gérer vos modèles liés sur un point de terminaison accessible, vous pouvez créer une [spécification de modèle](template-specs.md) qui empaquette le modèle principal et ses modèles liés dans une même entité que vous pouvez déployer. La spécification de modèle est une ressource de votre abonnement Azure. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- [Tutoriel : Créer une spec de modèle avec des modèles liés](./template-specs-create-linked.md).
+- [Tutoriel : Déployer une spec de modèle en tant que modèle lié](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -723,6 +729,9 @@ Même si le modèle lié doit être disponible en externe, il n’a pas besoin d
 Le fichier de paramètres peut également être limité à l’accès avec un jeton SAP.
 
 Vous ne pouvez pas établir un lien vers un modèle dans un compte de stockage derrière un [pare-feu Stockage Azure](../../storage/common/storage-network-security.md).
+
+> [!IMPORTANT]
+> Plutôt que de sécuriser votre modèle avec un jeton SAS, envisagez de créer une [spécification de modèle](template-specs.md). La spécification de modèle stocke de façon sécurisée le modèle principal et ses modèles liés en tant que ressource dans votre abonnement Azure. Vous utilisez RBAC pour accorder l’accès aux utilisateurs qui doivent déployer le modèle.
 
 L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un modèle :
 

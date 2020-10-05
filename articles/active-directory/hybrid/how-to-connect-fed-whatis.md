@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18853699ae45cbc36ade1d31b7e372b4343b475d
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279888"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660857"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.
@@ -38,12 +38,12 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | [Configurer une batterie de serveurs AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installation d’une nouvelle batterie de serveurs AD FS avec Azure AD Connect |
 | [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | **Modifier la configuration AD FS** | |
-| [Réparation de l’approbation](how-to-connect-fed-management.md#repairthetrust) |Rétablissement de l’approbation actuelle entre AD FS et Office 365/Azure au niveau local. |
+| [Réparation de l’approbation](how-to-connect-fed-management.md#repairthetrust) |Rétablir l’approbation actuelle entre AD FS et Microsoft 365/Azure au niveau local. |
 | [Ajouter un nouveau serveur AD FS](how-to-connect-fed-management.md#addadfsserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur AD FS après l’installation initiale |
 | [Ajouter un nouveau serveur de proxy d’application web AD FS](how-to-connect-fed-management.md#addwapserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur proxy d’application web après l’installation initiale. |
 | [Ajouter un nouveau domaine fédéré](how-to-connect-fed-management.md#addfeddomain) |Ajoutez un domaine à fédérer avec Azure AD. |
 | [Mettre à jour le certificat TLS/SSL](how-to-connect-fed-ssl-update.md)| Mise à jour du certificat TLS/SSL pour une batterie de serveurs AD FS. |
-| [Renouvellement des certificats de fédération pour Office 365 et Azure AD](how-to-connect-fed-o365-certs.md)|Renouvelez votre certificat O365 avec Azure AD.|
+| [Renouveler des certificats de fédération pour Microsoft 365 et Azure AD](how-to-connect-fed-o365-certs.md)|Renouvelez votre certificat O365 avec Azure AD.|
 | **Autre configuration de fédération** | |
 | [Fédérer plusieurs instances d’Azure AD avec une seule instance AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Fédérer plusieurs instances d’Azure AD avec une seule batterie de serveurs AD FS| 
 | [Ajouter un logo/une illustration personnalisée de la société](how-to-connect-fed-management.md#customlogo) |Modifiez l’expérience de connexion en spécifiant le logo personnalisé qui apparaît sur la page de connexion AD FS. |

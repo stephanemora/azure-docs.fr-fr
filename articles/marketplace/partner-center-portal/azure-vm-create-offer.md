@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816522"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029700"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle Azure sur la Place de marché Azure
 
@@ -27,7 +27,7 @@ Avant de commencer, [créez un compte Place de marché commerciale dans l’Espa
 Quand vous publiez vos offres sur la Place de marché Microsoft Azure, vous pouvez :
 
 - Promouvoir votre entreprise avec l’aide de la marque Microsoft.
-- Toucher plus de 100 millions d’utilisateurs Office 365 et Dynamics 365, ainsi que plus de 200 000 organisations.
+- Toucher plus de 100 millions d’utilisateurs Microsoft 365 et Dynamics 365, ainsi que plus de 200 000 organisations.
 - Obtenez des prospects de grande qualité à partir de ces places de marché.
 - Bénéficier d’une promotion de vos services assurée par les équipes de vente sur le terrain et de télévente de Microsoft.
 
@@ -162,7 +162,7 @@ Vous devez indiquer les Conditions générales de l’offre à vos clients. Deux
 
        a. Entrez vos propres termes d’avenant dans la zone **Termes d’avenant personnalisé**. Vous pouvez entrer un nombre illimité de caractères. Seuls les clients des ID de locataire que vous spécifiez pour ces termes personnalisés les verront dans le flux d’achat de l’offre dans le portail Azure.
 
-       b. (Obligatoire) Spécifiez les **ID de locataire**. Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire, qui identifie votre client dans Azure. Votre client peut le trouver pour vous dans Azure en sélectionnant **Azure Active Directory** > **Propriétés**. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également rechercher l’ID de locataire de l’organisation de votre client à l’aide de son adresse Web de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com/).
+       b. (Obligatoire) Spécifiez les **ID de locataire**. Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire, qui identifie votre client dans Azure. Votre client peut le trouver pour vous dans Azure en sélectionnant **Azure Active Directory** > **Propriétés**. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également rechercher l’ID de locataire de l’organisation de votre client à l’aide de son adresse web de nom de domaine sur [Quel est mon ID de locataire Microsoft Azure et Microsoft 365 ?](https://www.whatismytenantid.com/)
 
        c. (Facultatif) : fournissez une **Description** claire de l’ID de locataire, qui vous aide à identifier le client que vous ciblez avec cet avenant.
 
@@ -547,7 +547,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche de la Place de marché Azure :
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de la Place de marché Azure.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -558,7 +558,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de détails du plan dans la Place de marché Azure :
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustre des détails du plan dans la Place de marché Azure.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -568,7 +568,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -579,7 +579,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche du portail Azure :
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de Portail Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -589,7 +589,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de détails du plan dans le portail Azure :
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustre les détails du plan dans le portail Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930670"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645575"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -231,7 +231,7 @@ Cette commande échoue si le compte de stockage est contenu dans un réseau virt
 > Le nom de votre partage de fichiers doit être en minuscules. Pour obtenir des informations détaillées sur le nommage des partages de fichiers et des fichiers, consultez  [Nommage et référencement des partages, des répertoires, des fichiers et des métadonnées](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Créer un partage de fichiers chaud ou froid
-Un partage de fichiers dans un **compte de stockage usage général v2 (GPv2)** peut contenir des partages de fichiers optimisés pour les transaction chauds ou froids (ou un mélange des deux). Des partages optimisés pour les transactions sont disponibles dans toutes les régions Azure, mais des partages de fichiers chauds et froids ne sont disponibles que [dans un sous-ensemble de régions](storage-files-planning.md#storage-tiers). Vous pouvez créer un partage de fichiers chaud ou froid à l’aide du module de préversion Azure PowerShell ou d’Azure CLI. 
+Un **compte de stockage v2 (GPv2) à usage général** peut contenir des partages de fichiers à chaud ou à froid (ou un mélange des deux), optimisés pour les transactions. Des partages optimisés pour les transactions sont disponibles dans toutes les régions Azure, mais des partages de fichiers chauds et froids ne sont disponibles que [dans un sous-ensemble de régions](storage-files-planning.md#storage-tiers). Vous pouvez créer un partage de fichiers chaud ou froid à l’aide du module de préversion Azure PowerShell ou d’Azure CLI. 
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Le portail Azure ne prend pas encore en charge la création de partages de fichiers chauds et froids, ou le déplacement de partages de fichiers optimisés pour les transactions existants vers des partages chauds ou froids. Consultez les instructions de création d’un partage de fichiers avec PowerShell ou Azure CLI.

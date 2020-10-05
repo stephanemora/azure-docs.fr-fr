@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135825"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612895"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -217,7 +217,7 @@ Si votre scénario nécessite des points de terminaison entrants, deux options s
 
 Vous ne pouvez pas tenir une promesse zonale avec des ressources de passerelle NAT quand des instances de machine virtuelle sont déployées dans plusieurs zones du même sous-réseau.   Et même plusieurs passerelles NAT zonales étaient attachées à un sous-réseau, l’instance de machine virtuelle ne saurait pas quelle ressource de passerelle NAT sélectionner.
 
-Une promesse zonale n’existe quand a) la zone d’une instance de machine virtuelle et les zones d’une passerelle NAT zonale ne sont pas alignées, ou b) une ressource de passerelle NAT régionale est utilisée avec des instances de machine virtuelle zonales.
+Une promesse zonale n’existe quand a) la zone d’une instance de machine virtuelle et la zone d’une passerelle NAT zonale ne sont pas alignées, ou b) une ressource de passerelle NAT régionale est utilisée avec des instances de machine virtuelle zonales.
 
 Même si le scénario semble fonctionner, son modèle d’intégrité et son mode d’échec ne sont pas définis du point de vue d’une zone de disponibilité. Envisagez plutôt d’utiliser des piles zonales ou de toutes les zones géographiques.
 

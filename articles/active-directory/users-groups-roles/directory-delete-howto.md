@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795420"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056300"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
@@ -27,12 +27,12 @@ La suppression d’une organisation Azure AD (locataire) a également pour effet
 
 ## <a name="prepare-the-organization"></a>Préparer l’organisation
 
-Avant de supprimer une organisation d’Azure AD, vous devez faire quelques vérifications. Celles-ci limitent le risque d’un impact négatif de la suppression de l’organisation Azure AD sur l’accès des utilisateurs, par exemple, sur leur capacité à se connecter à Office 365 ou à accéder à des ressources dans Azure. En effet, en cas de suppression d’une organisation associée à un abonnement, les utilisateurs ne peuvent plus accéder aux ressources Azure de cet abonnement. Les conditions à remplir sont les suivantes :
+Avant de supprimer une organisation d’Azure AD, vous devez faire quelques vérifications. Celles-ci limitent le risque d’un impact négatif de la suppression de l’organisation Azure AD sur l’accès des utilisateurs, par exemple sur leur capacité à se connecter à Microsoft 365 ou à accéder à des ressources dans Azure. En effet, en cas de suppression d’une organisation associée à un abonnement, les utilisateurs ne peuvent plus accéder aux ressources Azure de cet abonnement. Les conditions à remplir sont les suivantes :
 
 * L’organisation Azure AD (locataire) ne peut contenir aucun utilisateur, à l’exception de l’administrateur général qui doit la supprimer. Tous les autres utilisateurs doivent être supprimés au préalable. Si des utilisateurs se synchronisent à partir d’un emplacement local, la synchronisation doit être désactivée, et les utilisateurs supprimés de l’organisation cloud via le portail Azure ou à l’aide de cmdlets Azure PowerShell.
 * L’organisation ne doit contenir aucune application. Toute application doit être supprimée de l’organisation avant la suppression de celle-ci.
 * Aucun fournisseur d’authentification multifacteur ne peut être lié à l’organisation.
-* Aucun abonnement à des Microsoft Online Services tels que Microsoft Azure, Office 365 ou Azure AD Premium ne peut être associé à l’organisation. Par exemple, si une organisation Azure AD par défaut a été créée pour vous dans Azure, vous ne pouvez pas supprimer celle-ci si votre abonnement Azure en dépend toujours pour l’authentification. De même, vous ne pouvez pas supprimer une organisation à laquelle un autre utilisateur a associé un abonnement.
+* Aucun abonnement aux services en ligne Microsoft tels que Microsoft Azure, Microsoft 365 ou Azure AD Premium, ne peut être associé à l’organisation. Par exemple, si une organisation Azure AD par défaut a été créée pour vous dans Azure, vous ne pouvez pas supprimer celle-ci si votre abonnement Azure en dépend toujours pour l’authentification. De même, vous ne pouvez pas supprimer une organisation à laquelle un autre utilisateur a associé un abonnement.
 
 ## <a name="delete-the-organization"></a>Supprimer l’organisation
 
@@ -52,16 +52,16 @@ Avant de supprimer une organisation d’Azure AD, vous devez faire quelques vér
 
 ## <a name="if-you-cant-delete-the-organization"></a>Si vous ne pouvez pas supprimer l’organisation
 
-Quand vous avez configuré votre organisation Azure AD, vous avez peut-être aussi activé pour celle-ci des abonnements assortis d’une licence, tels qu’Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Pour éviter toute perte accidentelle de données, vous ne pouvez pas supprimer une organisation tant que tous les abonnements associés à celle-ci n’ont pas été complètement supprimés. Pour que la suppression de l’organisation soit autorisée, les abonnements doivent être dans un état **Annulé**. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Approvisionnement annulé**.
+Quand vous avez configuré votre organisation Azure AD, vous avez peut-être aussi activé pour celle-ci des abonnements assortis d’une licence, comme Azure AD Premium P2, Microsoft 365 Business Standard ou Enterprise Mobility + Security E5. Pour éviter toute perte accidentelle de données, vous ne pouvez pas supprimer une organisation tant que tous les abonnements associés à celle-ci n’ont pas été complètement supprimés. Pour que la suppression de l’organisation soit autorisée, les abonnements doivent être dans un état **Annulé**. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Approvisionnement annulé**.
 
-S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+S’il s’agit de l’expiration d’un abonnement d’essai à Microsoft 365 (à l’exception des programmes payants Partenaire/CSP, Contrat Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Microsoft 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Microsoft 365 pour les entreprises ?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 État de l’abonnement | Données | Accès aux données
 ----- | ----- | -----
-Actif (30 jours pour l’essai gratuit) | Données accessibles à tous | Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<br>Les administrateurs ont un accès normal au centre d’administration et aux ressources Microsoft 365 
-Expiré (30 jours) | Données accessibles à tous| Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<br>Les administrateurs ont un accès normal au centre d’administration et aux ressources Microsoft 365
-Désactivé (30 jours) | Données accessibles à l’administrateur uniquement | Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<br>Les administrateurs peuvent accéder au centre d’administration Microsoft 365, mais ne peuvent pas attribuer de licences ou mettre à jour des utilisateurs
-Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<br>Les administrateurs peuvent accéder au centre d’administration Microsoft 365 pour acheter et gérer d’autres abonnements
+Actif (30 jours pour l’essai gratuit) | Données accessibles à tous | Les utilisateurs ont un accès normal aux fichiers ou applications Microsoft 365<br>Les administrateurs ont un accès normal au centre d’administration et aux ressources Microsoft 365 
+Expiré (30 jours) | Données accessibles à tous| Les utilisateurs ont un accès normal aux fichiers ou applications Microsoft 365<br>Les administrateurs ont un accès normal au centre d’administration et aux ressources Microsoft 365
+Désactivé (30 jours) | Données accessibles à l’administrateur uniquement | Les utilisateurs ne peuvent pas accéder aux fichiers ou aux applications Microsoft 365<br>Les administrateurs peuvent accéder au centre d’administration Microsoft 365, mais ne peuvent pas attribuer de licences ou mettre à jour des utilisateurs
+Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | Les utilisateurs ne peuvent pas accéder aux fichiers ou aux applications Microsoft 365<br>Les administrateurs peuvent accéder au centre d’administration Microsoft 365 pour acheter et gérer d’autres abonnements
 
 ## <a name="delete-a-subscription"></a>Supprimer un abonnement
 
@@ -97,7 +97,7 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>J’ai un abonnement d’évaluation qui bloque la suppression
 
-L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire via Office 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
+L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire par le biais de Microsoft 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
 
 Il existe deux types de produits disponibles à l’inscription en libre service, selon la façon dont ils sont attribués : 
 
@@ -108,7 +108,7 @@ Lorsque vous déclenchez la suppression d’un produit attribué à des utilisat
 
 Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+S’il s’agit de l’expiration d’un abonnement d’essai à Microsoft 365 (à l’exception des programmes payants Partenaire/CSP, Contrat Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Microsoft 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Microsoft 365 pour les entreprises ?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 État du produit | Données | Accès aux données
 ------------- | ---- | --------------

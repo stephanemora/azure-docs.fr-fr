@@ -1,6 +1,6 @@
 ---
 title: Gérer vos organisations dans le portail Mon compte - Azure AD
-description: Guide pratique pour voir et quitter les organisations connectées à votre compte professionnel ou scolaire dans la page Organisations du portail Mon compte.
+description: Guide pratique pour afficher et quitter des organisations auxquelles vous avez accès à partir de la page Organisations du portail Mon compte.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798174"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005069"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gérer vos organisations connectées à partir de la page Organisations
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gérer les organisations auxquelles vous avez accès dans le portail Mon compte
 
-La page **Organisations** du portail **Mon compte** vous permet de gérer les organisations (en général, le nom de votre organisation) connectées à votre compte professionnel ou scolaire. Il existe deux types d’organisations, indiqués à la page **Organisations** :
+La page **Organisations** du portail **Mon compte** vous permet de gérer les organisations (en général, le nom de votre organisation) auxquelles vous avez accès. Il existe deux types d’organisations, indiqués à la page **Organisations** :
 
 - **Organisation d'origine.** Votre organisation d’origine est l’organisation propriétaire de votre compte professionnel ou scolaire. Vous ne pouvez pas quitter votre organisation d’origine.
 
@@ -30,7 +30,7 @@ La page **Organisations** du portail **Mon compte** vous permet de gérer les or
 - **Autres organisations.** Les autres organisations sont n’importe quel groupe auquel vous vous êtes connecté précédemment à l’aide de votre compte professionnel ou scolaire. Vous pouvez quitter ces organisations à tout moment.
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations d'organisation connectées à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des groupes et utilisateurs pour vos employés et d’autres utilisations, consultez la [documentation Gestion des utilisateurs en entreprise](../users-groups-roles/index.yml).
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations d’organisation auxquelles un compte professionnel ou scolaire accède. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des groupes et utilisateurs pour vos employés et d’autres utilisations, consultez la [documentation Gestion des utilisateurs en entreprise](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Afficher vos organisations
 
@@ -44,7 +44,7 @@ La page **Organisations** du portail **Mon compte** vous permet de gérer les or
 
     ![Page Organisations](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Vérifiez vos autres organisations associées en vous assurant que vous reconnaissez toutes les organisations connectées à votre compte.
+4. Vérifiez vos autres organisations, en vous assurant que vous reconnaissez toutes les organisations auxquelles vous avez accès.
 
 ## <a name="leave-an-organization"></a>Quitter une organisation
 

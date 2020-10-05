@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081183"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442069"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Guide pratique pour utiliser des sources de données de profilage de données dans Azure Data Catalog
 
@@ -29,7 +29,7 @@ Le profilage des données consiste à examiner les données dans la source de do
 
 Les sources de données suivantes prennent en charge le profilage des données :
 
-* Vues et tables SQL Server (y compris la base de données SQL Azure et Azure SQL Data Warehouse)
+* Tables et vues SQL Server (notamment Azure SQL DB et Azure Synapse Analytics)
 * Tables et vues Oracle
 * Tables et vues Teradata
 * Tables Hive

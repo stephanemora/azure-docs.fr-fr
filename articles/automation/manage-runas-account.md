@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e5f75a5ff9c6baff9bbefea7846ffe78655c6a9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401756"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005732"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
@@ -26,16 +26,16 @@ Azure Automation utilise deux types de comptes d’identification :
 >[!NOTE]
 >Les abonnements Fournisseur de solutions Azure Cloud (CSP) prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Lorsque vous utilisez un abonnement CSP, le compte d’identification Azure Classic n’est pas créé, c’est le compte d’identification Azure qui l’est. Pour en savoir plus sur les abonnements CSP, consultez [Services disponibles dans les abonnements CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-Le principal du service d’un compte d’identification ne dispose pas d’autorisations pour lire Azure AD par défaut. Si vous souhaitez ajouter des autorisations pour lire ou gérer Azure AD, vous devrez accorder ces autorisations sur le principal du service, sous **Autorisations des API**. Pour en savoir plus, consultez [Ajouter des autorisations pour accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Le principal du service d’un compte d’identification ne dispose pas d’autorisations pour lire Azure AD par défaut. Si vous souhaitez ajouter des autorisations pour lire ou gérer Azure AD, vous devrez accorder ces autorisations sur le principal du service, sous **Autorisations des API**. Pour en savoir plus, consultez [Ajouter des autorisations pour accéder à vos API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ### <a name="run-as-account"></a>compte d'identification
 
 Le compte d’identification gère les ressources du [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md). Il effectue les tâches suivantes.
 
 * Crée une application Azure AD avec un certificat auto-signé, crée un compte de principal de service pour cette application dans Azure AD et affecte le rôle Collaborateur pour le compte dans votre abonnement actuel. Vous pouvez remplacer le paramètre de certificat par un rôle de propriétaire ou tout autre rôle. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
-  
+
 * Crée une ressource de certificat Automation nommée `AzureRunAsCertificate` dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat que l’application Azure AD utilise.
-  
+
 * Crée une ressource de connexion Automation nommée `AzureRunAsConnection` dans le compte Automation spécifié. La ressource de connexion contient l'ID de l'application, l'ID du locataire, l'ID de l'abonnement et l'empreinte du certificat.
 
 ### <a name="azure-classic-run-as-account"></a>Compte d’identification Azure Classic
@@ -80,7 +80,7 @@ Pour vérifier que la situation produisant le message d’erreur a été corrig�
 
 1. Dans le volet Azure Active Directory du portail Azure, sélectionnez **Utilisateurs et groupes**.
 2. Sélectionnez **Tous les utilisateurs**.
-3. Choisissez votre nom, puis sélectionnez **Profil**. 
+3. Choisissez votre nom, puis sélectionnez **Profil**.
 4. Vérifiez que la valeur de l’attribut **Usertype** sous votre profil d’utilisateur n’est pas définie sur **Invité**.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtenir des autorisations pour configurer des comptes d’identification Classic
@@ -99,7 +99,7 @@ Effectuez les étapes suivantes pour mettre à jour votre compte Azure Automatio
 
 4. Dans le volet gauche, sélectionnez **Comptes d’identification** dans la section des paramètres de compte.
 
-5. Selon le compte dont vous avez besoin, sélectionnez **Compte d’identification Azure** ou **Compte d’identification Azure Classic**. 
+5. Selon le compte dont vous avez besoin, sélectionnez **Compte d’identification Azure** ou **Compte d’identification Azure Classic**.
 
 6. En fonction du compte qui vous intéresse, utilisez le volet **Ajouter un compte d’identification Azure** ou **Ajouter un compte d’identification Azure Classic**. Après avoir passé en revue les informations générales, cliquez sur **Créer**.
 
@@ -113,7 +113,7 @@ Cette section décrit comment supprimer un compte d’identification standard ou
 
 2. Dans le volet gauche, sélectionnez **Comptes d’identification** dans la section des paramètres de compte.
 
-3. Dans la page de propriétés Comptes d’identification, sélectionnez le compte d’identification standard ou le compte d’identification Classic que vous voulez supprimer. 
+3. Dans la page de propriétés Comptes d’identification, sélectionnez le compte d’identification standard ou le compte d’identification Classic que vous voulez supprimer.
 
 4. Dans le volet Propriétés, pour le compte sélectionné, cliquez sur **Supprimer**.
 
@@ -127,7 +127,7 @@ Cette section décrit comment supprimer un compte d’identification standard ou
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renouveler un certificat auto-signé
 
-Le certificat auto-signé que vous avez créé pour le compte d’identification expire au bout d’un an après la date de création. Avant que votre compte d’identification n’expire, vous devez renouveler le certificat. Vous pouvez le renouveler à tout moment avant qu’il n’expire. 
+Le certificat auto-signé que vous avez créé pour le compte d’identification expire au bout d’un an après la date de création. Avant que votre compte d’identification n’expire, vous devez renouveler le certificat. Vous pouvez le renouveler à tout moment avant qu’il n’expire.
 
 Lorsque vous renouvelez le certificat auto-signé, le certificat valide en cours est conservé afin de garantir que les Runbooks en file d’attente ou en cours d’exécution, qui s’authentifient avec le compte d’identification, ne sont pas affectés. Le certificat reste valide jusqu’à sa date d’expiration.
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Vous pouvez déterminer si le principal du service utilisé par votre compte d’identification se trouve dans la définition du rôle Contributeur ou dans une autre définition personnalisée. 
+Vous pouvez déterminer si le principal du service utilisé par votre compte d’identification se trouve dans la définition du rôle Contributeur ou dans une autre définition personnalisée.
 
 1. Accédez à votre compte Automation, puis sélectionnez **Comptes d’identification** dans la section des paramètres de compte.
-2. Sélectionnez **Compte d'identification Azure**. 
+2. Sélectionnez **Compte d'identification Azure**.
 3. Sélectionnez **Rôle** pour rechercher la définition de rôle en cours d’utilisation.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Vérifiez le rôle du compte d’identification." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -207,7 +207,7 @@ Lorsque vous sélectionnez le compte d’identification, le volet des propriét�
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Vous pouvez rapidement résoudre ces problèmes liés au compte d’identification en supprimant et en recréant le compte.
+Vous pouvez rapidement résoudre ces problèmes liés au compte d’identification en supprimant et en recréant le compte d’identification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

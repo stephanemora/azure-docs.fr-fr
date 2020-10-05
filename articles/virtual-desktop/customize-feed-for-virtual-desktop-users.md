@@ -3,15 +3,15 @@ title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop - 
 description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop avec des applets de commande PowerShell
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009118"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084292"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
 
@@ -107,7 +107,7 @@ Vous pouvez changer le nom d’affichage pour un Bureau à distance publié en d
 
 3. Sous services, sélectionnez **Windows Virtual Desktop**.
 
-4. Dans la page Windows Virtual Desktop, sélectionnez **Groupes d’applications** sur le côté gauche de l’écran, puis sélectionnez le nom du groupe d’applications que vous souhaitez modifier.
+4. Dans la page Windows Virtual Desktop, sélectionnez **Groupes d’applications** sur le côté gauche de l’écran, puis sélectionnez le nom du groupe d’applications que vous souhaitez modifier. (Par exemple, si vous souhaitez modifier le nom complet du groupe d’applications de bureau, sélectionnez le groupe d’applications nommé **Desktop**.)
 
 5. Sélectionnez **Applications** dans le menu sur le côté gauche de l’écran.
 

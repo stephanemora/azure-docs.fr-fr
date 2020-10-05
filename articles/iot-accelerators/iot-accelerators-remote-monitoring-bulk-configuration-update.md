@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77565576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363152"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutoriel : Gérer vos appareils connectés en bloc
 
@@ -147,7 +147,7 @@ Utilisez votre compte de stockage Azure pour héberger votre nouveau fichier de 
 
 1. Une fois le chargement terminé, l’appareil DevKit IoT redémarre. Une fois le redémarrage effectué, l’écran d’IoT DevKit affiche **FW version : 1.0.0**, et indique qu’il recherche un nouveau microprogramme :
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![La photographie montre l’appareil I o T DevKit avec son écran affichant la version du microprogramme et recherchant le nouveau microprogramme.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Créer une configuration d’appareil
 
@@ -248,23 +248,23 @@ Dans cette section, vous créez et exécutez un déploiement qui applique la con
 
 Après quelques minutes, le DevKit IoT récupère les informations du nouveau microprogramme et commence à le télécharger sur l’appareil :
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![La photographie montre l’appareil I o T DevKit avec l’écran affichant la nouvelle version de microprogramme téléchargée.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 En fonction de la vitesse de votre réseau, le téléchargement peut prendre quelques minutes. Une fois le microprogramme téléchargé, l’appareil vérifie la taille du fichier et la valeur CRC. L’écran sur le MXChip affiche **passed** (réussi) si la vérification aboutit.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![La photographie montre l’appareil I o T DevKit avec son écran affichant la version du microprogramme et transmis pour vérification réussie.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Si la vérification aboutit, l’appareil redémarre. Vous voyez un compte à rebours de **5** à **0** avant que le redémarrage ne se produise.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![La photographie montre l’appareil I o T DevKit se préparant à redémarrer.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Après le redémarrage, le chargeur de démarrage DevKit IoT met à niveau le microprogramme vers la nouvelle version. La mise à jour peut durer plusieurs secondes. Pendant cette phase, la LED RVB dans l’appareil est rouge et l’écran est vide.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![La photographie montre l’appareil I o T DevKit effectuant la mise à niveau. Il n’y a pas d’affichage, mais y a un R G B L E D lumineux rouge.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 Une fois le redémarrage terminé, la version 1.0.1 du microprogramme est en cours d’exécution sur votre appareil DevKit IoT.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![La photographie montre l’appareil I o T DevKit avec l’écran affichant la nouvelle version de microprogramme.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 Sur la page **Déploiements**, cliquez sur un déploiement pour connaître l’état de vos appareils quand ils se mettent à jour. Vous pouvez voir l’état de chaque appareil figurant dans votre groupe d’appareils ainsi que les métriques personnalisées que vous avez définies.
 

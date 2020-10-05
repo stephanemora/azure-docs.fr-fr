@@ -2,13 +2,13 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002777"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605173"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Les commandes utilisées pour les déploiements au niveau de l’abonnement sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
-Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
+Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurecli-interactive
 az deployment sub create \
@@ -115,7 +115,7 @@ Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas po
 
 ## <a name="deployment-scopes"></a>Étendues de déploiement
 
-Lors du déploiement sur un abonnement, vous pouvez cibler l’abonnement ou les groupes de ressources au sein de l’abonnement. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+Lors du déploiement sur un abonnement, vous pouvez cibler un abonnement et des groupes de ressources au sein de l’abonnement. Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
 Les ressources définies dans la section Ressources du modèle sont appliquées à l’abonnement.
 
@@ -145,7 +145,7 @@ Pour cibler un groupe de ressources au sein de l’abonnement, ajoutez un déplo
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,17 @@ Pour cibler un groupe de ressources au sein de l’abonnement, ajoutez un déplo
 }
 ```
 
+Dans cet article, vous trouverez des modèles qui montrent comment déployer des ressources sur différentes étendues. Pour un modèle qui crée un groupe de ressources et y déploie un compte de stockage, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources). Pour un modèle qui crée un groupe de ressources, lui applique un verrou et lui affecte un rôle, consultez [Contrôle d’accès](#access-control).
+
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 
 Pour les déploiements au niveau de l’abonnement, il existe quelques considérations importantes liées à l’utilisation des fonctions de modèle :
 
 * La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
 * Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* Ou utilisez la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) pour récupérer l’ID des ressources déployées au niveau abonnement.
+* N’utilisez pas [resourceId()](template-functions-resource.md#resourceid) pour obtenir l’ID des ressources déployées au niveau de l’abonnement. À la place, utilisez la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid).
 
-  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
+  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie déployée sur un abonnement, utilisez :
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +422,7 @@ Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md)
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

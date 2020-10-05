@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357356"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084607"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
@@ -65,7 +65,7 @@ Si vous souhaitez que tous les éléments soient supprimés, procédez comme sui
 
 1. Pour récupérer le seuil de suppression actuel, exécutez l’applet de commande PowerShell `Get-ADSyncExportDeletionThreshold`. Indiquez un compte et un mot de passe d’administrateur général Azure AD. La valeur par défaut est 500.
 2. Pour désactiver temporairement cette protection et procéder à ces suppressions exécutez l’applet de commande PowerShell `Disable-ADSyncExportDeletionThreshold`. Indiquez un compte et un mot de passe d’administrateur général Azure AD.
-   ![Informations d'identification](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Capture d’écran qui montre une boîte de dialogue permettant d’entrer le nom d’utilisateur et le mot de passe de l’administrateur général Azure AD.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l’action **Exécuter**, puis **Exporter**.
 4. Pour réactiver la protection, exécutez l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Remplacez 500 par la valeur que vous avez notée lors de la récupération du seuil de suppression actuel. Indiquez un compte et un mot de passe d’administrateur général Azure AD.
 

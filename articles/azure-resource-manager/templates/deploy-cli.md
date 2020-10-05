@@ -2,13 +2,13 @@
 title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040814"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566158"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -26,13 +26,13 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
 Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-* Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) :
+* Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) :
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Pour un déploiement dans un **abonnement**, utilisez [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create) :
+* Pour un déploiement dans un **abonnement**, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) :
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +40,7 @@ Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement
 
   Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
-* Pour un déploiement dans un **groupe de d’administration**, utilisez [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create) :
+* Pour un déploiement dans un **groupe de d’administration**, utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +48,7 @@ Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
 
-* Pour un déploiement dans un **locataire**, utilisez [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create) :
+* Pour un déploiement dans un **locataire**, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -128,6 +128,35 @@ az deployment group create \
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](secure-template-with-sas-token.md).
 
+## <a name="deploy-template-spec"></a>Déployer une spec de modèle
+
+Au lieu de déployer un modèle local ou distant, vous pouvez créer une [spécification de modèle](template-specs.md). La spécification de modèle est une ressource de votre abonnement Azure qui contient un modèle ARM. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+
+Les exemples suivants montrent comment créer et déployer une spécification de modèle. Ces commandes sont disponibles seulement si vous vous êtes [inscrit pour la préversion](https://aka.ms/templateSpecOnboarding).
+
+Tout d’abord, vous créez la spécification de modèle en fournissant le modèle ARM.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+Ensuite, vous recevez l’ID de la spécification de modèle et vous le déployez.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+Pour plus d’informations, consultez [Spécification de modèle Azure Resource Manager (préversion)](template-specs.md).
+
 ## <a name="preview-changes"></a>Prévisualiser les modifications
 
 Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](template-deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
@@ -179,6 +208,28 @@ Le format arrayContent.json est :
     "value2"
 ]
 ```
+
+Pour passer un objet en entrée, par exemple pour définir des balises, utilisez JSON. Par exemple, votre modèle peut inclure un paramètre comme celui-ci :
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+Dans ce cas, vous pouvez passer une chaîne JSON pour définir le paramètre comme indiqué dans le script bash suivant :
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+Utilisez des guillemets doubles autour du JSON que vous voulez passer à l’objet.
 
 ### <a name="parameter-files"></a>Fichiers de paramètres
 

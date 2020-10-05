@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518468"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658367"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Questions fréquentes (FAQ) sur le provisionnement cloud Azure Active Directory Connect
 
@@ -74,7 +74,7 @@ Lorsque vous supprimez la configuration, le provisionnement cloud ne supprime pa
 
 **Q :  Que signifie : Exchange hybride n’est pas pris en charge  ?**
 
-La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange en local et dans Office 365. Azure AD Connect synchronise un ensemble spécifique d’attributs d’Azure AD dans votre annuaire local.  L’agent de provisionnement cloud ne synchronise pas pour l’instant ces attributs dans votre annuaire local et il n’est par conséquent pas pris en charge comme remplacement pour Azure AD Connect.
+La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange en local et dans Microsoft 365. Azure AD Connect synchronise un ensemble spécifique d’attributs d’Azure AD dans votre annuaire local.  L’agent de provisionnement cloud ne synchronise pas pour l’instant ces attributs dans votre annuaire local et il n’est par conséquent pas pris en charge comme remplacement pour Azure AD Connect.
 
 **Q :  Puis-je installer l’agent de provisionnement cloud sur Windows Server Core ?**
 

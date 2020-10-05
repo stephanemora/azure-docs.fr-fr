@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Charge de travail ASE/SQL ISO 27001
-description: Correspondance des contrôles de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 à Azure Policy et RBAC.
+description: Correspondance des contrôles de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 à Azure Policy et Azure RBAC.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920736"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541218"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -47,7 +47,7 @@ Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestion des droits d’accès à privilèges
 
-Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant quatre définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour gérer qui a accès aux ressources Azure. Ce blueprint attribue également trois définitions Azure Policy afin de vérifier l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. Ce blueprint affecte également une définition Azure Policy pour vérifier l’utilisation des règles RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
+Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant quatre définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Le contrôle d’accès en fonction du rôle (Azure RBAC) pour gérer qui a accès aux ressources Azure. Ce blueprint attribue également trois définitions Azure Policy afin de vérifier l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. Ce blueprint affecte également une définition Azure Policy pour vérifier l’utilisation des règles Azure RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
@@ -78,7 +78,7 @@ Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](..
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Suppression ou adaptation des droits d’accès
 
-Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. Grâce à [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) et à RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
+Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. Grâce à [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) et Azure RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement

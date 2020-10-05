@@ -4,23 +4,23 @@ description: Décrit comment Azure Active Directory permet aux organisations de 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/01/2019
+ms.date: 09/02/2020
 ms.author: curtand
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798395"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055161"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "88798395"
 Parfois, les organisations doivent utiliser les mêmes nom d’utilisateur et mot de passe pour plusieurs personnes, généralement dans deux cas :
 
 * Au moment d’accéder à des applications qui nécessitent un nom de connexion et un mot de passe uniques pour chaque utilisateur, qu’il s’agisse d’applications locales ou de services cloud grand public (par exemple, les comptes de réseaux sociaux d’entreprise).
-* Pendant la création d’environnements multi-utilisateurs. Vous pouvez avoir un compte local unique qui dispose de privilèges élevés et est utilisé pour les activités d’installation, d’administration et de récupération de base. Par exemple, le compte local « administrateur général » pour Office 365 ou le compte racine dans Salesforce.
+* Pendant la création d’environnements multi-utilisateurs. Vous pouvez avoir un compte local unique qui dispose de privilèges élevés et est utilisé pour les activités d’installation, d’administration et de récupération de base. Par exemple, le compte local « administrateur général » pour Microsoft 365 ou le compte racine dans Salesforce.
 
 En règle générale, ces comptes sont partagés en distribuant les informations d’identification (nom d’utilisateur et mot de passe) aux personnes appropriées ou en les stockant dans un emplacement partagé où peuvent accéder plusieurs agents de confiance.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948910"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085907"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -264,7 +264,7 @@ Les conditions d’utilisation par appareil sont associées aux contraintes suiv
 
 - Un appareil ne peut être joint qu’à un seul locataire.
 - Un utilisateur doit disposer d’autorisations pour joindre son appareil.
-- L’application d’inscription à Intune n’est pas prise en charge.
+- L’application d’inscription à Intune n’est pas prise en charge. Assurez-vous qu’elle est exclue de toute stratégie d’accès conditionnel nécessitant des conditions d’utilisation.
 - Les utilisateurs Azure AD B2B ne sont pas pris en charge.
 
 Si l’appareil de l’utilisateur n’est pas joint, il reçoit un message lui demandant de le faire. Son expérience varie selon la plateforme et le logiciel utilisés.

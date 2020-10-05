@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020352"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645641"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -147,7 +147,8 @@ Cela peut se produire si la virtualisation Hyper-V est activée sur le serveur p
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualisation des dépendances dans Azure Government
 
-Azure Migrate dépend de Service Map pour la fonctionnalité de visualisation des dépendances. Étant donné que Service Map n’est pas disponible pour Azure Government, cette fonctionnalité de visualisation n’est pas disponible dans Azure Government.
+L’analyse des dépendances basée sur les agents n’est pas prise en charge dans Azure Government. Utilisez l’analyse des dépendances sans agent.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Les dépendances ne sont pas affichées après l’installation des agents
 
@@ -160,7 +161,7 @@ Pour les machines virtuelles Windows :
 
     ![État MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent.
+Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent. Reportez-vous à cet autre [guide de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -181,7 +182,6 @@ Dans Azure Migrate Server Assessment, avec l’analyse des dépendances sans age
 ## <a name="machines-show-install-agent"></a>Les machines affichent « Installer l’agent »
 
 Après la migration des machines avec la visualisation des dépendances activée vers Azure, les ordinateurs peuvent afficher l’action « Installer l’agent » au lieu de « Afficher les dépendances » en raison du comportement suivant :
-
 
 - Après la migration vers Azure, les machines locales sont désactivées et les machines virtuelles équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente.
 - Les ordinateurs peuvent également avoir une adresse IP différente, selon que vous avez ou non conservé l’adresse IP locale.

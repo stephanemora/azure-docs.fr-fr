@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231161"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600498"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -42,9 +42,9 @@ Vous pouvez analyser les utilisateurs signalés comme présentant un risque par 
 
 Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs associés à un indicateur de risque](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Abonnement Azure AD de clients Office 365
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Abonnement Azure AD de clients Microsoft 365
 
-Vous pouvez également utiliser vos informations d’identification Office 365 pour accéder au **centre d’administration Azure**. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
+Vous pouvez également utiliser vos informations d’identification Microsoft 365 pour accéder au **centre d’administration Azure**. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
 
 Pour accéder aux rapports sur les **utilisateurs avec indicateur de risque** dans le centre d’administration Microsoft 365 :
 
@@ -79,7 +79,7 @@ Effectuez les actions suivantes pour aider à rectifier les comptes affectés et
 
     h. Générez un journal d’audit pour permettre à l'administrateur de l’analyser.
 
-4. Dans votre abonné Office 365 et autres infrastructure informatique, analysez tous les paramètres d’abonné, comptes d’utilisateurs et les paramètres de configuration par utilisateur et cherchez toute modification éventuelle. Vérifiez les indicateurs de méthodes ou de persistance, ainsi que tout signe qu’un intrus aurait pu mettre la main sur des informations d’identification VPN, ou accéder à d’autres ressources organisationnelles. 
+4. Dans votre locataire Microsoft 365 et autres infrastructure informatique, analysez tous les paramètres d’abonné, comptes d’utilisateur et paramètres de configuration par utilisateur et cherchez toute modification éventuelle. Vérifiez les indicateurs de méthodes ou de persistance, ainsi que tout signe qu’un intrus aurait pu mettre la main sur des informations d’identification VPN, ou accéder à d’autres ressources organisationnelles. 
 
 5.  Lors de votre enquête, vous devrez décider si vous devez avertir les autorités gouvernementales, concernant les lois en vigueur.
 

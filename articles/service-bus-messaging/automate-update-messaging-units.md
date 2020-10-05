@@ -1,176 +1,144 @@
 ---
 title: Azure Service Bus – Mettre à jour automatiquement les unités de messagerie
-description: Cet article vous explique de quelle façon vous pouvez utiliser un runbook Azure Automation pour mettre à jour automatiquement les unités de messagerie d’un espace de noms Service Bus.
+description: Cet article vous explique de quelle façon vous pouvez mettre à jour automatiquement les unités de messagerie d’un espace de noms Service Bus.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984647"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Mettre à jour automatiquement les unités de messagerie d’un espace de noms Azure Service Bus 
-Cet article vous explique de quelle façon vous pouvez mettre à jour automatiquement les [unités de messagerie](service-bus-premium-messaging.md) d’un espace de noms Service Bus en fonction de l’utilisation des ressources (UC ou mémoire). 
+La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet d’ajouter des ressources pour gérer les augmentations de charge et d’économiser de l’argent en supprimant les ressources qui sont inactives. Pour en savoir plus sur la fonctionnalité de mise à l’échelle automatique d’Azure Monitor, consultez [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/platform/autoscale-overview.md). 
 
-L’exemple de cet article montre comment augmenter les unités de messagerie pour un espace de noms Service Bus lorsque ce dernier utilise l’UC au-delà de 75 %. Les étapes principales sont les suivantes :
+La messagerie Service Bus Premium isole les ressources au niveau processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé **unité de messagerie**. Pour en savoir plus sur les unités de messagerie, consultez [Messagerie Service Bus Premium](service-bus-premium-messaging.md). 
 
-1. Créez un runbook Azure Automation avec un script PowerShell qui effectue un scale-up (augmente) des unités de messagerie pour un espace de noms Service Bus. 
-2. Créez une alerte d’utilisation de l’UC sur l’espace de noms Service Bus, qui appelle le script PowerShell lorsque l’espace de noms utilise l’UC au-delà de 75 %. 
+En utilisant la fonctionnalité de mise à l’échelle automatique pour les espaces de noms Service Bus Premium, vous pouvez spécifier un nombre minimal et maximal d’[unités de messagerie](service-bus-premium-messaging.md) et ajouter ou supprimer automatiquement des unités de messagerie en fonction d’un ensemble de règles. 
+
+Par exemple, vous pouvez implémenter les scénarios de mise à l’échelle suivants pour les espaces de noms Service Bus à l’aide de la fonctionnalité de mise à l’échelle automatique. 
+
+- Augmenter les unités de messagerie pour un espace de noms Service Bus quand l’utilisation du processeur de l’espace de noms est supérieure à 75 %. 
+- Diminuer les unités de messagerie pour un espace de noms Service Bus quand l’utilisation du processeur de l’espace de noms est inférieure à 25 %. 
+- Utiliser davantage d’unités de messagerie pendant les heures de bureau et moins pendant les heures creuses. 
+
+Cet article vous explique de quelle façon vous pouvez mettre automatiquement à l’échelle un espace de noms Service Bus (mettre à jour les [unités de messagerie](service-bus-premium-messaging.md)) dans le portail Azure. 
 
 > [!IMPORTANT]
 > Cet article s’applique uniquement au niveau de service **Premium** d’Azure Service Bus. 
 
+## <a name="autoscale-setting-page"></a>Page des paramètres de mise à l’échelle automatique
+Tout d’abord, procédez comme suit pour accéder à la page **Paramètres de mise à l’échelle automatique** pour votre espace de noms Service Bus.
 
-## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
-Créez un espace de noms Service Bus de niveau Premium. Suivez les étapes de l’article [Créer un espace de noms dans le portail Azure](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) pour créer l’espace de noms. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+2. Dans la barre de recherche, tapez **Service Bus**, sélectionnez **Service Bus** dans la liste déroulante et appuyez sur **Entrée**. 
+1. Sélectionnez votre **espace de noms Premium** dans la liste des espaces de noms. 
+1. Accédez à la page **Mettre à l’échelle**. 
 
-## <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
-Créez un compte Azure Automation en suivant les instructions de l’article [Créer un compte Azure Automation](../automation/automation-quickstart-create-account.md). 
+    :::image type="content" source="./media/automate-update-messaging-units/scale-page.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::
 
-## <a name="import-azservice-module-from-gallery"></a>Importer le module Az.Service à partir de la galerie
-Importez les modules `Az.Accounts` et `Az.ServiceBus` de la galerie dans le compte Automation. Le module `Az.ServiceBus` dépend du module `Az.Accounts`, ce dernier doit donc être installé en premier. 
+## <a name="manual-scale"></a>Mise à l’échelle manuelle 
+Ce paramètre vous permet de définir un nombre fixe d’unités de messagerie pour l’espace de noms. 
 
-Pour obtenir des instructions pas à pas, consultez [Importer un module à partir de la galerie des modules](../automation/automation-runbook-gallery.md#import-a-module-from-the-module-gallery-with-the-azure-portal).
+1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle manuelle** si cette option ne l’est pas déjà. 
+1. Pour le paramètre **Unités de messagerie**, sélectionnez le nombre d’unités de messagerie dans la liste déroulante.
+1. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer le paramètre. 
 
-## <a name="create-and-publish-a-powershell-runbook"></a>Créer et publier un runbook PowerShell
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::       
 
-1. Créez un runbook PowerShell en suivant les instructions de l’article [Créer un runbook PowerShell](../automation/automation-quickstart-create-runbook.md). 
 
-    Voici un exemple de script PowerShell que vous pouvez utiliser pour augmenter les unités de messagerie d’un espace de noms Service Bus. Ce script PowerShell dans un runbook Automation augmente les unités de messagerie de 1 à 2, 2 à 4 ou 4 à 8. Les valeurs autorisées pour cette propriété sont les suivantes : 1, 2, 4 et 8. Vous pouvez créer un autre runbook pour réduire le nombre d’unités de messagerie.
+## <a name="custom-autoscale---default-condition"></a>Mise à l’échelle automatique personnalisée - Condition par défaut
+Vous pouvez configurer la mise à l’échelle automatique des unités de messagerie à l’aide de conditions. Cette condition de mise à l’échelle est exécutée quand aucune des autres conditions de mise à l’échelle ne correspond. Vous pouvez définir la condition par défaut de l’une des manières suivantes :
 
-    Les paramètres **namespaceName** et **resourceGroupName** sont utilisés pour tester le script séparément du scénario d’alerte. 
+- Mettre à l’échelle selon une métrique (telle que l’utilisation du processeur ou de la mémoire)
+- Mettre à l’échelle selon un nombre spécifique d’unités de messagerie
+
+Vous ne pouvez pas définir une planification de mise à l’échelle automatique selon des jours ou une plage de dates spécifiques pour une condition par défaut. Cette condition de mise à l’échelle est exécutée quand aucune des autres conditions de mise à l’échelle avec planifications ne correspond. 
+
+### <a name="scale-based-on-a-metric"></a>Mettre à l’échelle selon une métrique
+La procédure suivante vous montre comment ajouter une condition pour augmenter automatiquement les unités de messagerie (scale-out) quand l’utilisation du processeur est supérieure à 75 % et diminuer les unités de messagerie (scale-in) quand elle est inférieure à 25 %. Les incréments sont effectués de 1 à 2, de 2 à 4 et de 4 à 8. De même, les décrémentations sont effectuées de 8 à 4, de 4 à 2 et de 2 à 1. 
+
+1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle automatique personnalisée** pour l’option **Choisir comment mettre à l’échelle vos ressources**. 
+1. Dans la section **Par défaut** de la page, spécifiez un **nom** pour la condition par défaut. Sélectionnez l’icône en forme de **crayon** pour modifier le texte. 
+1. Pour **Mode de mise à l’échelle**, sélectionnez **Mettre à l’échelle selon une métrique**. 
+1. Sélectionnez **+ Ajouter une règle**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::    
+1. Dans la page **Règle de mise à l’échelle**, procédez comme suit :
+    1. Sélectionnez une métrique dans la liste déroulante **Nom de la métrique**. Dans cet exemple, il s’agit de **Processeur**. 
+    1. Sélectionnez un opérateur et des valeurs de seuil. Dans cet exemple, il s’agit de **Supérieur à** et **75** pour **Seuil de métrique pour déclencher l’action de mise à l’échelle**. 
+    1. Sélectionnez une **opération** dans la section **Action**. Dans cet exemple, la valeur est **Augmenter**. 
+    1. Sélectionnez ensuite **Ajouter**.
     
-    Le paramètre **WebHookData** permet à l’alerte de transmettre des informations telles que le nom du groupe de ressources, le nom de la ressource, etc. au runtime. 
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::       
 
-    ```powershell
-    [OutputType("PSAzureOperationResponse")]
-    param
-    (
-        [Parameter (Mandatory=$false)]
-        [object] $WebhookData,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $namespaceName,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $resourceGroupName
-    )
-    
-    
-    if ($WebhookData)
-    {
-        # Get the data object from WebhookData
-        $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-    
-        # Get the alert schema ID
-        $schemaId = $WebhookBody.schemaId
+        > [!NOTE]
+        > La fonctionnalité de mise à l’échelle automatique augmente les unités de messagerie de l’espace de noms si l’utilisation globale du processeur dépasse 75 % dans cet exemple. Les incréments sont effectués de 1 à 2, de 2 à 4 et de 4 à 8. 
+1. Sélectionnez une nouvelle fois **+ Ajouter une règle**, puis procédez comme suit dans la page **Règle de mise à l’échelle** :
+    1. Sélectionnez une métrique dans la liste déroulante **Nom de la métrique**. Dans cet exemple, il s’agit de **Processeur**. 
+    1. Sélectionnez un opérateur et des valeurs de seuil. Dans cet exemple, il s’agit des valeurs **Inférieur à** et **25** pour **Seuil de métrique pour déclencher l’action de mise à l’échelle**. 
+    1. Sélectionnez une **opération** dans la section **Action**. Dans cet exemple, la valeur est **Diminuer**. 
+    1. Sélectionnez ensuite **Ajouter**. 
 
-        # If it's a metric alert
-        if ($schemaId -eq "AzureMonitorMetricAlert") {
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::       
 
-            # Get the resource group name from the alert context
-            $resourceGroupName = $WebhookBody.resourceGroupName
-            
-            # Get the namespace name from the alert context
-            $namespaceName = $WebhookBody.resourceName
-        }
-    }
+        > [!NOTE]
+        > La fonctionnalité de mise à l’échelle automatique diminue les unités de messagerie de l’espace de noms si l’utilisation globale du processeur est inférieure à 25 % dans cet exemple. Les décrémentations sont effectuées de 8 à 4, de 4 à 2 et de 2 à 1. 
+1. Définissez le nombre **minimal**, **maximal** et **par défaut** d’unités de messagerie.
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::
+1. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer le paramètre de mise à l’échelle automatique. 
+        
+### <a name="scale-to-specific-number-of-messaging-units"></a>Mettre à l’échelle selon un nombre spécifique d’unités de messagerie
+Procédez comme suit pour configurer la règle afin de mettre à l’échelle l’espace de noms pour utiliser un nombre spécifique d’unités de messagerie. Là encore, la condition par défaut est appliquée quand aucune des autres conditions de mise à l’échelle ne correspond. 
+
+1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle automatique personnalisée** pour l’option **Choisir comment mettre à l’échelle vos ressources**. 
+1. Dans la section **Par défaut** de la page, spécifiez un **nom** pour la condition par défaut. 
+1. Pour **Mode de mise à l’échelle**, sélectionnez **Mettre à l’échelle sur des unités de messagerie spécifiques**. 
+1. Pour **Unités de messagerie**, sélectionnez le nombre d’unités de messagerie par défaut. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::       
+
+## <a name="custom-autoscale---additional-conditions"></a>Mise à l’échelle automatique personnalisée - Conditions supplémentaires
+La section précédente vous montre comment ajouter une condition par défaut pour le paramètre de mise à l’échelle automatique. Cette section vous montre comment ajouter d’autres conditions au paramètre de mise à l’échelle automatique. Pour ces autres conditions non définies par défaut, vous pouvez configurer une planification basée sur des jours spécifiques d’une semaine ou une plage de dates. 
+
+### <a name="scale-based-on-a-metric"></a>Mettre à l’échelle selon une métrique
+1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle automatique personnalisée** pour l’option **Choisir comment mettre à l’échelle vos ressources**. 
+1. Sélectionnez **Ajouter une condition de mise à l’échelle** sous le bloc **Par défaut**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::    
+1. Spécifiez un **nom** pour la condition. 
+1. Confirmez la sélection de l’option **Mettre à l’échelle selon une métrique**. 
+1. Sélectionnez **+ Ajouter une règle** pour ajouter une règle afin d’augmenter les unités de messagerie quand l’utilisation globale du processeur dépasse 75 %. Suivez les étapes de la section [Condition par défaut](#custom-autoscale---default-condition). 
+5. Définissez le nombre **minimal**, **maximal** et **par défaut** d’unités de messagerie.
+6. Vous pouvez également définir une **planification** sur une condition personnalisée (mais pas sur la condition par défaut). Vous pouvez spécifier des dates de début et de fin pour la condition (ou) sélectionner des jours spécifiques (lundi, mardi, etc.) d’une semaine. 
+    1. Si vous sélectionnez **Spécifier des dates de début/fin**, sélectionnez **Fuseau horaire**, **Date et heure de début** et **Date et heure de fin** (comme indiqué dans l’image suivante) pour que la condition soit appliquée. 
+
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::
+    1. Si vous sélectionnez **Répéter des jours spécifiques**, sélectionnez les jours de la semaine, le fuseau horaire, l’heure de début et l’heure de fin auxquels la condition doit s’appliquer. 
+
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::
+  
+### <a name="scale-to-specific-number-of-messaging-units"></a>Mettre à l’échelle selon un nombre spécifique d’unités de messagerie
+1. Dans la page **Paramètre de mise à l’échelle automatique**, sélectionnez **Mise à l’échelle automatique personnalisée** pour l’option **Choisir comment mettre à l’échelle vos ressources**. 
+1. Sélectionnez **Ajouter une condition de mise à l’échelle** sous le bloc **Par défaut**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::    
+1. Spécifiez un **nom** pour la condition. 
+2. Pour **Mode de mise à l’échelle**, sélectionnez l’option **Mettre à l’échelle sur des unités de messagerie spécifiques**. 
+1. Sélectionnez le nombre d’**unités de messagerie** dans la liste déroulante. 
+6. Pour la **planification**, spécifiez des dates de début et de fin pour la condition (ou) sélectionnez des jours spécifiques (lundi, mardi, etc.) d’une semaine ainsi que des heures. 
+    1. Si vous sélectionnez **Spécifier des dates de début/fin**, sélectionnez **Fuseau horaire**, **Date et heure de début** et **Date et heure de fin** pour que la condition soit appliquée. 
     
-    # Connect to Azure account
-    $connection = Get-AutomationConnection -Name AzureRunAsConnection
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::        
+    1. Si vous sélectionnez **Répéter des jours spécifiques**, sélectionnez les jours de la semaine, le fuseau horaire, l’heure de début et l’heure de fin auxquels la condition doit s’appliquer.
     
-    while(!($connectionResult) -And ($logonAttempt -le 10))
-    {
-        $LogonAttempt++
-        # Logging in to Azure...
-        $connectionResult =    Connect-AzAccount `
-                                    -ServicePrincipal `
-                                    -Tenant $connection.TenantID `
-                                    -ApplicationId $connection.ApplicationID `
-                                    -CertificateThumbprint $connection.CertificateThumbprint
-    
-        Start-Sleep -Seconds 30
-    }
-    
-    # Get the current capacity (number of messaging units) of the namespace
-    $sbusns=Get-AzServiceBusNamespace `
-        -Name $namespaceName `
-        -ResourceGroupName $resourceGroupName
-    
-    $currentCapacity = $sbusns.Sku.Capacity
-    
-    # Increase the capacity
-    # Capacity can be one of these values: 1, 2, 4, 8
-    if ($currentCapacity -eq 1) {
-        $newMU = 2
-    }
-    elseif ($currentCapacity -eq 2) {
-        $newMU = 4
-    }
-    elseif ($currentCapacity -eq 4) {
-        $newMU = 8    
-    }
-    else {
-    
-    }
-    
-    # Update the capacity of the namespace
-    Set-AzServiceBusNamespace `
-            -Location eastus `
-            -SkuName Premium `
-            -Name $namespaceName `
-            -SkuCapacity $newMU `
-            -ResourceGroupName $resourceGroupName
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Espace de noms Service Bus - Page Mettre à l’échelle":::
 
-    ```
-2. [Testez le runbook](../automation/manage-runbooks.md#test-a-runbook) en spécifiant des valeurs pour les paramètres **namespaceName** et **resourceGroupName**. Vérifiez que les unités de messagerie de l’espace de noms sont mises à jour. 
-3. Une fois le test terminé, [publiez le runbook](..//automation/manage-runbooks.md#publish-a-runbook) pour qu’il puisse être ajouté ultérieurement comme action pour une alerte sur l’espace de noms. 
-
-## <a name="create-an-alert-on-the-namespace-to-trigger-the-runbook"></a>Créer une alerte sur l’espace de noms pour déclencher le runbook
-Pour configurer une alerte sur votre espace de noms Service Bus afin de déclencher le runbook Automation que vous avez créé, consultez l’article [Utiliser une alerte pour déclencher un runbook Azure Automation](../automation/automation-create-alert-triggered-runbook.md). Par exemple, vous pouvez créer une alerte sur la métrique **Utilisation du processeur par espace de noms** ou **Utilisation de la taille mémoire par espace de noms** et ajouter une action pour déclencher le runbook Automation que vous avez créé. Pour plus d’informations sur ces métriques, consultez [Métriques d’utilisation des ressources](service-bus-metrics-azure-monitor.md#resource-usage-metrics).
-
-La procédure suivante montre comment créer une alerte qui déclenche le runbook Automation lorsque l’**utilisation de l’UC** de l’espace de noms dépasse **75 %** .
-
-1. Sur la page **Espace de noms Service Bus** de votre espace de noms, sélectionnez **Alertes** dans le menu de gauche, puis sélectionnez **+ Nouvelle règle d’alerte** dans la barre d’outils. 
-    
-    ![Page Alertes : bouton Nouvelle règle d’alerte](./media/automate-update-messaging-units/alerts-page.png)
-2. Dans la page **Créer une règle d’alerte**, cliquez sur **Sélectionner une condition**. 
-
-    ![Page Créer une règle d’alerte : sélectionner une condition](./media/automate-update-messaging-units/alert-rule-select-condition.png) 
-3. Sur la page **Configurer la logique du signal**, sélectionnez **UC** pour le signal. 
-
-    ![Configurer la logique du signal : sélectionner UC](./media/automate-update-messaging-units/configure-signal-logic.png)
-4. Entrez une **valeur de seuil** (dans cet exemple, il s’agit de **75 %** ), puis sélectionnez **Terminé**. 
-
-    ![Configurer le signal de l’UC](./media/automate-update-messaging-units/cpu-signal-configuration.png)
-5. À présent, dans la page **Créer une règle d’alerte**, cliquez sur **Sélectionner un groupe d’actions**.
-    
-    ![Sélectionner un groupe d’actions](./media/automate-update-messaging-units/select-action-group-button.png)
-6. Sélectionnez le bouton **Créer un groupe d’actions** dans la barre d’outils. 
-
-    ![Bouton Créer un groupe d’actions](./media/automate-update-messaging-units/create-action-group-button.png)
-7. Dans la page **Ajouter un groupe d’actions**, effectuez les étapes suivantes :
-    1. Entrez le **nom** du groupe d’actions. 
-    2. Entrez le **nom court** du groupe d’actions.
-    3. Sélectionnez l’**abonnement** dans lequel vous souhaitez créer ce groupe d’actions.
-    4. Sélectionnez le **groupe de ressources**. 
-    5. Dans la section **Actions**, entrez le **nom de l’action**, puis sélectionnez **Runbook Automation** pour **Type d’action**. 
-
-        ![Page d’ajout d’un groupe d’actions](./media/automate-update-messaging-units/add-action-group-page.png)
-8. Dans la page **Configurer le runbook**, effectuez les étapes suivantes :
-    1. Pour **Source du Runbook**, sélectionnez **Utilisateur**. 
-    2. Pour **Abonnement**, sélectionnez votre **abonnement** Azure qui contient le compte Automation. 
-    3. Pour **Compte Automation**, sélectionnez votre **compte Automation**.
-    4. Pour **Runbook**, sélectionnez votre runbook. 
-    5. Sélectionnez **OK** dans la page **Configurer le runbook**. 
-        ![Configure runbook](./media/automate-update-messaging-units/configure-runbook.png)
-9. Sélectionnez **OK** dans la page **Ajouter un groupe d’actions**. 
-5. Maintenant, dans la page **Créer une règle d’alerte**, entrez le **nom de la règle**, puis sélectionnez **Créer une règle d’alerte**. 
-    ![Create alert rule](./media/automate-update-messaging-units/create-alert-rule.png)
-
-    > [!NOTE]
-    > Désormais, lorsque l’espace de noms utilise l’UC au-delà de 75 %, l’alerte déclenche le runbook Automation, ce qui augmente les unités de messagerie de l’espace de noms Service Bus. De même, vous pouvez créer une alerte pour un autre runbook Automation qui réduit le nombre d’unités de messagerie si l’espace de noms utilise l’UC en deçà de 25 %. 
+> [!IMPORTANT]
+> Pour en savoir plus sur le fonctionnement des paramètres de mise à l’échelle automatique, en particulier sur le choix d’un profil ou d’une condition et l’évaluation de plusieurs règles, consultez [Comprendre les paramètres de mise à l’échelle automatique](../azure-monitor/platform/autoscale-understanding-settings.md).          
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les unités de messagerie, consultez l’article relatif à la [messagerie Premium](service-bus-premium-messaging.md).
+

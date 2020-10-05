@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104229"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033249"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -62,11 +62,11 @@ Vous pouvez ajouter trois domaines fonctionnels à votre offre. Pour chacun d'eu
 
 ## <a name="documents"></a>Documents
 
-Vous pouvez fournir à Microsoft des documents à utiliser pour évaluer les besoins de vos clients.
+Vous avez la possibilité de fournir des documents annexes que Microsoft va utiliser pour en savoir plus sur votre offre et évaluer son adéquation avec les besoins de vos clients. Tous les documents listés dans le tableau ci-dessous sont facultatifs.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d'une page Office 365 </li> <li> Modèle d'une page Windows 10 </li> </ul> |
+| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d’une page Microsoft 365 </li> <li> Modèle d'une page Windows 10 </li> </ul> |
 | *Présentation client* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires.|
 | *Étude de cas client* | Ces informations montrent à un client potentiel que Microsoft et vous avez déjà déployé cette solution avec succès chez d'autres clients. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires. |
 | *Succès clients vérifiables (facultatif)* | Exemples concrets de succès clients découlant du déploiement de votre solution. |
@@ -79,14 +79,14 @@ Vous pouvez fournir à Microsoft des documents à utiliser pour évaluer les bes
 
 Vos informations de contact permettent aux équipes commerciales de Microsoft et aux revendeurs partenaires de demander des informations supplémentaires à la ressource appropriée de votre organisation. Toutes les équipes commerciales de Microsoft ont accès à ces informations. Si vous souhaitez que votre offre soit disponible dans le cadre du programme Fournisseur de solutions cloud (CSP), ces informations de contact seront également accessibles aux revendeurs partenaires.
 
-Ce document fournit des conseils sur les différents rôles des partenaires et sur la façon de faire un choix. Vous pouvez fournir vos informations de contact en téléchargeant le modèle CSV à partir de l'Espace partenaires, en renseignant chaque ligne avec des informations sur le contact et en important ce fichier CSV. L'importation d'un fichier CSV remplacera les contacts existants.
+Vous pouvez fournir vos informations de contact en téléchargeant le modèle CSV à partir de l'Espace partenaires, en renseignant chaque ligne avec des informations sur le contact et en important ce fichier CSV. L'importation d'un fichier CSV remplacera les contacts existants.
 
 Vous pouvez également exporter la liste de contacts existante d'une offre, puis apporter des modifications à ce fichier.
 
 * *Nom (obligatoire)*  : nom du contact.
 * *Adresse e-mail (obligatoire)*  : adresse e-mail du contact.
 * *Poste (obligatoire)*  : poste occupé.
-* *Rôle (obligatoire)*  : utilisez l'un des rôles suivants dans ce champ du modèle.
+* *Rôle (obligatoire)*  : Utilisez l’un des rôles suivants.
 
     | **Rôle**    | **Description**  |
     | :------------------- | :-------------------|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
-ms.openlocfilehash: c66682a7f457612b0ea77b90cc98ec1e6b4a85e9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c4be1c7eec9572d284d70823d270dafe5569ab14
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322260"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484219"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guide de publication d’offres de modèle de solution d’applications Azure
 
@@ -23,7 +23,7 @@ Utilisez le type d’offre de *modèle de solution* d’application Azure dans l
 - Votre solution nécessite une automatisation supplémentaire de la configuration et du déploiement au-delà d’une seule machine virtuelle, par exemple une combinaison de machines virtuelles, de mise en réseau et de ressources de stockage.
 - Vos clients vont gérer la solution eux-mêmes.
 
-L’appel à l’action que voit le client pour ce type d’offre est *Obtenir maintenant*.
+L’option de référencement que voit le client pour ce type d’offre est *Obtenir maintenant*.
 
 ## <a name="requirements-for-solution-template-offers"></a>Conditions requises pour les offres de modèles de solution
 

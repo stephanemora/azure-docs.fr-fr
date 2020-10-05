@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b378fe3f01e6ef1d54a89341bbac3a26b9d6b33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a80681a641757d71288dfaee4c779121030a9db
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013144"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613592"
 ---
 # <a name="spatial-queries"></a>Requêtes spatiales
 
@@ -112,6 +112,11 @@ Un hit présente les propriétés suivantes :
 * **`HitPosition` :** position dans l’espace universel où le rayon a croisé l’objet.
 * **`HitNormal` :** perpendiculaire à la surface de l’espace universel du maillage, au point de l’intersection.
 * **`DistanceToHit` :** distance, de la position de départ du rayon au hit.
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [RemoteManager.RayCastQueryAsync(), C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [RemoteManager::RayCastQueryAsync(), C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

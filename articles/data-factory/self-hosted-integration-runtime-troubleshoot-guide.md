@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800593"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069473"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -519,7 +519,7 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problème de connectivité entre le runtime d’intégration IR auto-hébergé et Data Factory ou le runtime d’intégration IR auto-hébergé et la source de données/le récepteur
 
-Pour résoudre le problème de connectivité réseau, vous devez savoir comment [collecter la trace réseau](#how-to-collect-netmon-trace), comprendre comment l’utiliser et [analyser la trace netmon](#how-to-analyze-netmon-trace) avant d’appliquer les outils Netmon dans des cas réels à partir du runtime d’intégration auto-hébergé.
+Pour résoudre le problème de connectivité réseau, vous devez savoir comment collecter la trace réseau, comprendre comment l’utiliser et [analyser la trace netmon](#how-to-analyze-netmon-trace) avant d’appliquer les outils Netmon à de vrais cas à partir du runtime d’intégration auto-hébergé.
 
 #### <a name="symptoms"></a>Symptômes
 
@@ -575,53 +575,12 @@ Prenez la trace netmon et analysez-la plus en détail.
 
     Par conséquent, vous devez faire appel à l’équipe réseau pour vérifier à quoi correspond le quatrième tronçon provenant du runtime d'intégration auto-hébergé. S’il s’agit du pare-feu en tant que système Linux, consultez tous les journaux pour déterminer la raison pour laquelle ce périphérique réinitialise le package après la négociation TCP 3. Toutefois, si vous n’êtes pas sûr de l’emplacement où effectuer vos investigations, essayez d’obtenir la trace netmon à partir du runtime d'intégration auto-hébergé et du pare-feu pendant la période problématique afin de déterminer quel périphérique peut réinitialiser ce package et provoquer la déconnexion. Dans ce cas, vous devez également encourager votre équipe réseau à avancer.
 
-### <a name="how-to-collect-netmon-trace"></a>Procédure de collecte de la trace netmon
-
-1.  Téléchargez les outils Netmon à partir de [ce site web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865) et installez-les sur votre ordinateur serveur (quel que soit le serveur qui présente le problème) et le client (par exemple, le runtime d'intégration auto-hébergé).
-
-2.  Créez un dossier, par exemple, avec le chemin suivant : *D:\netmon*. Assurez-vous qu’il dispose de suffisamment d’espace pour enregistrer le journal.
-
-3.  Capturez les informations d’adresse IP et de port. 
-    1. Démarrez une invite de commandes.
-    2. Sélectionnez Exécuter en tant qu'administrateur et exécutez la commande suivante :
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Capturez la trace netmon (package réseau).
-    1. Démarrez une invite de commandes.
-    2. Sélectionnez Exécuter en tant qu'administrateur et exécutez la commande suivante :
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. Vous pouvez utiliser trois commandes différentes pour capturer la page réseau :
-        - Option A : Commande de fichier RoundRobin (capture un seul fichier et remplace les anciens journaux).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Option B : Commande de fichier chaînée (crée un fichier si 200 Mo sont atteints).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Option C : Commande de fichier planifiée.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Appuyez sur **Ctrl+C** pour arrêter la capture de la trace netmon.
- 
-> [!NOTE]
-> Si vous pouvez uniquement collecter la trace netmon sur l’ordinateur client, obtenez l’adresse IP du serveur pour mieux analyser la trace.
-
 ### <a name="how-to-analyze-netmon-trace"></a>Procédure d’analyse de la trace netmon
 
-Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec la trace netmon ci-dessus collectée, vous êtes censé voir la trace ci-dessous :
+> [!NOTE] 
+> Les instructions ci-dessous s’appliquent à la trace netmon. Étant donné que la trace netmon n’est pas prise en charge pour l’instant, vous pouvez tirer parti de Wireshark.
+
+Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec la trace netmon collectée, vous êtes censé voir la trace ci-dessous :
 
 ![trace netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

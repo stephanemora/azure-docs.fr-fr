@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386127"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660490"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -33,7 +33,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
   * Votre compte Azure doit être un compte professionnel ou scolaire, du type `username@contoso.com`. Vous ne pouvez pas utiliser des comptes Azure B2B (invité) ou des comptes Microsoft personnels, comme @hotmail.com ou @outlook.com.
 
     > [!NOTE]
-    > Si vous avez souscrit une offre Office 365 sans fournir votre adresse e-mail professionnelle, votre adresse de connexion peut se présenter comme ceci : `username@domain.onmicrosoft.com`. Votre compte est stocké dans un locataire Azure AD. Dans la plupart des cas, le nom d’utilisateur principal (UPN) de votre compte Azure est identique à votre adresse e-mail.
+    > Si vous avez souscrit une offre Microsoft 365 sans fournir votre adresse e-mail professionnelle, votre adresse de connexion peut se présenter comme ceci : `username@domain.onmicrosoft.com`. Votre compte est stocké dans un locataire Azure AD. Dans la plupart des cas, le nom d’utilisateur principal (UPN) de votre compte Azure est identique à votre adresse e-mail.
 
     Pour utiliser un [abonnement standard Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associé à un compte Microsoft, commencez par [créer un locataire Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) ou utilisez l’annuaire par défaut. Ajoutez un utilisateur avec un mot de passe à l’annuaire, puis donnez-lui accès à votre abonnement Azure. Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
 

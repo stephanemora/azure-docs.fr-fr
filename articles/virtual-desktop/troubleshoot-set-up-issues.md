@@ -3,15 +3,15 @@ title: Création d’un pool d’hôtes pour un environnement Windows Virtual De
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121372"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084411"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
@@ -46,6 +46,12 @@ Si votre opération dépasse la limite de quota, vous pouvez effectuer une des a
 - Créez un pool d’hôtes avec les mêmes paramètres, mais avec moins de machines virtuelles et de cœurs de machines virtuelles.
 
 - Ouvrez dans un navigateur le lien que vous voyez dans le champ statusMessage pour envoyer une demande d’augmentation du quota de votre abonnement Azure pour la référence SKU de machine virtuelle spécifiée.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erreur : Impossible de voir les affectations d’utilisateurs dans les groupes d’applications.
+
+Cause : Cette erreur se produit généralement après que vous avez déplacé l’abonnement d’un locataire Azure Active Directory (AD) vers un autre. Si vos anciennes attributions restent liées à l’ancien locataire Azure AD, le portail Azure en perd la trace.
+
+Correctif : Vous devez réaffecter les utilisateurs aux groupes d’applications.
 
 ## <a name="azure-resource-manager-template-errors"></a>Erreurs de modèle Azure Resource Manager
 

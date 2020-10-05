@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604306"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575297"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -215,11 +215,11 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
 2. Sélectionnez **+ Créer une ressource**, puis recherchez *Azure Data Box*. Sélectionnez **Azure Data Box**.
 
-   ![Sélectionner Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Capture d’écran de la nouvelle section avec Azure Data Box dans le champ de recherche.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Sélectionnez **Create** (Créer).
 
-   ![Sélectionner Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Capture d’écran de la section Azure Data Box avec l’option Créer en évidence.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
 
@@ -235,7 +235,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
 5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
-    ![Sélectionner Data Box, option 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Capture d’écran des différentes tailles de données disponibles pour la sélection : Data Box Disk 40 téraoctets, Data Box 100 téraoctets, Data Box Heavy, 1 000 téraoctets et Envoyer vos propres disques 1 téraoctet.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Sous **Ordre**, accédez à l’onglet **Fonctions de base**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
 
@@ -245,7 +245,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |Resource group    | Groupe de ressources que vous avez sélectionné précédemment. |
     |Nom de la commande d’importation | Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.    |
 
-    ![Sélectionner Data Box, option 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Capture d’écran de l’Assistant Commande montrant l’étape de base de l’Assistant avec les informations correctes fournies.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Par défaut, le mot de passe de déverrouillage de l’appareil est chiffré à l’aide d’une clé managée par Microsoft. Après avoir effectué la commande, vous pouvez ajouter une clé gérée par le client. Une clé gérée par le client vous permet d’utiliser votre propre clé à partir d’un coffre de clés Azure pour protéger votre mot de passe de déverrouillage d’appareil. Pour plus d’informations, consultez [Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -265,7 +265,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |---------|---------|
     |Groupes de ressources     | Créez un groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. Vous pouvez utiliser un groupe de ressources existant uniquement si celui-ci a été créé avant la création d’une commande Data Box de disque managé par le service Data Box. <br> Spécifiez plusieurs groupes de ressources séparés par des points-virgules. Un maximum de 10 groupes de ressources sont pris en charge.|
 
-    ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Capture d’écran de l’Assistant Commande montrant l’étape de destination des données de l’Assistant avec les informations correctes fournies.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -286,11 +286,11 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
 8. Sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
 
-    ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Capture d’écran de l’Assistant Commande montrant l’étape Coordonnées de l’Assistant avec l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Sélectionnez **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
 
-   ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Capture d’écran de la boîte de dialogue Ajouter une adresse de livraison avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Si vous avez sélectionné l’expédition autogérée, vous recevez une notification par e-mail une fois la commande passée. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
 
@@ -300,13 +300,13 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     Nous vous recommandons d’utiliser un e-mail de groupe afin de continuer à recevoir des notifications si un administrateur du groupe quitte l’entreprise.
 
-    ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Capture d’écran de la section E-mail de l’étape Coordonnées de l’Assistant Commande avec la zone de texte E-mail et l’option Suivant : Passer en revue et commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Sous **Passer en revue + commander**, passez en revue les informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
 
 13. Sélectionnez **Commander**. La création d’une commande peut prendre quelques minutes.
 
-    ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Capture d’écran de l’Assistant Commande montrant l’étape Passer en revue et commander et l’option Commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
