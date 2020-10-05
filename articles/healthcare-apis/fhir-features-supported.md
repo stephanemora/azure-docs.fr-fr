@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000003"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007568"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -98,14 +98,24 @@ Tous les types de paramètre de recherche sont pris en charge.
 | Opérations de recherche       | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Non        | Non        | Non        |         |
-| `_sort`                 | Non        | Partiel   | Partiel        |   `_sort=_lastUpdated` est pris en charge       |
+| `_sort`                 | Partiel        | Partiel   | Partiel        |   `_sort=_lastUpdated` est pris en charge       |
 | `_score`                | Non        | Non        | Non        |         |
 | `_count`                | Oui       | Oui       | Oui       |         |
 | `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
 | `_include`              | Non        | Oui       | Non        |         |
 | `_revinclude`           | Non        | Oui       | Non        | Les éléments inclus sont limités à 100. |
 | `_contained`            | Non        | Non        | Non        |         |
-| `_elements`             | Non        | Non        | Non        |         |
+| `_elements`             | Oui        | Oui        | Oui        |         |
+
+## <a name="extended-operations"></a>Opérations étendues
+
+Toutes les opérations prises en charge qui étendent l’API RESTful.
+
+| Type de paramètre de recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (système entier)                | Oui       | Oui       | Oui       |         |
+| Patient/$export         | Oui       | Oui       | Oui       |         |
+| Group/$export               | Oui       | Oui       | Oui       |         |
 
 ## <a name="persistence"></a>Persistance
 

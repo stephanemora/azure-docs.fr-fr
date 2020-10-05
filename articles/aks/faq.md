@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927145"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905339"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -174,6 +174,10 @@ Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez :
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais tout à coup il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc. 
 
 Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](./kubernetes-service-principal.md) et [Informations d'identification pour la mise à jour d’AKS](./update-credentials.md).
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Puis-je mettre à l’échelle mon cluster AKS jusqu’à zéro ?
+Vous pouvez complètement [arrêter un cluster AKS en cours d’exécution](start-stop-cluster.md), ce qui vous permet d’économiser les coûts de calcul respectifs. Vous pouvez également choisir de [mettre à l’échelle manuellement ou automatiquement la totalité ou une partie des pools de nœuds `User`](scale-cluster.md#scale-user-node-pools-to-0) sur 0, en conservant uniquement la configuration de cluster nécessaire.
+Vous ne pouvez pas mettre directement à l’échelle des [pools de nœuds système](use-system-pools.md) sur 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Puis-je utiliser les API du groupe de machines virtuelles identiques pour effectuer une mise à l'échelle manuelle ?
 

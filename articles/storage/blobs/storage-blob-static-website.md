@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432517"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486856"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
-Vous pouvez servir du contenu statique (fichiers HTML, CSS, JavaScript et images) directement à partir d’un conteneur de stockage nommé *$web*. L’hébergement de votre contenu dans le stockage Azure vous permet d’utiliser des architectures serverless qui incluent [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services Paas (Platform as a service).
+Vous pouvez servir du contenu statique (fichiers HTML, CSS, JavaScript et images) directement à partir d’un conteneur de stockage nommé *$web*. L’hébergement de votre contenu dans le stockage Azure vous permet d’utiliser des architectures serverless qui incluent [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services Paas (Platform as a service). L’hébergement de site web statique dans le stockage Azure est une option intéressante quand vous n’avez pas besoin d’un serveur web pour restituer du contenu.
+
+[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) constitue une excellente alternative à l’hébergement de site web statique dans le stockage Azure et sont également appropriées quand vous n’avez pas besoin d’un serveur web pour restituer du contenu. App Service Static Web Apps vous offre un workflow d’intégration continue et de livraison continue (CI/CD) complètement managé, de la source GitHub au déploiement global.
+
+Si vous avez besoin d’un serveur web pour restituer du contenu, vous pouvez utiliser [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Si votre site dépend du code côté serveur, utilisez [Azure App Service](/azure/app-service/overview) à la place.
-Veillez à créer un compte de stockage Standard universel v2. Les sites web statiques ne sont pas disponibles dans les autres types de comptes de stockage.
+> Veillez à créer un compte de stockage Standard universel v2. Les sites web statiques ne sont pas disponibles dans les autres types de comptes de stockage.
 
 ## <a name="setting-up-a-static-website"></a>Configuration d’un site web statique
 
@@ -103,6 +106,11 @@ Si le compte de stockage est configuré pour [exiger un transfert sécurisé](..
 La fonctionnalité de site web statique n’offre aucun moyen de configurer des en-têtes. Toutefois, vous pouvez utiliser Azure CDN pour ajouter des en-têtes et ajouter (ou remplacer) des valeurs d’en-tête. Consultez [Informations de référence sur le moteur de règles standard pour Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
 
 Si vous souhaitez utiliser des en-têtes pour contrôler la mise en cache, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="multi-region-website-hosting"></a>Hébergement de site web multirégion
+
+Si vous envisagez d’héberger un site web dans plusieurs zones géographiques, nous vous recommandons d’utiliser un [réseau de distribution de contenu](https://docs.microsoft.com/azure/cdn/) pour la mise en cache régionale. Utilisez [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/) si vous souhaitez proposer un contenu différent dans chaque région. Il fournit également des fonctionnalités de basculement. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) n’est pas recommandé si vous envisagez d’utiliser un domaine personnalisé. Des problèmes peuvent survenir en raison de la manière dont le stockage Azure vérifie les noms des domaines personnalisés.
+
 
 ## <a name="pricing"></a>Tarifs
 

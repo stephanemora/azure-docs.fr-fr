@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357866"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662575"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation d’Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -113,7 +113,7 @@ Si tout fonctionne comme prévu, vous pouvez réactiver le planificateur. À par
 Dans la section précédente, nous avons vu comment apporter des modifications à un flux d’attributs. Dans cette section, vous trouverez d’autres exemples. Les étapes de création de la règle de synchronisation ont été condensées, mais vous trouverez la procédure complète dans la section précédente.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Utiliser un attribut autre que l’attribut par défaut
-Dans ce scénario Fabrikam, il existe une forêt où l’alphabet local est utilisé pour le prénom, le nom de famille et le nom complet. La représentation sous forme de caractères latins de ces attributs est stockée dans les attributs d’extension. Pour créer la liste globale des adresses dans Azure AD et Office 365, l’organisation souhaite utiliser ces attributs.
+Dans ce scénario Fabrikam, il existe une forêt où l’alphabet local est utilisé pour le prénom, le nom de famille et le nom complet. La représentation sous forme de caractères latins de ces attributs est stockée dans les attributs d’extension. Pour créer la liste globale des adresses dans Azure AD et Microsoft 365, l’organisation souhaite utiliser ces attributs.
 
 Avec une configuration par défaut, un objet de la forêt locale ressemble à ceci :  
 ![Flux d’attributs 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082639"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019663"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 
@@ -32,11 +32,16 @@ HDInsight prend en charge l’exécution des tâches courantes sur votre cluster
 
 Correctif sur un environnement de non-production représentatif avant le déploiement en production. Élaborez un plan pour tester votre système de manière adéquate avant d’appliquer les correctifs.
 
-De temps en temps, lors d’une session ssh avec votre cluster, vous pouvez recevoir un message indiquant qu’une mise à niveau est proposée. Le message peut ressembler à ceci :
+De temps en temps, lors d’une session SSH avec votre cluster, vous pouvez recevoir un message indiquant que des mises à jour de sécurité sont disponibles. Le message peut ressembler à ceci :
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 L’application de correctifs est facultative et à votre convenance.
@@ -64,6 +69,9 @@ Le script `install-updates-schedule-reboots` accepte deux paramètres numérique
 
 > [!NOTE]
 > Vous devez marquer un script comme persistant lorsque vous l’appliquez à un cluster existant. Sinon, les nœuds créés lors d’opérations de mise à l’échelle utilisent la planification de mise à jour corrective par défaut. Si vous appliquez le script dans le cadre du processus de création du cluster, il est automatiquement défini comme persistant.
+
+> [!NOTE]
+> L’option de redémarrage planifié effectue un redémarrage progressif et automatisé des nœuds de cluster corrigés sur une période de 12 à 24 heures et prend en compte les considérations relatives à la haute disponibilité, au domaine de mise à jour et au domaine d’erreur. Le redémarrage planifié n’interrompt pas l’exécution des charges de travail, mais peut réduire la capacité du cluster provisoirement quand des nœuds ne sont pas disponibles, ce qui entraîne des temps de traitement plus longs. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

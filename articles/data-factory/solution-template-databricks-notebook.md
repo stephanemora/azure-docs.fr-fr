@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857649"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438447"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformation avec Azure Databricks
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez créer un pipeline de bout en bout contenant des ac
 
 - **Copie des données** duplique le jeu de données source dans le stockage récepteur, qui est monté en tant que DBFS dans le notebook Azure Databricks. De cette façon, le jeu de données peut directement être consommé par Spark.
 
-- **Notebook** déclenche le notebook Databricks qui transforme le jeu de données. Il ajoute également le jeu de données à un dossier traité ou à Azure SQL Data Warehouse.
+- **Notebook** déclenche le notebook Databricks qui transforme le jeu de données. Le jeu de données est aussi ajouté à un dossier traité ou à Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 Par souci de simplicité, le modèle de ce didacticiel ne crée pas de déclencheur planifié. Vous pouvez en ajouter un si nécessaire.
 

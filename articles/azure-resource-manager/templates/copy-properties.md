@@ -2,23 +2,25 @@
 title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678458"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605241"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
-Cet article explique comment créer plusieurs instances d’une propriété dans votre modèle Azure Resource Manager (ARM). En ajoutant l’élément **copier** dans la section Propriétés d’une ressource de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une propriété pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
+Cet article explique comment créer plusieurs instances d’une propriété dans votre modèle Azure Resource Manager (modèle ARM). En ajoutant l’élément **copier** dans la section Propriétés d’une ressource de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une propriété pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
+
+Vous pouvez utiliser la copie seulement avec des ressources de plus haut niveau, même lors de l’application de la copie à une propriété. Pour plus d’informations sur le remplacement d’une ressource enfant par une ressource de plus haut niveau, consultez [Itération pour une ressource enfant](copy-resources.md#iteration-for-a-child-resource).
 
 Vous pouvez également utiliser l’élément copy avec les éléments [resources](copy-resources.md), [variables](copy-variables.md) et [outputs](copy-outputs.md).
 
 ## <a name="syntax"></a>Syntaxe
 
-L’élément copy utilise le format général suivant :
+L’élément copier utilise le format général suivant :
 
 ```json
 "copy": [
@@ -40,7 +42,7 @@ La propriété **input** spécifie les propriétés que vous souhaitez répéter
 
 Le nombre ne peut pas dépasser 800.
 
-Le nombre ne peut pas être négatif. Il peut être égal à zéro si vous déployez le modèle avec une version récente d’Azure CLI, PowerShell ou l’API REST. Plus précisément, vous devez utiliser :
+Le nombre ne peut pas être négatif. Il peut être zéro si vous déployez le modèle avec une version récente d’Azure CLI, de PowerShell ou de l’API REST. Plus précisément, vous devez utiliser :
 
 * Azure PowerShell **2.6** ou version ultérieure
 * Azure CLI **2.0.74** ou version ultérieure

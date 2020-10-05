@@ -4,12 +4,12 @@ description: Configuration des nœuds de transaction Azure Blockchain Service
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212562"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530384"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 
@@ -52,7 +52,7 @@ Pour afficher les détails du point de terminaison d’un nœud de transaction :
 
 1. Dans le Portail Azure, accédez à l’un des nœuds de transaction de votre membre Azure Blockchain Service et sélectionnez **Vue d’ensemble**.
 
-    ![Points de terminaison](./media/configure-transaction-nodes/endpoints.png)
+    ![La capture d’écran montre la vue d’ensemble des nœuds de transaction pour un membre de blockchain.](./media/configure-transaction-nodes/endpoints.png)
 
 Les points de terminaison de nœud de transaction sont sécurisés et nécessitent une authentification. Vous pouvez vous connecter à un point de terminaison de transaction à l’aide de l’authentification Azure AD, de l’authentification de base HTTPS et d’une clé d’accès sur HTTPS ou Websocket par le biais du protocole TLS.
 

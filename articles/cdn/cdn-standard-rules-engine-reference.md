@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760088"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661764"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
@@ -59,7 +59,7 @@ Un symbole de pourcentage est utilisé pour indiquer l’encodage des URL (par e
 
 ### <a name="wildcard-values"></a>Valeurs de caractère générique
 
-Actuellement, nous prenons en charge le caractère générique dans la **condition de correspondance UrlPath** dans le moteur de règles standard. Le caractère \* est un astérisque représentant un ou plusieurs caractères. 
+Actuellement, nous prenons en charge le caractère générique dans la **condition de correspondance UrlPath** dans le moteur de règles standard. Le caractère \* est un caractère générique qui représente un ou plusieurs caractères. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

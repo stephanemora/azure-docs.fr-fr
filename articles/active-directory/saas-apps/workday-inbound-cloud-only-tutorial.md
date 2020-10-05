@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540964"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015481"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutoriel : Configurer l'attribution d'utilisateurs Workday vers Azure AD
 Ce tutoriel a pour objectif d’expliquer les étapes à suivre pour approvisionner des données d’employés de Workday vers Azure Active Directory. 
@@ -27,13 +27,13 @@ Ce tutoriel a pour objectif d’expliquer les étapes à suivre pour approvision
 
 Le [service d’approvisionnement utilisateur Azure Active Directory](../app-provisioning/user-provisioning.md) s’intègre aux [API de ressources humaines Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) afin d’approvisionner des comptes d’utilisateur. Les flux de travail d’approvisionnement de l’utilisateur Workday pris en charge par le service d’approvisionnement de l’utilisateur Azure AD autorisent l’automatisation des scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
-* **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md), avec l’écriture différée de l’adresse e-mail pour Workday.
+* **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Azure Active Directory et, éventuellement, Microsoft 365 et [d’autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md), avec la réécriture de l’adresse e-mail pour Workday.
 
-* **Mises à jour du profil et des attributs de l’employé** : lorsque le dossier d’un employé est mis à jour dans Workday (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Mises à jour du profil et des attributs de l’employé** : lorsque le dossier d’un employé est mis à jour dans Workday (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Résiliations de contrats d’employés** : lorsque le contrat d’un employé est résilié dans Workday, son compte d’utilisateur est désactivé automatiquement dans Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Résiliations de contrats d’employés** : lorsque le contrat d’un employé est résilié dans Workday, son compte d’utilisateur est désactivé automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employés réembauchés** : lorsqu'un employé est réembauché dans Workday, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Employés réembauchés** : lorsqu’un employé est réembauché dans Workday, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
 
@@ -45,7 +45,7 @@ Cette solution d'attribution d’utilisateurs Workday vers Azure Active Director
 
 * Les organisations qui ont besoin d'une attribution d’utilisateurs à l’aide de données provenant de Workday.
 
-* les organisations qui utilisent Office 365 pour la messagerie électronique.
+* Organisations utilisant Microsoft 365 pour la messagerie
 
 ## <a name="solution-architecture"></a>Architecture de solution
 

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: f60fba6a0b3a4d891fe19b7d75ab9c9fde278629
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393800"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650984"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -177,14 +177,16 @@ Pour tous les types d'offres payantes, vous avez la possibilité de saisir les p
 Pour ajuster un tarif avant sa publication, il vous suffit d’exporter la feuille de calcul de tarification, de la modifier et de la charger avec les modifications.
 
 > [!NOTE]
-> Une fois qu’un prix pour un marché dans votre plan est publié, il ne peut pas être modifié ultérieurement. Pour vérifier que les prix sont corrects avant de les publier, exportez la feuille de calcul de prix et passez en revue les prix sur chaque marché.
+> Une fois qu’un prix est publié pour un marché dans votre plan, il ne peut plus être modifié. Pour vérifier que les prix sont corrects avant de les publier, exportez la feuille de calcul de prix et passez en revue les prix sur chaque marché.
 
 Le prix d'une offre est toujours indiqué aux clients dans leur devise locale. Le prix que vous sélectionnez dans l'Espace partenaires est converti dans la devise locale des clients en fonction du taux de change en vigueur au moment où vous avez enregistré le prix dans l'Espace partenaires. Le prix indiqué aux clients dans les magasins en ligne ne change pas, sauf si vous republiez votre offre.
 
 Microsoft reçoit les paiements des clients dans leur devise locale et vous paie dans votre devise locale. Microsoft convertit la devise locale du client en votre devise locale en se basant sur le taux de change du jour de l'achat.
 
 > [!NOTE]
-> Microsoft convertit les prix des offres en se basant sur le taux de change de Microsoft Treasury.
+> Microsoft convertit les prix des offres en se basant sur les taux de change de Microsoft Treasury.
+
+[![Flux de conversion monétaire.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>Récupération des informations sur la devise avec une API
 

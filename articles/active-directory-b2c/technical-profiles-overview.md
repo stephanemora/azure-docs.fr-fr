@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203212"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562874"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -32,6 +32,7 @@ Un profil technique permet les types de scénarios suivants :
 - [Azure Active Directory](active-directory-technical-profile.md) : fournit une assistance pour la gestion des utilisateurs Azure Active Directory B2C.
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) : gère la vérification d’un numéro de téléphone à l’aide d’Azure Multi-Factor Authentication (MFA). 
 - [Transformation de revendications](claims-transformation-technical-profile.md) : appelle les transformations de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
+- [Indicateur de jeton d’ID](id-token-hint.md) : valide la signature de jeton JWT `id_token_hint`, le nom de l’émetteur et l’audience du jeton, puis extrait la revendication du jeton entrant.
 - [Émetteur de jeton JWT](jwt-issuer-technical-profile.md) : émet un jeton JWT qui est retourné à l’application par partie de confiance.
 - [OAuth1](oauth1-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 2.0.

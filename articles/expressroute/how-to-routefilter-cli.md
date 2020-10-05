@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 41748e4d019121ce25142e5719036eb1f1ab1479
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 8fbce15b84371b7b7907deff361e2a2e706bec28
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393290"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567705"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour le peering Microsoft : Azure CLI
 
@@ -25,7 +25,7 @@ ms.locfileid: "89393290"
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via le peering Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
 
-Les services Office 365, comme Exchange Online, SharePoint Online et Skype Entreprise, sont accessibles via l’appairage Microsoft. Lorsque le peering Microsoft est configuré dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
+Les services Microsoft 365, comme Exchange Online, SharePoint Online et Skype Entreprise sont accessibles par le biais de l’appairage Microsoft. Lorsque le peering Microsoft est configuré dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
 
 Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais du peering Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
 
@@ -39,7 +39,7 @@ Lorsque le peering Microsoft est configuré sur votre circuit ExpressRoute, les 
 
 Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via le peering Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement de la liste autorisée de toutes les valeurs de la communauté BGP. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
 
-Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Pour être en mesure de joindre des filtres de routage à des services Microsoft 365, vous devez être autorisé à utiliser les services Microsoft 365 par le biais d’ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Microsoft 365 par le biais d’ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > Le peering Microsoft des circuits ExpressRoute configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via le peering Microsoft, même si les filtres de routage ne sont pas définis. Le peering Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit.

@@ -3,15 +3,15 @@ title: Équilibrage de charge du pool d’hôtes Windows Virtual Desktop – Azu
 description: En savoir plus sur les méthodes d’équilibrage de charge de pool d’hôtes pour un environnement Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007435"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461117"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
 
@@ -34,7 +34,7 @@ Chaque pool d’hôtes ne peut configurer qu’un seul type d’équilibrage de 
 
 La méthode d’équilibrage de charge de largeur permet de distribuer les connexions utilisateur afin d’optimiser ce scénario. Cette méthode est idéale pour les organisations qui souhaitent offrir la meilleure expérience qui soit aux utilisateurs se connectant à leur environnement de bureau virtuel mis en pool.
 
-La méthode de largeur interroge d’abord les hôtes de session qui autorise les nouvelles connexions. La méthode sélectionne ensuite l’hôte de session ayant le plus petit nombre de sessions. S’il existe un lien, la méthode sélectionne le premier hôte de session de la requête.
+La méthode de largeur interroge d’abord les hôtes de session qui autorise les nouvelles connexions. La méthode sélectionne ensuite un hôte de session de façon aléatoire parmi la moitié des hôtes de session avec le moins de sessions. Par exemple, s’il existe neuf machines avec 11, 12, 13, 14, 15, 16, 17, 18 et 19 sessions, lorsque vous créez une session, celle-ci n’est pas automatiquement affectée à la première machine. Au lieu de cela, elle peut être affectée à l’une quelconque des cinq premières machines avec le moins de sessions (11, 12, 13, 14, 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Méthode d’équilibrage de charge de profondeur
 

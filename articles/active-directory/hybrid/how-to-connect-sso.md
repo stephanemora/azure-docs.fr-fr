@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a223a409c64a65413527f381775f94feb96273
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278528"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658360"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -56,7 +56,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 - Si une application (par exemple, `https://myapps.microsoft.com/contoso.com`) transfère un paramètre `domain_hint` (OpenID Connect) ou `whr` (SAML), correspondant à votre locataire, ou encore un paramètre `login_hint`, correspondant à l’utilisateur, dans sa requête de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
 - Les utilisateurs obtiennent également une expérience de connexion silencieuse si une application (par exemple, `https://contoso.sharepoint.com`) envoie des demandes de connexion aux points de terminaison d'Azure AD définis en tant que locataires ; c'est-à-dire, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` au lieu du point de terminaison commun d’Azure AD ; c'est-à-dire, `https://login.microsoftonline.com/common/<...>`.
 - La déconnexion est prise en charge. Cela permet aux utilisateurs de choisir le compte Azure AD auquel se connecter, au lieu d’être connecté automatiquement à l’aide de l’authentification unique transparente.
-- Les clients Win32 Office 365 (Outlook, Word, Excel, etc.) dotés des versions 16.0.8730.xxxx et ultérieures sont pris en charge au moyen d’un flux non interactif. En ce qui concerne OneDrive, vous devez activer la [fonctionnalité de configuration silencieuse OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) pour une utilisation de l’authentification sans assistance.
+- Les clients Win32 Microsoft 365 (Outlook, Word, Excel, etc.) dotés des versions 16.0.8730.xxxx et ultérieures sont pris en charge au moyen d’un flux non interactif. En ce qui concerne OneDrive, vous devez activer la [fonctionnalité de configuration silencieuse OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) pour une utilisation de l’authentification sans assistance.
 - L’authentification unique transparente peut être activée par le biais d’Azure AD Connect.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 - L’authentification unique est prise en charge par les clients basés sur le navigateur web et les clients Office qui prennent en charge [l’authentification moderne](/office365/enterprise/modern-auth-for-office-2013-and-2016) sur les plateformes et navigateurs compatibles avec l’authentification Kerberos :

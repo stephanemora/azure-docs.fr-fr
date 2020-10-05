@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236095"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646545"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -105,7 +105,7 @@ Un seul sous-réseau ne peut pas prendre en charge les références (SKU) v2 et 
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Application Gateway v2 prend-il en charge les itinéraires définis par l’utilisateur (UDR) ?
 
-Oui, mais uniquement dans des scénarios spécifiques. Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Oui, mais uniquement dans des scénarios spécifiques. Pour plus d’informations, consultez [Configuration de l’infrastructure Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
@@ -136,7 +136,7 @@ Non. Application Gateway v2 ne prend pas encore en charge les demandes de proxy 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
 Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. 
 
-Pour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-overview.md#cookie-based-affinity).
+Pour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-http-settings.md#cookie-based-affinity).
 
 ## <a name="performance"></a>Performances
 
@@ -186,7 +186,7 @@ Consultez [Groupes de sécurité réseau dans le sous-réseau Application Gatewa
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Le sous-réseau de la passerelle d'application prend-il en charge les routes définies par l’utilisateur ?
 
-Consultez [Les routes définies par l’utilisateur prises en charge dans le sous-réseau Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Consultez [Les routes définies par l’utilisateur prises en charge dans le sous-réseau Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?
 
@@ -404,7 +404,7 @@ Actuellement, une instance de contrôleur d’entrée ne peut être associée qu
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Pourquoi mon cluster AKS avec kubenet ne fonctionne-t-il pas avec l’AGIC ?
 
-L’AGIC essaie d’associer automatiquement la ressource de la table de routage au sous-réseau de la passerelle d’application, mais peut ne pas y parvenir en raison du manque d’autorisations de l’AGIC. Si l’AGIC n’est pas en mesure d’associer la table de routage au sous-réseau de la passerelle d’application, une erreur se produira dans les journaux de l’AGIC. Dans ce cas, vous devrez associer manuellement la table de routage créée par le cluster AKS au sous-réseau de la passerelle d’application. Pour plus d’informations, consultez les instructions [ici](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+L’AGIC essaie d’associer automatiquement la ressource de la table de routage au sous-réseau de la passerelle d’application, mais peut ne pas y parvenir en raison du manque d’autorisations de l’AGIC. Si l’AGIC n’est pas en mesure d’associer la table de routage au sous-réseau de la passerelle d’application, une erreur se produira dans les journaux de l’AGIC. Dans ce cas, vous devrez associer manuellement la table de routage créée par le cluster AKS au sous-réseau de la passerelle d’application. Pour plus d’informations, consultez [Routes définies par l’utilisateur prises en charge](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Puis-je connecter mon cluster AKS et Application Gateway dans des réseaux virtuels distincts ? 
 

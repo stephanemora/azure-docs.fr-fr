@@ -13,23 +13,23 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdd26307dfdf75717a48eda034efeedd7465a63a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277474"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662516"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Comment Azure AD permet une gestion gouvernée par le cloud pour les charges de travail locales
 
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète utilisée par des millions d’organisations, qui couvre tous les aspects de l’identité, de la gestion des accès et de la sécurité. Azure AD conserve les identités de plus d’un milliard d’utilisateurs. Ceux-ci peuvent se connecter et accéder de façon sécurisée aux types de ressources suivants :
 
-* Ressources externes telles que Microsoft Office 365, le portail Azure et des milliers d’autres applications SaaS (Software-as-a-Service)
+* Ressources externes telles que Microsoft 365, le portail Azure et des milliers d’autres applications SaaS (Software-as-a-Service).
 * Ressources internes telles que les applications situées sur le réseau d’entreprise et intranet d’une organisation, ainsi que les applications cloud développées par votre propre organisation
 
 Les organisations peuvent utiliser Azure AD si elles sont « entièrement cloud », ou effectuer un déploiement « hybride » si elles disposent de charges de travail locales. Un déploiement hybride d’Azure AD peut faire partie de la stratégie d’une organisation souhaitant migrer ses ressources informatiques vers le cloud, ou souhaitant continuer à intégrer l’infrastructure locale existante aux nouveaux services cloud.
 
-Depuis le début, les organisations « hybrides » ont vu Azure AD comme une extension de leur infrastructure locale. Avec ces déploiements, les points de contrôle sont l’administration de la gouvernance des identités locales, Windows Server Active Directory et d’autres systèmes d’annuaire internes. Les utilisateurs et les groupes sont synchronisés à partir de ces systèmes avec un annuaire cloud tel qu’Azure AD. Une fois que ces identités se trouvent dans le cloud, elles peuvent être mises à disposition dans Office 365, Azure et d’autres applications.
+Depuis le début, les organisations « hybrides » ont vu Azure AD comme une extension de leur infrastructure locale. Avec ces déploiements, les points de contrôle sont l’administration de la gouvernance des identités locales, Windows Server Active Directory et d’autres systèmes d’annuaire internes. Les utilisateurs et les groupes sont synchronisés à partir de ces systèmes avec un annuaire cloud tel qu’Azure AD. Une fois que ces identités se trouvent dans le cloud, elles peuvent être mises à disposition dans Microsoft 365, Azure et d’autres applications.
 
 ![Cycle de vie des identités](media/cloud-governed-management-for-on-premises//image1.png)
 
@@ -49,7 +49,7 @@ En outre, la gestion ne serait pas complète sans la gouvernance. Dans le monde 
 
 L’incorporation de la gouvernance des identités permet aux entreprises d’effectuer plus facilement leur transition vers la gestion gouvernée par le cloud. En outre, elle permet de réduire la taille du service informatique et facilite la gestion des utilisateurs invités. Enfin, comparé à ce dont peuvent bénéficier les utilisateurs dans une infrastructure locale, elle fournit des insights plus approfondis et une plus grande automatisation. Aujourd’hui, la gouvernance signifie que les organisations bénéficient de la transparence, de la visibilité et du contrôle nécessaires pour l’accès aux ressources de l’organisation. Avec Azure AD, les équipes chargées des opérations de sécurité et d’audit disposent d’une visibilité sur qui a (et qui doit avoir) accès aux ressources de l’organisation (et sur quels appareils), sur ce que ces utilisateurs font de cet accès et si l’organisation utilise un système de contrôle adapté permettant de supprimer ou de limiter l’accès, conformément aux stratégies de l’entreprise ou aux réglementations en vigueur.
 
-Ce nouveau modèle de gestion est avantageux pour les organisations qui disposent à la fois d’applications SaaS et d’applications LOB, car il leur permet de gérer et de sécuriser plus facilement l’accès à ces applications. En intégrant les applications à Azure AD, les organisations pourront utiliser et gérer l’accès des identités cloud et locales de manière cohérente. La gestion du cycle de vie des applications devient plus automatisée, et Azure AD fournit des insights riches sur l’utilisation des applications, ce qui n’était pas facilement réalisable avec la gestion des identités locales. Grâce à Azure AD, aux groupes Office 365 et aux fonctionnalités en libre-service de Teams, les organisations peuvent facilement créer des groupes pour la gestion de l’accès et la collaboration. En outre, elles peuvent ajouter et supprimer des utilisateurs en fonction des exigences relatives à la gestion de l’accès et à la collaboration.
+Ce nouveau modèle de gestion est avantageux pour les organisations qui disposent à la fois d’applications SaaS et d’applications LOB, car il leur permet de gérer et de sécuriser plus facilement l’accès à ces applications. En intégrant les applications à Azure AD, les organisations pourront utiliser et gérer l’accès des identités cloud et locales de manière cohérente. La gestion du cycle de vie des applications devient plus automatisée, et Azure AD fournit des insights riches sur l’utilisation des applications, ce qui n’était pas facilement réalisable avec la gestion des identités locales. Grâce à Azure AD, aux groupes Microsoft 365 et aux fonctionnalités en libre-service de Teams, les organisations peuvent facilement créer des groupes pour la gestion de l’accès et la collaboration. En outre, elles peuvent ajouter et supprimer des utilisateurs en fonction des exigences relatives à la gestion de l’accès et à la collaboration.
 
 Les fonctionnalités Azure AD à sélectionner pour la gestion gouvernée par le cloud varient en fonction des applications à utiliser, et de la façon dont ces applications sont intégrées à Azure AD. Les sections suivantes décrivent les approches à suivre pour les applications intégrées à Azure Directory, ainsi que les applications qui utilisent des protocoles de fédération (par exemple, SAML, OAuth ou OpenID Connect).
 

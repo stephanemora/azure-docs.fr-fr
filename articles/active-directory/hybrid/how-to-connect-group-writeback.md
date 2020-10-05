@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e49516647a4783fb27bf1be1cee60a3274fc040
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279845"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660874"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Écriture différée de groupe dans Azure AD Connect
 
-Avec l’écriture différée de groupe, les clients peuvent utiliser les groupes cloud dont ils ont besoin pour leurs déploiements hybrides. Si vous utilisez la fonctionnalité Groupes dans Office 365, ces groupes peuvent être représentés dans votre annuaire Active Directory local. Cette option est disponible **uniquement** si Exchange est présent dans votre annuaire Active Directory local.
+Avec l’écriture différée de groupe, les clients peuvent utiliser les groupes cloud dont ils ont besoin pour leurs déploiements hybrides. Si vous utilisez la fonctionnalité Groupes Microsoft 365, ces groupes peuvent être représentés dans votre annuaire Active Directory local. Cette option est disponible **uniquement** si Exchange est présent dans votre annuaire Active Directory local.
 
 ## <a name="pre-requisites"></a>Conditions préalables
 Les conditions préalables suivantes doivent être remplies pour activer la fonctionnalité d’écriture différée de groupe.
 - Des licences Azure Active Directory Premium pour votre locataire.
-- Un déploiement hybride configuré entre votre organisation Exchange locale et Office 365, et pleinement opérationnel.
+- Un déploiement hybride configuré entre votre organisation Exchange locale et Microsoft 365, et pleinement opérationnel.
 - Une version prise en charge d’Exchange local installée
 - L’authentification unique configurée à l’aide d’Azure Active Directory Connect 
 
@@ -37,7 +37,7 @@ Pour activer l’écriture différée de groupe, effectuez les étapes suivantes
 3. Dans la page **Connexion à Azure AD**, entrez vos informations d’identification. Cliquez sur **Suivant**.
 4. Dans la page **Fonctionnalités facultatives**, vérifiez que les options que vous avez configurées précédemment sont toujours sélectionnées.
 5. Sélectionnez **Écriture différée de groupe**, puis cliquez sur **Suivant**.
-6. Dans la **page Écriture**, sélectionnez une unité d'organisation Active Directory pour stocker les objets synchronisés à partir d’Office 365 dans votre organisation locale, puis cliquez sur **Suivant**.
+6. Dans la **page Écriture**, sélectionnez une unité d’organisation Active Directory pour stocker les objets synchronisés de Microsoft 365 vers votre organisation locale, puis cliquez sur **Suivant**.
 7. Dans la page **Prêt à configurer**, cliquez sur **Configurer**.
 8. À la fin de l’Assistant, cliquez sur **Quitter** dans la page Configuration terminée.
 9. Ouvrez Windows PowerShell en tant qu’administrateur sur le serveur Azure Active Directory Connect, puis exécutez les commandes suivantes.
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Pour plus d’informations sur la configuration des groupes Office 365, consultez [Configurer des groupes Microsoft 365 dans un déploiement Exchange hybride local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+Pour plus d’informations sur la configuration des groupes Microsoft 365, consultez [Configurer des groupes Microsoft 365 dans un déploiement Exchange hybride local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Désactiver l’écriture différée de groupe
 Pour désactiver l’écriture différée de groupe, effectuez les étapes suivantes : 

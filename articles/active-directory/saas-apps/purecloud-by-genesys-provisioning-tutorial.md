@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1397aa350ccc3114954902a6bfd02826cdff965f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553278"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015143"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutoriel : Configurer Genesys PureCloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -111,6 +111,8 @@ Cette section vous guide tout au long des étapes de configuration du service d�
      |phoneNumbers[type eq "work"].value|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
+     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+     
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory sur Genesys PureCloud**.
 
@@ -144,6 +146,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 * Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 * Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Journal des modifications
+
+10/09 : ajout de la prise en charge de l’attribut métier « employeeNumber ».
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

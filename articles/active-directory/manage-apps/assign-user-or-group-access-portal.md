@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: a8509797e78b70a60ffad4ba01d5a936f8b76f97
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322294"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604323"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 
@@ -28,7 +28,7 @@ Pour un meilleur contrôle, vous pouvez configurer certains types d’applicatio
 > Lorsque vous affectez un groupe à une application, seuls les utilisateurs du groupe y ont accès. L’affectation n’est pas en cascade vers les groupes imbriqués.
 
 > [!NOTE]
-> L’attribution basée sur le groupe requiert Azure Active Directory Premium édition P1 ou P2. L’attribution basée sur le groupe est uniquement prise en charge pour les groupes de sécurité. Les appartenances aux groupes imbriqués et aux groupes Office 365 ne sont pas prises en charge actuellement. Pour d’autres conditions de gestion des licences relatives aux composants traités dans le présent article, consultez la [page sur la tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> L’attribution basée sur le groupe requiert Azure Active Directory Premium édition P1 ou P2. L’attribution basée sur le groupe est uniquement prise en charge pour les groupes de sécurité. Les appartenances aux groupes imbriqués et aux groupes Microsoft 365 ne sont pas prises en charge actuellement. Pour d’autres conditions de gestion des licences relatives aux composants traités dans le présent article, consultez la [page sur la tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>Configurer une application pour exiger une affectation d’utilisateur
 
@@ -55,7 +55,10 @@ Pour exiger une affectation d’utilisateur pour une application :
 6. Sélectionnez le bouton **Enregistrer** en haut de l’écran.
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-azure-portal"></a>Attribuer ou désattribuer des utilisateurs et des groupes pour une application en utilisant le portail Azure
-Pour savoir comment attribuer ou désattribuer un utilisateur ou un groupe à l’aide du portail Azure, consultez [Série de démarrages rapides sur la gestion des applications](add-application-portal-assign-users.md). 
+Pour savoir comment attribuer ou désattribuer un utilisateur ou un groupe à l’aide du portail Azure, consultez [Série de démarrages rapides sur la gestion des applications](add-application-portal-assign-users.md).
+
+## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Attribuer ou désattribuer des utilisateurs et des groupes pour une application à l’aide de l’API Graph
+Vous pouvez utiliser l’API Graph pour attribuer ou désattribuer des utilisateurs et des groupes pour une application. Pour plus d’informations, consultez [Attributions de rôles d’application](https://docs.microsoft.com/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Attribuer des utilisateurs et des groupes à une application à l’aide de PowerShell
 1. Ouvrez une invite de commandes Windows PowerShell avec des privilèges élevés.

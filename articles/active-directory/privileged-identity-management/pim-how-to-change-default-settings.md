@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420003"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055484"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -123,7 +123,7 @@ Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès q
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
 
-## <a name="open-role-settings"></a>Ouvrir les paramètres de rôle
+## <a name="open-role-settings-previous-version"></a>Ouvrir les paramètres de rôle (version précédente)
 
 Suivez ces étapes pour ouvrir les paramètres d’un rôle Azure AD.
 
@@ -168,7 +168,7 @@ Utilisez le commutateur **Ticket d’incident/de demande** pour exiger que les a
 Utilisez le commutateur **Authentification multifacteur** pour spécifier si les utilisateurs doivent ou non confirmer leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification de leur identité est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
 
 - Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses e-mail (généralement @outlook.com, mais pas toujours) ne peuvent pas s’inscrire à Azure Multi-Factor Authentication. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
-- Vous ne pouvez pas désactiver Azure Multi-Factor Authentication pour les rôles à privilèges élevés pour Azure AD et Office 365. Cette fonctionnalité de sécurité permet de protéger les rôles suivants :  
+- Vous ne pouvez pas désactiver Azure Multi-Factor Authentication pour les rôles à privilèges élevés pour Azure AD et Microsoft 365. Cette fonctionnalité de sécurité permet de protéger les rôles suivants :  
   
   - Administrateur Azure Information Protection
   - Administrateur de facturation

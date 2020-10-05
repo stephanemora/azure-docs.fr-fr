@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3361657406f2ece6a48b74d3ca6ee3d9ed68ca
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277355"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662145"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
 
@@ -124,7 +124,7 @@ Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatique
 |Tous les articles AD FS | [Fédération avec Azure AD Connect](how-to-connect-fed-whatis.md)|
 |Configuration d’ADFS avec des sous-domaines | [Prise en charge de plusieurs domaines pour la fédération avec Azure AD](how-to-connect-install-multiple-domains.md)|
 |Gérer la batterie AD FS | [Gestion AD FS et personnalisation avec Azure AD Connect](how-to-connect-fed-management.md)|
-|Mise à jour manuelle des certificats de fédération | [Renouvellement des certificats de fédération pour Office 365 et Azure AD](how-to-connect-fed-o365-certs.md)|
+|Mise à jour manuelle des certificats de fédération | [Renouvellement des certificats de fédération pour Microsoft 365 et Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## <a name="get-started-with-azure-ad-connect-health"></a>Démarrer avec Azure AD Connect Health

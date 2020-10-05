@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74781857"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648697"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Bonnes pratiques pour la gestion des clusters HDInsight
 
@@ -62,6 +62,8 @@ Découvrez les bonnes pratiques à suivre pour gérer des clusters HDInsight.
 | Mise à l’échelle manuelle | [Mettre à l’échelle des clusters Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Supervision avec Ambari| [Superviser les performances des clusters dans Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Superviser avec les journaux Azure Monitor | [Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Problèmes liés au service, maintenance planifiée et avis de sécurité et d’intégrité | [S’abonner aux alertes d’intégrité du service propres à l’abonnement](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Comment superviser des clusters HDInsight supprimés ?
 

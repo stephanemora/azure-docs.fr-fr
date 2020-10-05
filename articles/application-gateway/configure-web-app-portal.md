@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563751"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
@@ -23,10 +23,8 @@ Application Gateway fournit un commutateur appelé `Pick host name from backend 
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
->
-> - Créer un pool de back-ends et y ajouter un service d’application
-> - Créer des paramètres HTTP et une sonde personnalisée en activant les commutateurs de choix de nom d’hôte
+- Créer un pool de back-ends et y ajouter un service d’application
+- Créer des paramètres HTTP et une sonde personnalisée en activant les commutateurs de choix de nom d’hôte
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,9 +67,9 @@ Dans cet article, vous apprendrez comment :
 
 5. Cliquez sur **OK** pour créer le paramètre HTTP.
 
-   ![Paramètre-HTTP1](./media/configure-web-app-portal/http-setting1.png)
+   ![Capture d’écran qui montre le volet Ajouter un paramètre HTTP avec Utiliser pour App Service et OK sélectionnés.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![Paramètre-HTTP2](./media/configure-web-app-portal/http-setting2.png)
+   ![Capture d’écran qui montre une sonde d’intégrité avec Choisir un nom d’hôte à partir des paramètres HTTP du backend sélectionné.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -87,7 +85,7 @@ Dans cet article, vous apprendrez comment :
 
 5. Cliquez sur **OK** pour enregistrer cette règle.
 
-   ![Règle](./media/configure-web-app-portal/rule.png)
+   ![Capture d’écran qui montre le volet Ajouter une règle de base avec écouteur, pool backend et paramètre HTTP mis en évidence.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuration supplémentaire en cas de redirection vers le chemin relatif d’App Service
 

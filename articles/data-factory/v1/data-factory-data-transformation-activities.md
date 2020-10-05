@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 74cf34438ca142302a6853e8e488b0c7188b162b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522361"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436295"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformer des données dans Azure Data Factory version 1
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Au fil du temps, les modèles prédictifs dans les expériences de notation Mach
 Consultez la page [Utiliser les activités Machine Learning](data-factory-azure-ml-batch-execution-activity.md) pour plus d’informations sur ces activités Machine Learning. 
 
 ## <a name="stored-procedure-activity"></a>Activité de procédure stockée
-Vous pouvez utiliser l’activité Procédure stockée SQL Server dans un pipeline Data Factory pour appeler une procédure stockée dans un des magasins de données suivants : Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database, dans votre entreprise ou une machine virtuelle Azure. Consultez l’article [Activité de procédure stockée](data-factory-stored-proc-activity.md) pour plus de détails.  
+Vous pouvez utiliser l’activité Procédure stockée SQL Server dans un pipeline Data Factory pour appeler une procédure stockée dans un des magasins de données suivants : Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), SQL Server Database dans votre entreprise ou une machine virtuelle Azure. Consultez l’article [Activité de procédure stockée](data-factory-stored-proc-activity.md) pour plus de détails.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Activité U-SQL Data Lake Analytics
 L’activité U-SQL Data Lake Analytics exécute un script U-SQL sur un cluster Azure Data Lake Analytics. Consultez l’article [Activité U-SQL Data Analytics](data-factory-usql-activity.md) pour plus de détails. 
@@ -93,7 +93,7 @@ Azure Data Factory prend en charge les activités suivantes de transformation de
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Activités Machine Learning : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
-| [Procédure stockée](data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse ou SQL Server |
+| [Procédure stockée](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics ou SQL Server |
 | [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |Service Analytique Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Azure Batch |
 

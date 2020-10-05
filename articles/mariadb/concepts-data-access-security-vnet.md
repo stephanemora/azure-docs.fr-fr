@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: d681c79cb3c7874cbcd75d03db08721dd4b25f4d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6fc0add55caccd7721f3ee2c72db68fbcf6bc0dc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835457"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458499"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure Database for MariaDB
 
@@ -112,7 +112,7 @@ Pour Azure Database for MariaDB, la fonctionnalité de règle de réseau virtuel
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement classique][resource-manager-deployment-model-568f].
 
-- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database for MariaDB avec l’étiquette de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database for MariaDB, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
+- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database for MariaDB avec l’étiquette de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database for MariaDB, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 

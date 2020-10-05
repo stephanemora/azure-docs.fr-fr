@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950338"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459069"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
-Azure NetApp Files prend en charge la création de captures instantanées à la demande et l’utilisation de stratégies de capture instantanée pour planifier la création automatique de captures instantanées.  Vous pouvez également restaurer une capture instantanée sur un nouveau volume.  
+Azure NetApp Files prend en charge la création de captures instantanées à la demande et l’utilisation de stratégies de capture instantanée pour planifier la création automatique de captures instantanées.  Vous pouvez également restaurer un instantané sur un nouveau volume ou restaurer un fichier unique à l’aide d’un client.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Créer un instantané à la demande pour un volume
 
@@ -165,7 +165,62 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
     Le nouveau volume utilise le même protocole que celui qu’utilise la capture instantanée.   
     Le nouveau volume sur lequel l’instantané est restauré apparaît dans le panneau Volumes.
 
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Restaurer un fichier à partir d’un instantané à l’aide d’un client
+
+Si vous ne souhaitez pas [restaurer l’intégralité de l’instantané sur un volume](#restore-a-snapshot-to-a-new-volume), vous avez la possibilité de restaurer un fichier à partir d’un instantané à l’aide d’un client sur lequel le volume est monté.  
+
+Le volume monté contient un répertoire d’instantanés nommé `.snapshot` (sur les clients NFS) ou `~snapshot` (sur les clients SMB) accessible au client. Le répertoire d’instantanés contient des sous-répertoires correspondant aux instantanés du volume. Chaque sous-répertoire contient les fichiers de l’instantané. Si vous supprimez ou remplacez accidentellement un fichier, vous pouvez le restaurer dans le répertoire de lecture-écriture parent en le copiant à partir d’un sous-répertoire d’instantanés et en le collant dans le répertoire de lecture-écriture. 
+
+Si vous avez coché la case Masquer le chemin d’instantané lors de la création du volume, le répertoire d’instantanés est masqué. Vous pouvez afficher l’état Masquer le chemin d’instantané du volume en sélectionnant le volume. Vous pouvez modifier l’option Masquer le chemin d’instantané en cliquant sur **Modifier** dans la page du volume.  
+
+![Modifier les options d’instantané de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurer un fichier à l’aide d’un client NFS Linux 
+
+1. Utilisez la commande `ls` Linux pour lister le fichier que vous souhaitez restaurer à partir du répertoire `.snapshot`. 
+
+    Par exemple :
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Utilisez la commande `cp` pour copier le fichier dans le répertoire parent.  
+
+    Par exemple : 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Restaurer un fichier à l’aide d’un client Windows 
+
+1. Si le répertoire `~snapshot` du volume est masqué, [affichez les éléments masqués](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) dans le répertoire parent de façon à afficher `~snapshot`.
+
+    ![Afficher les éléments masqués](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Accédez au sous-répertoire dans `~snapshot` pour trouver le fichier à restaurer.  Cliquez avec le bouton droit sur le fichier. Sélectionnez **Copier**.  
+
+    ![Copier le fichier à restaurer](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Revenez au répertoire parent. Cliquez avec le bouton droit dans le répertoire parent, puis sélectionnez `Paste` pour coller le fichier dans le répertoire.
+
+    ![Coller le fichier à restaurer](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. Vous pouvez également cliquer avec le bouton droit sur le répertoire parent, sélectionner **Propriétés**, cliquer sur l’onglet **Versions précédentes** pour voir la liste des instantanés, puis sélectionner **Restaurer** pour restaurer un fichier.  
+
+    ![Propriétés : Versions précédentes](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Vidéo sur les instantanés Azure NetApp Files](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

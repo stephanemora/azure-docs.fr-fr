@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961922"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987835"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez configurer les sauvegardes pour qu’elles soient conservées pendant une durée indéfinie. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.
@@ -60,7 +60,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
     > [!NOTE]
     > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
     > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](manage-scale-up.md).
-    > ![Sélection d'un compte de stockage](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Capture d’écran d’une bannière contenant un message relatif à la mise à niveau du plan App Service afin d’accéder à la fonctionnalité de sauvegarde et de restauration.":::
     > 
     > 
 
@@ -70,13 +70,13 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 
 3. Dans la page **Configuration de la sauvegarde**, cliquez sur **Stockage non configuré** pour configurer un compte de stockage.
 
-    ![Sélection d'un compte de stockage](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Capture d’écran d’une bannière contenant un message relatif à la mise à niveau du plan App Service afin d’accéder à la fonctionnalité de sauvegarde et de restauration.":::
 
 4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les pages respectives. Quand vous avez terminé, cliquez sur **Sélectionner**.
 
 5. Dans la page **Configuration de la sauvegarde** toujours ouverte, vous pouvez configurer **Base de données de sauvegarde**, sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (SQL Database ou MySQL), puis cliquer sur **OK**.
 
-    ![Sélection d'un compte de stockage](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Capture d’écran d’une bannière contenant un message relatif à la mise à niveau du plan App Service afin d’accéder à la fonctionnalité de sauvegarde et de restauration.":::
 
     > [!NOTE]
     > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application. 

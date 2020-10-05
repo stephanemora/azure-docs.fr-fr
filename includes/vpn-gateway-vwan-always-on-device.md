@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371730"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606606"
 ---
 Les conditions suivantes doivent être remplies afin d’établir un tunnel d’appareil :
 
@@ -123,18 +123,18 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![La capture d’écran affiche une fenêtre d’invite de commandes avec une commande pour démarrer la version 64 bits de PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. Dans PowerShell, accédez au dossier où **devicecert.ps1** et **VPNProfile.xml** se trouvent, et exécutez la commande suivante :
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![La capture d’écran présente une fenêtre PowerShell qui a exécuté MachineCertTest à l’aide du script devicesert.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Exécutez **rasphone**.
 
-   ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![La capture d’écran affiche une boîte de dialogue Exécuter avec la commande rasphone sélectionnée.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Recherchez l’entrée **MachineCertTest**, puis cliquez sur **Se connecter**.
 
-   ![Se connecter](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![La capture d’écran affiche une boîte de dialogue Connexions réseau avec la commande MachineCertTest sélectionnée et un bouton de connexion.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Si la connexion réussit, redémarrez l’ordinateur. Le tunnel se connectera automatiquement.

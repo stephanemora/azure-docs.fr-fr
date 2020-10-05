@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066522"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658207"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuité d’activité et reprise d’activité pour Azure Logic Apps
 
@@ -69,7 +69,7 @@ Cet exemple montre les instances d’application logique principale et secondair
 
 ## <a name="connections-to-resources"></a>Connexions aux ressources
 
-Azure Logic Apps fournit des [déclencheurs et des actions intégrés, ainsi que des centaines de connecteurs managés](../connectors/apis-list.md) que votre application logique peut utiliser pour fonctionner avec d’autres applications, services, systèmes et autres ressources, comme les comptes Stockage Azure, les bases de données SQL Server, les comptes de messagerie Office 365 Outlook, etc. Si votre application logique a besoin d’accéder à ces ressources, vous créez des connexions qui authentifient l’accès à ces ressources. Chaque connexion est une ressource Azure distincte qui existe dans un emplacement spécifique et qui ne peut pas être utilisée par des ressources situées dans d’autres emplacements.
+Azure Logic Apps fournit des [déclencheurs et des actions intégrés, ainsi que des centaines de connecteurs managés](../connectors/apis-list.md) que votre application logique peut utiliser pour fonctionner avec d’autres applications, services, systèmes et autres ressources, comme les comptes de stockage Azure, les bases de données SQL Server, les comptes e-mail professionnels ou scolaires, etc. Si votre application logique a besoin d’accéder à ces ressources, vous créez des connexions qui authentifient l’accès à ces ressources. Chaque connexion est une ressource Azure distincte qui existe dans un emplacement spécifique et qui ne peut pas être utilisée par des ressources situées dans d’autres emplacements.
 
 Pour votre stratégie de reprise d’activité, prenez en compte les emplacements où des ressources dépendantes existent par rapport à vos instances d’application logique :
 

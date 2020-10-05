@@ -4,12 +4,12 @@ description: Guide pratique pour basculer des machines virtuelles/serveurs physi
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309966"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563979"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Effectuer un basculement depuis le site local vers Azure
 
@@ -46,7 +46,7 @@ Exécutez le basculement du plan de récupération comme suit :
 1. Dans le coffre Site Recovery, sélectionnez **Plans de récupération** > *recoveryplan_name*.
 2. Cliquez sur **Basculement**.
 
-    ![Basculement](./media/site-recovery-failover/Failover.png)
+    ![La capture d’écran montre le volet ADRP avec l’option Basculement sélectionnée dans le menu Plus.](./media/site-recovery-failover/Failover.png)
 
 3. Dans **Basculement** > **Direction du basculement**, conservez la valeur par défaut si vous effectuez une réplication vers Azure.
 4. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel effectuer le basculement.

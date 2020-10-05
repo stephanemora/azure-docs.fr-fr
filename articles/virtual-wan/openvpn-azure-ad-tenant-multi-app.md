@@ -1,18 +1,18 @@
 ---
 title: 'Virtual WAN : Locataire Azure AD pour différents groupes d’utilisateurs : Authentification Azure AD'
-description: Vous pouvez utiliser un VPN P2S pour vous connecter à votre réseau virtuel à l'aide de l'authentification Azure AD
+description: Configurez un locataire Azure AD pour l’authentification P2S OpenVPN, puis créez et inscrivez plusieurs applications dans Azure AD pour autoriser différents accès pour différents utilisateurs et groupes.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988273"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory (AD) pour les connexions P2S de protocole OpenVPN
 

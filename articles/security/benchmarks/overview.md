@@ -1,55 +1,65 @@
 ---
-title: Vue d’ensemble du benchmark de sécurité Azure
-description: Vue d’ensemble du benchmark de sécurité
+title: Vue d’ensemble d’Azure Security Benchmark V2
+description: Vue d’ensemble d’Azure Security Benchmark V2
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 453e88ed59df0d6e88b8db32ea1836a4371ab3a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2be5df88a665c800f55f773b2470cc095fa27b2b
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529265"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058680"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Vue d’ensemble du benchmark de sécurité Azure
 
-Le benchmark de sécurité Azure contient des recommandations qui vous aident à améliorer la sécurité de vos applications et de vos données sur Azure.
+Azure Security Benchmark (ASB) prescrit les bonnes pratiques et des recommandations pour améliorer la sécurité des charges de travail, des données et des services dans Azure.
 
-Ce benchmark se concentre sur les zones de contrôle axées sur le cloud. Ces contrôles sont cohérents avec des points de référence de sécurité connus, tels que ceux décrits par la version 7.1 des contrôles CIS (Center for Internet Security).
+Ce benchmark fait partie d’un ensemble de principes de sécurité globaux qui incluent aussi :
 
-Les contrôles suivants sont utilisés dans le benchmark de sécurité Azure : 
+- **Cloud Adoption Framework** – Conseils de sécurité sur notamment la [stratégie](/azure/cloud-adoption-framework/strategy/define-security-strategy), les [rôles et responsabilités](/azure/cloud-adoption-framework/organize/cloud-security), les [10 premières bonnes pratiques de sécurité Azure](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices) et l’[implémentation de référence](/azure/cloud-adoption-framework/ready/enterprise-scale/).
+- **Azure Well-Architected Framework** – Conseils sur la [sécurisation de vos charges de travail](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) dans Azure.
+- **Bonnes pratiques de sécurité Microsoft** – [Recommandations ](/security/compass/microsoft-security-compass-introduction) avec des exemples sur Azure.
+ Azure Security Benchmark se concentre sur les zones de contrôle axées sur le cloud. Ces contrôles sont cohérents avec des points de benchmarks de sécurité bien connus, tels que ceux décrits dans la version 7.1 des contrôles CIS (Center for Internet Security) et dans la publication spéciale SP800-53 du NIST (National Institute of Standards and Technology).
+Les contrôles suivants sont inclus dans Azure Security Benchmark :
 
-- [Sécurité du réseau](security-control-network-security.md)
-- [Enregistrement et surveillance](security-control-logging-monitoring.md)
-- [Contrôle des accès et des identités](security-control-identity-access-control.md)
-- [Protection des données](security-control-data-protection.md)
-- [Gestion des vulnérabilités](security-control-vulnerability-management.md)
-- [Gestion des stocks et des ressources](security-control-inventory-asset-management.md)
-- [Configuration sécurisée](security-control-secure-configuration.md)
-- [Défense contre les programmes malveillants](security-control-malware-defense.md)
-- [Récupération des données](security-control-data-recovery.md)
-- [Réponse aux incidents](security-control-incident-response.md)
-- [Tests d’intrusion et exercices Red Team](security-control-penetration-tests-red-team-exercises.md)
+| Domaines de contrôle ASB | Description 
+|--|--|
+| [Sécurité réseau](security-controls-v2-network-security.md) | La sécurité réseau recouvre les contrôles destinés à sécuriser et protéger les réseaux Azure, ce qui inclut la sécurisation des réseaux virtuels, l’établissement de connexions privées, la prévention et l’atténuation des attaques externes et la sécurisation de DNS. |
+| [Gestion des identités](security-controls-v2-identity-management.md) | La gestion des identités recouvre les contrôles destinés à établir une identité sécurisée et des contrôles d’accès avec Azure Active Directory, ce qui inclut l’utilisation de l’authentification unique, d’authentifications fortes, d’identités managées (et les principes de service) pour les applications, l’accès conditionnel et la supervision des anomalies de compte. |
+| [Accès privilégié](security-controls-v2-privileged-access.md) | L’accès privilégié recouvre les contrôles destinés à protéger l’accès privilégié à votre locataire et vos ressources Azure, avec notamment toute une gamme de contrôles visant à protéger votre modèle d’administration, vos comptes d’administration et vos stations de travail à accès privilégié contre les risques délibérés et involontaires. |
+| [Protection des données](security-controls-v2-data-protection.md) | La protection des données recouvre le contrôle de la protection des données au repos, en transit et par le biais de mécanismes d’accès autorisés, ce qui inclut la découverte, la classification, la protection et la supervision des ressources de données sensibles en utilisant le contrôle d’accès, le chiffrement et la journalisation dans Azure. |
+| [Gestion des ressources](security-controls-v2-asset-management.md) | La gestion des ressources recouvre les contrôles destinés à assurer la visibilité et la gouvernance de la sécurité sur les ressources Azure, ce qui inclut des recommandations sur les autorisations pour le personnel de sécurité, l’accès sécurisé à l’inventaire des ressources et la gestion des approbations pour les services et les ressources (inventaire, suivi et correction). |
+| [Journalisation et détection des menaces](security-controls-v2-logging-threat-detection.md) | La journalisation et la détection des menaces recouvrent les contrôles destinés à détecter les menaces dans Azure et à activer, collecter et stocker les journaux d’audit pour les services Azure, ce qui inclut l’activation des processus de détection, d’investigation et de correction avec des contrôles visant à générer des alertes de haute qualité avec la détection native des menaces dans les services Azure. Cela inclut également la collecte des journaux avec Azure Monitor, la centralisation de l’analyse de la sécurité avec Azure Sentinel, la synchronisation de l’heure et la conservation des journaux. |
+| [Réponse aux incidents](security-controls-v2-incident-response.md) | La réponse aux incidents recouvre les contrôles du cycle de vie de la réponse aux incidents – préparation, détection et analyse, autonomie et activités post-incident, ce qui inclut l’utilisation de services Azure comme Azure Security Center et Sentinel pour automatiser le processus de réponse aux incidents. |
+| [Gestion des postures et des vulnérabilités](security-controls-v2-posture-vulnerability-management.md) | La gestion des postures et des vulnérabilités porte essentiellement sur les contrôles destinés à évaluer et améliorer la posture de sécurité d’Azure, ce qui inclut l’analyse des vulnérabilités, les tests et la correction des intrusions, ainsi que le suivi de la configuration de la sécurité, la création de rapports et la correction dans les ressources Azure. |
+| [Sécurité des points de terminaison](security-controls-v2-endpoint-security.md) | La sécurité des points de terminaison recouvre les contrôles de détection et d’arrêt des menaces, notamment l’utilisation de la technologie EDR (Endpoint Detection and Response) et du service anti-programme malveillant pour les points de terminaison dans les environnements Azure. |
+| [Sauvegarde et récupération](security-controls-v2-backup-recovery.md) | La sauvegarde et la récupération recouvrent les contrôles destinés à s’assurer que les sauvegardes de données et de configurations aux différents niveaux de service sont effectuées, validées et protégées. |
+| [Gouvernance et stratégie](security-controls-v2-governance-strategy.md) | La gouvernance et la stratégie fournissent des conseils pour garantir une stratégie de sécurité cohérente et une approche de gouvernance documentée pour guider et soutenir l’assurance sécurité, ce qui inclut l’établissement de rôles et de responsabilités pour les différentes fonctions de sécurité cloud, une stratégie technique unifiée ainsi que des stratégies et des standards connexes. |
 
-Vous pouvez également télécharger la [feuille de calcul Excel de benchmark de sécurité Azure v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
+Vous pouvez aussi télécharger le benchmark de sécurité Azure au [format de feuille de calcul](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
 
-## <a name="azure-security-benchmark-recommendations"></a>Recommandations relatives au benchmark de sécurité Azure 
+## <a name="azure-security-benchmark-recommendations"></a>Recommandations relatives au benchmark de sécurité Azure
 
-Chaque recommandation comprend les informations suivantes : 
+Chaque recommandation comprend les informations suivantes :
 
-- **Identifiant Azure** : Identifiant de benchmark de sécurité Azure correspondant à la recommandation. 
-- **Identifiant(s) CIS** : Recommandation(s) du benchmark CIS correspondant à cette recommandation.  
-- **Responsabilité** : Personne (client ou fournisseur de service ou les deux) responsable de l’implémentation de cette recommandation. Les responsabilités en matière de sécurité sont partagées dans le cloud public. Certains contrôles de sécurité sont disponibles uniquement auprès du fournisseur de services cloud, à qui, par conséquent, il incombe de les traiter. Ces observations sont d’ordre général. Pour certains services individuels, la responsabilité sera différente de ce qui est indiqué dans le benchmark de sécurité Azure. Ces différences sont décrites dans les recommandations de référence pour les services individuels. 
+- **Identifiant Azure** : Identifiant de benchmark de sécurité Azure correspondant à la recommandation.
+- **ID des contrôles CIS v7.1** : Contrôle(s) CIS v7.1 correspondant à cette recommandation.
+- **ID NIST SP800-53 r4** : Contrôle(s) NIST SP800-53 r4 (modéré(s)) correspondant à cette recommandation.
 - **Détails** : Raisons ayant motivé la recommandation et liens vers des conseils d’implémentation de celle-ci. Si la recommandation est prise en charge par Azure Security Center, l’information est également indiquée.
+- **Responsabilité** : Client, fournisseur de service ou les deux en chargé de l’implémentation de cette recommandation. Les responsabilités en matière de sécurité sont partagées dans le cloud public. Certains contrôles de sécurité étant uniquement accessibles au fournisseur de services cloud, c’est lui qui en est responsable. Ces observations sont d’ordre général. Pour certains services individuels, la responsabilité sera différente de ce qui est indiqué dans le benchmark de sécurité Azure. Ces différences sont décrites dans les recommandations de référence pour les services individuels.
+- **Parties prenantes de la sécurité des clients** : Fonctions de sécurité dans l’organisation du client qui peuvent être comptables, responsables ou consultés pour le contrôle concerné. Cela peut varier d’une organisation à une autre en fonction de la structure d’organisation de la sécurité de l’entreprise ainsi que des rôles et des responsabilités configurés par rapport à la sécurité Azure.
 
-Vos commentaires détaillés et votre participation active à la réussite du benchmark de sécurité Azure sont les bienvenus. Si vous souhaitez fournir un commentaire directement à l’équipe des benchmarks de sécurité Azure, remplissez le formulaire disponible à l’adresse [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+> [!NOTE]
+> La correspondance des contrôles entre ASB et les benchmarks du secteur (tels que NIST et CIS) indique uniquement qu’une fonctionnalité Azure spécifique peut être utilisée pour répondre en tout ou partie à une spécification de contrôle définie dans NIST ou CIS. Vous devez avoir conscience que cette implémentation ne se traduit pas nécessairement par une conformité totale du contrôle correspondant dans CIS ou NIST.
 
-## <a name="next-steps"></a>Étapes suivantes
+Vos commentaires détaillés et votre participation active à la réussite du benchmark de sécurité Azure sont les bienvenus. Si vous souhaitez adresser un commentaire directement à l’équipe Azure Security Benchmark, remplissez le formulaire disponible à l’adresse https://aka.ms/AzSecBenchmark
 
-- Voir le premier contrôle de sécurité : la [sécurité réseau](security-control-network-security.md)
+
+- Reportez-vous au premier contrôle de sécurité : [Sécurité du réseau](security-control-network-security.md)
 - Lire l’[introduction aux benchmarks de sécurité Azure](introduction.md)
-- Téléchargez la [feuille de calcul Excel de benchmark de sécurité Azure v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)
+- Téléchargez la [feuille de calcul Excel Azure Security Benchmark v2](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)

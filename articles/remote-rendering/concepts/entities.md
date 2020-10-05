@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020284"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613930"
 ---
 # <a name="entities"></a>Entités
 
@@ -21,7 +21,7 @@ Une *entité* représente un objet déplaçable dans l’espace et constitue le 
 
 Les entités ont une transformation définie par une position, une rotation et une échelle. En soi, les entités n’ont pas de fonctionnalité observable. Au lieu de cela, leur comportement est ajouté au travers de composants attachés à des entités. Par exemple, l’attachement du composant [CutPlaneComponent](../overview/features/cut-planes.md) crée un plan de coupe à la position de l’entité.
 
-L’aspect le plus important de l’entité elle-même est la hiérarchie et la transformation hiérarchique qui en résulte. Par exemple, quand plusieurs entités sont jointes en tant qu’enfants à une entité parente partagée, toutes ces entités peuvent être déplacées, pivotées et mises à l’échelle en modifiant la transformation de l’entité parente.
+L’aspect le plus important de l’entité elle-même est la hiérarchie et la transformation hiérarchique qui en résulte. Par exemple, quand plusieurs entités sont jointes en tant qu’enfants à une entité parente partagée, toutes ces entités peuvent être déplacées, pivotées et mises à l’échelle en modifiant la transformation de l’entité parente. De même, l’état `enabled` de l’entité peut être utilisé pour désactiver la visibilité et les réponses aux ray casts pour un sous-graphique complet de la hiérarchie.
 
 Une entité est la propriété exclusive de son entité parente. Cela signifie que, quand celle-ci est détruite à l’aide de la commande `Entity.Destroy()`, ses entités enfants et tous les composants [connectés](components.md) le sont également. Ainsi, la suppression d’un modèle de la scène s’effectue en appelant `Destroy` sur le nœud racine d’un modèle retourné par la commande `AzureSession.Actions.LoadModelAsync()` ou sa variante SAP `AzureSession.Actions.LoadModelFromSASAsync()`.
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Interrogation des limites spatiales
 
 Les requêtes de limites sont des appels asynchrones qui opèrent sur une hiérarchie d’objets complète, en utilisant une entité comme racine. Reportez-vous au chapitre dédié aux [limites d’objets](object-bounds.md).
@@ -137,6 +136,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 La requête fonctionne même si l’objet ne contient pas de métadonnées.
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [Entity, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [RemoteManager.CreateEntity(), C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Entity, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [RemoteManager::CreateEntity(), C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

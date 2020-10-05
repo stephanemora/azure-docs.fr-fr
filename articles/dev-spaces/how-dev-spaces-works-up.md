@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Décrit les processus d’exécution de votre code sur le service Azure Kubernetes avec Azure Dev Spaces
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a189b26264f3e22a69acb3e3c0410203f9822c31
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208686"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981284"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Comment fonctionne l’exécution de votre code avec Azure Dev Spaces
 
@@ -199,12 +199,12 @@ ingress:
 
 Pour en savoir plus sur la mise en réseau et la façon dont les requêtes sont routées dans Azure Dev Spaces consultez [Fonctionnement du routage avec Azure Dev Spaces][how-it-works-routing].
 
-Pour en savoir plus sur l’utilisation d’Azure Dev Spaces pour accélérer l’itération et le développement, consultez [Fonctionnement de Processus local avec Kubernetes][how-it-works-local-process-kubernetes] et [Comment fonctionne le débogage à distance de votre code avec Azure Dev Spaces][how-it-works-remote-debugging].
+Pour en savoir plus sur l’itération et le développement rapides avec Kubernetes, consultez [Fonctionnement de la solution Bridge to Kubernetes][how-it-works-bridge-to-kubernetes] et [Comment fonctionne le débogage à distance de votre code avec Azure Dev Spaces][how-it-works-remote-debugging].
 
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

@@ -4,12 +4,12 @@ description: Créez votre première application de conteneur Linux sur Microsoft
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847531"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563707"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -215,7 +215,7 @@ En démarrant la version 6.1, Service Fabric intègre automatiquement les évén
 
 L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur.
 
-![HealthCheckHealthy][1]
+![La capture d’écran montre les détails du package de services déployé NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

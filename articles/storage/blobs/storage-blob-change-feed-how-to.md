@@ -1,29 +1,26 @@
 ---
-title: Traiter les journaux de flux de modification dans Stockage Blob Azure (préversion) | Microsoft Docs
+title: Traiter le flux de modification dans Stockage Blob Azure | Microsoft Docs
 description: Découvrez comment traiter les journaux de flux de modification dans une application cliente .NET
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018958"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568249"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Flux de modification dans le Stockage Blob Azure (version préliminaire)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Traiter le flux de modification dans Stockage Blob Azure
 
 Le flux de modification fournit des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Cet article explique comment lire les enregistrements de flux de modification à l’aide de la bibliothèque du processeur de flux de modification d’objet blob.
 
-Pour en savoir plus sur le flux de modification, consultez [Flux de modification dans Stockage Blob Azure (préversion)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> Le flux de modification est en préversion publique, et il n'est disponible que dans certaines régions. Pour en savoir plus sur cette fonctionnalité, ainsi que sur les problèmes connus et les limitations, consultez [Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md). La bibliothèque du processeur de flux de modification est sujette à modification entre maintenant et le moment où cette bibliothèque est généralement disponible.
+Pour en savoir plus sur le flux de modification, consultez [Flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obtenir la bibliothèque du processeur de flux de modification d’objet blob
 
@@ -219,4 +216,4 @@ L'heure de début que vous indiquez est arrondie à l'heure inférieure, et l'he
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les journaux de flux de modification. Voir [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md) (Flux de modification dans le Stockage Blob Azure [version préliminaire])
+En savoir plus sur les journaux de flux de modification. Consultez [Flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)

@@ -1,28 +1,28 @@
 ---
-title: Connecter un exemple de code d’appareil de composant Python IoT Plug-and-Play en préversion à IoT Hub | Microsoft Docs
-description: Créez et exécutez un exemple de code d’appareil Python IoT Plug-and-Play en préversion qui utilise plusieurs composants et se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Connecter un exemple de code d’appareil de composant Python IoT Plug-and-Play à IoT Hub | Microsoft Docs
+description: Créez et exécutez un exemple de code d’appareil Python IoT Plug-and-Play qui utilise plusieurs composants et se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 084ba93baa35790da58e7765750bb79de27ed69c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905854"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578017"
 ---
-# <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Tutoriel : Connecter un exemple d’application d’appareil multicomposant IoT Plug-and-Play en préversion à IoT Hub (Python)
+# <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Tutoriel : Connecter un exemple d’application d’appareil multicomposant IoT Plug-and-Play à IoT Hub (Python)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-Ce tutoriel vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play avec des composants et une interface racine, comment le connecter à votre hub IoT, et comment utiliser l’outil Explorateur Azure IoT pour voir les informations qu’il envoie au hub. L’exemple d’application est écrit en Python et inclus dans le SDK Azure IoT Device pour Python. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Ce tutoriel vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play avec des composants, comment le connecter à votre hub IoT, et comment utiliser l’outil Explorateur Azure IoT pour voir les informations qu’il envoie au hub. L’exemple d’application est écrit en Python et inclus dans le SDK Azure IoT Device pour Python. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Pour suivre ce tutoriel, vous avez besoin de Python 3.7 sur votre machine de développement. Vous pouvez télécharger la dernière version recommandée pour plusieurs plateformes à partir de [python.org](https://www.python.org/). Vous pouvez vérifier votre version de Python à l’aide de la commande suivante :  
 
@@ -32,40 +32,19 @@ python --version
 
 Vous pouvez télécharger la dernière version recommandée pour plusieurs plateformes à partir de [python.org](https://www.python.org/).
 
-### <a name="azure-iot-explorer"></a>Explorateur Azure IoT
+## <a name="download-the-code"></a>Téléchargement du code
 
-Pour interagir avec l’exemple d’appareil dans la deuxième partie de ce tutoriel, vous utilisez l’outil **Explorateur Azure IoT**. [Téléchargez et installez la dernière version de l’Explorateur Azure IoT](./howto-use-iot-explorer.md) pour votre système d’exploitation.
+Le package **azure-iot-device** est publié en tant que PIP.
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion IoT Hub_ pour votre hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce tutoriel :
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Vous pouvez également utiliser l’outil Explorateur Azure IoT pour rechercher la chaîne de connexion du hub IoT.
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion d’appareil_ pour l’appareil que vous avez ajouté au hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce tutoriel :
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
-## <a name="set-up-your-environment"></a>Configurer votre environnement
-
-Ce package est publié en tant que PIP pour l’actualisation de la préversion publique. La version du package doit être la version `2.1.4` ou la dernière version.
-
-Dans votre environnement Python local, installez le fichier comme suit :
+Dans votre environnement Python local, installez le package comme suit :
 
 ```cmd/sh
 pip install azure-iot-device
 ```
 
-Clonez le référentiel du Kit de développement logiciel (SDK) IoT Python et consultez **pnp-preview-refresh** :
+Si vous avez terminé [Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play exécutant Windows sur Linux à IoT Hub (Python)](quickstart-connect-device-python.md), vous avez déjà cloné le référentiel.
+
+Clonez le référentiel IoT du Kit de développement logiciel (SDK) Python :
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -77,57 +56,61 @@ Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Pla
 
 Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Les fichiers de l’exemple de contrôleur de température sont les suivants :
 
-- pnp_temp_controller_with_thermostats.py
+- temp_controller_with_thermostats.py
 - pnp_helper_preview_refresh.py
 
-Le contrôleur de température a plusieurs composants et une interface racine, en fonction du modèle DTDL du contrôleur de température.
+Le contrôleur de température a plusieurs composants et un composant par défaut, en fonction du modèle DTDL du contrôleur de température.
 
-Ouvrez le fichier *pnp_temp_controller_with_thermostats.py* dans l’éditeur de votre choix. Le code dans ce fichier effectue les opérations suivantes :
+Ouvrez le fichier *temp_controller_with_thermostats.py* dans l’éditeur de votre choix. Le code dans ce fichier effectue les opérations suivantes :
 
 1. Importe `pnp_helper_preview_refresh.py` pour accéder aux méthodes d’assistance.
 
-2. Définit deux identificateurs de modèle de jumeau numérique (DTMI) qui représentent de manière unique deux interfaces différentes, définies dans le modèle DTDL. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Les DTMI doivent être connus de l’utilisateur et varient en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, ces deux interfaces représentent :
+1. Définit deux identificateurs de modèle de jumeau numérique (DTMI) qui représentent de manière unique deux interfaces différentes, définies dans le modèle DTDL. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Les DTMI doivent être connus de l’utilisateur et varient en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, ces deux interfaces représentent :
 
-  - un thermostat ;
-  - des informations sur l’appareil développées par Azure.
+    - un thermostat ;
+    - des informations sur l’appareil développées par Azure.
 
-3. Définit le DTMI `model_id` pour l’appareil en cours d’implémentation. Le DTMI est défini par l’utilisateur et doit correspondre au DTMI spécifié dans le fichier du modèle DTDL.
+1. Définit le DTMI `model_id` pour l’appareil en cours d’implémentation. Le DTMI est défini par l’utilisateur et doit correspondre au DTMI spécifié dans le fichier du modèle DTDL.
 
-4. Définit les noms donnés aux composants dans le fichier DTDL. Il existe deux thermostats dans le DTDL et un composant d’informations sur l’appareil. Une constante nommée `serial_number` est également définie dans l’interface racine. Un `serial_number` ne peut pas changer pour un appareil.
+1. Définit les noms donnés aux composants dans le fichier DTDL. Il existe deux thermostats dans le DTDL et un composant d’informations sur l’appareil. Une constante nommée `serial_number` est également définie dans le composant par défaut. Un `serial_number` ne peut pas changer pour un appareil.
 
-5. Définit des implémentations de gestionnaire de commandes. Celles-ci définissent ce que fait l’appareil quand il reçoit des demandes de commande.
+1. Définit des implémentations de gestionnaire de commandes. Celles-ci définissent ce que fait l’appareil quand il reçoit des demandes de commande.
 
-6. Définit des fonctions pour créer une réponse de commande. Celles-ci définissent la façon dont l’appareil répond avec des demandes de commande. Vous pouvez créer des fonctions de réponse de commande si une commande doit renvoyer une réponse personnalisée au hub IoT. Si une fonction de réponse pour une commande n’est pas fournie, une réponse générique est envoyée. Dans cet exemple, seule la commande **getMaxMinReport** a une réponse personnalisée.
+1. Définit des fonctions pour créer une réponse de commande. Celles-ci définissent la façon dont l’appareil répond avec des demandes de commande. Vous pouvez créer des fonctions de réponse de commande si une commande doit renvoyer une réponse personnalisée au hub IoT. Si une fonction de réponse pour une commande n’est pas fournie, une réponse générique est envoyée. Dans cet exemple, seule la commande **getMaxMinReport** a une réponse personnalisée.
 
-7. Définit une fonction pour envoyer la télémétrie de cet appareil. Les thermostats et l’interface racine envoient une télémétrie. Cette fonction accepte un paramètre de nom de composant facultatif lui permettant d’identifier le composant qui a envoyé la télémétrie.
+1. Définit une fonction pour envoyer la télémétrie de cet appareil. Les thermostats et le composant par défaut envoient de la télémétrie. Cette fonction accepte un paramètre de nom de composant facultatif lui permettant d’identifier le composant qui a envoyé la télémétrie.
 
-8. Définit un écouteur pour les demandes de commande.
+1. Définit un écouteur pour les demandes de commande.
 
-9. Définit un écouteur pour les mises à jour de propriétés souhaitées.
+1. Définit un écouteur pour les mises à jour de propriétés souhaitées.
 
-10. A une fonction `main` qui effectue les opérations suivantes :
+1. A une fonction `main` qui effectue les opérations suivantes :
 
-    1. Utilise le Kit de développement logiciel (SDK) d’appareil pour créer un client d’appareil et se connecter à votre hub IoT. L’appareil envoie le `model_id` pour permettre au hub IoT d’identifier l’appareil en tant qu’appareil IoT Plug-and-Play.
+    - Utilise le Kit de développement logiciel (SDK) d’appareil pour créer un client d’appareil et se connecter à votre hub IoT. L’appareil envoie le `model_id` pour permettre au hub IoT d’identifier l’appareil en tant qu’appareil IoT Plug-and-Play.
 
-    1. Utilise la fonction `create_reported_properties` dans le fichier d’assistance pour créer les propriétés. Transmettez à cette fonction le nom du composant et les propriétés en tant que paires clé-valeur.
+    - Utilise la fonction `create_reported_properties` dans le fichier d’assistance pour créer les propriétés. Transmettez à cette fonction le nom du composant et les propriétés en tant que paires clé-valeur.
 
-    1. Met à jour les propriétés lisibles de ses composants en appelant `patch_twin_reported_properties`.
+    - Met à jour les propriétés lisibles de ses composants en appelant `patch_twin_reported_properties`.
 
-    1. Commence à écouter les demandes de commande à l’aide de la fonction `execute_command_listener`. La fonction configure un écouteur pour les demandes de commande provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler` facultatif en tant que paramètres.
+    - Commence à écouter les demandes de commande à l’aide de la fonction `execute_command_listener`. La fonction configure un écouteur pour les demandes de commande provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler` facultatif en tant que paramètres.
         - Le `method_name` définit la demande de commande. Dans cet exemple, le modèle définit les commandes **reboot**, et **getMaxMinReport**.
         - La fonction `user_command_handler` définit ce que l’appareil doit faire quand il reçoit une commande.
         - La fonction `create_user_response_handler` crée une réponse à envoyer à votre hub IoT quand une commande s’exécute correctement. Vous pouvez afficher cette réponse dans le portail. Si cette fonction n’est pas fournie, une réponse générique est envoyée au service.
 
-    1. Utilise `execute_property_listener` pour écouter les mises à jour de propriétés.
+    - Utilise `execute_property_listener` pour écouter les mises à jour de propriétés.
 
-    1. Commence à envoyer la télémétrie à l’aide de `send_telemetry`. L’exemple de code utilise une boucle pour appeler trois fonctions d’envoi de télémétrie. Chacune d’elles est appelée toutes les huit secondes.
+    - Commence à envoyer la télémétrie à l’aide de `send_telemetry`. L’exemple de code utilise une boucle pour appeler trois fonctions d’envoi de télémétrie. Chacune d’elles est appelée toutes les huit secondes.
 
-    1. Désactive l’ensemble des écouteurs et des tâches, puis quitte la boucle quand vous appuyez sur **Q** ou **q**.
+    - Désactive l’ensemble des écouteurs et des tâches, puis quitte la boucle quand vous appuyez sur **Q** ou **q**.
 
-Maintenant que vous avez vu le code, créez une variable d’environnement nommée **IOTHUB_DEVICE_CONNECTION_STRING** pour stocker la chaîne de connexion de l’appareil que vous avez notée précédemment. Utilisez la commande suivante pour exécuter l’exemple :
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
+
+Utilisez la commande suivante pour exécuter cet exemple :
 
 ```cmd/sh
-python pnp_temp_controller_with_thermostats.py
+python temp_controller_with_thermostats.py
 ```
 
 L’exemple d’appareil envoie à votre IoT Hub des messages de télémétrie à intervalles de quelques secondes.
@@ -144,11 +127,9 @@ Une fois l’exemple de client d’appareil démarré, utilisez l’outil Explor
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez découvert comment connecter un appareil IoT Plug-and-Play avec des composants à un hub IoT. Pour découvrir plus d’informations sur les modèles d’appareils IoT Plug-and-Play, consultez :
 
 > [!div class="nextstepaction"]
-> [Guide du développeur pour la modélisation avec la préversion d’IoT Plug-and-Play](concepts-developer-guide.md)
+> [Guide du développeur pour la modélisation d’IoT Plug-and-Play](concepts-developer-guide-device-csharp.md)

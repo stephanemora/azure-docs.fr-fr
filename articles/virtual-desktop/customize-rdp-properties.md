@@ -3,15 +3,15 @@ title: Personnaliser les propriétés de RDP avec PowerShell – Azure
 description: Comment personnaliser les propriétés de RDP pour Windows Virtual Desktop avec des applets de commande PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009101"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462222"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personnaliser les propriétés de Remote Desktop Protocol (RDP) pour un pool d’hôtes
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009101"
 La personnalisation des propriétés du protocole RDP (Remote Desktop Protocol) d’un pool d’hôtes, comme l’utilisation de plusieurs écrans et la redirection audio, vous permet d’offrir une expérience optimale pour vos utilisateurs en fonction de leurs besoins. Vous pouvez personnaliser les propriétés RDP dans Windows Virtual Desktop en utilisant le portail Azure ou le paramètre *-CustomRdpProperty* dans la cmdlet **Update-AzWvdHostPool**.
 
 Pour obtenir la liste complète des propriétés prises en charge et leur valeur par défaut, consultez [Paramètres de fichier RDP pris en charge](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+
+## <a name="default-rdp-file-properties"></a>Propriétés de fichier RDP par défaut
+
+Les fichiers RDP ont les propriétés suivantes par défaut :
+
+|Propriété RDP|Sur l’ordinateur de bureau|En tant qu’application distante|
+|---|---|---|
+|Mode à plusieurs écrans|activé|N/A|
+|Redirections de lecteur activées|Lecteurs, presse-papiers, imprimantes, ports COM, périphériques USB et cartes à puce|Lecteurs, presse-papiers et imprimantes|
+|Mode audio distant|Lire localement|Lire localement|
 
 ## <a name="prerequisites"></a>Prérequis
 

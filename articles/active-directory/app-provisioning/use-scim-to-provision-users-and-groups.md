@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3f21fa2df32644ff1c415db656fc3b0beed03965
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292773"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563803"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -147,7 +147,7 @@ Si vous créez une application prenant en charge une API de gestion utilisateur 
 Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Specification), votre application doit satisfaire aux conditions suivantes :
 
 * Prise en charge de la création d'utilisateurs et de groupes (facultatif), conformément à la section [3.3 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Prise en charge de la modification d'utilisateurs ou de groupes avec des demandes de correctifs, conformément à la [section 3.5.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Prise en charge de la modification d'utilisateurs ou de groupes avec des demandes de correctifs, conformément à la [section 3.5.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2). La prise en charge garantit que les groupes et les utilisateurs sont provisionnés de manière performante. 
 * Prise en charge de la récupération d'une ressource connue pour un utilisateur ou un groupe créé plus tôt, conformément à la [section 3.4.1 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Prise en charge de l'exécution de requêtes d'utilisateurs ou de groupes, conformément à la [section 3.4.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalId`, et les groupes sont interrogés via `displayName`.  
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
@@ -167,6 +167,7 @@ Suivez ces recommandations lors de l’implémentation d’un point de terminais
 * Ne nécessitez pas de correspondance sensible à la casse sur des éléments structurels dans SCIM, en particulier pour les valeurs d’opération `op` PATCH, comme défini dans https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD émet les valeurs de 'op' en tant que `Add`, `Replace`, et `Remove`.
 * Microsoft Azure AD effectue des requêtes pour extraire un utilisateur et un groupe aléatoires pour vous assurer que le point de terminaison et les informations d’identification sont valides. C’est également fait dans le cadre d’un flux de **Connexion test** dans le [portail Azure](https://portal.azure.com). 
 * L’attribut sur lequel peuvent être interrogées les ressources doit être défini comme attribut correspondant sur l’application dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md)
+* Prendre en charge HTTPS sur votre point de terminaison SCIM
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Approvisionnement et déprovisionnement d'utilisateurs
 
@@ -1175,7 +1176,7 @@ Si vous créez une application qui sera utilisée par plusieurs locataires, vous
 Suivez la liste de vérification ci-dessous pour vous assurer que votre application est intégrée rapidement et que les clients bénéficient d’une expérience de déploiement sans heurts. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
 > [!div class="checklist"]
 > * Prise en charge d’un point de terminaison de groupe et d’utilisateur [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (un seul est obligatoire, mais il est recommandé de disposer des deux)
-> * Prise en charge d’au moins 25 demandes par seconde par locataire (obligatoire)
+> * Prise en charge d’au moins 25 requêtes par seconde par locataire pour s’assurer que les utilisateurs et les groupes sont provisionnés et déprovisionnés sans délai (obligatoire)
 > * Établissement de contacts d’ingénierie et de support pour guider l’intégration des clients à la galerie de publications (obligatoire)
 > * Trois informations d’identification de test sans date d’expiration pour l’application (obligatoire)
 > * Prise en charge de l’octroi de code d’autorisation OAuth ou d’un jeton de longue durée, comme décrit ci-dessous (obligatoire)

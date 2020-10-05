@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522871"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484950"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les mécanismes de sécurité réseau pris en cha
     |                              | Azure Database for MariaDB, MySQL et PostgreSQL       | -                | -                   | Oui             | -            | Oui                  |
     |                              | Stockage Fichier Azure                                  | Oui              | -                   | Oui             | -            | .                    |
     |                              | Stockage Azure (Blob, ADLS Gen2)                     | Oui              | Oui (authentification MSI uniquement) | Oui             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL   Ml  | Oui (uniquement Azure SQL DB/DW)        | -                   | Oui             | -            | Oui                  |
+    |                              | Azure SQL DB, Azure Synapse Analytics, SQL Ml  | Oui (uniquement Azure SQL DB/DW)        | -                   | Oui             | -            | Oui                  |
     |                              | Azure Key Vault (pour l’extraction de secrets/chaîne de connexion) | Oui      | Oui                 | Oui             | -            | -                    |
     | Autres magasins de données PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Oui             | -            | -                    |
     | IaaS Azure                   | SQL Server, Oracle, etc.                          | -                | -                   | Oui             | Oui          | -                    |
@@ -73,7 +73,7 @@ Pour plus d’informations sur les mécanismes de sécurité réseau pris en cha
     |                                | Azure Database for MariaDB, MySQL et PostgreSQL               | Oui       | -                   |
     |                                | Stockage Fichier Azure                                            | Oui       | -                   |
     |                                | Stockage Azure (Blog, ADLS Gen2)                             | Oui       | Oui (authentification MSI uniquement) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL   Ml          | Oui       | -                   |
+    |                                | Azure SQL DB, Azure Synapse Analytics, SQL Ml          | Oui       | -                   |
     |                                | Azure Key Vault (pour l’extraction de secrets/chaîne de connexion) | Oui       | Oui                 |
     | Autres magasins de données PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Oui       | -                   |
     | IaaS Azure                     | SQL Server, Oracle, etc.                                  | Oui       | -                   |

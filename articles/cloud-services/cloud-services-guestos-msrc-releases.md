@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510162"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024296"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## <a name="august-2020-guest-os"></a>Système d’exploitation invité, août 2020
+## <a name="september-2020-guest-os"></a>Système d’exploitation invité, septembre 2020
 >[!NOTE]
->Le système d’exploitation invité d’août est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’août. Cette liste est susceptible d’être modifiée.
+>Le système d’exploitation invité de septembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de septembre. Cette liste est susceptible d’être modifiée.
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 8 septembre 2020 |
+|  Rel 20-09 |  [4561600]  |  Mise à jour de Flash | 3.89, 4.82, 5.47, 6.23 | 8 septembre 2020 |
+|  Rel 20-09 |  [4577015]  |  Dernière mise à jour cumulative (LCU) | 5.47 | 8 septembre 2020 |
+|  Rel 20-09 |  [4570333]  |  Dernière mise à jour cumulative (LCU) | 6.23 | 8 septembre 2020 |
+|  Rel 20-09 |  [4570673]  |  Mise à jour de la pile de maintenance | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4577051]  |  Correctif cumulatif mensuel | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569767]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569780]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4566426]  |  Mise à jour de la pile de maintenance | 3.89 | 8 septembre 2020 |
+|  Rel 20-09 |  [4577038]  |  Correctif cumulatif mensuel | 3.89 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569765]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 3.89 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569779]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 3.89 | 8 septembre 2020 |
+|  Rel 20-09 |  [4566425]  |  Mise à jour de la pile de maintenance | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4577066]  |  Correctif cumulatif mensuel | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569768]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4569778]  |  Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2 | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4578013]  |  Mise à jour de sécurité | 2.102 | 8 septembre 2020 |
+|  Rel 20-09 |  [4576750]  |  Mise à jour de la pile de maintenance | 5.47 | 8 septembre 2020 |
+|  Rel 20-09 |  [4576479]  |  Correctifs cumulatifs de sécurité et de qualité de .NET Framework 4.8 | 5.47 | 8 septembre 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcode | 5.47 | 8 septembre 2020 |
+|  Rel 20-09 |  [4570332]  |  Mise à jour de la pile de maintenance | 6.23 | 8 septembre 2020 |
+|  Rel 20-09 |  [4570720]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.23 | 8 septembre 2020 |
+|  Rel 20-09 |  [4576483]  |  Correctifs cumulatifs de sécurité et de qualité de .NET Framework 4.8 | 6.23 | 8 septembre 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcode | 6.23 | 8 septembre 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>Système d’exploitation invité, août 2020
 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

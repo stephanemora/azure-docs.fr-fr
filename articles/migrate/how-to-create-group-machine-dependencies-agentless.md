@@ -3,12 +3,12 @@ title: Configurer l’analyse des dépendances sans agent dans l’outil d’év
 description: Configurez l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771374"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536436"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analyser les dépendances des machines (sans agent)
 
@@ -25,7 +25,7 @@ Cet article explique comment configurer l’analyse des dépendances sans agent 
 
 - Dans la vue d’analyse des dépendances, actuellement vous ne pouvez pas ajouter ou supprimer de serveur dans un groupe.
 - Aucune carte des dépendances pour un groupe de serveurs n’est disponible actuellement.
-- Les données de dépendances ne peuvent pas être téléchargées sous forme de tableau.
+- La collecte des données de dépendance peut être configurée pour 400 serveurs simultanément. Vous pouvez analyser un plus grand nombre de serveurs par un séquençage en lots de 400.
 
 ## <a name="before-you-start"></a>Avant de commencer
 

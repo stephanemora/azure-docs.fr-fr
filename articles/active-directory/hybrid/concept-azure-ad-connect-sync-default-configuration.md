@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548864"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661858"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -223,7 +223,7 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 | Nom | Commentaire |
 |:--- |:--- |
 | Entrant depuis AD – User Join |Règle pour joindre les objets de l’espace de connecteur avec métaverse. |
-| Entrant depuis AD – Utilisateur AccountEnabled |Attributs requis pour la connexion à Azure AD et Office 365. Nous voulons ces attributs à partir du compte activé. |
+| Entrant depuis AD – Utilisateur AccountEnabled |Attributs requis pour la connexion à Azure AD et Microsoft 365. Nous voulons ces attributs à partir du compte activé. |
 | Entrant depuis AD – Utilisateur Common à partir d’Exchange |Attributs trouvés dans la liste d’adresses globale. Nous supposons que la qualité des données est meilleure dans la forêt où nous avons trouvé la boîte aux lettres de l’utilisateur. |
 | Entrant depuis AD – Utilisateur Common |Attributs trouvés dans la liste d’adresses globale. Dans le cas où nous ne trouvons pas de boîte aux lettres, tout autre objet joint peut contribuer à la valeur d’attribut. |
 | Entrant depuis AD – Utilisateur Exchange |Existe seulement si Exchange a été détecté. Transfère tous les attributs Exchange d’infrastructure. |

@@ -3,21 +3,17 @@ title: Réparation automatique des nœuds Azure Kubernetes Service
 description: Découvrez la fonctionnalité de réparation automatique des nœuds et la façon dont AKS corrige les nœuds Worker endommagés.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 7fcb7b380f3694aaf34328019c3e09f5157c9e64
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/24/2020
+ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542040"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490103"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Réparation automatique des nœuds AKS
 
-AKS vérifie en permanence l’état d’intégrité des nœuds Worker et effectue une réparation automatique des nœuds s’ils ne sont pas sains. Ce document informe les opérateurs sur le comportement de la fonctionnalité de réparation automatique de nœud. En plus des réparations AKS, la plateforme de machine virtuelle Azure [effectue une maintenance sur les machines virtuelles][vm-updates] qui rencontrent des problèmes. AKS et les machines virtuelles Azure opèrent ensemble pour réduire les interruptions de service pour vos clusters.
-
-## <a name="limitations"></a>Limites
-
-* Les pools de nœuds Windows ne sont pas pris en charge actuellement.
+AKS vérifie en permanence l’état d’intégrité des nœuds Worker et effectue une réparation automatique des nœuds s’ils ne sont pas sains. Ce document informe les opérateurs quant au comportement de la fonctionnalité de réparation automatique de nœud pour les nœuds Windows et Linux. En plus des réparations AKS, la plateforme de machine virtuelle Azure [effectue une maintenance sur les machines virtuelles][vm-updates] qui rencontrent des problèmes. AKS et les machines virtuelles Azure opèrent ensemble pour réduire les interruptions de service pour vos clusters.
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Comment AKS vérifie les nœuds non sains
 
@@ -37,9 +33,13 @@ kubectl get nodes
 > [!Note]
 > AKS lance des opérations de réparation avec le compte d’utilisateur **aks-remediator**.
 
-Si un nœud est considéré comme non sain en vertu des règles ci-dessus et reste non sain pendant 10 minutes consécutives, AKS redémarre le nœud. Si des nœuds restent en état non sain après l’opération de réparation initiale, les ingénieurs AKS étudient des corrections supplémentaires.
-  
-Si plusieurs nœuds sont en état non sain pendant un contrôle d’intégrité, chaque nœud est réparé avant le début de la réparation d’un autre.
+Si un nœud est défectueux conformément aux règles ci-dessus, et reste défectueux pendant 10 minutes consécutives, les actions suivantes sont effectuées.
+
+1. Redémarrage du nœud
+1. Si le redémarrage échoue, réinitialisation du nœud
+1. Si la réinitialisation échoue, création et réinitialisation d’un nouveau nœud
+
+Si aucune des actions ne réussit, des corrections supplémentaires sont étudiées par les ingénieurs AKS. Si plusieurs nœuds sont en état non sain pendant un contrôle d’intégrité, chaque nœud est réparé avant le début de la réparation d’un autre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

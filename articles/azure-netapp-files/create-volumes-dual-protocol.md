@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134579"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459995"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -37,7 +37,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
 * Veillez à respecter la [configuration requise pour les connexions Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
-* Assurez-vous que le client NFS est à jour et qu’il exécute les dernières mises à jour du système d’exploitation.
+* Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
 
 ## <a name="create-a-dual-protocol-volume"></a>Créer un volume à deux protocoles
 
@@ -76,7 +76,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
+    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, indiquez si vous souhaitez masquer le chemin d'accès de l’instantané, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 
         Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
@@ -109,7 +109,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
 2.  Suivez [Afficher les certificats avec le composant logiciel enfichable MMC](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) pour utiliser le composant logiciel enfichable MMC et l’outil Gestionnaire de certificats.  
     Utilisez le composant logiciel enfichable Gestionnaire de certificats pour localiser le certificat racine ou d’émission pour l’appareil local. Vous devez exécuter les commandes du composant logiciel enfichable Gestion des certificats à partir de l’un des paramètres suivants :  
-    * un client Windows joint au domaine et sur lequel le certificat racine est installé ; 
+    * Un client Windows joint au domaine et sur lequel le certificat racine est installé 
     * un autre ordinateur du domaine contenant le certificat racine.  
 
 3. Exportez le certificat racine.  

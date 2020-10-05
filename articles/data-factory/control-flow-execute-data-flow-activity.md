@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726960"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485035"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -60,8 +60,8 @@ dataflow | Référence au flux de données en cours d’exécution | DataFlowRef
 integrationRuntime | L’environnement de calcul sur lequel le flux de données s’exécute. S’il n’est pas spécifié, le runtime d’intégration Azure à résolution automatique est utilisé. | IntegrationRuntimeReference | Non
 compute.coreCount | Nombre de cœurs utilisés dans le cluster Spark. Ne peut être spécifié que si le runtime d’intégration Azure à résolution automatique est utilisé | 8, 16, 32, 48, 80, 144, 272 | Non
 compute.computeType | Type de calcul utilisé dans le cluster Spark. Ne peut être spécifié que si le runtime d’intégration Azure à résolution automatique est utilisé | « General », « ComputeOptimized », « MemoryOptimized » | Non
-staging.linkedService | Si vous utilisez une source ou un récepteur SQL DW, le compte de stockage utilisé pour la préproduction de PolyBase | LinkedServiceReference | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
-staging.folderPath | Si vous utilisez une source ou un récepteur SQL DW, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction de PolyBase | String | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
+staging.linkedService | Si vous utilisez une source ou un récepteur Azure Synapse Analytics, compte de stockage utilisé pour la préproduction de PolyBase | LinkedServiceReference | Uniquement si le flux de données lit ou écrit dans Azure Synapse Analytics
+staging.folderPath | Si vous utilisez une source ou un récepteur Azure Synapse Analytics, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction PolyBase | String | Uniquement si le flux de données lit ou écrit dans Azure Synapse Analytics
 
 ![Exécuter un flux de données](media/data-flow/activity-data-flow.png "Exécuter un flux de données")
 
@@ -86,7 +86,7 @@ Pour les exécutions de pipeline, le cluster est un cluster de travail, dont le 
 
 ### <a name="polybase"></a>PolyBase
 
-Si vous utilisez Azure SQL Data Warehouse comme récepteur ou source, vous devez choisir un emplacement de préproduction pour le chargement par lots PolyBase. PolyBase permet d’effectuer des chargements par lots en bloc au lieu de charger les données ligne par ligne. PolyBase réduit considérablement le temps de chargement dans l’instance SQL DW.
+Si vous utilisez Azure Synapse Analytics (anciennement SQL Data Warehouse) comme récepteur ou source, vous devez choisir un emplacement de préproduction pour le chargement par lots PolyBase. PolyBase permet d’effectuer des chargements par lots en bloc au lieu de charger les données ligne par ligne. PolyBase réduit considérablement le temps de chargement dans Azure Synapse Analytics.
 
 ## <a name="parameterizing-data-flows"></a>Paramétrage de flux de données
 

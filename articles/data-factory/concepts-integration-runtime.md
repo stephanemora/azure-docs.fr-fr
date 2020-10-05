@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407691"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485717"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -143,7 +143,7 @@ Si vous choisissez d’utiliser la résolution automatique d’Azure Integration
   - Lorsque vous copiez des données vers Salesforce et que la région n’est pas détectable, l’activité de copie est exécutée sur l'IR de la région USA Est.
 
   >[!TIP] 
-  >Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
+  >Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Royaume-Uni Sud vers Azure Synapse Analytics dans la région Royaume-Uni Sud et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d’intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
 
 - Pour l'exécution des activités Lookup/GetMetadata/Delete (également connues sous le nom d'activités de pipeline), la répartition des activités de transformation (également connues sous le nom d'activités externes) et les opérations de création (tester la connexion, parcourir la liste des dossiers et des tables, prévisualiser les données), ADF utilise le runtime d'intégration de la région de la fabrique de données.
 

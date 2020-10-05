@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213742"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054464"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
@@ -229,9 +229,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Expérience dans les applications Office 365
+## <a name="experience-across-microsoft-365-apps"></a>Expérience sur les applications Microsoft 365
 
-Une fois qu’une stratégie de nommage de groupes a été définie dans Azure AD, voici ce que voit un utilisateur quand il crée un groupe dans une application Office 365 :
+Une fois qu’une stratégie de nommage de groupes a été définie dans Azure AD, voici ce que voit un utilisateur quand il crée un groupe dans une application Microsoft 365 :
 
 - Un aperçu du nom conformément à votre stratégie de nommage (avec préfixes et suffixes) à mesure que l’utilisateur tape le nom du groupe.
 - Si l’utilisateur entre des mots bloqués, un message d’erreur s’affiche pour qu’il supprime ces mots.
@@ -252,7 +252,7 @@ School Data Sync (SDS) | Les groupes créés via SDS sont conformes à la strat�
 Outlook Customer Manager (OCM) | Outlook Customer Manager est conforme à la stratégie de nommage, qui est appliquée automatiquement au groupe créé dans Outlook Customer Manager. Si un mot bloqué personnalisé est détecté, la création de groupe dans OCM est bloquée, et l’utilisateur ne peut pas utiliser l’application OCM.
 Application Classroom | Les groupes créés dans l’application Classroom sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement et l’aperçu de la stratégie de nommage n’est pas présenté aux utilisateurs quand ils entrent un nom de groupe de classe. Les utilisateurs doivent entrer le nom de groupe de classe appliqué avec les préfixes et les suffixes. Dans le cas contraire, l’opération de création ou de modification du groupe de classe échoue avec des erreurs.
 Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.    
-Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Office 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Office 365 a été créé avant que la stratégie d’affectation de noms ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies d’affectation de noms. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.
+Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Microsoft 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Microsoft 365 a été créé avant que la stratégie de nommage ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies de nommage. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.
 StaffHub  | Les équipes StaffHub ne respectent pas la stratégie d’affectation de noms, contrairement au groupe Microsoft 365 sous-jacent. Le nom de l’équipe StaffHub n’applique pas les préfixes et les suffixes et ne recherche pas les mots bloqués personnalisés. En revanche, StaffHub applique les préfixes et suffixes, et supprime les mots bloqués du groupe Microsoft 365 sous-jacent.
 Exchange PowerShell | Les applets de commande Exchange PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la stratégie de nommage dans le nom de groupe et l’alias de groupe (mailNickname).
 Applets de commande Azure Active Directory PowerShell | Les applets de commande Azure Active Directory PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans les noms de groupe et les alias de groupe.

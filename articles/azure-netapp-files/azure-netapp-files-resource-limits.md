@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752294"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708102"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -44,7 +44,8 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Taille maximale d’un volume     |    100 Tio    |    Non    |
 |  Taille maximale d’un fichier unique     |    16 Tio    |    Non    |    
 |  Taille maximale des métadonnées de répertoire dans un répertoire unique      |    320 Mo    |    Non    |    
-|  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |    
+|  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |   
+|  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    5    |    Oui    |     
 
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -56,11 +57,11 @@ Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de 
 
 |    Taille du volume (quota)     |  Réajustement automatique de la limite maxfiles    |
 |----------------------------|-------------------|
-|    < 1 Tio                 |    20 millions     |
-|    >= 1 Tio mais < 2 Tio    |    40 millions     |
-|    >= 2 Tio mais < 3 Tio    |    60 millions     |
-|    >= 3 Tio mais < 4 Tio    |    80 millions     |
-|    >= 4 Tio                |    100 millions    |
+|    <= 1 Tio                |    20 millions     |
+|    > 1 Tio mais <= 2 Tio    |    40 millions     |
+|    > 2 Tio mais <= 3 Tio    |    60 millions     |
+|    > 3 Tio mais <= 4 Tio    |    80 millions     |
+|    > 4 Tio                 |    100 millions    |
 
 Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles au-delà de 100 millions.
 
@@ -83,9 +84,10 @@ Vous pouvez créer une demande de support Azure pour augmenter les limites ajust
         |  Ressource  |    Ressources parentes      |    Nouvelles limites demandées     |    Raison de l’augmentation du quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Compte |  *Identifiant d’abonnement*   |  *Nouveau **nombre** maximal demandé*    |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  pool    |  *ID d’abonnement, URI du compte*  |  *Nouveau nombre maximal de **pools** demandé*   |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  Volume  |  *ID d’abonnement, URI du compte, URI du pool*   |  *Nouveau **volume** maximal demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
-        |  Maxfiles  |  *ID d’abonnement, URI du compte, URI du pool, URI du volume*   |  *Nouveau nombre maximal **maxfiles** demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
+        |  pool    |  *ID d’abonnement, URI de compte NetApp*  |  *Nouveau nombre maximal de **pools** demandé*   |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
+        |  Volume  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité*   |  *Nouveau **volume** maximal demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
+        |  Maxfiles  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité, URI de volume*   |  *Nouveau nombre maximal **maxfiles** demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
+        |  Volumes de protection des données de réplication inter-région  |  *ID d’abonnement, URI de compte NetApp de destination, URI de pool de capacité de destination, URI de compte NetApp source, URI de pool de capacité source, URI de volume source*   |  *Nouveau nombre maximal de **volumes de protection des données de réplication inter-région (volumes de destination)***     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
 
     2. Spécifiez la méthode de support appropriée et fournissez les informations relatives à votre contrat.
 

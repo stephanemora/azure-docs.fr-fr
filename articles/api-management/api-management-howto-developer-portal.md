@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852155"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614062"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -73,21 +73,21 @@ Dans cette section, nous répondons aux questions courantes d’ordre général 
 
 ### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Comment migrer à partir de la préversion du portail ?
 
-En utilisant la préversion du portail des développeurs, vous avez configuré le contenu en préversion dans votre service Gestion des API. Le contenu par défaut a été sensiblement modifié dans la version en disponibilité générale afin d’offrir une meilleure expérience utilisateur. Il comprend également de nouveaux widgets.
+Lors du lancement initial de la préversion du portail des développeurs, vous avez provisionné la préversion de son contenu par défaut dans votre service Gestion des API. Le contenu par défaut a été sensiblement modifié dans la version en disponibilité générale. Par exemple, la préversion du contenu par défaut n’inclut pas les boutons OAuth dans les pages de connexion ; elle utilise différents widgets pour l’affichage des API et s’appuie sur des fonctionnalités limitées pour la structuration des pages du portail des développeurs. Même s’il existe des différences de contenu, le moteur du portail (y compris les widgets sous-jacents) est mis à jour automatiquement chaque fois que vous publiez votre portail des développeurs.
 
-Si vous utilisez la version managée, réinitialisez le contenu du portail en cliquant sur **Réinitialiser le contenu** dans la section de menu **Opérations**. Une fois confirmée, cette opération supprimera tout le contenu du portail et configurera le nouveau contenu par défaut. Le moteur du portail a été automatiquement mis à jour dans votre service Gestion des API.
+Si vous avez fortement personnalisé votre portail en fonction de la préversion du contenu, vous pouvez continuer à l’utiliser tel quel et placer de nouveaux widgets manuellement dans les pages du portail. Dans le cas contraire, nous vous recommandons de remplacer le contenu de votre portail par le nouveau contenu par défaut.
+
+Pour réinitialiser le contenu d’un portail managé, cliquez sur **Réinitialiser le contenu** dans la section de menu **Opérations**. Cette opération supprimera tout le contenu du portail et provisionnera le nouveau contenu par défaut. Vous perdrez toutes les personnalisations et modifications apportées au portail des développeurs. **Vous ne pouvez pas annuler cette action**.
 
 ![Réinitialiser le contenu du portail](media/api-management-howto-developer-portal/reset-content.png)
 
-Si vous utilisez la version auto-hébergée, utilisez les fichiers `scripts/cleanup.bat` et `scripts/generate.bat` du référentiel GitHub pour supprimer le contenu actuel et configurer un nouveau contenu. Veillez au préalable à passer à la dernière version du code de votre portail à partir du référentiel GitHub.
+Si vous utilisez la version auto-hébergée, utilisez les scripts `scripts.v2/cleanup.bat` et `scripts.v2/generate.bat` à partir du dépôt GitHub pour supprimer le contenu actuel et provisionner du nouveau contenu. Veillez au préalable à effectuer une mise à niveau vers la dernière version du code de votre portail à partir du dépôt GitHub.
 
-Si vous ne souhaitez pas réinitialiser le contenu du portail, vous pouvez utiliser les nouveaux widgets sur toutes vos pages. Les widgets d’origine ont été automatiquement mis à jour vers les dernières versions.
-
-Si votre portail a été configuré après l’annonce de la mise à la disposition générale, il dispose normalement déjà du nouveau contenu par défaut. Aucune action de votre part n’est nécessaire.
+Si vous avez accédé au portail pour la première fois après l’annonce de la disponibilité générale en novembre 2019, le nouveau contenu par défaut doit déjà être présent et aucune action supplémentaire n’est requise.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Le portail comporte-t-il toutes les fonctionnalités de l’ancien portail ?
 
-Le portail des développeurs ne prend plus en charge les *Applications* et les *Problèmes*.
+Le portail des développeurs ne prend plus en charge les *Applications*, les *Problèmes* et l’intégration directe avec Facebook, Microsoft, Twitter et Google en tant que fournisseurs d’identité (vous pouvez utiliser Azure AD B2C à la place).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>L’ancien portail est-il déconseillé ?
 

@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 891ea69dc6d53370f5f73f8bb3072a9795f07635
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190579"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530452"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -71,7 +71,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Exchange Online et SharePoint Online|Autoriser l’accès à la clé du client pour Azure Storage Service Encryption avec une [clé de client](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Autoriser l’accès à la clé de locataire pour [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Déploiement d’un certificat Azure Web App via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Stockage Azure|[Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Chiffrement de données dans Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) avec une clé gérée par le client.|
 |Azure Databricks|[Service d'analyse rapide, simple et collaboratif basé sur Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
@@ -87,5 +87,5 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Sécuriser votre coffre de clés](secure-your-key-vault.md)
+* [Sécurisez votre coffre de clés](secure-your-key-vault.md)
 * [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](network-security.md)

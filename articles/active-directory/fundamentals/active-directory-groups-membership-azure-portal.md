@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797540"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565462"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
@@ -30,7 +30,7 @@ Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l
 Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécurité (aussi appelé groupe imbriqué), créer un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
 
 >[!Important]
->Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes à un groupe synchronisé avec Active Directory en local.</li><li>L’ajout de groupes de sécurité aux groupes Office 365.</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365.</li><li>L’affectation d’applications à des groupes imbriqués.</li><li>L’application de licences à des groupes imbriqués.</li><li>Ajout de groupes de distribution dans des scénarios d’imbrication.</li></ul>
+>Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes à un groupe synchronisé avec Active Directory en local.</li><li>L’ajout de groupes de sécurité aux groupes Microsoft 365.</li><li>L’ajout de groupes Microsoft 365 à des groupes de sécurité ou à d’autres groupes Microsoft 365.</li><li>L’affectation d’applications à des groupes imbriqués.</li><li>L’application de licences à des groupes imbriqués.</li><li>Ajout de groupes de distribution dans des scénarios d’imbrication.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
 

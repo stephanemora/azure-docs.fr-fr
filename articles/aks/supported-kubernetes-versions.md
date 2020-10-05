@@ -3,19 +3,19 @@ title: Versions de Kubernetes prises en charge dans Azure Kubernetes Service
 description: Comprendre la stratégie de prise en charge des versions de Kubernetes et le cycle de vie des clusters dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144615"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565367"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
-La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Ces versions contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées seulement aux correctifs de bogues critiques dans une version mineure. Ces versions comportent des correctifs pour les failles de sécurité et les bogues majeurs.
+La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Récemment, la communauté Kubernetes a [prolongé la fenêtre de prise en charge de chaque version de 9 mois à 12 mois](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), à compter de la version 1.19. Ces versions contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées aux correctifs de bogues critiques dans une version mineure. Ces versions comportent des correctifs pour les failles de sécurité et les bogues majeurs.
 
 ## <a name="kubernetes-versions"></a>Version de Kubernetes
 
@@ -41,8 +41,8 @@ Les utilisateurs doivent s’efforcer d’exécuter la dernière version du corr
 
 AKS définit une version en disponibilité générale (GA) comme étant activée dans toutes les mesures SLO ou SLA et disponible dans toutes les régions. Il prend en charge trois versions mineures GA de Kubernetes :
 
-* La dernière version mineure GA publiée dans AKS (que nous appellerons N). 
-* Deux versions mineures précédentes. 
+* La dernière version mineure GA publiée dans AKS (que nous appellerons N).
+* Deux versions mineures précédentes.
 * Chaque version mineure prise en charge gère également deux (2) correctifs stables au maximum.
 * AKS peut également prendre en charge des préversions, qui sont explicitement étiquetées et soumises aux [Conditions générales des préversions][preview-terms].
 
@@ -143,6 +143,10 @@ Pour connaître l’historique des versions antérieures, cliquez [ici](https://
 \* En attente de confirmation de la date de sortie en amont.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
+
+**À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
+
+Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage au minimum à activer les correctifs et à prendre en charge le respect des engagements en amont. Cela signifie qu’à partir des clusters AKS sur 1.19, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge. Pour les versions sur 1.18 ou version antérieure, la fenêtre de prise en charge reste à 9 mois, ce qui nécessite une mise à niveau tous les 9 mois afin de rester sur une version prise en charge. Nous vous recommandons vivement de vérifier régulièrement l’existence de nouvelles versions et de vous préparer à la mise à niveau vers des versions plus récentes afin de capturer les dernières améliorations stables dans Kubernetes.
 
 **Que se passe-t-il quand un utilisateur met à niveau un cluster Kubernetes avec une version mineure non prise en charge ?**
 

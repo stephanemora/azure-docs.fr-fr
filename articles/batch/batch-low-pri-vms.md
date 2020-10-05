@@ -3,14 +3,14 @@ title: Exécuter des charges de travail sur des machines virtuelles rentables de
 description: Apprenez à configurer des machines virtuelles de faible priorité pour réduire le coût des charges de travail Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816692"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568453"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -18,7 +18,7 @@ Azure Batch offre des machines virtuelles de faible priorité afin de réduire l
 
 Les machines virtuelles de faible priorité tirent parti de la capacité excédentaire dans Azure. Lorsque vous spécifiez des machines virtuelles de faible priorité dans vos pools, Azure Batch peut utiliser ce surplus lorsqu’il est disponible.
 
-La contrepartie à l’utilisation de machines virtuelles de faible priorité est que ces machines virtuelles risquent de ne pas pouvoir être réaffectées ou d’être reportées à tout moment, selon la capacité disponible. Pour cette raison, les machines virtuelles de faible priorité sont plus adaptées à certains types de charges de travail. Utilisez des machines virtuelles de faible priorité pour les charges de travail par lots et de traitement asynchrone lorsque l’heure d’achèvement de la tâche est flexible et que le travail est réparti entre plusieurs machines virtuelles.
+La contrepartie à l’utilisation de machines virtuelles de faible priorité est que ces machines virtuelles peuvent ne pas être toujours disponibles pour être réaffectées ou qu’elles peuvent être préemptées à tout moment, en fonction de la capacité disponible. Pour cette raison, les machines virtuelles de faible priorité sont plus adaptées à certains types de charges de travail. Utilisez des machines virtuelles de faible priorité pour les charges de travail par lots et de traitement asynchrone lorsque l’heure d’achèvement de la tâche est flexible et que le travail est réparti entre plusieurs machines virtuelles.
 
 Les machines virtuelles de faible priorité sont proposées à un prix considérablement inférieur à celui des machines virtuelles dédiées. Pour plus d’informations sur la tarification, consultez [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ Une propriété des nœuds du pool permet d’indiquer si le nœud correspond à
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Quand un ou plusieurs nœuds d’un pool sont préemptés, une opération pour obtenir la liste des nœuds sur le pool retourne néanmoins toujours ces nœuds. Le nombre actuel de nœuds de faible priorité reste inchangé, mais l’état de ces nœuds est défini sur **Préempté**. Batch tente de trouver des machines virtuelles de remplacement et, s’il y parvient, les nœuds passent à l’état **Création**, puis **Démarrage**, avant de devenir disponibles pour l’exécution des tâches, tout comme de nouveaux nœuds.
+Pour les pools de configurations de machines virtuelles, quand un ou plusieurs nœuds sont préemptés, une opération pour obtenir la liste des nœuds sur le pool retourne toujours ces nœuds. Le nombre actuel de nœuds de faible priorité reste inchangé, mais l’état de ces nœuds est défini sur **Préempté**. Batch tente de trouver des machines virtuelles de remplacement et, s’il y parvient, les nœuds passent à l’état **Création**, puis **Démarrage**, avant de devenir disponibles pour l’exécution des tâches, tout comme de nouveaux nœuds.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Mettre à l’échelle un pool contenant des machines virtuelles de faible priorité
 
@@ -155,10 +155,11 @@ Les travaux et les tâches nécessitent peu de configuration supplémentaire pou
 
 ## <a name="handling-preemption"></a>Gestion de préemption
 
-Les machines virtuelles peuvent parfois être préemptées ; dans ce cas, Batch effectue les opérations suivantes :
+Les machines virtuelles peuvent parfois être préemptées. Quand cela se produit, les tâches qui étaient en cours d’exécution sur les machines virtuelles préemptées sont replacées en file d’attente et réexécutées.
+
+Pour les pools de configurations de machines virtuelles, Batch effectue également les opérations suivantes :
 
 -   L’état des machines virtuelles reportées est mis à jour vers **Reporté**.
--   Si des tâches étaient en cours d’exécution sur les machines virtuelles reportées, elles sont remises en file d’attente et exécutées à nouveau.
 -   La machine virtuelle est effectivement supprimée, ce qui entraine la perte des données stockées localement sur la machine virtuelle.
 -   Le pool tente continuellement d’atteindre le nombre cible de nœuds de faible priorité disponibles. Une fois la capacité de remplacement trouvée, les nœuds conservent leur ID, mais ils sont réinitialisés. Ils passent par les états **Création** et **Démarrage** avant d’être disponibles pour la planification des tâches.
 -   Le nombre de préemptions est disponible sous la forme d’une mesure dans le portail Azure.
@@ -168,7 +169,7 @@ Les machines virtuelles peuvent parfois être préemptées ; dans ce cas, Batch 
 De nouvelles mesures sont disponibles dans le [portail Azure](https://portal.azure.com) pour les nœuds de basse priorité. Ces mesures sont :
 
 - Nombre de nœuds à priorité basse
-- Nombre de cœurs à priorité basse 
+- Nombre de cœurs à priorité basse
 - Nombre de nœuds reportés
 
 Pour afficher les mesures dans le portail Azure :
@@ -177,10 +178,10 @@ Pour afficher les mesures dans le portail Azure :
 2. Sélectionnez **Mesures** à partir de la section **Analyse**.
 3. Sélectionnez les mesures que vous souhaitez à partir de la liste des **Mesures disponibles**.
 
-![Mesures pour les nœuds de priorité basse](media/batch-low-pri-vms/low-pri-metrics.png)
+![Capture d’écran montrant la sélection des métriques pour les nœuds de faible priorité.](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
-* Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
-* Commencez par planifier le passage de machines virtuelles de faible priorité à des machines virtuelles Spot. Si vous utilisez des machines virtuelles de faible priorité avec des pools de **configuration de service cloud**, envisagez de passer à des pools de **configuration de machine virtuelle**.
+- Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
+- Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
+- Commencez par planifier le passage de machines virtuelles de faible priorité à des machines virtuelles Spot. Si vous utilisez des machines virtuelles de faible priorité avec des pools de **configuration de service cloud**, envisagez de passer à des pools de **configuration de machine virtuelle**.

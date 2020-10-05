@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799041"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029543"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
@@ -107,7 +107,7 @@ Après la réinitialisation du mot de passe, vous pouvez recevoir un e-mail de c
 
 ## <a name="how-to-change-your-password"></a>Comment modifier votre mot de passe
 
-Si vous souhaitez simplement modifier votre mot de passe, vous pouvez le faire via le portail Office 365, le volet d’accès Azure ou la page de connexion Windows 10.
+Si vous souhaitez simplement modifier votre mot de passe, vous pouvez le faire par le biais du portail Office 365, du portail Mes applications ou de la page de connexion Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Pour modifier votre mot de passe à partir du portail Office 365
 
@@ -121,11 +121,11 @@ Utilisez cette méthode si vous avez l’habitude d’accéder à vos applicatio
 
 4. Saisissez votre ancien mot de passe, créez un nouveau mot de passe et confirmez-le, puis cliquez sur **Soumettre**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Pour modifier votre mot de passe à partir du volet d’accès Azure
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Pour modifier votre mot de passe à partir du portail Mes applications
 
-Utilisez cette méthode si vous avez l’habitude d’accéder à vos applications à partir du volet d’accès Azure (MyApps) :
+Appliquez cette méthode si vous avez l’habitude d’accéder à vos applications à partir du portail Mes applications :
 
-1. Connectez-vous au [volet d’accès Azure](https://myapps.microsoft.com/) en utilisant votre mot de passe existant.
+1. Connectez-vous au [portail Mes applications](https://myapps.microsoft.com/) en utilisant votre mot de passe existant.
 
 2. Sélectionnez votre profil en haut à droite de la fenêtre, puis sélectionnez **Profil**.
 

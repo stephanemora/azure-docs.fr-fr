@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212040"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434229"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -126,7 +126,7 @@ Les flux de données sont tarifés sur la base de vCores/heure, mode de calcul i
 
 ### <a name="time-to-live"></a>Durée de vie
 
-Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster en fonction de la configuration du runtime d’intégration. Le démarrage du cluster prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels**, vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il réutilise le cluster existant et le temps de démarrage est de l’ordre de quelques secondes au lieu de minutes. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
+Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster en fonction de la configuration du runtime d’intégration. Le démarrage du cluster prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels**, vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il va réutiliser le cluster existant et le temps de démarrage sera donc fortement réduit. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
 
 Une seule tâche peut être exécutée sur un seul cluster à la fois. Si un cluster est disponible, mais que deux flux de données démarrent, un seul utilise par le cluster actif. Le deuxième travail démarre son propre cluster isolé.
 

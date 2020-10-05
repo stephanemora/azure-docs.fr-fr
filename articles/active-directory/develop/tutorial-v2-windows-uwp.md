@@ -1,6 +1,7 @@
 ---
-title: Bien démarrer avec la plateforme d’identité Microsoft - Plateforme Windows universelle (UWP) | Azure
-description: Découvrez comment les applications de plateforme Windows universelle (UWP) peuvent appeler une API qui nécessite des jetons d’accès provenant du point de terminaison de la plateforme d’identité Microsoft.
+title: 'Tutoriel : Créer une application de plateforme Windows universelle (UWP) qui utilise la plateforme d’identité Microsoft pour l’authentification | Azure'
+titleSuffix: Microsoft identity platform
+description: Dans ce tutoriel, vous allez créer une application UWP qui utilise la plateforme d’identité Microsoft pour connecter les utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph en leur nom.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165547"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574243"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
-
-> [!div renderon="docs"]
+# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
 Ce guide explique comment une application de plateforme Windows universelle (UWP) native peut demander un jeton d’accès. L’application appelle ensuite l’API Microsoft Graph. Ce guide s’applique également aux autres API qui utilisent des jetons d’accès reçus du point de terminaison de la plateforme d’identités Microsoft.
 
 À la fin de ce guide, votre application appelle une API protégée à l’aide de comptes personnels. Outlook.com, live.com, etc. en sont des exemples. Votre application appelle également des comptes professionnels et scolaires de toute entreprise ou organisation qui utilise Azure Active Directory (Azure AD).
 
->[!NOTE]
-> Ce guide nécessite Visual Studio avec Développement pour la plateforme Windows universelle. Pour obtenir des instructions sur le téléchargement et la configuration de Visual Studio afin de développer des applications de plateforme Windows universelle, consultez l’article [Se préparer](/windows/uwp/get-started/get-set-up).
+Dans ce tutoriel, vous allez :
 
->[!NOTE]
-> Si vous êtes un nouvel utilisateur de la plateforme d’identité Microsoft, commencez avec le [guide de démarrage rapide Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)](quickstart-v2-uwp.md).
+> [!div class="checklist"]
+> * Créer un projet de *plateforme Windows universelle (UWP)* dans Visual Studio
+> * Inscrire l’application dans le Portail Azure
+> * Ajouter du code pour prendre en charge la connexion et la déconnexion des utilisateurs
+> * Ajouter du code pour appeler l’API Microsoft Graph
+> * Test de l'application
+
+## <a name="prerequisites"></a>Prérequis
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) avec la charge de travail [plateforme Windows universelle de développement](/windows/uwp/get-started/get-set-up) installée
 
 ## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
@@ -115,7 +121,7 @@ Cette section montre comment utiliser la bibliothèque d’authentification Micr
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -427,16 +433,15 @@ Dans l’exemple actuel, la méthode `WithRedirectUri("https://login.microsofton
             }
            ...
     }
-  
+
     ```
 
-    Exécutez l’application, puis copiez la valeur de `redirectUri` quand le point d’arrêt est atteint. La valeur doit ressembler à la valeur suivante :  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Exécutez l’application, puis copiez la valeur de `redirectUri` quand le point d’arrêt est atteint. La valeur doit ressembler à la valeur suivante : `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    Vous pouvez ensuite supprimer la ligne de code, car elle n’est nécessaire qu’une seule fois, pour extraire la valeur. 
+    Vous pouvez ensuite supprimer la ligne de code, car elle n’est nécessaire qu’une seule fois, pour extraire la valeur.
 
 3. Dans le portail d’inscription des applications, ajoutez la valeur retournée dans **RedirectUri** dans le volet **Authentification**.
-   
+
 ## <a name="test-your-code"></a>Test de votre code
 
 Pour tester votre application, appuyez sur la touche **F5** afin d’exécuter votre projet dans Visual Studio. Votre fenêtre principale s’affiche :
@@ -496,3 +501,10 @@ Vous activez [l’authentification intégrée sur des domaines fédérés](#enab
 **Solution de contournement :** sélectionnez **Connexion avec d’autres options**, puis **Sign in with a username and password** (Se connecter avec un nom d’utilisateur et un mot de passe). Sélectionnez **Provide your password** (Indiquer votre mot de passe), puis passez au processus d’authentification par téléphone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur l’utilisation de la Bibliothèque d’authentification Microsoft (MSAL) pour l’autorisation et l’authentification dans les applications .NET :
+
+> [!div class="nextstepaction"]
+> [Vue d’ensemble de Microsoft Authentication Library (MSAL)](msal-overview.md)

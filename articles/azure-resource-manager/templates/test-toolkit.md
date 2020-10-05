@@ -2,19 +2,19 @@
 title: Kit de ressources de test de modèle ARM
 description: Décrit la procédure d’exécution du kit de ressources de test de modèle ARM sur votre modèle. Le kit de ressources vous permet de voir si vous avez implémenté les pratiques recommandées.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255772"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439558"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Utiliser un kit de ressources de test de modèle ARM
 
-Le [kit de ressources de test de modèle ARM](https://aka.ms/arm-ttk) vérifie si votre modèle utilise les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Avec le kit de ressources de test, vous pouvez apprendre à éviter les problèmes courants liés au développement de modèles.
+Le [kit de ressources de test de modèle Azure Resource Manager (ARM](https://aka.ms/arm-ttk)) vérifie si votre modèle utilise les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Avec le kit de ressources de test, vous pouvez apprendre à éviter les problèmes courants liés au développement de modèles.
 
 Le kit de ressources de test fournit un [ensemble de tests par défaut](test-cases.md). Ces tests sont des recommandations, mais pas des exigences. Vous pouvez choisir les tests qui sont pertinents pour vos objectifs et personnaliser les tests à exécuter.
 
@@ -22,53 +22,103 @@ Cet article explique les procédures d’exécution du kit de ressources de test
 
 Le kit de ressources est un ensemble de scripts PowerShell qui peuvent être exécutés à partir d’une commande dans PowerShell ou CLI.
 
-## <a name="download-test-toolkit"></a>Télécharger le kit de ressources de test
+## <a name="install-on-windows"></a>Installer sur Windows
 
-Pour utiliser le kit de ressources de test, vous pouvez répliquer et cloner le [référentiel](https://aka.ms/arm-ttk) contenant les scripts ou [télécharger le fichier. zip le plus récent](https://aka.ms/arm-ttk-latest).
+1. Si vous n’avez pas encore PowerShell, [installez PowerShell sur Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-Selon la stratégie d’exécution de l’ordinateur sur lequel vous exécutez le script, vous pouvez obtenir une erreur d’exécution des scripts à partir d’Internet. Vous devez modifier la [stratégie d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies) ou [débloquer les fichiers de script](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Téléchargez le dernier fichier. zip](https://aka.ms/arm-ttk-latest) pour la kit de ressources de test et extrayez-le.
 
-## <a name="run-on-powershell"></a>Exécuter dans PowerShell
+1. Démarrez PowerShell.
 
-Avant d’exécuter les tests, importez le module.
+1. Accédez au dossier dans lequel vous avez extrait le kit de ressources de test. Dans ce dossier, accédez au dossier **arm-ttk**.
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. Si votre [stratégie d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloque les scripts provenant d’Internet, vous devez débloquer les fichiers de script. Vérifiez que vous êtes bien dans le dossier **arm-ttk**.
 
-Pour exécuter les tests dans **PowerShell**, utilisez la commande suivante :
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Importez le module.
 
-## <a name="run-on-linux"></a>Exécuter sur Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Avant d’exécuter les tests, installez [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
+1. Pour exécuter les tests, utilisez la commande suivante :
 
-Pour exécuter les tests sur **Linux** dans Bash, utilisez la commande suivante :
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Installer sur Linux
 
-Vous pouvez également exécuter le test sur pwsh.exe.
+1. Si vous n’avez pas encore PowerShell, [installez PowerShell sur Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## <a name="run-on-macos"></a>Exécuter sur macOS
+1. [Téléchargez le dernier fichier. zip](https://aka.ms/arm-ttk-latest) pour la kit de ressources de test et extrayez-le.
 
-Avant d’exécuter les tests, installez [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos). 
+1. Démarrez PowerShell.
 
-Installez `coreutils` :
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Accédez au dossier dans lequel vous avez extrait le kit de ressources de test. Dans ce dossier, accédez au dossier **arm-ttk**.
 
-Pour exécuter les tests sur **macOS**, utilisez la commande suivante :
+1. Si votre [stratégie d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloque les scripts provenant d’Internet, vous devez débloquer les fichiers de script. Vérifiez que vous êtes bien dans le dossier **arm-ttk**.
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importez le module.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Pour exécuter les tests, utilisez la commande suivante :
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>Installer sur macOS
+
+1. Si vous n’avez pas encore PowerShell, [installez PowerShell sur macOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Installez `coreutils` :
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Téléchargez le dernier fichier. zip](https://aka.ms/arm-ttk-latest) pour la kit de ressources de test et extrayez-le.
+
+1. Démarrez PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Accédez au dossier dans lequel vous avez extrait le kit de ressources de test. Dans ce dossier, accédez au dossier **arm-ttk**.
+
+1. Si votre [stratégie d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloque les scripts provenant d’Internet, vous devez débloquer les fichiers de script. Vérifiez que vous êtes bien dans le dossier **arm-ttk**.
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importez le module.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Pour exécuter les tests, utilisez la commande suivante :
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>Format de résultat
 

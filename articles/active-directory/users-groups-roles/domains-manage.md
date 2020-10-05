@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795335"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056249"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -55,7 +55,7 @@ Si vous avez déjà ajouté un domaine contoso.com à un locataire Azure AD, vo
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Que faire en cas de modification du bureau d’enregistrement DNS pour votre nom de domaine personnalisé ?
 
-Si vous modifiez les bureaux d’enregistrement DNS, aucune tâche de configuration supplémentaire n’est à effectuer dans Azure AD. Vous pouvez continuer à utiliser le nom de domaine avec Azure AD sans interruption. Si vous utilisez votre nom de domaine personnalisé avec Office 365, Intune ou d’autres services s’appuyant sur des noms de domaine personnalisés dans Azure AD, consultez la documentation dédiée à ces services.
+Si vous modifiez les bureaux d’enregistrement DNS, aucune tâche de configuration supplémentaire n’est à effectuer dans Azure AD. Vous pouvez continuer à utiliser le nom de domaine avec Azure AD sans interruption. Si vous utilisez votre nom de domaine personnalisé avec Microsoft 365, Intune ou d’autres services s’appuyant sur des noms de domaine personnalisés dans Azure AD, consultez la documentation dédiée à ces services.
 
 ## <a name="delete-a-custom-domain-name"></a>Supprimer un nom de domaine personnalisé
 
@@ -75,7 +75,7 @@ Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [C
 
 Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
 
-* Vous avez acheté un domaine via les services d’abonnement de domaine Office 365
+* Vous avez acheté un domaine par le biais des services d’abonnement de domaine Microsoft 365
 * Vous êtes un partenaire qui administre le compte d’une autre organisation cliente
 
 Les actions suivantes sont effectuées dans le cadre de l’opération **ForceDelete** :

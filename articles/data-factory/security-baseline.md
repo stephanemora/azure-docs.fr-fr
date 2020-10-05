@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0711c25187a15c48e1e9b19b7c99b1e528c7b199
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393545"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437936"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Base de référence de sécurité Azure pour Azure Data Factory
 
@@ -46,7 +46,7 @@ Lorsque le lien privé est disponible, utilisez des points de terminaison privé
 
 * [Présentation d’Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -66,7 +66,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -74,7 +74,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 **Conseils** : Non applicable. Cette recommandation a trait à Azure App Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -86,7 +86,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -102,7 +102,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -118,7 +118,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -126,7 +126,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 **Conseils** : Non applicable. Cette recommandation a trait à Azure App Service ou aux ressources de calcul hébergeant des applications web.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -153,7 +153,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -167,7 +167,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -179,7 +179,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -249,7 +249,7 @@ Si votre organisation souhaite conserver les données du journal des événement
 
 * [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -267,7 +267,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -341,7 +341,7 @@ Bien qu’Azure AD soit la méthode recommandée pour administrer l’accès uti
 
 * [Informations pour les comptes locaux](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -349,7 +349,7 @@ Bien qu’Azure AD soit la méthode recommandée pour administrer l’accès uti
 
 **Aide** : Azure Active Directory utilise Azure Active Directory (AD) pour fournir l’accès au portail Azure et à la console Azure Data Factory. Azure AD n’utilise pas le concept des mots de passe par défaut, cependant vous êtes chargé de modifier ou de ne pas autoriser les mots de passe par défaut pour les applications personnalisées ou tierces.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -400,7 +400,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, les
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -412,7 +412,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, les
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -438,7 +438,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vou
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -456,7 +456,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vou
 
 * [Procédure de configuration et de gestion de l’authentification Azure Active Directory avec Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -472,7 +472,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vou
 
 * [Comment utiliser les révisions d’accès des identités Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -570,7 +570,7 @@ Lorsque Private Link est disponible, utilisez des points de terminaison privés 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -578,7 +578,7 @@ Lorsque Private Link est disponible, utilisez des points de terminaison privés 
 
 **Aide** : Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS. La version du protocole TLS utilisée est 1.2.
 
-Toutes les connexions à Azure SQL Database et à Azure SQL Data Warehouse doivent être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide de JSON, ajoutez la propriété de chiffrement et définissez sa valeur sur True dans la chaîne de connexion. Pour le stockage Azure, vous pouvez utiliser HTTPS dans la chaîne de connexion.
+Toutes les connexions à Azure SQL Database et à Azure Synapse Analytics (anciennement SQL Data Warehouse) doivent être chiffrées (par SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide de JSON, ajoutez la propriété de chiffrement et définissez sa valeur sur True dans la chaîne de connexion. Pour le stockage Azure, vous pouvez utiliser HTTPS dans la chaîne de connexion.
 
 * [Comprendre le chiffrement en transit avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -622,7 +622,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -658,7 +658,7 @@ Vous pouvez stocker des informations d’identification ou des valeurs secrètes
 
 * [Journalisation Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -694,7 +694,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -748,7 +748,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -776,7 +776,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -798,7 +798,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -826,7 +826,7 @@ Remarque : Le nom, la version, l’éditeur et l’heure d’actualisation du l
 
 * [Présentation d'Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -850,7 +850,7 @@ Remarque : Le nom, la version, l’éditeur et l’heure d’actualisation du l
 
 * [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -872,7 +872,7 @@ Notez que cela ne s’applique que si votre Integration Runtime s’exécute sur
 
 * [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -906,7 +906,7 @@ Notez que cela ne s’applique que si votre Integration Runtime s’exécute sur
 
 * [Guide de décision concernant les abonnements](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -922,7 +922,7 @@ Notez que cela ne s’applique que si votre Integration Runtime s’exécute sur
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -978,13 +978,13 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : si vous avez recours à des images personnalisées, utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour garantir que seuls des utilisateurs autorisés ont accès à ces images. Pour les images conteneur, stockez-les dans Azure Container Registry et utilisez Azure RBAC pour vous assurer que seuls des utilisateurs autorisés peuvent y accéder.
+**Aide** : Si vous avez recours à des images personnalisées, utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour garantir que seuls les utilisateurs autorisés ont accès à ces images. Pour les images conteneur, stockez-les dans Azure Container Registry et utilisez Azure RBAC pour vous assurer que seuls des utilisateurs autorisés peuvent y accéder.
 
 Le rôle de contributeur de Data Factory ne peut pas être utilisé pour créer et gérer des fabriques de données, ni des ressources enfant à l’intérieur de celles-ci.
 
@@ -1006,7 +1006,7 @@ Le rôle de contributeur de Data Factory ne peut pas être utilisé pour créer 
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1016,7 +1016,7 @@ Le rôle de contributeur de Data Factory ne peut pas être utilisé pour créer 
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1026,7 +1026,7 @@ Le rôle de contributeur de Data Factory ne peut pas être utilisé pour créer 
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1036,7 +1036,7 @@ Le rôle de contributeur de Data Factory ne peut pas être utilisé pour créer 
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1078,7 +1078,7 @@ Vous pouvez également stocker des informations d’identification ou des valeur
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1166,7 +1166,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1178,7 +1178,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Vue d’ensemble de la suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1198,7 +1198,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Le client peut également tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de son propre plan de réponse aux incidents](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1208,7 +1208,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1218,7 +1218,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1228,7 +1228,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1240,7 +1240,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1250,7 +1250,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1266,7 +1266,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif dans l’infrastructure, les services et les applications cloud gérés par Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

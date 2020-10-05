@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815995"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600719"
 ---
 # <a name="start-using-privileged-identity-management"></a>Commencer à utiliser Privileged Identity Management
 
 Cet article décrit comment activer et bien démarrer avec Privileged Identity Management (PIM).
 
-Utilisez Privileged Identity Management (PIM) pour gérer, contrôler et analyser des accès au sein de votre organisation Azure Active Directory (Azure AD). La technologie PIM vous permet de fournir un accès selon le besoin et juste-à-temps aux ressources Azure et Azure AD, ainsi qu’à d’autres services en ligne Microsoft, tels qu’Office 365 ou Microsoft Intune.
+Utilisez Privileged Identity Management (PIM) pour gérer, contrôler et analyser des accès au sein de votre organisation Azure Active Directory (Azure AD). La technologie PIM vous permet de fournir un accès en fonction des besoins et juste-à-temps aux ressources Azure et Azure AD, ainsi qu’à d’autres services en ligne Microsoft, tels que Microsoft 365 ou Microsoft Intune.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,6 +35,14 @@ Pour utiliser Privileged Identity Management, vous devez disposer de l’une des
 - Enterprise Mobility + Security (EMS) E5
 
 Pour plus d’informations, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> Lorsqu’un utilisateur qui est actif dans un rôle privilégié dans une organisation Azure AD avec une licence Premium P2 accède à **Rôles et administrateurs** dans Azure AD et sélectionne un rôle (ou accède même simplement à Privileged Identity Management) :
+>
+> - Nous activons automatiquement PIM pour l’organisation.
+> - L’utilisateur peut maintenant affecter une attribution de rôle « normale » ou une attribution de rôle éligible.
+>
+> Lorsque PIM est activé, cela n’a aucun autre effet sur votre organisation dont vous devez vous préoccuper. Il vous offre des options d’attribution supplémentaires, telles que actif/éligible avec heure de début et de fin. PIM vous permet également de définir l’étendue des attributions de rôles à l’aide d’unités administratives et de rôles personnalisés. Si vous êtes administrateur général ou administrateur de rôle privilégié, vous commencerez peut-être à recevoir quelques e-mails supplémentaires tels que le résumé hebdomadaire PIM. Vous constaterez peut-être aussi la présence du principal de service MS-PIM dans le journal d’audit relatif à l’attribution de rôle. Il s’agit d’un changement prévu qui ne devrait avoir aucun effet sur votre workflow.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Préparer PIM pour les rôles Azure AD
 

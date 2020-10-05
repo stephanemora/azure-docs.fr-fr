@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/14/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5a39b08f34bec5ee1db42cde1fb171452d0efd3
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018805"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069813"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
-Le principal avantage d’utiliser Azure Active Directory (Azure AD) avec le Stockage Blob ou File d’attente Azure est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft (anciennement Azure AD). Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers le Stockage Blob ou File d’attente Azure.
+Le principal avantage d’utiliser Azure Active Directory (Azure AD) avec le Stockage Blob ou File d’attente Azure est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 auprès de la plateforme d’identité Microsoft. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers le Stockage Blob ou File d’attente Azure.
 
 Cet article explique comment configurer votre application native ou une application web pour l’authentification avec la plateforme d’identité Microsoft 2.0. L’exemple de code utilise .NET, mais l’approche est similaire avec d’autres langages. Pour plus d’informations sur la plateforme d’identité Microsoft 2.0, veuillez consulter l’article [Présentation de la plateforme d’identités Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
@@ -27,7 +27,7 @@ Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez 
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Attribuer un rôle à un principal de sécurité Azure AD
 
-Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle (RBAC) pour ce principal de sécurité. Stockage Azure définit des rôles intégrés Azure qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle Azure est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, veuillez consulter l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC](storage-auth-aad-rbac.md).
+Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles intégrés qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, veuillez consulter l’article [Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
 
@@ -127,39 +127,78 @@ Un exemple d’application web complet qui acquiert un jeton et l’utilise pour
 
 Dans Visual Studio, installez la bibliothèque de client du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez les commandes suivantes dans la fenêtre de la console pour installer les packages nécessaires à partir de la bibliothèque de client du Stockage Azure pour .NET :
 
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+
+```console
+Install-Package Azure.Storage.Blobs
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
+```
+
+Ensuite, ajoutez le code suivant à l’aide des instructions sur le fichier HomeController.cs :
+
+```csharp
+using Microsoft.Identity.Web; //MSAL library for getting the access token
+using Azure.Storage.Blobs;
+```
+
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Azure.Storage.Common
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
 Ensuite, ajoutez le code suivant à l’aide des instructions sur le fichier HomeController.cs :
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
+
+---
 
 #### <a name="create-a-block-blob"></a>Créer un objet blob de blocs
 
 Ajoutez l’extrait de code suivant pour créer un objet blob de blocs :
 
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+
+```csharp
+private static async Task<string> CreateBlob(TokenAcquisitionTokenCredential tokenCredential)
+{
+    Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
+    BlobClient blobClient = new BlobClient(blobUri, tokenCredential);
+
+    string blobContents = "Blob created by Azure AD authenticated user.";
+    byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+    using (MemoryStream stream = new MemoryStream(byteArray))
+    {
+        await blobClient.UploadAsync(stream);
+    }
+    return "Blob successfully created";
+}
+```
+
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+
 ```csharp
 private static async Task<string> CreateBlob(string accessToken)
 {
-    // Create a blob on behalf of the user
+    // Create a blob on behalf of the user.
     TokenCredential tokenCredential = new TokenCredential(accessToken);
     StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
-    // Replace the URL below with your storage account URL
-    CloudBlockBlob blob =
-        new CloudBlockBlob(
-            new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-            storageCredentials);
+    // Replace the URL below with the URL to your blob.
+    Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
+    CloudBlockBlob blob = new CloudBlockBlob(blobUri, storageCredentials);
     await blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
     return "Blob successfully created";
 }
 ```
+
+---
 
 > [!NOTE]
 > Pour autoriser les opérations d’objet blob et de file d’attente avec un jeton OAuth 2.0, vous devez utiliser HTTPS.
@@ -175,69 +214,25 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-#### <a name="get-an-oauth-token-from-azure-ad"></a>Obtenir un jeton OAuth d’Azure AD
+#### <a name="get-an-access-token-from-azure-ad"></a>Obtenir un jeton d’accès à partir d’Azure AD
 
 Ensuite, ajoutez une méthode qui demande un jeton à Azure AD pour le compte de l’utilisateur. Cette méthode définit l’étendue pour laquelle les autorisations doivent être accordées. Vous trouverez plus d’informations sur les autorisations et les étendues dans [Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft](../../active-directory/develop/v2-permissions-and-consent.md).
 
 Utilisez l’ID de ressource pour construire l’étendue pour laquelle acquérir le jeton. L’exemple construit l’étendue à l’aide de l’ID de ressource avec l’étendue `user_impersonation` intégrée, ce qui indique que le jeton est demandé pour le compte de l’utilisateur.
 
-Gardez à l’esprit que vous devrez peut-être présenter à l’utilisateur une interface qui lui permet de donner son consentement pour la demande de jeton. Lorsque le consentement est nécessaire, l’exemple intercepte la méthode **MsalUiRequiredException** et appelle une autre méthode pour faciliter la demande de consentement :
+Gardez à l’esprit que vous devrez peut-être présenter à l’utilisateur une interface lui permettant de donner son consentement pour la demande de jeton en son nom :
 
 ```csharp
+[AuthorizeForScopes(Scopes = new string[] { "https://storage.azure.com/user_impersonation" })]
 public async Task<IActionResult> Blob()
 {
-    var scopes = new string[] { "https://storage.azure.com/user_impersonation" };
-    try
-    {
-        var accessToken =
-            await _tokenAcquisition.GetAccessTokenOnBehalfOfUser(HttpContext, scopes);
-        ViewData["Message"] = await CreateBlob(accessToken);
-        return View();
-    }
-    catch (MsalUiRequiredException ex)
-    {
-        AuthenticationProperties properties =
-            BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
-        return Challenge(properties);
-    }
+    string message = await CreateBlob(new TokenAcquisitionTokenCredential(_tokenAcquisition));
+    ViewData["Message"] = message;
+    return View();
 }
 ```
 
-Le consentement est le processus via lequel un utilisateur autorise une application à accéder à des ressources protégées en son nom. La plateforme d’identité Microsoft 2.0 prend en charge le consentement incrémentiel, ce qui signifie qu’une entité de sécurité peut commencer par demander un jeu d’autorisations minimum, puis ajouter des autorisations au fil du temps en fonction des besoins. Lorsque votre code demande un jeton d’accès, spécifiez l’étendue des autorisations dont votre application a besoin à un moment donné dans le paramètre `scope`. Pour plus d’informations sur le consentement incrémentiel, veuillez consulter la section intitulée **Consentement incrémentiel et dynamique** dans [Pourquoi opérer une mise à jour vers la Plateforme d’identités Microsoft (v2.0) ?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
-
-La méthode suivante construit les propriétés d’authentification pour solliciter le consentement incrémentiel :
-
-```csharp
-private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes,
-                                                                                    MsalUiRequiredException ex)
-{
-    AuthenticationProperties properties = new AuthenticationProperties();
-
-    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
-    string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
-    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
-                                                 scopes.Union(additionalBuildInScopes).ToList());
-
-    // Attempt to set the login_hint so that the logged-in user is not presented
-    // with an account selection dialog.
-    string loginHint = HttpContext.User.GetLoginHint();
-    if (!string.IsNullOrWhiteSpace(loginHint))
-    {
-        properties.SetParameter<string>(OpenIdConnectParameterNames.LoginHint, loginHint);
-
-        string domainHint = HttpContext.User.GetDomainHint();
-        properties.SetParameter<string>(OpenIdConnectParameterNames.DomainHint, domainHint);
-    }
-
-    // Specify any additional claims that are required (for instance, MFA).
-    if (!string.IsNullOrEmpty(ex.Claims))
-    {
-        properties.Items.Add("claims", ex.Claims);
-    }
-
-    return properties;
-}
-```
+Le consentement est le processus via lequel un utilisateur autorise une application à accéder à des ressources protégées en son nom. La plateforme d’identité Microsoft 2.0 prend en charge le consentement incrémentiel, ce qui signifie qu’une entité de sécurité peut commencer par demander un jeu d’autorisations minimum, puis ajouter des autorisations au fil du temps en fonction des besoins. Lorsque votre code demande un jeton d’accès, spécifiez l’étendue des autorisations dont votre application a besoin à un moment donné dans le paramètre `scope`. Pour plus d’informations sur le consentement incrémentiel, consultez [Consentement incrémentiel et dynamique](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## <a name="view-and-run-the-completed-sample"></a>Afficher et exécuter l’exemple complet
 
@@ -271,12 +266,10 @@ Ensuite, mettez à jour le fichier *appsettings.json* en utilisant vos propres v
 
 ### <a name="update-the-storage-account-and-container-name"></a>Mettre à jour le conteneur et le nom du compte de stockage
 
-Dans fichier *HomeController.cs*, mettez à jour l’URI qui fait référence à l’objet blob de blocs pour utiliser votre conteneur et le nom de votre compte de stockage :
+Dans le fichier *HomeController.cs*, mettez à jour l’URI qui fait référence à l’objet blob de blocs pour utiliser votre conteneur et le nom de votre compte de stockage, en remplaçant les valeurs entre crochets par vos propres valeurs :
 
-```csharp
-CloudBlockBlob blob = new CloudBlockBlob(
-                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-                      storageCredentials);
+```html
+https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
 
 ### <a name="enable-implicit-grant-flow"></a>Activer le flux d’octroi implicite

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797987"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053971"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 
@@ -29,7 +29,7 @@ Vous pouvez autoriser des utilisateurs de votre organisation à accéder à leur
 >
 > Exceptions :
 >
-> * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
+> * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Microsoft 365 gérés par 21Vianet en Chine.
 > * Le paramètre est désactivé par défaut pour les organisations Azure AD provisionnées en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
 > * Le paramètre est désactivé par défaut pour les organisations provisionnées en France.
 >
@@ -99,7 +99,7 @@ Pour utiliser le groupe l’étape deux en tant que groupe sélectionné dans le
    **Activé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est activé. Les utilisateurs de votre organisation peuvent utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016.
    **Désactivé** | Le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** dans les options d’Office 2016 est désactivé et les utilisateurs finaux ne peuvent pas le modifier. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016.
 
-Cette stratégie de groupe affecte uniquement les applications Office 2016 installées sur un ordinateur local. Si les utilisateurs désactivent LinkedIn dans leurs applications Office 2016, ils peuvent toujours voir les fonctionnalités LinkedIn dans Office 365.
+Cette stratégie de groupe affecte uniquement les applications Office 2016 installées sur un ordinateur local. Si les utilisateurs désactivent LinkedIn dans leurs applications Office 2016, ils peuvent toujours voir les fonctionnalités LinkedIn dans Microsoft 365.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,16 +4,16 @@ description: Découvrez comment vous connecter à un serveur Analysis Services d
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 170cf0081e6671451ece6dc2924ae7e418f520a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506772"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489015"
 ---
 # <a name="connecting-to-servers"></a>Connexion aux serveurs
 
@@ -76,6 +76,24 @@ Utilisez le compte Windows qui exécute le processus en cours.
 ## <a name="connect-using-an-odc-file"></a>Connexion à l’aide d’un fichier .odc
 
 Avec les versions antérieures d’Excel, les utilisateurs peuvent se connecter à un serveur Azure Analysis Services à l’aide d’un fichier Office Data Connection (.odc). Pour en savoir plus, consultez [Créer un fichier Office Data Connection (.odc)](analysis-services-odc.md).
+
+## <a name="connect-as-a-linked-server-from-sql-server"></a>Se connecter en tant que serveur lié à partir de SQL Server
+
+SQL Server peut se connecter à une ressource Azure Analysis Services en tant que [serveur lié](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) en spécifiant MSOLAP comme fournisseur de source de données. Avant de configurer une connexion de serveur lié, veillez à installer la dernière [bibliothèque de client MSOLAP](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (fournisseur). 
+
+Pour les connexions de serveur lié à Azure Analysis Services, le fournisseur MSOLAP doit être instancié en dehors du processus SQL Server. Lors de la configuration des options de serveur lié, vérifiez que l’option **Autoriser inprocess** **n’est pas sélectionnée**.
+
+Si **Autoriser inprocess** est sélectionné et que le fournisseur est instancié dans le processus SQL Server, l’erreur suivante est retournée :
+
+```
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The following system error occurred: ".
+
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The connection failed because user credentials are needed and Sign-In UI is not allowed.".
+
+Msg 7303, Level 16, State 1, Line 2
+Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked server "(null)".
+```
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

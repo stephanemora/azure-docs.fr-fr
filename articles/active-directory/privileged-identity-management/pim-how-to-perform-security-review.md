@@ -14,16 +14,16 @@ ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743845"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055433"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Examiner l’accès aux rôles Azure AD dans Privileged Identity Management
 
-Le service Privileged Identity Management (PIM) simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure Active Directory et d’autres services en ligne Microsoft, tels qu’Office 365 ou que Microsoft Intune. Suivez les étapes décrites dans cet article pour réussir l’auto-révision de vos rôles attribués.
+Le service Privileged Identity Management (PIM) simplifie la gestion par les entreprises de l’accès privilégié aux ressources dans Azure Active Directory et d’autres services en ligne Microsoft, tels que Microsoft 365 ou Microsoft Intune. Suivez les étapes décrites dans cet article pour réussir l’auto-révision de vos rôles attribués.
 
 Si vous êtes affecté à un rôle d’administrateur, l’administrateur de rôle privilégié de votre organisation peut vous demander de confirmer régulièrement que vous avez toujours besoin de ce rôle pour votre travail. Vous pouvez recevoir un e-mail contenant un lien, ou accéder directement au [portail Azure](https://portal.azure.com) et commencer.
 

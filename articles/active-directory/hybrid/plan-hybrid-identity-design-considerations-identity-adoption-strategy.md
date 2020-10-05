@@ -1,6 +1,6 @@
 ---
 title: 'Conception d’identités hybrides : stratégie d’adoption Azure | Microsoft Docs'
-description: Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
+description: Avec le contrôle par accès conditionnel, Azure AD vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555372"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659532"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -32,7 +32,7 @@ Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des i
 * [Déterminer les exigences d’authentification multifacteur](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Définir une stratégie de besoins métier
-La première tâche concerne la détermination des besoins métier de l’entreprise.  Cette opération peut être très étendue et vous risquez de vous éloigner des objectifs si vous n’êtes pas prudent.  Commencez par faire simple, mais prévoyez systématiquement une conception qui prendra en charge et facilitera les modifications ultérieures.  Qu’il s’agisse d’une conception simple ou très complexe, Azure Active Directory est la plateforme Microsoft Identity qui prend en charge Office 365, Microsoft Online Services et les applications cloud.
+La première tâche concerne la détermination des besoins métier de l’entreprise.  Cette opération peut être très étendue et vous risquez de vous éloigner des objectifs si vous n’êtes pas prudent.  Commencez par faire simple, mais prévoyez systématiquement une conception qui prendra en charge et facilitera les modifications ultérieures.  Qu’il s’agisse d’une conception simple ou très complexe, Azure Active Directory est la plateforme d’identités Microsoft qui prend en charge Microsoft 365, Microsoft Online Services et les applications cloud.
 
 ## <a name="define-an-integration-strategy"></a>Définir une stratégie d’intégration
 Microsoft possède trois scénarios principaux d’intégration : identités cloud, identités synchronisées et identités fédérées.  Vous devez prévoir d’adopter l’une de ces stratégies d’intégration.  La stratégie choisie peut varier. Il peut y avoir différents éléments à considérer : le type d’expérience utilisateur que vous souhaitez proposer, la présence ou non d’une infrastructure existante et la rentabilité notamment.  
@@ -171,7 +171,7 @@ Les éléments ci-après ne sont pas pris en charge et ne doivent pas être choi
 * Les annuaires Azure AD sont isolés par conception. La modification de la configuration d’Azure AD Connect Sync pour lire des données à partir d’un autre annuaire Azure AD pour générer une liste d’adresses globale commune et unifiée entre les annuaires n’est pas prise en charge. L’exportation d’utilisateurs comme contacts vers un autre annuaire Active Directory local avec Azure AD Connect Sync n’est pas prise en charge.
 
 > [!NOTE]
-> Si votre organisation limite la connexion des ordinateurs de votre réseau à Internet, cet article répertorie les points de terminaison (noms de domaine complets, plages d’adresses IPv4 et IPv6) que vous devez inclure dans vos listes d’autorisation sortante et dans votre zone Sites de confiance Internet Explorer d’ordinateurs clients pour garantir que vos ordinateurs peuvent utiliser Office 365. Pour plus d’informations, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Si votre organisation limite la connexion des ordinateurs de votre réseau à Internet, cet article liste les points de terminaison (noms de domaine complets, plages d’adresses IPv4 et IPv6) que vous devez inclure dans vos listes d’autorisation sortante et dans votre zone Sites de confiance Internet Explorer d’ordinateurs clients pour garantir que vos ordinateurs peuvent utiliser Microsoft 365. Pour plus d’informations, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 

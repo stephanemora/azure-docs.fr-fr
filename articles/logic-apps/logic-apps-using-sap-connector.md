@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833893"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488845"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -124,7 +124,7 @@ Ces conditions préalables s’appliquent lorsque vos applications logiques s’
 
 ### <a name="sap-client-library-prerequisites"></a>Conditions préalables pour la bibliothèque de client SAP
 
-* Veillez à installer la dernière version du [connecteur SAP (NCo 3.0) pour Microsoft .NET 3.0.22.0 compilé avec .NET Framework 4.0 – Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Les versions antérieures peuvent entraîner des problèmes de compatibilité. Pour plus d’informations, consultez [les versions de la bibliothèque de client SAP](#sap-library-versions).
+* Veillez à installer la dernière version du [connecteur SAP (NCo 3.0) pour Microsoft .NET 3.0.22.0 compilé avec .NET Framework 4.0 – Windows 64 bits (x64)](https://support.sap.com/en/product/connectors/msnet.html). Les versions antérieures peuvent entraîner des problèmes de compatibilité. Pour plus d’informations, consultez [les versions de la bibliothèque de client SAP](#sap-library-versions).
 
 * Par défaut, le programme d’installation SAP place les fichiers d’assembly dans le dossier d’installation par défaut. Vous devez copier ces fichiers d’assembly vers un autre emplacement, en fonction de votre scénario, comme suit :
 
@@ -396,7 +396,7 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
    Vous pouvez aussi spécifier une action manuellement :
 
-   ![Entrer manuellement une action SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Entrée manuelle de l’action SAP à utiliser](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Voici un exemple qui montre comment l’action apparaît quand vous configurez le déclencheur pour recevoir plusieurs messages.
 

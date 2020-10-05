@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285898"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604170"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
-Les organisations de grande taille qui se préoccupent de la sécurité veulent adopter les services cloud, comme Office 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications software as a service (ou SaaS) sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme [outlook.office.com](https://outlook.office.com/) et [login.microsoftonline.com](https://login.microsoftonline.com/). Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
+Les organisations de grande taille qui se préoccupent de la sécurité souhaitent adopter des services cloud, comme Microsoft 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications software as a service (ou SaaS) sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme [outlook.office.com](https://outlook.office.com/) et [login.microsoftonline.com](https://login.microsoftonline.com/). Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
 
-La solution Azure Active Directory (Azure AD) consiste en une fonctionnalité appelée Restrictions liées au locataire. Grâce aux restrictions liées au locataire, les organisations peuvent contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Office 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
+La solution Azure Active Directory (Azure AD) consiste en une fonctionnalité appelée Restrictions liées au locataire. Grâce aux restrictions liées au locataire, les organisations peuvent contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Microsoft 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
 
 Grâce aux restrictions liées au locataire, les organisations peuvent spécifier la liste des locataires auxquels leurs utilisateurs sont autorisés à accéder. Dans ce cas, Azure AD accorde uniquement l’accès à ces clients autorisés.
 
-Cet article se concentre sur les restrictions liées au locataire pour Office 365, mais cette fonctionnalité doit fonctionner avec n’importe quelle application cloud SaaS qui utilise des protocoles d’authentification moderne avec Azure AD pour l’authentification unique. Si vous utilisez des applications SaaS avec un client Azure AD différent du client utilisé par Office 365, assurez-vous que tous les clients nécessaires sont autorisés. Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Cet article est axé sur les restrictions liées au locataire pour Microsoft 365, mais cette fonctionnalité doit fonctionner avec n’importe quelle application cloud SaaS qui utilise des protocoles d’authentification moderne avec Azure AD pour l’authentification unique. Si vous utilisez des applications SaaS avec un locataire Azure AD différent du locataire utilisé par Microsoft 365, vérifiez que tous les locataires nécessaires sont autorisés. Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -37,11 +37,11 @@ La solution comprend les composants suivants :
 
 2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection TLS (Transport Layer Security). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
 
-3. **Logiciel client** : pour prendre en charge les restrictions liées au locataire, le logiciel client doit demander des jetons directement à Azure AD, afin que l’infrastructure du proxy puisse intercepter le trafic. Actuellement, les applications Office 365 basées sur un navigateur prennent en charge les restrictions liées au locataire, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
+3. **Logiciel client** : pour prendre en charge les restrictions liées au locataire, le logiciel client doit demander des jetons directement à Azure AD, afin que l’infrastructure du proxy puisse intercepter le trafic. Actuellement, les applications Microsoft 365 basées sur navigateur prennent en charge les restrictions liées au locataire, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
 
-4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Office 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Office 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour).
+4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Microsoft 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Microsoft 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection TLS uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Office 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
+Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection TLS uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Microsoft 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
 
 ![Flux de trafic des restrictions liées au locataire - Schéma](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,7 +63,7 @@ La configuration suivante est nécessaire pour activer les restrictions liées a
 
 - Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications TLS. Par exemple, si des certificats d’une [infrastructure à clé publique](/windows/desktop/seccertenroll/public-key-infrastructure) interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
 
-- Cette fonctionnalité est incluse dans les abonnements Office 365, mais si vous souhaitez utiliser les restrictions liées au locataire pour contrôler l’accès à d’autres applications SaaS, alors vous aurez besoin de licences Premium 1 Azure AD.
+- Cette fonctionnalité est comprise dans les abonnements Microsoft 365, mais si vous souhaitez utiliser les restrictions liées au locataire pour contrôler l’accès à d’autres applications SaaS, vous aurez besoin de licences Premium 1 Azure AD.
 
 #### <a name="configuration"></a>Configuration
 
@@ -129,16 +129,16 @@ Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des f
 - **Lieu**
 - **ID du locataire cible**
 
-## <a name="office-365-support"></a>Prise en charge d’Office 365
+## <a name="microsoft-365-support"></a>Support Microsoft 365
 
-Les applications Office 365 doivent répondre à deux critères pour prendre pleinement en charge les restrictions liées au locataire :
+Les applications Microsoft 365 doivent répondre à deux critères pour prendre pleinement en charge les restrictions liées au locataire :
 
 1. Le locataire utilisé prend en charge l’authentification moderne.
 2. L’authentification moderne est activée comme protocole d’authentification par défaut pour le service cloud.
 
 Consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour) pour plus d’informations sur les clients Office qui prennent actuellement en charge l’authentification moderne. Cette page inclut également des liens vers des instructions relatives à l’activation de l’authentification moderne sur des clients Exchange Online et Skype Entreprise Online spécifiques. SharePoint Online active déjà l’authentification moderne par défaut.
 
-Les applications Office 365 basées sur un navigateur (Portail Office, Yammer, sites SharePoint, Outlook sur le web, etc.) prennent actuellement en charge les restrictions liées au locataire. Les locataires lourds (Outlook, Skype Entreprise, Word, Excel, PowerPoint, etc.) peuvent appliquer des restrictions liées au locataire uniquement lorsque vous utilisez l’authentification moderne.  
+Les applications Microsoft 365 basées sur navigateur (Portail Office, Yammer, sites SharePoint, Outlook sur le web, etc.) prennent actuellement en charge les restrictions liées au locataire. Les locataires lourds (Outlook, Skype Entreprise, Word, Excel, PowerPoint, etc.) peuvent appliquer des restrictions liées au locataire uniquement lorsque vous utilisez l’authentification moderne.  
 
 Les locataires Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les locataires pour lesquels l’authentification moderne n’est pas activée, contournant ainsi les restrictions liées au locataire. Les restrictions liées au locataire peuvent bloquer des applications qui utilisent des protocoles hérités si elles contactent login.microsoftonline.com, login.microsoft.com ou login.windows.net lors de l’authentification.
 

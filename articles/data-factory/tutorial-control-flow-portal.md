@@ -1,6 +1,6 @@
 ---
 title: Activités de création de branches et de chaînage dans un pipeline à l’aide du portail Azure
-description: Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage.
+description: Découvrez comment contrôler le flux de contrôle des données dans le pipeline Azure Data Factory à l’aide du Portail Azure.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983739"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568546"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 
@@ -184,7 +184,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
    ![Glisser-déposer de l’activité de copie](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Dans la fenêtre **Propriétés** pour l’activité de **copie** en bas, basculez vers l’onglet **Source**, puis cliquez sur **+ Nouveau**. Vous créez un jeu de données source pour l’activité de copie dans cette étape.
 
-   ![Jeu de données source](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Capture d’écran montrant comment créer un jeu de données source pour l’activité de copie.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer**.
 
    ![Sélectionner le stockage Blob Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
         ![Paramètres pour la deuxième activité Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Sélectionnez l’activité de **copie** dans le concepteur de pipeline, puis cliquez sur le bouton **+->** , puis sélectionnez **Erreur**.  
 
-    ![Paramètres pour la deuxième activité Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Capture d’écran montrant comment sélectionner une erreur sur l’activité de copie dans le concepteur de pipeline.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Faites glisser le bouton **rouge** proche de l’activité de copie vers la deuxième activité Web **SendFailureEmailActivity**. Vous pouvez déplacer les activités afin que le pipeline ressemble à l’image suivante :
 
     ![Pipeline complète avec toutes les activités](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
     ![Exécution de pipeline réussie](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Pour **voir les exécutions d’activité** associées à l’exécution de ce pipeline, cliquez sur le premier lien dans la colonne **Actions**. Vous pouvez revenir à la vue précédente en cliquant sur **Pipelines** en haut. Utilisez le bouton **Actualiser** pour actualiser la liste.
 
-    ![Exécutions d’activités](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Capture d’écran montrant comment afficher la liste des exécutions d’activités.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Déclencher une exécution de pipeline qui échoue
 1. Basculez vers l’onglet **Modifier** sur la gauche.

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483827"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565752"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -30,9 +30,13 @@ La solution Microsoft Azure Data Box repose sur l’interaction de quatre compos
 - **Les clients/hôtes connectés à l’appareil** : les clients de votre infrastructure se connectant à l’appareil Data Box et contenant des données devant être protégées.
 - **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Azure Data Box que vous avez créée.
 
-Le diagramme suivant indique le flux de données à travers la solution Azure Data Box de l’environnement local vers Azure. Ce flux est destiné à une commande d’importation pour votre Data Box.
+Le diagramme suivant indique le flux de données à travers la solution de Azure Data Box de l’environnement local vers Azure, et les différentes fonctionnalités de sécurité en place quand les données transitent par la solution. Ce flux est destiné à une commande d’importation pour votre Data Box.
 
-![Sécurité Data Box](media/data-box-security/data-box-security-2.png)
+![Sécurité de l’importation Data Box](media/data-box-security/data-box-security-2.png)
+
+Le diagramme suivant montre l’ordre d’exportation pour votre Data Box.
+
+![Sécurité de l’exportation Data Box](media/data-box-security/data-box-security-3.png)
 
 Comme les données circulent dans cette solution, les événements sont enregistrés et des journaux sont générés. Pour plus d'informations, accédez à :
 

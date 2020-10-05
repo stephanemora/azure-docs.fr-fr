@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206647"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563085"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -22,15 +22,15 @@ Cet article explique comment utiliser des déclencheurs de minuteur dans Azure F
 
 Pour savoir comment exécuter manuellement une fonction déclenchée par un minuteur, consultez [Exécuter manuellement une fonction non déclenchée via HTTP](./functions-manually-run-non-http.md).
 
-## <a name="packages---functions-1x"></a>Packages - Functions 1.x
-
-Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
 ## <a name="packages---functions-2x-and-higher"></a>Packages – Functions 2.x et versions ultérieures
 
 Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
+
+Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -250,6 +250,7 @@ Lorsqu’une fonction de déclencheur de minuteur est appelée, l’objet minute
 
 La propriété `IsPastDue` est `true` lorsque l’appel de fonction en cours arrive plus tard que prévu. Par exemple, un redémarrage de la fonction d’application peut entraîner l’échec d’un appel.
 
+
 ## <a name="ncrontab-expressions"></a>Expressions NCRONTAB 
 
 Azure Functions utilise la bibliothèque [NCronTab](https://github.com/atifaziz/NCrontab) pour interpréter les expressions NCRONTAB. Une expression NCRONTAB est semblable à une expression CRON, à ceci près qu’elle comprend un sixième champ supplémentaire au début pour utiliser la précision de temps en secondes :
@@ -282,6 +283,8 @@ Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour l
 |`"0 30 9 * * 1-5"`|à 9h30 tous les jours de la semaine|
 |`"0 30 9 * Jan Mon"`|à 9h30 tous les lundis en janvier|
 
+> [!NOTE]
+> L’expression NCRONTAB nécessite le format à **six champs**. Les expressions cron à cinq champs ne sont pas prises en charge dans Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fuseaux horaires NCRONTAB
 

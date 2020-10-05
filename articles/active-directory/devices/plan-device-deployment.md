@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268806"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563894"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -105,24 +105,24 @@ Les appareils iOS et Android peuvent uniquement être inscrits auprès d’Azure
 | Considération | Appareils inscrits sur Azure AD| jointure Azure AD ;| jointure Azure AD hybride ; |
 | - | - | - | - |
 | **Systèmes d’exploitation clients**| | |  |
-| Appareils Windows 10| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Appareils utilisant une version antérieure de Windows (Windows 8.1 ou Windows 7)| | | ![case activée](./media/plan-device-deployment/check.png) |
+| Appareils Windows 10| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Appareils utilisant une version antérieure de Windows (Windows 8.1 ou Windows 7)| | | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
 |**Options de connexion**| | |  |
-| Informations d’identification locales de l’utilisateur final| ![case activée](./media/plan-device-deployment/check.png)| |  |
-| Mot de passe| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Code PIN d’appareil| ![case activée](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![case activée](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello Entreprise| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Clés de sécurité FIDO 2.0| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Application Microsoft Authenticator (sans mot de passe)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
+| Informations d’identification locales de l’utilisateur final| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| |  |
+| Mot de passe| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Code PIN d’appareil| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello Entreprise| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Clés de sécurité FIDO 2.0| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Application Microsoft Authenticator (sans mot de passe)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
 |**Fonctionnalités clés**| | |  |
-| Ressources de l’authentification unique au cloud| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Authentification unique auprès de ressources locales| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Accès conditionnel <br> (Les appareils doivent être marqués comme étant conformes) <br> (Administration par la solution de gestion des périphériques mobiles)| ![case activée](./media/plan-device-deployment/check.png) | ![case activée](./media/plan-device-deployment/check.png)|![case activée](./media/plan-device-deployment/check.png) |
-Accès conditionnel <br>(Appareils joints Azure AD Hybride requis)| | | ![case activée](./media/plan-device-deployment/check.png)
-| Réinitialisation du mot de passe en libre-service à partir de l’écran de connexion Windows| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Réinitialisation du code PIN Windows Hello| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
-| Enterprise State Roaming sur les appareils| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png) |
+| Ressources de l’authentification unique au cloud| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Authentification unique auprès de ressources locales| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Accès conditionnel <br> (Les appareils doivent être marqués comme étant conformes) <br> (Administration par la solution de gestion des périphériques mobiles)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+Accès conditionnel <br>(Appareils joints Azure AD Hybride requis)| | | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)
+| Réinitialisation du mot de passe en libre-service à partir de l’écran de connexion Windows| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Réinitialisation du code PIN Windows Hello| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
+| Enterprise State Roaming sur les appareils| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Inscription à Azure AD 
@@ -239,9 +239,9 @@ Passez en revue les plateformes prises en charge et non prises en charge pour le
 
 | Outils de gestion des appareils| Appareils inscrits sur Azure AD| jointure Azure AD ;| jointure Azure AD hybride ;|
 | - | - | - | - |
-| [Gestion des périphériques mobiles](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemple : Microsoft Intune| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)|  |
-| [Cogestion avec Microsoft Intune et Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 et versions ultérieures)| | ![case activée](./media/plan-device-deployment/check.png)| ![case activée](./media/plan-device-deployment/check.png)|  |
-| [Stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows uniquement)| | | ![case activée](./media/plan-device-deployment/check.png)|  |
+| [Gestion des périphériques mobiles](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemple : Microsoft Intune| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
+| [Cogestion avec Microsoft Intune et Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 et versions ultérieures)| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
+| [Stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows uniquement)| | | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
 
 
 

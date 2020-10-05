@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086838"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439008"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 > [!NOTE]
@@ -49,7 +49,7 @@ Vous pouvez afficher un aperçu d’une partie des données à partir de la sour
 Le schéma des données d’entrée peut ne pas correspondre au schéma des données de sortie dans certains cas. Le cas échéant, vous devez mapper les colonnes du schéma source aux colonnes du schéma de destination.
 
 > [!TIP]
-> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez la rubrique [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure Synapse Analytics (anciennement SQL Data Warehouse), si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez [Déplacer des données vers et depuis Azure Synapse Analytics à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Utilisez une liste déroulante pour sélectionner une colonne du schéma source à mapper à une colonne du schéma de destination. L’Assistant de copie essaie de comprendre votre modèle de mappage des colonnes. Le même modèle est appliqué aux autres colonnes, ce qui vous évite de sélectionner les colonnes individuellement pour effectuer le mappage du schéma. Si vous le souhaitez, vous pouvez remplacer ces mappages en utilisant les listes déroulantes pour mapper les colonnes une par une. Le modèle devient plus précis à mesure que vous mappez des colonnes. L’Assistant de copie met continuellement à jour le modèle pour finalement obtenir le modèle adapté au mappage de colonnes que vous voulez.     

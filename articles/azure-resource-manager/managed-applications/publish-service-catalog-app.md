@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: f6a3a16fe7fd6b0036b36520262e85a9066a4e63
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af5efd7c9b3c486e608c39c230700b52dd17a260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371624"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Démarrage rapide : Créer et publier une définition d’application gérée
 
@@ -215,7 +215,7 @@ groupid=$(az ad group show --group mygroup --query objectId --output tsv)
 
 ### <a name="get-the-role-definition-id"></a>Obtenir l’ID de définition de rôle
 
-Ensuite, vous avez besoin de l’ID de définition de rôle du rôle RBAC intégré auquel vous souhaitez accorder l’accès à l’utilisateur, au groupe d’utilisateurs ou à l’application. En règle générale, vous utilisez le rôle Propriétaire, Collaborateur ou Lecteur. La commande suivante montre comment obtenir l’ID de définition de rôle pour le rôle Propriétaire :
+Ensuite, vous avez besoin de l’ID de définition de rôle du rôle Azure intégré auquel vous souhaitez accorder l’accès à l’utilisateur, au groupe d’utilisateurs ou à l’application. En règle générale, vous utilisez le rôle Propriétaire, Collaborateur ou Lecteur. La commande suivante montre comment obtenir l’ID de définition de rôle pour le rôle Propriétaire :
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -401,7 +401,7 @@ Vous pouvez vérifier que les fichiers de définition d’application sont enreg
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Assurez-vous que les utilisateurs peuvent voir votre définition.
 
-Vous avez accès à la définition de l’application managée, mais vous souhaitez vous assurer que d’autres utilisateurs de votre organisation peuvent y accéder. Accordez-leur au moins le rôle Lecteur dans la définition. Ils ont peut-être hérité de ce niveau d’accès suite à l’abonnement ou au groupe de ressources. Pour savoir qui a accès à la définition et ajouter des utilisateurs ou des groupes, consultez [Utiliser le contrôle d’accès basé sur le rôle pour gérer l’accès aux ressources de votre abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
+Vous avez accès à la définition de l’application managée, mais vous souhaitez vous assurer que d’autres utilisateurs de votre organisation peuvent y accéder. Accordez-leur au moins le rôle Lecteur dans la définition. Ils ont peut-être hérité de ce niveau d’accès suite à l’abonnement ou au groupe de ressources. Pour vérifier qui a accès à la définition et ajouter des utilisateurs ou des groupes, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

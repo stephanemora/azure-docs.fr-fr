@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548038"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604459"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs
 
@@ -101,7 +101,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
 5. Dans la section**Informations d’identification de l’administrateur**, entrez `https://<myPoliciesCustomDomain>.mypolicies.com/scim` dans **URL du locataire** où `<myPoliciesCustomDomain>` se trouve votre domaine personnalisé myPolicies. Vous pouvez récupérer votre domaine client myPolicies à partir de votre URL.
 Exemple : `<demo0-qa>`. mypolicies.com.
@@ -122,7 +122,18 @@ Exemple : `<demo0-qa>`. mypolicies.com.
 
 10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et myPolicies. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur myPolicies en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’utilisateur myPolicies](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Attribut|Type|
+   |---|---|
+   |userName|String|
+   |active|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |externalId|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
+
 
 11. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 * myPolicies requiert toujours le**nom d’utilisateur**, **l’e-mail** et **externalId**.
 * myPolicies ne prend pas en charge les suppressions définitives des attributs utilisateur.
+
+## <a name="change-log"></a>Journal des modifications
+
+* 15/09/2020 : ajout de la prise en charge de l’attribut « country » pour les utilisateurs.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

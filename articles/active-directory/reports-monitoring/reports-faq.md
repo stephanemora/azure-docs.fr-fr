@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231042"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015328"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -37,7 +37,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : J’utilise les API de point de terminaison `https://graph.windows.net/<tenant-name>/reports/` pour tirer (pull) par programmation les rapports de sécurité Azure AD (concernant certains types de détections, tels que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
 
-**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux détections de risques](../identity-protection/howto-identity-protection-graph-api.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les détections de risques sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements Microsoft Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
+**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux détections de risques](../identity-protection/howto-identity-protection-graph-api.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les détections de risques sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), qui est désormais la plateforme standard de Microsoft pour les API telles que Microsoft 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements Microsoft Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
 
 ---
 
@@ -81,15 +81,15 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ---
 
-**Q : Puis-je obtenir des informations du journal d’activité d’Office 365 avec le Portail Azure ?**
+**Q : Puis-je obtenir des informations sur les journaux d’activité de Microsoft 365 par le biais du portail Azure ?**
 
-**R :** Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources de l’annuaire, vous devez accéder au [Centre d’administration Microsoft 365](https://admin.microsoft.com) pour obtenir une vue complète des journaux d’activité d’Office 365.
+**R :** Bien que les journaux d’activité de Microsoft 365 et d’Azure AD partagent une grande partie des ressources de l’annuaire, vous devez accéder au [Centre d’administration Microsoft 365](https://admin.microsoft.com) pour obtenir une vue complète des journaux d’activité de Microsoft 365.
 
 ---
 
-**Q : Quelles API faut-il utiliser pour obtenir des informations sur les journaux d’activité d’Office 365 ?**
+**Q : Quelles API faut-il utiliser pour obtenir des informations sur les journaux d’activité de Microsoft 365 ?**
 
-**R :** Utilisez les [API Gestion d’Office 365](/office/office-365-management-api/office-365-management-apis-overview) pour accéder aux journaux d’activité d’Office 365 avec une API.
+**R :** Utilisez les [API Gestion de Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) pour accéder aux journaux d’activité de Microsoft 365 par le biais d’une API.
 
 ---
 

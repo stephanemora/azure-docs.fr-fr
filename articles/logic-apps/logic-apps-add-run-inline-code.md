@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420122"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658162"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
@@ -29,7 +29,7 @@ Lorsque vous souhaitez exécuter un extrait de code au sein de votre application
 
 Cette action exécute l’extrait de code et renvoie la sortie de cet extrait de code sous la forme d’un jeton nommé **Result**, que vous pouvez utiliser pour les actions suivantes au sein de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez de [créer et d’appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
 
-Dans cet article, l’exemple d’application logique se déclenche lorsqu’un nouvel e-mail arrive dans un compte Office 365 Outlook. L’extrait de code extrait et renvoie toutes les adresses e-mail qui s’affichent dans le corps du message.
+Dans cet article, l’exemple d’application logique se déclenche lorsqu’un nouvel e-mail arrive dans un compte professionnel ou scolaire. L’extrait de code extrait et renvoie toutes les adresses e-mail qui s’affichent dans le corps du message.
 
 ![Présentation des exemples](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 

@@ -4,12 +4,12 @@ description: Découvrez comment activer et afficher les journaux d’activité r
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048276"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004865"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -69,42 +69,43 @@ pod/nginx created
 
 L’activation et l’affichage des journaux de diagnostic peuvent nécessiter quelques minutes. Dans le portail Azure, accédez à votre cluster AKS, puis sélectionnez **Journaux** sur le côté gauche. Fermez la fenêtre *Exemples de requêtes* si elle s’affiche.
 
-
 Sur le côté gauche, choisissez **Journaux d’activité**. Pour afficher le journal *kube-audit*, entrez la requête suivante dans la zone de texte :
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
 ```
 
 L’application vous renvoie alors probablement un grand nombre de journaux. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx*, comme indiqué dans l’exemple de requête suivant :
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| where log_s contains "nginx"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
+| where Name contains "nginx"
 ```
-
-Pour afficher des journaux d’activité supplémentaires, vous pouvez mettre à jour la requête en redéfinissant le nom *Catégorie* sur *kube-controller-manager* ou sur *kube-scheduler*, selon les autres journaux d’activité que vous activez. Vous pouvez ensuite utiliser des instructions *where* supplémentaires pour restreindre l’étendue de la requête aux événements qui vous intéressent.
 
 Pour plus d’informations sur l’interrogation et le filtrage des données de journal d’activité, voir [Consulter ou analyser les données collectées avec la recherche dans les journaux d’activité de l’analytique des journaux d’activité][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Schéma d’événement de journal
 
-Pour faciliter votre analyse des données de journal, le tableau ci-après décrit en détail le schéma utilisé pour chaque événement :
+AKS enregistre les événements suivants :
 
-| Nom du champ               | Description |
-|--------------------------|-------------|
-| *resourceId*             | Ressource Azure ayant généré le journal |
-| *time*                   | Timestamp du chargement du journal |
-| *category*               | Nom du conteneur/composant générant le journal |
-| *operationName*          | Toujours *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *properties.log*         | Texte complet du journal provenant du composant |
-| *properties.stream*      | *stderr* ou *stdout* |
-| *properties.pod*         | Nom du pod d’où provient le journal |
-| *properties.containerID* | ID du conteneur Docker d’où provient le journal |
+* [AzureActivity][log-schema-azureactivity]
+* [AzureMetrics][log-schema-azuremetrics]
+* [ContainerImageInventory][log-schema-containerimageinventory]
+* [ContainerInventory][log-schema-containerinventory]
+* [ContainerLog][log-schema-containerlog]
+* [ContainerNodeInventory][log-schema-containernodeinventory]
+* [ContainerServiceLog][log-schema-containerservicelog]
+* [Pulsation][log-schema-heartbeat]
+* [InsightsMetrics][log-schema-insightsmetrics]
+* [KubeEvents][log-schema-kubeevents]
+* [KubeHealth][log-schema-kubehealth]
+* [KubeMonAgentEvents][log-schema-kubemonagentevents]
+* [KubeNodeInventory][log-schema-kubenodeinventory]
+* [KubePodInventory][log-schema-kubepodinventory]
+* [KubeServices][log-schema-kubeservices]
+* [Perf][log-schema-perf]
 
 ## <a name="log-roles"></a>Rôles de journal
 
@@ -131,3 +132,19 @@ Cet article vous a expliqué comment activer et consulter les journaux d’activ
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
+[log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
+[log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
+[log-schema-containerlog]: /azure/azure-monitor/reference/tables/containerlog
+[log-schema-containernodeinventory]: /azure/azure-monitor/reference/tables/containernodeinventory
+[log-schema-containerservicelog]: /azure/azure-monitor/reference/tables/containerservicelog
+[log-schema-heartbeat]: /azure/azure-monitor/reference/tables/heartbeat
+[log-schema-insightsmetrics]: /azure/azure-monitor/reference/tables/insightsmetrics
+[log-schema-kubeevents]: /azure/azure-monitor/reference/tables/kubeevents
+[log-schema-kubehealth]: /azure/azure-monitor/reference/tables/kubehealth
+[log-schema-kubemonagentevents]: /azure/azure-monitor/reference/tables/kubemonagentevents
+[log-schema-kubenodeinventory]: /azure/azure-monitor/reference/tables/kubenodeinventory
+[log-schema-kubepodinventory]: /azure/azure-monitor/reference/tables/kubepodinventory
+[log-schema-kubeservices]: /azure/azure-monitor/reference/tables/kubeservices
+[log-schema-perf]: /azure/azure-monitor/reference/tables/perf

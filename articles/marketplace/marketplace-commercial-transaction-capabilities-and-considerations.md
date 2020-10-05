@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 1b0600b164186097bc41a7e4d655e32bb2d0acbd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318775"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006395"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -146,7 +146,7 @@ Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et ver
 
 ### <a name="reduced-service-fee"></a>Frais de service réduits
 
-Pour certaines offres publiées sur notre marketplace commercial, Microsoft réduit les frais de service du marketplace de 20 % (cf. [Contrat d’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Les frais de service réduits du marketplace s’appliquent aux offres SaaS de co-vente Azure IP incitatives, aux machines virtuelles, aux applications managées et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
+Pour certaines offres publiées sur notre marketplace commercial, Microsoft réduit les frais de service du marketplace de 20 % (cf. [Contrat d’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Les frais de service réduits du marketplace s’appliquent aux offres SaaS de co-vente Azure IP incitatives, aux machines virtuelles, aux applications managées et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial. Les offres SaaS payantes associées à une application Microsoft Teams ou au moins deux compléments Microsoft 365 (Excel, PowerPoint, Word, Outlook et SharePoint) et publiées sur AppSource bénéficient également de cette remise.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Tarification, paiement, facturation et collecte côté client
 

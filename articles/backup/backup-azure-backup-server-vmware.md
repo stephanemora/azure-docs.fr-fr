@@ -3,16 +3,16 @@ title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde 
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017564"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069830"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
-Cet article explique comment sauvegarder des machines virtuelles VMware s’exécutant sur les hôtes VMware ESXi/vCenter Server vers Azure à l’aide du serveur de sauvegarde Azure.
+Cet article explique comment sauvegarder des machines virtuelles VMware s’exécutant sur des hôtes VMware ESXi/vCenter Server vers Azure en utilisant le serveur de sauvegarde Azure(MABS).
 
 Cet article explique comment :
 
@@ -21,6 +21,31 @@ Cet article explique comment :
 - Ajouter les informations d’identification du compte à la sauvegarde Azure.
 - Ajouter le serveur vCenter ou ESXi au serveur de sauvegarde Azure.
 - Configurer un groupe de protection qui contient les machines virtuelles VMware que vous souhaitez sauvegarder, spécifier les paramètres de sauvegarde et planifier la sauvegarde.
+
+## <a name="supported-vmware-features"></a>Fonctionnalités VMware prises en charge
+
+MABS fournit les fonctionnalités suivantes lors de la sauvegarde de machines virtuelles VMware :
+
+- Sauvegarde sans agent : MABS ne nécessite pas l’installation d’un agent sur le serveur vCenter ou ESXi pour sauvegarder la machine virtuelle. Au lieu de cela, il vous suffit de fournir l’adresse IP ou le nom de domaine complet (FQDN) ainsi que les informations d’identification utilisées pour authentifier le serveur VMware auprès de MABS.
+- Sauvegarde intégrée au cloud : MABS protège les charges de travail sur disque et dans le cloud. Le workflow de sauvegarde et de récupération de MABS vous aide à gérer la conservation à long terme et la sauvegarde hors site.
+- Détectez et protégez les machines virtuelles gérées par vCenter : MABS détecte et protège les machines virtuelles déployées sur un serveur VMware (serveur vCenter ou ESXi). À mesure que la taille de votre déploiement augmente, utilisez vCenter pour gérer votre environnement VMware. MABS détecte également les machines virtuelles gérées par vCenter, ce qui vous permet de protéger de grands déploiements.
+- Protection automatique au niveau du dossier : vCenter vous permet d’organiser vos machines virtuelles dans des dossiers de machines virtuelles. MABS détecte ces dossiers et vous permet de protéger les machines virtuelles au niveau du dossier et d’inclure tous les sous-dossiers. Lors de la protection de dossiers, MABS protège non seulement les machines virtuelles de ce dossier, mais également les machines virtuelles ajoutées ultérieurement. MABS détecte les nouvelles machines virtuelles quotidiennement et les protège automatiquement. Quand vous organisez vos machines virtuelles dans des dossiers récursifs, MABS détecte et protège automatiquement les nouvelles machines virtuelles déployées dans les dossiers récursifs.
+- MABS protège les machines virtuelles stockées sur un disque local, un système NFS (Network File System) ou un stockage en cluster.
+- MABS protège les machines virtuelles migrées pour l’équilibrage de charge : À mesure que les machines virtuelles sont migrées pour l’équilibrage de charge, MABS détecte et continue automatiquement la protection des machines virtuelles.
+- MABS peut récupérer des fichiers/dossiers d’une machine virtuelle Windows sans récupérer l’ensemble de la machine virtuelle, ce qui permet de récupérer plus rapidement les fichiers nécessaires.
+
+## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
+
+Avant de commencer la sauvegarde d’une machine virtuelle VMware, passez en revue la liste suivante des limitations et conditions préalables.
+
+- Si vous avez utilisé MABS pour protéger un serveur vCenter (s’exécutant sur Windows) en tant que serveur Windows en utilisant le nom de domaine complet du serveur, vous ne pouvez pas protéger ce serveur vCenter en tant que serveur VMware en utilisant le nom de domaine complet du serveur.
+  - Comme solution de contournement, vous pouvez utiliser l’adresse IP statique du serveur vCenter.
+  - Si vous voulez utiliser le nom de domaine complet, vous devez arrêter la protection en tant que serveur Windows, supprimer l’agent de protection, puis l’ajouter en tant que serveur VMware en utilisant le nom de domaine complet.
+- Si vous utilisez vCenter pour gérer des serveurs ESXi dans votre environnement, ajoutez vCenter (et non pas ESXi) au groupe de protection MABS.
+- Vous ne pouvez pas sauvegarder des captures instantanées effectuées par l’utilisateur avant la première sauvegarde MABS. Une fois que MABS a terminé la première sauvegarde, vous pouvez sauvegarder des captures instantanées effectuées par l’utilisateur.
+- MABS ne peut pas protéger les machines virtuelles VMware avec des disques pass-through et des mappages de périphériques bruts (pRDM, physical Raw Device Mapping).
+- MABS ne peut pas détecter ou protéger des applications VMware vApps.
+- MABS ne peut pas protéger des machines virtuelles VMware avec des captures instantanées existantes.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -392,7 +417,7 @@ Vous pouvez modifier le nombre de travaux à l’aide de la clé de Registre, co
 
 Pour sauvegarder vSphere 6.7, effectuez les opérations suivantes :
 
-- Activer TLS 1.2 sur le serveur DPM
+- Activer TLS 1.2 sur le serveur MABS
 
 >[!NOTE]
 >Sur VMWare 6.7 et ultérieur, TLS est le protocole de communication activé.
