@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/29/2020
+ms.date: 09/24/2020
 ms.author: derekol
-ms.openlocfilehash: 012468ea16a9d1125bbcc93333eb8dad586aa502
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b034c2657cd1bddd696b40738d51c8a3e6c9798
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355250"
 ---
 # <a name="peering-service-partners"></a>Partenaires de Peering Service
 
@@ -33,8 +33,8 @@ Le tableau présenté dans cet article fournit des informations sur les partenai
 | [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |États-Unis|
 | [BBIX](https://www.bbix.net/en/service/) |Japon |
 | [CCL](https://concepts.co.nz/news/general-news/) |Océanie |
-| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, Amérique du Nord |
+| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asie|
+| [DE-CIX](https://www.de-cix.net/microsoft)|Europe |
 | [IIJ](https://www.iij.ad.jp/en/) | Japon |
 | [InterCloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Océanie  |
