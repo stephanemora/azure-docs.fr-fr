@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe4350a721b025858493739e78011458f89f33ee
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276335"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014631"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -139,10 +139,10 @@ Non, Azure AD Connect ne prend pas en charge les environnements IPv6 purs.
 Non, l’utilisation d’Azure AD Connect sur NAT n’est pas prise en charge. 
 
 ## <a name="federation"></a>Fédération
-**Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365 ?**  
+**Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Microsoft 365 ?**  
 Pour obtenir des conseils sur le renouvellement du certificat, consultez la page [Renouveler les certificats](how-to-connect-fed-o365-certs.md).
 
-**Q : « Mettre à jour automatiquement la partie de confiance » est défini pour la partie de confiance Office 365. Dois-je effectuer une action lorsque mon certificat de signature de jetons bascule automatiquement ?**  
+**Q : « Mettre à jour automatiquement la partie de confiance » est défini pour la partie de confiance Microsoft 365. Dois-je effectuer une action lorsque mon certificat de signature de jetons bascule automatiquement ?**  
 Utilisez les instructions décrites dans l’article [Renouveler les certificats](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Environnement
@@ -155,14 +155,14 @@ Non.  Elles ne sont pas prises en charge.
 **Q. Si j’ai désactivé un appareil synchronisé (par exemple : HAADJ) dans le portail Azure, pourquoi est-il réactivé ?**<br>
 Les appareils synchronisés peuvent être créés ou contrôlés localement. Si un appareil synchronisé est activé localement, il peut être réactivé dans le portail Azure même s’il a été précédemment désactivé par un administrateur. Pour désactiver un appareil synchronisé, utilisez le répertoire Active Directory local pour désactiver le compte d’ordinateur.
 
-**Q. Si je bloque la connexion de l’utilisateur sur le portail Office 365 ou Azure AD pour les utilisateurs synchronisés, pourquoi est-elle débloquée lors de la connexion ?**<br>
+**Q. Si je bloque la connexion de l’utilisateur sur le portail Microsoft 365 ou Azure AD pour les utilisateurs synchronisés, pourquoi est-elle débloquée lors de la connexion ?**<br>
 Les utilisateurs synchronisés peuvent être créés ou contrôlés localement. Si le compte est activé localement, il peut débloquer le blocage de connexion placé par l’administrateur.
 
 ## <a name="identity-data"></a>Données d’identité
 **Q : Pourquoi l’attribut userPrincipalName (UPN) dans Azure AD ne correspond-t-il à l’UPN local ?**  
 Pour plus d’informations, consultez les articles suivants :
 
-* [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192)
+* [Les noms d’utilisateur dans Microsoft 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire.](https://support.microsoft.com/kb/2523192)
 * [Les modifications ne sont pas synchronisées par l’outil de synchronisation Azure Active Directory une fois que vous avez modifié l’UPN d’un compte utilisateur afin d’utiliser un autre domaine fédéré](https://support.microsoft.com/kb/2669550)
 
 Vous pouvez également configurer Azure AD pour permettre au moteur de synchronisation de mettre à jour l’UPN comme décrit dans [Fonctionnalités du service de synchronisation Azure AD Connect](how-to-connect-syncservice-features.md).
@@ -253,10 +253,10 @@ Oui, la mise à niveau automatique met également à jour Azure AD Connect Healt
 Oui, vous pouvez mettre automatiquement à niveau un serveur Azure AD Connect en mode de préproduction.
 
 **Q : Si la mise à niveau automatique échoue et que mon serveur Azure AD Connect ne démarre pas, que dois-je faire ?**  
-Dans de rares cas, le service Azure AD Connect ne démarre pas après la mise à niveau. Dans ces cas, redémarrez le serveur. Cela permet généralement de résoudre le problème. Si le service Azure AD Connect ne démarre toujours pas, ouvrez un ticket de support. Pour plus d’informations, consultez la page décrivant la procédure de [création d’une demande de service pour contacter le support Office 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
+Dans de rares cas, le service Azure AD Connect ne démarre pas après la mise à niveau. Dans ces cas, redémarrez le serveur. Cela permet généralement de résoudre le problème. Si le service Azure AD Connect ne démarre toujours pas, ouvrez un ticket de support. Pour plus d’informations, consultez la page décrivant la procédure de [création d’une demande de service pour contacter le support Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **Q : Je ne sais pas quels sont les risques liés à la mise à niveau vers une version plus récente d’Azure AD Connect. Pouvez-vous m’appeler pour m’aider à procéder à la mise à niveau ?**  
-Si vous avez besoin d’aide pour passer à une version plus récente d’Azure AD Connect, ouvrez un ticket de support en suivant les instructions permettant de [créer une demande de service pour contacter le support Office 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
+Si vous avez besoin d’aide pour passer à une version plus récente d’Azure AD Connect, ouvrez un ticket de support en suivant les instructions permettant de [créer une demande de service pour contacter le support Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>Bonnes pratiques opérationnelles    
 Vous trouverez ci-dessous quelques bonnes pratiques à appliquer lors de la synchronisation entre Windows Server Active Directory et Azure Active Directory.

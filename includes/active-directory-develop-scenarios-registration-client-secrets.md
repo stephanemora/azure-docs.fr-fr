@@ -5,40 +5,38 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/14/2020
 ms.author: jmprieur
-ms.custom: include file
-ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102638"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436463"
 ---
-## <a name="register-secrets-or-certificates"></a>Inscrire des secrets ou des certificats
+## <a name="add-a-client-secret-or-certificate"></a>Ajouter un certificat ou une clé secrète client
 
-Comme pour toute application de cliente confidentiel, vous devez inscrire un certificat ou un secret. Vous pouvez inscrire les secrets de votre application via une expérience interactive dans le [portail Microsoft Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview), ou à l’aide d’outils en ligne de commande (par exemple PowerShell).
+Comme pour toute application cliente confidentielle, vous devez ajouter un secret ou un certificat pour servir d’*informations d’identification* à l’application afin qu’elle puisse s’authentifier elle-même, sans intervention de l’utilisateur.
 
-### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Inscrire des secrets clients avec le portail d’inscription d’applications
+Vous pouvez ajouter des informations d’identification à l’inscription de votre application cliente à l’aide du [portail Azure](#add-client-credentials-by-using-the-azure-portal) ou en utilisant un outil en ligne de commande comme [PowerShell](#add-client-credentials-by-using-powershell).
 
-La gestion des informations d’identification du client s’effectue dans la page **Certificats et secrets** d’une application :
+### <a name="add-client-credentials-by-using-the-azure-portal"></a>Ajouter les informations d’identification du client à l’aide du portail Azure
 
-![Page Certificats et secrets](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+Pour ajouter des informations d’identification à l’inscription de votre application cliente confidentielle, suivez les étapes décrites dans [Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft](../articles/active-directory/develop/quickstart-register-app.md) pour le type d’informations d’identification que vous souhaitez ajouter :
 
-- Vous créez un *clé secrète client* en sélectionnant **Nouvelle clé secrète client** dans l’inscription de l’application sur le Portail Microsoft Azure. Quand vous créez une clé secrète client, vous _devez_ enregistrer la chaîne de la clé secrète avant de quitter le volet **Certificats et clés secrètes**. La chaîne de la clé secrète ne s’affiche plus.
-- Pendant l’inscription de l’application, vous utilisez le bouton **Charger le certificat** pour charger le certificat. Azure AD prend uniquement en charge les certificats qui sont directement inscrits sur l’application et ne suivent pas de chaînes de certificats.
+* [Ajouter un secret client](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
+* [Ajouter un certificat](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
 
-Pour en savoir plus, voir [Démarrage rapide : Configurer une application cliente pour accéder aux API web | Ajouter des informations d’identification à votre application.](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+### <a name="add-client-credentials-by-using-powershell"></a>Ajouter les informations d’identification du client à l’aide de PowerShell
 
-### <a name="register-client-secrets-by-using-powershell"></a>Inscrire des secrets clients avec PowerShell
+Vous pouvez également ajouter des informations d’identification lorsque vous inscrivez votre application auprès de la plateforme d’identités Microsoft à l’aide de PowerShell.
 
-Vous pouvez également inscrire votre application auprès d’Azure AD à l’aide d’outils en ligne de commande. L’exemple de commande [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) montre comment inscrire un certificat ou un secret d’application avec une application Azure AD :
+L’exemple de code [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sur le site de GitHub montre comment ajouter un certificat ou un secret d’application lors de l’inscription d’une application :
 
-- Pour découvrir comment inscrire un secret d’application, consultez [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
-- Pour découvrir comment inscrire un certificat avec une application, consultez [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).
+- Pour plus d’informations sur l’ajout d’une **clé secrète client**, consultez [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Pour plus d’informations sur l’ajout d’un **certificat** avec PowerShell, consultez [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

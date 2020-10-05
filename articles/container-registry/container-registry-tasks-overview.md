@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087283"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488641"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -100,7 +100,7 @@ Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-s
 
 ## <a name="context-locations"></a>Emplacements de contexte
 
-Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
+Le tableau suivant présente des exemples d’emplacements de contexte pris en charge pour ACR Tasks :
 
 | Emplacement du contexte | Description | Exemple |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ Le tableau suivant présente quelques exemples d’emplacements de contexte pris
 | Validation GitHub | Validation spécifique d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de hachage de validation (SHA) et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Sous-dossier Azure DevOps | Fichiers dans le sous-dossier d’un référentiel Azure public ou privé. L’exemple montre la combinaison de spécifications de branche et de sous-dossier. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+| Artefact dans le registre de conteneurs | Fichiers d’[artefacts OCI](container-registry-oci-artifacts.md) dans un référentiel de registre de conteneurs. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > Lorsque vous utilisez un référentiel Git privé comme contexte pour une tâche, vous devez fournir un jeton d’accès personnel (PAT).

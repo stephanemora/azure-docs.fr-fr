@@ -2,19 +2,19 @@
 title: Activer Azure Automation Update Management à partir d’un compte Automation
 description: Cet article explique comment activer Update Management à partir d’un compte Automation.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 930861c61843c5963c83d8fa6dc1efdce20853f4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449553"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669507"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Activer Update Management à partir d’un compte Automation
 
-Cet article explique comment utiliser votre compte Automation pour activer la fonctionnalité [Update Management](update-mgmt-overview.md) pour les machines virtuelles de votre environnement. Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle existante à l’aide d’Update Management.
+Cet article explique comment utiliser votre compte Automation pour activer la fonctionnalité [Update Management](update-mgmt-overview.md) pour les machines virtuelles de votre environnement, notamment les machines et serveurs inscrits auprès de [serveurs avec Azure Arc](../../azure-arc/servers/overview.md) (préversion). Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle Azure existante en utilisant Update Management.
 
 > [!NOTE]
 > Lors de l’activation d’Update Management, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](../how-to/region-mappings.md).
@@ -23,7 +23,7 @@ Cet article explique comment utiliser votre compte Automation pour activer la fo
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Compte Automation](../index.yml) pour gérer les machines.
-* Une [machine virtuelle](../../virtual-machines/windows/quick-create-portal.md).
+* Une [machine virtuelle Azure](../../virtual-machines/windows/quick-create-portal.md), ou une machine virtuelle ou un serveur inscrit avec des serveurs dotés d’Azure Arc (préversion). Les machines virtuelles ou les serveurs non Azure doivent disposer de l’[agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour Windows ou Linux et de l’envoi de rapports à l’espace de travail lié au compte Automation sur lequel Update Management est activé. L’agent peut être installé sur des serveurs avec Azure Arc en déployant l’[extension de machine virtuelle Azure Log Analytics](../../azure-arc/servers/manage-vm-extensions.md) avec Azure Arc.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -65,16 +65,21 @@ Les machines installées manuellement ou celles déjà connectées à votre espa
 
     ![Recherches enregistrées](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Pour activer Update Management sur toutes les machines disponibles, sélectionnez **Activer sur toutes les machines disponibles** sur la page Gérer des machines. La commande permettant d’ajouter des machines individuellement est alors désactivée. Cette tâche ajoute tous les noms des machines envoyant des informations à l’espace de travail dans la requête de recherche enregistrée de groupe d’ordinateurs. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé.
+3. Pour activer Update Management sur toutes les machines disponibles associées à l’espace de travail, sélectionnez **Activer sur toutes les machines disponibles** sur la page Gérer des machines. La commande permettant d’ajouter des machines individuellement est alors désactivée. Cette tâche ajoute tous les noms des machines envoyant des informations à l’espace de travail dans la requête de recherche enregistrée de groupe d’ordinateurs `MicrosoftDefaultComputerGroup`. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé.
 
-4. Pour activer la fonctionnalité sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail et ouvre la fonctionnalité pour toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car il n’existe plus aucune configuration d’étendue.
+4. Pour activer la fonctionnalité sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime la recherche enregistrée et la configuration d’étendue de l’espace de travail et permet à la fonctionnalité d’inclure toutes les machines Azure et non Azure qui, actuellement ou à l’avenir, envoient leurs rapports à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car plus aucune configuration d’étendue n’est disponible.
 
-5. Le cas échéant, vous pouvez rajouter les configurations d’étendue en ajoutant à nouveau les recherches enregistrées initiales. Pour plus d’informations, consultez [Limiter l’étendue du déploiement d’Update Management](update-mgmt-scope-configuration.md).
+    > [!NOTE]
+    > Comme cette option supprime les recherches enregistrées et les configurations d’étendue dans Log Analytics, il est important de supprimer tous les verrous de suppression sur l’espace de travail Log Analytics avant de sélectionner cette option. Si vous ne le faites pas, l’option ne parviendra pas à supprimer les configurations et vous devrez les supprimer manuellement.
+
+5. Le cas échéant, vous pouvez rajouter les configurations d’étendue en ajoutant à nouveau la requête de recherche enregistrée initiale. Pour plus d’informations, consultez [Limiter l’étendue du déploiement d’Update Management](update-mgmt-scope-configuration.md).
 
 6. Pour activer la fonctionnalité sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées**, puis sélectionnez **Ajouter** en regard de chaque machine. Cette tâche ajoute le nom des machines sélectionnées à la requête de recherche enregistrée de groupe d’ordinateurs pour la fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour utiliser Update Management pour des machines virtuelles, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles](update-mgmt-manage-updates-for-vm.md).
+
+* Lorsque vous n’avez plus besoin de gérer de machines virtuelles ou de serveurs avec Update Management, consultez [Supprimer des machines virtuelles d’Update Management](update-mgmt-remove-vms.md).
 
 * Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](../troubleshoot/update-management.md).

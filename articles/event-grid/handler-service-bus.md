@@ -2,13 +2,13 @@
 title: Files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid
 description: Décrit comment vous pouvez utiliser des files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/03/2020
+ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105691"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440794"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus des files d’attente et des rubriques comme gestionnaires d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements et **Azure Service Bus** est l’un d’eux. 
@@ -62,9 +62,9 @@ Si vous utilisez **une rubrique ou une file d’attente Service Bus** en tant qu
 | aeg-data-version | <p>Version de données de l’événement.</p><p>Exemple : "1".</p><p>Pour un **schéma d’événement Event Grid**, cette propriété représente la version des données et, pour un **schéma d’événements cloud**, elle ne s’applique pas.</p> |
 
 ## <a name="message-headers"></a>En-têtes de message
-Lors de l’envoi d’un événement à une file d’attente ou une rubrique Service Bus en tant que message réparti, l’ID `messageid` du message réparti est l’**ID d’événement**.
+Lors de l’envoi d’un événement à une file d’attente ou une rubrique Service Bus en tant que message réparti, le `messageid` du message réparti est un ID système interne.
 
-L’ID d’événement est conservé lors de la nouvelle remise de l’événement afin que vous puissiez éviter les remises en double en activant la **détection des doublons** sur l’entité Service Bus. Nous vous recommandons d’activer la durée de la détection des doublons sur l’entité Service Bus comme étant la durée de vie (TTL, Time-to-Live) de l’événement ou la durée maximale de nouvelle tentative, la valeur la plus longue étant retenue.
+L’ID système interne du message est conservé lors de la nouvelle remise de l’événement afin que vous puissiez éviter les remises en double en activant la **détection des doublons** sur l’entité Service Bus. Nous vous recommandons d’activer la durée de la détection des doublons sur l’entité Service Bus comme étant la durée de vie (TTL, Time-to-Live) de l’événement ou la durée maximale de nouvelle tentative, la valeur la plus longue étant retenue.
 
 ## <a name="rest-examples-for-put"></a>Exemples REST (pour PUT)
 

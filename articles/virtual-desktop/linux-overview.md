@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1987646df6987130fb075e1f1cf78c3ad6a04515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 04ea73825d6ffe2282a8d5564bfb6bb965a8190e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400107"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649149"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
@@ -24,6 +24,7 @@ Les partenaires suivants ont approuvé les clients Windows Virtual Desktop pour 
 |Partenaire|Documentation du partenaire|Support technique du partenaire|
 |:------|:--------------------|:--------------|
 |![Logo IGEL](./media/partners/igel.png)|[Documentation du client IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Support technique IGEL](https://www.igel.com/support/)|
+|![Logo Stratodesk](./media/partners/stratodesk.png)|[Documentation du client Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Support Stratodesk](https://www.stratodesk.com/support-3/)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 744fe22b6b2c9fbeb9b149760145267ccb6fa6f8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610504"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435210"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurer des règles d’application de pare-feu Azure avec des noms de domaine complets SQL
 
@@ -20,7 +20,7 @@ Vous pouvez maintenant configurer des règles d’application de pare-feu Azure 
 
 Grâce aux noms de domaine complets SQL, vous pouvez filtrer le trafic :
 
-- À partir de vos réseaux virtuels pour une Azure SQL Database ou un Azure SQL Data Warehouse. Par exemple : Autoriser uniquement l’accès à *sql-server1.database.windows.net*.
+- De votre réseaux virtuels à une instance Azure SQL Database ou Azure Synapse Analytics. Par exemple : Autoriser uniquement l’accès à *sql-server1.database.windows.net*.
 - Envoi local vers Azure SQL Managed Instances ou IaaS SQL en cours d’exécution dans vos réseaux virtuels.
 - Envoi rayon à rayon vers Azure SQL Managed Instances ou IaaS SQL en cours d’exécution dans vos réseaux virtuels.
 
@@ -30,7 +30,7 @@ Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, 
 ## <a name="configure-using-azure-cli"></a>Configurer à l’aide d’Azure CLI
 
 1. Déployer un [pare-feu Azure à l’aide de Azure CLI](deploy-cli.md).
-2. Si vous filtrez le trafic vers Azure SQL Database, SQL Data Warehouse ou SQL Managed Instance, assurez-vous que le mode de connectivité SQL est défini sur **Proxy**. Pour savoir comment modifier de mode de connectivité SQL, voir [Paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).
+2. Si vous filtrez le trafic vers Azure SQL Database, Azure Synapse Analytics ou SQL Managed Instance, assurez-vous que le mode de connectivité SQL est défini sur **Proxy**. Pour savoir comment modifier de mode de connectivité SQL, voir [Paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).
 
    > [!NOTE]
    > Le mode *proxy* de SQL peut entraîner une plus grande latence par rapport au mode de *redirection*. Si vous souhaitez continuer à utiliser le mode de redirection, qui est le mode par défaut pour les clients se connectant à Azure, vous pouvez filtrer l’accès en utilisant la [balise de service](service-tags.md) SQL dans les [règles de réseau](tutorial-firewall-deploy-portal.md#configure-a-network-rule) du pare-feu.
@@ -52,7 +52,7 @@ Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, 
 
 ## <a name="configure-using-the-azure-portal"></a>Configurer à l’aide du portail Azure
 1. Déployer un [pare-feu Azure à l’aide de Azure CLI](deploy-cli.md).
-2. Si vous filtrez le trafic vers Azure SQL Database, SQL Data Warehouse ou SQL Managed Instance, assurez-vous que le mode de connectivité SQL est défini sur **Proxy**. Pour savoir comment modifier de mode de connectivité SQL, voir [Paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).  
+2. Si vous filtrez le trafic vers Azure SQL Database, Azure Synapse Analytics ou SQL Managed Instance, assurez-vous que le mode de connectivité SQL est défini sur **Proxy**. Pour savoir comment modifier de mode de connectivité SQL, voir [Paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).  
 
    > [!NOTE]
    > Le mode *proxy* de SQL peut entraîner une plus grande latence par rapport au mode de *redirection*. Si vous souhaitez continuer à utiliser le mode de redirection, qui est le mode par défaut pour les clients se connectant à Azure, vous pouvez filtrer l’accès en utilisant la [balise de service](service-tags.md) SQL dans les [règles de réseau](tutorial-firewall-deploy-portal.md#configure-a-network-rule) du pare-feu.

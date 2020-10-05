@@ -3,16 +3,16 @@ title: Azure Key Vault en tant que source Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Key Vault avec Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109431"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090395"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault en tant que source Event Grid
 
-Cet article fournit les propriétés et le schéma des événements dans [Azure Key Vault](../key-vault/index.yml), actuellement en version préliminaire. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
+Cet article fournit les propriétés et le schéma des événements dans [Azure Key Vault](../key-vault/index.yml). Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
@@ -31,6 +31,7 @@ Un compte Azure Key Vault génère les types d’événements suivants :
 | Microsoft.KeyVault.SecretNewVersionCreated | Nouvelle version du secret créée | Déclenché lors de la création d’un nouveau secret ou d’une nouvelle version de secret. |
 | Microsoft.KeyVault.SecretNearExpiry | Expiration proche du secret | Déclenché lorsque la version actuelle d’un secret est sur le point d’expirer. (L’événement est déclenché 30 jours avant la date d’expiration.) |
 | Microsoft.KeyVault.SecretExpired | Secret expiré | Déclenché lorsqu’un secret est arrivé à expiration. |
+| Microsoft.KeyVault.VaultAccessPolicyChanged | Modification de la stratégie d’accès au coffre | Déclenché lors de la modification d’une stratégie d’accès sur Key Vault. Il comprend un scénario dans lequel le modèle d’autorisation de Key Vault est modifié vers/depuis Azure RBAC.  |
 
 ### <a name="event-examples"></a>Exemples d’événement
 
@@ -84,10 +85,10 @@ Un événement contient les données générales suivantes :
 
 * Pour découvrir Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
-* Pour en savoir plus sur l’intégration de Key Vault à Event Grid, consultez [Supervision de Key Vault avec Azure Event Grid (préversion)](../key-vault/general/event-grid-overview.md).
-* Pour un didacticiel sur l’intégration de Key Vault à Event Grid, consultez [Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)](../key-vault/general/event-grid-tutorial.md).
+* Pour en savoir plus sur l’intégration de Key Vault à Event Grid, consultez [Supervision de Key Vault avec Azure Event Grid](../key-vault/general/event-grid-overview.md).
+* Pour accéder à un tutoriel sur l’intégration de Key Vault à Event Grid, consultez [Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid](../key-vault/general/event-grid-tutorial.md).
 * Pour des conseils supplémentaires pour Key Vault et Azure Automation, consultez :
     - [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md)
-    - [Monitoring de Key Vault avec Azure Event Grid (préversion)](../key-vault/general/event-grid-overview.md)
-    - [Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)](../key-vault/general/event-grid-tutorial.md)
+    - [Supervision de Key Vault avec Azure Event Grid](../key-vault/general/event-grid-overview.md)
+    - [Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid](../key-vault/general/event-grid-tutorial.md)
     - [Vue d’ensemble d’Azure Automation](../automation/index.yml)

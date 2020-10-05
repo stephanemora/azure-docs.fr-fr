@@ -3,12 +3,12 @@ title: Concepts – Stockage
 description: Découvrez les principales fonctionnalités de stockage dans les clouds privés d’Azure VMware Solution en préversion.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752214"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024313"
 ---
 # <a name="azure-vmware-solution-preview-storage-concepts"></a>Concepts de stockage pour Azure VMware Solution en préversion
 
@@ -28,7 +28,7 @@ Le stockage local dans les hôtes du cluster est utilisé dans un magasin de sto
 
 ## <a name="data-at-rest-encryption"></a>Chiffrement des données au repos
 
-Par défaut, les magasins de données vSAN utilisent le chiffrement des données au repos. La solution de chiffrement est basée sur un service de gestion de clés et prend en charge les opérations de vCenter pour la gestion des clés. Les clés sont stockées chiffrées, encapsulées par une clé principale Azure Key Vault basée sur HSM. Lors de la suppression d’un hôte d’un cluster pour une raison quelconque, les données sur disques SSD sont immédiatement invalidées.
+Par défaut, les magasins de données vSAN utilisent le chiffrement des données au repos. La solution de chiffrement est basée sur un service de gestion de clés et prend en charge les opérations de vCenter pour la gestion des clés. Les principales clés de chiffrement sont stockées dans Azure Key Vault et, lorsqu’un hôte est supprimé d’un cluster pour une raison quelconque, les données sur disques SSD sont immédiatement invalidées.
 
 ## <a name="scaling"></a>Mise à l'échelle
 

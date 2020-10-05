@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Découvrez comment migrer vers le Moniteur de connexion (préversion) à partir du Moniteur de connexion.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,50 +12,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: ddf6e326df876229d32ef15983f76879836f1fca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701250"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441814"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrer vers le Moniteur de connexion (préversion) à partir du Moniteur de connexion
 
-En un clic et sans temps d’arrêt, vous pouvez migrer des moniteurs de connexion vers le nouveau Moniteur de connexion amélioré (en préversion). Pour en savoir plus sur les avantages, vous pouvez lire [Moniteur de connexion (préversion)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
+En quelques clics et sans temps d’arrêt, vous pouvez migrer des moniteurs de connexion vers la nouvelle fonctionnalité Moniteur de connexion améliorée (préversion). Pour en savoir plus sur les avantages, consultez [Moniteur de connexion (préversion)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
 ## <a name="key-points-to-note"></a>Points clés à noter
 
-* Les agents et les paramètres de pare-feu fonctionnent tels quels (aucune touche requise). 
-* Les moniteurs de connexion existants seront mappés vers le Moniteur de connexion (préversion)-> Groupe de test-> Format de test. Les utilisateurs peuvent cliquer sur *Modifier* pour visualiser et modifier les propriétés du nouveau Moniteur de connexion et télécharger le modèle pour apporter des modifications au Moniteur de connexion et le soumettre via Azure Resource Manager. 
-* Les machines virtuelles Azure avec l’extension Network Watcher envoient des données à l’espace de travail et aux métriques. Les analyses de connexion mettent les données à disposition via les nouvelles métriques (ChecksFailedPercent (préversion) et RoundTripTimeMs (préversion)) à la place des mesures d’arrêt anciennes (ProbesFailedPercent et AverageRoundtripMs). 
-* Données de surveillance
-    * Alertes : elles seront migrées vers de nouvelles métriques dans le cadre de la migration
-    * Tableaux de bord et intégrations : vous devez modifier manuellement l’ensemble de métriques. 
+La migration produit les résultats suivants :
+
+* Les agents et les paramètres de pare-feu fonctionnent tels quels. Aucune modification n’est nécessaire. 
+* Les moniteurs de connexion existants seront mappés vers Moniteur de connexion (préversion) > Groupe de test > Format de test. En sélectionnant **Modifier**, vous pouvez afficher et modifier les propriétés de la nouvelle fonctionnalité Moniteur de connexion, télécharger un modèle pour apporter des modifications à Moniteur de connexion et le soumettre via Azure Resource Manager. 
+* Les machines virtuelles Azure avec l’extension Network Watcher envoient des données à l’espace de travail et aux métriques. Moniteur de connexion met les données à disposition via les nouvelles métriques (ChecksFailedPercent [préversion] et RoundTripTimeMs [préversion]) à la place des anciennes métriques (ProbesFailedPercent et AverageRoundtripMs). 
+* Analyse des données :
+   * **Alertes** : Migrées automatiquement vers les nouvelles métriques.
+   * **Tableaux de bord et intégrations** : Nécessite la modification manuelle de l’ensemble de métriques. 
     
 ## <a name="prerequisites"></a>Prérequis
 
-En cas d’utilisation d’un espace de travail personnalisé, s’assurer que Network Watcher est activé dans l’abonnement et la région de l’espace de travail Log Analytics 
+Si vous utilisez un espace de travail personnalisé, assurez-vous que Network Watcher est activé dans votre abonnement et dans la région de votre espace de travail Log Analytics. 
 
-## <a name="steps-to-migrate-from-connection-monitor-to-connection-monitor-preview"></a>Étapes de migration vers le Moniteur de connexion (préversion) à partir du Moniteur de connexion
+## <a name="migrate-the-connection-monitors"></a>Migrer les moniteurs de connexion
 
-1. Cliquez sur « Moniteur de connexion », accédez à « Migrer les moniteurs de connexion » pour migrer les moniteurs de connexion de la solution la plus ancienne à la solution la plus récente.
+1. Pour migrer les anciens moniteurs de connexion vers la version plus récente, sélectionnez **Moniteur de connexion**, puis sélectionnez **Migrer les moniteurs de connexion**.
 
-    ![Capture d’écran montrant la migration des moniteurs de connexion vers Moniteur de connexion en préversion](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
+    ![Capture d’écran montrant la migration des moniteurs de connexion vers Moniteur de connexion (préversion).](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
     
-1. Sélectionnez les moniteurs d’abonnement et de connexion, puis cliquez sur « Migrer la sélection ». En un clic, migrer les moniteurs de connexion existants vers Moniteur de connexion (préversion) 
-1. Vous pouvez personnaliser les propriétés du moniteur de connexion, modifier l’espace de travail par défaut, télécharger le modèle et vérifier l’état de la migration. 
-1. Une fois que la migration commence, les changements suivants se produisent : 
-    1. Modifications apportées aux ressources Azure Resource Manager pour tenir compte de l’installation du dernier moniteur de connexion
-        1. Le nom, la région et l’abonnement du moniteur de connexion restent inchangés. Par conséquent, il n’y a aucun impact sur l’ID de ressource.
-        1. Sauf s’ils sont personnalisés, un espace de travail Log Analytics par défaut est créé dans la région et l’abonnement du moniteur de connexion. Cet espace de travail est l’emplacement où sont stockées les données d’analyse. Les données de résultat de test seront également stockées dans les métriques.
-        1. Chaque test est migré vers un groupe de test appelé * defaultTestGroup*
-        1.  Les points de terminaison source et de destination sont créés et utilisés dans le groupe de test créé. Les noms par défaut sont *defaultSourceEndpoint* et *defaultDestinationEndpoint*
-        1. Le port de destination et l’intervalle de détection sont déplacés vers la configuration de test appelée *defaultTestConfiguration*. Le protocole est défini en fonction des valeurs de port. Les seuils de réussite et autres propriétés facultatives sont laissés en blanc.
-    1. Les alertes de métriques sont migrées vers les alertes de métriques du Moniteur de connexion (préversion). Les mesures sont différentes <link to metric section in the doc>, par conséquent la modification
-    1. Les analyses de connexion migrées n’apparaissent pas dans l’ancienne solution du moniteur de connexion. elles ne seront désormais disponibles que dans le Moniteur de connexion (préversion)
-    1. Toutes les intégrations externes, telles que les tableaux de bord dans Power BI, Grafana, les intégrations aux systèmes SIEM, devront être migrées directement par l’utilisateur. Il s’agit de la seule étape manuelle que l’utilisateur doit effectuer pour migrer son installation.
+1. Sélectionnez votre abonnement et les moniteurs de connexion que vous souhaitez migrer, puis sélectionnez **Migrer les éléments sélectionnés**. 
+
+En quelques clics seulement, vous avez migré les moniteurs de connexion existants vers Moniteur de connexion (préversion). 
+
+Vous pouvez désormais personnaliser les propriétés de Moniteur de connexion (préversion), modifier l’espace de travail par défaut, télécharger des modèles et vérifier l’état de la migration. 
+
+Après le début de la migration, les modifications suivantes ont lieu : 
+* La ressource Azure Resource Manager passe au moniteur de connecter plus récent.
+    * Le nom, la région et l’abonnement du moniteur de connexion restent inchangés. L’ID de ressource n’est pas concerné.
+    * Sauf si le moniteur de connexion est personnalisé, un espace de travail Log Analytics par défaut est créé dans l’abonnement et dans la région du moniteur de connexion. Cet espace de travail est l’emplacement où sont stockées les données d’analyse. Les données du résultat de test sont également stockées dans les métriques.
+    * Chaque test est migré vers un groupe de test appelé *defaultTestGroup*.
+    * Les points de terminaison source et de destination sont créés et utilisés dans le groupe de test. Les noms par défaut sont *defaultSourceEndpoint* et *defaultDestinationEndpoint*.
+    * Le port de destination et l’intervalle de détection sont déplacés vers la configuration de test appelée *defaultTestConfiguration*. Le protocole est défini sur la base des valeurs de port. Les seuils de réussite et autres propriétés facultatives sont laissés en blanc.
+* Les alertes de métriques sont migrées vers les alertes de métriques de Moniteur de connexion (préversion). Les métriques sont différentes, d’où la modification. Pour plus d’informations, consultez [Surveillance de la connectivité réseau à l’aide de Moniteur de connexion (préversion)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+* Les moniteurs de connexion migrés ne sont plus affichés comme l’ancienne solution de moniteur de connexion. Ils sont désormais disponibles uniquement dans Moniteur de connexion (préversion).
+* Toutes les intégrations externes, telles que les tableaux de bord dans Power BI et Grafana, et les intégrations aux systèmes Security Information and Event Management (SIEM) doivent être migrées manuellement. Il s’agit de la seule étape manuelle que vous devez effectuer pour migrer votre installation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez [comment migrer des tests de Network Performance Monitor vers le Moniteur de connexion (préversion)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
-* Découvrez [comment créer une instance Moniteur de connexion (préversion) à l’aide du portail Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal).
+Pour en savoir plus sur le Moniteur de connexion (préversion), consultez :
+* [Migration de Network Performance Monitor vers Moniteur de connexion (préversion)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
+* [Créer un Moniteur de connexion (préversion) à l’aide du portail Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)

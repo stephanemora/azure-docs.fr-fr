@@ -3,12 +3,12 @@ title: Capturer des événements de streaming - Azure Event Hubs | Microsoft Doc
 description: Cet article fournit une vue d’ensemble de la fonctionnalité Capture qui vous permet de capturer un streaming d’événements avec Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 201fde24e50fc9403d5e9faf314550520fb7b865
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522123"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667440"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
 Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs dans un compte [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
@@ -132,7 +132,7 @@ Capture n’utilise pas de quota de sortie puisque la fonctionnalité est factur
 
 ## <a name="integration-with-event-grid"></a>Intégration à Event Grid 
 
-Vous pouvez créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source. Le tutoriel suivant vous montre comment créer un abonnement Event Grid avec un hub d’événements comme source et une application Azure Functions comme récepteur : [Traiter et migrer des données Event Hubs capturées vers un entrepôt de données SQL à l’aide d’Event Grid et d’Azure Functions](store-captured-data-data-warehouse.md).
+Vous pouvez créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source. Le tutoriel suivant vous montre comment créer un abonnement Event Grid avec un hub d’événements comme source et une application Azure Functions comme récepteur : [Traiter et migrer les données Event Hubs capturées vers Azure Synapse Analytics à l’aide d’Event Grid et d’Azure Functions](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Event Hubs Capture est la solution la plus simple pour charger des données dans Azure. À l’aide d’Azure Data Lake, d’Azure Data Factory et d’Azure HDInsight, vous pouvez effectuer un traitement par lots, ainsi que d’autres analyses en utilisant des outils et des plateformes de votre choix, à l’échelle requise.
@@ -147,7 +147,7 @@ Découvrez comment activer cette fonctionnalité avec le portail Azure et un mod
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html

@@ -4,15 +4,15 @@ description: Répliquer les serveurs Azure Analysis Services avec Scale-out. Les
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716926"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007687"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -41,6 +41,8 @@ Lors des opérations ultérieures de montée en charge (par exemple, augmentatio
 * Effectuez une synchronisation *avant l’opération de montée en charge* afin d’éviter une alimentation redondante des réplicas ajoutés. Les opérations simultanées de montée en charge et de synchronisation ne sont pas autorisées.
 
 * En cas d’automatisation d’opérations de traitement *et* de montée en charge, il est important de commencer par traiter les données sur le serveur principal, puis d’effectuer une synchronisation et enfin de passer à l’opération de montée en charge. Cette séquence réduit l’impact sur les ressources QPU et de mémoire.
+
+* Pendant les opérations de Scale-out, tous les serveurs du pool de requêtes, y compris le serveur principal, sont temporairement hors connexion.
 
 * La synchronisation reste autorisée même en l’absence de réplicas dans le pool de requêtes. Si vous passez de zéro à un ou plusieurs réplicas avec de nouvelles données issues d’une opération de traitement sur le serveur principal, effectuez tout d’abord la synchronisation sans aucun réplica dans le pool de requêtes, puis passez à la montée en charge. L’ordre synchronisation-montée en charge évite une alimentation redondante des réplicas ajoutés.
 
@@ -114,7 +116,7 @@ Les opérations de synchronisation doivent être effectuées manuellement ou ave
 
 Dans **Vue d’ensemble** > Modèle > **Synchroniser le modèle**.
 
-![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Icône Synchroniser](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
 

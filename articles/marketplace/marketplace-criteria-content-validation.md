@@ -1,22 +1,22 @@
 ---
 title: Offres de la Place de marché Azure et exigences de la liste des services
-description: Cet article explique les exigences et les recommandations relatives au référencement des nouvelles offres et nouveaux services sur la Place de marché Azure.
+description: Cet article explique les exigences et les recommandations relatives au référencement des nouvelles offres, des nouveaux services et autres solutions informatiques sur Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/14/2020
-ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/04/2020
+ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812867"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484270"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
-Cet article explique les exigences et les recommandations relatives aux nouvelles offres et aux nouveaux services à lister sur la Place de marché Azure. Toutes les offres doivent répondre aux conditions requises répertoriées dans la section [Conditions de liste applicables à toutes les offres](#listing-requirements-for-all-offers). Utilisez les liens à droite pour accéder aux exigences et aux listes de vérification pour des types de listes spécifiques.
+Cet article explique les exigences et les recommandations relatives aux nouvelles offres et aux nouveaux services à lister sur la Place de marché Azure. Toutes les offres doivent respecter les [conditions du référencement](#listing-requirements-for-all-offers) indiquées ci-dessous. Utilisez les liens à droite pour accéder à d’autres exigences et listes de contrôle pour des types de référencement spécifiques.
 
 ## <a name="listing-requirements-for-all-offers"></a>Conditions de liste applicables à toutes les offres
 
@@ -29,7 +29,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | 5 | Catégories et secteurs d’activité | <ul><li>Les catégories et sous-catégories doivent correspondre aux fonctionnalités de l’offre </li><li>Ne sélectionnez pas de catégories ou sous-catégories qui ne correspondent pas aux fonctionnalités de votre offre. </li></ul> | <ul><li>Sélectionnez jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).</li><li>Sélectionnez jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est sélectionnée, votre offre sera tout de même détectable sur la catégorie sélectionnée.</li></ul> |
 | 6 | Images | <ul><li>Les exigences relatives aux images figurent dans l’Espace partenaires.</li><li>Le texte inclus dans la capture d’écran est lisible et l’image est nette. | Description claire et succincte de l’offre de solution. |
 | 7 | Vidéos | <ul><li>Aucune vidéo n’est requise, mais si une vidéo est fournie, elle doit être exempte d’erreurs à la lecture.</li><li>Une vidéo ne doit pas non plus faire référence à des sociétés concurrentes *sauf* si elle illustre une solution de migration. |<ul><li>Durée idéale : au moins 3 minutes.</li><li>Description claire de l’offre de solution dans la vidéo.</li><li>Fournit une démonstration des fonctionnalités de la solution. |
-| 8 | État du référencement (appel à l’action) | <ul><li>Doit comporter l’un des types d’étiquette suivants : <ul><li>*Me contacter*</li><li>*Essai*/*Obtenir la version d’évaluation*/*Démarrer l’évaluation*/*Version d’évaluation*</li><li>*Acheter maintenant*/*Obtenir maintenant*</li></ul></ul> | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> | 
+| 8 | État du référencement (options de référencement) | <ul><li>Doit comporter l’un des types d’étiquette suivants : <ul><li>*Me contacter*</li><li>*Essai*/*Obtenir la version d’évaluation*/*Démarrer l’évaluation*/*Version d’évaluation*</li><li>*Acheter maintenant*/*Obtenir maintenant*</li></ul></ul> | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> | 
 | 9 | Tarification de la solution | Doit comporter un onglet/des informations détaillées sur la tarification de la solution, dans la devise locale de l’offre de solution du partenaire. | Des options de facturation multiples doivent être proposées au client avec une tarification par niveaux. |
 | 10 | En savoir plus | Les liens situés en bas (sous la description, différents des liens de la Place de marché Azure à gauche) pointent vers des informations supplémentaires sur la solution, sont disponibles publiquement et s’affichent correctement. |    Liens vers des éléments spécifiques (par exemple, pages de spécifications sur le site du partenaire) et pas seulement vers la page d’accueil du partenaire. | 
 | 11 | Support et aide de la solution | Dirigez le client vers au moins une des sources d’information suivantes : <ul><li>Numéros de téléphone</li><li>Support technique par e-mail</li><li>Agents de conversation</li><li>Forums de la communauté |<ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Une assistance payante est offerte gratuitement pendant la période d’*essai* ou d’utilisation de la *version d’évaluation*. |
@@ -40,7 +40,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 
 | Non. | Élément de liste | Condition requise de base | Condition requise optimale | 
 |:--- |:--- |:--- |:--- |
-|  | État du référencement (appel à l’action) | Le lien doit donner accès à l’expérience d’*essai gratuit* menée par le client. | D’autres appels à l’action (par exemple, *Acheter maintenant*) sont également disponibles. | 
+|  | État du référencement (option de référencement) | Le lien doit donner accès à l’expérience d’*essai gratuit* menée par le client. | D’autres options de référencement (par exemple, *Acheter maintenant*) sont également disponibles. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Configuration requise pour l'application SaaS
@@ -78,7 +78,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | 2 | Description de l’offre  |<ul><li>Vérifiez l’utilisation correcte des [noms de produits Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Les offres marquées sous la forme *Prix : estimé* doivent présenter en haut ou en bas une note explicative sur la variabilité (déplacement chez le client, nombre de serveurs en cours de migration, etc.).</li><li>Chaque type d’offre doit comporter une description répondant aux exigences suivantes : <ul><li>Les réunions d’information nécessitent au moins quatre ou cinq puces, avec des informations sur les sujets à couvrir.</li><li>Tous les ateliers nécessitent un ordre du jour.</li><li>Tous les ordres du jour doivent être ventilés par jour ou par semaine, selon la durée de l’atelier.</li><li>Des livrables sont nécessaires pour l’évaluation, la démonstration (preuve de concept), les ateliers autres que les formations, et les offres d’implémentation.</li><li>Les ateliers de formation n’ont pas besoin de livrables, mais d’un programme plus détaillé indiquant les sujets à couvrir.</li></ul></ul> | <ul><li>Toute offre possède un ordre du jour et des livrables.</li><li>La section supérieure d’une offre inclut un paragraphe de présentation de la société qui fournit le service.</li><li>La section supérieure d’une offre inclut un paragraphe sur la valeur du service lui-même. |
 | 3 | Mise en forme Markdown  | Toutes les offres doivent utiliser la mise en forme Markdown afin que l’offre s’affiche correctement une fois convertie au format HTML.  |  |
 | 4 | Catégories et secteurs d’activité | Les catégories ne sont pas pertinentes. |  | 
-| 5 | État du référencement (appel à l’action) | Référencement automatique sous la forme *Me contacter*. |  | 
+| 5 | État du référencement (option de référencement) | Référencement automatique sous la forme *Me contacter*. |  | 
 | 6 | Support et aide de la solution  | Le support et l’aide ne sont pas nécessaires.  | | 
 | 7 | Politique de confidentialité et conditions d’utilisation disponibles  |  Les politiques ou les conditions d’utilisation ne sont pas requises.  | | 
 | 8 | Types de service | Vérifiez que le type de service correspond au titre. | |

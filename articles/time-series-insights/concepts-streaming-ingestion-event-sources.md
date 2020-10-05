@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 08/31/2020
+ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855097"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485367"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -64,7 +64,7 @@ L’utilisation du pipeline de streaming pour importer des données historiques 
 
 ## <a name="event-source-timestamp"></a>Horodateur de la source de l’événement
 
-Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements dans le temps. Il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) et pour tracer des séries dans l’explorateur Azure Time Series Insights TSI. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
+Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements dans le temps. Il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) et pour tracer des séries dans Explorateur Azure Time Series Insights. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
 
 En général, les utilisateurs choisissent de personnaliser la propriété d’horodatage et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture au lieu d’utiliser le hub par défaut mis en file d’attente. Cela est particulièrement nécessaire lorsque les appareils présentent une perte de connectivité intermittente et qu’un lot de messages retardés est transféré à Azure Time Series Insights Gen2.
 

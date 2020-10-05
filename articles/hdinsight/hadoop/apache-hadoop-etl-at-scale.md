@@ -1,19 +1,19 @@
 ---
 title: Extraire, transformer et charger (ETL) des données à grande échelle – Azure HDInsight
 description: Découvrez comment la fonction Extraction, transformation et chargement est utilisée dans HDInsight avec Apache Hadoop.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e048365ca589d452385607b902ee6b285de8165f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084118"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504313"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -48,7 +48,7 @@ Utilisez Azure Data Factory pour effectuer les opérations suivantes :
 
 1. Créer et planifier des flux de travail pilotés par les données. Ces pipelines ingèrent des données provenant de magasins de données disparates.
 1. Traiter et transformer les données à l’aide de services de calcul tels que HDInsight et Hadoop. Vous pouvez également utiliser Spark, Azure Data Lake Analytics, Azure Batch ou Azure Machine Learning pour cette étape.
-1. Publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse à l’usage d’applications décisionnelles (BI).
+1. Publier des données de sortie sur des magasins de données comme Azure Synapse Analytics pour que des applications décisionnelles puissent les utiliser.
 
 Pour plus d’informations sur Azure Data Factory, consultez la [documentation](../../data-factory/introduction.md).
 
@@ -84,11 +84,11 @@ Pour le chargement de jeux de données de plusieurs téraoctets, la latence du r
 
 - **Chargement de données à partir de lecteurs de disque dur :** vous pouvez utiliser le [service Azure Import/Export](../../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont d’abord chargées vers le Stockage Blob Azure. Vous pouvez ensuite utiliser Azure Data Factory ou l’outil AdlCopy pour copier des données de Stockage Blob Azure vers Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse est approprié pour stocker des résultats préparés. Vous pouvez utiliser Azure HDInsight pour exécuter ces services pour SQL Data Warehouse.
+Azure Synapse Analytics est approprié pour stocker des résultats préparés. Vous pouvez utiliser Azure HDInsight pour exécuter ces services pour Azure Synapse Analytics.
 
-Azure SQL Data Warehouse est un magasin de base de données relationnelle optimisé pour les charges de travail d’analyse. Il se met à l’échelle en fonction de tables partitionnées. Les tables peuvent être partitionnées entre plusieurs nœuds. Les nœuds sont sélectionnés au moment de la création. Ils peuvent être mis à l’échelle après coup, mais il s’agit alors d’un processus actif qui peut nécessiter le déplacement de données. Pour plus d’informations, consultez [Gérer le calcul dans SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure Synapse Analytics est un magasin de bases de données relationnelles optimisé pour les charges de travail analytiques. Il se met à l’échelle en fonction de tables partitionnées. Les tables peuvent être partitionnées entre plusieurs nœuds. Les nœuds sont sélectionnés au moment de la création. Ils peuvent être mis à l’échelle après coup, mais il s’agit alors d’un processus actif qui peut nécessiter le déplacement de données. Pour plus d’informations, consultez [Gérer le calcul dans Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 

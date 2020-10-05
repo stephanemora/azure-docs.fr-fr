@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 14a61d33ef2e4d4fc80770f5c86e33d34ec860cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401433"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565921"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 
@@ -86,7 +86,7 @@ Activez le peering privé pour vous connecter aux machines virtuelles et aux ser
 
 #### <a name="for-microsoft-peering"></a>Pour le peering Microsoft
 
-Activez cette option pour accéder aux services en ligne de Microsoft, tels qu’Office 365. De plus, tous les services Azure PaaS sont accessibles via le peering Microsoft. Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/périphérique différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
+Activez cette option pour accéder aux services en ligne de Microsoft, tels que Microsoft 365. De plus, tous les services Azure PaaS sont accessibles via le peering Microsoft. Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/périphérique différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
 * Sous-réseau de peering pour le chemin 1 (/30) – doit être une adresse IP publique
 * Sous-réseau de peering pour le chemin 2 (/30) – doit être une adresse IP publique

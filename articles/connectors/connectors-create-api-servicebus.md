@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853302"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526525"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -79,7 +79,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
    Certains déclencheurs (par exemple, **Quand un ou plusieurs messages arrivent dans une file d’attente (autocomplétion)** ) peuvent retourner un ou plusieurs messages. Quand ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifié par la propriété **Nombre maximal de messages** du déclencheur.
 
     > [!NOTE]
-    > Le déclencheur de saisie semi-automatique rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’exécution du déclencheur suivant. Ce comportement peut affecter la conception de votre application logique. Par exemple, si vous configurez le déclencheur de saisie semi-automatique pour rechercher des messages toutes les minutes, mais que la durée de verrouillage est définie sur 30 secondes au niveau du Service Bus, le résultat est un échec « lock expired » qui se produit lors de la saisie du message. Vous devez définir la durée de verrouillage sur une valeur supérieure à la fréquence d’interrogation.
+    > Le déclencheur de saisie semi-automatique rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’exécution du déclencheur suivant. Ce comportement peut affecter la conception de votre application logique. Par exemple, évitez de modifier la concurrence sur le déclencheur d’autocomplétion, car cette modification peut entraîner la duplication de messages si votre application logique entre dans un état limité. La modification du contrôle de la concurrence crée les conditions suivantes : les déclencheurs limités sont ignorés avec le code `WorkflowRunInProgress`, l’opération d’achèvement n’a pas lieu et l’exécution du déclencheur suivant se produit après l’intervalle d’interrogation. Vous devez définir la durée de verrouillage du bus de service sur une valeur supérieure à la fréquence d’interrogation. Toutefois, malgré ce réglage, le message peut ne pas être complet si votre application logique reste à un état limité à l’intervalle d’interrogation suivant.
 
 1. Si votre déclencheur se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
 
@@ -167,7 +167,7 @@ Lorsque vous créez une application logique, vous pouvez sélectionner le modèl
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Le connecteur Service Bus peut enregistrer jusqu’à 1 500 sessions uniques à la fois entre un bus de service et le cache du connecteur. Si le nombre de sessions dépasse cette limite, les anciennes sessions sont supprimées du cache. Pour plus d’informations, consultez les [sessions de messages](../service-bus-messaging/message-sessions.md).
+À partir d’un bus de service, le connecteur Service Bus peut enregistrer jusqu’à 1 500 sessions uniques à la fois dans le cache du connecteur, par [entité de messagerie Service Bus, comme un abonnement ou une rubrique](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Si le nombre de sessions dépasse cette limite, les anciennes sessions sont supprimées du cache. Pour plus d’informations, consultez les [sessions de messages](../service-bus-messaging/message-sessions.md).
 
 Pour obtenir d'autres détails techniques sur les déclencheurs, les actions et les limites, qui sont fournis par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/servicebus/). Pour plus d’informations sur la messagerie Azure Service Bus, consultez [qu’est-ce que Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ?
 

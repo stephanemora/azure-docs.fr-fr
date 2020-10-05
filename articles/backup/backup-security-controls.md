@@ -3,12 +3,12 @@ title: Contrôles de sécurité
 description: En savoir plus sur les contrôles de sécurité utilisés dans le service Sauvegarde Azure. Ces contrôles permettent au service d’empêcher, de détecter et de répondre aux failles de sécurité.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892960"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418753"
 ---
 # <a name="security-controls-for-azure-backup"></a>Contrôles de sécurité pour la Sauvegarde Azure
 
@@ -22,8 +22,9 @@ Cet article décrit les contrôles de sécurité intégrés à la Sauvegarde Azu
 |---|---|--|--|
 | Prise en charge du point de terminaison de service| Non |  |  |
 | Prise en charge de l’injection de réseau virtuel| Non |  |  |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | Le tunneling forcé est pris en charge pour la sauvegarde de machine virtuelle. Le tunneling forcé n'est pas pris en charge pour les charges de travail exécutées à l'intérieur de machines virtuelles. |  |
-| Prise en charge du tunneling forcé| Non |  |  |
+| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | |  |
+| Prise en charge du tunneling forcé pour les machines virtuelles Azure | Oui  |  |  |
+| Prise en charge du tunneling forcé pour les applications fonctionnant sur des machines virtuelles Azure| Non  |  |  |
 
 ## <a name="monitoring--logging"></a>Supervision et journalisation
 

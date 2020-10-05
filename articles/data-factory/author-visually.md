@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343109"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567115"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 
@@ -39,9 +39,17 @@ L’expérience de création visuelle par défaut fonctionne directement avec le
 
 Pour des ressources de niveau supérieur, telles que des pipelines, des jeux de données et des flux de données, les propriétés de haut niveau sont modifiables dans le volet Propriétés sur le côté droit de la zone de dessin. Le volet Propriétés contient des propriétés telles que le nom, la description, les annotations et d’autres propriétés de haut niveau. Les sous-ressources telles que les activités de pipeline et les transformations de flux de données sont modifiées via le volet en bas de la zone de dessin. 
 
-![Zone de travail de création](media/author-visually/properties-pane.png)
+![Propriétés, volet](media/author-visually/properties-pane.png)
 
 Par défaut, le volet des propriétés s’ouvre uniquement lors de la création de ressource. Pour le modifier, cliquez sur l’icône du volet de propriétés située dans l’angle supérieur droit de la zone de dessin.
+
+### <a name="related-resources"></a>Ressources associées
+
+Dans le volet Propriétés, vous pouvez voir quelles sont les ressources qui dépendent de la ressource sélectionnée en sélectionnant l’onglet **Associées**. Toutes les ressources qui font référence à la ressource actuelle seront répertoriées ici.
+
+![Ressources associées](media/author-visually/related-resources.png)
+
+Par exemple, dans l’image ci-dessus, un pipeline et deux flux de données utilisent le jeu de données actuellement sélectionné.
 
 ## <a name="management-hub"></a>Hub de gestion
 

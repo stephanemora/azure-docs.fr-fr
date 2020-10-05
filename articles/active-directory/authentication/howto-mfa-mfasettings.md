@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179401"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526882"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Les paramètres d’Azure Multi-Factor Authentication suivants sont disponibles 
 | [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Empêchez des utilisateurs spécifiques de recevoir des demandes Azure Multi-Factor Authentication. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. Ces utilisateurs restent bloqués pendant 90 jours à partir de leur blocage ou jusqu’à ce qu’ils soient débloqués manuellement. |
 | [Alerte de fraude](#fraud-alert) | Configurez les paramètres qui permettent aux utilisateurs de signaler les demandes de vérification frauduleuses. |
 | [Notifications](#notifications) | Activez les notifications des événements provenant de MFA Server. |
-| [Jetons OATH](concept-authentication-methods.md#oath-tokens) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
+| [Jetons OATH](concept-authentication-oath-tokens.md) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
 | Fournisseurs | Ceci montre tous les fournisseurs d’authentification existants que vous avez associés à votre compte. À compter du 1er septembre 2018, vous ne pouvez plus créer des fournisseurs d’authentification |
 
@@ -156,7 +156,7 @@ Aux États-Unis, si vous n’avez pas configuré l’ID de l’appelant MFA, les
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Lorsque des appels Azure Multi-Factor Authentication sont transmis sur le réseau téléphonique public, ils sont parfois acheminés par le biais d’un opérateur qui ne prend pas en charge les ID d’appelant. Pour cette raison, l’ID de l’appelant n’est pas garanti, même si Azure Multi-Factor Authentication l’envoie toujours.
+> Lorsque des appels Azure Multi-Factor Authentication sont transmis sur le réseau téléphonique public, ils sont parfois acheminés par le biais d’un opérateur qui ne prend pas en charge les ID d’appelant. Pour cette raison, l’ID de l’appelant n’est pas garanti, même si Azure Multi-Factor Authentication l’envoie toujours. Cela s’applique à la fois aux appels téléphoniques et aux SMS fournis par Azure Multi-Factor Authentication. Si vous devez valider le fait qu’un SMS provient d’Azure Multi-Factor Authentication, consultez [Quels sont les codes courts SMS utilisés pour envoyer des SMS ?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Pour configurer votre propre numéro d’ID d’appelant, effectuez les étapes suivantes :
 
@@ -242,7 +242,10 @@ La fonctionnalité _Adresses IP approuvées_ d’Azure Multi-Factor Authenticati
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 
-| Type de locataire Azure AD | Options de fonctionnalité d’adresse IP approuvée | | :---| :---| deux étapes | Géré |**Plage spécifique d’adresses IP** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. Un maximum de 50 plages d’adresses IP approuvées peuvent être configurées. | | Fédérés |**Tous les utilisateurs fédérés** : Tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner l’authentification multifacteur. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
+| Type de locataire Azure AD | Options de la fonctionnalité Adresses IP approuvées |
+|:--- |:--- |
+| Adresses IP gérées |**Plage d’adresses IP spécifiques** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. Un maximum de 50 plages d’adresses IP approuvées peuvent être configurées.|
+| Adresses IP fédérées |**Tous les utilisateurs fédérés** : Tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner l’authentification multifacteur. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
 
 Le contournement de la vérification des adresses IP approuvées n’est possible qu’au sein de l’intranet de l’entreprise. Si vous sélectionnez l’option **Tous les utilisateurs fédérés** et qu’un utilisateur se connecte en dehors de l’intranet de l’entreprise, celui-ci doit utiliser l’authentification multifacteur. Le processus est le même, même si l’utilisateur présente une revendication AD FS.
 

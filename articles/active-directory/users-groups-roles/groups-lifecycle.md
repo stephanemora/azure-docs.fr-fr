@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799296"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054549"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Microsoft 365
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur le téléchargement et l’installation des apple
 
 ## <a name="activity-based-automatic-renewal"></a>Renouvellement automatique en fonction de l’activité
 
-Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Office 365, comme Outlook, SharePoint ou Teams. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
+Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Microsoft 365, comme Outlook, SharePoint ou Teams. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Activités qui renouvellent automatiquement l’expiration du groupe
 

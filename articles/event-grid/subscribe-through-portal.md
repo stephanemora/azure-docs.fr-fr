@@ -3,12 +3,12 @@ title: Abonnements Azure Event Grid via le portail
 description: Cet article explique comment créer des abonnements Event Grid pour les sources prises en charge, telles que Stockage Blob Azure, à l’aide du Portail Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: acbf83d6df0c7d74da5e561d98d0c3df23d5fbd5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119988"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526457"
 ---
 # <a name="subscribe-to-events-through-portal"></a>S’abonner à des événements via le portail
 
@@ -24,7 +24,7 @@ Pour créer un abonnement Event Grid pour une des [sources d’événements](ove
 
 1. Recherchez **Abonnements Event Grid**  et sélectionnez cette option parmi celles disponibles.
 
-   ![Recherche](./media/subscribe-through-portal/search.png)
+   ![La capture d’écran montre la recherche dans le portail Azure avec les abonnements Event Grid sélectionnés.](./media/subscribe-through-portal/search.png)
 
 1. Sélectionnez **+ Abonnement aux événements**.
 

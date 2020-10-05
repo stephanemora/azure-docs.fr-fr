@@ -4,18 +4,18 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 58bf7c300d7f52807bd255da62bf1cc452883811
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 70139f6dc051cc0aa6b6a65ab76f0f2db3b94a13
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75779346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362766"
 ---
 Vérifiez le type de contrat pour déterminer si vous avez accès au compte de facturation d’un contrat client Microsoft.
  
 1. Accédez au [portail Azure ](https://portal.azure.com) pour rechercher l’accès au compte de facturation. Recherchez et sélectionnez **Gestion des coûts + facturation**.
 
-   ![Recherche de Gestion des coûts + facturation, portail Microsoft Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
+   ![Capture d’écran montrant la recherche de « Cost Management + Billing » dans le portail Azure.](./media/billing-check-mca/billing-search-cost-management-billing.png)
  
 2. Si vous avez accès à une seule étendue de facturation, sélectionnez **Propriétés** dans le menu. Vous avez accès au compte de facturation d’un contrat client Microsoft si le type de compte de facturation est **Contrat client Microsoft**.
  

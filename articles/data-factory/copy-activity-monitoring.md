@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036366"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440607"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 
@@ -30,7 +30,7 @@ Une fois que vous avez créé et publié un pipeline dans Azure Data Factory, vo
 
 Pour surveiller visuellement l’exécution de l’activité de copie, accédez à l'IU **Créer et surveiller** de votre fabrique de données. Dans la liste des exécutions de pipeline qui s'affiche sous l'onglet **Surveiller**, cliquez sur le lien correspondant au **nom du pipeline** pour accéder à la liste des exécutions d’activités dans l’exécution de pipeline.
 
-![Surveiller une exécution d'activité de copie](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Surveillance de l’exécution du pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 À ce niveau, vous pouvez voir des liens pour copier l’entrée, la sortie d'activité et des erreurs (en cas d’échec d’exécution de l’activité de copie), ainsi que des statistiques telles que durée/état. Cliquez sur le bouton **Détails** (lunettes) en regard du nom de l’activité de copie pour consulter de plus amples informations sur l'exécution de l'activité de copie. 
 
@@ -67,7 +67,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | throughput | Taux de transfert de données. | Nombre à virgule flottante, en Kbits/s |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int32 (aucune unité) |
 | sinkPeakConnections| Nombre maximal de connexions simultanées établies vers le magasin de données récepteur lors de l’exécution de l’activité de copie.| Valeur Int32 (aucune unité) |
-| sqlDwPolyBase | Indique si PolyBase est utilisé lorsque les données sont copiées dans SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Indique si PolyBase est utilisé lorsque les données sont copiées dans Azure Synapse Analytics (anciennement SQL Data Warehouse). | Boolean |
 | redshiftUnload | Indique si UNLOAD est utilisé lorsque les données sont copiées à partir de Redshift. | Boolean |
 | hdfsDistcp | Indique si DistCp est utilisé lorsque les données sont copiées à partir de HDFS. | Boolean |
 | effectiveIntegrationRuntime | Runtime d’intégration (IR) ou runtimes utilisés pour alimenter l’exécution de l’activité, au format `<IR name> (<region if it's Azure IR>)`. | Texte (chaîne) |

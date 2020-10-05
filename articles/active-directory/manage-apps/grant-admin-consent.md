@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501012"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069575"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
@@ -32,15 +32,12 @@ L’octroi du consentement administrateur au niveau locataire vous oblige à vou
 > [!IMPORTANT]
 > Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
 >
-> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour l’API Microsoft Graph.
->
-
+> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour les permissions d’application à l’API Microsoft Graph.
 
 > [!WARNING]
 > Le fait d’accorder le consentement administrateur au niveau locataire à une application permettra à l’application et à l’éditeur de l'application d’accéder aux données de votre organisation. Examinez attentivement les autorisations demandées par l’application avant d’accorder le consentement.
 >
-> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour l’API Microsoft Graph.
->
+> Le rôle Administrateur général est requis afin de donner le consentement administrateur pour les permissions d’application à l’API Microsoft Graph.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Accorder le consentement administrateur à partir du Portail Azure
 
@@ -57,6 +54,9 @@ Pour accorder le consentement administrateur au niveau locataire à une applicat
 5. Examinez attentivement les autorisations requises par l’application.
 6. Si vous acceptez les autorisations requises par l’application, accordez le consentement. Si ce n’est pas le cas, cliquez sur **Annuler** ou fermez la fenêtre.
 
+> [!WARNING]
+> L’octroi du consentement administrateur au niveau du locataire via des **applications d’entreprise** révoque toutes les autorisations accordées précédemment à l’ensemble du locataire. Les autorisations qui ont été précédemment accordées par les utilisateurs en leur nom propre ne seront pas concernées. 
+
 ### <a name="grant-admin-consent-in-app-registrations"></a>Accorder le consentement administrateur dans les inscriptions d’applications
 
 Pour les applications développées par votre organisation ou inscrites directement dans votre locataire Azure AD, vous pouvez également accorder le consentement administrateur au niveau locataire à partir de **Inscriptions d’applications** dans le Portail Azure.
@@ -69,6 +69,9 @@ Pour accorder le consentement administrateur au niveau locataire dans **Inscript
 4. Sélectionnez **Autorisations d’API**, puis cliquez sur **Accorder le consentement administrateur**.
 5. Examinez attentivement les autorisations requises par l’application.
 6. Si vous acceptez les autorisations requises par l’application, accordez le consentement. Si ce n’est pas le cas, cliquez sur **Annuler** ou fermez la fenêtre.
+
+> [!WARNING]
+> L’octroi du consentement administrateur au niveau du locataire via des **inscriptions d’applications** révoque toutes les autorisations accordées précédemment à l’ensemble du locataire. Les autorisations qui ont été précédemment accordées par les utilisateurs en leur nom propre ne seront pas concernées. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Construire l’URL pour accorder le consentement de l’administrateur au niveau du locataire
 
@@ -86,6 +89,9 @@ où :
 * `{tenant-id}` est l’ID de locataire de votre organisation ou un nom de domaine vérifié.
 
 Comme toujours, examinez attentivement les autorisations demandées par une application avant d’accorder le consentement.
+
+> [!WARNING]
+> L’octroi du consentement administrateur au niveau du locataire via cette URL révoque toutes les autorisations accordées précédemment à l’ensemble du locataire. Les autorisations qui ont été précédemment accordées par les utilisateurs en leur nom propre ne seront pas concernées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

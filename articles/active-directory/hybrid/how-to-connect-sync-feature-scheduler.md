@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053046"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084734"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (moteur de synchronisation).
@@ -160,12 +160,15 @@ Exemple :  Si vous avez apporté des modifications aux règles de synchronisatio
 ## <a name="stop-the-scheduler"></a>Arrêter le planificateur
 Si le planificateur exécute un cycle de synchronisation, vous devrez l’arrêter. Par exemple, si vous démarrez l’Assistant d’installation et que vous obtenez l’erreur suivante :
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Capture d’écran montrant le message d’erreur « Impossible de modifier la configuration ».](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Lorsqu’un cycle de synchronisation est en cours d’exécution, vous ne pouvez pas modifier la configuration. Vous pouvez attendre jusqu’à ce que le planificateur ait terminé le processus, mais vous pouvez également l’arrêter afin d’implémenter immédiatement vos modifications. L’arrêt du cycle en cours n’est pas dangereux, et les modifications en attente seront traitées à la prochaine exécution.
 
 1. Commencez par indiquer au planificateur d’arrêter son cycle en cours à l’aide de l’applet de commande PowerShell `Stop-ADSyncSyncCycle`.
-2. Si vous utilisez une version antérieure à 1.1.281, l’arrêt du planificateur n’empêche pas le connecteur actuel de terminer sa tâche en cours. Pour forcer le connecteur à s’arrêter, prenez les mesures suivantes :  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Si vous utilisez une version antérieure à 1.1.281, l’arrêt du planificateur n’empêche pas le connecteur actuel de terminer sa tâche en cours. Pour forcer le connecteur à s’arrêter, prenez les mesures suivantes : 
+
+   ![Capture d’écran montrant Synchronization Service Manager avec l’option Connecteurs sélectionnée et un connecteur en cours d’exécution mis en évidence avec l’action Arrêter sélectionnée.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Démarrez le **Service de synchronisation** depuis le menu Démarrer. Accédez à **Connecteurs**, mettez en surbrillance le connecteur avec l’état **En cours d’exécution** et sélectionnez **Arrêter** dans les actions.
 
 Le planificateur est toujours actif et redémarrera à la prochaine occasion.

@@ -5,18 +5,18 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021645"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007789"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Activer la récupération d’urgence de zone à zone pour les machines virtuelles Azure
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Activer la récupération d’urgence des machines virtuelles Azure entre les zones de disponibilité
 
-Cet article explique comment répliquer, basculer et restaurer automatiquement des machines virtuelles Azure d’une zone de disponibilité vers une autre au sein de la même région Azure.
+Cet article explique comment répliquer, basculer et restaurer automatiquement des machines virtuelles Azure d’une zone de disponibilité à une autre au sein de la même région Azure.
 
 >[!NOTE]
 >
@@ -26,6 +26,8 @@ Cet article explique comment répliquer, basculer et restaurer automatiquement d
 Le service Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité en veillant à ce que vos applications métier restent opérationnelles lors d’interruptions planifiées ou non. Il s’agit de l’option de récupération d’urgence recommandée pour maintenir vos applications opérationnelles en cas de pannes régionales.
 
 Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone possède un ou plusieurs centres de données. 
+
+Si vous souhaitez déplacer des machines virtuelles vers une zone de disponibilité située dans une autre région, [consultez cet article](../resource-mover/move-region-availability-zone.md).
 
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Utilisation de zones de disponibilité pour la récupération d’urgence 
 
@@ -37,7 +39,7 @@ Toutefois, dans certains scénarios, il est possible de tirer parti des zones de
 
 - De nombreux autres clients ont une infrastructure réseau complexe qu’ils ne souhaitent pas recréer dans une région secondaire en raison des coûts et de la complexité que cela entraînerait. La récupération d’urgence de zone à zone réduit la complexité, car elle exploite des concepts de mise en réseau redondante dans des zones de disponibilité, qui simplifient considérablement la configuration. Ces clients préfèrent la simplicité et peuvent également utiliser des zones de disponibilité pour la récupération d’urgence.
 
-- Dans certaines régions qui n’ont pas de région couplée au sein de la même juridiction (par exemple, Asie Sud-Est), la récupération d’urgence de zone à zone peut servir de solution de récupération d’urgence de fait, car elle permet de garantir la conformité à la Loi du fait que les applications et données ne franchissent pas de frontières nationales. 
+- Dans certaines régions qui n’ont pas de région couplée au sein de la même juridiction (par exemple, Asie Sud-Est), la récupération d’urgence de zone à zone peut servir de fait de solution de récupération d’urgence, car elle permet de garantir la conformité légale du fait que les applications et données ne franchissent pas de frontières nationales. 
 
 - La récupération d’urgence de zone à zone implique la réplication de données sur des distances plus courtes en comparaison de la récupération d’urgence d’Azure vers Azure. Il se peut que vous constatiez une latence faible et, par conséquent, un RPO inférieur.
 
@@ -69,8 +71,8 @@ Avant de déployer une récupération d’urgence de zone à zone pour des machi
 |---------|---------|
 |les machines virtuelles Classic,   |     Non pris en charge    |
 |Machines virtuelles ARM    |    Prise en charge    |
-|Azure Disk Encryption v1 (double passage, avec AAD)     |     Prise en charge |
-|Azure Disk Encryption v2 (passage unique, sans AAD)    |    Prise en charge    |
+|Azure Disk Encryption v1 (deux passes, avec Azure Active Directory [Azure AD])     |     Prise en charge   |
+|Azure Disk Encryption v2 (passage unique, sans Azure AD)    |    Prise en charge    |
 |Disques non managés    |    Non pris en charge    |
 |Disques managés    |    Prise en charge    |
 |Clés gérées par le client    |    Prise en charge    |

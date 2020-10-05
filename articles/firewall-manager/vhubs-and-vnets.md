@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563572"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563146"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quelles sont les options d’architecture d’Azure Firewall Manager ?
 
@@ -44,6 +44,7 @@ Le tableau suivant compare ces deux options d’architecture et peut vous aider 
 |**Prise en charge de plusieurs fournisseurs de sécurité**|Prise en charge du tunneling forcé configuré manuellement pour les pare-feu tiers|Prise en charge automatisée de deux fournisseurs de sécurité : Pare-feu Azure pour le filtrage du trafic privé et tiers pour le filtrage Internet|
 |**Pare-feu d’applications web sur Application Gateway** |Pris en charge sur un réseau virtuel|Actuellement pris en charge sur un réseau spoke|
 |**Appliance virtuelle réseau**|Pris en charge sur un réseau virtuel|Actuellement pris en charge sur un réseau spoke|
+|**Prise en charge d’Azure DDoS Protection Standard**|Oui|Non|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

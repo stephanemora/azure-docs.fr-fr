@@ -1,21 +1,21 @@
 ---
 title: Utiliser les outils du kit de développement logiciel (SDK) Service IoT Hub Device Provisioning
 description: Ce document passe en revue les outils fournis dans les SDK du service Azure IoT Hub Device Provisioning (DPS) pour le développement.
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691626"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530843"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Comment utiliser les outils fournis dans les SDK pour simplifier le développement pour l’approvisionnement
-Le service IoT Hub Device Provisioning Service simplifie le processus d’approvisionnement en assurant un [approvisionnement automatique](concepts-auto-provisioning.md) sans contact et juste-à-temps d’une manière sécurisée et évolutive.  Une attestation de sécurité sous la forme d’un certificat X.509 ou un module de plateforme sécurisée (TPM) est requise.  Microsoft collabore également avec d’[autres partenaires fournisseurs de matériel de sécurité](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) afin d’améliorer la fiabilité de la sécurisation des déploiements IoT. La compréhension des exigences de sécurité du matériel est un processus qui peut s’avérer complexe pour les développeurs. Un ensemble de SDK du service Azure IoT Provisioning est mis à disposition des développeurs, qui recourent à une couche de commodité pour l’écriture des clients interagissant avec le service de provisionnement. Les kits de développement logiciel fournissent également des exemples de scénarios communs ainsi qu’un ensemble d’outils simplifiant l’attestation de sécurité dans le développement.
+Le service IoT Hub Device Provisioning simplifie le processus d’[approvisionnement](about-iot-dps.md#provisioning-process) en prenant en charge l’activité d’une manière transparente, ponctuelle, sécurisée et évolutive.  Une attestation de sécurité sous la forme d’un certificat X.509 ou un module de plateforme sécurisée (TPM) est requise.  Microsoft collabore également avec d’[autres partenaires fournisseurs de matériel de sécurité](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) afin d’améliorer la fiabilité de la sécurisation des déploiements IoT. La compréhension des exigences de sécurité du matériel est un processus qui peut s’avérer complexe pour les développeurs. Un ensemble de SDK du service Azure IoT Provisioning est mis à disposition des développeurs, qui recourent à une couche de commodité pour l’écriture des clients interagissant avec le service de provisionnement. Les kits de développement logiciel fournissent également des exemples de scénarios communs ainsi qu’un ensemble d’outils simplifiant l’attestation de sécurité dans le développement.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Simulateur de module de plateforme sécurisée (TPM)
 Un module [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) peut faire référence à un standard de stockage sécurisé pour les clés utilisées dans l’authentification de la plateforme ou à l’interface d’E/S utilisée pour interagir avec les modules qui implémentent le standard. Les modules TPM peuvent exister sous forme de matériel distinct, de matériel intégré, basés sur un microprogramme ou basés sur un logiciel.  En production, le module TPM est hébergé sur l’appareil, en tant que matériel discret, intégré ou sur microprogramme. Durant la phase de test, un simulateur TPM sur logiciel est fourni aux développeurs.  Actuellement, ce simulateur est disponible uniquement pour le développement sur plateforme Windows.

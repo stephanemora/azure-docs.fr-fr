@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4d6dac98125827a303b8370b5a0a959ea425fb57
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401450"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566073"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
 ## <a name="overview"></a>Vue d’ensemble
@@ -121,7 +121,7 @@ Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azur
 ![2][2]
 
 >[!NOTE]
-> Notez que MSEE ne se trouve pas dans le cloud Azure. ExpressRoute est en fait à la périphérie du réseau Microsoft, pas véritablement dans Azure. Une fois que vous êtes connecté avec ExpressRoute à un MSEE, vous êtes connecté au réseau de Microsoft, à partir duquel vous pouvez accéder à n’importe quels services cloud, tels qu’Office 365 (avec le peering Microsoft) ou Azure (avec le peering privé et/ou Microsoft).
+> Notez que MSEE ne se trouve pas dans le cloud Azure. ExpressRoute est en fait à la périphérie du réseau Microsoft, pas véritablement dans Azure. Une fois que vous êtes connecté avec ExpressRoute à MSEE, vous êtes connecté au réseau de Microsoft, à partir duquel vous pouvez accéder à n’importe quel service cloud, tel que Microsoft 365 (avec le Peering Microsoft) ou Azure (avec le Peering privé et/ou Microsoft).
 >
 >
 

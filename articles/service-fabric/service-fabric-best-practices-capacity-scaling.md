@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002247"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531302"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -36,6 +36,9 @@ L’utilisation de la mise à l’échelle automatique via des groupes de machin
 
 > [!NOTE]
 > L’infrastructure de service avec état Service Fabric : /System/InfastructureService/<NODE_TYPE_NAME> s’exécute sur chaque type de nœud au niveau de durabilité Silver ou une version ultérieure. Il s’agit du seul service système qui est pris en charge pour s’exécuter dans Azure sur tous vos types de nœud de clusters.
+
+> [!IMPORTANT]
+> La mise à l’échelle automatique Service Fabric prend en charge les [configurations de mise à l’échelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) des groupes de machines virtuelles identiques `Default` et `NewestVM`.
 
 ## <a name="vertical-scaling-considerations"></a>Considérations relatives à la mise à l’échelle verticale
 
@@ -168,7 +171,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Lorsque vous effectuez un scale-in d’un cluster, vous voyez l’instance de machine virtuelle/nœud supprimée qui s’affiche dans un état non intègre dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [Comportements que vous pouvez observer dans Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
-> * Appelez la commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) avec le nom de nœud approprié.
+> * Appelez la commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) avec le nom de nœud approprié.
 > * Déployez l’[application auxiliaire mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster. Cette application permet de s’assurer que les nœuds diminués en puissance sont effacés de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveaux de fiabilité

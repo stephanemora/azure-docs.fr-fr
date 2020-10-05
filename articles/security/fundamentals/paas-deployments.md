@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461699"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462358"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -151,10 +151,10 @@ Les tests à données aléatoires (fuzzing) sont une méthode de recherche des d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure et les bonnes pratiques en matière de sécurité relatives aux applications cloud. Découvrez ensuite les pratiques recommandées pour sécuriser vos solutions PaaS web et mobiles PaaS à l’aide de services Azure spécifiques. Nous allons commencer par Azure App Service, Azure SQL Database, Azure SQL Data Warehouse et Stockage Azure. Des liens seront fournis dans la liste suivante quand des articles sur les pratiques recommandées pour d’autres services Azure seront disponibles :
+Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure et les bonnes pratiques en matière de sécurité relatives aux applications cloud. Découvrez ensuite les pratiques recommandées pour sécuriser vos solutions PaaS web et mobiles PaaS à l’aide de services Azure spécifiques. Nous allons commencer par Azure App Service, Azure SQL Database, Azure Synapse Analytics et Stockage Azure. Des liens seront fournis dans la liste suivante quand des articles sur les pratiques recommandées pour d’autres services Azure seront disponibles :
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database et Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database et Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Stockage Azure](paas-applications-using-storage.md)
 - Cache Azure pour Redis
 - Azure Service Bus

@@ -3,13 +3,13 @@ title: Résoudre les erreurs de déploiement courantes
 description: Décrit comment résoudre les erreurs courantes lors du déploiement de ressources sur Azure à l’aide d’Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008166"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650957"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -75,7 +75,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | StorageAccountNotFound | Vérifiez l’abonnement, le groupe de ressources et le nom du compte de stockage que vous tentez d’utiliser. | |
 | SubnetsNotInSameVnet | Une machine virtuelle ne peut avoir qu’un seul réseau virtuel. Si vous déployez plusieurs cartes réseau, assurez-vous qu’elles appartiennent au même réseau virtuel. | [Cartes réseau multiples](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | Impossible d’accéder à un abonnement spécifié pour le déploiement. L’ID d’abonnement est peut-être incorrect, l’utilisateur qui déploie le modèle ne dispose pas des autorisations appropriées pour le déployer sur l’abonnement, ou l’ID d’abonnement n’est pas au bon format. Lorsque vous utilisez des déploiements imbriqués pour [déployer à travers des étendues](cross-scope-deployment.md), indiquez le GUID de l’abonnement. | |
-| SubscriptionNotRegistered | Lors du déploiement de ressources réseau, le fournisseur de ressources Microsoft.Network est inscrit automatiquement dans l’abonnement. Parfois, l’inscription automatique ne se termine pas à temps. Pour éviter cette erreur intermittente, inscrivez le fournisseur de ressources Microsoft.Network avant le déploiement. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | Lors du déploiement d’une ressource, le fournisseur de ressources doit être inscrit pour votre abonnement. Lorsque vous utilisez un modèle Resource Manager pour le déploiement, le fournisseur de ressources est automatiquement inscrit dans l’abonnement. Parfois, l’inscription automatique ne se termine pas à temps. Pour éviter cette erreur intermittente, inscrivez le fournisseur de ressources avant le déploiement. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement inter-étendue](cross-scope-deployment.md) |
 

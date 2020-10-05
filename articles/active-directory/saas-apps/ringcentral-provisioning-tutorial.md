@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb990b5aa615e37d9893a891143cb04933b603bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542613"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069660"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutoriel : Configurer RingCentral pour le provisionnement automatique d’utilisateurs
 
@@ -113,7 +113,6 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |userName|String|
    |externalId|String|
    |active|Boolean|
-   |displayName|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |addresses[type eq "work"].country|String|
@@ -125,7 +124,6 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.familyName|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,6 +147,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Journal des modifications
+
+* 10/09/2020 : suppression de la prise en charge des attributs « displayName » et « manager ».
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

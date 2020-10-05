@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360688"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Comptes et étendues de facturation dans le portail Azure
 
@@ -80,11 +80,11 @@ Une étendue est un nœud à l’intérieur d’un compte de facturation que vou
 
 2. Recherchez **Gestion des coûts + facturation**.
 
-   ![Capture d’écran montrant la recherche dans le portail Azure](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Capture d’écran montrant la recherche de « Cost Management + Billing » dans le portail Azure.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Dans la page Vue d’ensemble, sélectionnez **Changer d’étendue**.
 
-   ![Capture d’écran montrant les étendues de facturation](./media/view-all-accounts/overview-select-scopes.png)
+   ![Capture d’écran montrant les étendues de facturation.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Une étendue est un nœud à l’intérieur d’un compte de facturation que vou
 
 4. Sélectionnez une étendue pour afficher les détails.
 
-   ![Capture d’écran montrant les étendues de facturation](./media/view-all-accounts/list-of-scopes.png)
+   ![Capture d’écran montrant les étendues de facturation, que vous pouvez sélectionner pour plus d’informations.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Vérifier le type de votre compte
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

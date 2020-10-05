@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: ab281f6ead148aa19242ebd7a2661379b25e918a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397370"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566396"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser Express
 
 ## <a name="expressroute-direct-circuits"></a>Circuits ExpressRoute Direct
 
-Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services cloud Microsoft, tels que Microsoft Azure et Office 365.
+Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Microsoft 365.
 
 Chaque emplacement de peering dispose d’un accès au réseau global Microsoft, à n’importe quelle région d’une zone géopolitique par défaut et à toutes les régions du monde à l’aide d’un circuit premium.  
 

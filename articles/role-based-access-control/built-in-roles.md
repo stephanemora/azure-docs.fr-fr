@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/31/2020
+ms.date: 09/04/2020
 ms.custom: generated
-ms.openlocfilehash: 80432ff71f810c42b312b7c58a63d3b56e2a289c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 25c231265bb4ec497af5559624b7228167add76d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375800"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483454"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -153,7 +153,7 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Contributeur Azure Sentinel](#azure-sentinel-contributor) | Contributeur Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Lecteur Azure Sentinel](#azure-sentinel-reader) | Lecteur Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Répondeur Azure Sentinel](#azure-sentinel-responder) | Répondeur Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Administrateur Key Vault (préversion)](#key-vault-administrator-preview) | Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, y compris les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Administrateur Key Vault (préversion)](#key-vault-administrator-preview) | Permet d’effectuer toutes les opération du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 > | [Responsable des certificats Key Vault (préversion)](#key-vault-certificates-officer-preview) | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer les coffres de clés, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC ni d’accéder à des secrets, des clés ou des certificats. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Responsable du chiffrement de Key Vault (préversion)](#key-vault-crypto-officer-preview) | Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
@@ -6286,7 +6286,7 @@ Répondeur Azure Sentinel [En savoir plus](../sentinel/roles.md)
 
 ### <a name="key-vault-administrator-preview"></a>Administrateur de Key Vault (préversion)
 
-Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, y compris les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
+Permet d’effectuer toutes les opération du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6313,7 +6313,7 @@ Permet d’effectuer toutes les opérations du plan de données sur un coffre de
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on certificates, keys and secrets of a key vault, except manage permissions.",
+  "description": "Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "permissions": [
@@ -6373,7 +6373,7 @@ Permet d’effectuer une action sur les certificats d’un coffre de clés, à l
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the certificates of a key vault, except manage permissions.",
+  "description": "Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a4417e6f-fecd-4de8-b567-7b0420556985",
   "name": "a4417e6f-fecd-4de8-b567-7b0420556985",
   "permissions": [
@@ -6486,7 +6486,7 @@ Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exc
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the keys of a key vault, except manage permissions.",
+  "description": "Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
   "name": "14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
   "permissions": [
@@ -6538,7 +6538,7 @@ Permet de lire les métadonnées des clés et d’effectuer des opérations visa
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read metadata of keys and perform wrap/unwrap operations.",
+  "description": "Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e147488a-f6f5-4113-8e2d-b22465e65bf6",
   "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
   "permissions": [
@@ -6587,7 +6587,7 @@ Permet d’effectuer des opérations de chiffrement à l’aide de clés. Foncti
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform cryptographic operations on keys and certificates.",
+  "description": "Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/12338af0-0e69-4776-bea7-57ae8d297424",
   "name": "12338af0-0e69-4776-bea7-57ae8d297424",
   "permissions": [
@@ -6644,7 +6644,7 @@ Permet de lire les métadonnées de coffres de clés et de leurs certificats, cl
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material.",
+  "description": "Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
   "name": "21090545-7ca7-4776-b22c-e363652d74d2",
   "permissions": [
@@ -6704,7 +6704,7 @@ Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’e
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the secrets of a key vault, except manage permissions.",
+  "description": "Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
   "name": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
   "permissions": [
@@ -6755,7 +6755,7 @@ Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de c
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read secret contents.",
+  "description": "Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
   "name": "4633458b-17de-408a-b874-0445c86b69e6",
   "permissions": [

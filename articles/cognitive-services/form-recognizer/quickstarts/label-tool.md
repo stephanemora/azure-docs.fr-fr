@@ -1,24 +1,26 @@
 ---
-title: 'Démarrage rapide : Étiqueter des formulaires, entraîner un modèle et analyser un formulaire à l’aide de l’outil d’étiquetage des exemples Form Recognizer'
+title: 'Démarrage rapide : Étiqueter des formulaires, effectuer l’apprentissage d’un modèle et analyser des formulaires à l’aide de l’exemple d’outil d’étiquetage – Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil d’étiquetage des exemples Form Recognizer pour étiqueter manuellement des documents de formulaire. Ensuite, vous entraînerez un modèle personnalisé avec les documents étiquetés et utiliserez le modèle pour extraire des paires clé/valeur.
+description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil d’étiquetage des exemples Form Recognizer pour étiqueter manuellement des documents de formulaire. Ensuite, vous allez effectuer l’apprentissage d’un modèle de traitement de documents personnalisé, et utiliser le modèle pour extraire des paires clé/valeur.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: traitement de documents
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418957"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597732"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
-Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec l’outil d’étiquetage des exemples pour entraîner un modèle personnalisé avec des données étiquetées manuellement. Consultez la section [Effectuer un entraînement avec des étiquettes](../overview.md#train-with-labels) de la vue d’ensemble pour en savoir plus sur cette fonctionnalité.
+Dans ce démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec l’exemple d’outil d’étiquetage pour effectuer l’apprentissage d’un modèle de traitement de documents personnalisé avec des données étiquetées manuellement. Pour en savoir plus sur l’apprentissage supervisé avec Form Recognizer, consultez la section [Effectuer l’apprentissage avec des étiquettes](../overview.md#train-with-labels) de la vue d’ensemble.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -137,7 +139,7 @@ Dans l’outil d’étiquetage des exemples, les projets stockent vos configurat
 * **API Key** (Clé API) : votre clé d’abonnement Form Recognizer.
 * **Description** : (facultatif) Description du projet
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Page de nouveau projet dans l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
 ## <a name="label-your-forms"></a>Étiqueter vos formulaires
 
@@ -153,7 +155,7 @@ Cliquez sur **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) d
 
 Il indique aussi les tables qui ont été automatiquement extraites. Cliquez sur l’icône de table/grille à gauche du document pour voir la table extraite. Dans ce démarrage rapide, le contenu des tables étant automatiquement extrait, nous n’étiquèterons pas le contenu des tables et ferons confiance à l’extraction automatisée.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualisation d’une table dans l’outil d'étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
 ### <a name="apply-labels-to-text"></a>Appliquer des étiquettes à du texte
 
@@ -199,7 +201,7 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
 
 Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires.
@@ -254,7 +256,7 @@ Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvr
 * Liste des étiquettes et justesse estimée par étiquette.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vue de l’entraînement.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
 Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si cette valeur est petite, vous devez ajouter d’autres documents d’entrée et répéter les étapes ci-dessus. Les documents que vous avez déjà étiquetés sont conservés dans l’index du projet.
 
@@ -273,7 +275,7 @@ Avec Model Compose (Composition de modèles), vous pouvez composer jusqu’à 10
 
 Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez sur l’icône Model Compose (flèche de fusion) à gauche. À gauche, sélectionnez les modèles que vous souhaitez composer ensemble. Les modèles présentant une icône de flèche sont déjà des modèles composés. Cliquez sur le bouton « Compose » (Composer). Dans la fenêtre contextuelle, nommez votre nouveau modèle composé, puis cliquez sur « Compose » (Composer). Une fois l’opération terminée, le nouveau modèle composé apparaît dans la liste. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vue UX de composition de modèles.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
 ---
 
@@ -306,7 +308,10 @@ Enfin, accédez à la page principale (icône en forme de maison), puis cliquez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à utiliser l’outil d’étiquetage des exemples Form Recognizer pour entraîner un modèle avec des données étiquetées manuellement. Si vous souhaitez intégrer l’outil d’étiquetage à votre propre application, utilisez les API REST qui traitent de l’entraînement des données étiquetées.
+Dans ce guide de démarrage rapide, vous avez appris à utiliser l’outil d’étiquetage des exemples Form Recognizer pour entraîner un modèle avec des données étiquetées manuellement. Si vous souhaitez créer votre propre utilitaire pour étiqueter des données d’apprentissage, utilisez les API REST dédiées à l’apprentissage de données étiquetées.
 
 > [!div class="nextstepaction"]
 > [Effectuer un entraînement avec des étiquettes à l’aide de Python](./python-labeled-data.md)
+
+* [Qu’est-ce que Form Recognizer ?](../overview.md)
+* [Démarrages rapides de bibliothèque de client Form Recognizer](client-library.md)

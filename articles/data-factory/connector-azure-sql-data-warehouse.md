@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: cd14a183ae1434af83c96b7f8d6575186412b534
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 01e2a2db3757e8d13749faf53b47300c8188915e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051217"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484474"
 ---
-# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 >
@@ -42,7 +42,7 @@ Pour l’activité de copie, ce connecteur Azure Synapse Analytics prend en char
 
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée. Vous pouvez également choisir de copier en parallèle à partir de la source Azure Synapse Analytics. Pour plus d’informations, consultez la section [Copier en parallèle à partir de Synapse Analytics](#parallel-copy-from-synapse-analytics).
-- En tant que récepteur, chargement des données à l’aide de [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [instruction COPY](#use-copy-statement) (préversion) ou insertion en bloc. Nous vous recommandons d’utiliser PolyBase ou l’instruction COPY (préversion) pour améliorer les performances de copie. Le connecteur prend également en charge la création automatique de la table de destination, si celle-ci n’existe pas, en fonction du schéma source.
+- En tant que récepteur, chargement des données à l’aide de [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) ou [instruction COPY](#use-copy-statement) (préversion) ou insertion en bloc. Nous vous recommandons d’utiliser PolyBase ou l’instruction COPY (préversion) pour améliorer les performances de copie. Le connecteur prend également en charge la création automatique de la table de destination, si celle-ci n’existe pas, en fonction du schéma source.
 
 > [!IMPORTANT]
 > Si vous copiez des données à l’aide d’Azure Data Factory Integration Runtime, configurez une [règle de pare-feu au niveau du serveur](../azure-sql/database/firewall-configure.md) de façon à ce que les services Azure puissent accéder au [serveur SQL logique](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ Pour l’activité de copie, ce connecteur Azure Synapse Analytics prend en char
 ## <a name="get-started"></a>Bien démarrer
 
 > [!TIP]
-> Pour obtenir les meilleures performances, utilisez PolyBase pour charger des données dans Azure Synapse Analytics. Pour plus de détails, consultez la section [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse). Consultez [Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Azure Data Factory](load-azure-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
+> Pour obtenir les meilleures performances, utilisez PolyBase pour charger des données dans Azure Synapse Analytics. Pour plus de détails, consultez la section [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics). Consultez [Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Azure Data Factory](load-azure-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -284,7 +284,7 @@ Pour copier des données depuis Azure Synapse Analytics, affectez la valeur **Sq
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -316,7 +316,7 @@ Pour copier des données depuis Azure Synapse Analytics, affectez la valeur **Sq
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -364,32 +364,32 @@ GO
 
 ### <a name="azure-synapse-analytics-as-sink"></a><a name="azure-sql-data-warehouse-as-sink"></a> Azure Synapse Analytics en tant que récepteur
 
-Azure Data Factory prend en charge trois manières de charger des données dans SQL Data Warehouse.
+Azure Data Factory prend en charge trois manières de charger des données dans Azure Synapse Analytics.
 
-![Options de copie du récepteur SQL DW](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
+![Options de copie du récepteur Azure Synapse Analytics](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
-- [Utiliser PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse)
+- [Utiliser PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - [Utiliser l’instruction COPY (préversion)](#use-copy-statement)
 - Utiliser l’insertion en bloc
 
 La méthode la plus rapide et la plus scalable pour charger des données consiste à utiliser [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ou [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion).
 
-Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
+Pour copier des données vers Azure Synapse Analytics, définissez **SqlDWSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
 
 | Propriété          | Description                                                  | Obligatoire                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlDWSink**. | Oui                                           |
-| allowPolyBase     | Indique s’il faut utiliser PolyBase pour charger des données dans SQL Data Warehouse. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br/>Appliquer lors de l’utilisation de PolyBase.     |
+| allowPolyBase     | Indique s’il faut utiliser PolyBase pour charger des données dans Azure Synapse Analytics. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br/>Appliquer lors de l’utilisation de PolyBase.     |
 | polyBaseSettings  | Groupe de propriétés pouvant être spécifié lorsque la propriété `allowPolybase` est définie sur **true**. | Non.<br/>Appliquer lors de l’utilisation de PolyBase. |
-| allowCopyCommand | Indique s’il faut utiliser [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion) pour charger des données dans SQL Data Warehouse. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Consultez la section [Utiliser l’instruction COPY pour charger des données dans Azure SQL Data Warehouse](#use-copy-statement) afin de connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br>Appliquer lors de l’utilisation de l’instruction COPY. |
+| allowCopyCommand | Indique s’il faut utiliser [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion) pour charger des données dans Azure Synapse Analytics. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser l’instruction COPY pour charger des données dans Azure Synapse Analytics](#use-copy-statement) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br>Appliquer lors de l’utilisation de l’instruction COPY. |
 | copyCommandSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété `allowCopyCommand` est définie sur TRUE. | Non.<br/>Appliquer lors de l’utilisation de l’instruction COPY. |
 | writeBatchSize    | Nombre de lignes à insérer dans le tableau SQL **par lot**.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.     |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/><br/>La valeur autorisée est **timespan**. Exemple : « 00:30:00 » (30 minutes). | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.        |
-| preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
+| preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure Synapse Analytics à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
 | tableOption | Spécifie si [la table du récepteur doit être créée automatiquement](copy-activity-overview.md#auto-create-sink-tables) si elle n’existe pas en fonction du schéma source. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
-| disableMetricsCollection | Data Factory collecte des métriques telles que les DWU SQL Data Warehouse pour effectuer des suggestions et l’optimisation des performances de copie. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
+| disableMetricsCollection | Data Factory collecte des métriques telles que les DWU Azure Synapse Analytics pour effectuer des recommandations et optimiser les performances de copie. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
 
-#### <a name="sql-data-warehouse-sink-example"></a>Exemple de récepteur SQL Data Warehouse
+#### <a name="azure-synapse-analytics-sink-example"></a>Exemple de récepteur Azure Synapse Analytics
 
 ```json
 "sink": {
@@ -453,12 +453,12 @@ Meilleures pratiques pour charger des données avec l’option de partition :
 }
 ```
 
-## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse
+## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Utiliser PolyBase pour charger des données dans Azure Synapse Analytics
 
 L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure Synapse Analytics avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Charger 1 To dans Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
-- Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et que le **format est compatible à PolyBase**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure SQL Data Warehouse d’extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
-- Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase, stocke les données dans le Stockage Blob Azure, puis appelle PolyBase pour charger les données dans SQL Data Warehouse.
+- Si vos données sources se trouvent dans **Stockage Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2** et que **le format est compatible avec PolyBase**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure Synapse Analytics d’extraire les données de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
+- Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase, stocke les données dans Stockage Blob Azure, puis appelle PolyBase pour charger les données dans Azure Synapse Analytics.
 
 > [!TIP]
 > Apprenez-en plus sur les [Bonnes pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase).
@@ -474,10 +474,10 @@ Les paramètres PolyBase suivants sont pris en charge sous `polyBaseSettings` da
 
 ### <a name="direct-copy-by-using-polybase"></a>Copie directe à l’aide de PolyBase
 
-SQL Data Warehouse PolyBase prend directement en charge les objets Blob Azure, Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2. Si vos données sources répondent aux critères décrits dans cette section, utilisez PolyBase pour copier directement à partir du magasin de données source vers Azure Synapse Analytics. Sinon, utilisez la méthode [Copie intermédiaire à l’aide de PolyBase](#staged-copy-by-using-polybase).
+Azure Synapse Analytics PolyBase prend directement en charge Stockage Blob Azure, Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2. Si vos données sources répondent aux critères décrits dans cette section, utilisez PolyBase pour copier directement à partir du magasin de données source vers Azure Synapse Analytics. Sinon, utilisez la méthode [Copie intermédiaire à l’aide de PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Pour copier des données vers SQL Data Warehouse efficacement, consultez [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/) (Azure Data Factory facilite et rend plus pratique la découverte d’informations à partir de données lors de l’utilisation de Data Lake Store avec SQL Data Warehouse).
+> Pour copier des données efficacement vers Azure Synapse Analytics, consultez [Azure Data Factory facilite et rend plus pratique la découverte d’insights à partir de données lors de l’utilisation de Data Lake Store avec Azure Synapse Analytics](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètres et rétablit automatiquement le mécanisme BULKINSERT pour le déplacement des données.
 
@@ -545,7 +545,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 ### <a name="staged-copy-by-using-polybase"></a>Copie intermédiaire à l’aide de PolyBase
 
-Lorsque vos données sources ne sont pas compatibles en mode natif avec PolyBase, activez la copie des données via une instance Stockage Blob Azure intermédiaire temporaire (il ne peut pas s’agir du Stockage Azure Premium). Dans ce cas, Azure Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de PolyBase. Ensuite, il invoque PolyBase pour charger les données dans SQL Data Warehouse. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie des données par le biais d’une instance de Stockage Blob Azure, consultez [Copie intermédiaire](copy-activity-performance-features.md#staged-copy).
+Lorsque vos données sources ne sont pas compatibles en mode natif avec PolyBase, activez la copie des données via une instance Stockage Blob Azure intermédiaire temporaire (il ne peut pas s’agir du Stockage Azure Premium). Dans ce cas, Azure Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de PolyBase. Ensuite, il appelle PolyBase pour charger les données dans Azure Synapse Analytics. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie des données par le biais d’une instance de Stockage Blob Azure, consultez [Copie intermédiaire](copy-activity-performance-features.md#staged-copy).
 
 Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) qui fait référence au compte de stockage Azure avec le stockage Blob intermédiaire. Spécifiez ensuite les propriétés `enableStaging` et `stagingSettings` de l’activité de copie comme indiqué dans le code suivant :
 
@@ -595,25 +595,25 @@ Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à cell
 
 #### <a name="required-database-permission"></a>Autorisation de base de données requise
 
-Pour utiliser PolyBase, l’utilisateur qui charge des données dans SQL Data Warehouse doit avoir [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [Présentation de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+Pour utiliser PolyBase, l’utilisateur qui charge des données dans Azure Synapse Analytics doit disposer de [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [vue d’ensemble d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 #### <a name="row-size-and-data-type-limits"></a>Limitations en matière de taille de ligne et de type de données
 
-Les chargements PolyBase sont limités aux lignes inférieures à 1 Mo. Vous ne pouvez pas l’utiliser pour charger VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Pour en savoir plus, consultez [Limites de la capacité de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Les chargements PolyBase sont limités aux lignes inférieures à 1 Mo. Vous ne pouvez pas l’utiliser pour charger VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Pour plus d’informations, consultez [Limites de la capacité du service Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Quand votre source de données comporte des lignes supérieures à 1 Mo, vous pouvez fractionner verticalement les tables sources en plusieurs petites tables. Vérifiez que la taille maximale de chaque ligne ne dépasse pas la limite. Vous pouvez ensuite charger les tables plus petites à l’aide de PolyBase et les fusionner dans Azure Synapse Analytics.
 
 Autrement, pour les données avec des colonnes aussi larges, vous pouvez utiliser non-PolyBase pour charger les données à l’aide d’ADF, en désactivant le paramètre « Autoriser PolyBase ».
 
-#### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
+#### <a name="azure-synapse-analytics-resource-class"></a>Classe de ressources Azure Synapse Analytics
 
-Pour obtenir le meilleur débit possible, attribuez une classe de ressources plus volumineuse à l’utilisateur qui charge des données dans SQL Data Warehouse par le biais de PolyBase.
+Pour obtenir le meilleur débit possible, attribuez une classe de ressources plus volumineuse à l’utilisateur qui charge des données dans Azure Synapse Analytics par le biais de PolyBase.
 
 #### <a name="polybase-troubleshooting"></a>Résolution des problèmes liés à PolyBase
 
 **Chargement de la colonne décimale**
 
-Si votre source de données est au format texte ou dans d’autres magasins non compatibles avec PolyBase (avec copie intermédiaire et PolyBase), et qu’elle contient une valeur vide à charger dans une colonne décimale de SQL Data Warehouse, il se peut que vous rencontriez l’erreur suivante :
+Si votre source de données est au format texte ou dans d’autres magasins non compatibles avec PolyBase (avec copie intermédiaire et PolyBase), et qu’elle contient une valeur vide à charger dans une colonne décimale d’Azure Synapse Analytics, il se peut que vous rencontriez l’erreur suivante :
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
@@ -649,9 +649,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 La valeur NULL est une forme spéciale de la valeur par défaut. Si la colonne est nullable, les données d’entrée dans l’objet Blob pour cette colonne peuvent être vides. En revanche, elles ne peuvent pas être manquantes dans le jeu de données d’entrée. PolyBase insère NULL pour les données manquantes dans Azure Synapse Analytics.
 
-## <a name="use-copy-statement-to-load-data-into-azure-sql-data-warehouse-preview"></a><a name="use-copy-statement"></a> Utiliser l’instruction COPY (préversion) pour charger des données dans Azure SQL Data Warehouse
+## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> Utiliser l’instruction COPY pour charger des données dans Azure Synapse Analytics (préversion)
 
-[L’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion) de SQL Data Warehouse prend directement en charge le chargement de données à partir **d’Azure Blob et d’Azure Data Lake Storage Gen2**. Si vos données sources répondent aux critères décrits dans cette section, vous pouvez choisir d’utiliser l’instruction COPY dans ADF pour charger des données dans Azure SQL Data Warehouse. Azure Data Factory vérifie les paramètres et fait échouer l’exécution de l’activité de copie si les critères ne sont pas satisfaits.
+[L’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) d’Azure Synapse Analytics (préversion) prend directement en charge le chargement de données à partir **de Stockage Blob Azure et d’Azure Data Lake Storage Gen2**. Si vos données sources répondent aux critères décrits dans cette section, vous pouvez choisir d’utiliser l’instruction COPY dans ADF pour charger des données dans Azure Synapse Analytics. Azure Data Factory vérifie les paramètres et fait échouer l’exécution de l’activité de copie si les critères ne sont pas satisfaits.
 
 >[!NOTE]
 >Actuellement, Data Factory prend uniquement en charge la copie à partir des sources compatibles avec l’instruction COPY mentionnées ci-dessous.
@@ -690,8 +690,8 @@ Les paramètres de l’instruction COPY suivants sont pris en charge sous `allow
 
 | Propriété          | Description                                                  | Obligatoire                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Spécifie les valeurs par défaut de chaque colonne cible dans SQL DW.  Les valeurs par défaut de la propriété remplacent le jeu de contraintes DEFAULT défini dans l’entrepôt de données, et la colonne d’identité ne peut pas avoir de valeur par défaut. | Non |
-| additionalOptions | Options supplémentaires qui seront passées à l’instruction COPY SQL DW directement dans la clause « With » dans [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citez la valeur en fonction des besoins pour l’aligner sur les spécifications de l’instruction COPY. | Non |
+| defaultValues | Spécifie les valeurs par défaut de chaque colonne cible dans Azure Synapse Analytics.  Les valeurs par défaut de la propriété remplacent le jeu de contraintes DEFAULT défini dans l’entrepôt de données, et la colonne d’identité ne peut pas avoir de valeur par défaut. | Non |
+| additionalOptions | Options supplémentaires qui seront passées à l’instruction COPY d’Azure Synapse Analytics directement dans la clause « With » dans [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citez la valeur en fonction des besoins pour l’aligner sur les spécifications de l’instruction COPY. | Non |
 
 ```json
 "activities":[
@@ -800,7 +800,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](cont
 Quand vous copiez des données depuis ou vers Azure Synapse Analytics, les mappages suivants sont utilisés entre les types de données Azure Synapse Analytics et les types de données intermédiaires Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données sources au récepteur, consultez [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
 >[!TIP]
->Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) pour découvrir les types de données pris en charge par SQL DW et les solutions de contournement pour les types non pris en charge.
+>Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) pour découvrir les types de données pris en charge par Azure Synapse Analytics et les solutions de contournement pour les types non pris en charge.
 
 | Type de données Azure Synapse Analytics    | Type de données intermédiaires d’Azure Data Factory |
 | :------------------------------------ | :----------------------------- |

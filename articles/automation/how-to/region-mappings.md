@@ -1,25 +1,24 @@
 ---
 title: Régions prises en charge pour l’espace de travail Log Analytics lié
-description: Cet article décrit les mappages de régions prises en charge entre un compte Automation et un espace de travail Log Analytics.
+description: Cet article décrit les mappages des régions prises en charge entre un compte Automation et un espace de travail Log Analytics en relation avec certaines fonctionnalités d’Azure Automation.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 879c6d247a915def7b4b8d53c74bde7861e47f1d
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279803"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440658"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
-Dans Azure Automation, vous pouvez activer les fonctionnalités Update Management, Change Tracking and Inventory et Start/Stop VMs during off-hours pour vos machines virtuelles. Toutefois, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation dans votre abonnement. Les mappages de régions s’applique uniquement au compte Automation et à l’espace de travail Log Analytics. L’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même abonnement, mais ils peuvent se trouver dans des groupes de ressources différents déployés dans la même région. Pour plus d’informations, consultez [Espace de travail Log Analytics et compte Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+Dans Azure Automation, vous pouvez activer les fonctionnalités Update Management, Change Tracking and Inventory et Start/Stop VMs during off-hours pour vos serveurs et machines virtuelles. Ces fonctionnalités dépendent d’un espace de travail Log Analytics et nécessitent donc de lier l’espace de travail à un compte Automation. Toutefois, seules certaines régions sont prises en charge pour les lier ensemble. En général, le mappage n’est *pas* applicable si vous envisagez de lier un compte Automation à un espace de travail pour lequel ces fonctionnalités ne sont pas activées.
+
+Cet article fournit les mappages pris en charge afin d’activer et d’utiliser correctement ces fonctionnalités dans votre compte Automation.
+
+Pour plus d’informations, consultez [Espace de travail Log Analytics et compte Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mappages pris en charge
 
@@ -55,7 +54,7 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 
 ## <a name="unlink-a-workspace"></a>Supprimer la liaison d’un espace de travail
 
-Si vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Log Analytics, vous pouvez dissocier votre compte directement dans le Portail Azure. Avant de continuer, vous devez [supprimer](move-account.md#remove-features) les fonctionnalités Update Management, Change Tracking and Inventory ainsi que Start/Stop VMs during off-hours, si vous les utilisez. Si vous ne les supprimez pas, vous ne pouvez pas terminer l’opération de dissociation. 
+Si vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Log Analytics, vous pouvez dissocier votre compte directement dans le Portail Azure. Avant de continuer, vous devez [supprimer](move-account.md#remove-features) les fonctionnalités Update Management, Change Tracking and Inventory ainsi que Start/Stop VMs during off-hours, si vous les utilisez. Si vous ne les supprimez pas, vous ne pouvez pas terminer l’opération de dissociation.
 
 Une fois les fonctionnalités supprimées, vous pouvez suivre les étapes ci-dessous pour supprimer la liaison de votre compte Automation.
 

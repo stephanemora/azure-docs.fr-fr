@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926947"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007041"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Déplacer votre service Recherche cognitive Azure vers une autre région Azure
 
@@ -23,7 +23,13 @@ Parfois, les clients demandent à déplacer un service de recherche vers une aut
 > [!NOTE]
 > Dans le portail Azure, tous les services ont une commande **Exporter le modèle**. Dans le cas de la Recherche cognitive Azure, cette commande produit une définition de base d’un service (nom, localisation, niveau, réplica et nombre de partitions), mais ne reconnaît pas le contenu de votre service, pas plus que les clés, les rôles ou les journaux. Bien que la commande existe, nous vous déconseillons de l’utiliser pour déplacer un service de recherche.
 
-## <a name="guidance-for-moving-a-service"></a>Aide pour déplacer un service
+## <a name="prerequisites"></a>Prérequis
+
++ Vérifiez que les services et fonctionnalités utilisés par votre compte sont pris en charge dans la région cible.
+
++ Pour les fonctionnalités en préversion, vérifiez que votre abonnement figure dans la liste verte de la région cible.
+
+## <a name="prepare-and-move"></a>Préparer et déplacer
 
 1. Identifiez les dépendances et les services associés pour comprendre l’impact complet du déplacement d’un service, au cas où vous devriez déplacer plus que simplement la Recherche cognitive Azure.
 
@@ -41,7 +47,9 @@ Parfois, les clients demandent à déplacer un service de recherche vers une aut
 
 1. Mettez à jour les applications clientes et les suites de tests pour utiliser le nouveau nom de service et les clés API, puis testez toutes les applications.
 
-1. Supprimez l’ancien service une fois que le nouveau service est entièrement testé et opérationnel.
+## <a name="discard-or-clean-up"></a>Ignorer ou nettoyer
+
+Supprimez l’ancien service une fois que le nouveau service est entièrement testé et opérationnel. La suppression du service supprime automatiquement tout le contenu qui lui est associé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -51,7 +59,7 @@ Les liens suivants peuvent vous aider à trouver plus d’informations lorsque v
 + [Choisir un niveau](search-sku-tier.md)
 + [Créer un service de recherche](search-create-service-portal.md)
 + [Charger les documents de recherche](search-what-is-data-import.md)
-+ [Activer la journalisation](search-monitor-logs.md)
++ [Activation de la journalisation](search-monitor-logs.md)
 
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.

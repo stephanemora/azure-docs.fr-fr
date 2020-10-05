@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049687"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437460"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 
@@ -74,11 +74,11 @@ Cet exemple montre comment configurer des règles de groupes de sécurité rése
 
 1. Créez une règle de sécurité sortante HTTPS pour le groupe de sécurité réseau, comme illustré dans la capture d’écran suivante. Cet exemple utilise la **balise de service de destination** : _Storage.EastUS_ et les **Plages de ports de destination** : _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-error":::
 
 1. Créez une règle de sécurité sortante HTTPS pour le groupe de sécurité réseau, comme illustré dans la capture d’écran suivante. Cet exemple utilise la **balise de service de destination** : _AzureActiveDirectory_ et les **Plages de ports de destination** : _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-error":::
 
 1. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.CentralUS » sur le groupe de sécurité réseau qui correspond à la position cible. Celle-ci permet d’accéder à la supervision de Site Recovery.
 1. Créez une règle de sécurité HTTPS sortante (443) pour « AzureSiteRecovery » sur le groupe de sécurité réseau. Celle-ci permet d’accéder au service Site Recovery dans n’importe quelle région.
@@ -108,7 +108,7 @@ Il est impossible d’établir une connexion aux points de terminaison de servic
 
 #### <a name="resolution"></a>Résolution
 
-Azure Site Recovery exigeait l’accès aux [plages d’adresses IP Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) selon la région. Assurez-vous que les plages d’adresses IP requises sont accessibles à partir de la machine virtuelle.
+Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine, vous devez autoriser plusieurs balises de service. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problème 4 : Échec de la réplication Azure vers Azure lorsque le trafic réseau transite par un serveur proxy local (151072)
 

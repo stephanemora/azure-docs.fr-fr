@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b013c4edcaceeea585494bd8924ccea08aa1d37
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277049"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662488"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
 ). Vous pouvez voir les attributs disponibles à l’aide de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
 
-Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
+Actuellement, aucune charge de travail Microsoft 365 n’utilise ces attributs.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personnaliser les attributs à synchroniser avec Azure AD
 
@@ -73,7 +73,7 @@ Ces attributs sont désormais disponibles par le biais de l’API Microsoft Grap
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Utiliser les attributs dans des groupes dynamiques
 
-L’un des scénarios les plus utiles consiste à utiliser ces attributs dans la sécurité dynamique ou dans des groupes Office 365.
+L’un des scénarios les plus utiles consiste à utiliser ces attributs dans la sécurité dynamique ou dans des groupes Microsoft 365.
 
 1. Créez un groupe dans Azure AD. Donnez-lui un bon nom et vérifiez que le **Type d’appartenance** est **Utilisateur dynamique**.
 

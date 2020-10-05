@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74979000"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438940"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory : Journal des modifications de l’API .NET
 > [!NOTE]
@@ -75,7 +75,7 @@ Ajouts de fonctionnalités :
 ### <a name="feature-additions"></a>Ajouts de fonctionnalités
 * Ajout du nouveau type StorageFormat [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) pour copier des fichiers au format ORC (Optimized Row Columnar).
 * Ajout des propriétés [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) et PolyBaseSettings à SqlDWSink.
-  * Permet l’utilisation de PolyBase pour copier des données dans SQL Data Warehouse.
+  * Permet l’utilisation de PolyBase pour copier des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 ## <a name="version-461"></a>Version 4.6.1
 ### <a name="bug-fixes"></a>Correctifs de bogues
@@ -181,5 +181,5 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 * **Listee** renvoie uniquement le résumé d’un pipeline au lieu des détails complets. Par exemple, les activités d’un résumé de pipeline ne contiennent que le nom et le type.
 
 ### <a name="feature-additions"></a>Ajouts de fonctionnalités
-* La classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) prend en charge deux nouvelles propriétés, **SliceIdentifierColumnName** et **SqlWriterCleanupScript**, pour prendre en charge la copie idempotent vers Azure SQL Data Warehouse. Voir l’article [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) pour plus d’informations sur ces propriétés.
-* Nous prenons désormais en charge l'exécution d’une procédure stockée avec des sources Azure SQL Database et Azure SQL Data Warehouse dans le cadre de l'activité de copie. Les classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) et [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) comportent les propriétés suivantes : **SqlReaderStoredProcedureName** et **StoredProcedureParameters**. Pour plus d’informations sur ces propriétés, consultez les articles [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) et [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) sur Azure.com.  
+* La classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) prend en charge deux nouvelles propriétés, **SliceIdentifierColumnName** et **SqlWriterCleanupScript**, pour prendre en charge la copie idempotente vers Azure Synapse Analytics. Pour plus d’informations sur ces propriétés, consultez l’article relatif à [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md).
+* Nous prenons désormais en charge l’exécution d’une procédure stockée sur des sources Azure SQL Database et Azure Synapse Analytics dans le cadre de l’activité de copie. Les classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) et [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) comportent les propriétés suivantes : **SqlReaderStoredProcedureName** et **StoredProcedureParameters**. Pour plus d’informations sur ces propriétés, consultez les articles relatifs à [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) et [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) sur Azure.com.  

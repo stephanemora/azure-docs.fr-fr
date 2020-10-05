@@ -3,12 +3,12 @@ title: Gérer les stratégies de laboratoire dans Azure DevTest Labs | Microsoft
 description: Apprenez à définir des stratégies de laboratoire telles que les tailles de machine virtuelle, le nombre maximal de machines virtuelles par utilisateur et l’arrêt automatique.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290420"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530350"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
 
@@ -105,7 +105,7 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
 1. Dans le volet **Configuration et stratégies** du laboratoire, sélectionnez **Démarrage automatique**.
    
-    ![Démarrage automatique](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![La capture d’écran montre les options de démarrage automatique pour une machine virtuelle.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 

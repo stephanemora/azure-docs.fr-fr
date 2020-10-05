@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056381"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500128"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
@@ -63,7 +63,7 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 ## <a name="production-deployment-considerations"></a>Points à prendre en considération pour le déploiement de production
 
 ### <a name="access-token"></a>Access token (Jeton d’accès)
-Sans un jeton d’accès valide, une passerelle auto-hébergée ne peut pas accéder aux données de configuration ni les télécharger à partir du point de terminaison du service Gestion des API associé. Le jeton d’accès reste valide pendant un maximum de 30 jours. Le jeton doit être regénéré, et le cluster doit être configuré avec un nouveau jeton, manuellement ou via l’automatisation, avant son expiration. 
+Sans un jeton d’accès valide, une passerelle auto-hébergée ne peut pas accéder aux données de configuration ni les télécharger à partir du point de terminaison du service Gestion des API associé. Le jeton d’accès reste valide pendant un maximum de 30 jours. Le jeton doit être regénéré, et le cluster doit être configuré avec un nouveau jeton, manuellement ou via l’automatisation, avant son expiration.
 
 Lorsque vous automatisez l’actualisation des jetons, utilisez cette [opération d’API de gestion](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) pour générer un nouveau jeton. Pour plus d’informations sur la gestion des secrets Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
@@ -106,6 +106,9 @@ La résolution de noms DNS joue un rôle essentiel dans la capacité d’une pa
 Le fichier YAML fourni dans le Portail Azure applique la stratégie [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) par défaut. Cette stratégie entraîne le transfert des requêtes de résolution de noms non résolues par le DNS du cluster au serveur DNS en amont hérité du nœud.
 
 Pour en savoir plus sur la résolution de noms dans Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Envisagez de personnaliser la [stratégie DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) ou la [configuration DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) en fonction de votre configuration.
+
+### <a name="external-traffic-policy"></a>Stratégie de trafic externe
+Le fichier YAML fourni dans le portail Azure définit le champ `externalTrafficPolicy` de l’objet [Service](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) sur `Local`. Cela préserve l’adresse IP de l’appelant (accessible dans le [contexte de la demande](api-management-policy-expressions.md#ContextVariables)) et désactive l’équilibrage de charge entre les nœuds, éliminant ainsi les tronçons réseau qui en découlent. Sachez que ce paramètre peut entraîner une distribution asymétrique du trafic dans les déploiements avec un nombre inégal de pods de passerelle par nœud.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Noms de domaine personnalisés et certificats SSL
 

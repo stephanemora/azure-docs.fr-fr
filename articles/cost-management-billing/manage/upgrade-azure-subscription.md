@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7223d33f8f26897d24841f84454405f91cf3bc49
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308858"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Mettre à niveau votre compte gratuit Azure ou votre compte Azure for Students Starter
 
@@ -80,4 +80,4 @@ Si vous êtes éligible, suivez les étapes ci-dessous pour effectuer la mise à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez mis à niveau votre compte, consultez [Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure](getting-started.md).
+À présent que vous avez mis à niveau votre compte, consultez [Planifier la gestion des coûts Azure](../understand/plan-manage-costs.md).

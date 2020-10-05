@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224915"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526899"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure Multi-Factor Authentication avec des applications héritées à l’aide de mots de passe d’application
 
-Certaines applications, comme Office 2010 ou antérieur, et Apple Mail avant iOS 11, ne prennent pas en charge l’authentification multifacteur. Les applications ne sont pas configurées pour accepter une forme secondaire d’authentification ou d’invite. Pour utiliser ces applications de façon sécurisée avec Azure Multi-Factor Authentication activée pour les comptes d’utilisateur, vous pouvez utiliser des mots de passe d’application. Ces mots de passe d’application ont remplacé votre mot de passe traditionnel pour permettre à une application de contourner l’authentification multifacteur et de fonctionner correctement.
+Certaines applications plus anciennes qui n’utilisent pas de navigateur, comme Office 2010 ou une version antérieure et Apple Mail avant iOS 11, ne comprennent pas les pauses ou les interruptions dans le processus d’authentification. Si un utilisateur a activé Azure Multi-Factor Authentication et tente d’utiliser l’une de ces anciennes applications sans navigateur, il ne peut pas s’authentifier correctement. Pour utiliser ces applications de façon sécurisée avec Azure Multi-Factor Authentication activée pour les comptes d’utilisateur, vous pouvez utiliser des mots de passe d’application. Ces mots de passe d’application ont remplacé votre mot de passe traditionnel pour permettre à une application de contourner l’authentification multifacteur et de fonctionner correctement.
 
 L’authentification moderne est prise en charge pour les clients Microsoft Office 2013 et versions ultérieures. Les clients Office 2013, y compris Outlook, prennent en charge des protocoles d’authentification moderne et peuvent être activés pour fonctionner dans le cadre de la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client.
 

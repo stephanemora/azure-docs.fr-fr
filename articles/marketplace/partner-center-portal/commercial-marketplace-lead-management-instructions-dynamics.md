@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120371"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030750"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer des auto
 
 * Droits d’administrateur sur votre instance Dynamics 365 Customer Engagement pour pouvoir installer une solution.
 * Droits d’administrateur de locataire pour créer un compte pour le service utilisé afin d’envoyer des prospects à partir des offres de marketplace commercial.
-* Accès au portail d’administration Office 365.
+* Accès au portail d’administration.
 * Accès au Portail Azure.
 
 ## <a name="install-the-solution"></a>Installer la solution

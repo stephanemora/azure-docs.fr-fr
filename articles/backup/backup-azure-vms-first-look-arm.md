@@ -3,12 +3,12 @@ title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la m
 description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531844"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667508"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -76,7 +76,7 @@ Pour sauvegarder des machines virtuelles Azure, le service Sauvegarde Azure inst
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Sauvegarder à partir du coffre Recovery Services
 
-Suivez les instructions de cet article pour activer la sauvegarde des machines virtuelles Azure en configurant un coffre Recovery Services Sauvegarde Azure et en activant la sauvegarde dans le coffre.
+Suivez les instructions de [cet article](backup-azure-arm-vms-prepare.md) pour activer la sauvegarde des machines virtuelles Azure en configurant un coffre Recovery Services Sauvegarde Azure et en activant la sauvegarde dans le coffre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

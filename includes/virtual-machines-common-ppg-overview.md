@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422189"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89569977"
 ---
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
 
@@ -34,7 +34,7 @@ Le groupe de placements de proximité est un regroupement logique utilisé pour 
 
 Un groupe de placement de proximité est un nouveau type de ressource dans Azure. Vous devez en créer un avant de l’utiliser avec d’autres ressources. Une fois créé, il peut être utilisé avec des machines virtuelles, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques. Vous spécifiez un groupe de placement de proximité lors de la création de ressources de calcul fournissant l’ID de groupe de placement de proximité. 
 
-Vous pouvez également déplacer une ressource existante dans un groupe de placement de proximité. Lors du déplacement d’une ressource vers un groupe de placement de proximité, vous devez commencer par arrêter (désallouer) la ressource, car elle pourrait être redéployée dans un autre centre de données de la région afin de satisfaire à la contrainte de colocalisation. 
+Vous pouvez également déplacer une ressource existante dans un groupe de placement de proximité. Lors du déplacement d’une ressource vers un groupe de placement de proximité, vous devez commencer par arrêter (libérer) la ressource, car elle pourrait être redéployée dans un autre centre de données de la région afin de satisfaire à la contrainte de colocalisation. 
 
 Dans le cas des groupes à haute disponibilité et de groupes de machines virtuelles identiques, vous devez définir le groupe de placement de proximité au niveau de la ressource plutôt que sur les machines virtuelles individuelles. 
 

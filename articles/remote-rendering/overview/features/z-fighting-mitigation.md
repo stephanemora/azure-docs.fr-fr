@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013178"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024364"
 ---
 # <a name="z-fighting-mitigation"></a>Atténuation du Z-fighting
 
@@ -21,9 +21,9 @@ Lorsque deux surfaces se chevauchent, il n’est pas évident de savoir laquelle
 
 |Situation                        | Résultats                               |
 |---------------------------------|:-------------------------------------|
-|Z-fighting normal               |![Z-fighting](./media/zfighting-0.png)|
-|Atténuation du z-fighting activée    |![Z-fighting](./media/zfighting-1.png)|
-|Mise en surbrillance du damier activée|![Z-fighting](./media/zfighting-2.png)|
+|Z-fighting normal               |![Aucune priorité déterministe entre les quads rouge et vert](./media/zfighting-0.png)|
+|Atténuation du z-fighting activée    |![Le quad rouge a la priorité](./media/zfighting-1.png)|
+|Mise en surbrillance du damier activée|![Préférence de basculement entre les quads rouge et vert dans le modèle de damier](./media/zfighting-2.png)|
 
 Le code suivant permet l’atténuation du z-fighting :
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > L’atténuation du z-fighting est un paramètre global qui influe sur tous les maillages affichés.
 
@@ -76,6 +75,11 @@ L’atténuation du z-fighting est la meilleure solution dont nous disposons. Il
 
 * L’activation de l’atténuation du z-fighting entraîne peu voire pas de surcharge de performances.
 * De plus, l’activation de la superposition du z-fighting entraîne bien une surcharge de performances non négligeable, même si elle peut varier en fonction de la scène.
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [RemoteManager.ZFightingMitigationSettings, propriété C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [RemoteManager::ZFightingMitigationSettings(), C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

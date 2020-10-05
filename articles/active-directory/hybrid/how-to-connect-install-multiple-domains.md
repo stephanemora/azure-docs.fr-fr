@@ -1,6 +1,6 @@
 ---
 title: Domaines multiples Azure AD Connect
-description: Ce document décrit la définition et la configuration de plusieurs domaines de premier niveau avec O365 et Azure AD.
+description: Ce document décrit la définition et la configuration de plusieurs domaines de premier niveau avec Microsoft 365 et Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1607bf1cd6f25f56c6819a2ea3194244e10df8dd
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277535"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662439"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
-La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Office 365 ou Azure AD.
+La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Microsoft 365 ou Azure AD.
 
 ## <a name="multiple-top-level-domain-support"></a>Prise en charge de plusieurs domaines de niveau supérieur
 La fédération de plusieurs domaines de niveau supérieur avec Azure AD nécessite une configuration supplémentaire qui n’est pas requise lors de la fédération avec un domaine de niveau supérieur.
@@ -42,7 +42,7 @@ Vous pouvez afficher IssuerUri à l’aide de la commande PowerShell `Get-MsolDo
 
 Un problème survient lorsque vous ajoutez plusieurs domaines de niveau supérieur.  Par exemple, supposons que vous avez configuré la fédération entre Azure AD et votre environnement local.  Pour ce document, le domaine bmcontoso.com est utilisé.  Un second domaine de premier niveau, bmfabrikam.com, est alors ajouté.
 
-![Domaines](./media/how-to-connect-install-multiple-domains/domains.png)
+![Capture d’écran montrant plusieurs domaines de niveau supérieur](./media/how-to-connect-install-multiple-domains/domains.png)
 
 Lorsque vous essayez de convertir le domaine bmfabrikam.com pour qu’il soit fédéré, une erreur se produit.  La raison de cette erreur tient à une contrainte dans Azure AD qui n’autorise pas IssuerURI à avoir la même valeur pour plusieurs domaines.  
 
@@ -67,7 +67,7 @@ Les paramètres du domaine bmfabrikam.com ressemblent à ce qui suit :
 
 De plus, `-SupportMultipleDomain` s’assure que le système AD FS inclut la valeur Issuer appropriée dans les jetons émis pour Azure AD. Pour définir cette valeur, la partie domaine de l’UPN des utilisateurs est prise et définie en tant que domaine dans issuerURI, c’est-à-dire https://{upn suffix}/adfs/services/trust.
 
-Ainsi, pendant l’authentification auprès d’Azure AD ou Office 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD.  Si aucune correspondance ne peut être trouvée, l’authentification échoue.
+Ainsi, pendant l’authentification auprès d’Azure AD ou de Microsoft 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD. Si aucune correspondance ne peut être trouvée, l’authentification échoue.
 
 Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur `http://bmcontoso.com/adfs/services/trust`. Cet élément correspond à la configuration Azure AD et donc l’authentification réussit.
 

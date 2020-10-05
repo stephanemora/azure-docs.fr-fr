@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fdfdf2012d17b6a9e1bde872a29f740a95b33e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 96485dabd8cfb2ea9e3fb907940fccb05b5baee3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278375"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659341"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory - Suite
 Maintenant que vous avez défini vos exigences et examiné toutes les options pour votre solution de gestion des périphériques mobiles, vous êtes prêt à passer aux étapes suivantes et à déployer l'infrastructure sous-jacente qui vous est adaptée ainsi qu'à votre organisation.
@@ -31,7 +31,7 @@ Les contenus relatifs à la planification conceptuelle et procédurale, au dépl
 
 * [Microsoft System Center](/previous-versions/system-center/developer/cc817313(v=msdn.10)) peuvent vous aider à recueillir et à agréger des informations sur votre infrastructure, les stratégies, les processus et les meilleures pratiques afin que votre personnel informatique puisse créer des systèmes gérables et automatiser les opérations.
 * [Microsoft Intune](/mem/intune/) est un service cloud de gestion des périphériques qui vous aide à gérer vos ordinateurs et périphériques mobiles et à sécuriser les informations de votre société.
-* [GPM pour Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) vous permet de gérer et de sécuriser les périphériques mobiles lorsqu'ils sont connectés à votre organisation Office 365. Vous pouvez utiliser la GPM pour Office 365 afin de définir des règles d'accès et des stratégies de sécurité des périphériques et de réinitialiser les périphériques mobiles s'ils sont perdus ou volés.
+* [GPM pour Microsoft 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) vous permet de gérer et de sécuriser les périphériques mobiles lorsqu’ils sont connectés à votre organisation Microsoft 365. Vous pouvez utiliser la GPM pour Microsoft 365 afin de définir des règles d’accès et des stratégies de sécurité des périphériques et de réinitialiser les périphériques mobiles s’ils sont perdus ou volés.
 
 ## <a name="hybrid-identity-resources"></a>Ressources sur les identités hybrides
 L'analyse des ressources suivantes fournit souvent les dernières actualités et mises à jour des solutions de gestion des périphériques mobiles :

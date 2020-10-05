@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021498"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441933"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -42,7 +42,7 @@ Si la conformité Azure vous intéresse et que vous désirez savoir comment Azur
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
-- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles web tels que FTP et OData. Vous trouverez [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) une liste complète des sources de données prises en charge.
+- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure Synapse Analytics (anciennement SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3 et Amazon Redshift, les services SaaS tels que Salesforce et les protocoles web tels que FTP et OData. Vous trouverez [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) une liste complète des sources de données prises en charge.
 - **Scénario hybride** : dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou au sein d’un réseau d’entreprise local, ou la banque de données se trouve dans un réseau privé/virtuel réseau (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -55,13 +55,13 @@ Azure Data Factory protège les informations d’identification de vos banques d
 Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
 
 > [!NOTE]
-> Toutes les connexions à **Azure SQL Database** et à **Azure SQL Data Warehouse** doivent être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide d’un éditeur JSON, ajoutez la propriété **encryption** et définissez sa valeur sur **true** dans la **chaîne de connexion**. Si vous utilisez [l’Assistant de copie](data-factory-azure-copy-wizard.md), celui-ci définit cette propriété par défaut. Pour le **stockage Azure**, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
+> Toutes les connexions à **Azure SQL Database** et à **Azure Synapse Analytics** doivent toujours être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide d’un éditeur JSON, ajoutez la propriété **encryption** et définissez sa valeur sur **true** dans la **chaîne de connexion**. Si vous utilisez [l’Assistant de copie](data-factory-azure-copy-wizard.md), celui-ci définit cette propriété par défaut. Pour le **stockage Azure**, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
 
 ### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos
 Certaines banques de données prennent en charge le chiffrement des données au repos. Nous vous suggérons d’activer le mécanisme de chiffrement des données pour ces banques de données. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
-Dans Microsoft Azure SQL Data Warehouse, TDE (Transparent Data Encryption) contribue à vous protéger contre les activités malveillantes par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Transparent Data Encryption (TDE) dans Azure Synapse Analytics vous aide à vous protéger contre les menaces d’activités malveillantes, par le biais d’un chiffrement et déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous protège contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
@@ -154,11 +154,11 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 | `*.servicebus.windows.net` | 443, 80 | Requis par la passerelle pour se connecter aux services de déplacement des données dans Data Factory |
 | `*.core.windows.net` | 443 | Utilisé par la passerelle pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité de [copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Requis par la passerelle pour se connecter au service Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (Facultatif) nécessaire lorsque votre destination est Azure SQL Database ou Azure SQL Data Warehouse. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure SQL Data Warehouse sans ouvrir le port 1433. | 
+| `*.database.windows.net` | 1433   | (FACULTATIF) Requis lorsque votre destination est Azure SQL Database ou Azure Synapse Analytics. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure Synapse Analytics sans ouvrir le port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Facultatif) nécessaire lorsque votre destination est Azure Data Lake Store. | 
 
 > [!NOTE] 
-> Vous devrez peut-être gérer les ports/domaines autorisés au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure SQL Data Warehouse et Azure Data Lake Store comme exemples.   
+> Vous devrez peut-être gérer les ports/domaines autorisés au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.   
 
 Le tableau suivant indique les paramètres de **port entrant** requis pour le **pare-feu Windows**.
 
@@ -174,7 +174,7 @@ Pour certaines banques de données hébergées dans le cloud, vous devez autoris
 Les banques de données cloud suivantes requièrent l’autorisation de l’adresse IP de l’ordinateur de passerelle. Il est possible que certaines de ces banques de données ne requièrent pas par défaut l’autorisation des adresses IP. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -185,7 +185,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 **Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.
 
 **Question :** Quels sont les paramètres de port permettant de garantir le bon fonctionnement de la passerelle ?
-**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure Synapse Analytics comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 **Question :** De quels certificats la passerelle a-t-elle besoin ?
 **Réponse :** La passerelle actuelle requiert un certificat utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 

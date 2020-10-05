@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026088"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500298"
 ---
 # <a name="supported-authentication-methods"></a>Méthodes d’authentification prises en charge
 
@@ -43,9 +43,13 @@ Voici les méthodes de connexion actuellement prises en charge :
 >[!NOTE]
 >La carte à puce et Windows Hello peuvent uniquement utiliser Kerberos pour se connecter. La connexion avec Kerberos nécessite une ligne de vue sur le contrôleur de domaine.
 
+## <a name="hybrid-identity"></a>Identité hybride
+
+Windows Virtual Desktop prend en charge les [identités hybrides](../active-directory/hybrid/whatis-hybrid-identity.md) par le biais d’Azure Active Directory (AD), notamment celles fédérées à l’aide des services de fédération Active Directory (AD FS). Comme les utilisateurs doivent pouvoir être découverts via Azure AD, Windows Virtual Desktop ne prend pas en charge les déploiements autonomes d’Active Directory avec AD FS.
+
 ## <a name="single-sign-on-sso"></a>Authentification unique (SSO)
 
-Windows Virtual Desktop ne prend actuellement pas en charge les services de fédération Active Directory (AD FS) pour l’authentification ou l’authentification unique.
+Windows Virtual Desktop ne prend actuellement pas en charge les services de fédération Active Directory (AD FS) pour l’authentification unique.
 
 La seule façon de ne pas être invité à entrer vos informations d’identification pour l’hôte de la session consiste à les enregistrer dans le client. Nous vous recommandons de le faire uniquement avec des appareils sécurisés pour empêcher d’autres utilisateurs d’accéder à vos ressources.
 

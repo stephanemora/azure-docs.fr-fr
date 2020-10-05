@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes courants liés à l’ajout d’une application à Azure Active Directory
-description: Résolvez des problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout d’une application à Azure Active Directory.
+title: Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory
+description: Résolvez des problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout ou de la suppression d’une application dans Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410354"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068028"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Résoudre les problèmes courants liés à l’ajout d’une application à Azure Active Directory
-Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout d’une application à Azure Active Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory
+Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout ou de la suppression d’une application dans Azure Active Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>J’ai cliqué sur le bouton « Ajouter » et l’application a mis beaucoup de temps à s’afficher
 Dans certaines conditions, 1 à 2 minutes (et parfois plus) peuvent être nécessaires pour qu’une application apparaisse après avoir été ajoutée à votre annuaire. Même si ce comportement demeure anormal, vous pouvez visualiser la progression de l’ajout de l’application en cliquant sur l’icône **Notifications** (cloche) dans le coin supérieur droit du [portail Azure](https://portal.azure.com/) et en recherchant la notification **En cours** ou **Terminé** pour le champ **Ajout d’une application.**
@@ -34,6 +34,16 @@ Si vous rencontrez une erreur lorsque vous cliquez sur le bouton **Ajouter**, un
 Si vous avez besoin d’aide pour en savoir plus sur les applications, la [liste des tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) est un bon point de départ.
 
 En outre, la [bibliothèque de documents Applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) vous fournit plus d’informations sur l’authentification unique avec Azure AD et son fonctionnement.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Je souhaite supprimer une application, mais le bouton Supprimer est désactivé
+
+Le bouton Supprimer est désactivé dans les scénarios suivants :
+
+- Pour les applications relevant de l’application d’entreprise, si vous n’avez pas l’un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
+
+- Pour les applications Microsoft, vous ne pourrez pas les supprimer de l’interface utilisateur, quel que soit votre rôle.
+
+- Pour servicePrincipals qui correspond à une identité managée. Les principaux du service d’identités managées ne peuvent pas être supprimés dans le panneau Applications d’entreprise. Vous devez accéder à la ressource Azure pour la gérer. En savoir plus sur l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Comment afficher les détails d’une notification du portail
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :

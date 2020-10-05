@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655872"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596111"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -320,6 +320,7 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 Au niveau du pare-feu Windows ou au niveau de la machine, ces ports de sortie sont normalement activés. Dans le cas contraire, vous pouvez configurer les domaines et les ports sur une machine du runtime d’intégration auto-hébergé.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ Au niveau du pare-feu Windows ou au niveau de la machine, ces ports de sortie so
 
 Assurez-vous de correctement activer les règles de pare-feu sur le pare-feu d’entreprise, le pare-feu Windows de la machine du runtime d’intégration auto-hébergé, ainsi le magasin de données lui-même. Activer ces règles permet au runtime d’intégration auto-hébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour effectuer une copie à partir d’un magasin de données local vers un récepteur SQL Database ou un récepteur Azure SQL Data Warehouse, procédez comme suit :
+Par exemple, pour copier à partir d’un magasin de données local vers un récepteur SQL Database ou un récepteur Azure Synapse Analytics (anciennement SQL Data Warehouse), procédez comme suit :
 
 1. Autorisez le trafic TCP sortant sur le port 1433 pour le pare-feu Windows et le pare-feu d’entreprise.
 1. Configurez les paramètres de pare-feu de la base de données SQL pour ajouter l’adresse IP de la machine du runtime d’intégration auto-hébergé à la liste des adresses IP autorisées.
 
 > [!NOTE]
-> Si votre pare-feu n’autorise pas le port de sortie 1433, le runtime d’intégration auto-hébergé ne peut pas accéder directement à la base de données SQL. Dans ce cas, vous pouvez effectuer une [copie intermédiaire](copy-activity-performance.md) vers SQL Database et SQL Data Warehouse. Dans ce scénario, vous avez uniquement besoin du protocole HTTPS (port 443) pour le déplacement des données.
+> Si votre pare-feu n’autorise pas le port de sortie 1433, le runtime d’intégration auto-hébergé ne peut pas accéder directement à la base de données SQL. Dans ce cas, vous pouvez effectuer une [copie intermédiaire](copy-activity-performance.md) vers SQL Database et Azure Synapse Analytics. Dans ce scénario, vous avez uniquement besoin du protocole HTTPS (port 443) pour le déplacement des données.
 
 ## <a name="proxy-server-considerations"></a>Considérations relatives aux serveurs proxy
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056259"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018592"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -1257,23 +1257,7 @@ Si vous rencontrez des problèmes avec Azure File Sync sur un serveur, commencez
 
 Si le problème n’est pas résolu, exécutez l’outil AFSDiag et envoyez sa sortie au format de fichier .zip à l’ingénieur de support affecté à votre cas pour lui permettre d’effectuer un diagnostic plus approfondi.
 
-Pour les versions de l’agent v11 et ultérieures :
-
-1. Ouvrez une fenêtre PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes (appuyez sur Entrée après chaque commande) :
-
-    > [!NOTE]
-    >AFSDiag crée le répertoire de sortie et un dossier temporaire au sein de celui-ci avant de collecter les journaux, puis supprime le dossier temporaire une fois l’opération terminée. Spécifiez un emplacement de sortie qui ne contient pas de données.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Reproduisez le problème. Quand vous avez terminé, entrez **D**.
-3. Un fichier .zip contenant les journaux d’activité et les fichiers de trace est enregistré dans le répertoire de sortie que vous avez spécifié. 
-
-Pour les versions de l’agent v10 et antérieures :
+Pour exécuter AFSDiag, effectuez les étapes suivantes :
 1. Créez un répertoire où la sortie AFSDiag doit être enregistrée (par exemple, C:\Output).
     > [!NOTE]
     >AFSDiag supprimera tout le contenu du répertoire de sortie avant la collecte des journaux. Spécifiez un emplacement de sortie qui ne contient pas de données.

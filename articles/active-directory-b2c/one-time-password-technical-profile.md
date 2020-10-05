@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385720"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418906"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -77,6 +77,7 @@ Les paramètres suivants peuvent être utilisés pour configurer le mode de gén
 | CodeLength | Non | Longueur du code. La valeur par défaut est `6`. |
 | CharacterSet | Non | Jeu de caractères pour le code, formaté pour être utilisé dans une expression régulière. Par exemple : `a-z0-9A-Z`. La valeur par défaut est `0-9`. Le jeu de caractères doit comprendre un minimum de 10 caractères différents dans le jeu spécifié. |
 | NumRetryAttempts | Non | Nombre de tentatives de vérification avant que le code soit considéré comme non valide. La valeur par défaut est `5`. |
+| NumCodeGenerationAttempts | Non | Nombre maximal de tentatives de génération de code par identificateur. Si elle n’est pas spécifiée, la valeur par défaut est 10. |
 | Opération | Oui | Opération à effectuer. Valeur possible : `GenerateCode`. |
 | ReuseSameCode | Non | Spécifie si un code en double doit être fourni au lieu de générer un nouveau code lorsque le code donné n'a pas expiré et reste valide. La valeur par défaut est `false`. |
 
@@ -94,6 +95,7 @@ L'exemple suivant `TechnicalProfile` est utilisé pour générer un code :
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -143,6 +145,7 @@ Les métadonnées suivantes peuvent être utilisées pour configurer les message
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Non | Message à afficher à l'utilisateur si la session de vérification du code a expiré. Indique soit que le code a expiré, soit que le code n'a jamais été généré pour un identificateur donné. |
 | UserMessageIfMaxRetryAttempted | Non | Message à afficher à l'utilisateur s'il a dépassé les tentatives de vérification maximales autorisées. |
+| UserMessageIfMaxNumberOfCodeGenerated | Non | Message à afficher à l’utilisateur si la génération de code a dépassé le nombre maximal de tentatives autorisé. |
 | UserMessageIfInvalidCode | Non | Message à afficher à l'utilisateur s'il a fourni un code non valide. |
 | UserMessageIfVerificationFailedRetryAllowed | Non | Message à afficher à l’utilisateur s’il a fourni un code non valide et que l’utilisateur est autorisé à fournir le code correct.  |
 |UserMessageIfSessionConflict|Non| Message à afficher à l’utilisateur si le code ne peut pas être vérifié.|

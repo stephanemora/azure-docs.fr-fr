@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086774"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597981"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Créer une définition SAS et récupérer les jetons de signature d’accès partagé dans le code
 
@@ -42,6 +42,9 @@ Une fois la définition SAS créée, vous pouvez récupérer des jetons SAS comm
 Si votre jeton de signature d’accès partagé arrive à expiration, vous pouvez récupérer le même secret pour en générer un nouveau.
 
 Vous obtenez des instructions sur l’utilisation d’un jeton SAS récupéré à partir de Key Vault pour accéder aux services de stockage Azure en consultant [Utiliser une signature d’accès partagé de compte pour accéder au service BLOB.](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> Votre application doit être préparée à l’actualisation de la SAP si elle reçoit du stockage une erreur 403, afin de pouvoir gérer le cas où une clé a été compromise de sorte que vous devez opérer une rotation de clé avant la fin de la période de rotation normale. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [Accorder un accès limité aux ressources du Stockage Azure à l’aide des SAS](../../storage/common/storage-sas-overview.md).

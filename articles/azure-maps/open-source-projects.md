@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815689"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090514"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -29,13 +29,19 @@ La liste suivante répertorie quelques-uns des exemples et des projets open sour
 | [Bot Framework - Compétence point d’intérêt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La compétence point d’intérêt fournit des fonctionnalités POI à un assistant virtuel à l’aide d’Azure Maps avec Azure Bot Service et Bot Framework. |
 | [Emplacement de BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Contrôle de sélecteur d’emplacement open source pour Microsoft Bot Framework optimisé par les services REST Bing Maps. |
 
+<a name="open-web-sdk-modules"></a>
+
 **Ouvrir les modules SDK web**
 
 La liste suivante répertorie les projets open source qui étendent les fonctionnalités du kit de développement logiciel (SDK) web Azure Maps.
 
 | Nom du projet | Description |
 |-|-|
-| [Module d’animation Azure Maps](https://github.com/Azure-Samples/azure-maps-animations)| Bibliothèque complète d’animations à utiliser avec le kit de développement logiciel (SDK) web Azure Maps. |
+| [Module d’animation Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Bibliothèque complète d’animations à utiliser avec le kit de développement logiciel (SDK) web Azure Maps. |
+| [Module de contrôle de la géolocalisation Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit un contrôle utilisant l’API de géolocalisation du navigateur pour localiser l’utilisateur sur la carte. |
+| [Module de contrôle du plein écran Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit un contrôle permettant d’afficher la carte en mode plein écran. |
+| [Module de contrôle de la sélection Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit des contrôles permettant de sélectionner des données dans une source de données à l’aide d’outils de dessin ou en demandant un polygone de zone d’itinéraire. |
+| [Module de synchronisation de carte Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Module du Kit de développement logiciel (SDK) web Azure Maps qui synchronise les caméras d’au moins deux cartes. |
 | [Module IU des services Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Ensemble de contrôles d’interface utilisateur web qui incluent dans un wrapper les services REST Azure Maps. |
 
 **Exemples**

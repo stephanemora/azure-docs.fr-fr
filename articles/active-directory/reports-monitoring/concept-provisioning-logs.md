@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229869"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469862"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -99,7 +99,7 @@ Dans l'affichage par défaut, vous pouvez sélectionner les filtres suivants :
 - Action
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filtrer")
+![Ajouter des filtres](./media/concept-provisioning-logs/default-filter.png "Filtrer")
 
 Le filtre **Identité** vous permet de spécifier le nom ou l’identité qui vous intéresse. Cette identité peut être un utilisateur, un groupe, un rôle ou un autre objet. Vous pouvez effectuer une recherche par nom ou ID de l’objet. L’ID varie selon le scénario. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers SalesForce, l’ID source est l’ID d’objet de l’utilisateur dans Azure AD, tandis qu’IDCible est l’ID de l’utilisateur dans Salesforce. Lors de l’approvisionnement de Workday vers Active Directory, l’ID source est l’ID employé du travailleur Workday. Notez qu’il se peut que le nom de l’utilisateur ne soit pas toujours présent dans la colonne d’identité. Il y aura toujours un ID. 
 
@@ -175,7 +175,7 @@ Les détails sont regroupés en fonction des catégories suivantes :
 - Résumé
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Onglets")
+![Détails de l’approvisionnement](./media/concept-provisioning-logs/provisioning-tabs.png "Onglets")
 
 
 
@@ -190,7 +190,7 @@ L’onglet **Étapes** présente les étapes nécessaires pour approvisionner un
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtrer")
+![Étapes](./media/concept-provisioning-logs/steps.png "Filtrer")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Résolution des problèmes et recommandations
@@ -214,11 +214,13 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 
 - Vous pouvez utiliser l’attribut Changer l’ID comme identificateur unique. C’est, par exemple, utile lors de l’interaction avec le support technique.
 
-- Il n’existe actuellement aucune option pour télécharger les données d’approvisionnement.
+- Il n’existe actuellement aucune option permettant de télécharger les données de configuration en tant que fichier CSV, mais vous pouvez exporter les données à l’aide de [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Il n’existe actuellement aucun support pour Log Analytics.
 
 - Vous pouvez voir des événements ignorés pour les utilisateurs qui ne sont pas dans l’étendue. Cela est prévu, en particulier lorsque l’étendue de synchronisation est définie sur tous les utilisateurs et groupes. Notre service évalue tous les objets du locataire, y compris ceux qui sont en dehors de l’étendue. 
+
+- Les journaux d’approvisionnement ne sont actuellement pas disponibles dans le cloud Government. Si vous ne parvenez pas à accéder aux journaux d’approvisionnement, utilisez les journaux d’audit comme solution temporaire de contournement.  
 
 ## <a name="error-codes"></a>Codes d’erreur
 
@@ -244,6 +246,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreu
 |DuplicateSourceEntries | L’opération n’a pas pu aboutir car plusieurs utilisateurs ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double ou reconfigurez vos mappages d’attributs comme décrit [ici](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Lors de l'évaluation de chaque utilisateur, nous essayons d'importer celui-ci à partir du système source. Cette erreur se produit généralement lorsque la propriété correspondante n'a pas été attribuée à l'utilisateur importé dans vos mappages d'attributs. En l'absence de valeur sur l'objet utilisateur pour l'attribut correspondant, nous ne pouvons pas évaluer l'étendue et la correspondance, ni exporter les modifications. Remarque : la présence de cette erreur n'indique pas que l'utilisateur se trouve dans l'étendue car nous n'avons pas encore évalué l'étendue de l'utilisateur.|
 |EntrySynchronizationSkipped | Le service d'approvisionnement a interrogé le système source et identifié l'utilisateur. Aucune autre mesure n'a été prise à l'égard de l'utilisateur et il a été ignoré. L'omission peut être due au fait que l'utilisateur est hors étendue, ou qu'il figure déjà dans le système cible et qu'aucune autre modification n'est nécessaire.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Lors de l’exécution d’une requête GET pour récupérer un utilisateur ou un groupe, nous avons reçu plusieurs utilisateurs ou groupes dans la réponse. Nous nous attendions à ne recevoir qu’un seul utilisateur ou groupe dans la réponse. Si, [par exemple](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), nous effectuons une requête GET pour récupérer un groupe et fournir un filtre permettant d’exclure des membres et que votre point de terminaison SCIM retourne les membres, nous lèverons cette erreur.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

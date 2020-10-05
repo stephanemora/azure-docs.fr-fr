@@ -6,12 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255215"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564098"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions pour un déploiement sur le service Kubernetes
 
@@ -56,7 +56,7 @@ Suivez les étapes de configuration des secrets :
 
 1. Dans [GitHub](https://github.com/), accédez à votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
-    ![secrets](media/kubernetes-action/secrets.png)
+    ![La capture d’écran montre le lien Ajouter un nouveau secret pour un référentiel.](media/kubernetes-action/secrets.png)
 
 2. Collez le contenu de la commande `az cli` ci-dessus en tant que valeur de la variable secrète. Par exemple : `AZURE_CREDENTIALS`.
 
@@ -67,7 +67,7 @@ Suivez les étapes de configuration des secrets :
 
 4. Vous verrez les secrets comme indiqué ci-dessous une fois qu’il seront définis.
 
-    ![kubernetes-secrets](media/kubernetes-action/kubernetes-secrets.png)
+    ![Capture d’écran montrant les secrets existants pour un référentiel.](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Créer une image conteneur et la déployer dans un cluster Azure Kubernetes Service
 

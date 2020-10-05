@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371403"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
-Cet article présente les étapes principales utilisées pour transférer des abonnements Azure vers et à partir des partenaires fournisseurs de solutions cloud (CSP) et leurs clients.
+Cet article présente les étapes principales utilisées pour transférer des abonnements Azure vers et à partir des partenaires fournisseurs de solutions cloud (CSP) et leurs clients. Les informations fournies ici sont destinées à l’abonné Azure pour l’aider à se coordonner avec son partenaire. Les informations que les partenaires Microsoft utilisent pour le processus de transfert figurent dans la section [Découvrez comment transférer les abonnements Azure d’un client à un autre partenaire](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transférer des abonnements EA à un partenaire CSP
 
@@ -38,7 +38,7 @@ Pour transférer tout autre abonnement Azure à un partenaire CSP, l’abonné d
     > [!IMPORTANT]
     > - Lorsque vous associez un abonnement à un autre annuaire Azure AD, les utilisateurs possédant des rôles attribués à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
     > - Les attributions de stratégie sont également supprimées d’un abonnement lorsque celui-ci est associé à un autre répertoire.
-1. Le compte d’utilisateur que vous utilisez pour effectuer le transfert doit disposer de l’accès [RBAC](add-change-subscription-administrator.md) propriétaire aux deux abonnements.
+1. Le compte d’utilisateur que vous utilisez pour effectuer le transfert doit disposer d’un accès propriétaire de [RBAC Azure](add-change-subscription-administrator.md) aux deux abonnements.
 1. Avant de commencer, [validez](/rest/api/resources/resources/validatemoveresources) le fait que toutes les ressources Azure peuvent être déplacées de l’abonnement source à l’abonnement de destination.  
     Certaines ressources Azure ne peuvent pas être déplacées entre des abonnements. Pour afficher la liste complète des ressources Azure qui peuvent être déplacées, consultez [Prise en charge des opérations de déplacement pour les ressources](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offr
     Notez que l’annuaire à changer n’est pas celui de l’abonnement CSP. Par exemple, vous passez d’un abonnement CSP à un abonnement avec paiement à l’utilisation. Vous devez changer l’annuaire de l’abonnement Paiement à l’utilisation pour qu’il corresponde à l’annuaire CSP.
 
     > [!IMPORTANT]
-    >  - Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
+    >  - Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [RBAC Azure](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
     >  - Les attributions de stratégie sont également supprimées d’un abonnement lorsque celui-ci est associé à un autre répertoire.
 
-1. Le compte d’utilisateur que vous utilisez pour effectuer le transfert doit disposer de l’accès [RBAC](add-change-subscription-administrator.md) propriétaire aux deux abonnements.
+1. Le compte d’utilisateur que vous utilisez pour effectuer le transfert doit disposer d’un accès propriétaire de [RBAC Azure](add-change-subscription-administrator.md) aux deux abonnements.
 1. Avant de commencer, [validez](/rest/api/resources/resources/validatemoveresources) le fait que toutes les ressources Azure peuvent être déplacées de l’abonnement source à l’abonnement de destination.
     > [!IMPORTANT]
     >  - Certaines ressources Azure ne peuvent pas être déplacées entre des abonnements. Pour afficher la liste complète des ressources Azure qui peuvent être déplacées, consultez [Prise en charge des opérations de déplacement pour les ressources](../../azure-resource-manager/management/move-support-resources.md).

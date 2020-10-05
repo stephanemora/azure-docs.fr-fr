@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021831"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613798"
 ---
 # <a name="remote-rendering-sessions"></a>Sessions Remote Rendering
 
@@ -146,6 +146,15 @@ La durée de vie d’une machine virtuelle n’est pas liée à l’instance `Az
 L’ID de session persistant peut être demandé avec `AzureSession.SessionUUID()` et mis en cache localement. Avec cet ID, une application peut appeler `AzureFrontend.OpenSession` pour se lier à cette session.
 
 Quand `AzureSession.IsConnected` a la valeur true, `AzureSession.Actions` retourne une instance de `RemoteManager`, qui contient les fonctions permettant de [charger des modèles](models.md), de manipuler des [entités](entities.md) et de [demander des informations](../overview/features/spatial-queries.md) sur la scène rendue.
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [AzureSession, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [AzureFrontend.CreateNewRenderingSessionAsync(), C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [AzureFrontend.OpenRenderingSession(), C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [AzureSession, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [AzureFrontend::CreateNewRenderingSessionAsync, C++](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [AzureFrontend::OpenRenderingSession, C++](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

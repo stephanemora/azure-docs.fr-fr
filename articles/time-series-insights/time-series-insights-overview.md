@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020523"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597821"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Qu’est-ce qu’Azure Time Series Insights Gen1 ?
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Azure Time Series Insights est conçu pour stocker, visualiser et interroger de grandes quantités de données de série chronologique, comme celles générées par les appareils IoT. Si vous souhaitez stocker, gérer, interroger ou visualiser des données de série chronologique dans le cloud, Azure Time Series Insights est probablement la solution que vous cherchez.
 
@@ -59,7 +62,7 @@ Comme Azure Time Series Insights capture et stocke chaque nouvel événement sou
 
 - Obtenir une vue globale des données de série chronologique qui affluent d’emplacements différents pour la comparaison de plusieurs ressources ou sites.
 
-   Vous pouvez vous connecter à plusieurs sources d’événements dans un environnement d’Azure Time Series Insights. De cette façon, vous pouvez, quasiment en temps réel, afficher ensemble les données qui affluent de plusieurs emplacements. Les utilisateurs peuvent tirer parti de ce niveau de visibilité pour partager des données avec les responsables commerciaux. Ils peuvent mieux collaborer avec des experts du domaine qui peuvent appliquer leur expertise pour aider à résoudre les problèmes, appliquer les bonnes pratiques et partager des retours.
+   Vous pouvez vous connecter plusieurs sources d’événements à un environnement Azure Time Series Insights. De cette façon, vous pouvez, quasiment en temps réel, afficher ensemble les données qui affluent de plusieurs emplacements. Les utilisateurs peuvent tirer parti de ce niveau de visibilité pour partager des données avec les responsables commerciaux. Ils peuvent mieux collaborer avec des experts du domaine qui peuvent appliquer leur expertise pour aider à résoudre les problèmes, appliquer les bonnes pratiques et partager des retours.
 
 - Générer une application client sur la base d’Azure Time Series Insights.
 

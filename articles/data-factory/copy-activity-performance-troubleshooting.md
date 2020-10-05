@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770949"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440522"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -179,7 +179,7 @@ Voici des références relatives au monitoring et au réglage des performances p
 * Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../storage/blobs/storage-performance-checklist.md).
 * Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
-* Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Synapse Analytics (anciennement SQL Data Warehouse) : Sa capacité est mesurée en DWU (Data Warehouse Units). Voir [Gérer la puissance de calcul dans Azure Synapse Analytics (présentation)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx).

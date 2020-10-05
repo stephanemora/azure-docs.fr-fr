@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521261"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023786"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -138,7 +138,7 @@ L’élément **JourneyInsights** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | TelemetryEngine | Oui | La valeur doit être `ApplicationInsights`. |
 | InstrumentationKey | Oui | Chaîne qui contient la clé d’instrumentation pour l’élément application insights. |
-| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre convient pour le développement, mais il est limité à des volumes élevés. Les journaux d’activité détaillés sont conçues pour aider au développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
+| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre est adapté au développement, mais restreint à des volumes élevés. Les journaux d’activité détaillés sont conçus uniquement pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
 | ClientEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le script côté client Application Insights pour le suivi des affichages de page et des erreurs côté client. |
 | ServerEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. |
 | TelemetryVersion | Oui | La valeur doit être `1.0.0`. |
@@ -198,7 +198,12 @@ Quand le protocole est `SAML`, un élément metadata contient les éléments sui
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | Non | Indique si le flux initié par IDP est pris en charge. Valeurs possibles : `true` ou `false` (par défaut). | 
 | XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la réponse SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. Pour configurer l’assertion SAML, consultez les [métadonnées du profil technique de l’émetteur SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | Non | Indique la méthode utilisée par Azure AD B2C pour chiffrer les données, à l’aide de l’algorithme Advanced Encryption Standard (AES). Les métadonnées contrôlent la valeur de l’élément `<EncryptedData>` dans la réponse SAML. Valeurs possibles : `Aes256` (par défaut), `Aes192`, `Sha512`, ou ` Aes128`. |
+| KeyEncryptionMethod| Non | Indique la méthode utilisée par Azure AD B2C pour chiffrer la copie de la clé qui a été utilisée pour chiffrer les données. Les métadonnées contrôlent la valeur de l’élément `<EncryptedKey>` dans la réponse SAML. Valeurs possibles : ` Rsa15` (par défaut), algorithme PKCS (Public Key Cryptography standard) RSA version 1.5 ; ` RsaOaep`, algorithme de chiffrement OAEP (Optimal Asymmetric Encryption Padding) RSA. |
+| UseDetachedKeys | Non |  Valeurs possibles : `true` ou `false` (par défaut). Lorsque la valeur est définie sur `true`, Azure AD B2C modifie le format des assertions chiffrées. L’utilisation de clés détachées ajoute l’assertion chiffrée comme enfant d’EncrytedAssertion, par opposition à EncryptedData. |
+| WantsSignedResponses| Non | Indique si Azure AD B2C signe la section `Response` de la réponse SAML. Valeurs possibles : `true` (par défaut) ou `false`.  |
 
 ### <a name="outputclaims"></a>OutputClaims
 

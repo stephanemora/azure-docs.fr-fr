@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006293"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506625"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -274,6 +274,35 @@ Une fois l’opération terminée, elle retourne 200 (OK) avec le contenu de l�
 
 Cela confirme que la protection est activée pour la machine virtuelle et que la première sauvegarde est déclenchée conformément à la planification de la stratégie.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Exclusion de disques dans la sauvegarde de la machine virtuelle Azure
+
+Sauvegarde Azure offre également un moyen de sauvegarder de manière sélective un sous-ensemble de disques dans une machine virtuelle Azure. Des informations supplémentaires sont fournies [ici](selective-disk-backup-restore.md). Si vous souhaitez sauvegarder de manière sélective quelques disques pendant l’activation de la protection, l’extrait de code suivant doit être le [corps de la demande lors de l’activation de la protection](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+Dans le corps de la demande ci-dessus, la liste des disques à sauvegarder est fournie dans la section Propriétés étendues.
+
+|Propriété  |Valeur  |
+|---------|---------|
+|diskLunList     | La liste LUN de disques est une liste de *numéros d’unités logiques de disques de données*. **Le disque du système d’exploitation est toujours sauvegardé et n’a pas besoin d’être mentionné**.        |
+|IsInclusionList     | Doit être **true** pour que les numéros d’unités logiques soient inclus lors de la sauvegarde. Si la valeur est **false**, les numéros d’unités logiques susmentionnés seront exclus.         |
+
+Par conséquent, si la nécessité est de sauvegarder uniquement le disque du système d’exploitation, _tous_ les disques de données doivent être exclus. Un moyen plus simple consiste à indiquer qu’aucun disque de données ne doit être inclus. Par conséquent, la liste des numéros d’unités logiques de disques est vide et la propriété **IsInclusionList** est **true**. De même, réfléchissez à la manière la plus simple de sélectionner un sous-ensemble : certains disques doivent être toujours exclus ou d’autres doivent toujours être inclus. Choisissez la liste de numéros d’unités logiques et la valeur de la variable booléenne en conséquence.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Déclencher une sauvegarde à la demande pour une machine virtuelle Azure protégée
 
 Après configuration d'une machine virtuelle Azure pour la sauvegarde, les sauvegardes sont effectuées conformément à la planification de la stratégie. Vous pouvez attendre la première sauvegarde planifiée ou déclencher une sauvegarde à la demande à tout moment. La conservation des sauvegardes de la demande se distingue de la conservation de la stratégie de sauvegarde et peut être spécifiée à une date/heure précise. Si elle n’est pas indiquée, elle est supposée être de 30 jours à partir du jour du déclenchement de la sauvegarde à la demande.
@@ -389,7 +418,7 @@ Comme le travail de sauvegarde est une opération longue, il doit être suivi co
 
 Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple : Pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la requête.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vo
 ```
 
 La réponse suivra le même format que celui mentionné [pour l’activation de la protection](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Exclusion de disques pendant la protection de la machine virtuelle Azure
+
+Si la machine virtuelle Azure est déjà sauvegardée, vous pouvez spécifier la liste des disques à sauvegarder ou à exclure en modifiant la stratégie de protection. Préparez simplement la demande dans le même format que [l’exclusion de disques pendant l’activation de la protection](#excluding-disks-in-azure-vm-backup).
+
+> [!IMPORTANT]
+> Le corps de la demande ci-dessus est toujours la copie finale des disques de données à exclure ou à inclure. Cela n’*ajoute* rien à la configuration précédente. Par exemple : si vous mettez d’abord à jour la protection avec « Exclure le disque de données 1 », puis répétez l’opération avec « Exclure le disque de données 2 », *seul le disque de données 2 est exclu* dans les sauvegardes suivantes, et le disque de données 1 sera inclus. C’est toujours la dernière liste qui sera incluse/exclue dans les sauvegardes ultérieures.
+
+Pour récupérer la liste actuelle des disques qui sont exclus ou inclus, récupérez les informations relatives aux éléments protégés comme indiqué [ici](https://docs.microsoft.com/rest/api/backup/protecteditems/get). La réponse fournira la liste des numéros d’unités logiques de disques de données et indiquera s’ils sont inclus ou exclus.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrêter la protection tout en conservant les données existantes
 

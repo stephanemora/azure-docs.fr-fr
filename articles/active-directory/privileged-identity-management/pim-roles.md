@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782479"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056283"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Rôles que vous ne pouvez pas gérer dans Privileged Identity Management
 
@@ -35,9 +35,9 @@ Vous ne pouvez pas gérer les rôles d’administrateur d’abonnements classiqu
 
 Pour plus d’informations sur les rôles d’administrateur d’abonnements classiques, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="what-about-office-365-admin-roles"></a>Rôles d’administrateur Office 365
+## <a name="what-about-microsoft-365-admin-roles"></a>Qu’en est-il des rôles d’administrateur Microsoft 365 ?
 
-Nous prenons en charge tous les rôles Office 365 dans l’expérience de portail Rôles et administrateurs Azure AD, tels que l’administrateur Exchange et l’administrateur SharePoint, mais nous ne prenons pas en charge les rôles spécifiques dans les sessions RBAC Exchange ou RBAC SharePoint. Pour plus d’informations sur ces services Office 365, consultez [Rôles d’administrateur Office 365](/office365/admin/add-users/about-admin-roles).
+Nous prenons en charge tous les rôles Microsoft 365 dans l’expérience de portail Rôles et administrateurs Azure AD, tels que l’administrateur Exchange et l’administrateur SharePoint, mais nous ne prenons pas en charge les rôles spécifiques dans les sessions RBAC Exchange ou RBAC SharePoint. Pour plus d’informations sur ces services Microsoft 365, consultez [Rôles d’administrateur Microsoft 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Utilisateurs éligibles pour le rôle d’administrateur SharePoint, le rôle d’administrateur de périphériques, ainsi que tous les rôles tentant d’accéder au Centre de sécurité et de conformité Microsoft peuvent rencontrer des retards pouvant atteindre plusieurs heures après l’activation de leur rôle. Nous travaillons en collaboration avec ces équipes pour résoudre les problèmes.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855774"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030795"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -38,7 +38,7 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
 
 1. Sur la **page d'accueil** du portail Azure, sélectionnez **Voir toutes vos ressources** pour accéder à votre compte de stockage. Vous pouvez également sélectionner **Toutes les ressources** dans la barre de menu de gauche du portail Azure.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Accéder à votre compte de stockage Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Procédure de création d'un compte de stockage Azure.":::
 
 1. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès**, puis copiez la valeur **Chaîne de connexion** pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de **Chaîne de connexion de compte de stockage** que vous devrez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché Azure.
 
@@ -48,7 +48,7 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Clé de stockage Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Procédure de création d'un compte de stockage Azure.":::
 
 
 1. Dans le volet de votre compte de stockage, sélectionnez **Tables**, puis **+ Table** pour créer une table. Entrez un nom pour votre table et sélectionnez **OK**. Enregistrez cette valeur car vous en aurez besoin si vous voulez configurer un flux pour qu’il reçoive des notifications par e-mail lors de la réception de prospects.
@@ -135,7 +135,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
    Dans les étapes suivantes, vous définissez l’action à exécuter selon le résultat de la condition :
 
    * Si la condition donne **If no**, vous n’avez rien à faire.
-   * Si la condition affiche la valeur **If yes**, déclenchez une action pour vous connecter à votre compte Office 365 afin d’envoyer un message électronique.
+   * Si la condition affiche **If yes**, déclenchez une action pour vous connecter à votre compte professionnel ou scolaire afin d’envoyer un e-mail. 
 
 1. Sélectionnez **Ajouter une action** sous **Si oui**.
 
@@ -185,7 +185,7 @@ Lorsque vous êtes prêt à configurer les informations de gestion des leads pou
 
 1. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Prospects":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Procédure de création d'un compte de stockage Azure.":::
 
 1. Dans la fenêtre contextuelle **Détails de la connexion**, sélectionnez **Table Azure** comme **Destination du prospect**. 
      ![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/15/2020
+ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002909"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605224"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
@@ -65,7 +65,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Les commandes utilisées pour les déploiements de groupes d’administration sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
-Pour Azure CLI, utilisez [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create) :
+Pour Azure CLI, utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
 
 ```azurecli-interactive
 az deployment mg create \
@@ -136,7 +136,7 @@ Pour cibler un autre groupe d’administration, ajoutez un déploiement imbriqu�
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -172,7 +172,7 @@ Pour cibler un abonnement au sein du groupe d’administration, utilisez un dép
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -184,6 +184,8 @@ Pour cibler un abonnement au sein du groupe d’administration, utilisez un dép
 }
 ```
 
+Pour utiliser un déploiement de groupe d’administration afin de créer un groupe de ressources dans un abonnement et de déployer un compte de stockage dans ce groupe de ressources, consultez [Déployer dans un abonnement et un groupe de ressources](#deploy-to-subscription-and-resource-group).
+
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 
 Pour les déploiements au niveau du groupe d'administration, il existe quelques considérations importantes liées à l’utilisation des fonctions de modèle :
@@ -191,87 +193,91 @@ Pour les déploiements au niveau du groupe d'administration, il existe quelques 
 * La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
 * La fonction [subscription()](template-functions-resource.md#subscription) n’est **pas** prise en charge.
 * Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* La fonction [resourceId()](template-functions-resource.md#resourceid) est prise en charge. Elle permet d’obtenir l’ID des ressources qui sont utilisées dans les déploiements au niveau du groupe d'administration. Ne fournissez pas de valeur pour le paramètre de groupe de ressources.
+* N’utilisez pas la fonction [resourceId()](template-functions-resource.md#resourceid) pour les ressources déployées sur le groupe d’administration.
 
-  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
+  Utilisez plutôt la fonction [extensionResourceId()](template-functions-resource.md#extensionresourceid) pour les ressources qui sont implémentées en tant qu’extensions du groupe d’administration. Les définitions de stratégie personnalisée qui sont déployées sur un groupe d’administration sont des extensions de celui-ci.
+
+  Pour obtenir l’ID de ressource d’une définition de stratégie personnalisée au niveau du groupe d’administration, utilisez :
   
   ```json
-  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
-  
-  L’ID de ressource retourné possède le format suivant :
+
+  Utilisez la fonction [tenantResourceId](template-functions-resource.md#tenantresourceid) pour les ressources de locataire qui sont disponibles dans le groupe d’administration. Les définitions de stratégie intégrées sont des ressources de niveau locataire.
+
+  Pour obtenir l’ID de ressource d’une définition de stratégie intégrée, utilisez :
   
   ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
 ## <a name="azure-policy"></a>Azure Policy
 
-### <a name="define-policy"></a>Définir une stratégie
-
-L'exemple suivant montre comment [définir](../../governance/policy/concepts/definition-structure.md) une stratégie au niveau du groupe d'administration.
+L’exemple suivant montre comment [définir](../../governance/policy/concepts/definition-structure.md) une stratégie au niveau du groupe d’administration et l’attribuer.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "australiaeast",
+                "australiasoutheast",
+                "australiacentral"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
         }
-      }
-    }
-  ]
-}
-```
-
-### <a name="assign-policy"></a>Attribuer la stratégie
-
-L’exemple suivant assigne une définition de stratégie existante au groupe d'administration. Si la stratégie utilise des paramètres, fournissez-les en tant qu’objet. Si la stratégie n’utilise pas de paramètres, utilisez l’objet vide par défaut.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
     },
-    "policyName": {
-      "type": "string"
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
     },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
 }
 ```
 

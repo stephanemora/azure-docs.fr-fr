@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794555"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056215"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -53,7 +53,7 @@ Pour vérifier que le module est prêt à l’emploi, utilisez la commande suiva
 Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 > [!NOTE]
-> Les cmdlets Azure AD PowerShell ne fonctionnent pas avec le nouveau PowerShell 7, car celui-ci est basé sur .NET Core. Nous sommes conscients qu’il s’agit d’un processus de mise à jour. À ce stade, nous vous suggérons d’utiliser le module Windows PowerShell 5.x pour les opérations Azure AD PowerShell. 
+> Les cmdlets Azure AD PowerShell ne fonctionnent pas avec le nouveau PowerShell 7, car celui-ci est basé sur .NET Core. Nous sommes conscients qu’il s’agit d’un processus de mise à jour. À ce stade, nous vous suggérons d’utiliser le module Windows PowerShell 5.x pour les opérations Azure AD PowerShell. 
 
 
 ## <a name="connect-to-the-directory"></a>Se connecter à l’annuaire
@@ -328,13 +328,13 @@ Quand un groupe est créé, certain points de terminaison autorisent l’utilisa
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Écriture différée de groupe au niveau local (préversion)
 
-De nos jours, de nombreux groupes sont toujours gérés localement dans Active Directory. Pour répondre à des requêtes visant à resynchroniser localement des groupes cloud, Office 365 regroupe la fonctionnalité d’écriture différée pour Azure AD est désormais disponible pour une préversion.
+De nos jours, de nombreux groupes sont toujours gérés localement dans Active Directory. Pour répondre à des requêtes visant à resynchroniser localement des groupes cloud, la fonctionnalité d’écriture différée dans les groupes Microsoft 365 pour Azure AD est désormais disponible en préversion.
 
-Les groupes Office 365 sont créés et gérés dans le cloud. La fonctionnalité d’écriture différée vous permet de réécrire les groupes Office 365 en tant que groupes de distribution dans une forêt Active Directory sur laquelle est installé Exchange. Les utilisateurs disposant de boîtes aux lettres Exchange locales peuvent envoyer et recevoir des e-mails à partir de ces groupes. La fonctionnalité d’écriture différée de groupe ne prend pas en charge les groupes de sécurité ou les groupes de distribution Azure AD.
+Les groupes Microsoft 365 sont créés et gérés dans le cloud. La fonctionnalité d’écriture différée vous permet de mettre à jour les groupes Microsoft 365 en tant que groupes de distribution dans une forêt Active Directory sur laquelle est installé Exchange. Les utilisateurs disposant de boîtes aux lettres Exchange locales peuvent envoyer et recevoir des e-mails à partir de ces groupes. La fonctionnalité d’écriture différée de groupe ne prend pas en charge les groupes de sécurité ou les groupes de distribution Azure AD.
 
 Pour plus d’informations, reportez-vous à la documentation relative au [service de synchronisation Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-L’écriture différée de groupe Office 365 est une fonctionnalité d’évaluation publique d’Azure Active Directory (Azure AD) qui est également disponible avec un plan de licence Azure AD payante. Pour plus d’informations légales sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+L’écriture différée de groupe Microsoft 365 est une fonctionnalité d’évaluation publique d’Azure Active Directory (Azure AD) qui est également disponible avec un plan de licence Azure AD payant. Pour plus d’informations légales sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

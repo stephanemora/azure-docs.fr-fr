@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
-ms.openlocfilehash: 1cb24e4a959e7d32a3c3b5b69a39938df4efddfa
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399869"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024279"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne ; de ce fait, au même titre que l’accélération de site dynamique et l’équilibrage de charge, il prend en charge les comportements de mise en cache comme n’importe quel réseau CDN.
@@ -88,13 +88,22 @@ Avec Front Door, vous pouvez contrôler la manière dont les fichiers sont mis e
 - **Mettre en cache chaque URL unique** : dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du backend à une demande pour `www.example.ashx?q=test1` est mise en cache dans l’environnement de porte d’entrée et retournée pour les mises en cache suivantes avec la même chaîne de requête. Une demande pour `www.example.ashx?q=test2` est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
 
 ## <a name="cache-purge"></a>Vidage du cache
-Front Door met en cache les éléments multimédias tant que leur durée de vie (TTL) n’est pas arrivée à expiration. Une fois que la durée de vie d’un élément multimédia est arrivée à expiration, quand un client demande cet élément multimédia, l’environnement de porte d’entrée en récupère une nouvelle copie mise à jour pour traiter la demande du client et actualiser le cache.
-</br>La bonne pratique pour vous assurer que vos utilisateurs obtiennent toujours la dernière copie de vos éléments multimédia consiste à établir une version de vos ressources pour chaque mise à jour et à les publier en tant que nouvelles URL. Front Door récupère immédiatement les nouveaux éléments multimédias pour les demandes suivantes des clients. Il est parfois souhaitable de vider le contenu mis en cache sur tous les nœuds de périmètre et de tous les forcer à récupérer de nouveaux éléments multimédias mis à jour. Ce besoin peut être dû à des mises à jour de votre application web, ou à la nécessité de mettre à jour rapidement les éléments multimédias qui contiennent des informations incorrectes.
 
-</br>Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre. Si vous souhaitez effacer tous les éléments multimédias, cochez la case Vider tout. Sinon, tapez le chemin de chaque élément multimédia que vous souhaitez vider dans la zone de texte Chemin d’accès. Les formats suivants sont pris en charge dans le chemin d’accès.
-1. **Vidage à chemin unique** : videz un ou plusieurs éléments multimédias individuels en spécifiant leur chemin complet (sans le protocole ni le domaine), avec l’extension de fichier, par exemple /pictures/strasbourg.png;.
-2. **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers d’un point de terminaison en indiquant /\* dans le chemin ou videz tous les sous-dossiers et fichiers d’un certain dossier en spécifiant le dossier suivi de /\*, par exemple /pictures/\*.
-3. **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
+Front Door met en cache les ressources tant que leur durée de vie (TTL) n’est pas arrivée à expiration. Une fois que la durée de vie d’une ressource est arrivée à expiration, quand un client demande cette ressource, l’environnement Front Door en récupère une nouvelle copie mise à jour pour traiter la demande du client et actualiser le cache.
+
+La bonne pratique pour vous assurer que vos utilisateurs obtiennent toujours la dernière copie de vos éléments multimédia consiste à établir une version de vos ressources pour chaque mise à jour et à les publier en tant que nouvelles URL. Front Door récupère immédiatement les nouveaux éléments multimédias pour les demandes suivantes des clients. Il est parfois souhaitable de vider le contenu mis en cache sur tous les nœuds de périmètre et de tous les forcer à récupérer de nouveaux éléments multimédias mis à jour. Ce besoin peut être dû à des mises à jour de votre application web, ou à la nécessité de mettre à jour rapidement les éléments multimédias qui contiennent des informations incorrectes.
+
+Sélectionnez les ressources que vous souhaitez supprimer définitivement des nœuds de périphérie. Pour effacer toutes les ressources, sélectionnez **Vider tout**. Dans le cas contraire, dans **Chemin d’accès**, entrez le chemin d’accès de chaque ressource que vous souhaitez supprimer définitivement.
+
+Ces formats sont pris en charge dans les listes de chemins d’accès à vider :
+
+- **Vidage à chemin unique** : videz une ou plusieurs ressources individuelles en spécifiant leur chemin complet (sans le protocole ni le domaine) avec l’extension de fichier, par exemple /pictures/strasbourg.png.
+- **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers d’un point de terminaison en indiquant /\* dans le chemin ou videz tous les sous-dossiers et fichiers d’un certain dossier en spécifiant le dossier suivi de /\*, par exemple /pictures/\*.
+- **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
+
+> [!NOTE]
+> **Vidage des domaines génériques** : La spécification des chemins d’accès mis en cache pour le vidage, telle que décrite dans cette section, ne s’applique pas aux domaines génériques associés à Front Door. Actuellement, nous ne prenons pas en charge le vidage direct des domaines génériques. Vous pouvez vider les chemins d’accès de sous-domaines spécifiques en indiquant ce sous-domaine et le chemin de vidage. Par exemple, si Front Door a `*.contoso.com`, je peux supprimer définitivement les ressources de mon sous-domaine `foo.contoso.com` en saisissant `foo.contoso.com/path/*`. Actuellement, la spécification de noms d’hôtes dans le chemin de contenu de vidage est limitée aux sous-domaines des domaines génériques, le cas échéant.
+>
 
 Les vidages du cache dans la porte d’entrée ne respectent pas la casse. Par ailleurs, ils ne prennent pas en compte les chaînes de requête, ce qui signifie que le vidage d’une URL n’a pas pour effet de vider pas toutes ses variantes constituées de chaînes de requête. 
 

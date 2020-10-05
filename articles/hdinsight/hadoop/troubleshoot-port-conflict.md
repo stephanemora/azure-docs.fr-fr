@@ -1,18 +1,18 @@
 ---
 title: Conflit de port lors du démarrage des services dans Azure HDInsight
-description: Étapes de détection de problèmes et résolutions possibles pour les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
+description: Étapes de dépannage et résolutions possibles pour les problèmes de conflit de port rencontrés lors d’interactions avec des clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 4cb0d464a82d8da0a09f5391eb1d06dfacd84290
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d39f31e9d52359d0c91317280a7f8db06c1c1b0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76776046"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530962"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>Scénario : Conflit de port lors du démarrage des services dans Azure HDInsight
 

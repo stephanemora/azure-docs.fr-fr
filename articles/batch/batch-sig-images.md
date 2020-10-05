@@ -2,14 +2,14 @@
 title: Création d’un pool d’images personnalisées avec Shared Image Gallery
 description: Les pools d’images personnalisées représentent un moyen efficace de configurer les nœuds de calcul pour exécuter des charges de travail Batch.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852410"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605190"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
@@ -43,7 +43,9 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 - **Une image Shared Image Gallery**. Pour créer une image partagée, vous devez disposer d'une image managée ou en créer une. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés.
 
 > [!NOTE]
-> Votre image partagée doit se trouver dans le même abonnement que le compte Batch. L’image peut se trouver dans différentes régions, à condition qu’elle ait des réplicas dans la même région que votre compte Batch.
+> Si l’image partagée n’est pas dans le même abonnement que le compte Batch, vous devez [inscrire le fournisseur de ressources Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) pour cet abonnement. Les deux abonnements doivent se trouver dans le même locataire Azure AD.
+>
+> L’image peut se trouver dans une autre région, à condition qu’elle ait des réplicas dans la même région que votre compte Batch.
 
 Si vous utilisez une application Azure AD pour créer un pool d’images personnalisées avec une image Shared Image Gallery, l’application doit disposer d’un [rôle intégré Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) qui lui donne accès à l’image Shared Image. Vous pouvez accorder cet accès dans le Portail Azure en accédant à l’image Shared Image, en sélectionnant **Contrôle d’accès (IAM)** et en ajoutant une attribution de rôle pour l’application.
 

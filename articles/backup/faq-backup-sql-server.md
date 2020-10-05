@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180097"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500332"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -72,7 +72,7 @@ Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alert
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
 
-Le menu **Travail de sauvegarde** affiche uniquement les travaux de sauvegarde à la demande. Pour les travaux planifiés, utilisez [Surveillance à l'aide d'Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Le menu **Travaux de sauvegarde** affiche toutes les opérations planifiées et à la demande, à l’exception des sauvegardes de fichiers journaux planifiées qui peuvent s’avérer particulièrement fréquentes. Pour les travaux de journalisation planifiés, utilisez [Surveillance à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
 

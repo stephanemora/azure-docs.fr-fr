@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011036"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031481"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ Les métriques de stockage enregistrent uniquement les métriques de capacité p
 >
 >
 
-Pour plus d’informations sur l’estimation de la taille des divers objets de stockage tels que les objets blob, consultez le billet de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)(Présentation de la facturation du stockage Azure - bande passante, transactions et capacité).
+Pour plus d’informations sur l’estimation de la taille des divers objets de stockage tels que les objets blob, consultez le billet de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity)(Présentation de la facturation du stockage Azure - bande passante, transactions et capacité).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Analyse de la disponibilité
 Vous devez analyser la disponibilité des services de stockage dans votre compte de stockage en examinant la colonne **Availability** de vos tables de métriques horaires ou par minute — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonne **Availability** contient une valeur de pourcentage qui indique la disponibilité du service ou de l’opération API représentée par la ligne (la **RowKey** s’affiche si la ligne contient des métriques pour l’ensemble du service ou pour une opération API spécifique).
@@ -220,7 +220,7 @@ La bibliothèque cliente de stockage pour .NET vous permet de collecter les donn
 Vous pouvez capturer le trafic entre le client et le serveur afin d'obtenir des informations détaillées concernant les données échangées entre le client et le serveur, et concernant les conditions réseau sous-jacentes. Parmi les outils de journalisation réseau utiles, on retrouve :
 
 * [Fiddler](https://www.telerik.com/fiddler) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS](#appendix-1).
-* Le [Moniteur réseau Microsoft (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) et [Wireshark](https://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
+* Le [Moniteur réseau Microsoft (Netmon)](https://cnet-downloads.com/network-monitor) et [Wireshark](https://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
 * L'analyseur de message Microsoft est un outil de Microsoft qui remplace Netmon et qui, en plus de capturer les données des paquets réseau, vous aide à afficher et analyser les données de journalisation capturées à partir d'autres outils. Pour plus d’informations, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau](#appendix-3) ».
 * Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais l'outil [**tcping**](https://www.elifulkerson.com/projects/tcping.php) vous permet de vérifier la connectivité.
 
@@ -409,7 +409,7 @@ Si vous constatez un retard entre le moment où une application ajoute un messag
 
 * Vérifiez que l'application ajoute avec succès les messages à la file d'attente. Vérifiez que l'application n'effectue pas plusieurs tentatives de la méthode **AddMessage** avant d'effectuer l'opération avec succès. Les journaux d’activité de la bibliothèque cliente de stockage affichent toutes les tentatives répétées d’opérations de stockage.
 * Vérifiez l'absence de variations d'horloges entre le rôle de travail qui ajoute le message à la file d'attente et le rôle de travail qui lit le message à partir de la file d'attente, donnant l'impression d'un retard de traitement.
-* Vérifiez si le rôle de travail qui lit les messages à partir de la file d'attente échoue. Si un client de file d’attente appelle la méthode **GetMessage**, mais ne parvient pas à répondre avec un accusé de réception, le message demeurera invisible dans la file d’attente jusqu’à ce que la période **invisibilityTimeout** ait expiré. Ce n'est qu'à ce moment que le message pourra à nouveau être traité.
+* Vérifiez si le rôle de travail qui lit les messages à partir de la file d'attente échoue. Si un client de file d’attente appelle la méthode **GetMessage**, mais ne parvient pas à répondre avec un accusé de réception, le message demeurera invisible dans la file d’attente jusqu’à ce que la période **invisibilityTimeout** expire. Ce n'est qu'à ce moment que le message pourra à nouveau être traité.
 * Vérifiez si la longueur de la file d'attente augmente avec le temps. Cela peut arriver si vous ne disposez pas d'assez de travailleurs pour traiter les messages que les autres travailleurs placent dans la file d'attente. Consultez également les métriques indiquant si les requêtes de suppression échouent et le décompte de résorption de file d’attente des messages, pouvant indiquer l’échec de tentatives répétées de supprimer le message.
 * Vérifiez dans les journaux d’activité de journalisation du stockage la présence d’opérations de file d’attente présentant des valeurs **E2ELatency** et **ServerLatency** supérieures à celles prévues, pendant une période plus longue que prévu.
 
@@ -617,7 +617,7 @@ Les détails de l’exception dans le client incluent l’ID de requête (7e84f1
 
 Le journal côté serveur inclut également une autre entrée avec la même valeur **client-request-id** (813ea74f…) pour une opération de suppression réussie de la même entité, et provenant du même client. Cette opération de suppression réussie s'est produite peu avant l'échec de la demande de suppression.
 
-La cause la plus probable de ce scénario est que le client a envoyé une demande de suppression de l'entité au service de table, qui a réussi, mais n'a pas reçu d'accusé de réception du serveur (peut-être à cause d'un problème de réseau provisoire). Le client a ensuite tenté automatiquement d’effectuer à nouveau l’opération (en utilisant le même **client-request-id**). Cette tentative a échoué, car l’entité avait déjà été supprimée.
+La cause la plus probable de ce scénario est que le client a envoyé une demande de suppression de l’entité au service de table, qui a réussi, mais n’a pas reçu d’accusé de réception du serveur (peut-être à cause d’un problème de réseau provisoire). Le client a ensuite tenté automatiquement d’effectuer à nouveau l’opération (en utilisant le même **client-request-id**). Cette tentative a échoué, car l’entité avait déjà été supprimée.
 
 Si ce problème se produit fréquemment, vous devez rechercher pourquoi le client ne reçoit pas les accusés de réception du service de table. Si le problème est intermittent, vous devez capturer l’erreur « HTTP (404) Not Found » et la journaliser dans le client, mais permettre au client de continuer.
 
@@ -777,7 +777,7 @@ Le suivi **Web Proxy** intégré de l'analyseur de message Microsoft est basé s
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnostic des problèmes de réseau à l'aide de l'analyseur de message Microsoft
 En plus d’utiliser le suivi **Web Proxy** de l’analyseur de message Microsoft pour capturer le détail du trafic HTTP/HTTPS entre l’application cliente et le service de stockage, vous pouvez utiliser le suivi **Local Link Layer** intégré pour capturer les informations relatives aux paquets réseau. Cela vous permet de capturer des données similaires à celles que vous capturez avec Wireshark et de diagnostiquer les problèmes de réseau tels que les paquets perdus.
 
-La capture d’écran suivante illustre un exemple de suivi **Local Link Layer** avec des messages **d’information** dans la colonne **DiagnosisTypes**. Cliquer sur une icône dans la colonne **DiagnosisTypes** affiche les détails du message. Dans cet exemple, le serveur a retransmis le message #305, car il n'a reçu aucun accusé de réception du client :
+La capture d’écran suivante illustre un exemple de suivi **Local Link Layer** avec des messages **d’information** dans la colonne **DiagnosisTypes**. Cliquer sur une icône dans la colonne **DiagnosisTypes** affiche les détails du message. Dans cet exemple, le serveur a retransmis le message no 305, car il n’a reçu aucun accusé de réception du client :
 
 ![Capture d’écran illustrant un exemple de suivi Local Link Layer avec des messages d’information dans la colonne DiagnosisTypes][9]
 

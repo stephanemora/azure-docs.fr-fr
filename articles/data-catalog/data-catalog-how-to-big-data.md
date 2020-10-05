@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523449"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443141"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Comment cataloguer des données volumineuses (Big Data) dans Azure Data Catalog ?
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523449"
 
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. Il vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données, et à permettre aux organisations de mieux exploiter leurs sources données existantes, y compris le Big Data.
 
-**Azure Data Catalog** prend en charge l’inscription d’objets et de répertoire de Stockage d’objets blob Azure ainsi que des fichiers et des répertoires HDFS Hadoop. La nature semi-structurée des sources de données offre une grande flexibilité. Toutefois, pour réellement profiter de leur enregistrement dans **Azure Data Catalog**, les utilisateurs doivent comprendre comment sont organisées les sources de données.
+**Azure Data Catalog** prend en charge l’inscription de blobs et de répertoires Stockage Azure ainsi que des fichiers et des répertoires HDFS Hadoop. La nature semi-structurée des sources de données offre une grande flexibilité. Toutefois, pour réellement profiter de leur enregistrement dans **Azure Data Catalog**, les utilisateurs doivent comprendre comment sont organisées les sources de données.
 
 ## <a name="directories-as-logical-data-sets"></a>Répertoires sous forme de jeux de données logiques
 

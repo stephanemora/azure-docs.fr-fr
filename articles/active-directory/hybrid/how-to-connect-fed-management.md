@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - Gestion et personnalisation d’AD FS | Microsoft Docs
 description: Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et PowerShell.
-keywords: AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance
+keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72339d9ce492446d05f23b63ac2d0a1c2d62f766
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276777"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661272"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -31,7 +31,7 @@ Cet article décrit comment gérer et personnaliser Active Directory Federation 
 | Rubrique | Sujet traité |
 |:--- |:--- |
 | **Gérer AD FS** | |
-| [Réparation de l’approbation](#repairthetrust) |Réparation de l’approbation de fédération avec Office 365. |
+| [Réparation de l’approbation](#repairthetrust) |Réparation de l’approbation de fédération avec Microsoft 365. |
 | [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | [Ajout d’un serveur AD FS](#addadfsserver) |Extension d’une batterie de serveurs AD FS à l’aide d’un serveur AD FS supplémentaire. |
 | [Ajouter un serveur de proxy d’application web AD FS](#addwapserver) |Extension d’une batterie de serveurs AD FS à l’aide d’un serveur de proxy d’application web. |

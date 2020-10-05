@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949131"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595078"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -242,13 +242,13 @@ Voici quelques exemples de situations qui peuvent provoquer une branche de publi
 
 ## <a name="switch-to-a-different-git-repository"></a>Passer à un autre dépôt Git
 
-Pour passer à un autre dépôt Git, cliquez sur l’icône **Paramètres de dépôt Git** dans l’angle supérieur droit de la page de présentation de Data Factory. Si vous ne voyez pas l’icône, effacez le cache de votre navigateur local. Sélectionnez l’icône pour supprimer l’association au dépôt actuel.
+Pour basculer vers un autre référentiel Git, accédez à la page de configuration de Git dans le hub de gestion, sous **Contrôle de code source**. Sélectionnez **Déconnecter**. 
 
-![Icône Git](media/author-visually/remove-repo.png)
+![Icône Git](media/author-visually/remove-repository.png)
 
-Une fois que le volet Paramètres du dépôt s’affiche, sélectionnez **Supprimer Git**. Entrez le nom de votre fabrique de données, puis cliquez sur **Confirmer** pour supprimer le dépôt Git associé à votre fabrique de données.
+Entrez le nom de votre fabrique de données, puis cliquez sur **Confirmer** pour supprimer le dépôt Git associé à votre fabrique de données.
 
-![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repo2.png)
+![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repository-2.png)
 
 Après avoir supprimé l’association avec le dépôt actuel, vous pouvez configurer vos paramètres Git pour utiliser un autre dépôt, puis importer des ressources Data Factory dans le nouveau dépôt.
 

@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225680"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563996"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -59,7 +61,7 @@ Le point de terminaison privé utilise une adresse IP privée sur le réseau vi
 > Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure. 
  
 > [!WARNING]
-> Si un magasin de données PaaS (objets blob, ADLS Gen2, SQL DW) a un point de terminaison privé déjà créé, et même s’il autorise l’accès à partir de tous les réseaux, ADF peut uniquement y accéder à l’aide d’un point de terminaison privé managé. Veillez à créer un point de terminaison privé dans de tels scénarios. 
+> Si un magasin de données PaaS (Blob, ADLS Gen2, Azure Synapse Analytics) a un point de terminaison privé déjà créé, et même s’il autorise l’accès à partir de tous les réseaux, ADF peut uniquement y accéder à l’aide d’un point de terminaison privé managé. Veillez à créer un point de terminaison privé dans de tels scénarios. 
 
 Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Data Factory. Un workflow d’approbation est lancé. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
 
@@ -83,10 +85,31 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - SQL Azure Cosmos DB
 - Azure Key Vault
 - Service Azure Private Link
+- Recherche Azure
+- Azure Database pour MySQL
+- Azure Database pour PostgreSQL
+- Azure Database for MariaDB
+
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Le réseau virtuel managé Azure Data Factory est disponible dans les régions Azure suivantes :
+- USA Est
+- USA Est 2
+- Centre-USA Ouest
+- USA Ouest 2
+- USA Centre Sud
+- USA Centre
+- Europe Nord
+- Europe Ouest
+- Sud du Royaume-Uni
+- Asie Sud-Est
+- Australie Est
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Communications sortantes via un point de terminaison public à partir du réseau virtuel managé ADF
 - Seul le port 443 est ouvert pour les communications sortantes.
 - Le Stockage Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour une connexion via un point de terminaison public à partir du réseau virtuel managé ADF.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Création d’un service lié à Azure Key Vault 
+- Lorsque vous créez un service lié pour Azure Key Vault, il n’existe aucune référence Azure Integration Runtime. Vous ne pouvez donc pas créer de point de terminaison privé pendant la création du service lié d’Azure Key Vault. Toutefois, lorsque vous créez un service lié pour des magasins de données qui fait référence au service lié Azure Key Vault et que ce service lié fait référence à Azure Integration Runtime avec un réseau virtuel managé activé, vous pouvez créer un point de terminaison privé pour le service lié Azure Key Vault lors de la création. 
+- L’opération **Tester la connexion** du service lié d’Azure Key Vault valide uniquement le format d’URL, mais n’effectue aucune opération sur le réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
