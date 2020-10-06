@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: Spécifier des informations de support (propriétaire de compte lab)
           href: lab-account-owner-support-information.md
+        - name: Charger une image personnalisée sur Shared Image Gallery
+          href: upload-custom-image-shared-image-gallery.md
     - name: Créer et configurer des laboratoires de classe (formateur)
       items:
         - name: Créer et gérer des laboratoires de classe
