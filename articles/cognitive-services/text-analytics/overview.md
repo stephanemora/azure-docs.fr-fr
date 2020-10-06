@@ -1,47 +1,53 @@
 ---
-title: Qu’est-ce que l’API Analyse de texte ? - Capacités -
+title: Exploration et analyse de texte avec l’API Analyse de texte - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Utiliser l’API Text Analytics dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
+description: Découvrez l’exploration de texte avec l’API Analyse de texte. Utilisez-la pour l’analyse de sentiments, la détection de langue et d’autres formes de traitement en langage naturel.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: exploration de texte, analyse de sentiments, analyse de texte
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000955"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647468"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
-L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, détection de la langue et reconnaissance des entités nommées.
+L’API Analyse de texte est un service cloud qui fournit des fonctionnalités de traitement en langage naturel pour l’exploration de texte et l’analyse de texte, notamment l’analyse des sentiments, l’exploration des opinions, l’extraction de phrases clés, la détection de la langue et la reconnaissance des entités nommées.
 
-L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement.
+L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou la [bibliothèque de client](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-L’expression Text Analytics peut signifier différentes choses mais, dans Cognitive Services, l’API Text Analytics fournit quatre types d’analyses, comme décrit ci-dessous. Vous pouvez utiliser ces fonctionnalités avec l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou la [bibliothèque de client](quickstarts/text-analytics-sdk.md).
+## <a name="sentiment-analysis"></a>analyse de sentiments
 
-## <a name="sentiment-analysis"></a>Analyse des sentiments
-Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) pour découvrir ce que les clients pensent de votre marque ou de votre thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante.
+Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) et découvrez ce que les gens pensent de votre marque ou de votre thématique en explorant le texte pour trouver des indices sur les sentiments positifs ou négatifs. Cette fonctionnalité de l’API retourne un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.
 
-## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
-[Extrayez automatiquement les expressions clés](how-tos/text-analytics-how-to-keyword-extraction.md) pour identifier rapidement les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ».
+À partir de la préversion 3.1, l’exploration des opinions est une fonctionnalité d’Analyse des sentiments. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
+
+## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
+
+Utilisez l’[extraction de phrases clés](how-tos/text-analytics-how-to-keyword-extraction.md) pour identifier rapidement les principaux concepts dans un texte. Par exemple, dans le texte « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), l’extraction de phrases clés retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
 
 ## <a name="language-detection"></a>Détection de la langue
-Vous pouvez [détecter la langue dans laquelle le texte d’entrée est rédigé](how-tos/text-analytics-how-to-language-detection.md) et générer un code de langue unique pour chaque document envoyé dans la requête, ceci parmi une grande variété de langues, de variantes, de dialectes, et de quelques langues régionales ou de culture. Le code de langue est associé à un score indiquant la puissance de l’analyse.
+
+La détection de la langue peut [détecter la langue dans laquelle un texte d’entrée est rédigé](how-tos/text-analytics-how-to-language-detection.md) et générer un code de langue unique pour chaque document envoyé dans la requête, ceci parmi une grande variété de langues, de variantes, de dialectes, et de quelques langues régionales ou de culture. Le code de langue est associé à un score de confiance.
 
 ## <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
-[Identifiez et classez les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, date/heure, quantités, pourcentages, devises et bien plus encore. Les entités bien connues sont également reconnues et liées pour des informations supplémentaires sur le web.
+
+La reconnaissance d’entités nommées (NER) peut [identifier et classer les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, quantités ; les entités bien connues sont également reconnues et liées à des informations supplémentaires sur le web.
 
 ## <a name="use-containers"></a>Utiliser des conteneurs
 
-[Utilisez les conteneurs Text Analytics](how-tos/text-analytics-how-to-install-containers.md) pour extraire les phrases clés, détecter la langue et analyser les sentiments localement, en installant des conteneurs Docker normalisés plus près de vos données.
+[Utilisez les conteneurs Analyse de texte](how-tos/text-analytics-how-to-install-containers.md) en tant que solution locale pour l’exploration de texte et l’utilisation de l’API. Ces conteneurs Docker vous permettent d’extraire des expressions clés, de détecter la langue et d’analyser les sentiments plus près de vos données.
 
 ## <a name="typical-workflow"></a>Flux de travail classique
 

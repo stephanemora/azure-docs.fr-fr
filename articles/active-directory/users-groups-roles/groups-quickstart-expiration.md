@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213726"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054396"
 ---
-# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l'expiration des groupes Microsoft 365 dans Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Configurer l'expiration des groupes Microsoft 365 dans Azure Active Directory
 
 Dans le cadre de ce démarrage rapide, vous allez définir la stratégie d'expiration de vos groupes Microsoft 365. Lorsque les utilisateurs peuvent configurer leurs propres groupes, les groupes inutilisés risquent de se multiplier. L’une des façons de gérer les groupes inutilisés consiste à configurer l’expiration de ces groupes afin de minimiser la tâche de suppression manuelle des groupes.
 
@@ -33,7 +33,7 @@ La stratégie d’expiration est simple :
 - Un groupe Microsoft 365 supprimé peut être restauré dans un délai de 30 jours par son propriétaire ou par un administrateur Azure AD.
 
 > [!NOTE]
-> Les groupes bénéficient désormais de l’intelligence Azure AD, qui corrèle leur renouvellement automatique à leur utilisation récente. Cette décision de renouvellement est basée sur l’activité des utilisateurs dans les groupes des services Office 365 tels qu’Outlook, SharePoint, Teams, Yammer, etc.
+> Les groupes bénéficient désormais de l’intelligence Azure AD, qui corrèle leur renouvellement automatique à leur utilisation récente. Cette décision de renouvellement est basée sur l’activité des utilisateurs dans les groupes des services Microsoft 365 tels qu’Outlook, SharePoint, Teams, Yammer, etc.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

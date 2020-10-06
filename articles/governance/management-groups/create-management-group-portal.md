@@ -1,14 +1,14 @@
 ---
-title: 'Démarrage rapide : Créer un groupe d’administration avec le portail Azure'
+title: Créer un groupe d’administration avec le portail Azure
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
 ms.date: 08/31/2020
 ms.topic: quickstart
-ms.openlocfilehash: 28b530e1da6b75dcc20e4a5dfebc494a959040b3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236953"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661748"
 ---
 # <a name="quickstart-create-a-management-group"></a>Démarrage rapide : Créer un groupe d’administration
 
@@ -32,14 +32,14 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
 
 1. Sélectionnez **+ Ajouter un groupe d’administration**.
 
-   :::image type="content" source="./media/main.png" alt-text="Page dédiée à l’utilisation des groupes d’administration" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Capture d’écran de la page Groupes d’administration montrant les abonnements et les groupes d’administration enfants." border="false":::
 
 1. Laissez l’option **Créer** sélectionnée et renseignez le champ ID du groupe d’administration.
 
    - L’**ID du groupe d’administration** est l’identificateur unique de l’annuaire utilisé pour envoyer des commandes sur ce groupe d’administration. Cet identificateur n’est pas modifiable après sa création car il est utilisé dans tout le système Azure pour identifier ce groupe. Le [groupe d’administration racine](./overview.md#root-management-group-for-each-directory) est automatiquement créé avec un ID qui correspond à l’ID Azure Active Directory. Pour tous les autres groupes d’administration, affectez un ID unique.
    - Le champ du nom d’affichage correspond au nom qui s’affiche dans le portail Azure. Un nom d’affichage distinct est un champ facultatif lors de la création du groupe d’administration. Il peut être modifié à tout moment.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Volet Options pour la création d’un groupe d’administration":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Capture d’écran de la page Groupes d’administration montrant les abonnements et les groupes d’administration enfants.":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -61,4 +61,4 @@ Dans ce guide de démarrage rapide, vous avez créé un groupe d’administratio
 Pour en savoir plus sur les groupes d’administration et sur la gestion de votre hiérarchie de ressources, consultez :
 
 > [!div class="nextstepaction"]
-> [Gérer vos ressources avec des groupes d’administration](./manage.md)
+> Gérer vos ressources avec des groupes d’administration

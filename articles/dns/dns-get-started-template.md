@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une zone et un enregistrement Azure DNS – Modèle Azure Resource Manager (modèle ARM)'
+title: Créer une zone et un enregistrement Azure DNS – Modèle Azure Resource Manager (modèle ARM)
 titleSuffix: Azure DNS
 description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Ce démarrage rapide pas à pas vous aide à créer et gérer votre première zone et votre premier enregistrement DNS à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 services: dns
@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596393"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647885"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à l’aide d’un modèle ARM
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Créer une zone et un enregistrement Azure DNS à l’aide d’un modèle ARM
 
 Ce démarrage rapide explique comment utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une zone DNS contenant un enregistrement A.
 
@@ -39,7 +39,7 @@ Dans ce démarrage rapide, vous allez créer une zone DNS unique avec un suffixe
 
 Deux ressources Azure ont été définies dans le modèle :
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+* [Microsoft.Network**/dnsZones/*
 * [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (utilisé pour créer un enregistrement A dans la zone)
 
 Pour trouver d’autres modèles liés à Azure Traffic Manager, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
@@ -87,11 +87,11 @@ Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell,
 
 1. Le groupe de ressources doit contenir les ressources indiquées ci-dessous :
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Groupe de ressources de déploiement de la zone DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager Azure DNS":::
 
 1. Sélectionnez la zone DNS avec le suffixe **<span>azurequickstart.</span>org** pour vérifier que la zone est créée correctement avec un enregistrement **A** référençant la valeur **1.2.3.4** et **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Déploiement de la zone DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager Azure DNS":::
 
 1. Copiez un des noms de serveur de noms de l’étape précédente.
 
@@ -101,7 +101,7 @@ Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell,
    nslookup www.<dns zone name> <name server name>
    ```
 
-   Par exemple :
+   Par exemple, .
 
    ```
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
@@ -109,13 +109,13 @@ Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell,
 
    Vous devez voir quelque chose de semblable à la capture d’écran suivante :
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Nslookup de zone DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager Azure DNS":::
 
 Le nom d’hôte **www<span>.2lwynbseszpam. azurequickstart.</span>org** est résolu en **1.2.3.4** et **1.2.3.5**, comme vous l’avez configuré. Ce résultat confirme que la résolution de noms fonctionne correctement.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’avez plus besoin des ressources que vous avez créées avec le circuit ExpressRoute, supprimez le groupe de ressources. Cette action supprime le circuit ExpressRoute et toutes les ressources qui y sont associées.
+Quand vous n’avez plus besoin des ressources que vous avez créées avec la zone DNS, supprimez le groupe de ressources. Vous supprimez ainsi la zone DNS et toutes les ressources associées.
 
 Pour supprimer le groupe de ressources, appelez l’applet de commande `Remove-AzResourceGroup` :
 
@@ -127,7 +127,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 Dans le cadre de ce guide de démarrage rapide, vous avez créé les éléments suivants :
 * Zone DNS
-* Enregistrement A
+* Enregistrement A
 
 Maintenant que vous avez créé votre première zone et votre premier enregistrement DNS à l’aide d’un modèle Azure Resource Manager, vous pouvez créer des enregistrements pour une application web dans un domaine personnalisé.
 

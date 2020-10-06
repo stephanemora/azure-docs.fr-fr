@@ -14,14 +14,14 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1829b6d8ab7b2cab0734ffd3cbab295e6c39678
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761091"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024118"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Démarrage rapide : Créer un hub de notification Azure avec Azure CLI
+# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Créer un hub de notification Azure avec Azure CLI
 
 Azure Notification Hubs fournit un moteur d’envoi de notifications Push facile à utiliser et à grande échelle qui vous permet d’envoyer des notifications à n’importe quelle plateforme (iOS, Android, Windows, Kindle, Baidu, etc.) à partir de n’importe quel serveur principal (cloud ou local). Pour plus d’informations sur le service, consultez [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
@@ -29,37 +29,30 @@ Dans ce guide de démarrage rapide, vous créez un hub de notification avec Azur
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version et les bibliothèques dépendantes installées. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+> [!IMPORTANT]
+> Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version et les bibliothèques dépendantes installées. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Préparation de votre environnement
+## <a name="install-the-azure-cli-extension"></a>Installer l’extension Azure CLI
 
-1. Connectez-vous à l’aide de la commande [az login](/cli/azure/reference-index#az-login) si vous utilisez une installation locale de l’interface CLI.
+Quand vous utilisez des références d’extension pour l’interface Azure CLI, vous devez d’abord installer l’extension. Les extensions Azure CLI vous donnent accès à des commandes expérimentales et en préversion qui ne sont pas offertes par l’interface CLI principale. Pour en savoir plus sur les extensions, notamment sur la mise à jour et la désinstallation, consultez [Utiliser des extensions avec Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    ```azurecli
-    az login
-    ```
+Installez l’extension Azure CLI pour Notification Hubs.
 
-    Suivez les étapes affichées dans votre terminal pour effectuer le processus d’authentification.
+```azurecli
+az extension add --name notification-hub
+```
 
-2. Quand vous utilisez des références d’extension pour l’interface Azure CLI, vous devez d’abord installer l’extension. Les extensions Azure CLI vous donnent accès à des commandes expérimentales et en préversion qui ne sont pas encore offertes par l’interface CLI principale. Pour en savoir plus sur les extensions, notamment sur la mise à jour et la désinstallation, consultez [Utiliser des extensions avec Azure CLI](/cli/azure/azure-cli-extensions-overview).
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-   Installez l’[extension pour Notification Hubs](/cli/azure/ext/notification-hub/notification-hub) en exécutant la commande suivante :
+Azure Notification Hubs, comme toutes les ressources Azure, doit être déployé dans un groupe de ressources.  Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.  Pour en savoir plus sur les groupes de ressources, consultez [Qu’est-ce qu’Azure Resource Manager ?](/azure/azure-resource-manager/management/overview)
 
-    ```azurecli
-    az extension add --name notification-hub
-   ```
+Pour ce guide de démarrage rapide, créez un groupe de ressources nommé **spnhubrg** dans la zone **eastus** à l’aide de la commande [az group create](/cli/azure/group#az-group-create) suivante.
 
-3. Créez un groupe de ressources.
-
-   Azure Notification Hubs, comme toutes les ressources Azure, doit être déployé dans un groupe de ressources. Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.
-
-   Pour ce guide de démarrage rapide, créez un groupe de ressources nommé _spnhubrg_ dans la zone _eastus_ à l’aide de la commande [az group create](/cli/azure/group#az-group-create) suivante :
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+```azurecli
+az group create --name spnhubrg --location eastus
+```
 
 ## <a name="create-a-notification-hubs-namespace"></a>Créer un espace de noms Notification Hubs
 
@@ -109,7 +102,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 2. Récupérez la liste des espaces de noms.
 
-   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list). Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
+   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list). Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -135,7 +128,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 3. Récupérez la liste des hubs de notification.
 
-   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante. La commande [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) a été conçue à cet effet.
+   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante. La commande [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) a été conçue à cet effet.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

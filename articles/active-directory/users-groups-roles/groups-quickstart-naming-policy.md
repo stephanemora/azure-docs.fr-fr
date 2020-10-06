@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213672"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054362"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
 Dans ce démarrage rapide, vous allez configurer une stratégie de nommage dans votre organisation Azure Active Directory (Azure AD) pour les groupes Microsoft 365 créés par l’utilisateur, afin de faciliter le tri et la recherche de groupes dans votre organisation. Par exemple, vous pouvez utiliser la stratégie d’affectation de noms pour :
 
@@ -68,6 +68,6 @@ Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms e
 
 Dans le cadre de ce guide de démarrage rapide, vous avez appris à définir la stratégie d'attribution de noms de votre organisation Azure AD par le biais du portail Azure.
 
-Pour plus d'informations, notamment sur les cmdlets PowerShell relatives à la stratégie d'attribution de noms, sur les contraintes techniques, sur l'ajout d'une liste de mots bloqués personnalisés et sur les expériences d'utilisateur final dans les applications Office 365, consultez l'article suivant.
+Pour plus d’informations, notamment sur les applets de commande PowerShell relatives à la stratégie d’attribution de noms, sur les contraintes techniques, sur l’ajout d’une liste de mots bloqués personnalisés et sur les expériences d’utilisateur final dans les applications Microsoft 365, consultez l’article suivant.
 > [!div class="nextstepaction"]
 > [Stratégie d'attribution de noms - PowerShell](groups-naming-policy.md)

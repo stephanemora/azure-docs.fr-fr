@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Utilisation de Python pour appeler l’API Analyse de texte'
+title: 'Démarrage rapide : utilisation de Python pour appeler l’API Analyse de texte'
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide montre comment obtenir des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API Analyse de texte dans Azure Cognitive Services.
+description: Ce guide de démarrage rapide montre comment utiliser Python pour obtenir des informations et des exemples de code afin de vous aider à commencer rapidement à utiliser l’API Analyse de texte dans Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876765"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527239"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de l’API REST Python pour appeler le service cognitif Analyse de texte 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Utiliser l'API REST Python pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>
 
 Utilisez ce guide de démarrage rapide pour commencer l’analyse de la langue avec l’API REST Analyse de texte et Python. Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities).

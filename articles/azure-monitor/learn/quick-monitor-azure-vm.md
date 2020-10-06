@@ -7,14 +7,14 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516394"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084428"
 ---
-# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Démarrage rapide : Superviser une machine virtuelle Azure avec Azure Monitor
+# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Superviser une machine virtuelle Azure avec Azure Monitor.
 [Azure Monitor](../overview.md) commence à collecter les données des machines virtuelles Azure dès leur création. Dans ce guide de démarrage rapide, vous allez découvrir brièvement comment les données sont collectées automatiquement pour une machine virtuelle Azure, et comment les voir dans le portail Azure. Vous allez ensuite activer [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) sur votre machine virtuelle, ce qui permet aux agents de la machine virtuelle de collecter et d’analyser les données du système d’exploitation invité, notamment les processus et leurs dépendances.
 
 En suivant ce guide, vous êtes censé disposer d’une machine virtuelle Azure. Sinon, vous pouvez créer une [machine virtuelle Windows](../../virtual-machines/windows/quick-create-portal.md) ou une [machine virtuelle Linux](../../virtual-machines/linux/quick-create-cli.md) en suivant nos guides de démarrage rapide consacrés aux machines virtuelles.
@@ -65,7 +65,7 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 
 2. Sélectionnez **Données**, puis **Journaux des événements Windows**.
 
-3. Ajoutez un journal des événements en tapant son nom.  Entrez **Système**, puis sélectionnez le signe plus **+** .
+3. Ajoutez un journal des événements en tapant son nom.  Entrez **Système**, puis sélectionnez le signe plus **+**.
 
 4. Dans le tableau, vérifiez les niveaux de gravité **Erreur** et **Avertissement**.
 
@@ -75,7 +75,7 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 
 1. Sélectionnez **Syslog**.  
 
-2. Ajoutez un journal des événements en tapant son nom.  Entrez **Syslog**, puis sélectionnez le signe plus **+** .  
+2. Ajoutez un journal des événements en tapant son nom.  Entrez **Syslog**, puis sélectionnez le signe plus **+**.  
 
 3. Dans le tableau, décochez les niveaux de gravité **Info**, **Avis** et **Débogage**. 
 
@@ -85,15 +85,15 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 
 7. Cliquez sur votre machine virtuelle, puis sélectionnez l’onglet **Performances** qui se trouve sous le menu **Supervision**, vignette **Insights**. Cela entraîne l’affichage d’un groupe spécifique de compteurs de performances collectés à partir du système d’exploitation invité de votre machine virtuelle. Faites défiler l’affichage vers le bas pour voir plus de compteurs, et déplacez la souris sur un graphe pour voir la moyenne et les centiles à différents moments.
 
-    ![Performances](media/quick-monitor-azure-vm/performance.png)
+    ![Capture d’écran montrant le volet Performances](media/quick-monitor-azure-vm/performance.png)
 
 9. Sélectionnez **Carte** pour ouvrir la fonctionnalité relative aux cartes. Elle montre les processus en cours d’exécution et leurs dépendances sur la machine virtuelle. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés, s’il n’est pas déjà ouvert.
 
-    ![Mappage](media/quick-monitor-azure-vm/map.png)
+    ![Capture d’écran montrant le volet Carte](media/quick-monitor-azure-vm/map.png)
 
 11. Développez les processus de votre machine virtuelle. Sélectionnez l’un des processus pour voir ses détails et mettre en évidence ses dépendances.
 
-    ![Processus](media/quick-monitor-azure-vm/processes.png)
+    ![Capture d’écran montrant le volet Carte avec développement des processus d’une machine virtuelle](media/quick-monitor-azure-vm/processes.png)
 
 12. Resélectionnez votre machine virtuelle, puis sélectionnez **Événements de journal**. 
 

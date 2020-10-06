@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de la gestion Azure - Gouvernance Azure
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041912"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662129"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Présentation des domaines de gestion Azure
 
@@ -18,7 +18,9 @@ La gestion fait référence aux tâches et processus nécessaires pour maintenir
 
 Le schéma ci-dessous illustre les différents domaines de gestion requis pour maintenir toute application ou ressource. Ces différents domaines peuvent être considérés comme un cycle de vie. Chaque domaine est obligatoire successivement sur la durée de vie d’une ressource. Le cycle de vie d’une ressource commence par son déploiement initial, puis son exploitation dans la durée, et se termine par sa mise hors service.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplines de la gestion dans Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagramme des disciplines de gestion dans Azure." border="false":::
+   Diagramme illustrant les éléments Migrer, Sécuriser, Protéger, Superviser, Configurer et Gouverner de la roue des services qui assurent la gestion et la gouvernance dans Azure. L’élément Sécuriser comporte les sous-éléments Gestion de la sécurité et Protection contre les menaces. L’élément Protéger comporte les sous-éléments Sauvegarde et Reprise d’activité. L’élément Superviser comporte les sous-éléments Supervision des applications, infrastructures et réseaux et Log Analytics et diagnostics. L’élément Configurer comporte les sous-éléments Configuration, Gestion des mises à jour, Automatisation et Scripts. Enfin, l’élément Gouverner comporte les sous-éléments Gestion des stratégies et Gestion des coûts.
+:::image-end:::
 
 Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D’autres, comme les journaux d’activité Azure Monitor, stockent les données de gestion pour d’autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 

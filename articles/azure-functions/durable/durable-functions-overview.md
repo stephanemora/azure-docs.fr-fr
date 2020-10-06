@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660680"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669257"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -23,7 +23,7 @@ Durable Functions prend actuellement en charge les langages suivants :
 
 * **C#**  : les [bibliothèques de classes précompilées](../functions-dotnet-class-library.md) et le [script C#](../functions-reference-csharp.md).
 * **JavaScript** : pris en charge uniquement pour la version 2.x du runtime Azure Functions. Nécessite la version 1.7.0 ou ultérieure de l’extension Durable Functions. 
-* **Python** : nécessite la version 1.8.5 ou une version ultérieure de l’extension Durable Functions. 
+* **Python** : nécessite la version 1.8.5 ou une version ultérieure de l’extension Durable Functions. La prise en charge de Durable Functions est actuellement en préversion publique.
 * **F#**  : les bibliothèques de classes précompilées et le script F#. Le script F# est pris en charge uniquement pour la version 1.x du runtime Azure Functions.
 * **PowerShell** : la prise en charge de Durable Functions est actuellement en préversion publique. Uniquement pris en charge pour la version 3.x du runtime Azure Functions et PowerShell 7. Nécessite la version 2.2.2 ou ultérieure de l'extension Durable Functions. Actuellement, seuls les modèles suivants sont pris en charge : [Chaînage de fonctions](#chaining), [Fan-out/fan-in](#fan-in-out), [API HTTP Async](#async-http).
 
@@ -42,7 +42,7 @@ Le principal cas d’usage de Durable Functions est la simplification d’exigen
 * [Interaction humaine](#human)
 * [Agrégateur (entités avec état)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Modèle 1 : Chaînage de fonctions
+### <a name="pattern-1-function-chaining"></a>Modèle 1 : chaînage de fonctions
 
 Dans le modèle de chaînage de fonctions, une séquence de fonctions s’exécute dans un ordre spécifique. Dans ce modèle, la sortie d’une fonction est appliquée à l’entrée d’une autre fonction.
 
@@ -135,7 +135,7 @@ Vous pouvez utiliser la commande `Invoke-ActivityFunction` pour appeler d'autres
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modèle 2 : Fan out/fan in
+### <a name="pattern-2-fan-outfan-in"></a>Modèle 2 : fan-out/fan-in
 
 Dans le modèle fan out/fan in, vous exécutez plusieurs fonctions en parallèle, puis attendez que toutes ces fonctions se terminent. Un travail d’agrégation est souvent effectué sur les résultats retournés par les fonctions.
 
@@ -255,7 +255,7 @@ La création automatique de points de contrôle qui a lieu lors de l'appel `Wait
 > [!NOTE]
 > Dans de rares circonstances, un plantage peut se produire dans la fenêtre après l’exécution d’une fonction d’activité, mais avant que son achèvement ne soit enregistré dans l’historique d’orchestration. Si cela se produit, la fonction d’activité s’exécute à nouveau depuis le début après la reprise du processus.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Modèle 3 : API HTTP Async
+### <a name="pattern-3-async-http-apis"></a>Modèle 3 : API HTTP Async
 
 Le modèle d’API HTTP asynchrone traite le problème de coordination de l’état des opérations à exécution longue avec des clients externes. Pour implémenter ce modèle, une méthode courante consiste à faire déclencher l’action à exécution longue par un point de terminaison HTTP. Le client est ensuite redirigé vers un point de terminaison d’état que le client interroge pour savoir quand l’opération est terminée.
 
@@ -403,7 +403,7 @@ L'analyse n'est actuellement pas prise en charge dans PowerShell.
 
 Quand une requête est reçue, une nouvelle instance d’orchestration est créée pour cet ID de tâche. L’instance interroge un état jusqu’à ce qu’une condition soit respectée et que vous quittiez la boucle. Un minuteur durable contrôle la fréquence d’interrogation. Des opérations supplémentaires peuvent ensuite être exécutées, ou l’orchestration peut prendre fin. Quand `nextCheck` dépasse `expiryTime`, le moniteur s’arrête.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>Modèle 5 : Interaction humaine
+### <a name="pattern-5-human-interaction"></a>Modèle 5 : interaction humaine
 
 De nombreux processus automatisés impliquent un certain type d’interaction humaine. L’implication de personnes humaines dans un processus automatisé est complexe, car elles ne sont pas toujours aussi disponibles et réactives que les services cloud. Un processus automatisé peut rendre cette interaction possible en utilisant des délais d’expiration et une logique de compensation.
 

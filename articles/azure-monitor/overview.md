@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 005068c8e81adb9a79a4e6dc7e86a9bfb39902a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505820"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088627"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -42,13 +42,13 @@ Toutes les données collectées par Azure Monitor font partie d’un des deux ty
 
 Pour de nombreuses ressources Azure, vous verrez les données collectées par Azure Monitor directement sur la page Vue d’ensemble correspondante sur le portail Azure. Par exemple, jetez un œil à toutes les machines virtuelles pour voir plusieurs graphiques affichant les mesures de performances. Cliquez sur l’un des graphiques pour ouvrir les données dans [Metrics Explorer](platform/metrics-charts.md) sur le portail Azure, ce qui vous permet de représenter les valeurs de plusieurs métriques dans un graphique au fil du temps.  Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations.
 
-![Mesures](media/overview/metrics.png)
+![Diagramme montrant le flux des données de métriques dans Metrics Explorer à utiliser dans les visualisations](media/overview/metrics.png)
 
 Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](./log-query/log-query-overview.md) dans le portail Azure, avant d’analyser directement les données à l’aide de différents outils ou d’enregistrer les requêtes pour les utiliser avec les [visualisations](visualizations.md) ou les [règles d’alerte](platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) utilisé par Azure Data Explorer qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](log-query/sql-cheatsheet.md) et [Splunk](log-query/splunk-cheatsheet.md).
 
-![Journaux d’activité](media/overview/logs.png)
+![Diagramme montrant le flux des données des journaux dans Log Analytics à des fins d’analyse](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Quelles sont les données collectées par Azure Monitor ?
 
@@ -56,9 +56,9 @@ Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envi
 
 - **Données de surveillance de l’application** : données concernant les performances et la fonctionnalité du code que vous avez écrit, quelle que soit la plateforme.
 - **Données de surveillance du système d’exploitation invité** : données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir d’Azure, d’un autre cloud ou d’un système local. 
-- **Données de surveillance des ressources Azure** : données sur le fonctionnement d’une ressource Azure.
-- **Données de surveillance de l’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
-- **Données de surveillance du locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
+- **Données de surveillance des ressources Azure** : données concernant le fonctionnement d’une ressource Azure.
+- **Données de surveillance d’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
+- **Données de surveillance de locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
 Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](platform/platform-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](platform/data-platform.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 
@@ -103,12 +103,12 @@ Les [alertes dans Azure Monitor](platform/alerts-overview.md) vous avertissent d
 
 Les règles d’alerte dans Azure Monitor utilisent des [groupes d’actions](platform/action-groups.md), qui contiennent des ensembles uniques de destinataires et d’actions qui peuvent être partagés entre plusieurs règles. Selon vos besoins, les groupes d’actions peuvent effectuer des actions telles que l’utilisation de webhooks pour que les alertes démarrent des actions externes ou pour l’intégration à vos outils ITSM.
 
-![Alertes](media/overview/alerts.png)
+![Capture d’écran montrant des alertes dans Azure Monitor, avec le niveau de gravité, le nombre total d’alertes et d’autres informations](media/overview/alerts.png)
 
 ### <a name="autoscale"></a>Mise à l’échelle automatique
 La mise à l’échelle automatique vous permet de disposer de la bonne quantité de ressources en cours d’exécution pour gérer la charge sur votre application. Elle vous permet de créer des règles qui utilisent les métriques collectées par Azure Monitor pour déterminer quand ajouter automatiquement des ressources pour gérer les augmentations de charge tout en réalisant des économies en supprimant les ressources inactives. Vous spécifiez un nombre minimal et maximal d’instances et la logique permettant de définir quand augmenter ou diminuer les ressources.
 
-![Mise à l’échelle automatique](media/overview/autoscale.png)
+![Diagramme illustrant la mise à l’échelle automatique, avec plusieurs serveurs sur une ligne intitulée Temps processeur > 80 %, dont deux serveurs marqués comme Minimum, trois comme Capacité actuelle et cinq comme Maximum](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Affichage des données de supervision
 Les [visualisations](visualizations.md), telles que les tables et les graphiques, sont des outils efficaces pour résumer les données de supervision et les proposer à différents publics. Azure Monitor dispose de ses propres fonctionnalités de visualisation des données de supervision et s’appuie sur d’autres services Azure pour leur publication auprès de différents publics.
@@ -116,12 +116,12 @@ Les [visualisations](visualizations.md), telles que les tables et les graphiques
 ### <a name="dashboards"></a>Tableaux de bord
 Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) vous permettent de combiner différents genres de données, y compris les métriques et les journaux d’activité, dans un même volet dans le [portail Azure](https://portal.azure.com). Si vous le souhaitez, vous pouvez partager le tableau de bord avec d’autres utilisateurs d’Azure. Les éléments d’Azure Monitor peuvent être ajoutés à un tableau de bord Azure en plus de la sortie de n’importe quelle requête de journal ou graphique de métriques. Par exemple, vous pouvez créer un tableau de bord qui combine des vignettes affichant un graphique de métriques, un tableau de journaux d’activité, un graphique d’utilisation provenant d’Application Insights et la sortie d’une requête de journal d’activité.
 
-![tableau de bord](media/overview/dashboard.png)
+![Capture d’écran présentant un tableau de bord Azure, qui comprend les vignettes Application et Sécurité ainsi que d’autres informations personnalisables](media/overview/dashboard.png)
 
 ### <a name="views"></a>Les vues
 Les [vues](./platform/view-designer.md) présentent de manière visuelle les données de journal dans Azure Monitor.  Chaque vue inclut une seule vignette comportant plusieurs visualisations, par exemple sous forme de barres et de graphiques en courbes, en plus des listes résumant les données critiques.  Les solutions de supervision incluent des vues qui synthétisent les données pour une application donnée. Vous pouvez créer vos propres vues pour présenter les données de n’importe quelle requête de journal. Comme les autres éléments d’Azure Monitor, les vues peuvent être ajoutées aux tableaux de bord Azure.
 
-![Affichage](media/overview/view.png)
+![Capture d’écran montrant une vignette pour Solution de supervision de conteneur et la vue détaillée qui s’ouvre si vous sélectionnez la vignette](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) est un service d’analyse métier qui fournit des visualisations interactives d’une large gamme de sources de données. Il constitue un moyen efficace de mettre les données à disposition d’autres personnes dans et en dehors de votre organisation. Vous pouvez configurer Power BI pour [importer automatiquement les données de journal à partir d’Azure Monitor](./platform/powerbi.md) afin de tirer parti de ces visualisations supplémentaires.

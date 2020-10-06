@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Résoudre les problèmes d’accès
           href: troubleshooting-access-issues.md
+    - name: Guide pratique pour activer la journalisation
+      href: howto-logging.md
     - name: Développer
       items:
         - name: Guide du développeur de coffre de clés Azure

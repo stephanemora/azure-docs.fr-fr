@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 7c8254609b8db9c2796d431485507de7083509aa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569411"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528588"
 ---
-# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil Python avec des clés symétriques
+# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Provisionner un appareil Python avec des clés symétriques
 
 Dans ce guide de démarrage rapide, vous allez apprendre à provisionner un ordinateur de développement Windows comme un appareil sur un hub IoT à l’aide de Python. Cet appareil utilise une clé symétrique pour s’authentifier auprès d’une instance du service DPS (Device Provisioning Service) afin d’être attribué à un hub IoT. L’appareil authentifié est reconnu par le service DPS en fonction d’une inscription individuelle, puis attribué à un hub IoT. L’exemple de code issu du [SDK Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) est utilisé pour provisionner l’appareil. 
 
 Bien que cet article illustre le provisionnement avec une seule inscription, vous pouvez aussi utiliser des groupes d’inscription. Il existe cependant quelques différences lorsque vous utilisez des groupes d’inscription. Par exemple, vous devez utiliser une clé d’appareil dérivée avec un ID d’inscription unique pour l’appareil. Bien que les groupes d’inscription avec des clés symétriques ne soient pas limités aux appareils d’ancienne génération, le [Guide pratique pour provisionner des appareils d’ancienne génération à l’aide d’une attestation de clé symétrique](how-to-legacy-device-symm-key.md) fournit un exemple de groupe d’inscription. Pour plus d’informations, consultez [Inscriptions de groupe pour l’attestation de clé symétrique](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, consultez [Concepts de provisionnement automatique](concepts-auto-provisioning.md). 
+Si vous ne connaissez pas le processus de provisionnement automatique, révisez la présentation du [provisionnement](about-iot-dps.md#provisioning-process) avant de poursuivre. 
 
 Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de poursuivre ce démarrage rapide. Ce guide de démarrage rapide nécessite au préalable la création d’une instance du service Device Provisioning.
 
@@ -69,13 +69,13 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 
 3. Dans le volet **Ajouter une inscription**, entrez les informations suivantes, puis appuyez sur le bouton **Enregistrer**.
 
-   - **Mécanisme** : sélectionnez **Clé symétrique** comme *Mécanisme* d'attestation d'identité.
+   - **Mécanisme** : sélectionnez **Clé symétrique** comme *mécanisme* d’attestation d’identité.
 
-   - **Générer automatiquement des clés** : cochez cette case.
+   - **Générer automatiquement les clés** : cochez cette case.
 
-   - **ID d'inscription** : entrez un ID pour identifier l'inscription. Utilisez uniquement des caractères alphanumériques en minuscules et des tirets (« - »). Par exemple, **symm-key-python-device-008**.
+   - **ID d’inscription** : entrez un ID d’inscription pour identifier l’inscription. Utilisez uniquement des caractères alphanumériques en minuscules et des tirets (« - »). Par exemple, **symm-key-python-device-008**.
 
-   - **ID de l’appareil IoT Hub :** entrez un identificateur d'appareil. Par exemple, **python-device-008**.
+   - **ID de l’appareil IoT Hub** : entrez un identificateur d’appareil. Par exemple, **python-device-008**.
 
      ![Ajouter une inscription individuelle pour l’attestation de clé symétrique dans le portail](./media/quick-create-device-symm-key-python/create-individual-enrollment-python.png)
 
