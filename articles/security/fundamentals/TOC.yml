@@ -80,6 +80,8 @@
       href: encryption-overview.md
     - name: Double chiffrement
       href: double-encryption.md
+    - name: Changements des certificats TLS
+      href: tls-certificate-changes.md
     - name: Chiffrement de disque
       items:
         - name: Meilleures pratiques

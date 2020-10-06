@@ -146,6 +146,10 @@
           href: move-subscription.md
         - name: Déplacer un coffre de clés dans une nouvelle région
           href: move-region.md
+    - name: Mise en réseau
+      items:
+        - name: Diagnostiquer les problèmes de configuration des liaisons privées
+          href: private-link-diagnostics.md
 - name: Informations de référence
   items:
     - name: Nouveautés

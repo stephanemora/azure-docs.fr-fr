@@ -62,6 +62,8 @@
       href: disaster-recovery-for-virtual-machines.md
     - name: Déployer une machine virtuelle via la bibliothèque de contenu
       href: tutorial-deploy-vm-content-library.md
+    - name: Configurer GitHub Enterprise Server
+      href: github-enterprise-server.md
     - name: Intégration native Azure
       items:
         - name: Gestion des API
@@ -84,6 +86,8 @@
       items:
         - name: Configurer des opérations vRealize
           href: vrealize-operations-for-azure-vmware-solution.md
+        - name: Déployer VMware Horizon
+          href: azure-vmware-solution-horizon.md
 - name: Ressources
   items:
     - name: Dépannage

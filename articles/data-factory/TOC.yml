@@ -544,6 +544,8 @@
           href: data-flow-new-branch.md
         - name: Tableau croisé dynamique
           href: data-flow-pivot.md
+        - name: Rank
+          href: data-flow-rank.md
         - name: Sélectionnez
           href: data-flow-select.md
         - name: Récepteur

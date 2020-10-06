@@ -214,6 +214,8 @@
               href: functions-create-scheduled-function.md
         - name: Ajouter des liaisons
           items:
+            - name: Guide pratique pour ajouter une liaison
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portail
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Stockage - Python

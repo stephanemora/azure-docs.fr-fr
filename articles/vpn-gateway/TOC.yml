@@ -170,7 +170,7 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: Passer au protocole OpenVPN ou à IKEv2 à partir de SSTP
               href: ikev2-openvpn-from-sstp.md
-        - name: Configurer la gestion des sessions P2S
+        - name: Gestion des sessions P2S
           href: p2s-session-management.md
         - name: Passer à un certificat de passerelle d’autorité de certification public pour P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md

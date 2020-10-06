@@ -263,8 +263,6 @@
       href: release-notes-archive.md
     - name: Blog sur la feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
-    - name: "Retrait de fonctionnalités et d’API (juillet\_2019)"
-      href: security-center-features-retirement-july2019.md
     - name: Évaluation de la protection de point de terminaison et recommandations
       href: security-center-endpoint-protection.md
 - name: Ressources

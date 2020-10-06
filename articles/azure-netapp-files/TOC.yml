@@ -119,6 +119,8 @@
           href: troubleshoot-capacity-pools.md
         - name: Résoudre les problèmes de réplication interrégion
           href: troubleshoot-cross-region-replication.md
+        - name: Résoudre les problèmes des volumes à deux protocoles
+          href: troubleshoot-dual-protocol-volumes.md
         - name: Résoudre les problèmes de stratégies d’instantanés
           href: troubleshoot-snapshot-policies.md
 - name: Informations de référence

@@ -620,7 +620,7 @@
   items:
     - name: API Cassandra
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce que l’API Cassandra dans Cosmos DB\_?"
               href: cassandra-introduction.md
@@ -1064,6 +1064,8 @@
       items:
         - name: "Migrer vers le kit SDK Java\_V4"
           href: migrate-java-v4-sdk.md
+        - name: "Migrer vers le kit SDK .NET\_V3"
+          href: migrate-dotnet-v3.md
     - name: Dépannage
       items:
         - name: Erreurs courantes
