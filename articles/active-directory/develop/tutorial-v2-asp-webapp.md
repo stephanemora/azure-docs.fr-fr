@@ -1,7 +1,7 @@
 ---
-title: Ajouter la connexion à l’application web ASP.NET de la plateforme d'identités Microsoft
+title: "Tutoriel : Créer une application web ASP.NET qui utilise la Plateforme d'identités Microsoft pour l'authentification | Azure"
 titleSuffix: Microsoft identity platform
-description: Implémentation de la connexion Microsoft dans une solution ASP.NET à l’aide d’une application basée sur un navigateur web traditionnel et la norme OpenID Connect
+description: Dans ce tutoriel, vous allez créer une application web ASP.NET qui utilisera la Plateforme d'identités Microsoft et l'intergiciel OWIN pour activer la connexion de l'utilisateur.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574226"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -25,10 +25,18 @@ Ce guide explique comment implémenter la connexion à Microsoft à l’aide d�
 
 Quand vous aurez suivi ce guide, votre application sera en mesure d’accepter les connexions de comptes personnels à partir des mentions « j’aime » d’outlook.com et de live.com. De plus, les comptes professionnels et scolaires de toute entreprise ou organisation ayant intégré la plateforme d’identités Microsoft pourra se connecter à votre application.
 
-> Pour suivre ce guide, vous avez besoin de Microsoft Visual Studio 2019.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Téléchargez Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/).
+Dans ce tutoriel, vous allez :
 
->[!NOTE]
-> Si vous êtes un nouvel utilisateur de la plateforme d’identités Microsoft, nous vous recommandons de commencer avec le guide [Ajouter la connexion à la plateforme d’identités Microsoft dans une application web ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Créer un projet d'*application web ASP.NET* dans Visual Studio
+> * Ajouter les composants de l'intergiciel Open Web Interface (OWIN) pour .NET
+> * Ajouter du code pour prendre en charge la connexion et la déconnexion des utilisateurs
+> * Inscrire l'application sur le portail Azure
+> * Test de l'application
+
+## <a name="prerequisites"></a>Prérequis
+
+* Avoir installé [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) avec la charge de travail **Développement ASP.NET et web**
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
@@ -264,7 +272,7 @@ Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et affich
     ```
 
 ### <a name="more-information"></a>Informations complémentaires
-Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez aux [Conseils pour la personnalisation](./howto-add-branding-in-azure-ad-apps.md "Instructions de personnalisation").
+Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Bouton Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez aux [Conseils pour la personnalisation](./howto-add-branding-in-azure-ad-apps.md "Instructions de personnalisation").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Ajouter un contrôleur pour afficher les revendications de l’utilisateur
 Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code suivant tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion :
@@ -392,7 +400,7 @@ Pour tester votre application dans Visual Studio, appuyez sur F5 afin d’exéc
 
 Quand vous êtes prêt à exécuter votre test, utilisez un compte Azure AD (compte professionnel ou scolaire) ou un compte Microsoft personnel (<span>live.</span>com ou <span>outlook.</span>com) pour vous connecter.
 
-![Se connecter avec Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Bouton Se connecter avec Microsoft affiché sur la page d'ouverture de session du navigateur](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Connexion à votre compte Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -470,20 +478,11 @@ Vous pouvez limiter l’accès de connexion aux comptes d’utilisateurs d’une
 
 Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, consultez la rubrique relative à la [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment des applications web peuvent appeler des API web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Découvrir comment créer l’application utilisée dans ce guide de démarrage rapide
-
-Découvrez plus d’informations sur les applications web appelant des API web avec la plateforme d’identité Microsoft :
+Apprenez à appeler des API web protégées à partir d'applications web avec la Plateforme d'identités Microsoft :
 
 > [!div class="nextstepaction"]
 > [Applications web appelant des API web](scenario-web-app-sign-user-overview.md)
-
-Découvrez comment générer des applications web appelant Microsoft Graph :
-
-> [!div class="nextstepaction"]
-> [Tutoriel ASP.NET Microsoft Graph](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

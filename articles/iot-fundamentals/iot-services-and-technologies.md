@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046062"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578174"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Technologies et services Azure disponibles pour créer des solutions IoT
 
@@ -57,7 +57,7 @@ Pour créer une solution IoT à partir de zéro ou étendre une solution créée
 
 Développez vos appareils IoT à l’aide de l’un des [starter kits Azure IoT](https://catalog.azureiotsolutions.com/kits) ou choisissez un appareil à utiliser dans le [catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsolutions.com). Implémentez votre code incorporé à l’aide des kits [device SDK](../iot-hub/iot-hub-devguide-sdks.md) open source. Les kits device SDK prennent en charge de nombreux systèmes d’exploitation, comme Linux, Windows et les systèmes d’exploitation en temps réel. Il existe des SDK pour différents langages de programmation, tels que [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) et [Python](https://github.com/Azure/azure-iot-sdk-python).
 
-Vous pouvez simplifier encore davantage la création du code incorporé pour vos appareils en utilisant le service [IoT Plug-and-Play (préversion)](../iot-pnp/overview-iot-plug-and-play.md). Avec IoT Plug-and-Play, les développeurs de solutions peuvent intégrer des appareils avec leurs solutions sans avoir à écrire du code incorporé. Au cœur d’IoT Plug-and-Play est un schéma de _modèle de capacité d’appareil_ qui décrit les capacités de l’appareil. Utilisez le modèle de capacité d’appareil pour générer votre code d’appareil incorporé et configurer une solution cloud telle qu’une application IoT Central.
+Vous pouvez encore simplifier la création du code incorporé pour vos appareils en utilisant le service [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Avec IoT Plug-and-Play, les développeurs de solutions peuvent intégrer des appareils avec leurs solutions sans avoir à écrire du code incorporé. Au cœur d’IoT Plug-and-Play est un schéma de _modèle de capacité d’appareil_ qui décrit les capacités de l’appareil. Utilisez le modèle de capacité d’appareil pour générer votre code d’appareil incorporé et configurer une solution cloud telle qu’une application IoT Central.
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) vous permet de décharger des parties de la charge de travail IoT de vos services cloud Azure vers vos appareils. IoT Edge contribue à réduire la latence dans votre solution et le volume de données échangées entre vos appareils, et il prend en charge les scénarios hors connexion. Vous pouvez gérer les appareils IoT Edge à partir d’IoT Central et de certains accélérateurs de solution.
 
