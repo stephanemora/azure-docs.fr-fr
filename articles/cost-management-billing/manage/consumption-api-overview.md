@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e2252d13dd39587e7730b141a6096afc0a34dbc1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07595eed70850ce5270a261d588a33b68ff964fe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371930"
 ---
 # <a name="azure-consumption-api-overview"></a>Présentation des API Azure Consumption
 
@@ -38,7 +38,7 @@ L’API Usage Details permet d’obtenir les données de coût et d’utilisatio
 L’API comprend :
 
 -   **Données de consommation au niveau du compteur** : consultez les données, notamment le coût d’utilisation, le compteur d’émission des frais et la ressource Azure associée aux frais. Tous les enregistrements de détail de l’utilisation sont mappés à un compartiment quotidien.
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Filtrage** : affinez vos résultats d’API pour obtenir un ensemble plus petit d’enregistrements des détails d’utilisation à l’aide des filtres suivants :
     - Début/Fin de l’utilisation
     - Groupe de ressources
@@ -55,7 +55,7 @@ Utilisez l’API Marketplace Charges pour obtenir les données d’utilisation e
 L’API comprend :
 
 -   **Données de consommation au niveau du compteur** : consultez les données, notamment le coût d’utilisation de la Place de marché, le compteur d’émission des frais et la ressource associée aux frais. Tous les enregistrements de détail de l’utilisation sont mappés à un compartiment quotidien.
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Filtrage** : affinez vos résultats d’API pour obtenir un ensemble plus petit d’enregistrements de la Place de marché à l’aide des filtres suivants :
     - Début/Fin de l’utilisation
     - Groupe de ressources
@@ -70,7 +70,7 @@ Les clients Entreprise peuvent utiliser l’API Balances pour obtenir un résum�
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Clients Entreprise uniquement** : cette API est disponible uniquement pour les clients EA.
     - Les clients doivent disposer des autorisations d’administrateur d’entreprise pour appeler cette API.
 
@@ -82,7 +82,7 @@ Les clients Entreprise peuvent utiliser cette API pour créer des budgets de co�
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Clients Entreprise uniquement** : cette API est disponible uniquement pour les clients EA.
 -   **Notifications configurables** : indiquez le ou les utilisateurs à informer en cas de dépassement du budget.
 -   **Budgets basés sur l’utilisation ou les coûts** : créez votre budget basé sur votre consommation ou vos coûts en fonction de votre situation.
@@ -100,7 +100,7 @@ Utilisez cette API pour obtenir des recommandations sur l’achat d’instances 
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Filtrage** : personnalisez les résultats des recommandations à l’aide des filtres suivants :
     - Étendue
     - Période de recherche arrière
@@ -114,7 +114,7 @@ Utilisez l’API Reservation Details pour afficher des informations sur les rés
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Filtrage** : affinez vos résultats d’API pour obtenir un ensemble plus petit de réservations à l’aide du filtre suivant :
     - Plage de dates
 -   **Informations de réservation pour différents types d’offre** : les informations de réservation sont actuellement disponibles pour les clients Entreprise et Web Direct.
@@ -127,7 +127,7 @@ Utilisez cette API pour afficher des informations agrégées sur les réservatio
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Filtrage** : personnalisez vos résultats lors de l’utilisation de la base quotidienne avec le filtre suivant :
     - Date d'utilisation
 -   **Informations de réservation pour différents types d’offre** : les informations de réservation sont actuellement disponibles pour les clients Entreprise et Web Direct.
@@ -140,7 +140,7 @@ Les clients Entreprise peuvent utiliser cette API pour récupérer leur tarifica
 
 L’API comprend :
 
--   **Contrôle d’accès en fonction du rôle Azure** : configurez les stratégies d’accès dans le [portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
+-   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : configurez les stratégies d’accès dans le [Portail Azure](https://portal.azure.com), [l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou les [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/) pour spécifier les utilisateurs ou applications qui peuvent accéder aux données d’utilisation de l’abonnement. Les appelants doivent utiliser les jetons Azure Active Directory standard pour l’authentification. Ajoutez l’appelant au rôle Lecteur de facture, Lecteur, Propriétaire ou Collaborateur pour être en mesure d’accéder aux données d’utilisation relatives à un abonnement Azure spécifique.
 -   **Clients Entreprise uniquement** : cette API est disponible uniquement pour les clients EA. Les clients Web Direct doivent utiliser l’API RateCard pour obtenir la tarification.
 
 Pour plus d’informations, consultez la spécification technique de [l’API Price Sheet](https://docs.microsoft.com/rest/api/consumption/pricesheet).

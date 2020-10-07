@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 2cf9cde80a46023575a4e0833de5c2c6b90ab10e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88687283"
 ---
 Quand vous exécutez le graphe multimédia, les résultats du nœud processeur d’extension HTTP passe par le nœud récepteur IoT Hub au hub IoT. Les messages que vous voyez dans la fenêtre **SORTIE** contiennent une section « body » et une section « applicationProperties ». Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
@@ -34,11 +34,11 @@ Dans ce message, notez les informations suivantes :
 * Dans `applicationProperties`, « subject » indique que le message a été généré à partir du nœud source RTSP dans le graphe de média.
 * Dans `applicationProperties`, `eventType` indique que cet événement est un événement de diagnostic.
 * `eventTime` indique l’heure à laquelle l’événement s’est produit.
-* La section « body » contient des données relatives à l’événement de diagnostic. Dans ce cas, les données comprennent les détails du [protocole SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
+* Le corps contient des données relatives à l’événement de diagnostic. Dans ce cas, les données comprennent les détails du [protocole SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 
 ### <a name="inference-event"></a>Événement d'inférence
 
-Le nœud du processeur d’extension gRPC reçoit les résultats d’inférence du module lvaExtension. Il émet ensuite les résultats par le biais du nœud récepteur IoT Hub sous la forme d’événements d’inférence.
+Le nœud du processeur d’extension gRPC reçoit les résultats de l’inférence du module lvaExtension. Il émet ensuite les résultats par le biais du nœud récepteur IoT Hub sous la forme d’événements d’inférence.
 Dans ces événements, le type est défini sur « entity » pour indiquer qu’il s’agit d’une entité, comme une voiture ou un camion. La valeur `eventTime` est l’heure UTC à laquelle l’objet a été détecté.
 Dans l’exemple suivant, trois voitures ont été détectées dans la même image vidéo, avec des niveaux de confiance différents.
 
@@ -126,7 +126,7 @@ Dans l’exemple suivant, trois voitures ont été détectées dans la même ima
 Dans le message, notez les informations suivantes :
 
 * Dans `applicationProperties`, « subject » référence le nœud présent dans la topologie du graphe à partir duquel le message a été généré.
-* Dans `applicationProperties`, « eventType » indique que cet événement est un événement d’analytique.
+* Dans `applicationProperties`, eventType indique que cet événement est un événement d’analytique.
 * La valeur `eventTime` correspond à l’heure à laquelle l’événement s’est produit.
-* La section `body` contient des données relatives à l’événement d’analytique. Dans ce cas, l’événement est un événement d’inférence, si bien que la section « body » contient des données sur les inférences.
+* La section `body` contient des données relatives à l’événement d’analytique. Dans ce cas, l’événement est un événement d’inférence : le corps contient donc des données sur les inférences.
 * La section `inferences` indique que le type est « entity ». Cette section inclut des données supplémentaires sur l’entité.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371947"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -242,10 +242,10 @@ Tenez compte de ces informations importantes lors du transfert de comptes :
 
 - Quand vous effectuez un transfert d’abonnement, Microsoft met à jour le propriétaire du compte.
 
-Découvrez les stratégies suivantes de contrôle d’accès en fonction du rôle (RBAC) :
+Comprendre ces stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
-- Lorsque vous effectuez des transferts d’abonnement entre deux ID d’organisation dans le même locataire, les stratégies RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
-- Les autres transferts d’abonnements entraînent la perte de vos stratégies RBAC et de vos attributions de rôles.
+- Lorsque vous effectuez des transferts d’abonnement entre deux ID d’organisation dans le même locataire, les stratégies Azure RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
+- Les autres transferts d’abonnements entraînent la perte de vos stratégies Azure RBAC et de vos attributions de rôles.
 - Les stratégies et les rôles d’administrateur ne sont pas transférés entre les annuaires. Les administrateurs de service sont mis à jour pour refléter le propriétaire du compte de destination.
 
 Avant de changer le propriétaire d’un compte :
@@ -569,7 +569,7 @@ Vous pouvez définir un quota de dépense au niveau du service. Le système vous
 
 Pour définir votre quota de dépenses, sélectionnez un service, puis sélectionnez l’icône de modification. Après avoir modifié les détails de la limite de dépenses, sélectionnez **Enregistrer**.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>J’ai utilisé des groupes de ressources pour implémenter le RBAC et suivre l’utilisation. Comment puis-je afficher les détails d’utilisation associés ?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>J’ai utilisé des groupes de ressources pour implémenter Azure RBAC et suivre l’utilisation. Comment puis-je afficher les détails d’utilisation associés ?
 
 Si vous utilisez des _groupes de ressources_ et des _balises_, ces informations sont suivies au niveau du service, et vous pouvez y accéder dans le fichier de téléchargement d’utilisation détaillé (CSV). Consultez le [rapport d’utilisation à télécharger](https://ea.azure.com/report/downloadusage) dans le portail Azure Enterprise.
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85483293"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB à l’aide d’un modèle Resource Manager
@@ -57,7 +57,7 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modèle Resource Manager, intégration d’Azure Cosmos DB, portail de déploiement":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Déployer sur Azure":::
 
     Sauf si elles sont spécifiées, utilisez les valeurs par défaut pour créer les ressources Azure Cosmos.
 
@@ -78,7 +78,7 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
 
 3. Sélectionnez **Achat**. Une fois que le compte Azure Cosmos a été déployé, vous recevez une notification :
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modèle Resource Manager, intégration de Cosmos DB, notification du portail de déploiement":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Déployer sur Azure":::
 
 Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure, vous pouvez également utiliser Azure PowerShell, l’interface Azure CLI et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-powershell.md).
 

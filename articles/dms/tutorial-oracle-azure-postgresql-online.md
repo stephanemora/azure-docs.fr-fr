@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363169"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutoriel : Migrer Oracle vers Azure Database pour PostgreSQL en ligne à l’aide de DMS (préversion)
 
@@ -214,11 +214,11 @@ Si vous créez un schéma PostgreSQL à l’aide d’outils comme ora2pg avant d
 
 1. Lorsque vous créez un projet de migration Oracle vers Azure Database pour PostgreSQL, vous êtes invité à sélectionner la base de données cible et le schéma cible dans l’étape de sélection des schémas. Renseignez la base de données cible et le schéma cible.
 
-   ![Afficher les abonnements au portail](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![Capture d’écran montrant Mapper aux bases de données cibles.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. L’écran **Paramètres de migration** présente une liste de tables dans la source Oracle. Azure Database Migration Service tente de faire correspondre des tables dans les tables sources et cibles en fonction du nom de la table. S’il existe plusieurs tables cibles correspondantes avec une casse différente, vous pouvez sélectionner la table cible à mapper.
 
-    ![Afficher les abonnements au portail](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![Capture d’écran montrant les paramètres de migration.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > Si vous avez besoin de mapper des noms de tables sources à des tables avec des noms différents, envoyez un e-mail à [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) et nous pouvons vous fournir un script pour automatiser le processus.

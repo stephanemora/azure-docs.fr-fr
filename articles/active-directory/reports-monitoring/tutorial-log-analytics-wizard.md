@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361906"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutoriel : Configurer l’Assistant Log Analytics
 
@@ -72,7 +72,7 @@ La configuration d’un espace de travail Log Analytics comprend deux grandes é
 
 3. Dans la page Espaces de travail Log Analytics, cliquez sur **Ajouter**.
 
-    ![Ajouter](./media/tutorial-log-analytics-wizard/add.png)
+    ![Capture d’écran montrant le bouton Ajouter de la page Espace de travail Log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Dans la page **Espace de travail Log Analytics**, procédez comme suit :
 
@@ -305,7 +305,7 @@ Cette procédure montre comment créer un classeur à l’aide du modèle de dé
 
 3. Dans la section **Surveillance**, cliquez sur **Classeurs**.
 
-    ![Classeurs](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Capture d’écran montrant Surveillance dans le menu du portail Azure avec les classeurs sélectionnés.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Dans la section **Démarrage rapide**, cliquez sur **Vide**.
 
@@ -357,7 +357,7 @@ Cette procédure montre comment ajouter une requête à un modèle de classeur. 
 
 3. Dans la section **Surveillance**, cliquez sur **Classeurs**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![La capture d’écran montrant Surveillance dans le menu avec les classeurs sélectionnés.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Dans la section **Accès conditionnel**, cliquez sur **Rapports et insights sur l’accès conditionnel**.
 

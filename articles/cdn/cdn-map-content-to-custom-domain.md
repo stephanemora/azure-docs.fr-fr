@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362093"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -90,7 +90,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
 5. Renseignez les champs suivants de l’entrée CNAME :
 
-    ![Entrée CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Capture d’écran montrant l’entrée C NAME avec le type, l’hôte, les destinations et les valeurs T T L pour un sous-domaine cdnverify temporaire.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Tapez : laissez *CNAME* sélectionné.
 
@@ -104,7 +104,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
  
     L’entrée de l’enregistrement CNAME est ajoutée à la table des enregistrements DNS.
 
-    ![Table des enregistrements DNS](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Capture d’écran montrant que l’entrée C NAME a été ajoutée à la table d’enregistrements D N S pour un sous-domaine cdnverify temporaire.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Associer le domaine personnalisé à votre point de terminaison CDN
@@ -188,7 +188,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
 5. Renseignez les champs de l’entrée CNAME :
 
-    ![Entrée CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Capture d’écran montrant l’entrée C NAME avec le type, l’hôte, les destinations et les valeurs T T L pour un domaine personnalisé permanent.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Tapez : laissez *CNAME* sélectionné.
 
@@ -202,7 +202,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
  
     L’entrée de l’enregistrement CNAME est ajoutée à la table des enregistrements DNS.
 
-    ![Table des enregistrements DNS](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Capture d’écran montrant que l’entrée C NAME a été ajoutée à la table d’enregistrements D N S pour un domaine personnalisé permanent.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. Si vous avez un enregistrement CNAME cdnverify, sélectionnez l’icône crayon en regard de celui-ci, puis sélectionnez l’icône corbeille.
 

@@ -1,20 +1,20 @@
 ---
-title: Explorer un exemple de scénario
+title: Démarrage rapide - Explorer un exemple de scénario
 titleSuffix: Azure Digital Twins
-description: Utilisez l’exemple ADT Explorer pour visualiser et explorer un scénario prédéfini.
+description: Démarrage rapide - Utiliser l’exemple ADT Explorer pour visualiser et explorer un scénario prédéfini.
 author: baanders
 ms.author: baanders
-ms.date: 8/12/2020
+ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372610"
 ---
-# <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
+# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
 Avec Azure Digital Twins, vous pouvez créer et interagir avec les modèles de vos environnements réels. Pour cela, vous pouvez modéliser des éléments sous la forme de **jumeaux numériques**, puis les connecter à un**graphe** de connaissances qui peut répondre aux événements en direct et être interrogé.
 
@@ -35,9 +35,11 @@ L’exemple de graphe avec lequel vous allez travailler représente un bâtiment
 
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, **[créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** .
 
-Avant de commencer, vous devez également télécharger deux exemples :
-* L’exemple d’application **ADT Explorer**. Cet exemple contient l’application principale que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Pour accéder à l’application, cliquez sur le lien suivant : [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**ADT_Explorer.zip**_.
-* L’**exemple de scénario Azure Digital Twins**. Celui-ci comprend un graphe Azure Digital Twins prédéfini que vous allez charger dans ADT Explorer en vue de l’utiliser. Pour accéder au scénario, cliquez sur le lien suivant : [Exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**Azure_Digital_Twins_samples.zip**_.
+Vous avez également besoin de **Node.js** sur votre machine. Vous pouvez vous procurer la dernière version à partir de ce lien : [Node.js](https://nodejs.org/).
+
+Enfin, vous devez également télécharger deux exemples que vous utiliserez dans le cadre du guide de démarrage rapide :
+* L’exemple d’application **ADT Explorer**. Cet exemple contient l’application principale que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Pour accéder à l’application, cliquez sur le lien suivant : [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**Azure_Digital_Twins__ADT__explorer.zip**_. Décompressez le dossier et extrayez les fichiers.
+* L’**exemple de scénario Azure Digital Twins**. Celui-ci comprend un graphe Azure Digital Twins prédéfini que vous allez charger dans ADT Explorer en vue de l’utiliser. Pour accéder au scénario, cliquez sur le lien suivant : [Exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur sous la forme d’un dossier .ZIP le fichier *.ZIP* de cet exemple de code : **Azure_Digital_Twins_samples.zip**. Décompressez le dossier et extrayez les fichiers.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurer Azure Digital Twins et ADT Explorer
 
@@ -47,7 +49,7 @@ Vous allez également définir des autorisations pour qu’ADT Explorer s’ex�
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurer l’instance Azure Digital Twins
 
-La façon la plus simple de configurer une instance et l’authentification nécessaire consiste à exécuter un exemple de script de déploiement automatisé. Suivez les instructions fournies dans [*Procédure : Configurer une instance et l’authentification (procédure scriptée)* ](how-to-set-up-instance-scripted.md). Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
+Tout d’abord, configurez une instance Azure Digital Twins et l’authentification nécessaire à son utilisation. Pour ce faire, suivez les instructions indiquées dans [*Procédure : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). L’article propose trois modes de configuration : avec le [portail Azure](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) ou un [exemple de script de déploiement Cloud Shell automatisé](how-to-set-up-instance-scripted.md). Toutes les versions des instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
 
 Dans ce guide de démarrage rapide, vous aurez besoin des valeurs suivantes utilisées pour configurer votre instance. S’il vous faut récupérer ces valeurs, utilisez les liens ci-dessous pour accéder aux sections correspondantes de l’article d’installation et les rechercher dans le [portail Azure](https://portal.azure.com).
 * **_Nom d’hôte_** de l’instance Azure Digital Twins ([à rechercher dans le portail](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
@@ -60,32 +62,32 @@ Ensuite, vous allez préparer l’instance Azure Digital Twins que vous avez cr�
 
 Sélectionnez *Authentification* dans le menu de l’inscription, puis appuyez sur *+ Ajouter une plateforme*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Portail Azure : page d’informations sur l’authentification d’une inscription d’application. Le bouton « Ajouter une plateforme » est mis en évidence." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Dans la page *Configurer les plateformes* qui suit, sélectionnez *Web*.
 Fournissez les informations de configuration suivantes :
 * **URI de redirection** : ajoutez l’URI de redirection de *http://localhost:3000* .
 * **Octroi implicite** : cochez la case *Jetons d’accès*.
 
+Appuyez sur *Configurer* pour terminer.
+
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Page Configurer les plateformes, avec les informations décrites ci-dessus mises en évidence":::
+        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux.":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-Appuyez sur *Configurer* pour terminer.
+Vous disposez maintenant d’une configuration web qu’ADT Explorer pourra utiliser. L’onglet Authentification du portail Azure doit refléter cette configuration. Après avoir vérifié les sections ci-dessous, cliquez sur *Enregistrer*.
 
-Vous disposez maintenant d’une configuration web qu’ADT Explorer pourra utiliser. L’onglet Authentification du portail Azure doit refléter cette configuration.
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Portail Azure : page d’informations sur l’authentification d’une inscription d’application. La section Web est mise en évidence, l’URI de redirection est http://localhost:3000 et l’octroi implicite est activé pour les jetons d’accès":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux.":::
 
 ### <a name="run-and-configure-adt-explorer"></a>Exécuter et configurer ADT Explorer
 
 Ensuite, vous allez exécuter l’application ADT Explorer et la configurer pour votre instance Azure Digital Twins.
 
-Accédez au dossier _**ADT_Explorer.zip**_ téléchargé pour le décompresser. Ouvrez une invite de commandes à l’emplacement du dossier *ADT_explorer/client/src*.
+Accédez au dossier _**Azure_Digital_Twins__ADT__explorer**_ téléchargé et décompressé. Ouvrez une invite de commandes à l’emplacement du dossier *Azure_Digital_Twins__ADT__explorer/client/src*.
 
 Exécutez `npm install` pour télécharger toutes les dépendances nécessaires.
 
@@ -93,19 +95,22 @@ Ensuite, démarrez l’application en exécutant `npm run start`.
 
 Après quelques secondes, une fenêtre de navigateur s’ouvre et l’application s’affiche dans le navigateur.
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Fenêtre de navigateur présentant une application exécutée sur localhost:3000. L’application s’appelle ADT Explorer. Elle comprend les sections suivantes : Explorateur de requêtes, Vue du modèle, Vue du graphe et Explorateur de propriétés. Il n’y a pas encore de données à l’écran." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
-Cliquez sur le bouton *Se connecter* situé en haut de la fenêtre pour configurer ADT Explorer de manière à ce qu’il utilise l’instance que vous avez configurée. 
+Cliquez sur le bouton *Se connecter* situé en haut de la fenêtre (illustré dans l’image ci-dessous) pour configurer ADT Explorer de manière à ce qu’il utilise l’instance que vous avez configurée. 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer : icône de connexion mise en évidence en haut de la fenêtre. L’icône représente la silhouette d’une personne à laquelle est superposée une clé." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 Entrez les informations importantes que vous avez collectées précédemment dans la section [Prérequis](#prerequisites) :
 * ID d’application (client)
 * ID de l’annuaire (locataire)
-* URL ADT, au format *https://{nom d’hôte de l’instance}*
+* URL de l’instance Azure Digital Twins, au format *https://{nom d’hôte de l’instance}*
 
 >[!NOTE]
 > Vous pouvez modifier ces informations à tout moment en sélectionnant cette même icône afin de vous connecter. Les valeurs que vous avez passées auront été conservées.
+
+> [!TIP]
+> Si un message d’erreur `SignalRService.subscribe` s’affiche quand vous vous connectez, vérifiez que votre URL Azure Digital Twins commence par *https://* .
 
 Si la fenêtre contextuelle *Autorisations demandées* Microsoft s’affiche, autorisez l’application, puis cliquez sur Accepter pour continuer.
 
@@ -113,7 +118,7 @@ Si la fenêtre contextuelle *Autorisations demandées* Microsoft s’affiche, au
 
 Ensuite, vous allez importer l’exemple de scénario et le graphe dans ADT Explorer.
 
-L’exemple de scénario se trouve dans le dossier _**Azure_Digital_Twins_samples.zip**_ que vous avez téléchargé. Vous devez donc y accéder pour le décompresser.
+L’exemple de scénario se trouve dans le dossier _**Azure_Digital_Twins_samples**_ que vous avez téléchargé et décompressé ; accédez à présent au dossier.
 
 ### <a name="models"></a>Modèles
 
@@ -134,21 +139,21 @@ Dans ce guide de démarrage rapide, les fichiers de modèle ont déjà été éc
 
 Dans la section *Vue du modèle*, cliquez sur l’icône *Charger un modèle*.
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Dans la section Vue du modèle, l’icône du milieu est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/quickstart-adt-explorer/upload-model.png":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. Dans la zone de sélection des fichiers qui s’affiche, accédez au dossier *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* dans le référentiel téléchargé.
 2. Sélectionnez *Room.json* et *Floor.json*, puis cliquez sur OK (vous pouvez charger les autres modèles si vous le souhaitez. Cependant, nous ne les utiliserons pas dans ce guide de démarrage rapide).
 3. Connectez-vous à votre compte Azure, comme vous le demande la fenêtre contextuelle.
 
 >[!NOTE]
->Si le message d’erreur suivant s’affiche : :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Fenêtre contextuelle affichant « Erreur : Erreur lors de la récupération des modèles : ClientAuthError : Erreur d’ouverture de la fenêtre contextuelle. Cela peut se produire si vous utilisez Internet Explorer ou si des fenêtres contextuelles sont bloquées dans le navigateur », avec un bouton Fermer en bas" border="false"::: 
+>Si le message d’erreur suivant s’affiche : :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." border="false"::: 
 > Essayez de désactiver le bloqueur de fenêtres pop-up ou d’utiliser un autre navigateur.
 
 ADT Explorer va maintenant charger ces fichiers de modèle dans votre instance Azure Digital Twins. Ils doivent s’afficher dans la section *Vue du modèle*, sous leur nom convivial et leur ID de modèle complet. Vous pouvez cliquer sur les bulles d’informations *Vue du modèle* pour afficher le code DTDL sous-jacent.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Vue de la section « Vue du modèle » avec deux définitions de modèle : Floor (dtmi:example:Floor;1) et Room (dtmi:example:Room;1). L’icône « Afficher le modèle », qui représente la lettre « i » entourée d’un cercle, est mise en évidence pour chaque modèle." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -172,7 +177,7 @@ Dans cette section, vous allez charger des jumeaux précréés qui sont connect�
 
 Dans la section *Vue du graphe*, cliquez sur l’icône *Importer le graphe*.
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Dans la section Vue du graphe, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/quickstart-adt-explorer/import-graph.png":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
 Dans le sélecteur de fichiers, accédez au dossier *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* et choisissez la feuille de calcul _**buildingScenario.xlsx**_. Ce fichier contient une description de l’exemple de graphe. Appuyez sur OK.
 
@@ -182,7 +187,7 @@ Pour confirmer le chargement du graphe, cliquez sur l’icône *Enregistrer* sit
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Icône Enregistrer mise en évidence dans le volet Aperçu du graphe" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +197,7 @@ ADT Explorer va maintenant utiliser le fichier chargé pour créer les jumeaux d
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Boîte de dialogue indiquant la réussite de l’importation du graphe. Le message dit « Importation réussie. 49 jumeaux ont été importés. 50 relations ont été importées »" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -202,7 +207,7 @@ ADT Explorer va maintenant utiliser le fichier chargé pour créer les jumeaux d
 
 Le graphe a été chargé dans ADT Explorer. Pour voir le graphe, cliquez sur le bouton *Exécuter la requête* dans la section  *Explorateur du graphe*, qui est situé en haut de la fenêtre ADT Explorer. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Bouton « Exécuter la requête » mis en évidence en haut de la fenêtre" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 La requête par défaut est exécutée pour sélectionner et afficher tous les jumeaux numériques. ADT Explorer récupère tous les jumeaux et toutes les relations à partir du service, puis dessine le graphe correspondant dans la section *Vue du graphe*.
 
@@ -210,7 +215,7 @@ La requête par défaut est exécutée pour sélectionner et afficher tous les j
 
 Vous pouvez maintenant voir le graphe chargé de l’exemple de scénario :
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vue de la section Vue du graphe avec un graphe de jumeaux. Un cercle nommé « floor1 » est connecté par une flèche nommée « contains » à un cercle intitulé « room1 » ; un cercle nommé « floor0 » est connecté par une flèche nommée « contains » à un cercle intitulé « room0 ».":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux.":::
 
 Les cercles (« nœuds » de graphe) représentent des jumeaux numériques, et les lignes représentent des relations. Vous verrez que le jumeau *Floor0* contient *Room0*et que le jumeau *Floor1* contient *Room1*.
 
@@ -224,7 +229,7 @@ Voici les propriétés de *Room0* :
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Section « Explorateur de propriétés » mise en surbrillance, avec les propriétés de Room0, notamment un champ $dtId pour « Room0 », un champ Temperature avec la valeur 70 et un champ Humidity avec la valeur 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -236,7 +241,7 @@ Voici les propriétés de *Room1* :
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Section « Explorateur de propriétés » mise en surbrillance, avec les propriétés de Room1, notamment un champ $dtId pour « Room1 », un champ Temperature avec la valeur 80 et un champ Humidity avec la valeur 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -260,7 +265,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Comme nous l’avons vu, *Room0* a une température de **70** et *Room1* une température de **80**. Par conséquent, seul _**Room1**_ s’affiche dans les résultats.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Résultats de la requête de propriétés, montrant uniquement Room1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > D’autres opérateurs de comparaison ( *<* , *>* , *=* ou *!=* ) sont également pris en charge dans la requête ci-dessus. Vous pouvez essayer de brancher ces propriétés, mais aussi des valeurs ou des propriétés de jumeaux, dans la requête pour tenter de répondre à vos propres questions.
@@ -275,7 +280,7 @@ Les propriétés de cette liste sont modifiables. Sélectionnez la valeur de tem
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="La section Explorateur de propriétés montrant les propriétés de Room0. La valeur de température est une section modifiable qui indique 76, et l’icône d’enregistrement est mise en évidence." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -293,7 +298,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Maintenant que la température de *Room0* est passée de **70** à **76**, les deux jumeaux doivent figurer dans les résultats.
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Résultats de la requête de propriétés, montrant à la fois Room0 et Room1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>Passer en revue et contextualiser les apprentissages
 
@@ -316,7 +321,7 @@ Si vous envisagez de passer aux tutoriels Azure Digital Twins, ne supprimez pas 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Enfin, supprimez les dossiers d’exemples de projets que vous avez téléchargés sur votre ordinateur local (_**ADT_Explorer.zip**_ et _**Azure_Digital_Twins_samples.zip**_).
+Enfin, supprimez les dossiers d’exemples de projets que vous avez téléchargés sur votre ordinateur local (_**Azure_Digital_Twins__ADT__explorer**_ et _**Azure_Digital_Twins_samples**_). Vous devrez peut-être supprimer à la fois les versions compressées et décompressées.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

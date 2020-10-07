@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372185"
 ---
 # <a name="manage-costs-with-automation"></a>Gérer les coûts avec l’automatisation
 
@@ -234,7 +234,7 @@ Il existe de nombreuses manières de configurer un budget dans votre environneme
 - **Durée** : représente la durée de validité de votre budget. Le budget supervise activement et vous alerte uniquement tant qu’il est en cours de validité.
 - **Notifications**
   - E-mails de contact : les adresses e-mail reçoivent des alertes lorsqu’un budget comptabilise des coûts et dépasse les seuils définis.
-  - Rôles de contact : tous les utilisateurs qui détiennent un rôle Azure RBAC correspondant sur l’étendue donnée reçoivent des alertes par e-mail avec cette option. Par exemple, les propriétaires d’abonnements peuvent recevoir une alerte pour un budget créé dans l’étendue de l’abonnement.
+  - Rôles de contact : tous les utilisateurs qui détiennent un rôle Azure correspondant sur l’étendue donnée reçoivent des alertes par e-mail avec cette option. Par exemple, les propriétaires d’abonnements peuvent recevoir une alerte pour un budget créé dans l’étendue de l’abonnement.
   - Groupes de contacts : le budget appelle les groupes d’actions configurés lorsqu’un seuil d’alerte est dépassé.
 - **Filtres de dimension de coût** : le filtrage que vous pouvez effectuer dans l’analyse des coûts ou l’API de requête peut également être effectué sur votre budget. Utilisez ce filtre pour réduire la plage des coûts que vous supervisez avec le budget.
 

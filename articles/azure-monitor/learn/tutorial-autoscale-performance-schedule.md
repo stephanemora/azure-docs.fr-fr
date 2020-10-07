@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356347"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
@@ -46,7 +46,7 @@ En quelques minutes, vos ressources devraient être configurées. Utilisez l’a
 1. Dans le volet de navigation de gauche, sélectionnez l’option **Moniteur**. Une fois la page chargée, sélectionnez l’onglet **Mise à l’échelle automatique**.
 2. Les ressources de votre abonnement qui prennent en charge la mise à l’échelle automatique sont répertoriées dans cette liste. Identifiez le plan App Service qui a été créé précédemment dans le didacticiel, puis cliquez dessus.
 
-    ![Naviguer jusqu’aux paramètres de mise à l’échelle automatique](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Capture d’écran montrant le portail Azure avec les options Moniteur et Mise à l’échelle automatique sélectionnées.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. Dans le paramètre de mise à l’échelle automatique, cliquez sur le bouton **Activer la mise à l’échelle automatique**.
 
@@ -59,7 +59,7 @@ Les quelques étapes suivantes vous aident à compléter l’écran de mise à l
 2. Dans le profil par défaut, vérifiez que le **mode de mise à l’échelle** est défini sur « Mettre à l’échelle à un nombre d’instances spécifique ».
 3. Définissez le nombre d’instances sur **1**. Ce paramètre garantit que si aucun autre profil n’est actif ou en vigueur, le profil par défaut utilise un nombre d’instances de 1.
 
-   ![Naviguer jusqu’aux paramètres de mise à l’échelle automatique](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Capture d’écran montrant la page des paramètres de mise à l’échelle automatique avec un nom de paramètre entré.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Créer un profil de récurrence

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68423585"
 ---
 Notez le curseur **Probability Threshold** (Seuil de probabilité) dans le volet gauche de l’onglet **Performance**. Il s’agit du niveau de confiance qu’une prédiction doit avoir pour être considérée comme correcte (dans le cadre du calcul de la précision et du rappel). 

@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358030"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutoriel : Configurer des matériaux PBR dans Maya
 
@@ -79,7 +79,7 @@ Dans Maya, le processus d’instanciation est simple.
 1. Dans la boîte de dialogue **Duplicate Special Options** (Options de duplication spéciale), pour **Geometry type** (Type de géométrie), sélectionnez l’option **Instance**. 
 1. Sélectionnez **Duplicate Special** (Duplication spéciale).
 
-   ![Instanciation](media/instancing.jpg)
+   ![Capture d’écran montrant une fenêtre Maya avec la boîte de dialogue Options de duplication spéciale ouverte et Duplication spéciale sélectionnée.](media/instancing.jpg)
 
 Cette action crée une instance de votre objet. Vous pouvez la déplacer, la faire pivoter ou la mettre à l’échelle indépendamment de son parent et des autres instances de ce parent. 
 

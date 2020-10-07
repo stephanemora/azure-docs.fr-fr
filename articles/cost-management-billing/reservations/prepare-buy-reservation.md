@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368717"
 ---
 # <a name="buy-a-reservation"></a>Acheter une réservation
 
@@ -123,7 +123,7 @@ Selon la façon dont vous payez votre abonnement Azure, des notifications de ré
 Pour les clients avec des abonnements EA :
 
 - Les notifications sont envoyées uniquement aux contacts de notification EA.
-- Les utilisateurs ajoutés à une réservation à l’aide de l’autorisation RBAC (IAM) ne reçoivent pas de notifications par e-mail.
+- Les utilisateurs ajoutés à une réservation à l’aide d’une autorisation Azure RBAC (IAM) ne reçoivent pas de notifications par e-mail.
 
 Pour les clients qui ont des abonnements individuels :
 

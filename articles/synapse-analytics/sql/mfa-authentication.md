@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361838"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utiliser l’authentification multifacteur AAD avec Synapse SQL (prise en charge de SSMS pour MFA)
 
@@ -22,13 +22,11 @@ Synapse SQL prend en charge les connexions depuis SQL Server Management Studio (
 
 Cet article décrit les différences entre les différentes options d’authentification, ainsi que les limitations associées à l’utilisation de l’authentification universelle. 
 
-**Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
-
-**Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+**Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Pour toutes les fonctionnalités abordées dans cet article, utilisez au minimum la version 17.2 (juillet 2017).  La boîte de dialogue de connexion la plus récente doit ressembler à l’image suivante :
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Configure la zone Nom de l’utilisateur.")  
+![Capture d’écran montrant la boîte de dialogue Se connecter au serveur dans laquelle vous pouvez sélectionner un nom de serveur et une option d’authentification.](./media/mfa-authentication/1mfa-universal-connect.png "Configure la zone Nom de l’utilisateur.")  
 
 ## <a name="the-five-authentication-options"></a>Les cinq options d’authentification  
 
@@ -51,7 +49,7 @@ Pour une description de Multi-Factor Authentication, consultez la rubrique [Mult
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nom de domaine Azure AD et paramètre d’ID de locataire
 
-À partir de [la version 17 de SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), les utilisateurs qui sont importés dans le répertoire Active Directory en cours à partir d’autres répertoires Azure Active Directory en tant qu’utilisateurs invités peuvent fournir le nom de domaine Azure AD ou l’ID de locataire quand ils se connectent. 
+À partir de [la version 17 de SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), les utilisateurs qui sont importés dans le répertoire Active Directory en cours à partir d’autres répertoires Azure Active Directory en tant qu’utilisateurs invités peuvent fournir le nom de domaine Azure AD ou l’ID de locataire quand ils se connectent. 
 
 Les utilisateurs invités incluent les utilisateurs qui sont invités à partir d’autres annuaires Azure AD, de comptes Microsoft, tels qu’outlook.com, hotmail.com et live.com, ou d’autres comptes, comme gmail.com. Grâce à ces informations, **l’authentification universelle Active Directory avec MFA** peut identifier l’autorité d’authentification appropriée. Cette option est également requise pour prendre en charge les comptes Microsoft (MSA) tels qu’outlook.com, hotmail.com, live.com, ou les comptes non-MSA. 
 
@@ -61,13 +59,13 @@ Par exemple, si le serveur Azure est associé au domaine Azure AD `contosotest.o
 
 Lorsque l’utilisateur est un utilisateur natif d’Azure AD lié au serveur Azure et qu’il n’a pas de compte MSA, aucun nom de domaine ou ID de locataire n’est requis. 
 
-Pour entrer le paramètre (à compter de SSMS version 17.2), dans la boîte de dialogue **Connexion à une base de données**, sélectionnez **Active Directory - Authentification universelle avec MFA**, cliquez sur **Options**, renseignez la zone **Nom d’utilisateur**, puis cliquez sur l’onglet **Propriétés de connexion**. 
+Pour entrer le paramètre (à compter de SSMS version 17.2), dans la boîte de dialogue **Connexion à une base de données**, sélectionnez **Active Directory - Authentification universelle avec MFA**, sélectionnez **Options**, renseignez la zone **Nom d’utilisateur**, puis sélectionnez l’onglet **Propriétés de connexion**. 
 
 Cochez la case **Nom du domaine AD ou ID de locataire** et fournissez l’autorité d’authentification, telle que le nom de domaine (**contosotest.onmicrosoft.com**) ou le GUID de l’ID de locataire.  
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![Capture d’écran montrant Se connecter au serveur dans l’onglet Propriétés de la connexion avec les valeurs entrées.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
-Si vous exécutez SSMS 18.x ou une version ultérieure, le nom de domaine AD ou l’ID de locataire n’est plus nécessaire pour les utilisateurs invités, car la version 18.x ou ultérieure le reconnaît automatiquement.
+Si vous exécutez SSMS 18.x ou une version ultérieure, le nom de domaine AD ou l’ID de locataire n’est plus nécessaire pour les utilisateurs invités, car la version 18.x ou ultérieure le reconnaît automatiquement.
 
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
@@ -80,7 +78,7 @@ Une fois l’utilisateur de base de données créé, l’utilisateur `steve@gmai
 
 Par défaut, le groupe d’utilisateurs bénéficie uniquement de l’autorisation de connexion et de tout accès aux données accordé de façon habituelle. 
 
-Remarquez que l’utilisateur `steve@gmail.com` en tant qu’utilisateur invité doit cocher la case et ajouter le nom de domaine AD `contosotest.onmicrosoft.com` à la boîte de dialogue **Propriété de connexion** SSMS. L’option **Nom du domaine AD ou ID de locataire** est uniquement prise en charge pour les options Authentification universelle avec prise en charge de MFA ; dans le cas contraire, elle est grisée.
+En tant qu’utilisateur invité, `steve@gmail.com` doit cocher la case et ajouter le nom de domaine AD `contosotest.onmicrosoft.com` à la boîte de dialogue **Propriété de connexion** SSMS. L’option **Nom du domaine AD ou ID de locataire** est uniquement prise en charge pour les options Authentification universelle avec prise en charge de MFA ; dans le cas contraire, elle est grisée.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Limites de l’authentification universelle pour Synapse SQL
 

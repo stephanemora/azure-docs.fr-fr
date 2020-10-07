@@ -1,21 +1,21 @@
 ---
-title: Utiliser le Créateur pour créer des cartes d’intérieur
-description: Utiliser le Créateur Azure Maps pour créer des cartes d’intérieur
+title: 'Tutoriel : Utiliser le Créateur pour créer des cartes d’intérieur'
+description: Tutoriel sur la façon d’utiliser le Créateur Azure Maps pour créer des cartes d’intérieur
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371420"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Utiliser le Créateur pour créer des cartes d’intérieur
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutoriel : Utiliser le Créateur pour créer des cartes d’intérieur
 
 Ce didacticiel montre comment créer des cartes d’intérieur. Ce tutoriel explique comment utiliser l’API pour effectuer les opérations suivantes :
 
@@ -35,7 +35,7 @@ Pour créer des cartes d’intérieur, vous devez effectuer les opérations suiv
 1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 3. [Créer une ressource de Créateur](how-to-manage-creator.md)
-4. Téléchargez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Téléchargez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vous pouvez choisir un autre environnement de développement d’API.
 
@@ -404,43 +404,11 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
 L’[API d’obtention d’états de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) vous permet de récupérer l’état d’une caractéristique à l’aide de son `ID` de caractéristique. Vous pouvez également supprimer le stateset et ses ressources à l’aide de l’[API de suppression d’état de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Pour en savoir plus sur les différents services Créateur Azure Maps abordés dans cet article, consultez [Créateur de cartes d’intérieur](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Charger votre package de dessin de carte d’intérieur
-> * Convertir votre package de dessin en données cartographiques
-> * Créer un jeu de données à partir de vos données cartographiques
-> * Créer un tileset à partir des données de votre jeu de données
-> * Interroger le service de caractéristique web Azure Maps pour découvrir les caractéristiques de votre carte
-> * Créer un stateset de caractéristique à l’aide des caractéristiques de votre carte et des données de votre jeu de données
-> * Mettre à jour votre stateset de caractéristique
-
-Vous disposez à présent des compétences dont vous avez besoin pour passer aux guides suivants :
+Pour savoir comment utiliser le module de cartes d’intérieur, consultez
 
 > [!div class="nextstepaction"]
 > [Utiliser le module Cartes d’intérieur](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implémenter des styles dynamiques pour les cartes d’intérieur](indoor-map-dynamic-styling.md)
-
-En savoir plus sur les différents services Azure Maps abordés dans cet article :
-
-> [!div class="nextstepaction"]
-> [Chargement de données](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conversion de données](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Jeu d’état de caractéristique](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Service de caractéristique web](creator-indoor-maps.md#web-feature-service-api)

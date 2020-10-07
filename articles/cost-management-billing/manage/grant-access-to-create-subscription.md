@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371879"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)
 
@@ -23,11 +23,11 @@ En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.co
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Pour [créer des abonnements sous un compte d’inscription](programmatically-create-subscription.md), les utilisateurs doivent avoir le [rôle de propriétaire RBAC](../../role-based-access-control/built-in-roles.md#owner) sur ce compte. Vous pouvez accorder à un utilisateur ou un groupe d’utilisateurs le rôle de propriétaire RBAC sur un compte d’inscription en procédant comme suit :
+Pour [créer des abonnements sous un compte d’inscription](programmatically-create-subscription.md), les utilisateurs doivent avoir le [rôle de propriétaire Azure RBAC](../../role-based-access-control/built-in-roles.md#owner) sur ce compte. Vous pouvez accorder à un utilisateur ou un groupe d’utilisateurs le rôle de propriétaire Azure RBAC sur un compte d’inscription en procédant comme suit :
 
 1. Obtenir l’ID d’objet du compte d’inscription auquel vous souhaitez accorder l’accès
 
-    Pour accorder à d’autres utilisateurs le rôle de propriétaire RBAC sur un compte d’inscription, vous devez être le propriétaire du compte ou un propriétaire RBAC du compte.
+    Pour accorder à d’autres utilisateurs le rôle de propriétaire Azure RBAC sur un compte d’inscription, vous devez être le propriétaire du compte ou un propriétaire Azure RBAC du compte.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     }
     ```
 
-    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès RBAC. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
+    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès Azure RBAC. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire Azure RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès RBAC. Copiez l’élément `ObjectId` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Collez cet ID d’objet quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
+    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès Azure RBAC. Copiez l’élément `ObjectId` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire Azure RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Collez cet ID d’objet quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     ---
 
-    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès RBAC. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
+    Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès Azure RBAC. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire Azure RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Obtenir l’ID d’objet de l’utilisateur ou du groupe auquel vous souhaitez attribuer le rôle de propriétaire RBAC
+1. <a id="userObjectId"></a>Obtenir l’ID d’objet de l’utilisateur ou du groupe auquel vous souhaitez attribuer le rôle de propriétaire Azure RBAC
 
     1. Dans le portail Azure, recherchez **Azure Active Directory**.
     1. Si vous voulez accorder l’accès à un utilisateur, sélectionnez **Utilisateurs** dans le menu de gauche. Pour donner accès à un groupe, sélectionnez **Groupes**.
-    1. Sélectionnez l’utilisateur ou le groupe auquel vous souhaitez attribuer le rôle de propriétaire RBAC.
+    1. Sélectionnez l’utilisateur ou le groupe auquel vous souhaitez attribuer le rôle de propriétaire Azure RBAC.
     1. Si vous avez sélectionné un utilisateur, vous trouverez l’ID d’objet dans la page de profil. Si vous avez sélectionné un groupe, l’ID d’objet sera dans la page Vue d’ensemble. Copiez la valeur de **ObjectID** en sélectionnant l’icône à droite de la zone de texte. Collez-la quelque part de façon à pouvoir l’utiliser à l’étape suivante en tant que `userObjectId`.
 
-1. Accorder à l’utilisateur ou au groupe le rôle de propriétaire RBAC sur le compte d’inscription
+1. Accorder à l’utilisateur ou au groupe le rôle de propriétaire Azure RBAC sur le compte d’inscription
 
-    En utilisant les valeurs que vous avez collectées lors des deux premières étapes, accordez à l’utilisateur ou au groupe le rôle de propriétaire RBAC sur le compte d’inscription.
+    En utilisant les valeurs que vous avez collectées lors des deux premières étapes, accordez à l’utilisateur ou au groupe le rôle de propriétaire Azure RBAC sur le compte d’inscription.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Une fois qu’un utilisateur devient propriétaire RBAC pour votre compte d’inscription, il peut [créer des abonnements par programmation](programmatically-create-subscription.md) sous ce dernier. Un abonnement créé par un utilisateur délégué a toujours le propriétaire de compte d’origine comme administrateur de service, mais il a également l’utilisateur délégué comme propriétaire RBAC par défaut.
+    Une fois qu’un utilisateur devient propriétaire Azure RBAC pour votre compte d’inscription, il peut [créer des abonnements par programmation](programmatically-create-subscription.md) sous ce dernier. Un abonnement créé par un utilisateur délégué a toujours le propriétaire de compte d’origine comme administrateur de service, mais il a également l’utilisateur délégué comme propriétaire Azure RBAC par défaut.
 
     ---
 

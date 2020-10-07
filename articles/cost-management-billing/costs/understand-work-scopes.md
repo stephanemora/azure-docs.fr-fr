@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372355"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -26,7 +26,7 @@ Une _étendue_ est un nœud de la hiérarchie des ressources Azure dans lequel l
 - Les données de facturation, telles que les factures et paiements
 - Des services cloud, comme la gouvernance des coûts et des stratégies
 
-Les étendues vous permettent de gérer les données de facturation, de définir des rôles propres aux paiements, d’afficher les factures et de gérer les comptes de manière générale. Les rôles de facturation et de gestion des comptes sont gérés séparément des rôles utilisés pour la gestion des ressources, qui utilisent [Azure RBAC](../../role-based-access-control/overview.md). Pour distinguer clairement l'intention des différentes étendues, y compris les différences en termes de contrôle d'accès, elles sont respectivement désignées sous les noms d'_étendues de facturation_ et d'_étendues RBAC_.
+Les étendues vous permettent de gérer les données de facturation, de définir des rôles propres aux paiements, d’afficher les factures et de gérer les comptes de manière générale. Les rôles de facturation et de gestion des comptes sont gérés séparément des rôles utilisés pour la gestion des ressources, qui utilisent [Azure RBAC](../../role-based-access-control/overview.md). Pour distinguer clairement l’intention des différentes étendues, y compris les différences en termes de contrôle d’accès, elles sont désignées comme _étendues de facturation_ et _étendues Azure RBAC_, respectivement.
 
 Pour en savoir plus sur les étendues, regardez la vidéo [Cost Management - Configuration de hiérarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Pour en savoir plus sur les étendues, regardez la vidéo [Cost Management - Co
 
 ## <a name="how-cost-management-uses-scopes"></a>Utilisation des étendues par Cost Management
 
-Cost Management s’applique à toutes les étendues au-dessus des ressources pour permettre aux organisations de gérer les coûts au niveau auquel elles ont accès, qu’il s’agisse du compte de facturation dans son ensemble ou d’un groupe de ressources unique. Contrairement aux étendues de facturation qui varient en fonction de votre contrat Microsoft (type d'abonnement), les étendues RBAC ne changent pas.
+Cost Management s’applique à toutes les étendues au-dessus des ressources pour permettre aux organisations de gérer les coûts au niveau auquel elles ont accès, qu’il s’agisse du compte de facturation dans son ensemble ou d’un groupe de ressources unique. Contrairement aux étendues de facturation qui varient en fonction de votre contrat Microsoft (type d’abonnement), les étendues Azure RBAC ne changent pas.
 
 ## <a name="azure-rbac-scopes"></a>Étendues RBAC Azure
 
@@ -98,7 +98,7 @@ Les étendues de facturation EA prennent en charge les rôles suivants :
 - **Utilisateur d’entreprise en lecture seule** : peut afficher les paramètres de compte de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de Contrat Entreprise est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrateur de service** : peut gérer les paramètres des départements, comme le centre de coûts, peut afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations.  Le paramètre de compte de facturation **Affichage des frais pour l’administrateur de service** doit être activé pour que les administrateurs de service et les utilisateurs en lecture seule puissent afficher les coûts. Si l'option **Affichage des frais pour l'administrateur de service** est désactivée, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s'ils sont propriétaires de compte ou d'abonnement.
 - **Utilisateur de service en lecture seule** : peut afficher les paramètres de département, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. Si l'option **Affichage des frais pour l'administrateur de service** est désactivée, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s'ils sont propriétaires de compte ou d'abonnement.
-- **Propriétaire du compte** : peut gérer les paramètres de compte d’inscription (comme le centre de coûts), afficher tous les coûts et gérer la configuration des coûts (par exemple les budgets et les exportations) pour le compte d’inscription. Le paramètre de compte de facturation **Affichage des frais pour le propriétaire du compte** doit être activé pour que les propriétaires de compte et les utilisateurs RBAC puissent afficher les coûts.
+- **Propriétaire du compte** : peut gérer les paramètres de compte d’inscription (comme le centre de coûts), afficher tous les coûts et gérer la configuration des coûts (par exemple les budgets et les exportations) pour le compte d’inscription. Le paramètre de compte de facturation **Affichage des frais pour le propriétaire du compte** doit être activé pour que les propriétaires de compte et les utilisateurs Azure RBAC puissent afficher les coûts.
 
 Les utilisateurs de compte de facturation EA n’ont pas d’accès direct aux factures. Les factures sont disponibles à partir d’un système externe de gestion des licences en volume.
 

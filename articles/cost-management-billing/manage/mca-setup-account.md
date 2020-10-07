@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371794"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft
 
@@ -132,7 +132,7 @@ Les services Azure compris dans votre abonnement continuent de s’exécuter san
 
 ### <a name="user-access-to-azure-resources"></a>Accès utilisateur aux ressources Azure
 
-L’accès aux ressources Azure défini à l’aide du RBAC (contrôle d’accès en fonction du rôle) Azure n’est pas affecté lors de la transition.
+L’accès aux ressources Azure défini à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC) n’est pas affecté lors de la transition.
 
 ### <a name="azure-reservations"></a>Réservations Azure
 
@@ -225,7 +225,7 @@ Les réservations Azure associées à votre inscription à un Contrat Entreprise
 
 4. Sélectionnez **Contrôle d’accès (IAM)** sur le côté gauche.
 
-   ![Capture d’écran qui illustre l’accès des administrateurs d’entreprise post-transition](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Capture d’écran qui illustre l’accès des administrateurs d’entreprise répertoriés comme propriétaires de comptes de facturation post-transition.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Les administrateurs d’entreprise sont listés en tant que propriétaires du compte de facturation, tandis que les administrateurs d’entreprise avec des autorisations en lecture seule sont listés en tant que lecteurs du compte de facturation. Si vous pensez qu’il manque un accès pour un administrateur d’entreprise, vous pouvez octroyer cet accès dans le portail Azure. Pour plus d’informations, consultez [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal) (Gérer les rôles de facturation dans le portail Azure).
 
@@ -241,7 +241,7 @@ Les administrateurs d’entreprise sont listés en tant que propriétaires du co
 
 4. Sélectionnez **Contrôle d’accès (IAM)** sur le côté gauche.
 
-   ![Capture d’écran qui illustre l’accès des administrateurs d’entreprise post-transition](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Capture d’écran qui illustre l’accès des administrateurs d’entreprise répertoriés comme propriétaires de profils de facturation post-transition.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Les administrateurs d’entreprise sont répertoriés en tant que propriétaires du profil de facturation, tandis que les administrateurs d’entreprise avec des autorisations en lecture seule sont répertoriés en tant que lecteurs du profil de facturation. Si vous pensez qu’il manque un accès pour un administrateur d’entreprise, vous pouvez octroyer cet accès dans le portail Azure. Pour plus d’informations, consultez [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal) (Gérer les rôles de facturation dans le portail Azure).
 

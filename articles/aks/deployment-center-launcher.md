@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251771"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360835"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centre de déploiement pour Azure Kubernetes
 
@@ -54,7 +54,7 @@ Ce didacticiel présente les procédures suivantes :
 
 1. Sélectionnez le cluster AKS, puis **Centre de déploiement (préversion)** dans le panneau de gauche. Sélectionnez **Prise en main**.
 
-   ![paramètres](media/deployment-center-launcher/settings.png)
+   ![Capture d’écran montrant le portail Azure avec une flèche pointant vers le centre de déploiement.](media/deployment-center-launcher/settings.png)
 
 1. Choisissez l’emplacement du code, puis sélectionnez **Suivant**. Sélectionnez ensuite l’un des référentiels actuellement pris en charge : **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
 
@@ -66,7 +66,7 @@ Ce didacticiel présente les procédures suivantes :
 
     - **GitHub** : autorisez et sélectionnez le dépôt pour votre compte GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animation illustrant le processus de sélection de GitHub en tant que source, puis la sélection de votre référentiel.](media/deployment-center-launcher/github.gif)
 
 
 1. Le centre de déploiement analyse le référentiel et détecte votre Dockerfile. Si vous souhaitez mettre à jour celui-ci, vous pouvez modifier le numéro de port identifié.
@@ -75,7 +75,7 @@ Ce didacticiel présente les procédures suivantes :
 
     Si le dépôt ne contient pas le Dockerfile, le système affiche un message vous invitant à en valider un.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Capture d’écran montrant le centre de déploiement avec le message Impossible de trouver Dockerfile dans le référentiel.](media/deployment-center-launcher/dockerfile.png)
 
 1. Sélectionnez un registre de conteneurs existant ou créez-en un, puis sélectionnez **Terminer**. Le pipeline automatiquement met une build en file d’attente dans [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ Ce didacticiel présente les procédures suivantes :
 
 1. Une fois le déploiement terminé, les journaux de réussite s’affichent.
 
-    ![Journaux d’activité](media/deployment-center-launcher/logs.png)
+    ![Capture d’écran montrant le centre de déploiement avec la version 1 marquée d’une icône de coche verte.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examiner le pipeline CI
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371913"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -175,7 +175,7 @@ Ce document répond à des questions fréquemment posées relatives à la propri
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Combien de propriétaires de compte Azure pouvez-vous avoir par abonnement ?
 
-Un seul propriétaire de compte est autorisé par abonnement.  Des rôles supplémentaires peuvent être ajoutés à l’aide de l’accès en fonction du rôle ou (Contrôle d’accès (IAM)) sous l’onglet de l’abonnement dans le coin supérieur gauche de la page du [portail Azure](https://portal.azure.com).
+Un seul propriétaire de compte est autorisé par abonnement.  Des rôles supplémentaires peuvent être ajoutés à l’aide de l’accès en fonction du rôle Azure (Azure RBAC) sous l’onglet Abonnement dans le coin supérieur gauche de la page du [Portail Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un propriétaire de compte Azure peut-il être répertorié sous plusieurs services ?
 
@@ -191,7 +191,7 @@ Un propriétaire de compte Azure peut créer et gérer un nombre illimité d’a
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Comment puis-je accéder à tous les abonnements de mon organisation et les consulter ?
 
-Aujourd’hui, cette opération doit être effectuée via une stratégie. Cela signifie que vous devez exiger que, pour chaque abonnement créé, votre compte soit ajouté à un rôle d’abonnement à l’aide de l’accès en fonction du rôle.
+Aujourd’hui, cette opération doit être effectuée via une stratégie. Cela signifie que vous devez exiger que, pour chaque abonnement créé, votre compte soit ajouté à un rôle d’abonnement à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Où puis-je créer un abonnement ?
 

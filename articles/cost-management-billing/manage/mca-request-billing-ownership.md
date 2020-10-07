@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 233cc5330096b9b6419c8024205a41646ddd9519
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371862"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtenir la propriété de facturation des abonnements Azure des autres comptes
 
@@ -152,7 +152,7 @@ Si vous transférez des abonnements Contrat Entreprise ou des contrats client Mi
 
 ### <a name="access-to-azure-services"></a>Accès aux services Azure
 
-L’accès pour les utilisateurs, groupes ou principaux de service existants qui a été affecté avec (RBAC Azure (contrôle d’accès en fonction du rôle))[../role-based-access-control/overview.md] n’est pas affecté lors du transfert.
+La transition n’affecte pas l’accès d’utilisateurs, de groupes ou de principaux de service existants qui a été attribué à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="azure-support-plan"></a>Plan de support Azure
 
