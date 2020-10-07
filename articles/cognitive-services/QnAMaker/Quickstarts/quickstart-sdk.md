@@ -1,16 +1,18 @@
 ---
 title: 'Démarrage rapide : Utiliser le SDK pour créer et gérer la base de connaissances - QnA Maker'
 description: Ce guide de démarrage rapide vous montre comment créer et gérer votre base de connaissances à l’aide du SDK client.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: aae9bce5542dc4c610df91d8176916adc459fe86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253924"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777470"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Démarrage rapide : Bibliothèque de client QnA Maker
 

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252967"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758538"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Ajouter ou mettre à jour une carte de crédit pour Azure
 
@@ -32,7 +32,7 @@ Avec un Contrat client Microsoft, vos modes de paiement sont associés à des pr
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gérer les cartes de crédit pour un abonnement Azure
 
-Les sections suivantes s’appliquent aux clients qui disposent d’un compte de facturation du Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si votre type de compte de facturation est Programme Microsoft Online Services, les modes de paiement sont associés à des abonnements Azure individuels. Si vous obtenez une erreur après avoir ajouté la carte bancaire, consultez [Carte bancaire est refusée lors de l’inscription à Azure](/troubleshoot-declined-card.md).
+Les sections suivantes s’appliquent aux clients qui disposent d’un compte de facturation du Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si votre type de compte de facturation est Programme Microsoft Online Services, les modes de paiement sont associés à des abonnements Azure individuels. Si vous obtenez une erreur après avoir ajouté la carte bancaire, consultez [Carte bancaire est refusée lors de l’inscription à Azure](/azure/cost-management-billing/manage/troubleshoot-declined-card).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Modifier la carte de crédit d’un abonnement en ajoutant une nouvelle carte de crédit
 
