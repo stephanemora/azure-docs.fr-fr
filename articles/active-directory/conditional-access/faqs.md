@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258623"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -31,11 +31,11 @@ Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collabor
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>La stratégie SharePoint Online s’applique-t-elle également à OneDrive Entreprise ?
 
-Oui. Une stratégie SharePoint Online s’applique également à OneDrive Entreprise. Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) à la place.
+Oui. Une stratégie SharePoint Online s’applique également à OneDrive Entreprise. Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365) à la place.
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Pourquoi ne peut-on pas définir directement une stratégie sur des applications clientes, par exemple Word ou Outlook ?
 
-Une stratégie d’accès conditionnel définit les conditions requises pour accéder à un service. Elle est appliquée quand l’authentification à ce service a lieu. La stratégie n’est pas définie directement sur une application cliente. Au lieu de cela, elle est appliquée quand un client appelle un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint. Une stratégie définie sur Exchange s’applique à Outlook. Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) à la place.
+Une stratégie d’accès conditionnel définit les conditions requises pour accéder à un service. Elle est appliquée quand l’authentification à ce service a lieu. La stratégie n’est pas définie directement sur une application cliente. Au lieu de cela, elle est appliquée quand un client appelle un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint. Une stratégie définie sur Exchange s’applique à Outlook. Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365) à la place.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Une stratégie d’accès conditionnel s’applique-t-elle aux comptes de service ?
 
@@ -53,7 +53,7 @@ Le logiciel Microsoft Teams est également pris en charge séparément, en tant 
 
 Les clients de bureau Microsoft Teams pour Windows et Mac prennent en charge l’authentification moderne. L’authentification moderne permet d’utiliser la connexion basée sur la bibliothèque ADAL (Azure Active Directory Authentication Library) pour les applications clientes Microsoft Office sur plusieurs plateformes.
 
-Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) à la place.
+Pour plus d’informations, consultez l’article [Dépendances du service d’accès conditionnel](service-dependencies.md) et envisagez de cibler les stratégies sur l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365) à la place.
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Pourquoi certains onglets ne fonctionnent-ils pas dans Microsoft Teams après l’activation des stratégies d’accès conditionnel ?
 

@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253352"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -107,7 +107,7 @@ Liens connexes :
 * [Se connecter avec un jeton délimité par le dépôt](container-registry-repository-scoped-permissions.md)
 * [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../role-based-access-control/role-assignments-portal.md)
 * [Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Créer un secret d’application](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Créer un secret d’application](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Codes d’authentification et d’autorisation Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Vérifier que les informations d’identification n’ont pas expiré

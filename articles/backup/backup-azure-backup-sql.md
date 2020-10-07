@@ -3,12 +3,12 @@ title: Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e7877d9104fe1263368083eaabd99eae3bdc657b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85cb84ac376abbf0ead13e64c4dff7c8b916aac5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254582"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 
@@ -29,10 +29,10 @@ Pour sauvegarder une base de données SQL Server sur Azure et la récupérer à 
 
 * Si vous disposez d’une base de données avec des fichiers sur un partage de fichiers distant, la protection échouera avec l’ID d’erreur 104. Data Protection Manager (DPM) ne prend pas en charge la protection des données SQL Server sur un partage de fichiers distant.
 * DPM ne peut pas protéger les bases de données stockées sur des partages SMB distants.
-* Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Vous devez explicitement ajouter le compte système **NTAuthority\System** au groupe Sysadmin sur SQL Server.
-* Lorsque vous effectuez la récupération d’une base de données partiellement autonome à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) est activée sur l’instance SQL cible.
-* Lorsque vous effectuez la récupération d’une base de données de flux de fichiers à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) est activée sur l’instance SQL cible.
+* Lorsque vous effectuez la récupération d’une base de données partiellement autonome à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) est activée sur l’instance SQL cible.
+* Lorsque vous effectuez la récupération d’une base de données de flux de fichiers à un autre emplacement, vous devez vous assurer que la fonctionnalité [Bases de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream) est activée sur l’instance SQL cible.
 * Protection pour SQL Server AlwaysOn :
   * DPM détecte les groupes de disponibilité lorsqu’une demande de renseignements est exécutée lors de la création d’un groupe de protection.
   * DPM détecte un basculement et poursuit la protection de la base de données.
@@ -50,7 +50,7 @@ Pour sauvegarder une base de données SQL Server sur Azure et la récupérer à 
     * Si la sauvegarde échoue sur le nœud sélectionné, alors l’opération de sauvegarde échoue.
     * La récupération à l’emplacement d’origine n’est pas prise en charge.
 * Problèmes de sauvegarde avec SQL Server 2014 ou versions ultérieures :
-  * SQL Server 2014 a ajouté une nouvelle fonctionnalité afin de créer une [base de données pour un serveur SQL local dans Stockage Blob Azure pour Windows](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). DPM ne peut pas être utilisé pour protéger cette configuration.
+  * SQL Server 2014 a ajouté une nouvelle fonctionnalité afin de créer une [base de données pour un serveur SQL local dans Stockage Blob Azure pour Windows](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). DPM ne peut pas être utilisé pour protéger cette configuration.
   * Il existe certains problèmes connus avec la préférence de sauvegarde « Préférer le réplica secondaire » pour l’option SQL AlwaysOn. DPM effectue toujours une sauvegarde de la base de données secondaire. Si aucune base de données secondaire n’est trouvée, la sauvegarde échoue.
 
 ## <a name="before-you-start"></a>Avant de commencer

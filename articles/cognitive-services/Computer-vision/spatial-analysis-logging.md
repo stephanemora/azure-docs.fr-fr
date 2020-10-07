@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254072"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -229,7 +229,7 @@ Les journaux sont téléchargés à la demande à l’aide de la méthode IoT Ed
 >[!NOTE]
 > L’appel de la méthode `getRTCVLogs` avec une charge utile vide retourne une liste de tous les conteneurs déployés sur l’appareil. Le nom de la méthode respecte la casse. Vous obtiendrez une erreur 501 si un nom de méthode incorrect est spécifié.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Appel de la méthode getRTCVLogs":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Rapport de télémétrie Azure Monitor":::
 ![Page Méthode directe getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -313,8 +313,7 @@ Si vous voyez le message suivant dans les journaux de module, cela peut signifie
 
 «Le conteneur n’est pas dans un état valide. La validation de l’abonnement a échoué avec l’état « Incompatibilité ». La clé API n’est pas destinée au type de conteneur donné. »
 
-Pour plus d’informations, consultez [Demande d’approbation pour l’exécution du conteneur](spatial-analysis-container.md#request-approval-to-run-the-container). 
-
+Pour plus d’informations, consultez [Demande d’approbation pour l’exécution du conteneur](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Résolution des problèmes avec les appareils Azure Stack Edge
 

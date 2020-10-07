@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987305"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252831"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -27,7 +27,7 @@ Vous pouvez également gérer les points de terminaison et les itinéraires à l
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous avez besoin d’un **compte Azure** (vous pouvez en définir un gratuitement [ici](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-scripted.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
+* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
     - Nom de l’instance
     - Resource group
 
@@ -37,7 +37,7 @@ Vous trouverez ces informations dans le [portail Azure](https://portal.azure.com
 
 Sélectionnez votre instance parmi les résultats pour afficher la page de détails la concernant :
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran des détails de l’instance ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Créer un point de terminaison pour Azure Digital Twins
 
@@ -62,11 +62,11 @@ Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer 
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Grid.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la notification pour vérifier la création du point de terminaison." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." border="false":::
 
 Vous pouvez également afficher le point de terminaison qui a été créé dans la page *Points de terminaison* de votre instance Azure Digital Twins.
 
@@ -88,7 +88,7 @@ Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer 
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Hubs.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
 
@@ -110,7 +110,7 @@ Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer 
 
 Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Service Bus.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
 
 Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
 
@@ -149,7 +149,7 @@ Dans la page *Créer un itinéraire d’événement* qui s’ouvre, choisissez a
 
 Pour que l’itinéraire soit activé, vous devez également **ajouter un filtre d’itinéraires d’événements** `true` au minimum. (Laisser la valeur `false` par défaut créera l’itinéraire, mais aucun événement ne lui sera envoyé.) Pour ce faire, appuyez sur le bouton bascule de l’_éditeur avancé_ pour l’activer, puis écrivez `true` dans la zone *Filtre*.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la création de l’itinéraire d’événement pour votre instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Lorsque vous avez terminé, cliquez sur le bouton _Enregistrer_ pour créer votre itinéraire d’événement.
 
@@ -175,7 +175,7 @@ Pour utiliser les filtres de base, développez l’option _Types d’événement
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre de base. Sélection des cases à cocher correspondant aux événements.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Cette opération remplit automatiquement la zone de texte de filtre avec le text
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre de base. Indication du texte de filtre rempli automatiquement après la sélection des événements.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Pour créer un itinéraire d’événement avec des options de filtre avancées,
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Capture d’écran de la création d’un itinéraire d’événement avec un filtre avancé.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::

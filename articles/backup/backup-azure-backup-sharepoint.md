@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254429"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 
@@ -18,7 +18,7 @@ La sauvegarde de SharePoint dans Azure avec DPM est un processus très similaire
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versions SharePoint prises en charge et scénarios de protection associés
 
-Pour obtenir la liste des versions de SharePoint prises en charge et des versions de DPM nécessaires pour les sauvegarder, consultez les [applications que peut sauvegarder DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
+Pour obtenir la liste des versions de SharePoint prises en charge et des versions de DPM nécessaires pour les sauvegarder, consultez les [applications que peut sauvegarder DPM](/system-center/dpm/dpm-protection-matrix#applications-backup)
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -28,19 +28,19 @@ Quelques points doivent être confirmés avant de sauvegarder une batterie de se
 
 Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Certaines tâches liées aux conditions préalables incluent : créer un coffre de sauvegarde, télécharger les informations d’identification du coffre, installer l’Agent Azure Backup et inscrire le serveur DPM/Azure Backup Server auprès du coffre.
 
-D’autres prérequis et limitations sont disponibles dans l’article [Sauvegarder SharePoint avec DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations).
+D’autres prérequis et limitations sont disponibles dans l’article [Sauvegarder SharePoint avec DPM](/system-center/dpm/back-up-sharepoint#prerequisites-and-limitations).
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 
-Pour sauvegarder la batterie de serveurs SharePoint, vous configurez la protection pour SharePoint à l’aide de ConfigureSharePoint.exe, puis créez un groupe de protection dans DPM. Pour obtenir des instructions, consultez [Configurer la sauvegarde](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) dans la documentation DPM.
+Pour sauvegarder la batterie de serveurs SharePoint, vous configurez la protection pour SharePoint à l’aide de ConfigureSharePoint.exe, puis créez un groupe de protection dans DPM. Pour obtenir des instructions, consultez [Configurer la sauvegarde](/system-center/dpm/back-up-sharepoint#configure-backup) dans la documentation DPM.
 
 ## <a name="monitoring"></a>Surveillance
 
-Pour superviser le travail de sauvegarde, suivez les instructions de [Supervision de la sauvegarde DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
+Pour superviser le travail de sauvegarde, suivez les instructions de [Supervision de la sauvegarde DPM](/system-center/dpm/back-up-sharepoint#monitoring)
 
 ## <a name="restore-sharepoint-data"></a>Restaurer des données SharePoint
 
-Pour savoir comment restaurer un élément SharePoint à partir d’un disque avec DPM, consultez [Restaurer des données SharePoint](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Pour savoir comment restaurer un élément SharePoint à partir d’un disque avec DPM, consultez [Restaurer des données SharePoint](/system-center/dpm/back-up-sharepoint#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restauration d’une base de données SharePoint à partir d’Azure à l'aide de DPM
 
@@ -71,7 +71,7 @@ Pour savoir comment restaurer un élément SharePoint à partir d’un disque av
 
 ## <a name="switching-the-front-end-web-server"></a>Changement de serveur web front-end
 
-Si vous avez plusieurs serveurs web front-end et que vous voulez changer le serveur que DPM utilise pour protéger la batterie de serveurs, suivez les instructions de [Changement de serveur web front-end](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Si vous avez plusieurs serveurs web front-end et que vous voulez changer le serveur que DPM utilise pour protéger la batterie de serveurs, suivez les instructions de [Changement de serveur web front-end](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,14 +1,16 @@
 ---
 title: Score de récompense - Personalizer
 description: Le score de récompense indique à quel point le choix de personnalisation, RewardActionID, était adapté à l’utilisateur. La valeur du score de récompense est déterminée par votre logique métier, en fonction des observations sur le comportement utilisateur. Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58ce4d7593b23807f4b31e3e71cbfdcd873b1fcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253494"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 

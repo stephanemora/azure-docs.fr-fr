@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5e3cb07730aafed7d1c339f543e7fb09fe956cab
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961905"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255160"
 ---
 # <a name="use-an-app-service-environment"></a>Utiliser un environnement App Service
 
@@ -196,7 +196,7 @@ Si vous effectuez une intégration avec Log Analytics, vous pouvez voir les jour
 
 **Création d’une alerte**
 
-Pour créer une alerte concernant vos journaux, suivez les instructions de la section [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor][logalerts]. En bref :
+Pour créer une alerte concernant vos journaux, suivez les instructions de la section [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-log.md). En bref :
 
 * Ouvrez la page Alertes dans votre portail ASE
 * Sélectionnez **Nouvelle règle d’alerte**

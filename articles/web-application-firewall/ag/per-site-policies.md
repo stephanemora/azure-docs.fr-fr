@@ -5,15 +5,15 @@ description: Découvrez comment configurer des stratégies de pare-feu d’appli
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267217"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurer des stratégies WAF par site à l’aide d’Azure PowerShell
 
@@ -25,14 +25,13 @@ En appliquant des stratégies WAF à un écouteur, vous pouvez configurer des p
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une stratégie de pare-feu d’applications web (WAF)
-> * Créer une passerelle d’application avec WAF activé
-> * Appliquer la stratégie WAF globalement, par site et par URI (préversion)
-> * Créer un groupe de machines virtuelles identiques
-> * Créer un compte de stockage et configurer des diagnostics
-> * Tester la passerelle d’application
+* Configurer le réseau
+* Créer une stratégie de pare-feu d’applications web (WAF)
+* Créer une passerelle d’application avec WAF activé
+* Appliquer la stratégie WAF globalement, par site et par URI (préversion)
+* Créer un groupe de machines virtuelles identiques
+* Créer un compte de stockage et configurer des diagnostics
+* Tester la passerelle d’application
 
 ![Exemple de pare-feu d’applications web](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

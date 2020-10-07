@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7ef00026072d2c0afc1c6c6a57c225e271e0ac0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3677b16921c6954f5f99e55af9afeae9c337cce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255776"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Promapp pour l’approvisionnement automatique d’utilisateurs
 
@@ -107,11 +107,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://api.promapp.com/api/scim` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Promapp. Si la connexion échoue, vérifiez que votre compte Promapp dispose des autorisations Administrateur et réessayez.
 

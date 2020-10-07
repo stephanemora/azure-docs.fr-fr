@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250145"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -43,7 +43,7 @@ Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouve
 1. Appuyez sur **F1** pour ouvrir la commande dans la palette de commandes
 1. Collez l’URL dans l’invite _Git: Clone_, puis appuyez sur **Entrée**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Cloner un projet GitHub à l’aide de Visual Studio Code":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
     Suivez les invites pour sélectionner un emplacement de dépôt auquel cloner le projet.
 
@@ -59,7 +59,7 @@ Ensuite, vous créez un projet Azure Functions en tant qu’API de l’applicati
 1. Sélectionner le dossier **api** comme répertoire de votre espace de travail de projet
 1. Choisissez **Select** (Sélectionner)
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Créer un projet Azure Functions à l’aide de Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
@@ -145,13 +145,13 @@ Visual Studio Code s’intègre à [Azure Functions Core Tools](../azure-functio
 
     Core Tools montre la sortie de l’application en cours d’exécution dans le panneau _Terminal_. Dans la sortie, vous pouvez voir le point de terminaison de l’URL de votre fonction déclenchée par HTTP en train de s’exécuter localement.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Créer un projet Azure Functions à l’aide de Visual Studio Code":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
 1. Avec Core Tools en cours d’exécution, accédez à l’URL suivante pour vérifier que l’API s’exécute correctement : `http://localhost:7071/api/message`.
 
    La réponse figurant dans le navigateur doit ressembler à l’exemple suivant :
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Créer un projet Azure Functions à l’aide de Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
 1. Pour arrêter la session de débogage, appuyez sur **Maj+F5**.
 
@@ -199,7 +199,7 @@ Lors du déploiement sur Azure, les demandes envoyées à l’API sont automatiq
 
     Vous devez maintenant voir le message de l’API dans la page web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Créer un projet Azure Functions à l’aide de Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
    > [!NOTE]
    > Vous pouvez utiliser d’autres serveurs ou proxys HTTP pour servir le fichier `index.html`. L’accès au fichier `index.html` n’est pas possible à l’aide de `file:///`.
@@ -251,11 +251,11 @@ Ensuite, ajoutez les détails de build suivants.
 
     Lorsque l’application est générée en arrière-plan, vous pouvez cliquer sur la bannière qui contient un lien pour afficher l’état de la build.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Workflow GitHub":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
 1. Une fois le déploiement terminé, vous pouvez accéder à l’application web en cliquant sur le lien _URL_ situé dans la page _Vue d’ensemble_.
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Accéder à l’URL de l’application statique à partir du Portail Azure":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Créer un référentiel à partir de vanilla-basic":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

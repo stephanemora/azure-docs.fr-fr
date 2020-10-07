@@ -1,25 +1,19 @@
 ---
 title: Intégrer Azure Relay au service Azure Private Link
 description: Découvrir comment intégrer Azure Relay au service Azure Private Link
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719425"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263846"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Intégrer Azure Relay à Azure Private Link (préversion)
 Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple, Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
 
 Un **point de terminaison privé** est une interface réseau qui permet à vos charges de travail exécutées dans un réseau virtuel de se connecter en privé et en toute sécurité à un service qui dispose d’une **ressource de liaison privée** (par exemple, un espace de noms Azure Relay). Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ni d’IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez fournir un niveau de granularité dans le contrôle d’accès en autorisant des connexions à des espaces de noms Azure Relay spécifiques. 
-
-
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement en **préversion**. 
->
-> Nous prenons actuellement en charge les connexions de liaison privée sur les clients expéditeurs. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Ajouter un point de terminaison privé avec le portail Azure

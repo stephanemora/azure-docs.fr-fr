@@ -3,59 +3,18 @@ title: Suppression réversible pour les charges de travail SQL Server dans Azure
 description: Découvrez comment la suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM permet de rendre les sauvegardes plus sécurisées.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254293"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM
 
 Le service Sauvegarde Azure propose désormais la suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM. Ceci s’ajoute au [scénario de suppression réversible de machine virtuelle Azure](soft-delete-virtual-machines.md) déjà pris en charge.
 
 La [suppression réversible](backup-azure-security-feature-cloud.md) est une fonctionnalité de sécurité qui permet de protéger les données de sauvegarde même après leur suppression. Avec la suppression réversible, même si un intervenant malveillant supprime la sauvegarde d’une base de données (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires. Cela permet de récupérer cet élément de sauvegarde sans perte de données. Cette conservation durant 14 jours supplémentaires des données de sauvegarde à l’état de « suppression réversible » n’entraîne aucun frais pour le client.
-
->[!NOTE]
->Une fois que la préversion est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
-
-## <a name="steps-to-enroll-in-preview"></a>Étapes d’inscription à la préversion
-
-1. Connectez-vous à votre compte Azure.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Sélectionnez l’abonnement que vous souhaitez inscrire dans le cadre de la préversion :
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Inscrivez cet abonnement au programme de la préversion :
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Attendez 30 minutes pour que l’abonnement soit inscrit à la préversion.
-
-5. Pour vérifier l’état, exécutez les cmdlets suivantes :
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Une fois que l’abonnement indique que l’inscription a été effectuée, exécutez la commande suivante :
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Chaque fois qu’un ou plusieurs coffres sont créés dans l’abonnement où la suppression réversible est activée, vous devez réexécuter la commande suivante afin d’activer la fonctionnalité pour les coffres créés.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Suppression réversible pour SQL Server dans Azure VM via le portail Azure
 

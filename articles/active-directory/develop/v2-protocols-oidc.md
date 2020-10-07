@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256583"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identités Microsoft et protocole OpenID Connect
 
@@ -249,7 +249,7 @@ Les paramètres de la réponse signifient la même chose quel que soit le flux u
 
 | Paramètre | Description |
 | --- | --- |
-| `token` | Jeton qui sera utilisé pour appeler le point de terminaison UserInfo.|
+| `access_token` | Jeton qui sera utilisé pour appeler le point de terminaison UserInfo.|
 | `token_type` | Toujours « Porteur ». |
 | `expires_in`| Temps écoulé jusqu’à l’expiration du jeton d’accès, en secondes. |
 | `scope` | Autorisations d’accès accordées pour le jeton d’accès.  Notez que, comme le point de terminaison UserInfo est hébergé sur Microsoft Graph, des étendues Graph supplémentaires peuvent être répertoriées ici (par exemple, user.read) si elles ont été précédemment accordées à l’application.  Cela est dû au fait qu’un jeton associé à une ressource donnée comprend toujours toutes les autorisations actuellement accordées au client.  |

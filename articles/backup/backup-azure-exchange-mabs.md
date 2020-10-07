@@ -4,12 +4,12 @@ description: Découvrez comment sauvegarder un serveur Exchange dans une sauveg
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377623"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262992"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 
@@ -23,8 +23,8 @@ Avant de continuer, assurez-vous que le serveur de sauvegarde Azure est [instal
 
 Pour installer l’agent de protection du serveur de sauvegarde Azure sur le serveur Exchange, procédez comme suit :
 
-1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installez l’agent sur le serveur Exchange en sélectionnant **Gestion > Agents > Installer** dans la console administrateur du serveur de sauvegarde Azure. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection du serveur de sauvegarde Azure](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).
+1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installez l’agent sur le serveur Exchange en sélectionnant **Gestion > Agents > Installer** dans la console administrateur du serveur de sauvegarde Azure. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection du serveur de sauvegarde Azure](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Créer un groupe de protection pour le serveur Exchange
 

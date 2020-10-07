@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/20/2020
 ms.author: glenga
 ms.openlocfilehash: 574756aa9d9bac4aa42febf6a4fca4c62014db3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84732467"
 ---
 1. Dans Visual Studio Code, sélectionnez F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez **Azure Functions: Deploy to function app**.

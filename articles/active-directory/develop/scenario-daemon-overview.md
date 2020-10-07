@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257620"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelant des API web
 
 Découvrez tout ce dont vous avez besoin pour créer une application démon appelant des API web.
-
-## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -58,6 +54,10 @@ Pour les développeurs, l’expérience de bout en bout pour ce scénario prése
 - Lors de l’[inscription de l’application](./scenario-daemon-app-registration.md), l’URI de réponse n’est pas nécessaire. Vous devez partager les secrets, les certificats ou les assertions signées avec Azure AD. Vous devez également demander des autorisations d’application et obtenir le consentement d’un administrateur pour utiliser ces autorisations d’application.
 - La [configuration de l’application](./scenario-daemon-app-configuration.md) doit fournir les informations d’identification du client qui ont été partagées avec Azure AD lors de l’inscription de l’application.
 - L’[étendue](scenario-daemon-acquire-token.md#scopes-to-request) utilisée pour acquérir un jeton avec le flux d’informations d’identification client doit être une étendue statique.
+
+## <a name="recommended-reading"></a>Lectures recommandées
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

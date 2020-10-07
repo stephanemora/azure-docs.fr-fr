@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 54a7723e07bd348e31b564707da9e78e96593d3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb89e4e85e18e00179b894f2587bcf4127dc22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255844"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutoriel : Configurer Proxyclick pour l’attribution automatique d’utilisateurs
 
@@ -90,11 +90,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Pour récupérer l’**URL de locataire** et le **jeton secret** de votre compte Proxyclick, suivez la procédure pas à pas, comme décrit à l’étape 6.
 

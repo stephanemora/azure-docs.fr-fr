@@ -12,22 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e530f76c8301dc74f73b675befa6f0710aedab7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c9ff9ae811a29685937b922f04a277e663e26f1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257362"
 ---
 # <a name="scenario-protected-web-api"></a>Scénario : API web protégée
 
 Dans ce scénario, vous allez apprendre à exposer une API web. Vous allez également découvrir comment protéger une API web afin que seuls les utilisateurs authentifiés puissent y accéder.
 
 Pour utiliser votre API web, vous devez soit autoriser les utilisateurs authentifiés disposant à la fois de comptes professionnels et scolaires, soit autoriser les comptes personnels Microsoft.
-
-## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="specifics"></a>Spécificités
 
@@ -39,6 +35,10 @@ Voici des informations spécifiques que vous devez connaître pour protéger les
 - Si vous créez une inscription d’application API web, choisissez la [version du jeton d’accès](reference-app-manifest.md#accesstokenacceptedversion-attribute) acceptée par votre API web pour `2`. Pour les API web héritées, la version du jeton acceptée peut être `null`. Toutefois, cette valeur limite l’audience de connexion aux organisations uniquement, et les comptes MSA (comptes Microsoft personnels) ne sont pas pris en charge.
 - La configuration du code pour l’API web doit valider le jeton utilisé quand l’API web est appelée.
 - Le code des actions de contrôleurs doit valider les rôles ou les étendues dans le jeton.
+
+## <a name="recommended-reading"></a>Lectures recommandées
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249482"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
@@ -51,13 +51,13 @@ Vous pouvez ajouter des fonctions Azure Machine Learning fonctions à votre trav
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Ajouter UDF dans VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Ajouter Azure Machine Learning UDF dans VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Ajouter UDF dans VS Code":::
 
 2. Saisissez le nom de la fonction et renseignez les paramètres dans le fichier de configuration en utilisant **Sélectionner parmi vos abonnements** dans CodeLens.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Sélectionner Azure Machine Learning FDU dans VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Ajouter UDF dans VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configurer Azure Machine Learning FDU dans VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Ajouter UDF dans VS Code":::
 
 Le tableau suivant décrit chaque propriété des fonctions de service Azure Machine Learning dans Stream Analytics.
 
@@ -137,7 +137,7 @@ FROM input
 
 SELECT udf.score(Dataframe)
 INTO output
-FROM input
+FROM Dataframe
 ```
 
 Le code JSON suivant est un exemple de requête de la requête précédente :
