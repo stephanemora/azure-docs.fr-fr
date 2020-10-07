@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 05d0cba2a3751ac010dc26f68137a31dd04c62ce
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355123"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
@@ -91,7 +91,7 @@ api-key: [admin key]
 L’indexeur d’objets blob [recherche et extrait du texte dans les objets blob d’un conteneur](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). L’extraction de texte peut poser les problèmes suivants :
 
 * Le document ne contient que des images numérisées. Les objets blob PDF comportant du contenu non textuel, comme des images numérisées (JPG), ne produisent pas de résultats dans un pipeline d’indexation blob standard. Si vous avez du contenu d’image comportant des éléments textuels, vous pouvez utiliser la [recherche cognitive](cognitive-search-concept-image-scenarios.md) pour rechercher et extraire le texte.
-* L’indexeur d’objets blob est configuré pour indexer uniquement les métadonnées. Pour extraire le contenu, il doit être configuré de façon à [extraire à la fois le contenu et les métadonnées](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) :
+* L’indexeur d’objets blob est configuré pour indexer uniquement les métadonnées. Pour extraire le contenu, il doit être configuré de façon à [extraire à la fois le contenu et les métadonnées](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex) :
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30

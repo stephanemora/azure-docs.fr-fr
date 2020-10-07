@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 57e1ff0303bcb9dbb1fbf79319a2740f40384e13
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2e6efc08cb7d38a856098395aff363d9d7ec2bab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029940"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442982"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Utiliser le routage dépendant des données pour acheminer une demande vers une base de données appropriée
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660265"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531613"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes
 
@@ -56,8 +56,8 @@ Cliquez sur les liens suivants pour accéder aux pages de référence des SDK RE
 
 + [REST API Suggestions](/rest/api/searchservice/suggestions) 
 + [API REST Autocomplétion](/rest/api/searchservice/autocomplete) 
-+ [Méthode SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [Méthode AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Méthode SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
++ [Méthode AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 ## <a name="structure-a-response"></a>Structurer une réponse
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Fonction Suggest
 
-Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](./search-howto-dotnet-sdk.md).
+Si vous utilisez C# et une application MVC, le **fichier HomeController.cs** sous le répertoire Controllers est l’endroit où vous pouvez créer une classe pour les résultats suggérés. Dans .NET, une fonction Suggest est basée sur la [méthode DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Pour plus d’informations sur le SDK .NET, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](./search-howto-dotnet-sdk.md).
 
 La méthode `InitSearch` crée un client d’index HTTP authentifié dans le service Recherche cognitive Azure. Les propriétés de la classe [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) déterminent les champs recherchés et retournés dans les résultats, le nombre de correspondances et l’utilisation de la correspondance approximative. 
 
@@ -177,7 +177,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-La fonction Suggest prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme. La méthode crée un [objet SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), qui est ensuite passé à l’API de suggestion. Le résultat est ensuite converti en JSON pour être visible par le client.
+La fonction Suggest prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme. La méthode crée un [objet SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters), qui est ensuite passé à l’API de suggestion. Le résultat est ensuite converti en JSON pour être visible par le client.
 
 ## <a name="autocomplete"></a>Autocomplétion
 
@@ -220,7 +220,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Fonction d’autocomplétion
 
-L’autocomplétion est basée sur la [méthode DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Comme avec les suggestions, ce bloc de code se trouve dans le fichier **HomeController.cs**.
+L’autocomplétion est basée sur la [méthode DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Comme avec les suggestions, ce bloc de code se trouve dans le fichier **HomeController.cs**.
 
 ```csharp
 public ActionResult AutoComplete(string term)

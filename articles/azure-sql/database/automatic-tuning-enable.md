@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444098"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Pour activer le réglage automatique au niveau du serveur ou de la base de donn�
 
 - [Portail Azure](automatic-tuning-enable.md#azure-portal)
 - Appels de l’[API REST](automatic-tuning-enable.md#rest-api)
-- Commandes [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- Commandes [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > Pour Azure SQL Managed Instance, l’option prise en charge FORCE_LAST_GOOD_PLAN peut être configurée par le biais de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) uniquement. La configuration basée sur le portail Azure et les options de réglage automatique des index décrites dans cet article ne s’appliquent pas à Azure SQL Managed Instance.
@@ -109,7 +109,7 @@ Si vous affectez la valeur ON à l’option de réglage, les paramètres hérit�
 > Dans le cas de la [géoréplication active](auto-failover-group-overview.md), le réglage automatique doit être configuré sur la base de données primaire uniquement. Les actions de réglage appliquées automatiquement, comme la création ou la suppression d’index, sont automatiquement répliquées sur la base de données secondaire en lecture seule. Toute tentative d’activation du paramétrage automatique au moyen de T-SQL sur la base de données secondaire en lecture seule se solde par un échec, car une configuration de paramétrage différente sur la base de données secondaire en lecture seule n’est pas prise en charge.
 >
 
-Pour en savoir plus sur les options T-SQL permettant de configurer le réglage automatique, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Pour en savoir plus sur les options T-SQL permettant de configurer le réglage automatique, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Désactivée par le système
 

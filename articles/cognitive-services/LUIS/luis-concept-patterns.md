@@ -3,20 +3,18 @@ title: Aide à la prédiction grâce aux modèles – LUIS
 titleSuffix: Azure Cognitive Services
 description: Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538052"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535954"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.

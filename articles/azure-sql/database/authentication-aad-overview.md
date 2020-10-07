@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434280"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444434"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utiliser l’authentification Azure Active Directory
 
@@ -168,7 +168,7 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 - Pour une vue d’ensemble des connexions, des utilisateurs, des rôles de base de données et des autorisations dans SQL Database, consultez [Connexions, utilisateurs, rôles de base de données et autorisations](logins-create-manage.md).
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
 - Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
-- Pour obtenir la syntaxe permettant de créer des principaux de serveur (connexions) Azure AD pour SQL Managed Instance, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Pour obtenir la syntaxe permettant de créer des principaux de serveur (connexions) Azure AD pour SQL Managed Instance, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](firewall-configure.md).
 
 <!--Image references-->
