@@ -1,14 +1,16 @@
 ---
 title: Points de terminaison et régions de publication – LUIS
 description: La région spécifiée sur le portail Azure est la même que celle dans laquelle vous allez publier l'application LUIS, et une URL de point de terminaison est générée pour cette même région.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 134f71e957b39cf35b4e45e42c2101fbce233f05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277153"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 

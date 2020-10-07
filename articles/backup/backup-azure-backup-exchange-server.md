@@ -4,12 +4,12 @@ description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l�
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271645"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azu
 
 Pour installer l’agent de protection DPM sur le serveur Exchange, procédez comme suit :
 
-1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installez l’agent sur le serveur Exchange en sélectionnant **Gestion > Agents > Installer** dans la console Administrateur DPM. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Assurez-vous que les pare-feux sont correctement configurés. Consultez la page [Configuration d’exceptions de pare-feu pour l’agent](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installez l’agent sur le serveur Exchange en sélectionnant **Gestion > Agents > Installer** dans la console Administrateur DPM. Pour obtenir des instructions détaillées, consultez la page [Installation de l’agent de protection DPM](/system-center/dpm/deploy-dpm-protection-agent) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Créer un groupe de protection pour le serveur Exchange
 

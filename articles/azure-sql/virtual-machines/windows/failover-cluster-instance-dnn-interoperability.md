@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272614"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interopérabilité des fonctionnalités avec l’instance FCI de SQL Server et DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -86,7 +86,7 @@ Par exemple, supposons que vous disposez d’un serveur de publication configur�
 
 Utilisez le nom complet de l’instance pour une instance nommée, comme dans l’exemple d’image suivant : 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilisez le nom complet de l’instance lors de la configuration d’un alias réseau pour une instance nommée." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configurez le nom DNS DNN comme alias réseau à l’aide du gestionnaire de configuration SQL Server." :::
 
 ## <a name="database-mirroring"></a>Mise en miroir de bases de données
 

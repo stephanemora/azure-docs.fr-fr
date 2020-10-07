@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276500"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta dans Azure Data Factory
 
@@ -41,6 +41,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Type de compression | Type de compression de la table Delta | non | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | `Optimal` ou `Fastest` | compressionLevel |
 | Voyage dans le temps | Indiquez si vous souhaitez interroger un instantané plus ancien de table Delta | non | Interroger par timestamp : Timestamp <br> Interroger par version : Integer | timestampAsOf <br> versionAsOf |
+| N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Importer un schéma
 

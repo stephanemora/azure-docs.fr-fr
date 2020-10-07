@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: fb83b30f0844b9bf0e362e6f1e3a3822ba0044d1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9050982338c4a6096ef180b34c0d0a0dca931427
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278309"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Changer dynamiquement le niveau de service d’un volume
 
@@ -53,7 +53,7 @@ La fonctionnalité de déplacement d’un volume vers un autre pool de capacité
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-Vous pouvez également utiliser les commandes Azure CLI [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) et [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Déplacer un volume vers un autre pool de capacité
 

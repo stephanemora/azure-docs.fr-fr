@@ -3,13 +3,13 @@ title: Authentifier l’accès à Azure Event Hubs à l’aide de signatures d�
 description: Cet article explique comment authentifier l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270098"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 

@@ -4,16 +4,16 @@ description: Dans cet article, vous allez apprendre à afficher des données de 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272954"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Afficher des données de trafic sur la carte à l’aide du kit SDK Android Azure Maps
 

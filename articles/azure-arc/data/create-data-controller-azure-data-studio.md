@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273141"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Créer un contrôleur de données dans Azure Data Studio
 
@@ -42,7 +42,7 @@ Suivez ces étapes pour créer un contrôleur de données Azure Arc en utilisant
 9. Entrez un nom pour le contrôleur de données et pour l’espace de noms dans lequel le contrôleur de données sera créé.  
 
 > [!NOTE]
-> Si l’espace de noms existe déjà, il sera utilisé si l’espace de noms ne contient pas déjà d’autres objets Kubernetes, comme des pods, etc.  Si l’espace de noms n’existe pas, une tentative de création de l’espace de noms sera effectuée.  La création d’un espace de noms dans un cluster Kubernetes nécessite des privilèges d’administrateur du cluster Kubernetes.  Si vous ne disposez pas de privilèges d’administrateur du cluster Kubernetes, demandez à l’administrateur de votre cluster Kubernetes d’effectuer les premières étapes décrites dans l’article [Créer un contrôleur de données en utilisant des outils natifs Kubernetes](./create-data-controller-using-k8s-native-tools.md) qui doivent être exécutées par un administrateur Kubernetes avant que vous puissiez utiliser cet Assistant.
+> Si l’espace de noms existe déjà, il sera utilisé si l’espace de noms ne contient pas déjà d’autres objets Kubernetes, comme des pods, etc.  Si l’espace de noms n’existe pas, une tentative de création de l’espace de noms sera effectuée.  La création d’un espace de noms dans un cluster Kubernetes nécessite des privilèges d’administrateur du cluster Kubernetes.  Si vous ne disposez pas de privilèges d’administrateur du cluster Kubernetes, demandez à l’administrateur de votre cluster Kubernetes d’effectuer les premières étapes décrites dans l’article [Créer un contrôleur de données en utilisant des outils natifs Kubernetes](./create-data-controller-using-kubernetes-native-tools.md) qui doivent être exécutées par un administrateur Kubernetes avant que vous puissiez utiliser cet Assistant.
 
 > [!NOTE]
 > Remarque : Le nom du contrôleur de données et de l’espace de noms sont utilisés pour créer une ressource personnalisée dans le cluster Kubernetes : ils doivent donc être conformes aux [conventions de nommage de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: c330d8000825b2e0ccbdab8c5c1cdefa4d3d45c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273413"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutoriel : Configurer SAP Cloud Platform Identity Authentication pour le provisionnement automatique d’utilisateurs
 
@@ -108,11 +108,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://<tenantID>.accounts.ondemand.com/service/scim ` dans **URL de locataire**. Entrez les valeurs **User ID** et **Password** récupérées plus tôt dans les champs **Nom d’utilisateur de l’administrateur** et **Mot de passe de l’administrateur**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à SAP Cloud Platform Identity Authentication. Si la connexion échoue, vérifiez que votre compte SAP Cloud Platform Identity Authentication dispose d’autorisations d’administrateur et réessayez.
 

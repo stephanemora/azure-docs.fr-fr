@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271492"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
 
@@ -110,7 +110,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transférer les données de sauvegarde initiales aux appareils Azure Data Box
 
-1. Sur votre serveur DPM/MABS, suivez les étapes pour [créer un groupe de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Si vous ajoutez une protection en ligne au groupe de protection existant, cliquez avec le bouton droit sur le groupe de protection existant, puis sélectionnez **Ajouter une de protection en ligne** et commencez à partir de **l’étape 8**.
+1. Sur votre serveur DPM/MABS, suivez les étapes pour [créer un groupe de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Si vous ajoutez une protection en ligne au groupe de protection existant, cliquez avec le bouton droit sur le groupe de protection existant, puis sélectionnez **Ajouter une de protection en ligne** et commencez à partir de **l’étape 8**.
 2. Dans la page **Sélectionner les membres du groupe**, spécifiez les ordinateurs et sources que vous souhaitez sauvegarder.
 3. Dans la page **Sélectionner la méthode de protection des données**, spécifiez la façon dont vous souhaitez gérer les sauvegardes à court terme et à long terme. Veillez à sélectionner **Je voudrais une protection en ligne.**
 

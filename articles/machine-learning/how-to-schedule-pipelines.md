@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ac1df12b10e32f35e8edbd52c3488b2d38db638a
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: df9447160fe6a0aa2a3ae001ad8a337c3ff488f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275941"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planifier des pipelines Machine Learning avec le kit de développement logiciel (SDK) Azure Machine Learning pour Python
 
@@ -83,7 +83,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Les pipelines qui sont déclenchés par les modifications de fichiers peuvent être plus efficaces que les planifications basées sur la durée. Par exemple, si vous souhaitez exécuter une étape de pré-traitement lors de la modification d’un fichier ou si un nouveau fichier est ajouté à un répertoire de données. Vous pouvez surveiller les modifications apportées à un magasin de donnée ou à des modifications dans un répertoire spécifique au sein du magasin de données. Si vous surveillez un répertoire spécifique, les modifications au sein des sous-répertoires de ce répertoire ne déclencheront _pas_ d’exécution.
 
-Pour créer une `Schedule` réactive aux fichiers, vous devez définir le paramètre `datastore` dans l’appel à [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Pour surveiller un dossier, définissez l’argument `path_on_datastore`.
+Pour créer une `Schedule` réactive aux fichiers, vous devez définir le paramètre `datastore` dans l’appel à [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Pour surveiller un dossier, définissez l’argument `path_on_datastore`.
 
 L’argument `polling_interval` vous permet de spécifier, en minutes, la fréquence de vérification des modifications dans le magasin de données.
 

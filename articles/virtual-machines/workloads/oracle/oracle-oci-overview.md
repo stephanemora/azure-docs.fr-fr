@@ -3,7 +3,7 @@ title: Intégrer Microsoft Azure avec l’infrastructure cloud Oracle | Microsof
 description: Découvrez les solutions qui intègrent des applications Oracle exécutées sur Microsoft Azure dans des bases de données de l’infrastructure cloud Oracle (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: rgardler
+author: dbakevlar
 manager: ''
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: rogardle
+ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a73d327ad2a251b5043da7e58c14e5f6f311e334
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274501"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle
 

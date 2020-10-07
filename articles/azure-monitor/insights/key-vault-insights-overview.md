@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278615"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault
 Azure Monitor pour Key Vault offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
@@ -25,21 +25,6 @@ Avant de vous lancer dans cette expérience, vous devez comprendre comment cette
 -    **Personnalisable** en vous permettant de modifier les métriques que vous souhaitez voir, modifier ou définir des seuils qui s’alignent sur vos limites et enregistrer votre propre classeur. Les graphiques du classeur peuvent être épinglés aux tableaux de bord Azure.
 
 Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. Tous les utilisateurs peuvent accéder aux données de surveillance basées sur les métriques. Toutefois, l’inclusion de visualisations basées sur les journaux peut obliger les utilisateurs à [activer la journalisation de leur coffre de clés Azure](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuration de vos coffres de clés pour l’analyse
-
-> [!NOTE]
-> L’activation des journaux est un service payant qui fournit des capacités d’analyse supplémentaires.
-
-1. L’onglet Opérations et latence vous aide à déterminer combien et quels coffres de clés sont activés. Pour commencer la collecte, sélectionnez le bouton **Activer**, qui vous redirige vers un classeur distinct qui répertorie les coffres de clés qui nécessitent l’activation des journaux de diagnostic.
-
-    ![Capture d’écran de l’onglet Opérations et latence avec le bouton d’activation bleu affiché](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Pour activer les journaux de diagnostic, cliquez sur le lien **Activer** sous la colonne des actions, puis créez un nouveau paramètre de diagnostic qui envoie les journaux à un espace de travail Log Analytics. Il est recommandé d’envoyer tous les journaux vers le même espace de travail.
-
-3. Une fois les paramètres de diagnostic enregistrés, vous serez en mesure de consulter tous les graphiques et visualisations basés sur les journaux sous la rubrique Insights Key Vault. Veuillez noter que cela peut prendre de quelques minutes à quelques heures pour commencer à alimenter les journaux.
-
-4. Pour obtenir une aide supplémentaire sur l’activation des journaux de diagnostic pour votre service Key Vault, consultez le [guide complet](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Voir à partir d’Azure Monitor
 
@@ -165,10 +150,6 @@ Un maximum de 200 coffres de clés peuvent être sélectionnés et affichés. Q
 Nous affichons uniquement les abonnements qui contiennent des coffres de clés, choisis dans le filtre d’abonnement sélectionné, et qui sont sélectionnés dans la rubrique « Répertoire + abonnement » dans l’en-tête du portail Azure.
 
 ![Capture d’écran du filtre d’abonnement](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>J’obtiens un message d’erreur indiquant que « la requête dépasse le nombre maximal d’espaces de travail/de régions autorisés », que faire maintenant ?
-
-Actuellement, il existe une limite de 25 régions et de 200 espaces de travail. Pour afficher vos données, vous devrez réduire le nombre d’abonnements ou de groupes de ressources.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Je souhaite apporter des modifications ou ajouter des visualisations supplémentaires aux insights Key Vault, comment faire ?
 

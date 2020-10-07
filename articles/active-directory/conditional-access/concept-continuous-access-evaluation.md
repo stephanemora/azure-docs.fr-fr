@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266057"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -66,8 +66,8 @@ Ce processus permet l’émergence du scénario dans lequel des utilisateurs per
 
 | | Applications web Office | Applications Win32 Office | Office pour iOS | Office pour Android | Office pour Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
-| **Exchange Online** | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Exchange Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
 ### <a name="client-side-claim-challenge"></a>Contestation de revendication côté client
 
