@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 11/19/2019
 ms.author: assafi
-ms.openlocfilehash: 6fb6e62dbcf404f0c5f77592c2c8e6565f4bc687
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: b412308bf11a5e73287401e8b4b0cc522b26d623
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84144963"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779379"
 ---
 > [!Tip]
 > Pour obtenir une documentation technique détaillée sur l’API et la voir en action, utilisez les liens suivants. Vous pouvez également envoyer des requêtes POST à partir de la console de test de l’API intégrée. Aucune configuration n’est requise, collez simplement votre clé de ressource et vos documents JSON dans la requête :

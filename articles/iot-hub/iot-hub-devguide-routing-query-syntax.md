@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336495"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767347"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -59,8 +59,8 @@ Les propriétés système permettent d’identifier le contenu et la source des 
 | contentEncoding | string | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
 | iothub-connection-device-id | string | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
-| dt-dataschema | string |  Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. Cette fonctionnalité fait partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Pour interroger, utilisez `$dt-dataschema`. |
-| dt-subject | string | Nom du composant qui envoie les messages appareil-à-cloud. Cette fonctionnalité fait partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Pour interroger, utilisez `$dt-subject`. |
+| dt-dataschema | string |  Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. Pour interroger, utilisez `$dt-dataschema`. |
+| dt-subject | string | Nom du composant qui envoie les messages appareil-à-cloud. Pour interroger, utilisez `$dt-subject`. |
 
 Comme expliqué dans l’article [Messages IoT Hub](iot-hub-devguide-messages-construct.md), il existe des propriétés système supplémentaires dans un message. Outre les propriétés indiquées dans le tableau précédent, vous pouvez également interroger **connectionDeviceId** et **connectionModuleId**.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb9f398643007271935a434e22978e555e002232
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "69982597"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779357"
 ---
 Il existe certaines limites au nombre de métriques et d’événements par application, c’est-à-dire, par clé d’instrumentation. Les limites varient selon le [plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
@@ -25,9 +25,9 @@ Il existe certaines limites au nombre de métriques et d’événements par appl
 | Rétention des résultats détaillés du [test de disponibilité à plusieurs étapes](../articles/azure-monitor/app/availability-multistep.md) | 90 jours | Cette ressource fournit des résultats détaillés de chaque étape.
 | Taille maximale des éléments de télémétrie | 64 Ko |
 | Nombre maximal d’éléments de télémétrie par lot | 64 K |
-| Longueur des noms de propriétés et de mesures | 150 | Consultez les [schémas par type](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Longueur de chaîne de valeur de propriété | 8 192  | Consultez les [schémas par type](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Longueur des messages de trace et d’exception | 32,768  | Consultez les [schémas par type](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Longueur des noms de propriétés et de mesures | 150 | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Longueur de chaîne de valeur de propriété | 8 192  | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Longueur des messages de trace et d’exception | 32,768  | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Nombre de [tests de disponibilité](../articles/azure-monitor/app/monitor-web-app-availability.md) par application | 100 |
 | Rétention de données [Profileur](../articles/azure-monitor/app/profiler.md) | 5 jours |
 | Données [Profileur](../articles/azure-monitor/app/profiler.md) envoyées par jour | 10 Go |

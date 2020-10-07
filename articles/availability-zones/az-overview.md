@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018669"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773737"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -113,7 +113,7 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Fabrique de données : Data Factory V1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Machines virtuelles : Série Av2 | Azure Machine Learning | Machine Learning Studio |
+> | Machines virtuelles : Série Av2 | Azure Machine Learning | Azure Machine Learning Studio (classique)|
 > | Machines virtuelles : Série Bs | Azure Private Link | Microsoft Genomics |
 > | Machines virtuelles : Série DSv2 | Azure Red Hat OpenShift | Rendu à distance |
 > | Machines virtuelles : Série DSv3 | Service Azure SignalR | Spatial Anchors |

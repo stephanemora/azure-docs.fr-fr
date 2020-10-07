@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896923"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772632"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Utiliser des packages Python privés avec Azure Machine Learning
 
@@ -36,7 +36,7 @@ Les packages privés sont utilisés par le biais de la classe [Environment](http
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Utiliser un petit nombre de packages à des fins de développement et de test
 
-Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
+Pour un petit nombre de packages privés destinés à un seul espace de travail, utilisez la méthode statique [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-). Cette approche vous permet d'ajouter rapidement un package privé à l'espace de travail et peut parfaitement être utilisée à des fins de développement et de test.
 
 Pointez l'argument filepath vers un fichier wheel local et exécutez la commande ```add_private_pip_wheel```. La commande renvoie une URL qui permet de suivre l'emplacement du package dans votre espace de travail. Capturez l'URL de stockage et transmettez-la à la méthode `add_pip_package()`.
 
@@ -52,13 +52,13 @@ En interne, le service Azure Machine Learning remplace l'URL par une URL SAS sé
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Utiliser un référentiel de packages du flux Azure DevOps
 
-Si vous développez activement des packages Python pour votre application de Machine Learning, vous pouvez les héberger dans un référentiel Azure DevOps sous forme d'artefacts et les publier en tant que flux. Cette approche vous permet d'intégrer le flux de travail DevOps pour créer des packages avec votre espace de travail Azure Machine Learning. Pour apprendre à configurer des flux Python à l'aide d'Azure DevOps, consultez la page [Bien démarrer avec les packages Python dans Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops).
+Si vous développez activement des packages Python pour votre application de Machine Learning, vous pouvez les héberger dans un référentiel Azure DevOps sous forme d'artefacts et les publier en tant que flux. Cette approche vous permet d'intégrer le flux de travail DevOps pour créer des packages avec votre espace de travail Azure Machine Learning. Pour apprendre à configurer des flux Python à l'aide d'Azure DevOps, consultez la page [Bien démarrer avec les packages Python dans Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true).
 
 Cette approche utilise un jeton d'accès personnel pour l'authentification auprès du référentiel. La même approche est applicable à d'autres référentiels avec authentification basée sur un jeton, comme les référentiels GitHub privés. 
 
- 1. [Créez un PAT (jeton d'accès personnel)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) pour votre instance d'Azure DevOps. Définissez l'étendue du jeton sur __Empaquetage > Lire__. 
+ 1. [Créez un PAT (jeton d'accès personnel)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) pour votre instance d'Azure DevOps. Définissez l'étendue du jeton sur __Empaquetage > Lire__. 
 
- 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-).
+ 2. Ajoutez l'URL et le PAT Azure DevOps en tant que propriétés de l'espace de travail, en utilisant la méthode [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-).
 
      ```python
     from azureml.core import Workspace
@@ -91,7 +91,7 @@ L'environnement est maintenant prêt à être utilisé à des fins d'apprentissa
 
 Vous pouvez utiliser des packages à partir d'un compte de stockage Azure du pare-feu de votre organisation. Un tel compte de stockage peut contenir un ensemble organisé de packages ou un miroir interne de packages publiquement disponibles.
 
-Pour configurer ce type de stockage privé, consultez [Sécuriser un espace de travail Azure Machine Learning et les ressources associées](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Vous devez également [placer Azure Container Registry (ACR) derrière le réseau virtuel](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+Pour configurer ce type de stockage privé, consultez [Sécuriser un espace de travail Azure Machine Learning et les ressources associées](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). Vous devez également [placer Azure Container Registry (ACR) derrière le réseau virtuel](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > Vous devez accomplir cette étape pour pouvoir effectuer l’apprentissage ou le déploiement de modèles à l’aide du référentiel de packages privé.

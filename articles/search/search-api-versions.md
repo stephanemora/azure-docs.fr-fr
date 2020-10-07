@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca4dccb82ae6a907a2f7e944174b8ecc05a443b6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986892"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761717"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versions d’API dans la Recherche cognitive Azure
 
@@ -79,7 +79,7 @@ Créez et configurez un service de recherche et gérez les clés API.
 | Gestion 2020-03-13  | Stable | Ajoute un [point de terminaison privé](service-create-private-endpoint.md) via une liaison privée et des [règles d’IP réseau](service-configure-firewall.md) pour les nouveaux services. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Gestion 2019-10-01-Preview | Préversion  | Aucune fonctionnalité en préversion n’a été introduite dans cette liste. Cette préversion est fonctionnellement équivalente à la version 13-03-2020. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Gestion 19-08-2015  | Stable | Première version en disponibilité générale des API REST de gestion. Fournit le provisionnement des services, le scale-up et la gestion des clés API. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
-| Gestion 19-08-2015 - Préversion  | PRÉVERSION | Première préversion des API REST de gestion. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19-preview). |
+| Gestion 19-08-2015 - Préversion  | PRÉVERSION | Première préversion des API REST de gestion. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
 
 ## <a name="azure-sdk-for-net"></a>Kit SDK Azure pour .NET
 
@@ -96,7 +96,7 @@ Le tableau suivant fournit des liens vers des versions plus récentes du Kit de 
 
 | Version du SDK | Statut | Description  |
 |-------------|--------|------------------------------|
-| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
+| [Java azure-search-documents 11](https://newreleases.io/project/github/Azure/azure-sdk-for-java/release/azure-search-documents_11.1.0) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
 | [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Stable | Cible l’API REST de gestion de versions 19-08-2015. |
 
 ## <a name="azure-sdk-for-javascript"></a>Kit SDK Azure pour JavaScript
@@ -110,5 +110,5 @@ Le tableau suivant fournit des liens vers des versions plus récentes du Kit de 
 
 | Version du SDK | Statut | Description  |
 |-------------|--------|------------------------------|
-| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
+| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) .NET Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
 | [Python azure-mgmt-search 1.0](/python/api/overview/azure/search) | Stable | Cible l’API REST de gestion de versions 19-08-2015. |

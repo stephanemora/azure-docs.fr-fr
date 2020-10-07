@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 0cfd1e0ce16008c6f7fd128d561ad361bcc53b87
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22bd12bbdcccef2fd0e9010f926cd18e95d42967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930252"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761853"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Présentation : Module de sécurité Defender pour IoT pour Azure RTOS (préversion)
 
@@ -46,7 +46,7 @@ En tirant parti de l’infrastructure recommandée par Defender pour IoT, acqué
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Prise en main de la protection des appareils Azure RTOS
 
-Le module de sécurité pour Azure RTOS est fourni en téléchargement gratuit pour vos appareils. Le service Defender pour IoT est disponible avec un essai gratuit de 30 jours par abonnement Azure. Pour commencer, téléchargez le [module de sécurité pour Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview). 
+Le module de sécurité pour Azure RTOS est fourni en téléchargement gratuit pour vos appareils. Le service Defender pour IoT est disponible avec un essai gratuit de 30 jours par abonnement Azure. Pour commencer, téléchargez le [module de sécurité pour Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

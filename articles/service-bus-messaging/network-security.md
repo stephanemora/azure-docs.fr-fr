@@ -3,12 +3,12 @@ title: Sécurité réseau pour Azure Service Bus
 description: Cet article décrit les fonctionnalités de sécurité réseau, comme les balises de service, les règles de pare-feu IP, les points de terminaison de service et les points de terminaison privés.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341136"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766397"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sécurité réseau pour Azure Service Bus 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Service Bus : 
@@ -16,7 +16,7 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 - Balises de service
 - Règles de pare-feu IP
 - Points de terminaison de service réseau
-- Points de terminaison privés (préversion)
+- Instances Private Endpoint
 
 
 ## <a name="service-tags"></a>Balises de service
@@ -81,8 +81,6 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](.
 
 > [!NOTE]
 > Cette fonctionnalité est prise en charge avec le niveau **Premium** d’Azure Service Bus. Pour plus d’informations sur le niveau Premium, consultez l’article [Couches de messagerie Service Bus Premium et Standard](service-bus-premium-messaging.md).
->
-> Cette fonctionnalité est actuellement en **préversion**. 
 
 
 Pour plus d’informations, consultez [Guide pratique pour configurer des points de terminaison privés pour un espace de noms Service Bus](private-link-service.md).

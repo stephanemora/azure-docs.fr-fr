@@ -3,12 +3,12 @@ title: Sécurité réseau pour Azure Event Hubs
 description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521851"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767796"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sécurité du réseau pour Azure Event Hubs 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Hubs : 
@@ -16,7 +16,7 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 - Balises de service
 - Règles de pare-feu IP
 - Points de terminaison de service réseau
-- Points de terminaison privés (préversion)
+- Instances Private Endpoint
 
 
 ## <a name="service-tags"></a>Balises de service
@@ -74,9 +74,6 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 
 > [!NOTE]
 > Cette fonctionnalité est prise en charge uniquement avec le niveau **dédié**. Pour plus d’informations sur le niveau dédié, consultez [Vue d’ensemble d’Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
->
-> Cette fonctionnalité est actuellement en **préversion**. 
-
 
 Pour plus d’informations, consultez le [Guide pratique pour configurer des points de terminaison privés pour un Event Hub](private-link-service.md)
 

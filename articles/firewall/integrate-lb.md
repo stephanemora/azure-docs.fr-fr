@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610623"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363101"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Intégrer un pare-feu Azure avec Azure Standard Load Balancer
 
@@ -64,6 +64,10 @@ Avec un équilibreur de charge interne, l’équilibreur de charge est déployé
 Il n’y a aucun problème de routage asymétrique avec ce scénario. Les paquets entrants arrivent à l’adresse IP publique du pare-feu, subissent une traduction vers l’adresse IP privée de l’équilibreur de charge, puis retournent à l’adresse IP privée du pare-feu en suivant le même chemin de retour.
 
 Ainsi, vous pouvez déployer ce scénario de la même manière que le scénario d’équilibreur de charge public, mais sans avoir besoin de la route hôte de l’adresse IP publique du pare-feu.
+
+>[!NOTE]
+>Avec cette configuration, les machines virtuelles du pool principal ne disposent pas d’une connectivité Internet sortante. </br> Pour plus d’informations sur la façon de fournir une connectivité sortante, consultez : </br> **[Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Options pour fournir la connectivité : </br> **[Configuration de l’équilibreur de charge en sortie uniquement](../load-balancer/egress-only.md)** </br> [**Qu’est-ce que le service NAT de Réseau virtuel ?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>Sécurité supplémentaire
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930771"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761479"
 ---
 # <a name="sizing-guidance"></a>Guide de dimensionnement
 
@@ -27,7 +27,7 @@ Lorsque vous planifiez le déploiement de services de données Azure Arc, vous d
 ## <a name="general-sizing-requirements"></a>Spécifications générales de dimensionnement
 
 > [!NOTE]
-> Si vous n’êtes pas familiarisé avec les concepts de cet article, vous pouvez en apprendre davantage sur la [gouvernance des ressources Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) et la [notation de taille de Kubernetes](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Si vous n’êtes pas familiarisé avec les concepts de cet article, vous pouvez en apprendre davantage sur la [gouvernance des ressources Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) et la [notation de taille de Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Le nombre de cœurs doit être une valeur entière supérieure ou égale à un.
 

@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336716"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766979"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -61,8 +61,8 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 | iothub-connection-module-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Il contient la propriété **moduleId** de l’appareil qui a envoyé le message. | Non | connectionModuleId |
 | iothub-connection-auth-generation-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Il contient la propriété **connectionDeviceGenerationId** (conformément aux [Propriétés d’identité des appareils](iot-hub-devguide-identity-registry.md#device-identity-properties)) de l’appareil qui a envoyé le message. | Non |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Une méthode d’authentification définie par IoT Hub sur les messages appareil-à-cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message.| Non | connectionAuthMethod |
-| dt-dataschema | Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. Cette fonctionnalité fait partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). | Non | N/A |
-| dt-subject | Nom du composant qui envoie les messages appareil-à-cloud. Cette fonctionnalité fait partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). | Oui | N/A |
+| dt-dataschema | Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. | Non | N/A |
+| dt-subject | Nom du composant qui envoie les messages appareil-à-cloud. | Oui | N/A |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriétés système des messages IoT Hub **C2D**
 
