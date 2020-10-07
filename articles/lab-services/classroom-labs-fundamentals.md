@@ -3,20 +3,20 @@ title: Bases de l’architecture dans Azure Lab Services | Microsoft Docs
 description: Cet article aborde les ressources fondamentales utilisées par les services Lab et l’architecture de base d’un lab.
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: 93e95e1b03cd942e513a6d643f8a9e96399c231b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334036"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Notions de base de l’architecture dans Azure Lab Services
 
 Azure Lab Services est une solution SaaS (logiciel en tant que service), ce qui signifie que les ressources nécessaires aux services Lab sont gérées pour vous. Cet article aborde les ressources fondamentales utilisées par les services Lab et l’architecture de base d’un lab.  
 
-Azure Lab Services fournit deux zones qui vous permettent d’utiliser vos propres ressources conjointement avec les services Lab.  Pour plus d’informations sur l’utilisation de machines virtuelles sur votre propre réseau, consultez [peering de réseau virtuel](how-to-connect-peer-virtual-network.md).  Pour réutiliser des images à partir d’une galerie d’images partagées, consultez [attacher une galerie d’images partagées](how-to-attach-detach-shared-image-gallery.md).
+Azure Lab Services fournit deux zones qui vous permettent d’utiliser vos propres ressources conjointement avec Lab Services.  Pour plus d’informations sur l’utilisation de machines virtuelles sur votre propre réseau, consultez [peering de réseau virtuel](how-to-connect-peer-virtual-network.md).  Pour réutiliser des images à partir d’une galerie d’images partagées, consultez [attacher une galerie d’images partagées](how-to-attach-detach-shared-image-gallery.md).
 
 Vous trouverez ci-dessous l’architecture de base d’un laboratoire de classe.  Le compte Lab est hébergé dans votre abonnement. Les machines virtuelles des étudiants, ainsi que les ressources nécessaires pour prendre en charge les machines virtuelles, sont hébergées dans un abonnement détenu par les services Lab. Voyons plus en détail ce qui se passe dans les abonnements du service Lab.
 

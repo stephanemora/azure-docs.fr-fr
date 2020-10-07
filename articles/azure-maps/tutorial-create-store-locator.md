@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer une application de type localisateur de magasin à l’aide d’Azure Maps | Microsoft Azure Maps'
-description: Découvrez comment créer des applications web de localisateur de magasin. Utilisez le kit de développement logiciel (SDK) Web Azure Maps pour créer une page web, interroger le service de recherche et afficher les résultats sur une carte.
+description: Tutoriel expliquant comment créer des applications web de type localisateur de magasin. Utilisez le kit de développement logiciel (SDK) Web Azure Maps pour créer une page web, interroger le service de recherche et afficher les résultats sur une carte.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335260"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
 Ce tutoriel vous guide tout au long du processus de création d’un localisateur de magasin simple à l’aide d’Azure Maps. Les localisateurs de magasin sont courants. Bon nombre de concepts utilisés dans ce type d’application sont applicables à de nombreux autres types d’application. Mettre à la disposition de ses clients un localisateur de magasin est une nécessité pour la plupart des établissements qui vendent directement aux consommateurs. Dans ce tutoriel, vous allez apprendre à :
-    
+
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Azure Map Control.
 > * Charger des données personnalisées à partir d’un fichier et les afficher sur une carte.
@@ -924,34 +924,21 @@ Si vous redimensionnez la fenêtre du navigateur en définissant une largeur de 
 
 ![Capture d’écran de la version « petit écran » du localisateur de magasin](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+Ce tutoriel vous a appris à créer un localisateur de magasin simple à l’aide d’Azure Maps. Le localisateur de magasin que vous créez offre peut-être de toutes fonctionnalités dont vous avez besoin. Vous pouvez en ajouter d’autres ou utiliser des fonctionnalités plus avancées de façon à personnaliser davantage d’expérience utilisateur : 
+
+ * Activez les [suggestions pendant que vous tapez](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) dans la zone de recherche.  
+ * Ajoutez la [prise en charge multilingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+ * Autorisez l’utilisateur à [filtrer les emplacements le long d’un itinéraire](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+ * Ajoutez la possibilité de [définir des filtres](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+ * Ajoutez la possibilité de spécifier une valeur de recherche initiale en utilisant une chaîne de requête. Quand vous incluez cette option dans votre localisateur de magasin, les utilisateurs peuvent ajouter les recherches aux favoris et les partager. Elle offre aussi un moyen simple de transférer les recherches de la page active vers une autre.  
+ * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
+ * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+
+Vous pouvez [afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) et en apprendre davantage sur la couverture et les fonctionnalités d’Azure Maps en utilisant les [niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md). Vous pouvez également [utiliser des expressions de style axées sur les données](data-driven-style-expressions-web-sdk.md) à appliquer à votre logique métier.
+
 ## <a name="next-steps"></a>Étapes suivantes
-
-Ce tutoriel vous apprend à créer un localisateur de magasin simple à l’aide d’Azure Maps. Le localisateur de magasin que vous créez offre peut-être de toutes fonctionnalités dont vous avez besoin. Vous pouvez en ajouter d’autres ou utiliser des fonctionnalités plus avancées de façon à personnaliser davantage d’expérience utilisateur : 
-
-> [!div class="checklist"]
-> * Activez les [suggestions pendant que vous tapez](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) dans la zone de recherche.  
-> * Ajoutez la [prise en charge multilingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Autorisez l’utilisateur à [filtrer les emplacements le long d’un itinéraire](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Ajoutez la possibilité de [définir des filtres](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Ajoutez la possibilité de spécifier une valeur de recherche initiale en utilisant une chaîne de requête. Quand vous incluez cette option dans votre localisateur de magasin, les utilisateurs peuvent ajouter les recherches aux favoris et les partager. Elle offre aussi un moyen simple de transférer les recherches de la page active vers une autre.  
-> * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
-
-> [!div class="nextstepaction"]
-> [Afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Pour en savoir plus sur la couverture et les fonctionnalités d’Azure Maps :
-
-> [!div class="nextstepaction"]
-> [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md)
 
 Pour bénéficier de davantage d’exemples de code et d’une expérience de codage interactive :
 
 > [!div class="nextstepaction"]
 > [Comment utiliser le contrôle de carte](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)

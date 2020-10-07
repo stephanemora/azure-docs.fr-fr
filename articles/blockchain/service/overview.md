@@ -4,12 +4,12 @@ description: Vue d’ensemble d’Azure Blockchain Service
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e82916d7366ad82746d2d3ddfc979264e113619b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334818"
 ---
 # <a name="what-is-azure-blockchain-service"></a>À propos d’Azure Blockchain Service
 
@@ -45,7 +45,7 @@ En tant que service managé, Azure Blockchain Service s’assure que les nœuds 
 
 De plus, Azure Blockchain Service fournit des métriques riches par le biais du service Azure Monitor, en fournissant des insights sur l’utilisation du processeur, de la mémoire et du stockage des nœuds.  Azure Monitor fournit également des insights sur l’activité du réseau blockchain, telles que les transactions et les blocs explorés, la profondeur de la file d’attente des transactions et les connexions actives.  Les mesures peuvent être personnalisées de manière à afficher les insights essentiels à votre application blockchain.  Vous pouvez également définir des seuils par le biais des alertes, ce qui permet aux utilisateurs de déclencher différentes actions, notamment envoyer des e-mails et des SMS, exécuter une application logique ou une fonction Azure ou encore envoyer vers un webhook personnalisé.
 
-![Mesures](./media/overview/metrics.png)
+![La capture d’écran montre la supervision, avec des valeurs pour les blocs, les transactions, les transactions en attente et les demandes traitées.](./media/overview/metrics.png)
 
 Grâce à Azure Log Analytics, les utilisateurs peuvent afficher les journaux relatifs au registre Quorum ou à d’autres informations importantes comme les tentatives de connexion aux nœuds de transaction.
 
@@ -77,7 +77,7 @@ Communiquez avec les ingénieurs Microsoft et les experts de la communauté Azur
 
 * [Page de questions Microsoft Q&A sur Azure Blockchain Service](/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-service)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

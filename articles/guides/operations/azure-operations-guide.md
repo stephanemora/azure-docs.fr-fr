@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832754"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397808"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -68,7 +68,7 @@ Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d
 
 SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
 
-Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
+Microsoft 365 constitue un bon exemple d’offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
 
 ## <a name="azure-services"></a>Services Azure
 

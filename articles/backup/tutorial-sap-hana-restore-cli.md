@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment restaurer des bases
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334801"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Restaurer des bases de données SAP HANA sur une machine virtuelle Azure à l’aide d’Azure CLI
 
@@ -34,7 +34,7 @@ Ce tutoriel part du principe que vous disposez d’une base de données SAP HANA
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Afficher les points de restauration d’une base de données sauvegardée
 
-Pour afficher la liste de tous les points de récupération d’une base de données, utilisez l’applet de commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) :
+Pour afficher la liste de tous les points de récupération d’une base de données, utilisez l’applet de commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) :
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -57,7 +57,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 Comme vous pouvez le voir, la liste ci-dessus contient trois points de récupération : un pour la sauvegarde complète, un pour la sauvegarde différentielle et un pour la sauvegarde des journaux.
 
 >[!NOTE]
->Vous pouvez également afficher les points de début et de fin de chaque chaîne de sauvegarde de journaux non interrompue à l’aide de l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain).
+>Vous pouvez également afficher les points de début et de fin de chaque chaîne de sauvegarde de journaux non interrompue à l’aide de l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain).
 
 ## <a name="prerequisites-to-restore-a-database"></a>Prérequis pour restaurer une base de données
 
@@ -74,7 +74,7 @@ Sauvegarde Azure peut restaurer des bases de données SAP HANA s’exécutant su
 * Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement les sauvegardes différentielles complètes appropriées, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
 * Restaurer en fonction d’une sauvegarde complète ou différentielle spécifique à un point de récupération spécifique.
 
-Pour restaurer une base de données, utilisez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl), qui nécessite entre autres un objet de configuration de récupération comme entrée. Vous pouvez générer cet objet à l’aide de l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). L’objet de configuration de récupération contient tous les détails nécessaires pour effectuer une restauration, notamment le mode de restauration : **OriginalWorkloadRestore** ou **AlternateWorkloadRestore**.
+Pour restaurer une base de données, utilisez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl), qui nécessite entre autres un objet de configuration de récupération comme entrée. Vous pouvez générer cet objet à l’aide de l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). L’objet de configuration de récupération contient tous les détails nécessaires pour effectuer une restauration, notamment le mode de restauration : **OriginalWorkloadRestore** ou **AlternateWorkloadRestore**.
 
 >[!NOTE]
 > **OriginalWorkloadRestore** : restaure les données sur la même instance de SAP HANA que la source d’origine. Cette option remplace la base de données d’origine. <br>
@@ -86,11 +86,11 @@ Pour restaurer une base de données à un autre emplacement, utilisez **Alternat
 
 Dans ce tutoriel, vous allez restaurer à un point de restauration précédent. [Affichez la liste des points de restauration](#view-restore-points-for-a-backed-up-database) pour la base de données et choisissez celui vers lequel vous souhaitez effectuer la restauration. Ce tutoriel utilise le point de restauration nommé *7660777527047692711*.
 
-À l’aide du nom du point de restauration et du mode de restauration ci-dessus, nous allons créer l’objet de configuration de récupération avec l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Examinons ce que signifie chacun des autres paramètres de cette applet de commande :
+À l’aide du nom du point de restauration et du mode de restauration ci-dessus, nous allons créer l’objet de configuration de récupération avec l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). Examinons ce que signifie chacun des autres paramètres de cette applet de commande :
 
 * **--target-item-name** : il s’agit du nom qu’aura la base de données restaurée. Ici, nous avons utilisé le nom *restored_database*.
 * **--target-server-name** : il s’agit du nom d’un serveur SAP HANA qui est correctement inscrit auprès d’un coffre Recovery Services et se trouve dans la même région que la base de données à restaurer. Dans ce tutoriel, nous allons restaurer la base de données sur le serveur SAP HANA que nous avons protégé, nommé *hxehost*.
-* **--target-server-type** : pour la restauration des bases de données SAP HANA, vous devez utiliser **SapHanaDatabase**.
+* **--target-server-type** : pour la restauration des bases de données SAP HANA, vous devez utiliser **HANAInstance**.
 
 ```azurecli-interactive
 
@@ -113,7 +113,7 @@ La réponse à la requête ci-dessus est un objet de configuration de récupéra
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-À présent, pour restaurer la base de données, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus enregistrée dans un fichier nommé *recoveryconfig.json*.
+À présent, pour restaurer la base de données, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus enregistrée dans un fichier nommé *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 ## <a name="restore-and-overwrite"></a>Restaurer et remplacer
 
 Pour restaurer à l’emplacement d’origine, nous allons utiliser **OrignialWorkloadRestore** comme mode de restauration. Vous devez ensuite choisir le point de restauration, qui peut être un point antérieur dans le temps ou l’un des points de restauration précédents.
 
-Pour ce tutoriel, nous allons choisir le point dans le temps précédent « 28-11-2019-09:53:00 » pour la restauration. Vous pouvez spécifier ce point de restauration aux formats suivants : jj-mm-aaaa, jj-mm-aaaa-hh:mm:ss. Pour choisir un point dans le temps valide pour la restauration, utilisez l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain), qui liste les intervalles de sauvegardes de chaîne de journaux non interrompues.
+Pour ce tutoriel, nous allons choisir le point dans le temps précédent « 28-11-2019-09:53:00 » pour la restauration. Vous pouvez spécifier ce point de restauration aux formats suivants : jj-mm-aaaa, jj-mm-aaaa-hh:mm:ss. Pour choisir un point dans le temps valide pour la restauration, utilisez l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain), qui liste les intervalles de sauvegardes de chaîne de journaux non interrompues.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ La réponse à la requête ci-dessus est un objet de configuration de récupéra
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-À présent, pour restaurer la base de données, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus enregistrée dans un fichier nommé *recoveryconfig.json*.
+À présent, pour restaurer la base de données, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus enregistrée dans un fichier nommé *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,15 +171,15 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 ## <a name="restore-as-files"></a>Restaurer sous forme de fichiers
 
 Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sous forme de base de données, nous allons utiliser **RestoreAsFiles** comme mode de restauration. Choisissez ensuite le point de restauration, qui peut être un point antérieur dans le temps ou l’un des points de restauration précédents. Une fois les fichiers vidés sous un chemin d’accès spécifié, vous pouvez placer ces fichiers sur n’importe quel ordinateur SAP HANA sur lequel vous souhaitez les restaurer sous forme de base de données. Étant donné que vous pouvez déplacer ces fichiers sur n’importe quel ordinateur, vous pouvez désormais restaurer les données entre les abonnements et les régions.
 
-Pour ce tutoriel, nous allons choisir le point dans le temps précédent `28-11-2019-09:53:00` vers lequel effectuer la restauration, ainsi que l’emplacement de vidage des fichiers de sauvegarde comme `/home/saphana/restoreasfiles` sur le même serveur SAP HANA. Vous pouvez spécifier ce point de restauration dans l’un des formats suivants : **jj-mm-aaaa** ou **jj-mm-aaaa-hh:mm:ss**. Pour choisir un point dans le temps valide pour la restauration, utilisez l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain), qui liste les intervalles de sauvegardes de chaîne de journaux non interrompues.
+Pour ce tutoriel, nous allons choisir le point dans le temps précédent `28-11-2019-09:53:00` vers lequel effectuer la restauration, ainsi que l’emplacement de vidage des fichiers de sauvegarde comme `/home/saphana/restoreasfiles` sur le même serveur SAP HANA. Vous pouvez spécifier ce point de restauration dans l’un des formats suivants : **jj-mm-aaaa** ou **jj-mm-aaaa-hh:mm:ss**. Pour choisir un point dans le temps valide pour la restauration, utilisez l’applet de commande [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain), qui liste les intervalles de sauvegardes de chaîne de journaux non interrompues.
 
-À l’aide du nom du point de restauration ci-dessus et du mode de restauration, créons l’objet de configuration de récupération avec l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Examinons ce que signifie chacun des autres paramètres de cette applet de commande :
+À l’aide du nom du point de restauration ci-dessus et du mode de restauration, créons l’objet de configuration de récupération avec l’applet de commande [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). Examinons ce que signifie chacun des autres paramètres de cette applet de commande :
 
 * **--target-container-name** : il s’agit du nom d’un serveur SAP HANA qui est correctement inscrit auprès d’un coffre Recovery Services et qui se trouve dans la même région que la base de données à restaurer. Dans ce tutoriel, nous allons restaurer la base de données sous forme de fichiers sur le serveur SAP HANA que nous avons protégé, nommé *hxehost*.
 * **--rp-name** : pour une limite de restauration dans le temps, le nom du point de restauration est **DefaultRangeRecoveryPoint**
@@ -216,7 +216,7 @@ La réponse à la requête ci-dessus est un objet de configuration de récupéra
 }
 ```
 
-À présent, pour restaurer la base de données sous forme de fichiers, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus qui est enregistrée dans un fichier nommé *recoveryconfig.json*.
+À présent, pour restaurer la base de données sous forme de fichiers, exécutez l’applet de commande [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Pour utiliser cette commande, nous allons entrer la sortie JSON ci-dessus qui est enregistrée dans un fichier nommé *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -267,7 +267,7 @@ La sortie se présente ainsi :
 }
 ```
 
-La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 Les fichiers qui sont vidés dans le conteneur cible sont :
 

@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 79cc17ba4f845e2263d1a09af4a3f9ae4150f362
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292198"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
@@ -68,7 +68,7 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 ### <a name="complex-expression-example"></a>Exemple d’expression complexe
 L’exemple ci-dessous montre un exemple complexe qui fait référence à un sous-champ profond d’une sortie d’activité. Pour faire référence à un paramètre de pipeline qui prend la valeur d’un sous-champ, utilisez la syntaxe [] au lieu de l’opérateur point(.) (comme dans le cas de subfield1 et subfield2)
 
-@activity(’{activityName}’).output.{subfield1}.{subfield2}[pipeline().parameters.subfield3].{subfield4}
+@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>Un jeu de données avec un paramètre
 Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path**. Sa valeur est utilisée pour donner une valeur à la propriété **folderPath** à l’aide de l’expression : `dataset().path`. 

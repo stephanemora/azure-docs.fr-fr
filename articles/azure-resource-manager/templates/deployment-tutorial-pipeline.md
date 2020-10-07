@@ -4,12 +4,12 @@ description: Découvrez comment générer, tester et déployer des modèles Azur
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333235"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -180,7 +180,7 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
     * **Mode de déploiement** : sélectionnez **Incrémentiel**.
     * **Nom du déploiement** : entrez **DeployPipelineTemplate**. Sélectionnez **Avancé** pour pouvoir voir **Nom du déploiement**.
 
-    ![Azure Resource Manager, Azure DevOps, étape Azure Pipelines](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Capture d’écran montrant la page de déploiement de modèle ARM avec les valeurs obligatoires entrées.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Sélectionnez **Ajouter**.
 
@@ -188,7 +188,7 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
 
     Le fichier yml doit ressembler à ce qui suit :
 
-    ![Azure Resource Manager, Azure DevOps, Azure Pipelines, yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Capture d’écran montrant la page de vérification avec le nouveau pipeline intitulé Passer en revue le fichier YAML de pipeline.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Sélectionnez **Enregistrer et exécuter**.
 1. Dans le volet **Enregistrer et exécuter**, sélectionnez une nouvelle fois **Enregistrer et exécuter**. Une copie du fichier YAML est enregistrée dans le référentiel connecté. Vous pouvez voir le fichier YAML en accédant à votre référentiel.

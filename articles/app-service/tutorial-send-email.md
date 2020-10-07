@@ -4,12 +4,12 @@ description: Découvrez comment appeler des processus métier à partir de votre
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962194"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397434"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutoriel : Envoyer un e-mail et appeler d’autres processus métier à partir d’App Service
 
@@ -84,7 +84,8 @@ Déployez une application avec le framework de langage de votre choix dans App S
 1. En bas du concepteur, cliquez sur **Nouvelle étape**, tapez **Gmail** dans la zone de recherche des actions, puis recherchez et sélectionnez **Envoyer un e-mail (V2)** .
     
     > [!TIP]
-    > Vous pouvez rechercher d’autres types d’intégrations, comme SendGrid, MailChimp, Office 365 et SalesForce. Pour plus d’informations, consultez la [documentation Logic Apps](../logic-apps/index.yml).
+    > Vous pouvez rechercher d’autres types d’intégrations comme SendGrid, MailChimp, Microsoft 365 et SalesForce. Pour plus d’informations, consultez la [documentation Logic Apps](../logic-apps/index.yml).
+
 1. Dans la boîte de dialogue **Gmail**, sélectionnez **Connexion**, puis connectez-vous au compte Gmail à utiliser pour envoyer l’e-mail.
 
     ![Capture d’écran qui montre la boîte de dialogue Gmail que vous utilisez pour vous connecter au compte Gmail à partir duquel vous souhaitez envoyer un e-mail.](./media/tutorial-send-email/gmail-sign-in.png)

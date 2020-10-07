@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500393"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397060"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Didacticiel : sauvegarder et restaurer des fichiers pour des machines virtuelles Windows dans Azure
 
@@ -59,7 +59,7 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
 
 1. Ouvrez un navigateur et connectez-vous à l’adresse IP de la machine virtuelle pour afficher la page IIS par défaut.
 
-    ![Page web IIS par défaut](./media/tutorial-backup-vms/iis-working.png)
+    ![Capture d’écran montrant la page web IIS par défaut.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Connectez-vous à la machine virtuelle.
 1. Sur la machine virtuelle, ouvrez **Explorateur de fichiers**, accédez à \inetpub\wwwroot et supprimez le fichier **iisstart.png**.
@@ -71,15 +71,15 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles** et cliquez sur la machine virtuelle dans la liste.
 1. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
 1. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
-1. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
-1. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Copiez le mot de passe pour le fichier et enregistrez-le à un endroit sûr.
+1. À l’**Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
+1. À l’**Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Copiez le mot de passe pour le fichier et enregistrez-le à un endroit sûr.
 1. Sur votre ordinateur local, ouvrez **Explorateur de fichiers** et accédez à votre dossier**Téléchargements**, puis copiez le fichier .exe téléchargé. Le nom du fichier commence par le nom de votre machine virtuelle. 
 1. Sur votre machine virtuelle (en utilisant la connexion RDP), collez le fichier .exe sur le Bureau. 
 1. Accédez au bureau de votre machine virtuelle et double-cliquez sur le fichier .exe. Une invite de commandes démarre. Le programme monte le point de récupération sous forme de partage de fichiers auquel vous pouvez accéder. Après avoir créé le partage, entrez **q** pour fermer l’invite de commandes.
 1. Sur votre machine virtuelle, ouvrez **Explorateur de fichiers** et accédez à la lettre de lecteur qui a été utilisée pour le partage de fichiers.
 1. Accédez à \inetpub\wwwroot, copiez **iisstart.png** à partir du partage de fichier et collez-le dans \inetpub\wwwroot. Par exemple, copiez F:\inetpub\wwwroot\iisstart.png et collez-le dans c:\inetpub\wwwroot pour récupérer le fichier.
 1. Sur votre ordinateur local, ouvrez l’onglet du navigateur avec lequel vous êtes connecté à l’adresse IP de la machine virtuelle affichant la page IIS par défaut. Appuyez sur CTRL + F5 pour actualiser la page du navigateur. Vous devriez maintenant voir que l’image a été restaurée.
-1. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un point de montage.
+1. Sur votre ordinateur local, revenez à l’onglet du navigateur du portail Azure et à l’**Étape 3 : Démonter les disques après la récupération** cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un point de montage.
 
 
 

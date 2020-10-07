@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334087"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
@@ -323,7 +323,7 @@ Ajoutez maintenant une condition qui sélectionne uniquement les e-mails contena
 
    1. Sur la première ligne, sous **et**, cliquez à l’intérieur de la zone de gauche. Dans la liste de contenu dynamique qui s’affiche, sélectionnez la propriété **Comporte une pièce jointe**.
 
-      ![Créer une condition](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Capture d’écran représentant la propriété « and » pour la condition et la sélection de la propriété « Comporte une pièce jointe ».](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. Dans la zone du milieu, conservez l’opérateur **est égal à**.
 
@@ -389,7 +389,7 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
    ![À l’intérieur de « Si true », ajouter une action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. Dans la zone de recherche, recherchez « Azure Functions » et sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions**
+1. Dans la zone de recherche, recherchez « Azure Functions » et sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions**
 
    ![Sélectionner une action pour « Choisir une fonction Azure »](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
 
    Une fois que vous avez terminé, l’action ressemble à cet exemple :
 
-   ![Fin de l’action « Créer un objet blob »](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Capture d’écran représentant un exemple d’action « Créer un objet blob » terminé.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Enregistrez votre application logique.
 

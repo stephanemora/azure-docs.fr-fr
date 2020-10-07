@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331503"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows
 
@@ -36,7 +36,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version du bundle de l’agent Log Analytics pour Windows | Version d’extension de machine virtuelle Windows Log Analytics | Date de sortie | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18038 | 1.0.18040.2 | Août 2020   | <ul><li>Résout un problème sur Azure Arc</li></ul> |
+| 10.20.18040 | 1.0.18040.2 | Août 2020   | <ul><li>Résout un problème sur Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Avril 2020   | <ul><li>Active la connectivité sur un lien privé à l’aide d’étendues Azure Monitor Private Link</li><li>Ajoute la limitation de l’ingestion afin d’éviter un afflux accidentel soudain en ingestion dans un espace de travail</li><li>Ajoute la prise en charge de régions Azure Government supplémentaires</li><li>Résout un bogue dans lequel intégrité.exe s’est bloqué</li></ul> |
 | 10.20.18029 | 1.0.18029 | Mars 2020   | <ul><li>Ajoute la prise en du code de signature SHA-2</li><li>Améliore l’installation et la gestion des extensions de machine virtuelle</li><li>Résout un bogue dans Azure Arc pour l’intégration de serveurs</li><li>Ajoute un outil de dépannage intégré pour le service clientèle</li><li>Ajoute la prise en charge de régions Azure Government supplémentaires</li> |
 | 10.20.18018 | 1.0.18018 | 2 octobre 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li></ul> |

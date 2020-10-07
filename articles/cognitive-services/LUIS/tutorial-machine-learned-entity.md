@@ -1,14 +1,16 @@
 ---
 title: 'Tutoriel : Extraire des données structurées avec une entité issue du machine learning – LUIS'
 description: Extrayez des données structurées d’un énoncé à l’aide de l’entité issue du machine learning. Pour augmenter la précision de l’extraction, ajoutez des sous-entités avec des composants.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045601"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334722"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du machine learning dans LUIS
 
@@ -79,12 +81,12 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
 
 1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-entités comme la taille et la quantité.
 
-    ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![La capture d’écran présente la fenêtre Choisir un type d’entité avec l’option Ajouter une structure cochée.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Dans la zone **Add subentities (optional)** (Ajouter des sous-entités (facultatif)), sélectionnez **+** sur la ligne `Order`, puis ajoutez `Size` et `Quantity` comme sous-entités, puis sélectionnez **Create**.
 
     > [!div class="mx-imgBorder"]
-    > ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![La capture d’écran présente la fenêtre Ajouter des sous-entités (facultative) avec des sous-entités mises en surbrillance.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Modifier les sous-entités pour améliorer l’extraction
 
@@ -121,7 +123,7 @@ L’ajout d’une liste de tailles courantes reconnues par l’application clien
 
 
     > [!div class="mx-imgBorder"]
-    > ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![La capture d’écran présente la fenêtre SizeList et des éléments de liste avec XLarge sélectionné.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Ajouter une caractéristique de l’entité SizeList
 
@@ -160,7 +162,7 @@ L’ajout d’une entité de nombre prédéfinie facilite également l’extract
 Dans la page de détails de l’entité **Order**, sélectionnez l’astérisque, `*`, pour les caractéristiques **@ SizeList** et **@ number**. L’astérisque apparaît dans la même étiquette que le nom de la caractéristique.
 
 > [!div class="mx-imgBorder"]
-> ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![La capture d’écran montre la caractéristique @SizeList avec l’astérisque et l’avertissement Requis.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Pour effectuer l’apprentissage de l’application, sélectionnez **Former**. L
 1. Pour changer la prédiction en entité étiquetée, activez la case à cocher sur la même ligne.
 
     > [!div class="mx-imgBorder"]
-    > ![Capture d’écran partielle du nouvel exemple d’énoncé prédit avec une entité](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![La capture d’écran présente un exemple d’énoncé avec la coche mise en surbrillance.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     À ce stade, l’entité issue du machine learning fonctionne, car elle peut trouver l’entité dans un nouvel exemple d’énoncé. Lorsque vous ajoutez des exemples d’énoncés, si l’entité n’est pas correctement prédite, étiquetez-la, ainsi que les sous-entités. Si l’entité est correctement prédite, veillez à confirmer les prédictions.
 

@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8809b5fdce382b7c8f913823ca8e176226d5837b
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536172"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397723"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD
 
@@ -122,7 +122,7 @@ Globalement, les rôles Azure contrôlent les autorisations pour gérer les ress
 
 Par défaut, les rôles Azure et les rôles Azure AD ne couvrent pas Azure et Azure AD. Toutefois, si un administrateur général élève son accès en choisissant le commutateur **Gestion de l’accès pour les ressources Azure** dans le portail Azure, il reçoit le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) (rôle Azure) sur tous les abonnements d’un locataire spécifique. Le rôle Administrateur de l’accès utilisateur permet à l’utilisateur d’accorder à d’autres utilisateurs l’accès aux ressources Azure. Ce commutateur peut être utile pour récupérer l’accès à un abonnement. Pour plus d’informations, consultez [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](elevate-access-global-admin.md).
 
-Plusieurs rôles Azure AD couvrent Azure AD et Microsoft Office 365, tels que les rôles Administrateur général et Administrateur d’utilisateurs. Par exemple, si vous êtes membre du rôle Administrateur général, vous disposez des fonctionnalités de l’administrateur général dans Azure AD et Office 365, avec par exemple la possibilité d’apporter des changements dans Microsoft Exchange et Microsoft SharePoint. Toutefois, par défaut, l’administrateur général n’a pas accès aux ressources Azure.
+Plusieurs rôles Azure AD couvrent Azure AD et Microsoft 365, tels que les rôles d’administrateur général et d’administrateur d’utilisateurs. Par exemple, si vous êtes membre du rôle Administrateur général, vous disposez des fonctionnalités de l’administrateur général dans Azure AD et Microsoft 365, avec par exemple la possibilité d’apporter des changements dans Microsoft Exchange et Microsoft SharePoint. Toutefois, par défaut, l’administrateur général n’a pas accès aux ressources Azure.
 
 ![Rôles RBAC Azure et rôles Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 

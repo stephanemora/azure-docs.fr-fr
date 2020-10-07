@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333492"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler ZSCloud pour le provisionnement automatique d’utilisateurs
 
@@ -120,7 +120,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Zscaler ZSCloud. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Zscaler ZSCloud dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Groups to Zscaler ZSCloud** (Synchroniser les groupes Azure Active Directory avec Zscaler ZSCloud) :
 
@@ -128,7 +128,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 13. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler ZSCloud. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans Zscaler ZSCloud dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Pour configurer des filtres d’étendue, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](./../active-directory-saas-scoping-filters.md).
 

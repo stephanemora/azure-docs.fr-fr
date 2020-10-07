@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 842c08ec36730eaab1c37fe61d3855f9e2ddd245
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91329451"
 ---
 Lorsque vous avez terminé, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources supprime aussi le compte de stockage, le partage de fichiers Azure et toutes autres ressources déployées dans le groupe de ressources.

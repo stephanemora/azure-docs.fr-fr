@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371740"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Bien démarrer avec votre compte de facturation Azure mis à jour
 
@@ -113,7 +113,7 @@ Les sections suivantes fournissent des informations supplémentaires sur votre n
 
 **Aucune interruption de service.** Les services Azure compris dans votre abonnement continuent de s’exécuter sans aucune interruption. La seule mise à jour porte sur votre expérience de facturation. Les ressources, groupes de ressources ou groupes d’administration existants ne sont pas affectés.
 
-**Aucune modification apportée aux ressources Azure** L’accès aux ressources Azure définies à l’aide d’Azure RBAC (contrôle d’accès en fonction du rôle) n’est pas affecté par la mise à jour.
+**Aucune modification apportée aux ressources Azure** L’accès aux ressources Azure défini à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC) n’est pas affecté par la mise à jour.
 
 **Les factures antérieures sont disponibles dans la nouvelle expérience** Les factures générées avant la mise à jour de votre compte restent disponibles dans le portail Azure.
 

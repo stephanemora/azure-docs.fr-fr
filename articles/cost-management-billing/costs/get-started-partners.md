@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372253"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -22,7 +22,7 @@ Azure Cost Management est disponible de façon native pour les partenaires direc
 
 Pour les partenaires directs et les fournisseurs indirects, l’administrateur général et les agents d’administration peuvent accéder à Cost Management dans le locataire du partenaire et gérer les coûts aux prix facturés.
 
-Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts pour les abonnements, où les coûts sont calculés et indiqués aux prix à la revente. Ils doivent cependant disposer d’un accès RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
+Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts pour les abonnements, où les coûts sont calculés et indiqués aux prix à la revente. Ils doivent cependant disposer d’un accès Azure RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
 
 Les clients peuvent utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP.
 
@@ -55,13 +55,13 @@ Azure Cost Management nécessite un accès en lecture à votre abonnement ou vot
 
 Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Azure Cost Management pour un compte de facturation, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview). Les rôles **Administrateur général** et **Agent d’administration** peuvent gérer les coûts d’un compte de facturation.
 
-Pour accéder à Azure Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès RBAC à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la [stratégie de visibilité des coûts pour le locataire client](#enable-the-policy-to-view-azure-usage-charges) doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
+Pour accéder à Azure Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès Azure RBAC à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la [stratégie de visibilité des coûts pour le locataire client](#enable-the-policy-to-view-azure-usage-charges) doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Utilisation des étendues par Cost Management
 
-Les étendues vous permettent de gérer les données de facturation, de définir des rôles propres aux paiements, d’afficher les factures et de gérer les comptes de manière générale. Les rôles de facturation et de compte sont gérés séparément des étendues utilisées pour la gestion des ressources, qui utilisent le contrôle d’accès en fonction du rôle (RBAC). Pour distinguer clairement l’intention des différentes étendues, y compris les différences en termes de contrôle d’accès, elles sont désignées comme étendues de facturation et étendues RBAC, respectivement.
+Les étendues vous permettent de gérer les données de facturation, de définir des rôles propres aux paiements, d’afficher les factures et de gérer les comptes de manière générale. Les rôles de facturation et de compte sont gérés séparément des étendues utilisées pour la gestion des ressources, qui utilisent Azure RBAC. Pour distinguer clairement l’intention des différentes étendues, y compris les différences en termes de contrôle d’accès, elles sont désignées comme étendues de facturation et étendues Azure RBAC, respectivement.
 
-Pour comprendre les étendues de facturation, les étendues RBAC et le fonctionnement de la gestion des coûts avec les étendues, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
+Pour comprendre les étendues de facturation, les étendues Azure RBAC et le fonctionnement de la gestion des coûts avec les étendues, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Gérer les coûts avec les étendues de facturation de locataire partenaire
 
@@ -116,9 +116,9 @@ Seuls les utilisateurs ayant les rôles **Administrateur général** et **Agent 
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Activer la gestion des coûts pour les abonnements des locataires des clients
 
-Les partenaires peuvent autoriser l’accès à Cost Management une fois les clients intégrés à un contrat client Microsoft. Ils peuvent ainsi activer une stratégie permettant aux clients de voir leurs coûts pour les services consommés Azure calculés selon les tarifs de paiement à l’utilisation au détail. Les coûts sont indiqués dans la devise de facturation du client pour sa consommation dans les étendues de groupe de ressources et d’abonnement RBAC.
+Les partenaires peuvent autoriser l’accès à Cost Management une fois les clients intégrés à un contrat client Microsoft. Ils peuvent ainsi activer une stratégie permettant aux clients de voir leurs coûts pour les services consommés Azure calculés selon les tarifs de paiement à l’utilisation au détail. Les coûts sont indiqués dans la devise de facturation du client pour sa consommation dans les étendues de groupe de ressources et d’abonnement Azure RBAC.
 
-Quand la stratégie de visualisation des coûts est activée par le partenaire, tout utilisateur disposant d’un accès Azure Resource Manager à l’abonnement peut gérer et analyser les coûts selon les tarifs de paiement à l’utilisation. En effet, les revendeurs et les clients qui disposent de l’accès RBAC approprié aux abonnements Azure peuvent voir les coûts.
+Quand la stratégie de visualisation des coûts est activée par le partenaire, tout utilisateur disposant d’un accès Azure Resource Manager à l’abonnement peut gérer et analyser les coûts selon les tarifs de paiement à l’utilisation. En effet, les revendeurs et les clients qui disposent de l’accès Azure RBAC approprié aux abonnements Azure peuvent voir les coûts.
 
 Quelle que soit la stratégie, les administrateurs généraux et les agents d’administration du fournisseur peuvent voir les coûts d’abonnement s’ils ont accès à l’abonnement et au groupe de ressources.
 
@@ -149,9 +149,9 @@ Pour afficher les coûts d’un abonnement, ouvrez **Cost Management + Facturati
 
 [![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
+L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues Azure RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
 
-Les vues amorties et les coûts réels pour les instances réservées dans les étendues RBAC indiquent des frais nuls. Les coûts des instances réservées sont indiqués uniquement dans les étendues de facturation dans lesquelles les achats ont été effectués.
+Les vues amorties et les coûts réels pour les instances réservées dans les étendues Azure RBAC indiquent des frais nuls. Les coûts des instances réservées sont indiqués uniquement dans les étendues de facturation dans lesquelles les achats ont été effectués.
 
 Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mêmes que ceux indiqués dans la calculatrice de prix Azure pour tous les clients. Les coûts indiqués n’incluent pas les remises ni les crédits que le partenaire peut avoir, comme les crédits partenaires, les remises de niveau et les remises globales sur les services.
 
@@ -159,7 +159,7 @@ Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mê
 
 Les partenaires ayant accès aux étendues de facturation du locataire partenaire peuvent explorer et analyser les coûts facturés dans la vue d’analyse des coûts pour l’ensemble des clients, pour un client spécifique ou pour une facture. Dans la vue d’[analyse des coûts](quick-acm-cost-analysis.md), vous pouvez également [enregistrer des vues](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) et exporter des données dans des fichiers [CSV et PNG](quick-acm-cost-analysis.md#download-usage-data).
 
-Les utilisateurs RBAC disposant d’un accès à l’abonnement dans le locataire client peuvent également analyser les coûts de vente au détail des abonnements dans le locataire client, enregistrer des vues et exporter des données vers des fichiers CSV et PNG.
+Les utilisateurs Azure RBAC disposant d’un accès à l’abonnement dans le locataire client peuvent également analyser les coûts de vente au détail des abonnements dans le locataire client, enregistrer des vues et exporter des données vers des fichiers CSV et PNG.
 
 Vous pouvez utiliser les fonctionnalités Filtrer et Regrouper lors de l’analyse des coûts pour analyser les frais en fonction de plusieurs champs. Les champs spécifiques au partenaire sont affichés dans la section suivante.
 
@@ -223,8 +223,8 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | costinBillingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise facturée. | N/A |
 | CostInPricingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise de tarification, à corréler avec les prix. | N/A |
 | **costinUSD** | Estimation du coût du coût étendu ou combiné avant l’application des taxes, en USD. | N/A |
-| **paygCostInBillingCurrency** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Indique les tarifs du paiement à l’utilisation dans la devise de facturation. Disponible uniquement dans les étendues RBAC. | N/A |
-| **paygCostInUSD** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Affiche les tarifs du paiement à l’utilisation, en USD. Disponible uniquement dans les étendues RBAC. | N/A |
+| **paygCostInBillingCurrency** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Indique les tarifs du paiement à l’utilisation dans la devise de facturation. Disponible uniquement dans les étendues Azure RBAC. | N/A |
+| **paygCostInUSD** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Affiche les tarifs du paiement à l’utilisation, en USD. Disponible uniquement dans les étendues Azure RBAC. | N/A |
 | exchangeRate | Taux de change utilisé pour convertir un montant de la devise de tarification vers la devise de facturation. | Appelé PCToBCExchangeRate dans l’Espace partenaires. Taux de change pour la conversion de la devise de tarification vers la devise de facturation.|
 | exchangeRateDate | Date associée au taux de change utilisé pour convertir un montant de la devise de tarification vers la devise de facturation. | Appelé PCToBCExchangeRateDat dans l’Espace partenaires. Date du taux de change pour la conversion de la devise de tarification vers la devise de facturation.|
 | isAzureCreditEligible | Indique si le coût est éligible au paiement en crédits Azure. | N/A |
@@ -262,7 +262,7 @@ Vous pouvez également grouper et filtrer sur la propriété **PartnerEarnedCred
 
 Les partenaires ayant accès aux étendues de facturation d’un locataire partenaire peuvent exporter leurs données d’utilisation et de coût vers un objet blob de stockage Azure. L’objet blob doit se trouver sur un abonnement dans le locataire partenaire qui n’est pas un abonnement de service partagé ni l’abonnement d’un client. Pour activer l’exportation des données de coût, nous vous recommandons de configurer un abonnement avec paiement à l’utilisation indépendant dans le locataire partenaire pour héberger les données de coût exportées. Le compte de stockage d’exportation est créé sur l’objet blob de stockage Azure hébergé dans l’abonnement avec paiement à l’utilisation. En fonction de l’étendue dans laquelle le partenaire crée l’exportation, les données associées sont automatiquement exportées vers le compte de stockage de manière récurrente.
 
-Les utilisateurs disposant d’un accès RBAC à l’abonnement peuvent également exporter les données de coût vers un objet blob de stockage Azure hébergé dans un abonnement quelconque du locataire client.
+Les utilisateurs disposant d’un accès Azure RBAC à l’abonnement peuvent également exporter les données de coût vers un objet blob de stockage Azure hébergé dans un abonnement quelconque du locataire client.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Créer une exportation dans un locataire partenaire ou un locataire client
 
@@ -276,7 +276,7 @@ Ensuite, sélectionnez **Ajouter**, tapez le nom et sélectionnez un type d’ex
 
 Lorsque vous créez une exportation dans le locataire partenaire, sélectionnez l’abonnement avec paiement à l’utilisation dans le locataire partenaire. Créez un compte de stockage Azure à l’aide de cet abonnement.
 
-Pour les utilisateurs RBAC dans le locataire client, sélectionnez un abonnement dans le locataire client. Créez un compte de stockage Azure à l’aide de l’abonnement.
+Pour les utilisateurs Azure RBAC dans le locataire client, sélectionnez un abonnement dans le locataire client. Créez un compte de stockage Azure à l’aide de l’abonnement.
 
 Passez en revue le contenu, puis sélectionnez **Créer** pour planifier une exportation.
 

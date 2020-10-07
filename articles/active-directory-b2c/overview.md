@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184058"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396533"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -105,7 +105,7 @@ Le fait de cliquer sur le bouton **Create** déclenche la redirection de l’uti
 
 Lorsqu’un client sélectionne une des options sous **Business clients**, le site web de WoodGrove Groceries appelle une autre stratégie Azure AD B2C que celle utilisée pour les particuliers.
 
-Cette stratégie propose à l’utilisateur de se servir de ses informations d’identification d’entreprise pour l’inscription et la connexion. Dans l’exemple de WoodGrove, les utilisateurs sont invités à se connecter avec un compte Office 365 ou Azure AD. Cette stratégie utilise une [application Azure AD multilocataire](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) et le point de terminaison Azure AD `/common` pour fédérer Azure AD B2C avec n’importe quel client Office 365 dans le monde.
+Cette stratégie propose à l’utilisateur de se servir de ses informations d’identification d’entreprise pour l’inscription et la connexion. Dans l’exemple de WoodGrove, les utilisateurs sont invités à se connecter avec un compte professionnel ou scolaire. Cette stratégie utilise une [application Azure AD multilocataire](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) et le point de terminaison Azure AD `/common` pour fédérer Azure AD B2C avec n’importe quel client Microsoft 365 dans le monde.
 
 ### <a name="authenticate-partners"></a>Authentifier les partenaires
 

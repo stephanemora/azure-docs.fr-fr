@@ -2,16 +2,16 @@
 title: À propos d’Azure Lab Services | Microsoft Docs
 description: Découvrez comment Lab Services facilite la création, la gestion et la sécurisation de laboratoires grâce à des machines virtuelles pouvant être utilisées par les développeurs, les testeurs, les enseignants et les étudiants, entre autres.
 ms.topic: overview
-ms.date: 06/26/2020
-ms.openlocfilehash: 7661b26d16eb2c2acd53c30889ea791689c1eec0
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 09/16/2020
+ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85442803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333934"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Présentation d’Azure Lab Services
-**Azure Lab Services** vous permet de créer des labos dont l’infrastructure est managée par Azure. Actuellement, le labo de classe est le seul type de labo managé pris en charge par Azure Lab Services. Le service lui-même gère toute l’infrastructure d’un type de labo managé, du lancement des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Une fois qu’un administrateur informatique a créé un compte labo dans Azure Lab Services, un formateur peut rapidement configurer un labo pour sa classe, spécifier le nombre et le type des machines virtuelles nécessaires pour les exercices de la classe et ajouter des utilisateurs à la classe. Une fois qu’un utilisateur s’est inscrit à la classe, il peut accéder à la machine virtuelle pour effectuer les exercices de la classe.  
+**Azure Lab Services** vous permet de créer des labos dont l’infrastructure est managée par Azure. Actuellement, le labo de classe est le seul type de labo managé pris en charge par Azure Lab Services. Le service lui-même gère toute l’infrastructure d’un type de labo managé, du lancement des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Une fois qu’un administrateur informatique a créé un compte de labo dans Azure Lab Services, un formateur peut rapidement configurer un labo pour sa classe, spécifier le nombre et le type des machines virtuelles nécessaires pour les exercices de la classe et ajouter des utilisateurs à la classe. Une fois qu’un utilisateur s’est inscrit à la classe, il peut accéder à la machine virtuelle pour effectuer les exercices de la classe.  
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 Azure Lab Services prend en charge les fonctionnalités clés suivantes :

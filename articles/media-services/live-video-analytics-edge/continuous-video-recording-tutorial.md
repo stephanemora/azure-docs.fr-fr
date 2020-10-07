@@ -3,12 +3,12 @@ title: Enregistrement vidéo en continu et lecture vidéo dans le cloud - Azure
 description: Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336477"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo en continu et lecture vidéo dans le cloud
 
@@ -164,7 +164,7 @@ Lorsque vous utilisez le module Live Video Analytics sur IoT Edge pour enregistr
 1. Sous le nœud **GraphTopologySet**, modifiez les points suivants :
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Ensuite, sous les nœuds **GraphInstanceSet** et **GraphTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de graphe précédente :
+1. Ensuite, sous le nœud **GraphInstanceSet**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de graphe précédente :
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Ouvrez la [topologie](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) dans un navigateur et observez assetNamePattern. Pour vérifier que votre ressource porte un nom unique, vous pouvez modifier le nom de l’instance de graphe dans le fichier operations.json (la valeur par défaut est Sample-Graph-1).

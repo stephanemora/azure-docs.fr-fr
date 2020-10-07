@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377241"
 ---
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -40,7 +40,7 @@ Ces paramètres sont pris en charge lorsque vous exécutez des projets localemen
 
 | Paramètre      | Description                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Lorsque ce paramètre est défini sur `true`, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est `false`. |
+| **`IsEncrypted`** | Lorsque ce paramètre est défini sur `true`, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est `false`. Vous voudrez peut-être chiffrer le fichier local.settings.json sur votre ordinateur local lorsqu’il contient des secrets, tels que des chaînes de connexion de service. L’hôte déchiffre automatiquement les paramètres quand il s’exécute. Utilisez la commande `func settings decrypt` avant d’essayer de lire les paramètres chiffrés localement. |
 | **`Values`** | Tableau des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale d’un projet. Ces paires clé-valeur (chaîne-chaîne) correspondent aux paramètres d’application dans votre Function App dans Azure, tels que [`AzureWebJobsStorage`]. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre d’application de chaîne de connexion, par exemple `Connection` pour le [déclencheur de stockage blob](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le tableau `Values`. Consultez le tableau suivant pour une liste des paramètres couramment utilisés. <br/>Les valeurs doivent être des chaînes et non des objets JSON ou des tableaux. Les noms de paramètres ne peuvent pas contenir le signe deux points (`:`) ou un trait de soulignement double (`__`). Les caractères de soulignement double sont réservés par le runtime, et le signe deux-points est réservé pour la prise en charge de l’[injection de dépendances](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | Les paramètres de cette section personnalisent le processus hôte Functions lorsque vous exécutez localement des projets. Ces paramètres sont séparés des paramètres host.json, qui s’appliquent également lorsque vous exécutez localement des projets dans Azure. |
 | **`LocalHttpPort`** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). `--port`L’option de ligne de commande est prioritaire sur ce paramètre. |

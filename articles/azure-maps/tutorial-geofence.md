@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Créer une limite géographique et suivre des appareils sur Azure Maps'
-description: Découvrez comment configurer une limite géographique. Découvrez comment suivre des appareils par rapport à la limite géographique à l’aide du service spatial Azure Maps.
+title: 'Tutoriel : Créer une limite géographique et suivre des appareils sur une carte Microsoft Azure'
+description: Tutoriel sur la façon de configurer une limite géographique. Découvrir comment suivre des appareils par rapport à la limite géographique à l’aide du service spatial Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335192"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -429,14 +429,14 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
 
 Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite géographique du site principal, mais il est sorti de la limite géographique du site secondaire. Notez toutefois que la valeur `userTime` est postérieure à la valeur `expiredTime` définie dans les données de limite géographique. Le paramètre `isEventPublished` est donc défini sur `false`, et le chef d’exploitation ne reçoit aucune notification par e-mail.
 
-### <a name="location-547637988-1221338344"></a>Localisation 5 (47.637988,-122.1338344)
+### <a name="location-5-4763799--122134505"></a>Localisation 5 (47.63799, -122.134505)
 
 1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 5*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
@@ -469,13 +469,10 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
 
 Dans la réponse GeoJSON précédente, l’équipement est sorti de la limite géographique du site principal. Le paramètre `isEventPublished` est donc défini sur `true`, et le chef d’exploitation reçoit une notification par e-mail indiquant que l’équipement est sorti d’une limite géographique.
 
+
+Vous pouvez également [envoyer des notifications par e-mail à l’aide d’Event Grid et de Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) et vérifier les [gestionnaires d’événements pris en charge dans Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) à l’aide d’Azure Maps.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Gérer les types de contenu dans Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Envoyer des notifications par e-mail à l’aide d’Event Grid et de Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Gestionnaires d’événements pris en charge dans Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
