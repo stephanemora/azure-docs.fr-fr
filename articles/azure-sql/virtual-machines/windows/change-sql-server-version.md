@@ -7,19 +7,19 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 63c4c7b596a32901d127642118d224c2b318510f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293371"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Modification sur place de la version de SQL Server sur une machine virtuelle Azure
 
@@ -69,11 +69,11 @@ Pour mettre à niveau la version de SQL Server, procurez-vous le support d’ins
 1. Dans la page **Clé de produit**, cliquez sur une option pour indiquer si vous effectuez une mise à niveau vers une édition gratuite de SQL Server ou si vous disposez d'une clé PID pour une version de production du produit. Pour plus d’informations, consultez [Éditions et composants de SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) et [Mises à niveau de version et d’édition prises en charge (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut cesser de répondre pendant quelques minutes, le temps que la modification prenne effet. Une page **Terminé** confirme que la mise à niveau est terminée. Pour obtenir une procédure pas à pas de mise à niveau, consultez [la procédure complète](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Terminer la page":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Sélection pour la mise à niveau de la version de SQL Server":::
 
 Si vous avez modifié l’édition de SQL Server en plus de modifier la version, mettez également à jour l’édition et reportez-vous à la section **vérifier la version et l’édition dans le portail** pour modifier l’instance de machine virtuelle SQL.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Obtenir les métadonnées de version":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Sélection pour la mise à niveau de la version de SQL Server":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>Passer à une version antérieure de SQL Server
 
@@ -91,7 +91,7 @@ Pour passer à une version antérieure de SQL Server, procédez comme suit :
 
    Veillez à sélectionner les options appropriées lorsque vous créez un script de tels éléments comme version cible, objets dépendants et options avancées.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Options de script":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Sélection pour la mise à niveau de la version de SQL Server":::
 
 1. Désinstallez complètement SQL Server et tous les services associés.
 1. Redémarrez la machine virtuelle.
@@ -104,7 +104,7 @@ Pour passer à une version antérieure de SQL Server, procédez comme suit :
 
 Après avoir modifié la version de SQL Server, inscrivez de nouveau votre machine virtuelle SQL Server auprès du fournisseur de ressources de la machine virtuelle [SQL](sql-vm-resource-provider-register.md) afin de pouvoir utiliser le Portail Azure pour afficher la version de SQL Server. Le numéro de version indiqué doit maintenant refléter la version et l’édition récemment mises à niveau de votre installation SQL Server.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Vérifier la version":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Sélection pour la mise à niveau de la version de SQL Server":::
 
 > [!NOTE]
 > Si vous êtes déjà inscrit auprès du fournisseur de ressources de machine virtuelle SQL, [annuler l’inscription à partir du RP](sql-vm-resource-provider-register.md#unregister-from-rp) puis [inscrire à nouveau la ressource de machine virtuelle SQL](sql-vm-resource-provider-register.md#register-with-rp) afin qu’elle détecte la version et l’édition appropriées de SQL Server installée sur la machine virtuelle. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.

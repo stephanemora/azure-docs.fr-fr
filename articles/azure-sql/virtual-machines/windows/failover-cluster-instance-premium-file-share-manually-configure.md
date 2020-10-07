@@ -8,17 +8,17 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298709"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,17 +96,7 @@ Pour valider le cluster à l’aide de l’interface utilisateur, procédez comm
 1. Sélectionnez **Suivant**.
 1. Sous **Sélection des tests**, sélectionnez tous les tests à l’exception de **Stockage** et **Espaces de stockage direct**, comme illustré ici :
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Sélectionner les tests de validation du cluster":::
-
-1. Sélectionnez **Suivant**.
-1. Sous **Confirmation**, sélectionnez **Suivant**.
-
-L’assistant **Valider une configuration** exécute les tests de validation.
-
-Pour valider le cluster avec PowerShell, exécutez le script suivant à partir d’une session PowerShell d’administrateur sur l’une des machines virtuelles :
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copiez les deux commandes PowerShell à partir du portail de connexion au partage de fichiers"
    ```
 
 Après avoir validé le cluster, créez le cluster de basculement.
@@ -151,7 +141,7 @@ Configurez la solution de quorum qui répond le mieux aux besoins de votre entre
 
 Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testez le basculement du cluster en déplaçant la ressource principale sur les autres nœuds":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copiez les deux commandes PowerShell à partir du portail de connexion au partage de fichiers":::
 
 
 ## <a name="create-sql-server-fci"></a>Créer l’instance de cluster de basculement SQL Server
@@ -172,7 +162,7 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
    Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur le partage de fichiers Premium. Entrez le chemin d’accès complet du partage, sous la forme suivante : `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Un avertissement s’affiche, vous informant que vous avez spécifié un serveur de fichiers comme répertoire de données. Cet avertissement est attendu. Vérifiez que le compte d’utilisateur avec lequel vous avez accédé par RPD à la machine virtuelle lorsque vous avez conservé le partage de fichiers est celui que le service SQL Server utilise pour éviter d’éventuelles défaillances.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Utilisez le partage de fichiers en tant que répertoires de données SQL":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copiez les deux commandes PowerShell à partir du portail de connexion au partage de fichiers":::
 
 1. Une fois que vous avez terminé les étapes de l’assistant, le programme d’installation installe une instance de cluster de basculement SQL Server sur le premier nœud.
 

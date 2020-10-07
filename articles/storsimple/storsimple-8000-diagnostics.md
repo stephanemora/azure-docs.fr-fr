@@ -1,6 +1,6 @@
 ---
 title: Outil de diagnostic pour la résolution des problèmes de l’appareil StorSimple 8000 | Microsoft Docs
-description: Décrit les modes de l’appareil StorSimple et explique comment utiliser Windows PowerShell for StorSimple pour changer le mode de l’appareil.
+description: Cet article offre une vue d’ensemble de l’outil de diagnostic et explique comment utiliser cet outil avec un appareil StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300443"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285160"
 ---
 # <a name="change-the-style-of-the-map"></a>Changer le style de la carte
 
@@ -101,7 +101,7 @@ L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposi
 
 L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposition `list`.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Disposition de la liste du sélecteur de styles":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Disposition des icônes du sélecteur de styles":::
 
 > [!IMPORTANT]
 > Par défaut, le contrôle du sélecteur de styles répertorie tous les styles disponibles sous le niveau tarifaire S0 d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez S1 et que vous voulez afficher tous les styles disponibles, affectez à l’option `mapStyles` du sélecteur de styles la valeur `"all"`.

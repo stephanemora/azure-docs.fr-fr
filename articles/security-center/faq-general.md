@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301446"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -70,7 +70,6 @@ Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources 
 Seules les recommandations qui sont activées dans les stratégies de sécurité sont affichées ici.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>Qu’est-ce qui déclenche une alerte de sécurité ?
 Azure Security Center collecte, analyse et fusionne automatiquement les données du journal à partir de vos ressources Azure, du réseau et des solutions partenaires telles que les logiciels anti-programme malveillant et les pare-feu. Quand des menaces sont détectées, une alerte de sécurité est créée. Voici quelques exemples de détections :
 
@@ -78,10 +77,6 @@ Azure Security Center collecte, analyse et fusionne automatiquement les données
 * Des programmes malveillants avancés qui sont détectés à l’aide du rapport d’erreurs Windows
 * Des attaques par force brute contre des machines virtuelles
 * Des alertes de sécurité émises par des solutions de sécurité partenaires intégrées, telles que des logiciels anti-programme malveillant ou des pare-feu d’applications web
-
-
-## <a name="why-did-secure-score-values-change"></a>Pourquoi les valeurs du niveau de sécurité ont-elles changé ? <a name="secure-score-faq"></a>
-Depuis février 2019, Security Center a ajusté le score de quelques recommandations, afin de mieux adapter leur niveau de gravité. À la suite de cet ajustement, il est possible que l’ensemble des valeurs des niveaux de sécurité aient changé.  Pour plus d’informations sur le degré de sécurisation, consultez [Degré de sécurisation amélioré dans Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Quelle est la différence entre les menaces détectées et faisant l’objet d’une alerte par Microsoft Security Response Center et par Azure Security Center ?

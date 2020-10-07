@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290498"
 ---
 # <a name="graph-search-query-syntax"></a>Syntaxe des requêtes de recherche Graph
 
@@ -49,7 +49,7 @@ La recherche de graphique utilise la requête simple Lucene comme syntaxe de rec
  
 - Caractère générique correspondant : 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Vous ne pouvez pas démarrer une requête Lucene avec un caractère « * ».
@@ -59,7 +59,7 @@ La recherche de graphique utilise la requête simple Lucene comme syntaxe de rec
  
 Les requêtes de filtres utilisent le modèle suivant :
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Vous pouvez utiliser les propriétés de nœud suivantes comme clés :

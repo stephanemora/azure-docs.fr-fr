@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: cef356619d437d53d94c8f5d3be67cf6ac95501c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4ac2308eae3466dbb9d68895bca4a4de30fcebc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304925"
 ---
 # <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Tutoriel : Configurer Netskope Administrator Console pour l’approvisionnement automatique d’utilisateurs
 
@@ -114,11 +114,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification Administrateur**, entrez la valeur **URL du serveur SCIM** récupérée précédemment dans **URL de locataire**. Saisissez la valeur de **TOKEN** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Netskope Administrator Console. Si la connexion échoue, vérifiez que votre compte Netskope Administrator Console dispose d’autorisations d’administrateur et réessayez.
 

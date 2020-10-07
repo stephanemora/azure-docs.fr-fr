@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826733"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293065"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -331,7 +331,7 @@ Pour supprimer un coffre Recovery Services existant, procédez comme suit :
                        [--yes]
     ```
 
-    Pour plus d’informations, consultez cet  [article](/cli/azure/backup/vault?view=azure-cli-latest).
+    Pour plus d’informations, consultez cet  [article](/cli/azure/backup/vault).
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager
 

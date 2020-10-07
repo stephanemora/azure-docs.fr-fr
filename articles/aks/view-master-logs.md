@@ -4,12 +4,12 @@ description: Découvrez comment activer et afficher les journaux d’activité r
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299069"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -72,16 +72,18 @@ L’activation et l’affichage des journaux de diagnostic peuvent nécessiter q
 Sur le côté gauche, choisissez **Journaux d’activité**. Pour afficher le journal *kube-audit*, entrez la requête suivante dans la zone de texte :
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 L’application vous renvoie alors probablement un grand nombre de journaux. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx*, comme indiqué dans l’exemple de requête suivant :
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 Pour plus d’informations sur l’interrogation et le filtrage des données de journal d’activité, voir [Consulter ou analyser les données collectées avec la recherche dans les journaux d’activité de l’analytique des journaux d’activité][analyze-log-analytics].
@@ -91,6 +93,7 @@ Pour plus d’informations sur l’interrogation et le filtrage des données de 
 AKS enregistre les événements suivants :
 
 * [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
 * [AzureMetrics][log-schema-azuremetrics]
 * [ContainerImageInventory][log-schema-containerimageinventory]
 * [ContainerInventory][log-schema-containerinventory]
@@ -133,6 +136,7 @@ Cet article vous a expliqué comment activer et consulter les journaux d’activ
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
 [log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
 [log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory

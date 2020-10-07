@@ -3,12 +3,12 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293082"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 
@@ -34,7 +34,7 @@ Pour attribuer la stratégie aux coffres dans l’étendue requise, suivez les �
 
 1. Connectez-vous au Portail Azure et accédez au tableau de bord **Stratégie**.
 2. Sélectionnez **Définitions** dans le menu de gauche pour obtenir la liste de toutes les stratégies intégrées dans les ressources Azure.
-3. Filtrez la liste sur **Catégorie=Monitoring**. Recherchez la stratégie nommée **[Preview]: Déployer les paramètres de diagnostic du coffre Recovery Services sur l’espace de travail Log Analytics pour les catégories propres à la ressource**.
+3. Filtrez la liste sur **Catégorie=Sauvegarde**. Recherchez la stratégie nommée **[Preview]: Déployer les paramètres de diagnostic du coffre Recovery Services sur l’espace de travail Log Analytics pour les catégories propres à la ressource**.
 
     ![Volet Définition de stratégie](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

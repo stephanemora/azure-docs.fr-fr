@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302041"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explorez et gérez vos ressources à l’aide des outils d’inventaire et de gestion des ressources
 
@@ -54,7 +54,7 @@ La page d’inventaire fournit les outils suivants :
 - **Résumés** : Avant de définir des filtres, une bande de valeurs bien visible en haut de la vue de l’inventaire affiche les éléments suivants :
 
     - **Nombre total de ressources** : Nombre total de ressources connectées à Security Center.
-    - **Ressources non saines** : Ressources ayant des recommandations de sécurité actives. [En savoir plus sur les recommandations de sécurité.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+    - **Ressources non saines** : Ressources ayant des recommandations de sécurité actives. [En savoir plus sur les recommandations de sécurité.](security-center-recommendations.md)
     - **Ressources non analysées** : Ressources ayant des problèmes d’analyse de l’agent (l’agent Log Analytics est déployé, mais il n’envoie pas de données ou a d’autres problèmes d’intégrité).
 
 - **Filtres** : Les différents filtres en haut de la page permettent d’affiner rapidement la liste des ressources en fonction de la question à laquelle vous tentez de répondre. Par exemple, si vous souhaitez répondre à la question *Parmi mes machines ayant la balise « Production », lesquelles n’ont pas l’agent Log Analytics ?* , vous pouvez combiner les filtres **Analyse de l’agent** et **Balises**, comme le montre le clip suivant :
@@ -94,7 +94,7 @@ Grâce au [langage de requête Kusto (KQL)](https://docs.microsoft.com/azure/dat
 
 1. Sélectionnez les options pertinentes dans les filtres pour créer la requête spécifique que vous souhaitez effectuer.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Options de filtrage de l’inventaire" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Par défaut, les ressources sont triées selon le nombre de recommandations de sécurité actives.
 
@@ -114,12 +114,12 @@ Grâce au [langage de requête Kusto (KQL)](https://docs.microsoft.com/azure/dat
 
     - **Désactivé** : ressources non protégées par un plan Azure Defender. Vous pouvez cliquer avec le bouton droit sur l’un de ces éléments et les mettre à niveau :
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Mettre à niveau une ressource vers Azure Defender à l’aide d’un clic droit" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **Activé** : ressources protégées par un plan Azure Defender
     - **Partiel** : s’applique aux **abonnements** pour lesquels certains plans Azure Defender ont été désactivés (mais pas en totalité). Par exemple, l’abonnement suivant comporte cinq plans Azure Defender désactivés. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Abonnement partiel sur Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
 
 1. Pour examiner plus en détail les résultats de votre requête, sélectionnez les ressources qui vous intéressent.
 
@@ -140,7 +140,7 @@ La vue de l’inventaire répertorie vos ressources connectées Security Center 
 
 Par exemple, la capture d’écran suivante montre un utilisateur ayant accès à 38 abonnements, mais seulement 10 de ces abonnements ont des recommandations. Ainsi, si l’on applique le filtre **Type de ressource = Abonnements**, seuls ces 10 abonnements avec des recommandations actives apparaissent dans l’inventaire :
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Tous les abonnements ne sont pas retournés lorsqu’il n’y a pas de recommandations actives":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Pourquoi certaines de mes ressources affichent-elles des valeurs vides dans les colonnes d’Azure Defender ou d’analyse de l’agent ?
 
@@ -148,7 +148,7 @@ Toutes les ressources analysées par Security Center n’ont pas d’agents. Par
 
 Lorsque la tarification ou l’analyse de l’agent ne sont pas pertinentes pour une ressource, rien n’est indiqué dans ces colonnes d’inventaire.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Certaines ressources affichent des informations vides dans les colonnes d’analyse de l’agent ou d’Azure Defender":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

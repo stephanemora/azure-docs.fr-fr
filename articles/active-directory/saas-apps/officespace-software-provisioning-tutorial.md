@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: ab2fd7f78373f9fee349e59c374088f67f165339
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287201"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutoriel : Configurer le provisionnement automatique d’utilisateurs sur OfficeSpace Software
 
@@ -103,11 +103,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez le format d’URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` dans **URL de locataire**. Par exemple, `https://contoso.officespacesoftware.com/api/scim/v2/`. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à OfficeSpace Software. Si la connexion échoue, vérifiez que votre compte OfficeSpace Software dispose des autorisations d’administrateur et réessayez.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037407"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300307"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning Studio (classique)
 
@@ -25,7 +25,7 @@ Cet article explique comment mettre efficacement à l’échelle les travaux Azu
 
 Une fonction Machine Learning dans Stream Analytics peut être utilisée comme un appel de fonction normal dans le langage de requête Stream Analytics. Toutefois, en arrière-plan, ces appels de fonction sont en fait des demandes de service web Azure Machine Learning.
 
-Vous pouvez améliorer le débit des demandes de service web Machine Learning en « traitant par lot » plusieurs lignes d’un même appel d’API de services web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio (classique)](../machine-learning/studio/consume-web-services.md). Le support d’Azure Machine Learning Studio (classique) dans Stream Analytics est en préversion.
+Vous pouvez améliorer le débit des demandes de service web Machine Learning en « traitant par lot » plusieurs lignes d’un même appel d’API de services web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio (classique)](../machine-learning/classic/consume-web-services.md). Le support d’Azure Machine Learning Studio (classique) dans Stream Analytics est en préversion.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurer un travail Stream Analytics avec des fonctions Azure Machine Learning
 
@@ -58,7 +58,7 @@ Généralement, pour la taille de lot ***B*** et la latence de service web en mi
 
 Vous pouvez également configurer le « nombre maximal d’appels simultanés » sur le service web Machine Learning. Il est recommandé de définir ce paramètre sur la valeur maximale (200 actuellement).
 
-Pour plus d’informations sur ce paramètre, voir [l’article sur la mise à l’échelle pour les services web Machine Learning](../machine-learning/studio/create-endpoint.md).
+Pour plus d’informations sur ce paramètre, voir [l’article sur la mise à l’échelle pour les services web Machine Learning](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Exemple – Analyse de sentiments
 L’exemple suivant inclut un travail Stream Analytics avec la fonction Machine Learning d’analyse de sentiments, comme décrit dans le [didacticiel d’intégration de Machine Learning à Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).

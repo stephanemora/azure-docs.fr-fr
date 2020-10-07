@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: f1b42619a80610a1732fb763dd4994241bf584fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32010263829f57dc00781811eaa2535cff57b10e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304863"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutoriel : Configurer IDEO pour l’attribution automatique d’utilisateurs
 
@@ -84,11 +84,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** reçues précédemment de l’équipe de support d’IDEO respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à IDEO. Si la connexion échoue, vérifiez que votre compte IDEO dispose des autorisations d’administrateur et réessayez.
 

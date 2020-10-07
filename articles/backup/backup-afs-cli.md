@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: cc4422a7d20dbd231729922bd013549d5276deb1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293269"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
 
@@ -22,7 +22,7 @@ L'interface de ligne de commande Azure (Azure CLI) fournit une expérience de li
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de l'interface CLI, `run az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de l'interface CLI, `run az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -30,7 +30,7 @@ Un coffre Recovery Services est une entité qui vous offre une vue d'ensemble de
 
 Pour créer un coffre Recovery Services, procédez comme suit :
 
-1. Un coffre est placé dans un groupe de ressources. Si vous n'avez pas de groupe de ressources, créez-en un à l'aide de la commande [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). Dans ce tutoriel, nous allons créer le nouveau groupe de ressources *azurefiles* dans la région USA Est.
+1. Un coffre est placé dans un groupe de ressources. Si vous n'avez pas de groupe de ressources, créez-en un à l'aide de la commande [az group create](/cli/azure/group#az-group-create). Dans ce tutoriel, nous allons créer le nouveau groupe de ressources *azurefiles* dans la région USA Est.
 
     ```azurecli-interactive
     az group create --name AzureFiles --location eastus --output table
@@ -42,7 +42,7 @@ Pour créer un coffre Recovery Services, procédez comme suit :
     eastus      AzureFiles
     ```
 
-1. Utilisez la cmdlet [az backup vault create](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+1. Utilisez la cmdlet [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     L'exemple suivant explique comment créer un coffre Recovery Services nommé *azurefilesvault* dans la région USA Est.
 
@@ -58,11 +58,11 @@ Pour créer un coffre Recovery Services, procédez comme suit :
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Activer la sauvegarde des partages de fichiers Azure
 
-Cette section part du principe que vous disposez déjà d'un partage de fichiers Azure pour lequel vous souhaitez configurer la sauvegarde. Si vous n'avez pas de partage de fichiers Azure, créez-en un à l'aide de la commande [az storage share create](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-create).
+Cette section part du principe que vous disposez déjà d'un partage de fichiers Azure pour lequel vous souhaitez configurer la sauvegarde. Si vous n'avez pas de partage de fichiers Azure, créez-en un à l'aide de la commande [az storage share create](/cli/azure/storage/share#az-storage-share-create).
 
-Pour activer la sauvegarde de partages de fichiers, vous devez créer une stratégie de protection qui détermine quand exécuter un travail de sauvegarde et combien de temps les points de récupération doivent être stockés. Vous pouvez créer une stratégie de sauvegarde à l'aide de la cmdlet [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create).
+Pour activer la sauvegarde de partages de fichiers, vous devez créer une stratégie de protection qui détermine quand exécuter un travail de sauvegarde et combien de temps les points de récupération doivent être stockés. Vous pouvez créer une stratégie de sauvegarde à l'aide de la cmdlet [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create).
 
-L'exemple suivant utilise la cmdlet [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurefileshare) pour activer la sauvegarde du partage de fichiers *azurefiles* sur le compte de stockage *afsaccount* à l'aide de la stratégie de sauvegarde *schedule 1* :
+L'exemple suivant utilise la cmdlet [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection#az-backup-protection-enable-for-azurefileshare) pour activer la sauvegarde du partage de fichiers *azurefiles* sur le compte de stockage *afsaccount* à l'aide de la stratégie de sauvegarde *schedule 1* :
 
 ```azurecli-interactive
 az backup protection enable-for-azurefileshare --vault-name azurefilesvault --resource-group  azurefiles --policy-name schedule1 --storage-account afsaccount --azure-file-share azurefiles  --output table
@@ -74,16 +74,16 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération d’**activation de la sauvegarde**. Pour suivre l'état de ce travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération d’**activation de la sauvegarde**. Pour suivre l'état de ce travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 ## <a name="trigger-an-on-demand-backup-for-file-share"></a>Déclencher une sauvegarde à la demande des partages de fichiers
 
-Si vous souhaitez déclencher une sauvegarde à la demande de votre partage de fichiers au lieu d'attendre que la stratégie de sauvegarde exécute le travail à l'heure planifiée, utilisez la cmdlet [az backup protection backup-now](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-backup-now).
+Si vous souhaitez déclencher une sauvegarde à la demande de votre partage de fichiers au lieu d'attendre que la stratégie de sauvegarde exécute le travail à l'heure planifiée, utilisez la cmdlet [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now).
 
 Pour déclencher une sauvegarde à la demande, vous devez définir les paramètres suivants :
 
-* **--container-name** est le nom du compte de stockage hébergeant le partage de fichiers. Pour récupérer le **nom** ou **nom convivial** de votre conteneur, utilisez la commande [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
-* **--item-name** est le nom du partage de fichiers pour lequel vous souhaitez déclencher une sauvegarde à la demande. Pour récupérer le **nom** ou **nom convivial** de votre élément sauvegardé, utilisez la commande [az backup item list](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list).
+* **--container-name** est le nom du compte de stockage hébergeant le partage de fichiers. Pour récupérer le **nom** ou **nom convivial** de votre conteneur, utilisez la commande [az backup container list](/cli/azure/backup/container#az-backup-container-list).
+* **--item-name** est le nom du partage de fichiers pour lequel vous souhaitez déclencher une sauvegarde à la demande. Pour récupérer le **nom** ou **nom convivial** de votre élément sauvegardé, utilisez la commande [az backup item list](/cli/azure/backup/item#az-backup-item-list).
 * **--retain-until** permet de spécifier la date jusqu'à laquelle vous souhaitez conserver le point de récupération. La valeur doit être définie au format UTC (jj-mm-aaaa).
 
 L'exemple suivant déclenche une sauvegarde à la demande du partage de fichiers *azurefiles* sur le compte de stockage *afsaccount* avec conservation jusqu'au *20-01-2020*.
@@ -98,7 +98,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération de « sauvegarde à la demande ». Pour suivre l'état d'un travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération de « sauvegarde à la demande ». Pour suivre l'état d'un travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

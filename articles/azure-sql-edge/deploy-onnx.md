@@ -1,5 +1,6 @@
 ---
 title: Déployer et effectuer des prédictions avec ONNX
+titleSuffix: SQL machine learning
 description: Apprenez à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur Azure SQL Edge ou Azure SQL Managed Instance (préversion), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
 keywords: déployer SQL Edge
 ms.prod: sql
@@ -8,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298903"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Déployer et effectuer des prédictions avec un modèle ONNX
 
