@@ -3,12 +3,12 @@ title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336596"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -46,7 +46,7 @@ Une fois que vous avez élevé votre accès, vous pouvez attribuer les autorisat
 
 - [Créez un compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md) dédié uniquement à cette fonction, au lieu d’attribuer ce rôle à un principal de service existant utilisé pour d’autres tâches d’automatisation.
 - Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
-- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitez les utilisateurs habilités à agir pour le compte du principal de service.
 
 > [!NOTE]

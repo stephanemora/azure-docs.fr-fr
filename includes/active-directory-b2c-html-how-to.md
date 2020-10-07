@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377464"
 ---
 ## <a name="use-custom-page-content"></a>Utiliser un contenu de page personnalisé
 
@@ -167,7 +167,7 @@ Vérifiez que vous êtes prêt en effectuant les étapes suivantes :
 
 1. Répétez l’étape Configuration de CORS. Dans **Origines autorisées**, entrez `https://www.test-cors.org`.
 1. Accédez à [www.test-cors.org](https://www.test-cors.org/). 
-1. Dans la zone **URL distante**, collez l’URL de votre fichier HTML. Par exemple : `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. Dans la zone **URL distante**, collez l’URL de votre fichier HTML. Par exemple : `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Sélectionnez **Envoyer une demande**.
     Le résultat devrait être `XHR status: 200`. 
     Si vous recevez une erreur, assurez-vous que vos paramètres CORS sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.

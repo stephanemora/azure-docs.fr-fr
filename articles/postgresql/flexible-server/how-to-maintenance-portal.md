@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336290"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Gérer les paramètres de maintenance planifiée pour Azure Database pour PostgreSQL – Serveur flexible
  
@@ -31,9 +31,9 @@ Pour utiliser ce guide pratique, il vous faut :
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notifications relatives aux événements de maintenance planifiée
  
-Vous pouvez utiliser Azure Service Health pour [afficher les notifications](/azure/service-health/service-notifications.md) sur la maintenance planifiée à venir et effectuée sur votre serveur flexible. Vous pouvez également [configurer](/azure/service-health/resource-health-alert-monitor-guide.md) des alertes dans Azure Service Health pour obtenir des notifications sur les événements de maintenance.
+Vous pouvez utiliser Azure Service Health pour [afficher les notifications](../../service-health/service-notifications.md) sur la maintenance planifiée à venir et effectuée sur votre serveur flexible. Vous pouvez également [configurer](../../service-health/resource-health-alert-monitor-guide.md) des alertes dans Azure Service Health pour obtenir des notifications sur les événements de maintenance.
  
 ## <a name="next-steps"></a>Étapes suivantes  
  
 * En savoir plus sur la [maintenance planifiée dans Azure Database pour PostgreSQL – Serveur flexible](concepts-maintenance.md)
-* En savoir plus sur [Azure Service Health](/azure/service-health/overview.md)
+* En savoir plus sur [Azure Service Health](../../service-health/overview.md)

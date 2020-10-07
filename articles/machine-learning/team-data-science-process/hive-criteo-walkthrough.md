@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336647"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Azure HDInsight Hadoop sur un jeu de données de 1 To
 
@@ -67,7 +67,7 @@ Configurez votre environnement de science des données Azure pour créer des sol
 
    * Liez le compte de stockage créé à l’étape 1 à votre cluster HDInsight une fois sa création terminée. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.
    * Activez l’accès à distance sur le nœud principal du cluster après sa création. Souvenez-vous des informations d’identification de l’accès à distance que vous indiquez ici (différentes de celles qui sont spécifiées à la création du cluster) : effectuez les procédures suivantes.
-3. [Créez un espace de travail Azure Machine Learning Studio (classique)](../studio/create-workspace.md) : espace de travail Azure Machine Learning utilisé pour créer des modèles d’apprentissage automatique après avoir exploré des données initiales et réduit l’échantillon sur le cluster HDInsight.
+3. [Créez un espace de travail Azure Machine Learning Studio (classique)](../classic/create-workspace.md) : espace de travail Azure Machine Learning utilisé pour créer des modèles d’apprentissage automatique après avoir exploré des données initiales et réduit l’échantillon sur le cluster HDInsight.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Récupération et utilisation des données provenant d’une source publique
 Pour accéder au groupe de données [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) , cliquez sur le lien, acceptez les conditions d'utilisation et saisissez un nom. En voici l’illustration :
@@ -695,4 +695,3 @@ La clé API par défaut a été remplacée par la clé API de notre service web.
 Pour les deux exemples de test sur lesquels vous vous êtes penché dans le framework JSON du script Python, vous obtenez des réponses sous forme d’« Étiquettes scorées, de probabilités scorées ». Dans ce cas, choisissez les valeurs par défaut que le code prédéfini fournit (0 pour toutes les colonnes numériques et la chaîne « valeur » pour toutes les colonnes catégorielles).
 
 En conclusion, notre procédure pas à pas explique comment gérer un jeu de données à grande échelle avec Azure Machine Learning. Vous avez démarré avec un téraoctet de données, créé un modèle de prévision que vous avez ensuite déployé en tant que service web dans le cloud.
-

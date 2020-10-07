@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333866"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 
@@ -102,7 +102,7 @@ Le jeu de données cible doit avoir la caractéristique `timeseries` définie su
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Kit SDK Python
 
-Dans la classe [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
+Dans la classe [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,7 +129,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
@@ -145,7 +145,7 @@ Dans les paramètres **Schéma**, spécifiez la colonne Timestamp d’une colonn
 
 Si vos données sont partitionnées par date, comme c’est le cas ici, vous pouvez également spécifier le timestamp de partition.  Cela permet un traitement plus efficace des dates.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Timestamp de partition":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Définir le timestamp":::
 
 
 ## <a name="create-dataset-monitors"></a>Créer des analyses de jeu de données
@@ -213,7 +213,7 @@ Pour obtenir un exemple complet de configuration d’un jeu de données et d’u
 
 1. Cliquez sur le bouton **+Créer une analyse**, puis passez à la prochaine étape de l’assistant en cliquant sur **Suivant**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Créer un assistant d'analyse":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Définir le timestamp":::
 
 * **Sélectionner un jeu de données cible**.  Le jeu de données cible est un jeu de données tabulaires avec colonne timestamp qui sera analysé pour la dérive des données. Le jeu de données cible doit avoir des caractéristiques en commun avec le jeu de données de base et il doit s’agir d’un jeu de données `timeseries` auquel de nouvelles données sont ajoutées. Les données d’historique peuvent être analysées dans le jeu de données cible ou de nouvelles données peuvent être surveillées.
 
@@ -240,7 +240,7 @@ Cette section vous montre les résultats de la surveillance d’un jeu de donné
 
 Commencez par des insights de haut niveau sur l'ampleur de la dérive des données et un aperçu des caractéristiques à étudier plus en détail.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Vue d’ensemble de la dérive":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Définir le timestamp":::
 
 
 | Métrique | Description | 
@@ -253,7 +253,7 @@ Commencez par des insights de haut niveau sur l'ampleur de la dérive des donné
 
 Découvrez comment le jeu de données diffère du jeu de données cible au cours de la période spécifiée.  Plus on se rapproche des 100 %, plus les deux jeux de données sont différents.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendance de l'amplitude de la dérive":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Définir le timestamp":::
 
 ### <a name="drift-magnitude-by-features"></a>Amplitude de la dérive par caractéristiques
 
@@ -263,7 +263,7 @@ Le jeu de données cible est également profilé au fil du temps. La distance st
 
 Dans Azure Machine Learning Studio, cliquez sur une barre dans le graphique pour afficher les détails de niveau de fonctionnalité de cette date. Par défaut, il affiche la distribution du jeu de données de référence et la distribution de la même caractéristique issue de la dernière exécution.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Amplitude de la dérive par caractéristiques":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Définir le timestamp":::
 
 Ces métriques peuvent également être récupérées dans le SDK Python par le biais de la méthode `get_metrics()` sur un objet `DataDriftDetector`.
 
@@ -271,7 +271,7 @@ Ces métriques peuvent également être récupérées dans le SDK Python par le 
 
 Enfin, faites défiler l’écran pour afficher les détails de chaque fonctionnalité.  Utilisez les listes déroulantes au-dessus du graphique pour sélectionner la fonctionnalité, puis sélectionnez la métrique que vous souhaitez afficher.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Graphique des fonctionnalités numériques et comparaison":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Définir le timestamp":::
 
 Les mesures dans le graphique dépendent du type de fonctionnalité.
 
@@ -293,7 +293,7 @@ Les mesures dans le graphique dépendent du type de fonctionnalité.
 
 Sur ce graphique, sélectionnez une seule date pour comparer la répartition des caractéristiques entre la cible et cette date pour la caractéristique affichée. Pour les caractéristiques numériques, cela montre deux distributions de probabilité.  Si la fonctionnalité est numérique, un graphique à barres est affiché.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Sélectionner une date à comparer à la cible":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Définir le timestamp":::
 
 ## <a name="metrics-alerts-and-events"></a>Métriques, alertes et événements
 

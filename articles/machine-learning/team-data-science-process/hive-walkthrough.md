@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273912"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336511"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
@@ -89,7 +89,7 @@ Vous pouvez configurer un environnement Azure pour une analyse avancée qui util
    
    * Rappelez-vous de lier le compte de stockage créé à l’étape 1 à votre cluster HDInsight, lorsque vous le créez. Ce compte de stockage accède aux données qui peuvent être traitées au sein du cluster.
    * Après avoir créé le cluster, activez l’accès à distance au nœud principal du cluster. Accédez à l’onglet **Configuration**, puis sélectionnez **Activation à distance**. Cette étape fournit les informations d'identification d'utilisateur utilisées pour la connexion à distance.
-3. [Créer un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md) : Cet espace de travail vous permet de générer des modèles Machine Learning. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l’aide du cluster HDInsight.
+3. [Créer un espace de travail Microsoft Azure Machine Learning](../classic/create-workspace.md) : Cet espace de travail vous permet de générer des modèles Machine Learning. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l’aide du cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Obtenir les données auprès d’une source publique
 > [!NOTE]
@@ -915,7 +915,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
   Ici, le coefficient de détermination est de 0,709, ce qui signifie que 71 pourcent environ de la variance est expliquée par les coefficients modèles.
 
 > [!IMPORTANT]
-> Pour en savoir plus sur Machine Learning, comment y accéder et comment l’utiliser, consultez [Qu’est-ce que Machine Learning ?](../studio/what-is-machine-learning.md). La [galerie Azure AI](https://gallery.cortanaintelligence.com/) couvre en outre une large gamme d’expériences et fournit une présentation approfondie des fonctionnalités de Machine Learning.
+> Pour en savoir plus sur Machine Learning, comment y accéder et comment l’utiliser, consultez [Qu’est-ce que Machine Learning ?](../classic/index.yml). La [galerie Azure AI](https://gallery.cortanaintelligence.com/) couvre en outre une large gamme d’expériences et fournit une présentation approfondie des fonctionnalités de Machine Learning.
 > 
 > 
 
@@ -937,6 +937,3 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

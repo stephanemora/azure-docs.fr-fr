@@ -3,14 +3,14 @@ title: Accorder à une application l’accès à d’autres ressources Azure
 description: Cet article explique comment accorder à votre application Service Fabric avec identité managée l’accès à d’autres ressources Azure prenant en charge l’authentification basée sur Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333628"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure (préversion)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure
 
 Pour que l’application puisse utiliser son identité managée et accéder à d’autres ressources, les autorisations doivent être accordées à cette identité sur la ressource Azure protégée faisant l’objet d’un accès. L’octroi d’autorisations est généralement une action de gestion sur le « plan de contrôle » du service Azure propriétaire de la ressource protégée routée via Azure Resource Manager, ce qui permet d’appliquer toute vérification d’accès en fonction du rôle applicable.
 

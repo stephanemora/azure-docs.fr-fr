@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0b80c2f125e7eddaa427b75e3e0fe2aff6c679be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531771"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334325"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 
@@ -217,6 +217,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source JS
 | Comporte des commentaires | Sélectionnez **Comporte des commentaires** si les données JSON ont des commentaires de style C ou C++ | non | `true` ou `false` | asComments |
 | Apostrophes simples | Lit les colonnes JSON qui ne sont pas entourées de guillemets | non | `true` ou `false` | singleQuoted |
 | Barres obliques inverses d’échappement | Sélectionnez **Barres obliques inverses d’échappement** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON. | non | `true` ou `false` | backslashEscape |
+| N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>Options de format source
 

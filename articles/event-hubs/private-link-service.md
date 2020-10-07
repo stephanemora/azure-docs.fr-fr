@@ -1,14 +1,14 @@
 ---
 title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334240"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -24,7 +24,6 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](.
 > 
 > Voici quelques-uns des services qui ne peuvent pas accéder aux ressources Event Hubs lorsque les points de terminaison privés sont activés. Notez que la liste n’est **PAS** exhaustive.
 >
-> - Azure Stream Analytics
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
 > - Azure Event Grid
@@ -65,7 +64,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 1. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. 
 1. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Page Mise en réseau - Onglet Connexions des points de terminaison privés - Lien Ajouter un point de terminaison privé":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée":::
 7. Dans la page **Informations de base**, suivez ces étapes : 
     1. Sélectionnez l’**abonnement Azure** où créer le point de terminaison privé. 
     2. Sélectionnez le **groupe de ressources** pour la ressource de point de terminaison privé.
