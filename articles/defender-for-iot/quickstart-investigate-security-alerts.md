@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944138"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Démarrage rapide : Investiguer les alertes de sécurité
@@ -44,12 +44,12 @@ L’ouverture de chaque alerte agrégée affiche la description détaillée de c
 
 1. Sélectionnez et ouvrez une alerte de sécurité à partir de la liste **IoT Hub** > **Sécurité** > **Alertes**. 
 1. Examinez la **description**, la **gravité**, la **source de la détection** et les **détails de l’appareil** en lien avec l’alerte de tous les appareils qui ont émis celle-ci au cours de la période d’agrégation.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Explorer et examiner les détails de chaque appareil dans une alerte agrégée"::: 
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investiguer les nouvelles alertes de sécurité IoT à l’aide de l’indicateur de nouvelle alerte"::: 
 1. Après avoir vérifié les spécificités de l’alerte, suivez les instructions de l’**étape de correction manuelle** afin d’atténuer ou résoudre le problème à l’origine de l’alerte. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Suivre les étapes de correction manuelle pour vous atténuer ou résoudre les alertes de sécurité de votre appareil":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Investiguer les nouvelles alertes de sécurité IoT à l’aide de l’indicateur de nouvelle alerte":::
 
 1. Si une investigation supplémentaire est nécessaire, **examinez les alertes dans Log Analytics** en suivant le lien. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Pour investiguer davantage sur une alerte, utiliser le lien pour examiner à l’aide de Log Analytics affiché à l’écran":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Investiguer les nouvelles alertes de sécurité IoT à l’aide de l’indicateur de nouvelle alerte":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

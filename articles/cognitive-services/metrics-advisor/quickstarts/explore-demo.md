@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944619"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Démarrage rapide : Explorer la démonstration de Metrics Advisor avec des exemples de données
@@ -44,14 +44,14 @@ Cliquez sur le flux de données *Exemple - Coût/Produit - Ville/Catégorie*. Vo
 * Journaux du moment où le flux de données a été mis à jour.   
 * Informations et paramètres de flux de données.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Vue du flux de données" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Liste d’exemples de données" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Afficher les visualisations et les configurations des séries chronologiques
 
 Cliquez dans la métrique *coût* du flux de données *Exemple - Coût/Produit - Ville/Catégorie*. Vous verrez les séries chronologiques associées, découpées par dimensions, avec des visualisations selon les données de métrique historiques. La bande bleue autour des données de métrique représente la plage des valeurs attendues à partir des modèles Machine Learning de Metrics Advisor. Les points situés hors de cette bande sont marqués sous la forme de points rouges et correspondent aux anomalies détectées. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Visualisation des séries" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Liste d’exemples de données" lightbox="../media/series-visualization.png":::
 
 La détection des anomalies peut être configurée en réglant les **configurations de détection** sur le côté gauche de la page de détails de métrique. Plusieurs méthodes de détection d’anomalies sont disponibles et vous pouvez les combiner. Vous pouvez également essayer différentes sensibilités et directions de détection, ainsi que d’autres configurations. Le lien **Configuration avancée** en bas des **configurations de détection** vous permet de créer des paramètres de détection plus complexes et personnalisés, qui peuvent être utilisés sur des groupes ou des séries individuelles. 
 
@@ -59,7 +59,7 @@ Vous pouvez également régler la détection des anomalies en fournissant des co
 
 En bas du panneau **Ajouter des commentaires**, un lien **Vers le hub d’incidents** vous dirigera vers la page d’analyse des incidents et analysera la cause racine de l’incident.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Lien d’incident" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Liste d’exemples de données" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Explorer les résultats de détection des anomalies et effectuer une analyse de la cause racine
 
@@ -67,7 +67,7 @@ Lorsque vous cliquez sur le lien **Vers le hub d’incidents** à partir d’une
 
 La section **Diagnostics** affiche une arborescence de l’incident, ainsi que plusieurs onglets pour diagnostiquer l’incident.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostic de l’incident" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Liste d’exemples de données" lightbox="../media/incident-diagnostic.png":::
 
 En identifiant la cause racine de l’incident, vous pouvez prendre des mesures pour atténuer le problème avant que la situation empire. Vous pouvez également explorer d’autres insights en cliquant sur les autres fonctionnalités de diagnostic fournies. 
 

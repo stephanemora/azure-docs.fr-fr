@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 25c3f875717c9c064af0ce27bdab735db67d2f5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944109"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Démarrage rapide : Créer une instance Azure Database pour PostgreSQL - Serveur flexible dans le portail Azure
@@ -41,11 +41,11 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
 3. Sélectionnez l’option de déploiement **Serveur flexible**.
 
-   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Sélectionnez l’option de déploiement Azure Database pour PostgreSQL - Serveur flexible":::
+   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
 4. Remplissez le formulaire **Informations de base** avec les informations suivantes :
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="Créer un serveur":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
@@ -58,23 +58,23 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
     Version|La version principale la plus récente| La version principale PostgreSQL la plus récente, sauf si vous avez des exigences précises.
     Calcul + stockage | **Usage général**, **4 vCores**, **512 Go**, **7 jours** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur**. *Usage général*, *4 vCores*, *512 Go* et *7 jours* sont les valeurs par défaut pour **Niveau de calcul**, **vCore**, **Stockage** et **Période de rétention des sauvegardes**. Vous pouvez laisser ces curseurs en l’état ou les ajuster. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="Le volet Niveau tarifaire":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
     
 5. Options de configuration de la mise en réseau
 
     Sous l'onglet Réseau, vous pouvez choisir la façon dont votre serveur est accessible. Azure Database pour PostgreSQL crée un pare-feu au niveau du serveur. Il empêche les applications et les outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si vous créez une règle de pare-feu pour ouvrir le pare-feu à des adresses IP spécifiques. Nous vous recommandons de rendre le serveur accessible publiquement :
 
-    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="Le volet Mise en réseau":::
+    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
     Puis de le limiter à votre propre adresse IP du client :
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Sélectionner l’adresse IP actuelle du client":::
+    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
 6. Sélectionnez **Vérifier + créer** pour passer en revue vos sélections. Sélectionnez **Créer** pour approvisionner le serveur. Cette opération peut prendre quelques minutes.
 
 7. Dans la barre d’outils, sélectionnez l’icône **Notifications** (en forme de cloche) pour surveiller le processus de déploiement. Une fois le déploiement terminé, vous pouvez sélectionner **Épingler au tableau de bord**, ce qui crée une vignette pour ce serveur dans votre tableau de bord du portail Azure, en tant que raccourci vers la page **Vue d’ensemble** du serveur. En sélectionnant **Accéder à la ressource**, ouvrez la page **Vue d’ensemble** du serveur.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="Le volet Notifications":::
+    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
    Par défaut, la création d’une base de données **postgres** s’effectue sous votre serveur. La base de données [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) est une base de données par défaut qui est destinée aux utilisateurs, aux utilitaires et aux applications tierces. (L’autre base de données par défaut est **azure_maintenance**. Son rôle consiste à séparer les processus de service administré des actions des utilisateurs. Vous ne pouvez pas accéder à cette base de données.)
 
@@ -88,7 +88,7 @@ Lorsque vous créez votre serveur Azure Database pour PostgreSQL, une base de do
 
 Ouvrez la page **Vue d’ensemble** de votre serveur. Prenez note du **Nom du serveur** et du **Nom de connexion de l’administrateur du serveur**. Placez le curseur sur chaque champ, afin de faire apparaître le symbole de copie à droite du texte. Sélectionnez ce symbole pour copier les valeurs qui vous intéressent.
 
- :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="La page Vue d’ensemble du serveur":::
+ :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
 ## <a name="connect-to-the-postgresql-database-using-psql"></a>Se connecter à la base de données PostgreSQL avec psql
 
@@ -162,7 +162,7 @@ Pour ne supprimer que le serveur nouvellement créé :
 
 2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="Le bouton Supprimer":::
+    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
 3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Entrez votre nom de serveur dans la zone de texte, par exemple **mydemoserver**. Sélectionnez **Supprimer**.
 

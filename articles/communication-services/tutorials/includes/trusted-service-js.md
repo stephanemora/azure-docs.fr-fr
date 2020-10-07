@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944199"
 ---
 ## <a name="prerequisites"></a>Prérequis
@@ -132,7 +132,7 @@ Exécutez la fonction Azure localement à l’aide de `F5`. Cette opération ini
 
 Ouvrez l’URL dans votre navigateur. Vous devriez voir un corps de réponse avec l’ID d’utilisateur de communication, le jeton et l’expiration du jeton.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Capture d’écran montrant un exemple de réponse pour la fonction Azure créée.":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagramme de l’architecture de service approuvé":::
 
 ## <a name="deploy-the-function-to-azure"></a>Déployer la fonction sur Azure
 

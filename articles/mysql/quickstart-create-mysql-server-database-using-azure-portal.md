@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
 ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906565"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL via le portail Azure
@@ -39,7 +39,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
 3. Remplissez le formulaire de détails du nouveau serveur avec les informations suivantes :
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Créer un formulaire de serveur":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Option Azure Database pour MySQL":::
 
 **Paramètre** | **Valeur suggérée** | **Description du champ** 
 ---|---|---
@@ -67,7 +67,7 @@ Par défaut, les bases de données suivantes sont créées sous votre serveur : 
 Par défaut, le serveur créé est protégé par un pare-feu et n’est pas accessible publiquement. Pour accorder l’accès à votre adresse IP, accédez à votre ressource de serveur dans le portail Azure, puis sélectionnez **Sécurité de la connexion** dans le menu de gauche de votre ressource de serveur. Si vous ne savez pas comment trouver votre ressource, consultez [Guide pratique pour ouvrir une ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Sécurité de la connexion - Règles de pare-feu":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Option Azure Database pour MySQL":::
    
 Sélectionnez à présent **Ajouter l’adresse IP actuelle du client**, puis sélectionnez **Enregistrer**. Vous pouvez ajouter des adresses IP supplémentaires ou fournir une plage d’adresses IP pour permettre la connexion à votre serveur à partir de ces adresses IP. Pour plus d’informations, consultez [Comment gérer les règles de pare-feu sur un serveur Azure Database pour MySQL](./concepts-firewall-rules.md).
 
@@ -83,7 +83,7 @@ Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
     >Si vous lancez Cloud Shell pour la première fois, vous voyez s’afficher une invite permettant de créer un groupe de ressources et un compte de stockage. Il s’agit d’une étape unique qui sera automatiquement associée à toutes les sessions. 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Vue complète du portail Cloud Shell":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Option Azure Database pour MySQL":::
 2. Exécutez cette commande sur le terminal Azure Cloud Shell. Remplacez les valeurs par le nom réel du serveur et le nom réel de la connexion d’utilisateur administrateur. Le nom d’utilisateur de l’administrateur requiert « @\<servername> », comme indiqué ci-dessous pour Azure Database pour MySQL.  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ Vous avez réussi à créer un serveur Azure Database pour MySQL dans un groupe 
 
 Pour supprimer le serveur, vous pouvez cliquer sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre serveur, comme indiqué ci-dessous :
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Supprimer vos ressources":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Option Azure Database pour MySQL":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

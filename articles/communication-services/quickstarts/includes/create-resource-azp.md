@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944771"
 ---
 ## <a name="prerequisites"></a>Prérequis
@@ -23,11 +23,11 @@ Pour créer une ressource Azure Communication Services, commencez par vous conne
 
 Tapez **Communication** dans la zone d’entrée **Rechercher dans le marketplace** ou dans la barre de recherche en haut du portail.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Capture d’écran illustrant une recherche de Communication Services à partir de la barre de recherche.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Capture d’écran illustrant le bouton Créer une ressource dans le portail Azure.":::
 
 Sélectionnez **Communication Services** dans les résultats, puis sélectionnez **Ajouter**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Capture d’écran illustrant le panneau Azure, avec le bouton Ajouter mis en surbrillance.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Capture d’écran illustrant le bouton Créer une ressource dans le portail Azure.":::
 
 Vous pouvez maintenant configurer votre ressource Communication Services. Dans la première page du processus de création, vous êtes invité à spécifier les informations suivantes :
 
