@@ -1,6 +1,6 @@
 ---
-title: Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)
-description: Dans ce tutoriel, vous allez apprendre à effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande (préversion) et à visualiser les résultats dans Azure Synapse Studio.
+title: 'Tutoriel : Utiliser SQL à la demande (préversion) pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio (préversion)'
+description: Ce tutoriel vous montre comment effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande (préversion) et comment visualiser les résultats dans Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089139"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539518"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Utiliser SQL à la demande pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutoriel : Utiliser SQL à la demande pour analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio
 
 Dans ce tutoriel, vous apprenez à effectuer des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec SQL à la demande, puis en visualisant les résultats dans Azure Synapse Studio.
 
@@ -135,7 +135,7 @@ Là encore, vous pouvez facilement visualiser les données en traçant l’**his
 
 ![Histogramme présentant le nombre quotidien de courses pour 2016](./media/tutorial-data-analyst/7.png)
 
-À partir du graphique en nuage de points, vous pouvez voir qu’il existe un modèle hebdomadaire, avec les samedis comme jour de pointe. Pendant les mois d’été, il y a moins de courses de taxi en raison des vacances. Il existe également des chutes importantes du nombre de courses de taxi sans modèle clair de quand et pourquoi elles se produisent.
+Dans le graphique en nuage de points, vous pouvez voir qu’il existe un modèle hebdomadaire, avec les samedis comme jour de pointe. Pendant les mois d’été, il y a moins de courses de taxi en raison des vacances. Notez également des baisses importantes du nombre de courses de taxi, sans schéma clair de quand et pourquoi elles se produisent.
 
 À présent, voyons si les chutes sont corrélées avec les jours fériés en joignant le jeu de données sur les courses de taxi de la ville de New York au jeu de données sur les jours fériés :
 

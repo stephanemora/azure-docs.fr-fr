@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050775"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541762"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -78,7 +78,9 @@ Chaque **version** **publiée** d’un blueprint peut être affectée à un abon
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorisations dans Azure Blueprint
 
-Pour utiliser des blueprints, vous devez disposer d’autorisations accordées par le biais du [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC). Pour créer des blueprints, votre compte doit avoir les autorisations suivantes :
+Pour utiliser des blueprints, vous devez disposer d’autorisations accordées par le biais du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Pour lire ou afficher un blueprint dans le portail Azure, votre compte doit avoir un accès en lecture à l’étendue dans laquelle se trouve la définition du blueprint.
+
+Pour créer des blueprints, votre compte doit avoir les autorisations suivantes :
 
 - `Microsoft.Blueprint/blueprints/write` - Créer une définition de blueprint
 - `Microsoft.Blueprint/blueprints/artifacts/write` - Créer des artefacts sur une définition de blueprint

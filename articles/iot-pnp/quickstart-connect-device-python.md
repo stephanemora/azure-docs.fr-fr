@@ -1,6 +1,6 @@
 ---
-title: Connecter un exemple de code d’appareil Python IoT Plug-and-Play en préversion à Azure IoT Hub | Microsoft Docs
-description: À l’aide de Python, créez et exécutez un exemple de code d’appareil IoT Plug-and-Play en préversion qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Connecter un exemple de code Python pour appareil IoT Plug-and-Play à Azure IoT Hub | Microsoft Docs
+description: Utilisez Python pour créer et exécuter un exemple de code pour appareil IoT Plug-and-Play, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 84ef7ff18c294097da20640c1de237b41900cb40
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352629"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574017"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-python"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion à IoT Hub (Python)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play à IoT Hub (Python)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Ce guide de démarrage rapide montre comment créer un exemple d’application d’appareil IoT Plug-and-Play, comment le connecter à votre hub IoT et comment utiliser l’outil Explorateur Azure IoT pour afficher la télémétrie qu’il envoie. L’exemple d’application est écrit pour Python et inclus dans le Kit de développement logiciel (SDK) d’appareil Azure IoT Hub pour Python. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Pour suivre ce guide de démarrage rapide, vous avez besoin de Python 3.7 sur votre ordinateur de développement. Vous pouvez télécharger la dernière version recommandée pour plusieurs plateformes à partir de [python.org](https://www.python.org/). Vous pouvez vérifier votre version de Python à l’aide de la commande suivante :  
 
@@ -31,34 +31,7 @@ Pour suivre ce guide de démarrage rapide, vous avez besoin de Python 3.7 sur v
 python --version
 ```
 
-### <a name="azure-iot-explorer"></a>Explorateur Azure IoT
-
-Pour interagir avec l’exemple d’appareil dans la deuxième partie de ce guide de démarrage rapide, vous utilisez l’outil **Explorateur Azure IoT**. [Téléchargez et installez la dernière version de l’Explorateur Azure IoT](./howto-use-iot-explorer.md) pour votre système d’exploitation.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion IoT Hub_ pour votre hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Vous pouvez également utiliser l’outil Explorateur Azure IoT pour rechercher la chaîne de connexion du hub IoT.
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous avez ajouté au hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
-## <a name="set-up-your-environment"></a>Configurer votre environnement
-
-Ce package est publié en tant que PIP pour l’actualisation de la préversion publique. La version du package doit être la version `2.1.4` ou la dernière version.
-
-Dans votre environnement Python local, installez le fichier comme suit :
+Dans votre environnement Python local, installez le package comme suit :
 
 ```cmd/sh
 pip install azure-iot-device
@@ -72,11 +45,9 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
 ## <a name="run-the-sample-device"></a>Exécuter l’exemple d’appareil
 
-Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Ce démarrage rapide utilise le fichier *pnp_thermostat.py*. Cet exemple de code implémente un appareil compatible IoT Plug-and-Play et utilise la bibliothèque de client d’appareil Azure IoT Python.
+Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Ce guide de démarrage rapide utilise le fichier *simple_thermostat.py*. Cet exemple de code implémente un appareil compatible IoT Plug-and-Play et utilise la bibliothèque de client d’appareil Azure IoT Python.
 
-Créez une variable d’environnement appelée **IOTHUB_DEVICE_CONNECTION_STRING** pour stocker la chaîne de connexion à l’appareil que vous avez notée précédemment.
-
-Ouvrez le fichier **pnp_thermostat.py** dans un éditeur de texte. Notez comment il :
+Ouvrez le fichier **simple_thermostat.py** dans un éditeur de texte. Notez comment il :
 
 1. Définit un identificateur de modèle de jumeau d’appareil unique (DTMI) qui représente de façon unique le [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). Un DTMI doit être connus de l’utilisateur et varie en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, le modèle représente un thermostat possédant une télémétrie, des propriétés et des commandes associées à la surveillance de la température.
 
@@ -92,7 +63,7 @@ Ouvrez le fichier **pnp_thermostat.py** dans un éditeur de texte. Notez comment
 
     1. Met à jour les propriétés. Le modèle que nous utilisons, **Thermostat**, définit `targetTemperature` et `maxTempSinceLastReboot` comme les deux propriétés pour notre thermostat. C’est donc ce que nous allons utiliser. Les propriétés sont mises à jour à l’aide de la méthode `patch_twin_reported_properties` définie sur le `device_client`.
 
-    1. Commence à écouter les demandes de commande à l’aide de la fonction **execute_command_listener**. La fonction configure un « écouteur » pour écouter les commandes provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler`. 
+    1. Commence à écouter les demandes de commande à l’aide de la fonction **execute_command_listener**. La fonction configure un « écouteur » pour écouter les commandes provenant du service. Quand vous configurez l’écouteur, vous fournissez un `method_name`, un `user_command_handler` et un `create_user_response_handler`.
         - La fonction `user_command_handler` définit ce que l’appareil doit faire quand il reçoit une commande. Par exemple, si votre alarme vient à être désactivée, l’effet de la réception de cette commande est l’éveil. Imaginez cela comme l’« effet » de la commande appelée.
         - La fonction `create_user_response_handler` crée une réponse à envoyer à votre hub IoT quand une commande s’exécute correctement. Par exemple, si votre alarme vient à être désactivée, vous répondez en appuyant sur la touche répéter. Considérez cela comme la réponse que vous donnez au service. Vous pouvez afficher cette réponse dans le portail.
 
@@ -100,16 +71,19 @@ Ouvrez le fichier **pnp_thermostat.py** dans un éditeur de texte. Notez comment
 
     1. Désactive l’ensemble des écouteurs et des tâches, puis quitte la boucle quand vous appuyez sur **Q** ou **q**.
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
+
 Maintenant que vous avez vu le code, utilisez la commande suivante pour exécuter l’exemple :
 
 ```cmd/sh
-python pnp_thermostat.py
+python simple_thermostat.py
 ```
 
 Vous voyez la sortie suivante indiquant que l’appareil a commencé à envoyer des données de télémétrie au hub et est prêt à recevoir des commandes et des mises à jour de propriétés :
 
 ```cmd/sh
-Connecting using Connection String HostName=<your hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<your device shared access key>
 Listening for command requests and property updates
 Press Q to quit
 Sending telemetry for temperature
@@ -124,11 +98,9 @@ Une fois l’exemple de client d’appareil démarré, utilisez l’outil Explor
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez appris à connecter un appareil IoT Plug-and-Play à un hub IoT. Pour en savoir plus sur la création d’une solution qui interagit avec vos appareils IoT Plug-and-Play, consultez :
 
 > [!div class="nextstepaction"]
-> [Interagir avec un appareil IoT Plug-and-Play en préversion connecté à votre solution](quickstart-service-python.md)
+> [Interagir avec un appareil IoT Plug-and-Play connecté à votre solution](quickstart-service-python.md)

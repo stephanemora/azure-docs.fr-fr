@@ -1,29 +1,29 @@
 ---
-title: Interagir avec un appareil IoT Plug-and-Play (préversion) connecté à une solution Azure IoT (Node.js) | Microsoft Docs
-description: Utilisez Node.js pour vous connecter à un appareil IoT Plug-and-Play en préversion connecté à votre solution Azure IoT et pour interagir avec lui.
+title: Interagir avec un appareil IoT Plug-and-Play connecté à une solution Azure IoT (Node.js) | Microsoft Docs
+description: Utilisez Node.js pour vous connecter à un appareil IoT Plug-and-Play connecté à votre solution Azure IoT et pour interagir avec lui.
 author: elhorton
 ms.author: elhorton
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: fd65dcc9ce0be07daa5848a0ac583cf795150e47
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184752"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574991"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play en préversion connecté à votre solution (Node.js)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play connecté à votre solution (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-La préversion d’IoT Plug-and-Play simplifie l’IoT en vous permettant d’interagir avec les fonctionnalités d’un appareil sans avoir connaissance de l’implémentation de l’appareil sous-jacent. Ce démarrage rapide vous montre comment utiliser Node.js pour vous connecter à un appareil IoT Plug-and-Play connecté à votre solution et le contrôler.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+IoT Plug-and-Play simplifie l’IoT en vous permettant d’interagir avec les fonctionnalités d’un appareil sans avoir connaissance de l’implémentation de l’appareil sous-jacent. Ce démarrage rapide vous montre comment utiliser Node.js pour vous connecter à un appareil IoT Plug-and-Play connecté à votre solution et le contrôler.
 
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Pour suivre ce guide de démarrage rapide, vous avez besoin de Node.js sur votre ordinateur de développement. Vous pouvez télécharger la dernière version recommandée pour plusieurs plateformes à partir de [nodejs.org](https://nodejs.org).
 
@@ -33,29 +33,19 @@ Vous pouvez vérifier la version actuelle de Node.js sur votre machine de dével
 node --version
 ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion IoT Hub_ pour votre hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous avez ajouté au hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
-```
-
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Clonez le référentiel SDK avec l’exemple de code
 
-Le SDK du service étant en préversion, vous devez cloner les exemples à partir d’une [branche de préversion du SDK Node](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Ouvrez une fenêtre de terminal dans un dossier de votre choix. Exécutez la commande suivante pour cloner la branche **pnp-preview-refresh** du référentiel GitHub [SDK Microsoft Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) :
+Clonez les exemples à partir du [dépôt SDK Node](https://github.com/Azure/azure-iot-sdk-node). Ouvrez une fenêtre de terminal dans un dossier de votre choix. Exécutez la commande suivante pour cloner le dépôt GitHub [SDK Microsoft Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) :
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## <a name="run-the-sample-device"></a>Exécuter l’exemple d’appareil
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
 Dans ce démarrage rapide, vous pouvez utiliser un exemple de thermostat écrit en Node.js en tant qu’appareil IoT Plug-and-Play. Pour exécuter l’exemple d’appareil :
 
@@ -65,12 +55,6 @@ Dans ce démarrage rapide, vous pouvez utiliser un exemple de thermostat écrit 
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configurer la _chaîne de connexion de l’appareil_ :
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Pour exécutez l’exemple d’appareil à thermostat, utilisez la commande suivante :
@@ -83,25 +67,19 @@ Dans ce démarrage rapide, vous pouvez utiliser un exemple de thermostat écrit 
 
 ## <a name="run-the-sample-solution"></a>Exécuter l’exemple de solution
 
+Dans [Configurer votre environnement pour les guides de démarrage rapide et tutoriels IoT Plug-and-Play](set-up-environment.md), vous avez créé deux variables d’environnement pour configurer l’exemple afin qu’il se connecte à votre hub IoT et à votre appareil :
+
+* **IOTHUB_CONNECTION_STRING** : la chaîne de connexion de hub IoT que vous avez notée précédemment.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
+
 Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en Node.js pour interagir avec l’exemple d’appareil que vous venez de configurer.
 
-1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**. Le SDK du service étant en préversion, vous devez cloner les exemples à partir d’une [branche de préversion du SDK Node](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh) :
+1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**.
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. Accédez au dossier de cette branche de référentiel cloné, puis accédez au dossier */azure-iot-sdk-node/digitaltwins/samples/service/javascript*. Installez toutes les dépendances en exécutant la commande suivante :
+1. Dans le dépôt SDK Node cloné, accédez au dossier */azure-iot-sdk-node/service/samples/javascript*. Installez toutes les dépendances en exécutant la commande suivante :
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configurez les variables d’environnement pour votre ID d’appareil et la _chaîne de connexion IoT Hub_ :
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
     ```
 
 ### <a name="read-a-property"></a>Lire une propriété
@@ -163,7 +141,7 @@ Dans ce scénario, il génère la sortie suivante : `Model Id: dtmi:com:example
 1. Dans votre terminal d’**appareil**, vous voyez que l’appareil a reçu la mise à jour :
 
     ```cmd/sh
-    The following properties will be updated for root interface:
+    The following properties will be updated for the default component:
     {
       targetTemperature: {
         value: 42,
@@ -221,11 +199,9 @@ Dans ce scénario, il génère la sortie suivante : `Model Id: dtmi:com:example
     Response to method 'getMaxMinReport' sent successfully.
     ```
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à connecter un appareil IoT Plug-and-Play à une solution IoT. Pour découvrir plus d’informations sur les modèles d’appareils IoT Plug-and-Play, consultez :
 
 > [!div class="nextstepaction"]
-> [Guide du développeur pour la modélisation avec la préversion d’IoT Plug-and-Play](concepts-developer-guide.md)
+> [Guide du développeur pour la modélisation d’IoT Plug-and-Play](concepts-developer-guide-device-csharp.md)

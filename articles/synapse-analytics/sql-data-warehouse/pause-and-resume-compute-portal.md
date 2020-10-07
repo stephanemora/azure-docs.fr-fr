@@ -1,5 +1,5 @@
 ---
-title: Suspendre et reprendre le calcul dans le pool SQL Synapse avec le portail Azure
+title: 'Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL Synapse avec le portail Azure'
 description: Utilisez le portail Azure afin de mettre en pause le calcul pour le pool SQL en vue de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567636"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL Synapse avec le portail Azure
 
@@ -49,7 +49,7 @@ Suivez ces étapes pour suspendre un pool SQL :
 5. Une question de confirmation apparaît, vous demandant si vous souhaitez continuer. Cliquez sur **Oui**.
 6. Après quelques instants, **l’État** passe à **Suspension en cours**.
 
-    ![Suspension en cours](./media/pause-and-resume-compute-portal/pausing.png)
+    ![Capture d’écran montrant le portail Azure pour un exemple d’entrepôt de données avec la valeur d’état de Suspension en cours.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. Une fois l’opération de mise en pause terminée, l’état est **Suspendu** et la case d’option est **Reprendre**.
 8. Les ressources de calcul du pool SQL sont maintenant hors ligne. Le calcul ne vous sera pas facturé tant que le service n’aura pas repris.
@@ -71,7 +71,7 @@ Suivez ces étapes pour la reprise du pool SQL.
 5. Une question de confirmation apparaît, vous demandant si vous souhaitez le démarrer. Cliquez sur **Oui**.
 6. **L’État** passe à **Reprise en cours**.
 
-    ![Reprise](./media/pause-and-resume-compute-portal/resuming.png)
+    ![Capture d’écran montrant le portail Azure pour un exemple d’entrepôt de données, dont le bouton Démarrer est sélectionné et la valeur d’état est Reprise en cours.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. Une fois le pool SQL de nouveau en ligne, l’état est **En ligne** et la case d’option est **Suspendre**.
 8. Les ressources de calcul du pool SQL sont à présent en ligne. Vous pouvez utiliser le service. Les frais de calcul ont repris.

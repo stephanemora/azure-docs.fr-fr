@@ -10,10 +10,10 @@ ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91543298"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Démarrage rapide : Créer un nouveau service lié Azure Machine Learning dans Synapse

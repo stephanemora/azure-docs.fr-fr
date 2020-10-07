@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a7bb300bb634b342b1141d175b0046c7d2d7e2b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810307"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540368"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Xamarin avec Azure Spatial Anchors
 
@@ -73,7 +73,7 @@ Définissez le projet de démarrage sur **SampleXamarin.Android**, remplacez la 
 
 # <a name="windows"></a>[Windows](#tab/deploy-windows)
 
-![Configuration de Visual Studio](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Capture d’écran montrant le menu permettant de sélectionner le projet et l’appareil dans Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Sélectionnez **Déboguer** > **Démarrer le débogage** pour déployer et démarrer votre application.
 

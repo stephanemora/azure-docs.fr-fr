@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle des données avec Change Tracking sur le portail Azure
-description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server vers une base de données Azure SQL Database.
+description: Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de suivi des modifications dans la base de données source dans Azure SQL Database vers un stockage Blob Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085784"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542017"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
@@ -285,10 +285,10 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
 
 1. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**.
 
-    ![Menu Nouveau pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![Capture d’écran montrant l’option de pipeline pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Vous voyez un nouvel onglet pour configurer le pipeline. Vous voyez également le pipeline dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le pipeline en **FullCopyPipeline**.
 
-    ![Menu Nouveau pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![Capture d’écran montrant un pipeline avec un nom entré.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline, puis définissez le nom **FullCopyActivity**.
 
     ![Activité de copie complète - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
     ![Valider le pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Pour publier des entités (services liés, jeux de données et pipelines), cliquez sur **Publier**. Patientez jusqu’à ce que la publication réussisse.
 
-    ![Bouton Publier](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![Capture d’écran affichant la fabrique de données avec le bouton Publier tout sélectionné.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Patientez jusqu’à voir le message **Publication réussie**.
 
     ![Publication réussie](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
 ### <a name="run-the-full-copy-pipeline"></a>Exécuter le pipeline de copie complète
 Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**.
 
-![Menu Déclencher maintenant](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![Capture d’écran montre l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Surveiller le pipeline de copie complète
 
 1. Cliquez sur l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution du pipeline dans la liste et son état. Pour actualiser la liste, cliquez sur **Actualiser**. Les liens dans la colonne Actions vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline.
 
-    ![Exécutions de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité dans le pipeline, vous ne voyez donc qu’une seule entrée dans la liste. Pour revenir à l’affichage des exécutions du pipeline, cliquez sur le lien **Pipelines** en haut.
 
-    ![Exécutions d’activités](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![Capture d’écran montrant les exécutions d’activités pour une fabrique de données avec le lien Pipelines sélectionné.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez un fichier nommé `incremental-<GUID>.txt` dans le dossier `incchgtracking` du conteneur `adftutorial`.
@@ -362,19 +362,19 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 
 1. Dans l’interface utilisateur de Data Factory, basculez vers l’onglet **Modifier**. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**.
 
-    ![Menu Nouveau pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![Capture d’écran montrant comment créer un pipeline dans une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Vous voyez un nouvel onglet pour configurer le pipeline. Vous voyez également le pipeline dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le pipeline en **IncrementalCopyPipeline**.
 
     ![Nom du pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Développez **Général** dans la boîte à outils **Activités**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupLastChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications utilisée dans la dernière opération de copie qui est stockée dans la table **table_store_ChangeTracking_version**.
 
-    ![Activité de recherche - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![Capture d’écran montrant un pipeline avec une activité de recherche.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Basculez vers **Paramètres** dans la fenêtre **Propriétés**, puis sélectionnez **ChangeTrackingDataset** pour le champ **Jeu de données source**.
 
-    ![Activité de recherche - paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![Capture d’écran montrant l’onglet Paramètres dans la fenêtre Propriétés.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Glissez-déposez l’activité **Recherche** de la boîte à outils **Activités** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupCurrentChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications en cours.
 
-    ![Activité de recherche - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![Capture d’écran montrant un pipeline avec deux activités de recherche.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Basculez vers les **Paramètres** dans la fenêtre**Propriétés**, et procédez comme suit :
 
    1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
@@ -385,7 +385,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Activité de recherche - paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Capture d’écran montrant une requête ajoutée à l’onglet Paramètres dans la fenêtre Propriétés.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **IncrementalCopyActivity**. Cette activité permet de copier les données entre la dernière version de suivi des modifications et la version de suivi des modifications en cours dans le magasin de données de destination.
 
     ![Activité de copie - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -432,21 +432,21 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
     ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche.
 
-       ![Bouton Publier](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Capture d’écran montrant le bouton Publier tout pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Exécuter le pipeline de copie incrémentielle
 1. Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**.
 
-    ![Menu Déclencher maintenant](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Capture d’écran montrant un pipeline avec des activités, avec l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Surveiller le pipeline de copie incrémentielle
 1. Cliquez sur l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution du pipeline dans la liste et son état. Pour actualiser la liste, cliquez sur **Actualiser**. Les liens dans la colonne **Actions** vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline.
 
-    ![Exécutions de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité dans le pipeline, vous ne voyez donc qu’une seule entrée dans la liste. Pour revenir à l’affichage des exécutions du pipeline, cliquez sur le lien **Pipelines** en haut.
 
-    ![Exécutions d’activités](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![Capture d’écran montrant des exécutions de pipeline pour une fabrique de données avec plusieurs exécutions marquées comme ayant réussi.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.

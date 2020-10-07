@@ -1,22 +1,22 @@
 ---
-title: Exécuter des essais à l’aide d’Azure Automated ML
-description: Exécuter des essais Machine Learning à l’aide d’Apache Spark et d’Azure Automated ML
+title: 'Tutoriel : Exécuter des essais à l’aide d’Azure Automated ML'
+description: Tutoriel sur la façon d’exécuter des essais Machine Learning à l’aide d’Apache Spark et d’Azure Automated ML
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033572"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540504"
 ---
-# <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Exécuter des essais à l’aide d’Azure Automated ML et d’Apache Spark
+# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutoriel : Exécuter des essais à l’aide d’Azure Automated ML et d’Apache Spark
 
 Azure Machine Learning est un environnement informatique qui vous permet d’effectuer l’apprentissage, le déploiement, l’automatisation, la gestion et le suivi des modèles Machine Learning. 
 

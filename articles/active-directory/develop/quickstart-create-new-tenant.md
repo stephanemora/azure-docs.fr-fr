@@ -1,6 +1,7 @@
 ---
-title: Créer un locataire Azure Active Directory
-description: Découvrez comment créer un locataire Azure AD à utiliser pour l'inscription et la création d'applications.
+title: 'Démarrage rapide : Créer un locataire Azure Active Directory'
+titleSuffix: Microsoft identity platform
+description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un locataire Azure Active Directory à utiliser dans le développement d’applications qui utilisent la plateforme d’identités Microsoft pour l’authentification et l’autorisation.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120811"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575977"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -26,6 +27,10 @@ La plateforme d’identité Microsoft permet aux développeurs de créer des app
 Le locataire est la représentation d’une organisation. Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications lorsque l’organisation ou le développeur d’applications crée une relation avec Microsoft (l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple).
 
 Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de sa propre représentation d’identités professionnelles et scolaires, d’identités des consommateurs (dans le cas de locataire Azure AD B2C) et d’inscriptions d’application. Dans votre locataire, une inscription d’application peut autoriser des authentifications à partir de comptes situés au sein de votre locataire uniquement ou bien à partir de tous les locataires.
+
+## <a name="prerequisites"></a>Prérequis
+
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Déterminer le type d’environnement
 
@@ -71,6 +76,5 @@ Pour commencer à créer des applications pour connecter des comptes sociaux et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Inscrivez une application](quickstart-register-app.md) et intégrez-la à la plateforme des identités Microsoft. 
-* Découvrez les [principes de base de l’authentification](./authentication-vs-authorization.md).
-* Consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) pour obtenir des détails sur la relation entre des abonnements et un locataire Azure AD.
+> [!div class="nextstepaction"]
+> [Inscrivez une application](quickstart-register-app.md) à intégrer à la plateforme d’identités Microsoft.

@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 92bd5bb6e9c8a00b72ace5f81d1a1cedccfa95e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f6eda8b3b60658425f4c30850f9f979cf31d32d4
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503665"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570152"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -50,6 +50,9 @@ Dans l’interpréteur de commandes actuel, créez un fichier nommé *customConf
   "commandToExecute": "./automate_nginx.sh"
 }
 ```
+
+> [!CAUTION]
+> Il peut être nécessaire d’inverser l’utilisation des guillemets simples (') et des guillemets doubles (") au sein du bloc JSON si vous décidez de référencer le JSON directement (au lieu de référencer le fichier *customConfig.json*) dans le paramètre *--settings* ci-dessous. 
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/14/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4d5ec2411b7b1a65da9a1f4262822cb85a3b386e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536254"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539316"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application iOS Unity avec Azure Spatial Anchors
 
@@ -56,7 +56,11 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Suivez les instructions dans l’application pour placer et rappeler une ancre.
+Dans l’application, sélectionnez **BasicDemo** à l’aide des flèches, puis appuyez sur le bouton **Go!** pour exécuter la démo. Suivez les instructions dans l’application pour placer et rappeler une ancre.
+
+![Capture d’écran 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![Capture d’écran 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![Capture d’écran 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 Lorsque vous avez terminé, arrêtez l’application en appuyant sur **Stop** dans Xcode.
 

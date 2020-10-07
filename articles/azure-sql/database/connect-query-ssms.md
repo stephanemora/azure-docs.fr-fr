@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004152"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598261"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser SSMS pour se connecter à Azure SQL Database ou Azure SQL Managed Instance et exécuter des requêtes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 Dans SSMS, connectez-vous à votre serveur.
 
 > [!IMPORTANT]
@@ -83,6 +85,9 @@ Dans SSMS, connectez-vous à votre serveur.
    ||||
 
    ![connect to server](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> Ce tutoriel utilise l’authentification SQL Server.
 
 3. Sélectionnez **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans le menu déroulant **Se connecter à la base de données**, sélectionnez **mySampleDatabase**. Lorsque vous suivez le guide de démarrage rapide dans la [section Prérequis](#prerequisites), vous créez une base de données AdventureWorksLT nommée mySampleDatabase. Si votre copie de travail de la base de données AdventureWorks porte un nom différent de mySampleDatabase, sélectionnez-la à la place de celle-ci.
 
@@ -155,7 +160,7 @@ Exécutez ce code Transact-SQL [INSERT](/sql/t-sql/statements/insert-transact-sq
 
 ### <a name="update-data"></a>Mettre à jour des données
 
-Exécutez ce code Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) pour modifier votre nouveau produit.
+Exécutez ce code Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql) pour modifier votre nouveau produit.
 
 1. Remplacez la requête précédente par celle qui retourne le nouvel enregistrement créé précédemment :
 

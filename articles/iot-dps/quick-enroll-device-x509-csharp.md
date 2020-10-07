@@ -1,20 +1,20 @@
 ---
-title: Inscrire un appareil X.509 auprès du service Azure Device Provisioning avec C#
+title: Démarrage rapide – Inscrire un appareil X.509 auprès du service Azure Device Provisioning à l’aide de C#
 description: Ce démarrage rapide utilise des inscriptions de groupe. Dans ce guide de démarrage rapide, vous inscrivez des appareils X.509 auprès du service Azure IoT Hub Device Provisioning (DPS) avec C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532582"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Démarrage rapide : inscrire des appareils X.509 auprès du service Device Provisioning à l’aide de C#
 
@@ -159,12 +159,15 @@ Cette section montre comment créer une application console .NET Core qui ajoute
    }
    ```
 
-1. Enfin, remplacez le corps de la méthode `Main` par les lignes suivantes :
+1. Enfin, remplacez la méthode `Main` par les lignes suivantes :
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Générez la solution.

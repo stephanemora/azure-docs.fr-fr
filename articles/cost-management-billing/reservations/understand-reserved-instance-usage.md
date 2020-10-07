@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681921"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447876"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement individuel avec tarifs de paiement à l’utilisation
 
@@ -74,7 +74,7 @@ Supposez que vous exécutez une machine virtuelle SQL Database de 4e génératio
 
 Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** voulue : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
-![Fichier CSV pour la capacité réservée SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Capture d’écran montrant une entrée Catégorie du compteur.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 La ligne **Utilisation des instances réservées** indique le nombre total d’heures/cœur couvertes par la réservation. Le tarif est de 0 dollar US pour cette ligne puisque la réservation couvre le coût.
 
@@ -82,7 +82,7 @@ La ligne **Utilisation des instances réservées** indique le nombre total d’h
 
 Filtrez les données sur **Informations supplémentaires**, puis tapez votre **ID de réservation**. La capture d’écran suivante montre les champs associés à la réservation de capacité réservée SQL Database.
 
-![Fichier CSV pour la capacité réservée SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Capture d’écran montrant les détails d’un fichier C S V pour une capacité de réserve.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. **L’ID de réservation** dans le champ **Infos supplémentaires** représente la réservation de capacité réservée SQL Database appliquée à la ressource SQL Database.
 2. Le **compteur de consommation** représente l’ID du compteur de la ressource SQL Database.

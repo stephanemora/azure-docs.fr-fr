@@ -4,12 +4,12 @@ description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 84c888195ab7e2f3288691948706d31160393d25
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918912"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630217"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Démarrage rapide : Créer des alertes de journal d’activité sur les notifications de service à l’aide d’un modèle Resource Manager
 
@@ -51,19 +51,19 @@ Le modèle suivant crée un groupe d’actions avec une cible de messagerie et a
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
-      "defaultValue": "SubHealth",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "SubHealth"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "ServiceHealthActivityLogAlert",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "ServiceHealthActivityLogAlert"
     },
-    "emailAddress":{
-      "type":"string"
+    "emailAddress": {
+      "type": "string"
     }
   },
   "variables": {
-    "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
   },
   "resources": [
     {
@@ -72,8 +72,9 @@ Le modèle suivant crée un groupe d’actions avec une cible de messagerie et a
       "apiVersion": "2019-06-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,8 +86,7 @@ Le modèle suivant crée un groupe d’actions avec une cible de messagerie et a
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Service Health Activity Log Alert",
@@ -94,8 +94,11 @@ Le modèle suivant crée un groupe d’actions avec une cible de messagerie et a
       "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [
+        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+      ],
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
@@ -122,10 +125,7 @@ Le modèle suivant crée un groupe d’actions avec une cible de messagerie et a
         },
         "enabled": true,
         "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
+      }
     }
   ]
 }

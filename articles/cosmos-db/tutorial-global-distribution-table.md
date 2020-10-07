@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76900182"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568662"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API de table
 
@@ -34,7 +34,7 @@ Le SDK de l’API Table d’Azure Cosmos DB sélectionne automatiquement le poin
 
 * **Demandes de lecture :** Toutes les demandes de lecture sont envoyées à la `CurrentRegion` configurée. En fonction de la proximité, le SDK sélectionne automatiquement une région géorépliquée de secours pour la haute disponibilité.
 
-* **Demandes d’écriture :** Le SDK envoie automatiquement toutes les demandes d’écriture vers la région d’écriture active. Dans un compte multimaître, la région actuelle traite également les demandes d’écriture. En fonction de la proximité, le SDK sélectionne automatiquement une région géorépliquée de secours pour la haute disponibilité.
+* **Demandes d’écriture :** Le SDK envoie automatiquement toutes les demandes d’écriture vers la région d’écriture active. Dans un compte avec écritures multirégions, la région actuelle traite également les demandes d’écriture. En fonction de la proximité, le SDK sélectionne automatiquement une région géorépliquée de secours pour la haute disponibilité.
 
 Si vous ne spécifiez pas la propriété `CurrentRegion`, le SDK utilise la région d’écriture actuelle pour toutes les opérations.
 

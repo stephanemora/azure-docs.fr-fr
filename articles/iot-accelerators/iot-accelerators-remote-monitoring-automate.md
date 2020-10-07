@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712511"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539399"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Détecter des problèmes liés aux appareils connectés à votre solution de supervision
 
@@ -122,7 +122,7 @@ Vous pouvez activer et désactiver plusieurs règles en même temps en sélectio
 
 Pour supprimer définitivement une règle, vous pouvez la supprimer de la liste de règles. Sélectionnez la règle à supprimer, puis choisissez **Supprimer**.
 
-[![Suppression de règle](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Capture d’écran montrant la page « Règles » avec la fenêtre « Supprimer la règle » mise en évidence.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Après avoir confirmé la suppression de la règle, vous avez la possibilité de supprimer toutes les alertes associées à la règle à partir de la page **Maintenance**.
 

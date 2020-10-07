@@ -1,5 +1,5 @@
 ---
-title: Conditions de correspondance du moteur de règles Azure Front Door
+title: Conditions de correspondance des moteurs de règles Azure Front Door
 description: Cet article fournit la liste des différentes conditions de correspondance disponibles avec le moteur de règles Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531863"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569770"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure Front Door
 
 Dans le [moteur de règles AFD](front-door-rules-engine.md), une règle se compose de zéro, d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance que vous pouvez utiliser dans le moteur de règles AFD.
 
-La première partie d’une règle est une condition de correspondance ou un ensemble de conditions de correspondance. Une règle peut comporter jusqu’à 10 conditions de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles des actions définies sont exécutées. Si vous utilisez plusieurs conditions de correspondance, elles seront regroupées à l’aide de la logique AND. Pour toutes les conditions de correspondance qui prennent en charge plusieurs valeurs (indiquées ci-dessous comme « séparées par des espaces »), l’opérateur « OR » est supposé.
+La première partie d’une règle est une condition de correspondance ou un ensemble de conditions de correspondance. Une règle peut comporter jusqu’à 10 conditions de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles des actions définies sont effectuées. Si vous utilisez plusieurs conditions de correspondance, elles seront regroupées à l’aide de la logique AND. Pour toutes les conditions de correspondance qui prennent en charge plusieurs valeurs (indiquées comme « séparées par des espaces »), c’est l’opérateur « OR » qui est appliqué.
 
 Par exemple, vous pouvez utiliser une condition de correspondance pour les tâches suivantes :
 
@@ -84,7 +84,7 @@ Sans correspondance IP | Adresse IP (séparée par des espaces)
   - **Exemple IPv6** : *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* correspond aux requêtes qui proviennent de l’adresse 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - La syntaxe d’un bloc d’adresses IP est l’adresse IP de base suivie d’une barre oblique et de la taille de préfixe. Par exemple :
   - **Exemple IPv4** : *5.5.5.64/26* correspond aux requêtes qui proviennent des adresses 5.5.5.64 à 5.5.5.127.
-  - **Exemple IPv6** : *1:2:3:/48* correspond aux requêtes qui proviennent des adresses 1:2:3:0:0:0:0:0 à 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Exemple IPv6** : *1:2:3:/48* correspond aux requêtes qui proviennent des adresses 1:2:3:0:0:0:0:0 à 1:2:3: ffff:ffff:ffff:ffff:ffff.
 
 ## <a name="request-body"></a>Corps de la demande
 
@@ -204,11 +204,11 @@ Pour les règles qui acceptent les valeurs de la liste des opérateurs standard,
 - N’est pas supérieur à
 - N’est pas supérieur ou égal à
 
-Pour les opérateurs numériques tels que *Inférieur à* et *Supérieur ou égal à*, la comparaison utilisée est basée sur la longueur. Dans ce cas, la valeur de la condition de correspondance doit être un entier égal à la longueur que vous souhaitez comparer. 
+Pour les opérateurs numériques tels que *Inférieur à* et *Supérieur ou égal à*, la comparaison utilisée est basée sur la longueur. La valeur de la condition de correspondance doit être un entier égal à la longueur que vous voulez comparer. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment définir votre première [Configuration du moteur de règles](front-door-tutorial-rules-engine.md). 
+- Découvrez comment configurer votre premier [Moteur de règles](front-door-tutorial-rules-engine.md). 
 - En savoir plus sur les [Actions du moteur de règles](front-door-rules-engine-actions.md)
 - En savoir plus sur le [Moteur de règles Azure Front Door](front-door-rules-engine.md)

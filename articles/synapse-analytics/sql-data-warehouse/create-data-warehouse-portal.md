@@ -1,5 +1,5 @@
 ---
-title: Créer et interroger un pool SQL Synapse (portail Azure)
+title: 'Démarrage rapide : Créer et interroger un pool SQL Synapse (portail Azure)'
 description: Créer et interroger un pool SQL Synapse avec le portail Azure
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459383"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568972"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
 
@@ -78,7 +78,7 @@ Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données 
 
 7. Dans la barre d’outils, sélectionnez **Notifications** pour superviser le processus de déploiement.
 
-   ![notification](./media/create-data-warehouse-portal/notification.png)
+   ![Capture d’écran affichant les notifications avec le déploiement en cours.](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 

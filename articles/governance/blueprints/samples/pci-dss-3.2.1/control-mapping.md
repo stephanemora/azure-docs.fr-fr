@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint PCI-DSS v3.2.1
-description: Mappage des contrôles de l'exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 vers Azure Policy et RBAC.
+description: Mappage des contrôles de l'exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 vers Azure Policy et Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541643"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -63,7 +63,7 @@ Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’a
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a et 8.3.1.b Gestion des droits d’accès privilégié
 
-Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour gérer qui a accès aux ressources Azure. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL. L’utilisation de l’authentification Azure Active Directory simplifie la gestion des autorisations et centralise la gestion centralisée des identités des utilisateurs de bases de données et d’autres services  
+Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Le contrôle d’accès en fonction du rôle (Azure RBAC) pour gérer qui a accès aux ressources Azure. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL. L’utilisation de l’authentification Azure Active Directory simplifie la gestion des autorisations et centralise la gestion centralisée des identités des utilisateurs de bases de données et d’autres services  
 Microsoft.
  
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
@@ -77,7 +77,7 @@ Microsoft.
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 et 8.1.5 Privilège minimum et Revue des droits d’accès utilisateurs
 
-Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer les utilisateurs qui ont accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
@@ -87,7 +87,7 @@ Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous 
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Suppression ou adaptation des droits d’accès
 
-Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. Grâce à Azure Active Directory et RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer les utilisateurs qui ont accès aux ressources dans Azure. Grâce à Azure Active Directory et Azure RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
 - Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement

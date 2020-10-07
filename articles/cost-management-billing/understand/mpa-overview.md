@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 98941530ba0483e82f43af222e12df7439b6625e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688748"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447934"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft
 
@@ -55,7 +55,7 @@ Pour activer la stratégie :
 
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 
-   ![Capture d’écran montrant la recherche dans le portail Azure](./media/mpa-overview/search-cmb.png)
+   ![Capture d’écran montrant la recherche de « gestion des coûts + facturation » dans le Portail Azure.](./media/mpa-overview/search-cmb.png)
 
 1. Sélectionnez **Clients** dans la partie gauche, puis sélectionnez un client dans la liste.
 

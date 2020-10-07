@@ -4,15 +4,15 @@ description: Dans ce guide de démarrage rapide, vous créez un labo dans Azure 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653951"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461187"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Démarrage rapide : Configurer un labo à l’aide d’un modèle ARM Azure DevTest Labs
-Dans ce guide de démarrage rapide, vous allez créer un labo avec une machine virtuelle Windows Server 2019 Datacenter à l’aide d’un modèle Azure Resource Manager (ARM). 
+Dans ce guide de démarrage rapide, vous allez créer un labo avec une machine virtuelle Windows Server 2019 Datacenter à l’aide d’un modèle Azure Resource Manager (modèle ARM). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -65,16 +65,16 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 1. Sélectionnez **Notifications** en haut pour afficher l’état du déploiement, puis cliquez sur le lien **Déploiement en cours**.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notification de déploiement":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Page Modèle de déploiement":::
 2. Sur la page **Déploiement - Vue d’ensemble**, attendez que le déploiement soit terminé. Cette opération (en particulier la création d’une machine virtuelle) prend un certain temps. Ensuite, sélectionnez **Accéder au groupe de ressources** ou le **nom du groupe de ressources**, comme montré dans l’image suivante : 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Accéder au groupe de ressources":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Page Modèle de déploiement":::
 3. Sur la page **Groupe de ressources**, la liste des ressources du groupe de ressources est affichée. Vérifiez que vous voyez votre labo de type `DevTest Lab` dans les ressources. Vous voyez également les ressources dépendantes, telles que le réseau virtuel et la machine virtuelle dans le groupe de ressources. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Page d’accueil du groupe de ressources":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Page Modèle de déploiement":::
 4. Sélectionnez votre labo dans la liste des ressources pour afficher la page d’accueil de votre laboratoire. Vérifiez que la machine virtuelle Windows Server 2019 Datacenter est visible dans la liste **Mes machines virtuelles**. Dans l’image suivante, la section **Essentials** est réduite. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Page d’accueil du laboratoire":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Page Modèle de déploiement":::
 
     > [!IMPORTANT] 
     > Gardez cette page ouverte et suivez les instructions de la section suivante pour nettoyer les ressources et ainsi éviter les coûts d’exécution du laboratoire et de la machine virtuelle sur Azure. Si vous souhaitez suivre le tutoriel suivant pour tester l’accès à la machine virtuelle dans le laboratoire, nettoyez les ressources seulement après. 
@@ -83,14 +83,14 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 1. Tout d’abord, supprimez le laboratoire pour pouvoir supprimer le groupe de ressources. Vous ne pouvez pas supprimer un groupe de ressources dans lequel se trouve un laboratoire. Pour supprimer le labo, sélectionnez **Supprimer** dans la barre d’outils. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Bouton de suppression d’un labo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Page Modèle de déploiement":::
  2. Dans la page de confirmation, tapez le **nom du labo**, puis sélectionnez **Supprimer**. 
  3. Patientez jusqu’à la suppression du laboratoire. Sélectionnez l’icône de la **cloche** pour afficher la notification de l’opération de suppression. Ce processus prend un certain temps. Confirmez la suppression du laboratoire, puis sélectionnez le **groupe de ressources** dans le menu de navigation. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirmation de la suppression de la machine virtuelle dans les notifications":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Page Modèle de déploiement":::
  1. Sur la page **Groupe de ressources**, sélectionnez **Supprimer un groupe de ressources** dans la barre d’outils. Dans le volet de confirmation, tapez le **nom du groupe de ressources**, puis sélectionnez **Supprimer**. Contrôlez les notifications pour vérifier que le groupe de ressources est supprimé.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Bouton Supprimer le groupe de ressources":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Page Modèle de déploiement":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans le cadre de ce guide de démarrage rapide, vous avez créé un labo avec une machine virtuelle. Pour savoir comment accéder au laboratoire, passer au tutoriel suivant :

@@ -4,19 +4,19 @@ description: Créez une base de données dans Azure SQL Database ou Azure SQL Ma
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: migrate
-ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 574bc4721f83d60fdd8c75b4fedb824522968822
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ec3da815a9ca3e55fd65f1f0a64a81b74c6d2979
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070042"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613745"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Importer un fichier BACPAC Ruby dans une base de données dans Azure SQL Database ou Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,6 +147,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - L’importation dans une base de données d’un pool élastique n’est pas prise en charge. Vous pouvez importer les données dans une base de données unique, puis déplacer cette dernière vers le pool élastique.
 - Le service d’importation/exportation ne fonctionne pas lorsque Autoriser l’accès aux services Azure est défini sur DÉSACTIVÉ. Toutefois, vous pouvez contourner le problème en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation directement dans votre code à l’aide de l’API DACFx.
+- L’importation ne prend pas en charge la spécification d’une redondance de stockage de sauvegarde lors de la création d’une base de données et la création s’effectue avec la redondance de stockage de sauvegarde géo-redondante par défaut. Pour contourner ce problème, commencez par créer une base de données vide avec la redondance de stockage de sauvegarde souhaitée à l’aide de Portail Azure ou PowerShell, puis importez le BACPAC dans cette base de données vide. 
+
+> [!NOTE]
+> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion publique dans la région Azure Asie Sud-Est uniquement.
 
 ## <a name="import-using-wizards"></a>Importer à l’aide d’Assistants
 

@@ -1,20 +1,21 @@
 ---
-title: Guide de démarrage rapide - Générer et exécuter une image conteneur
-description: Exécutez rapidement des tâches avec Azure Container Registry pour générer et exécuter une image conteneur Docker à la demande, dans le cloud.
+title: 'Démarrage rapide : créer une image conteneur à la demande dans Azure'
+description: Utilisez les commandes Azure Container Registry pour générer, envoyer (push) et exécuter rapidement une image conteneur Docker à la demande, dans le cloud Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753703"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538204"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 
-Dans ce guide de démarrage rapide, vous utilisez des commandes Azure Container Registry Tasks pour générer, envoyer (push) et exécuter rapidement une image conteneur Docker en mode natif dans Azure, en montrant comment décharger votre cycle de développement « interne » vers le cloud. [ACR Tasks][container-registry-tasks-overview] est une suite de fonctionnalités dans Azure Container Registry qui vous aide à gérer et à modifier des images conteneur tout au long du cycle de vie du conteneur. 
+Dans ce guide de démarrage rapide, vous avez utilisé les commandes [Azure Container Registry Tasks][container-registry-tasks-overview] pour générer, envoyer (push) et exécuter rapidement une image conteneur Docker en mode natif dans Azure, sans installation Docker locale. ACR Tasks est une suite de fonctionnalités dans Azure Container Registry qui vous aide à gérer et à modifier des images conteneur tout au long du cycle de vie du conteneur. Cet exemple montre comment décharger le cycle de développement d’image de conteneur « boucle interne » dans le cloud avec des builds à la demande à l’aide d’un Dockerfile local. 
 
-Après avoir suivi ce guide de démarrage rapide, explorez les fonctionnalités plus avancées d’ACR Tasks. ACR Tasks peut automatiser les builds d’image en fonction de commits de code ou de mises à jour de l’image de base, ou tester plusieurs conteneurs, en parallèle, entre autres scénarios. 
+Après avoir suivi ce guide de démarrage rapide, explorez les fonctionnalités plus avancées d’ACR Tasks à l’aide des [tutoriels](container-registry-tutorial-quick-task.md). ACR Tasks peut automatiser les builds d’image en fonction de commits de code ou de mises à jour de l’image de base, ou tester plusieurs conteneurs, en parallèle, entre autres scénarios. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-account] avant de commencer.
 
@@ -45,7 +46,7 @@ Cet exemple crée un registre *De base*, option économique pour les développeu
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Générer et envoyer (push) une image à partir d’un Dockerfile
 
-Maintenant, utilisez Azure Container Registry pour générer et envoyer (push) une image. Tout d’abord, créez un répertoire de travail, puis un Dockerfile nommé *Dockerfile* avec la ligne unique : `FROM hello-world`. Il s’agit d’un exemple simple de création d’une image conteneur Linux à partir de l’image `hello-world` dans Docker Hub. Vous pouvez créer votre propre Dockerfile standard et générer des images pour d’autres plateformes. Si vous utilisez un interpréteur de commandes bash, créez le Dockerfile à l’aide de la commande suivante :
+Maintenant, utilisez Azure Container Registry pour générer et envoyer (push) une image. Tout d’abord, créez un répertoire de travail local, puis un Dockerfile nommé *Dockerfile* avec la ligne unique : `FROM hello-world`. Il s’agit d’un exemple simple de création d’une image conteneur Linux à partir de l’image `hello-world` dans Docker Hub. Vous pouvez créer votre propre Dockerfile standard et générer des images pour d’autres plateformes. Si vous utilisez un interpréteur de commandes bash, créez le Dockerfile à l’aide de la commande suivante :
 
 ```bash
 echo FROM hello-world > Dockerfile

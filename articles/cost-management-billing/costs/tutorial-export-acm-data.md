@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683264"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447605"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -91,9 +91,9 @@ Les exportations pour les groupes d’administration d’autres types d’abonne
 
 1. Si vous n'avez pas encore créé de groupe d'administration, créez-en un et attribuez-lui des abonnements.
 1. Dans l'analyse des coûts, définissez l'étendue de votre groupe d'administration et sélectionnez **Sélectionner ce groupe d'administration**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exemple illustrant l'option Sélectionner ce groupe d'administration" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Nouvel exemple d'exportation" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Créez une exportation selon l’étendue pour obtenir les données de gestion des coûts pour les abonnements dans le groupe d’administration.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemple illustrant l'option Créer une exportation avec l'étendue Groupe d'administration":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Nouvel exemple d'exportation":::
 
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
 
@@ -128,11 +128,11 @@ Vous pouvez également télécharger le fichier CSV exporté dans le Portail Azu
 
 Vous pouvez consulter l'historique d'exécution de votre exportation planifiée en sélectionnant une exportation individuelle sur la page répertoriant les exportations. La page contenant la liste des exportations vous permet également d'accéder rapidement à la durée d'exécution de vos exportations précédentes et de savoir quand la prochaine exportation aura lieu. Voici un exemple illustrant l'historique des exécutions.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exemple d'historique des exécutions des exportations":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Nouvel exemple d'exportation":::
 
 Sélectionnez une exportation pour afficher l'historique des exécutions de celle-ci.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exemple d'historique des exécutions des exportations":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Nouvel exemple d'exportation":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Accéder à des données exportées à partir d’autres systèmes
 

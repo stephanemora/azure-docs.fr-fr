@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540279"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530066"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutoriel : Établir l’accès privé aux sites avec Azure Functions
 
@@ -73,7 +73,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
 1. Choisissez l’onglet _Mise en réseau_ et sélectionnez **Créer nouveau** pour configurer un nouveau réseau virtuel.
 
     >[!div class="mx-imgBorder"]
-    >![Créer un réseau virtuel pour la nouvelle machine virtuelle](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Capture d’écran montrant l’onglet « Réseau » avec l’action « Créer nouveau » mise en évidence dans la section « Réseau virtuel ».](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. Dans _Créer un réseau virtuel_, utilisez les paramètres figurant dans le tableau sous l’image :
 

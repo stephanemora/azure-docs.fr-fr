@@ -1,28 +1,28 @@
 ---
-title: Connecter l’exemple de code d’appareil C IoT Plug-and-Play en préversion à IoT Hub | Microsoft Docs
-description: Créez et exécutez l’exemple de code pour appareil IoT Plug-and-Play en préversion sur Linux ou Windows qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Connecter un exemple de code C pour appareil IoT Plug-and-Play à IoT Hub | Microsoft Docs
+description: Créez et exécutez un exemple de code pour appareil IoT Plug-and-Play sur Linux ou Windows, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: afe7396ebdada97b9311d0afe903f40757084586
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426110"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577065"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion sur Linux ou Windows à IoT Hub (C)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play s’exécutant sur Linux ou Windows à IoT Hub (C)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Ce guide de démarrage rapide vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play, comment le connecter à votre hub IoT et comment utiliser l’outil Explorateur Azure IoT pour afficher les données de télémétrie qu’il envoie. L’exemple d’application est écrit en C et est inclus dans le Azure IoT device SDK pour C. Un générateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir à afficher de code d’appareil.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Vous pouvez exécuter ce guide de démarrage rapide sur Linux ou Windows. Dans ce guide de démarrage rapide, les commandes de l’interpréteur de commandes suivent la convention Linux pour les séparateurs de chemin « `/` » ; si vous suivez ce guide sur Windows, veillez à remplacer ces séparateurs par « `\` ».
 
@@ -52,32 +52,9 @@ gcc --version
 
 Pour suivre ce guide de démarrage rapide sur Windows, vous devez installer les logiciels suivants sur votre environnement Windows :
 
-* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) : veillez à inclure la charge de travail **Développement Desktop en C++** quand vous [installez](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
+* [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) : veillez à inclure la charge de travail **Développement Desktop en C++** quand vous [installez](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
-
-### <a name="azure-iot-explorer"></a>Explorateur Azure IoT
-
-Pour interagir avec l’exemple d’appareil dans la deuxième partie de ce guide de démarrage rapide, vous utilisez l’outil **Explorateur Azure IoT**. [Téléchargez et installez la dernière version de l’Explorateur Azure IoT](./howto-use-iot-explorer.md) pour votre système d’exploitation.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion IoT Hub_ pour votre hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Vous pouvez également utiliser l’outil Explorateur Azure IoT pour rechercher la chaîne de connexion du hub IoT.
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous avez ajouté au hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Téléchargement du code
 
@@ -108,7 +85,7 @@ Vous utilisez le kit de développement logiciel (SDK) de l’appareil pour crée
 1. Exécutez les commandes suivantes pour générer le SDK et les exemples :
 
     ```cmd\bash
-    cmake ..
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```
 
@@ -117,12 +94,11 @@ Vous utilisez le kit de développement logiciel (SDK) de l’appareil pour crée
 
 ## <a name="run-the-device-sample"></a>Exécuter l’exemple d’appareil
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
+
 Pour exécuter l’exemple d’application dans le SDK qui simule un appareil IoT Plug-and-Play envoyant des données de télémétrie à votre hub IoT :
-
-Créez deux variables d’environnement pour configurer l’exemple afin qu’il utilise une chaîne de connexion pour se connecter à votre hub IoT :
-
-- **IOTHUB_DEVICE_SECURITY_TYPE** avec la valeur `"connectionString"`
-- **IOTHUB_DEVICE_CONNECTION_STRING** pour stocker la chaîne de connexion à l’appareil que vous avez notée précédemment.
 
 Dans le dossier _cmake_, accédez au dossier qui contient le fichier exécutable et exécutez-le :
 
@@ -177,8 +153,6 @@ Le code utilise la bibliothèque Parson pour analyser les objets JSON dans les c
 // JSON parser
 #include "parson.h"
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

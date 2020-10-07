@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71309514"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542493"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Que sont les accélérateurs de solution IoT ?
 
@@ -46,7 +46,7 @@ Utilisez l’[accélérateur de solution Fabrique connectée](iot-accelerators-c
 
 Vous pouvez utiliser le tableau de bord d’usine connectée pour surveiller et gérer vos appareils industriels :
 
-[![Tableau de bord de la solution Usine connectée](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Capture d’écran montrant le tableau de bord de la solution d’usine connectée." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### <a name="predictive-maintenance"></a>Maintenance prédictive
 
@@ -54,7 +54,7 @@ Utilisez l’[accélérateur de solution Maintenance prédictive](iot-accelerato
 
 Vous pouvez utiliser le tableau de bord de maintenance prédictive pour afficher l’analytique de maintenance prédictive :
 
-[![Tableau de bord de la solution Usine connectée](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Capture d’écran montrant le tableau de bord de la solution d’usine connectée." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### <a name="device-simulation"></a>Simulation d’appareil
 

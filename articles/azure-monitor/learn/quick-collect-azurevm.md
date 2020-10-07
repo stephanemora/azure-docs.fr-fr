@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067544"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448258"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Collecter des données à partir d’une machine virtuelle Azure avec Azure Monitor
 
@@ -87,7 +87,7 @@ Azure Monitor est capable de collecter les événements des journaux des événe
 
 7. Quand vous procédez à la configuration initiale des compteurs de performances Windows pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.
 
-    ![Compteurs de performances Windows par défaut sélectionnés](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Capture d’écran du volet Compteurs de performances Windows, avec une liste des compteurs sélectionnés et le bouton Ajouter les compteurs de performances sélectionnés sélectionné.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Sélectionnez **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.
   
@@ -107,7 +107,7 @@ Azure Monitor est capable de collecter les événements des journaux des événe
 
 6. Quand vous procédez à la configuration initiale des compteurs de performances Linux pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.
 
-    ![Compteurs de performances Windows par défaut sélectionnés](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Capture d’écran du volet Compteurs de performances Linux, avec une liste des compteurs sélectionnés et le bouton Ajouter les compteurs de performances sélectionnés sélectionné.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Sélectionnez **Appliquer la configuration ci-dessous à mes machines**, puis **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.  
 

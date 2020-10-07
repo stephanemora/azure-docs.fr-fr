@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460592"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Bien démarrer avec l’exemple de bannière d’appel de groupe
 
@@ -30,7 +30,7 @@ L’**exemple de bannière d’appel de groupe** Azure Communication Services il
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
 > [!IMPORTANT]
-> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -42,11 +42,11 @@ Voici à quoi ressemble l’exemple :
 
 Lorsque vous appuyez sur le bouton « Start a call » (Démarrer un appel), l’application web récupère un jeton d’accès utilisateur à partir de l’application côté serveur. Ce jeton est ensuite utilisé pour connecter l’application cliente à Azure Communication Services. Une fois le jeton récupéré, vous êtes invité à spécifier la caméra et le microphone que vous souhaitez utiliser. Vous pouvez désactiver/activer vos appareils avec des bascules :
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Capture d’écran montrant l’écran de pré-appel de l’exemple d’application.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
 
 Une fois que vous avez configuré votre nom d’affichage et vos appareils, vous pouvez rejoindre la session d’appel. Vous voyez à présent le canevas d’appel principal où réside l’expérience d’appel de base.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Capture d’écran montrant l’écran principal de l’exemple d’application.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
 
 Composants de l’écran principal d’appel :
 
@@ -54,14 +54,14 @@ Composants de l’écran principal d’appel :
 - **En-tête**: il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
 - **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
 
-Vous trouverez ci-dessous des informations supplémentaires sur les prérequis, les étapes de configuration de l’exemple et des tutoriels pas à pas pour vous aider à vous familiariser avec ses différents composants.
+Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Créer un compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 et versions ultérieures)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 et versions ultérieures)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Veillez à installer la version qui correspond à votre instance de Visual Studio, 32 ou 64 bits)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Veillez à installer la version qui correspond à votre instance de Visual Studio, 32 ou 64 bits.)
 - Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../quickstarts/create-communication-resource.md). Vous devez noter la **chaîne de connexion** de votre ressource pour ce guide de démarrage rapide
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Déploiement local du service et des applications clientes
@@ -72,23 +72,17 @@ Lorsque nous souhaitons le déployer localement, nous devons démarrer les deux 
 
 Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navigateur avec l’URL de votre appel afin de simuler un appel multi-utilisateur.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Avant d’exécuter l’exemple pour la première fois
+## <a name="before-running-the-sample-for-the-first-time"></a>Avant d’exécuter l’exemple pour la première fois
 
 1. Ouvrez une instance de PowerShell, de Terminal Windows, une invite de commandes ou équivalent, puis accédez au répertoire dans lequel vous souhaitez cloner l’exemple.
-2. `git clone`
-3. Accédez au **dossier Calling/ClientApp** et exécutez `npm run setup`.
-   1. Si vous voyez une erreur 1, consultez la sortie ci-dessus pour obtenir une URL à laquelle vous devrez accéder afin d’autoriser votre client. (L’URL se présente comme suit : `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`) Une fois cette URL ouverte dans un navigateur, copiez la commande à partir de la fenêtre du navigateur et exécutez-la.
-   2. Réexécutez la commande `npm run setup-vsts-auth` une fois que vous avez terminé l’étape précédente.
-4. Obtenez la `Connection String` à partir du portail Azure. Pour plus d’informations sur les chaînes de connexion, consultez [Créer des ressources Azure Communication Services](../quickstarts/create-communication-resource.md).
-5. Une fois que vous avez obtenu la chaîne de connexion, ajoutez-la au fichier **Calling/appsetting.json** qui se trouve sous le dossier Service .NET. Entrez votre chaîne de connexion dans la variable : `ResourceConnectionString`.
+2. `git clone https://github.com/Azure/Communication.git`
+3. Obtenez la `Connection String` à partir du portail Azure. Pour plus d’informations sur les chaînes de connexion, consultez [Créer des ressources Azure Communication Services](../quickstarts/create-communication-resource.md).
+4. Une fois que vous avez obtenu la `Connection String`, ajoutez-la au fichier **Calling/appsetting.json** qui se trouve sous le dossier Service .NET. Entrez votre chaîne de connexion dans la variable : `ResourceConnectionString`.
 
 ### <a name="local-run"></a>Exécution locale
 
-1. Accéder au dossier Calling
-2. Ouvrez la solution `Calling.csproj` dans Visual Studio.
-2. Exécutez le projet `Calling`.*
-
-*Le navigateur s’ouvre sur `localhost:5000` (où le nœud déploie l’application cliente). L’application n’est pas prise en charge sur Internet Explorer.
+1. Accédez au dossier Calling et ouvrez la solution `Calling.csproj` dans Visual Studio.
+2. Exécutez le projet `Calling`. Le navigateur s’ouvre à localhost:5001.
 
 #### <a name="troubleshooting"></a>Dépannage
 
@@ -104,9 +98,12 @@ Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navig
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+>[!div class="nextstepaction"] 
+>[Télécharger l’exemple à partir de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 Pour plus d’informations, consultez les articles suivants :
 
@@ -116,7 +113,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 
-- [Azure Communication Preview](https://github.com/Azure/communication-preview) - Pour en savoir plus sur le kit SDK web d’appel
+- [Azure Communication GitHub](https://github.com/Azure/communication) : Autres exemples et informations dans la page GitHub officielle
 - [Redux](https://redux.js.org/) - Gestion de l’état côté client
 - [FluentUI](https://developer.microsoft.com/fluentui#/) - Bibliothèque d’interface utilisateur, Technologie Microsoft
 - [React](https://reactjs.org/) - Bibliothèque pour la création d’interfaces utilisateur

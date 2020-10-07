@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
 ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f2de6ce52870417eab1c74333dfce2905317e73d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798531"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531681"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 
@@ -59,7 +59,7 @@ Tout d’abord, pour obtenir des informations sur les opérations et fonctions q
 
 ## <a name="permissions-in-azure-resource-graph"></a>Autorisations dans Azure Resource Graph
 
-Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC), avec au moins un accès en lecture aux ressources à interroger. Sans au moins une `read` autorisation pour l’objet Azure ou un groupe d’objets, les résultats ne seront pas renvoyés.
+Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md), avec au moins un accès en lecture aux ressources à interroger. Sans au moins une `read` autorisation pour l’objet Azure ou un groupe d’objets, les résultats ne seront pas renvoyés.
 
 > [!NOTE]
 > Resource Graph utilise les abonnements disponibles pour un principal lors de la connexion. Pour afficher les ressources d’un nouvel abonnement ajouté pendant une session active, le principal doit actualiser le contexte. Cette action se produit automatiquement quand vous vous déconnectez puis vous reconnectez.

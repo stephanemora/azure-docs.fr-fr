@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399971"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530729"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -116,7 +116,7 @@ Si les utilisateurs ont besoin d’aide supplémentaire avec le processus SSPR, 
 Avec l’option SSPR activée et configurée, testez le processus SSPR avec un utilisateur qui fait partie du groupe que vous avez sélectionné dans la section précédente, par exemple *Test-SSPR-Group*. Dans l’exemple suivant, le compte *testuser* est utilisé. Spécifiez votre propre compte d’utilisateur qui fait partie du groupe que vous avez activé pour SSPR dans la première section de ce tutoriel.
 
 > [!NOTE]
-> Quand vous testez la réinitialisation de mot de passe en libre-service, utilisez un compte non-administrateur. Les administrateurs bénéficient toujours du libre-service pour la réinitialisation de leur mot de passe, et doivent utiliser deux méthodes d’authentification pour réinitialiser leur mot de passe.
+> Quand vous testez la réinitialisation de mot de passe en libre-service, utilisez un compte non-administrateur. Par défaut, les administrateurs bénéficient du libre-service pour la réinitialisation de leur mot de passe, et doivent utiliser deux méthodes d’authentification pour réinitialiser leur mot de passe. Pour plus d’informations, consultez [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Pour voir le processus d’inscription manuelle, ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en mode de navigation privée, et accédez à [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Les utilisateurs doivent être redirigés vers ce portail d’inscription lors de leur prochaine connexion.
 1. Connectez-vous avec un utilisateur test non-administrateur, par exemple *testuser*, et inscrivez vos informations de contact pour les méthodes d’authentification.

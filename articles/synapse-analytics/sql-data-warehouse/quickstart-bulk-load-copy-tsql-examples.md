@@ -4,17 +4,17 @@ description: Décrit les mécanismes d’authentification pour charger des donn�
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603887"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569470"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
@@ -76,7 +76,7 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 3. Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Étapes
 
-1. Dans PowerShell, **inscrivez votre serveur SQL** auprès d’Azure Active Directory (AAD) :
+1. Dans PowerShell, **inscrivez votre serveur SQL** auprès d’Azure Active Directory :
 
    ```powershell
    Connect-AzAccount
@@ -110,10 +110,10 @@ L’authentification de l’identité managée est requise lorsque votre compte 
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. Authentification Azure Active Directory (AAD)
+## <a name="d-azure-active-directory-authentication"></a>D. Authentification Azure Active Directory
 #### <a name="steps"></a>Étapes
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure **Propriétaire, Contributeur ou Lecteur des données Blob du stockage** à votre utilisateur AAD. 
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure **Propriétaire, Contributeur ou Lecteur des données Blob du stockage** à votre utilisateur Azure AD. 
 
     > [!IMPORTANT]
     > Spécifiez le rôle Azure Propriétaire, Contributeur ou Lecteur des **données Blob** de **stockage**. Ces rôles sont différents des rôles Azure intégrés Propriétaire, Collaborateur et Lecteur.
@@ -136,11 +136,11 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 ## <a name="e-service-principal-authentication"></a>E. Authentification d’un principal de service
 #### <a name="steps"></a>Étapes
 
-1. [Créer une application Azure Active Directory (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Créez une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 2. [Obtenir l’ID de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [Obtenir la clé d'authentification](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [Obtenir le point de terminaison de jeton OAuth 2.0 V1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Affecter des autorisations de lecture, d’écriture et d’exécution à votre application AAD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) sur votre compte de stockage
+5. [Affecter des autorisations de lecture, d’écriture et d’exécution à votre application Azure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) sur votre compte de stockage
 6. Vous pouvez maintenant exécuter l’instruction COPY :
 
     ```sql

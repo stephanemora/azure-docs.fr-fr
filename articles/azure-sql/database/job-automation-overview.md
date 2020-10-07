@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436780"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450345"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -249,7 +249,7 @@ L’**exemple 3** montre un groupe cible similaire à l’*exemple 2*, mais une 
 L’**exemple 4** montre un groupe cible qui contient un pool élastique comme cible. Semblable à *exemple 2*, le pool est énuméré dynamiquement à l’exécution du travail pour déterminer la liste des bases de données dans le pool.
 <br><br>
 
-![Exemples de groupe cible](./media/job-automation-overview/targetgroup-examples2.png)
+![Exemples de groupes cibles supplémentaires](./media/job-automation-overview/targetgroup-examples2.png)
 
 L’**exemple 5** et l’**exemple 6** montrent des scénarios avancés où les serveurs, les pools élastiques et les bases de données peuvent être combinés avec des règles d’inclusion et d’exclusion.<br>
 L’**exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.

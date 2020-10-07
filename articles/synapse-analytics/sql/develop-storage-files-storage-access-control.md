@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987135"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449458"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -53,7 +53,7 @@ Vous pouvez obtenir un jeton SAS en accédant au **portail Azure -> Compte de 
 >
 > Jeton SAS : ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-Vous devez créer des informations d’identification incluses dans l’étendue de la base de données ou du serveur pour autoriser l’accès à l’aide du jeton SAP.
+Pour autoriser l’accès à l’aide du jeton SAP, vous devez créer des informations d’identification incluses dans l’étendue de la base de données ou du serveur 
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Prise en charge        | Prise en charge     |
 | [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Prise en charge\*      | Prise en charge\*        | Prise en charge\*     |
 
-\* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
+\* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
 
 > [!IMPORTANT]
 > Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
@@ -119,7 +119,7 @@ Pour rendre l’expérience de pass-through Azure AD plus fluide, tous les util
 
 ## <a name="server-scoped-credential"></a>Informations d’identification incluses dans l’étendue du serveur
 
-Les informations d’identification incluses dans l’étendue du serveur sont utilisées lorsque la connexion SQL appelle la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour lire des fichiers sur un compte de stockage. Le nom des informations d’identification incluses dans l’étendue du serveur **doit** correspondre à l’URL du stockage Azure. Les informations d’identification sont ajoutées par l’exécution de [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Vous devez fournir un argument CREDENTIAL NAME. Il doit correspondre à une partie du chemin ou au chemin complet des données situées dans le stockage (voir ci-dessous).
+Les informations d’identification incluses dans l’étendue du serveur sont utilisées lorsque la connexion SQL appelle la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour lire des fichiers sur un compte de stockage. Le nom des informations d’identification incluses dans l’étendue du serveur **doit** correspondre à l’URL du stockage Azure. Les informations d’identification sont ajoutées par l’exécution de [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Vous devez fournir un argument CREDENTIAL NAME. Il doit correspondre à une partie du chemin ou au chemin complet des données situées dans le stockage (voir ci-dessous).
 
 > [!NOTE]
 > L’argument `FOR CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge.
@@ -138,7 +138,7 @@ Les informations d’identification informations d’identification incluses dan
 
 Les utilisateurs Azure AD peuvent accéder à n’importe quel fichier sur le stockage Azure s’ils disposent du rôle `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Les utilisateurs Azure AD n’ont pas besoin d’informations d’identification pour accéder au stockage. 
 
-Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
+Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
@@ -170,7 +170,7 @@ Les informations d’identification incluses dans l’étendue de la base de don
 
 ## <a name="database-scoped-credential"></a>Informations d’identification incluses dans l’étendue de la base de données
 
-Les informations d’identification incluses dans l’étendue de la base de données sont utilisées quand un principal appelle la fonction `OPENROWSET` avec le paramètre `DATA_SOURCE` ou sélectionne des données d’une [table externe](develop-tables-external-tables.md) qui n’accèdent pas aux fichiers publics. Les informations d’identification incluses dans l’étendue de la base de données ne doivent pas nécessairement correspondre au nom du compte de stockage, car elles seront utilisées de manière explicite dans la SOURCE DE DONNÉES qui définit l’emplacement de stockage.
+Les informations d’identification incluses dans l’étendue de la base de données sont utilisées quand un principal appelle la fonction `OPENROWSET` avec le paramètre `DATA_SOURCE` ou sélectionne des données d’une [table externe](develop-tables-external-tables.md) qui n’accèdent pas aux fichiers publics. Les informations d’identification incluses dans l’étendue de la base de données ne doivent pas nécessairement correspondre au nom du compte de stockage. Elles seront utilisées de manière explicite dans la SOURCE DE DONNÉES qui définit l’emplacement du stockage.
 
 Les informations d’identification informations d’identification incluses dans l’étendue de la base de données permettent d’accéder au stockage Azure à l’aide des types d’authentification suivants :
 
@@ -184,7 +184,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
+Les utilisateurs SQL ne peuvent pas utiliser l’authentification Azure AD pour accéder au stockage.
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
@@ -268,7 +268,7 @@ L’utilisateur de base de données peut lire le contenu des fichiers à partir 
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +314,7 @@ L’utilisateur de base de données peut lire le contenu des fichiers à partir 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

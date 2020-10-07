@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076784"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565086"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utilisez les disques avec un groupe de machines virtuelles identiques à l’aide de Azure PowerShell
 
@@ -87,6 +87,8 @@ Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par d
 
 ## <a name="create-and-attach-disks"></a>Créer et attacher des disques
 Vous pouvez créer et attacher des disques lorsque vous créez un groupe identique, ou avec un groupe identique existant.
+
+À compter de la version `2019-07-01` de l’API, vous pouvez définir la taille du disque du système d’exploitation dans un groupe de machines virtuelles identiques avec la propriété [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Après le provisionnement, il peut être nécessaire d’étendre ou de repartitionner le disque pour utiliser tout l’espace. Découvrez plus en détail [l’extension du disque ici](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Attacher des disques lors de la création d’un groupe identique
 Créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). Lorsque vous y êtes invité, saisissez un nom d’utilisateur et le mot de passe correspondant pour les instances de machine virtuelle. Pour distribuer le trafic aux différentes instances de machine virtuelle, un équilibreur de charge est également créé. L’équilibreur de charge inclut des règles pour distribuer le trafic sur le port TCP 80, ainsi que pour autoriser le trafic Bureau à distance sur le port TCP 3389 et le trafic Accès distant PowerShell sur le port TCP 5985.

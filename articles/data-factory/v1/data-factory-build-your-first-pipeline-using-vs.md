@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: f3c6364226288ffb6796664e89d0b7c2cc4dadf6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543144"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569065"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -91,7 +91,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 #### <a name="create-azure-storage-linked-service"></a>Créer le service lié Stockage Azure
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.      
 2. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**.
-    ![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    ![Capture d’écran mettant en évidence le service lié Stockage Azure dans la liste.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. Remplacez `<accountname>` et `<accountkey>` par le nom de votre compte de stockage Azure et par sa clé. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
     ![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Enregistrez le fichier **AzureStorageLinkedService1.json** .
@@ -368,7 +368,7 @@ Au cours de cette étape, vous allez surveiller le pipeline à l’aide de la Vu
 7. Cliquez sur **X** pour fermer le panneau **AzureBlobInput**.
 8. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. La tranche est en cours de traitement.
 
-   ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![Capture d’écran mettant en évidence le jeu de données AzureBlobOutput.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quand le traitement est terminé, l’état de la tranche est **Prêt** .
 
    > [!IMPORTANT]

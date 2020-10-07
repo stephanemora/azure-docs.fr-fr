@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005616"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542034"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutoriel : Créer un locataire dans Windows Virtual Desktop (classique)
 
@@ -126,7 +126,7 @@ Pour trouver votre ID d’abonnement Azure :
 1. Dans la même session du [Portail Azure](https://portal.azure.com), recherchez et sélectionnez **Abonnements**.
 
    > [!div class="mx-imgBorder"]
-   > ![Capture d’écran des résultats de la recherche « Azure Active Directory » sur le Portail Azure : résultat de la recherche sous « Services » mis en surbrillance](../media/tenant-search-subscription.png)
+   > ![Capture d’écran des résultats de la recherche « Azure Active Directory » sur le Portail Azure : Le résultat de la recherche sur « Services » est mis en surbrillance.](../media/tenant-search-subscription.png)
 
 2. Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour recevoir les notifications de service Windows Virtual Desktop.
 3. Recherchez **ID d’abonnement**, puis pointez sur la valeur jusqu’à ce qu’une icône de Presse-papiers s’affiche. Sélectionnez l’icône de Presse-papiers et collez l’ID dans un emplacement pratique pour pouvoir l’utiliser plus tard comme valeur de **AzureSubscriptionId**.

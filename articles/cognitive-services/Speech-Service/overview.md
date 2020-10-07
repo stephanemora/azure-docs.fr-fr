@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 2277c054be3e0649d48350b21eb9add2a1e52e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282865"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630200"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -29,10 +29,10 @@ Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plu
 | Service | Fonctionnalité | Description | Kit SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale en temps réel | La reconnaissance vocale transcrit ou traduit en temps réel des fichiers locaux ou des flux audio en texte que vos applications, outils ou appareils peuvent consommer ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Reconnaissance vocale par lots](batch-transcription.md) | Transcrit de manière asynchrone la reconnaissance vocale de grandes quantités de données audio stockées dans Stockage Blob Azure. En plus de convertir l’audio en texte, la reconnaissance vocale par lots permet également d’effectuer la diarisation et l’analyse des sentiments. | Non | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Reconnaissance vocale par lots](batch-transcription.md) | Transcrit de manière asynchrone la reconnaissance vocale de grandes quantités de données audio stockées dans Stockage Blob Azure. En plus de convertir l’audio en texte, la reconnaissance vocale par lots permet également d’effectuer la diarisation et l’analyse des sentiments. | Non | [Oui](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Conversation multi-appareil](multi-device-conversation.md) | Connecter plusieurs appareils ou clients dans une conversation pour envoyer des messages vocaux ou textuels, avec une prise en charge simple de la transcription et de la traduction| Oui | Non |
 | | [Transcription de conversation](conversation-transcription-service.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | Oui | Non |
-| | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non | [Oui](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non |
@@ -128,7 +128,7 @@ D’autres produits proposent des modèles vocaux adaptés à des fins spécifiq
 - [SDK Speech Devices](speech-devices-sdk.md)
 - [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 - [API REST : Synthèse vocale](rest-text-to-speech.md)
-- [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
+- [API REST : Transcription et personnalisation par lot](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

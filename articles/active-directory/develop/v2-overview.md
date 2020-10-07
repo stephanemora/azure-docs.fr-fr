@@ -1,5 +1,6 @@
 ---
 title: Vue d’ensemble de la plateforme d’identités Microsoft – Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez les composants de la plateforme d’identités Microsoft et la façon dont ils peuvent vous aider à créer la prise en charge de la gestion des identités et des accès (IAM) dans vos applications.
 services: active-directory
 author: rwike77
@@ -12,14 +13,14 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119553"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91627123"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Présentation de la plateforme d’identités Microsoft
+# <a name="what-is-the-microsoft-identity-platform"></a>Présentation de la plateforme d’identités Microsoft
 
 La plateforme d’identités Microsoft vous permet de créer des applications auxquelles vos utilisateurs et clients peuvent se connecter au moyen de leurs identités Microsoft ou comptes de réseaux sociaux ; elle vous fournit également un accès autorisé à vos propres API ou aux API Microsoft telles que Microsoft Graph.
 

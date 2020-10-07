@@ -7,13 +7,13 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/01/2020
-ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882877"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540402"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutoriel : utiliser Video Indexer avec Logic Apps et Power Automate
 
@@ -21,7 +21,7 @@ L’[API REST Video Indexer v2](https://api-portal.videoindexer.ai/docs/services
 
 Pour faciliter encore davantage l’intégration, nous prenons en charge les connecteurs [Logic Apps](https://azure.microsoft.com/services/logic-apps/) et [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) qui sont compatibles avec notre API. Vous pouvez utiliser les connecteurs pour configurer des workflows personnalisés afin d’indexer et d’extraire efficacement des insights à partir d’une grande quantité de fichiers vidéo et audio, sans écrire une seule ligne de code. De plus, l’utilisation des connecteurs pour l’intégration offre une meilleure visibilité de l’intégrité de votre workflow et un moyen simple de le déboguer.  
 
-Pour vous aider à bien démarrer avec les connecteurs Video Indexer, nous allons examiner pas à pas un exemple de solution Logic Apps et Power Automate que vous pouvez configurer. Ce tutoriel montre comment configurer des flux à l’aide de Logic Apps.
+Pour vous aider à bien démarrer avec les connecteurs Video Indexer, nous allons examiner pas à pas un exemple de solution Logic Apps et Power Automate que vous pouvez configurer. Ce tutoriel montre comment configurer des flux à l’aide de Logic Apps. Cependant, les éditeurs et les fonctionnalités sont presque identiques dans les deux solutions : les diagrammes et les explications s’appliquent donc à la fois à Logic Apps et à Power Automate.
 
 Le scénario « Charger et indexer votre vidéo automatiquement » abordé dans ce tutoriel est constitué de deux flux différents qui fonctionnent ensemble. 
 * Le premier flux est déclenché quand un objet blob est ajouté ou modifié dans un compte Stockage Azure. Il charge le nouveau fichier vers Video Indexer avec une URL de rappel pour envoyer une notification une fois l’opération d’indexation terminée. 
@@ -53,7 +53,12 @@ Pour configurer le premier flux, vous devez fournir votre clé API Video Indexer
 
 ![Nom de la connexion et clé API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Une fois que vous pouvez vous connecter à vos comptes de stockage Azure et Video Indexer, recherchez et choisissez le déclencheur « Quand un blob est ajouté ou modifié » dans le **Concepteur Logic Apps**. Sélectionnez le conteneur dans lequel vous allez placer vos fichiers vidéo. 
+> [!TIP]
+> Si vous avez connecté un compte de stockage Azure ou un compte Video Indexer à une application logique, les détails de votre connexion sont stockés et vous êtes connecté automatiquement. <br/>Vous pouvez modifier la connexion en cliquant sur **Modifier la connexion** dans le bas d’une action Stockage Azure (la fenêtre du stockage) ou Video Indexer (la fenêtre du lecteur).
+
+Une fois que vous pouvez vous connecter à vos comptes de stockage Azure et Video Indexer, recherchez et choisissez le déclencheur « Quand un blob est ajouté ou modifié » dans le **Concepteur Logic Apps**.
+
+Sélectionnez le conteneur dans lequel vous allez placer vos fichiers vidéo. 
 
 ![La capture d’écran montre la boîte de dialogue Quand un blob est ajouté ou modifié, dans laquelle vous pouvez sélectionner un conteneur.](./media/logic-apps-connector-tutorial/container.png)
 
@@ -75,7 +80,7 @@ Laissez l’URL de rappel vide pour le moment. Vous l’ajouterez uniquement apr
 
 Vous pouvez utiliser la valeur par défaut pour les autres paramètres ou les définir en fonction de vos besoins. 
 
-Cliquez sur « Enregistrer ». Nous allons maintenant passer à la configuration du deuxième flux, afin d’extraire les insights une fois le chargement et l’indexation terminés. 
+Cliquez sur **Enregistrer**. Nous allons maintenant passer à la configuration du deuxième flux, afin d’extraire les insights une fois le chargement et l’indexation terminés. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Configurer le second flux – extraction JSON  
 
@@ -115,6 +120,12 @@ Vérifiez que les deux flux sont enregistrés, et voilà, tout est prêt !
 
 Essayez votre nouvelle solution Logic Apps ou Power Automate en ajoutant une vidéo à votre conteneur d’objets blob Azure, puis revenez après quelques minutes pour constater que les insights apparaissent dans le dossier de destination. 
 
+## <a name="generate-captions"></a>Générer des légendes
+
+Consultez le blog suivant pour connaître les étapes qui montrent [comment générer des légendes avec Video Indexer et Logic Apps](https://techcommunity.microsoft.com/t5/azure-media-services/generating-captions-with-video-indexer-and-logic-apps/ba-p/1672198). 
+
+L’article montre également comment indexer une vidéo automatiquement en la copiant sur OneDrive et comment stocker les légendes générées par Video Indexer dans OneDrive.
+ 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez terminé ce tutoriel, n’hésitez pas à conserver cette solution Logic Apps ou Power Automate si nécessaire. Toutefois, si vous ne voulez pas que cette solution continue à s’exécuter et ne souhaitez pas être facturé, désactivez vos deux flux si vous utilisez Power Automate. Désactivez les deux flux si vous utilisez Logic Apps. 

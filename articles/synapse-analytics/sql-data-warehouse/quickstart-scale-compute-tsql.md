@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle le calcul dans Azure Synapse Analytics - T-SQL
+title: 'Démarrage rapide : Mettre à l’échelle le calcul dans Azure Synapse Analytics - T-SQL'
 description: Mettez à l’échelle le calcul dans Azure Synapse Analytics à l’aide de T-SQL et de SQL Server Management Studio (SSMS). Effectuez un scale-out du calcul pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212919"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569902"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure Synapse Analytics à l’aide de T-SQL
 
@@ -132,7 +132,7 @@ Pour interroger l’état de modification des objets de service :
 
 ## <a name="check-data-warehouse-state"></a>Vérifiez l’état de l’entrepôt de données
 
-Si un entrepôt de données est suspendu, vous ne pouvez pas vous y connecter avec T-SQL. Pour afficher l’état actuel de l’entrepôt de données, vous pouvez utiliser une cmdlet PowerShell. Pour un exemple, voir [Vérifier l’état de l’entrepôt de données - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Si un entrepôt de données est suspendu, vous ne pouvez pas vous y connecter avec T-SQL. Pour afficher l’état actuel de l’entrepôt de données, vous pouvez utiliser une cmdlet PowerShell. Pour un exemple, consultez [Vérifier l’état de l’entrepôt de données – PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Vérifier l’état de l’opération
 

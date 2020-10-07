@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651333"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449543"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Présentation d’Apache Kafka dans Azure HDInsight
 
@@ -33,7 +33,9 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
     Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
-* HDInsight permet de modifier le nombre de nœuds de travail (qui hébergent le répartiteur Kafka) après la création du cluster. La mise à l’échelle peut être effectuée depuis le portail Azure, Azure PowerShell et d’autres interfaces de gestion Azure. Pour Kafka, vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Le rééquilibrage des partitions permet à Kafka de tirer parti du nouveau nombre de nœuds de travail.
+* HDInsight permet de modifier le nombre de nœuds de travail (qui hébergent le répartiteur Kafka) après la création du cluster. La mise à l’échelle vers le haut peut être effectuée depuis le Portail Azure, Azure PowerShell et d’autres interfaces de gestion Azure. Pour Kafka, vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Le rééquilibrage des partitions permet à Kafka de tirer parti du nouveau nombre de nœuds de travail.
+
+   HDInsight Kafka ne prend pas en charge la mise à l’échelle vers le bas ou la diminution du nombre de répartiteurs au sein d’un cluster. Si une tentative est effectuée pour réduire le nombre de nœuds, une erreur `InvalidKafkaScaleDownRequestErrorCode` est retournée.
 
     Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
@@ -59,7 +61,7 @@ La réplication est employée pour dupliquer les partitions sur les nœuds, offr
 
 Voici les tâches et les modèles courants réalisables avec Kafka sur HDInsight :
 
-|Utilisation |Description |
+|Utilisez |Description |
 |---|---|
 |Réplication des données Apache Kafka|Kafka fournit l’utilitaire MirrorMaker, qui réplique les données entre les clusters Kafka. Pour obtenir des informations sur l’utilisation de MirrorMaker, consultez [Répliquer des rubriques Apache Kafka avec Apache Kafka dans HDInsight](apache-kafka-mirroring.md).|
 |Modèle de messagerie publication-abonnement|Kafka fournit une API de producteur pour la publication des enregistrements dans une rubrique Kafka. L’API de consommateur est utilisée lors de l’abonnement à un sujet. Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).|
@@ -81,4 +83,4 @@ Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDIns
 
 * [Tutoriel : Utiliser Apache Spark avec Apache Kafka dans HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Tutoriel : Utiliser Apache Storm avec Apache Kafka dans HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Tutoriel : Utiliser Apache Storm avec Apache Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)

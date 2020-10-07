@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell pour changer la priorité de basculement d’un compte Azure Cosmos monomaître
-description: Exemple de script Azure PowerShell – Changer la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos DB monomaître
+title: Script PowerShell pour changer la priorité de basculement d’un compte Azure Cosmos avec une seule région d’écriture
+description: Exemple de script Azure PowerShell - Changer la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos avec une seule région d’écriture
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505266"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570594"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Changer la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos DB monomaître avec PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Changer la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos avec une seule région d’écriture à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

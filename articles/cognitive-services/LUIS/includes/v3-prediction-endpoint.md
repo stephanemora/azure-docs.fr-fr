@@ -8,10 +8,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
 ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91544962"
 ---
 1. Dans le portail LUIS, dans la section **Gérer** (menu en haut à droite), dans la page **Ressources Azure** (menu de gauche), sous l’onglet **Ressources de prédiction**, copiez l’exemple de requête **Example Query** en bas de la page.

@@ -1,77 +1,63 @@
 ---
-title: Connecter l’exemple de code d’appareil C# IoT Plug-and-Play en préversion à IoT Hub | Microsoft Docs
-description: Créez et exécutez l’exemple de code pour appareil IoT Plug-and-Play en préversion sur Windows qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
+title: Connecter un exemple de code C# pour appareil IoT Plug-and-Play à IoT Hub | Microsoft Docs
+description: Créez et exécutez un exemple de code pour appareil IoT Plug-and-Play sur Windows, qui se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 015e20fa975563fee8ac2d61f9bad1f9f03738ce
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d1deac1c7932a8f3cec06d9c264ba401f7f1341d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352605"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577031"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play en Windows sur Linux à IoT Hub (C#)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play s’exécutant sur Windows à IoT Hub (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Ce guide de démarrage rapide vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play, comment le connecter à votre hub IoT et comment utiliser l’outil Explorateur Azure IoT pour afficher les données de télémétrie qu’il envoie. L’exemple d’application est écrit en CSharp et est inclus dans Azure IoT device SDK pour C#. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide sur Windows, vous devez installer les logiciels suivants sur votre environnement Windows :
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+
+Pour suivre ce guide de démarrage rapide sur Windows, vous devez avoir installé les logiciels suivants sur votre machine de développement :
 
 * [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/).
 * [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
-
-### <a name="azure-iot-explorer"></a>Explorateur Azure IoT
-
-Pour interagir avec l’exemple d’appareil dans la deuxième partie de ce guide de démarrage rapide, vous utilisez l’outil **Explorateur Azure IoT**. [Téléchargez et installez la dernière version de l’Explorateur Azure IoT](./howto-use-iot-explorer.md) pour votre système d’exploitation.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion IoT Hub_ pour votre hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Vous pouvez également utiliser l’outil Explorateur Azure IoT pour rechercher la chaîne de connexion du hub IoT.
-
-Exécutez la commande suivante pour obtenir la _chaîne de connexion_ à l’appareil que vous avez ajouté au hub. Prenez note de cette chaîne de connexion, car vous l’utiliserez plus loin dans ce guide de démarrage rapide :
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Téléchargement du code
 
 Dans ce guide de démarrage rapide, vous préparez un environnement de développement pour cloner et générer le kit Azure IoT Hub Device C# SDK.
 
-Ouvrez une invite de commandes dans le répertoire de votre choix. Exécutez la commande suivante pour cloner le dépôt GitHub [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) à cet emplacement :
+Ouvrez une invite de commandes dans un dossier de votre choix. Exécutez la commande suivante pour cloner le dépôt GitHub [Exemples Microsoft Azure IoT pour .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) à cet emplacement :
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 ```
 
 ## <a name="build-the-code"></a>Générer le code
 
-Ouvrez le fichier projet *azure-iot-sdk-csharp/iothub/device/samples/PnpDeviceSamples/Thermostat/Thermostat.csproj* dans Visual Studio 2019.
+Vous pouvez maintenant générer l’exemple dans Visual Studio et l’exécuter en mode débogage.
+
+1. Ouvrez le fichier de projet *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* dans Visual Studio 2019.
+
+1. Dans Visual Studio, accédez à **Projet > Propriétés du thermostat > Déboguer**. Ensuite, ajoutez les variables d’environnement suivantes au projet :
+
+    | Nom | Valeur |
+    | ---- | ----- |
+    | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
+    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | Valeur que vous avez notée à la fin de la section [Configurer votre environnement](set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | Valeur que vous avez notée à la fin de la section [Configurer votre environnement](set-up-environment.md) |
 
 Vous pouvez maintenant générer l’exemple dans Visual Studio et l’exécuter en mode débogage.
 
 ## <a name="run-the-device-sample"></a>Exécuter l’exemple d’appareil
-
-Créez une variable d’environnement appelée **IOTHUB_DEVICE_CONNECTION_STRING** pour stocker la chaîne de connexion à l’appareil que vous avez notée précédemment.
 
 Pour effectuer le suivi de l’exécution du code dans Visual Studio sur Windows, ajoutez un point d’arrêt sur la fonction `main` dans le fichier program.cs.
 
@@ -121,8 +107,6 @@ using Newtonsoft.Json;
 
 DateTime since = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992170"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448277"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gérer un HSM managé à l’aide de l’interface Azure CLI
 
@@ -30,7 +30,7 @@ Pour effectuer les étapes de cet article, vous devez disposer des éléments su
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
 * Azure CLI 2.12.0 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
-* HSM managé dans votre abonnement. Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour provisionner et activer un HSM managé.
+* Un HSM managé dans votre abonnement. Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour provisionner et activer un HSM managé.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +53,7 @@ Utilisez la commande `az keyvault key create` pour créer une clé.
 
 ### <a name="create-an-rsa-key"></a>Créer une clé RSA
 
-L’exemple ci-dessous montre comment créer une clé **RSA** 3 070 bits qui sera utilisée uniquement pour des opérations **wrapKey, unwrapKey** (--ops). 
+L’exemple ci-dessous montre comment créer une clé **RSA** 3072 bits qui sera utilisée uniquement pour des opérations **wrapKey, unwrapKey** (--ops). 
 
 
 ```azurecli-interactive

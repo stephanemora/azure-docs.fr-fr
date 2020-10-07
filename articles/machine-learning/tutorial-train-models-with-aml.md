@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906655"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535067"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutoriel : Entraîner des modèles de classification d’images avec des données MNIST et scikit-learn 
 
@@ -37,7 +37,7 @@ Vous découvrirez comment sélectionner un modèle et le déployer dans la [deux
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) version 1.0.83.
+> Le code présenté dans cet article a été testé avec le kit [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) version 1.13.0.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -117,7 +117,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -223,7 +223,7 @@ Vous avez maintenant une idée de l’aspect de ces images et du résultat de pr
 Pour cette tâche, vous envoyez le travail pour l’exécuter sur le cluster d’entraînement distant défini plus tôt.  Pour envoyer un travail, vous devez :
 * Créer un répertoire
 * Créer un script d’entraînement
-* Créer un objet Estimator
+* Créer une configuration d’exécution de script
 * Envoi du travail
 
 ### <a name="create-a-directory"></a>Créer un répertoire
@@ -307,19 +307,19 @@ Notez comment le script obtient les données et enregistre les modèles :
   shutil.copy('utils.py', script_folder)
   ```
 
-### <a name="create-an-estimator"></a>Créer un estimateur
+### <a name="configure-the-training-job"></a>Configurer le travail d’entraînement
 
-Un objet estimateur est utilisé pour soumettre l’exécution. Azure Machine Learning propose des estimateurs préconfigurés pour les frameworks de Machine Learning courants ainsi qu’un estimateur générique. Pour créer un estimateur, spécifiez :
+Créez un objet [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) pour spécifier les détails de configuration de votre travail d’entraînement, y compris votre script d’entraînement, l’environnement à utiliser et la cible de calcul sur laquelle effectuer l’exécution. Configurez le ScriptRunConfig en spécifiant :
 
-
-* Le nom de l’objet estimateur, `est`.
 * Le répertoire qui contient vos scripts. Tous les fichiers dans ce répertoire sont chargés dans les nœuds de cluster pour l’exécution.
 * La cible de calcul. Dans le cas présent, vous utilisez le cluster de calcul Azure Machine Learning que vous avez créé.
 * Le nom du script d’entraînement, **train.py**.
 * Un environnement qui contient les bibliothèques nécessaires à l’exécution du script.
-* Les paramètres requis à partir du script d’entraînement.
+* Arguments nécessaires pour le script d’entraînement.
 
-Dans ce tutoriel, cette cible est AmlCompute. Tous les fichiers du dossier de scripts sont chargés dans les nœuds de cluster pour l’exécution. **data_folder** est configuré pour utiliser le jeu de données. Pour commencer, créez l’environnement qui contient la bibliothèque scikit-learn, le package azureml-dataprep nécessaire pour accéder au jeu de données et azureml-defaults, qui contient les dépendances pour les métriques de journalisation. Par ailleurs, azureml-defaults contient les dépendances nécessaires au déploiement du modèle en tant que service web dans la deuxième partie de ce tutoriel.
+Dans ce tutoriel, cette cible est AmlCompute. Tous les fichiers du dossier de scripts sont chargés dans les nœuds de cluster pour l’exécution. **--data_folder** est configuré pour utiliser le jeu de données.
+
+Pour commencer, créez l’environnement qui contient la bibliothèque scikit-learn, le package azureml-dataset-runtime nécessaire pour accéder au jeu de données et azureml-defaults, qui contient les dépendances pour les métriques de journalisation. Par ailleurs, azureml-defaults contient les dépendances nécessaires au déploiement du modèle en tant que service web dans la deuxième partie de ce tutoriel.
 
 Une fois l’environnement défini, inscrivez-le dans de l’espace de travail pour le réutiliser dans la deuxième partie du tutoriel.
 
@@ -329,38 +329,34 @@ from azureml.core.conda_dependencies import CondaDependencies
 
 # to install required packages
 env = Environment('tutorial-env')
-cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
 
 env.python.conda_dependencies = cd
 
 # Register environment to re-use later
-env.register(workspace = ws)
+env.register(workspace=ws)
 ```
 
-Créez ensuite l’estimateur avec le code suivant.
+Ensuite, créez le ScriptRunConfig en spécifiant le script d’entraînement, la cible de calcul et l’environnement.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    # to mount files referenced by mnist dataset
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = Estimator(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env,
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>Envoyer le travail au cluster
 
-Exécutez l’expérience en soumettant l’objet estimateur :
+Exécutez l’expérience en soumettant l’objet ScriptRunConfig :
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -372,7 +368,7 @@ Au total, la première exécution prend **environ 10 minutes**. Mais pour les e
 
 Ce qui se passe pendant que vous attendez :
 
-- **Création d’images** : une image Docker qui correspond à l’environnement Python spécifié par l’estimateur est créée. L’image est chargée dans l’espace de travail. La création et le chargement de l’image prennent **environ cinq minutes**.
+- **Création d’images** : Une image Docker qui correspond à l’environnement Python spécifié par l’environnement Azure ML est créée. L’image est chargée dans l’espace de travail. La création et le chargement de l’image prennent **environ cinq minutes**.
 
   Cette étape se produit une fois pour chaque environnement Python, puisque le conteneur est mis en cache pour les exécutions suivantes. Lors de la création d’image, les journaux d’activité sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de la création d’image à l’aide de ces journaux d’activité.
 

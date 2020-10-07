@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085716"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537454"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Charger de façon incrémentielle des données d’Azure SQL Managed Instance sur le Stockage Azure à l’aide de la capture des changements de données
 
@@ -127,10 +127,10 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 7. Cliquez sur **Créer**.
 8. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource**
 
-   ![Page d’accueil Data Factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![Capture d’écran d’un message indiquant que votre déploiement est terminé avec une option pour accéder à la ressource.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
-   ![Page d’accueil Data Factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![Capture d’écran montrant la fabrique de données que vous avez déployée.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 11. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante :
 
@@ -289,10 +289,10 @@ Dans cette étape, vous allez créer un pipeline, qui vérifie d’abord le nomb
 
 11. Cliquez sur Aperçu pour vérifier que la requête retourne correctement les lignes modifiées.
 
-    ![Activité de copie - paramètres du récepteur](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![Capture d’écran montrant un aperçu pour vérifier la requête.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Basculez sous l’onglet **Récepteur** et spécifiez le jeu de données Stockage Azure dans le champ **Jeu de données récepteur**.
 
-    ![Activité de copie - paramètres du récepteur](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![Capture d’écran montrant l’onglet Récepteur.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Cliquez de nouveau sur le canevas du pipeline principal et connectez l’activité **Recherche** à l’activité **Condition If** une après l’autre. Faites glisser le bouton **vert** attaché à l’activité **Recherche** vers l’activité **Condition If**.
 
     ![Connecter des activités de recherche et de copie](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ Dans cette étape, vous allez créer un déclencheur de fenêtre bascule pour ex
     ```
 4. Cliquez sur l’onglet **Récepteur** de l’activité **Copier**, puis cliquez sur **Ouvrir** pour modifier les propriétés du jeu de données. Cliquez sur l’onglet **Paramètres** et ajoutez un nouveau paramètre appelé **triggerStart**    
 
-    ![Configuration du jeu de données récepteur-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![Capture d’écran montrant l’ajout d’un nouveau paramètre à l’onglet Paramètres.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Ensuite, configurez les propriétés du jeu de données pour stocker les données dans un sous-répertoire **customers/incremental** avec des partitions basées sur la date.
    1. Cliquez sur l’onglet **Connexion** des propriétés du jeu de données et ajoutez du contenu dynamique pour les sections **Répertoire** et **Fichier**. 
    2. Entrez l’expression suivante dans la section **Répertoire** en cliquant sur le lien de contenu dynamique en dessous de la zone de texte :

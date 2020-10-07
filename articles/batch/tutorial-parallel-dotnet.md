@@ -3,14 +3,14 @@ title: Exécuter une charge de travail parallèle à l’aide de l’API .NET
 description: Didacticiel - Transcoder des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f57354a6eb52b3439cf298f66b706f53d101371e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930228"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537580"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 * Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
-* [Windows version 64 bits de ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Téléchargez le fichier zip sur votre ordinateur local. Pour ce tutoriel, seul le fichier zip est nécessaire. Vous n’avez pas besoin de décompresser le fichier ou de l’installer localement.
+* [Version Windows 64 bits de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (.zip). Téléchargez le fichier zip sur votre ordinateur local. Pour ce tutoriel, seul le fichier zip est nécessaire. Vous n’avez pas besoin de décompresser le fichier ou de l’installer localement.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -47,7 +47,7 @@ Utiliser le portail Azure pour ajouter ffmpeg à votre compte Batch en tant que 
 
 1. Dans le portail Azure, cliquez sur **Plus de services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 3. Cliquez sur **Applications** > **Ajouter**.
-4. Pour **id d’Application** entrez *ffmpeg*et *3.4* pour la version de package. Sélectionnez le fichier zip ffmpeg que vous avez téléchargé précédemment, puis cliquez sur **OK**. Le package d’application ffmpeg est ajouté à votre compte Batch.
+4. Entrez *ffmpeg* comme **ID d’application** et *4.3.1* comme version de package. Sélectionnez le fichier zip ffmpeg que vous avez téléchargé précédemment, puis cliquez sur **OK**. Le package d’application ffmpeg est ajouté à votre compte Batch.
 
 ![Ajouter un package d’application](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -84,7 +84,7 @@ Vérifiez également que la référence du package d’application ffmpeg de la 
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### <a name="build-and-run-the-sample-project"></a>Créer et exécuter l’exemple de projet
@@ -263,7 +263,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);

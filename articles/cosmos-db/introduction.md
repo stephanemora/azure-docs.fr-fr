@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118574"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569862"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -36,19 +36,19 @@ Cosmos DB permet d’ajouter ou de supprimer des régions Azure dans votre comp
 
 ### <a name="always-on"></a>Always On
 
-À l’aide d’une intégration profonde avec l’infrastructure Azure et d’une [réplication multimaître transparente](global-dist-under-the-hood.md), Cosmos DB offre une [haute disponibilité de 99,999 %](high-availability.md) pour les lectures et les écritures. Cosmos DB permet également d’appeler par programmation (ou via le portail) le basculement régional de votre compte Cosmos. Cette fonctionnalité est la garantie que votre application basculera en cas de défaillance au niveau régional.
+En vertu d’une profonde intégration dans l’infrastructure Azure et d’une [réplication d’écriture multi-région transparente](global-dist-under-the-hood.md), Cosmos DB offre une [haute disponibilité à 99,999 %](high-availability.md) pour les lectures et les écritures. Cosmos DB permet également d’appeler par programmation (ou via le portail) le basculement régional de votre compte Cosmos. Cette fonctionnalité est la garantie que votre application basculera en cas de défaillance au niveau régional.
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>Extensibilité élastique du débit et du stockage à l’échelon mondial
 
-Conçu avec un partitionnement horizontal transparent et une réplication multimaître, Cosmos DB offre une extensibilité élastique sans précédent pour vos écritures et lectures, partout dans le monde. Vous pouvez passer de façon élastique de milliers à des centaines de millions de requêtes par seconde dans le monde, en un seul appel d’API, et payer uniquement le débit (et le stockage) dont vous avez besoin. Cette fonctionnalité vous aide à gérer les pics inattendus dans vos charges de travail sans devoir effectuer un surprovisionnement. Pour plus d’informations, consultez les articles sur le [partitionnement dans Cosmos DB](partitioning-overview.md), le [débit provisionné sur les conteneurs et les bases de données](set-throughput.md) et la [mise à l’échelle du débit provisionné dans le monde entier](scaling-throughput.md).
+Conçu avec un partitionnement horizontal transparent et une réplication d’écriture multi-région, Cosmos DB offre une extensibilité élastique sans précédent pour vos écritures et lectures, partout dans le monde. Vous pouvez passer de façon élastique de milliers à des centaines de millions de requêtes par seconde dans le monde, en un seul appel d’API, et payer uniquement le débit (et le stockage) dont vous avez besoin. Cette fonctionnalité vous aide à gérer les pics inattendus dans vos charges de travail sans devoir effectuer un surprovisionnement. Pour plus d’informations, consultez les articles sur le [partitionnement dans Cosmos DB](partitioning-overview.md), le [débit provisionné sur les conteneurs et les bases de données](set-throughput.md) et la [mise à l’échelle du débit provisionné dans le monde entier](scaling-throughput.md).
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Faible latence garantie, au 99e centile, partout dans le monde
 
-À l’aide de Cosmos DB, vous pouvez générer des applications hautement réactives à l’échelle de la planète. Avec son protocole novateur de réplication multimaître et sans verrou, ainsi que son [moteur de base de données optimisé pour l'écriture](index-policy.md), Cosmos DB garantit des latences inférieures à 10 millisecondes pour les lectures et les écritures (indexées), au 99e centile, dans le monde entier. Cette fonctionnalité permet l’ingestion soutenue de données et des requêtes très rapides pour des applications hautement réactives.
+À l’aide de Cosmos DB, vous pouvez générer des applications hautement réactives à l’échelle de la planète. Avec son protocole novateur de réplication d’écriture multi-région et sans verrou, ainsi que son [moteur de base de données optimisé pour l’écriture](index-policy.md), Cosmos DB garantit des latences inférieures à 10 millisecondes pour les lectures et les écritures (indexées), au 99e centile, dans le monde entier. Cette fonctionnalité permet l’ingestion soutenue de données et des requêtes très rapides pour des applications hautement réactives.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Plusieurs choix de cohérence bien définis
 
-Quand vous créez des applications distribuées à l’échelle mondiale dans Cosmos DB, vous n’avez plus besoin de faire de [compromis extrêmes entre la cohérence, la disponibilité, la latence et le débit](consistency-levels-tradeoffs.md). Le protocole de réplication multimaître de Cosmos DB a été soigneusement conçu pour offrir [cinq choix de cohérence bien définis](consistency-levels.md) - *fort*, *obsolescence limitée*, *session*, *préfixe cohérent* et *éventuel* — pour fournir à votre application distribuée à l’échelle mondiale un modèle de programmation intuitif, à faible latence et à haute disponibilité.
+Quand vous créez des applications distribuées à l’échelle mondiale dans Cosmos DB, vous n’avez plus besoin de faire de [compromis extrêmes entre la cohérence, la disponibilité, la latence et le débit](consistency-levels-tradeoffs.md). Le protocole de réplication d’écriture multi-région de Cosmos DB a été soigneusement conçu pour offrir [cinq choix de cohérence bien définis](consistency-levels.md) - *fort*, *obsolescence limitée*, *session*, *préfixe cohérent* et *éventuel* : pour fournir à votre application distribuée à l’échelle mondiale un modèle de programmation intuitif, à faible latence et à haute disponibilité.
 
 ### <a name="no-schema-or-index-management"></a>Aucune gestion des schémas ou des index
 
@@ -56,7 +56,7 @@ Pour les applications distribuées à l’échelle mondiale, il est particulièr
 
 ### <a name="battle-tested-database-service"></a>Service de base de données à toute épreuve
 
-Cosmos DB est un service de base d’Azure. Depuis près d’une décennie, Cosmos DB est utilisé par de nombreux produits Microsoft pour des applications stratégiques à l’échelle mondiale, notamment Skype, Xbox, Office 365, Azure et bien d’autres. Aujourd’hui, Cosmos DB est un des services à la croissance la plus rapide sur Azure, utilisé par de nombreux clients externes et applications stratégiques qui nécessitent une mise à l’échelle élastique, une distribution mondiale clé en main, une réplication multimaître pour une faible latence et une haute disponibilité, à la fois en lecture et en écriture.
+Cosmos DB est un service de base d’Azure. Depuis près d’une décennie, Cosmos DB est utilisé par de nombreux produits Microsoft pour des applications stratégiques à l’échelle mondiale, notamment Skype, Xbox, Microsoft 365, Azure et bien d’autres. Aujourd’hui, Cosmos DB est un des services à la croissance la plus rapide sur Azure, utilisé par de nombreux clients externes et applications stratégiques qui nécessitent une mise à l’échelle élastique, une distribution mondiale clé en main, une réplication d’écriture multi-région pour une faible latence et une haute disponibilité, à la fois en lecture et en écriture.
 
 ### <a name="ubiquitous-regional-presence"></a>Omniprésence régionale
 

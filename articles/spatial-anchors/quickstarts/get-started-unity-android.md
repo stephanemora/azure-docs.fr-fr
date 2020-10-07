@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810349"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538125"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Unity avec Azure Spatial Anchors
 
@@ -34,7 +34,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
-- Une machine Windows ou macOS avec <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, avec les modules Android Build Support et Android SDK & NDK Tools.
+- Une machine Windows ou macOS avec <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, avec les modules **Android Build Support** avec **Android SDK & NDK Tools** et **OpenJDK**.
   - Si vous exécutez Windows, vous avez aussi besoin de <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a> et <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si vous exécutez macOS, installez Git via HomeBrew. Entrez la commande suivante sur une seule ligne du Terminal : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Puis exécutez `brew install git` et `brew install git-lfs`.
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
@@ -57,6 +57,12 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Sélectionnez votre appareil dans **Appareil d’exécution**, puis sélectionnez **Générer et exécuter**. Vous êtes ensuite invité à enregistrer in fichier `.apk`, auquel vous pouvez donner n’importe quel nom.
+
+Dans l’application, sélectionnez **BasicDemo** à l’aide des flèches, puis appuyez sur le bouton **Go!** pour exécuter la démo. Suivez les instructions pour placer et rappeler une ancre.
+
+![Capture d’écran 1](./media/get-started-unity-android/screenshot-1.jpg)
+![Capture d’écran 2](./media/get-started-unity-android/screenshot-2.jpg)
+![Capture d’écran 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Suivez les instructions dans l’application pour placer et rappeler une ancre.
 

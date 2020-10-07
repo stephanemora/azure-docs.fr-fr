@@ -3,16 +3,16 @@ title: Azure Defender pour le stockage - avantages et fonctionnalités
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour le stockage.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 31d1bde1555f98164ccba32d4615ba51837c5ef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4677426337a48d4fde74f61b8a4ad6fcb695f420
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930759"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91577813"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Présentation d’Azure Defender pour le stockage
 
@@ -27,7 +27,7 @@ Cette couche de protection vous permet de traiter efficacement les menaces *sans
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour le stockage** est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)|
-|Types de stockage protégés|[Stockage Blob](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
+|Types de stockage protégés :|[Stockage Blob](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||
 

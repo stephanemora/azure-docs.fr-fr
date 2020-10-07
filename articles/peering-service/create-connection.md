@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "84870573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530214"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Tutoriel : Créer une connexion Peering Service
 
@@ -43,13 +43,13 @@ Ce tutoriel vous montre comment créer une ressource Peering Service et comment 
 
 1. Sélectionnez **Prefix Key** (Clé de préfixe) et ajoutez la clé de préfixe attribuée par votre fournisseur (ISP ou IXP). Cette clé permet à Microsoft de valider le préfixe et le fournisseur qui a alloué votre préfixe IP.
 
-    ![Onglet de configuration de l’inscription de Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![La capture d’écran montre l’onglet Configuration de la page Créer une connexion au service de peering, où vous pouvez entrer la clé de préfixe.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Sélectionnez le bouton **Vérifier + créer** en bas à gauche de la page. La page **Vérifier + créer** apparaît, et Azure valide votre configuration.
 
  1. Quand vous voyez le message **Validation réussie**, sélectionnez **Créer**.
 
-> ![Onglet de configuration de l’inscription de Peering Service](./media/peering-service-portal/peering-service-prefix.png)
+> ![La capture d’écran montre l’onglet Vérifier + créer de la page Créer une connexion au service de peering.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Une fois que vous avez inscrit une connexion Peering Service, une validation supplémentaire est effectuée sur les préfixes inclus. Vous pouvez vérifier l’état de la validation sous la section **Préfixes** du nom de la ressource. Si la validation échoue, l’un des messages d’erreur suivants s’affiche :
 

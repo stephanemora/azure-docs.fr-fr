@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "60890037"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540232"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution de supervision informatique à distance
 
@@ -133,7 +133,7 @@ Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solutio
 
 Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant et en cliquant sur **Supprimer la solution** :
 
-![Supprimer la solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Capture d’écran montrant la page « Solutions approvisionnées », avec l’accélérateur de solution en surbrillance.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Supprimer la solution](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ad39b9980562c345aff87f4e0771f265011886b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683298"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447688"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tâches d’administrateur de compte dans le portail Azure
 
@@ -35,14 +35,14 @@ Vous devez être l’administrateur de compte pour effectuer l’une de ces tâc
 
 1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement auquel vous voulez ajouter la carte de crédit.
 
-   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Capture d’écran montrant la page Cost Management + Billing dans laquelle vous pouvez sélectionner un abonnement.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Si certains de vos abonnements ne s’affichent pas ici, c’est peut-être parce que vous avez modifié le répertoire de l’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
 
 1. Sélectionnez **Modes de paiement**.
 
-    ![Capture d’écran montrant le panneau des modes de paiement sélectionné.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Capture d’écran montrant la page des modes de paiement dans laquelle vous pouvez ajouter un mode de paiement.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 Vous pouvez ici ajouter une nouvelle carte de crédit, modifier le mode de paiement actif, modifier les détails de la carte de crédit et supprimer des cartes de crédit.
 
@@ -100,7 +100,7 @@ Si vous êtes éligible au paiement par facture (chèque/virement bancaire), vou
 
 1. Sélectionnez **Payer par facture** dans la barre de commandes.
 
-    ![Capture d’écran montrant le panneau des modes de paiement sélectionné.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
+    ![Capture d’écran montrant la page des modes de paiement avec le mode de paiement par facture sélectionné.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Entrez l’adresse du mode de paiement de la facture.
 1. Cliquez sur **Suivant**.
@@ -124,7 +124,7 @@ La limite de dépense n’est pas disponible pour les abonnements impliquant un 
 
 1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement Visual Studio Enterprise.
 
-   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Capture d’écran montrant la zone Mes abonnements, où vous pouvez sélectionner votre abonnement Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Si certains de vos abonnements Visual Studio ne s’affichent pas ici, c’est peut-être parce que vous avez modifié un répertoire d’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
@@ -152,7 +152,7 @@ Si vous disposez d’un abonnement Azure en licence Open, vous pouvez ajouter de
 
 1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement Azure dans Open.
 
-    ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Capture d’écran montrant la zone Mes abonnements, où vous pouvez sélectionner votre abonnement Azure dans Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Si votre abonnement ne s’affiche pas ici, c’est peut-être parce que vous en avez modifié le répertoire à un moment donné. Vous devez faire basculer le répertoire de l’abonnement vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
@@ -183,4 +183,4 @@ Si vous disposez d’un abonnement Azure en licence Open, vous pouvez ajouter de
 Les cartes virtuelles ou prépayées ne sont pas prises en charge. Si vous obtenez des erreurs lors de l’ajout ou de la mise à jour d’une carte de crédit valide, essayez d’ouvrir votre navigateur en mode privé.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur l’[analyse et la prévention des coûts inattendus dans le portail Azure](getting-started.md)
+- En savoir plus sur l’[analyse des frais inattendus](../understand/analyze-unexpected-charges.md)

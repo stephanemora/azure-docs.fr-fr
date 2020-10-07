@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976289"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569646"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
 
-* Pour se connecter à la passerelle hub, le circuit ExpressRoute doit être un circuit Premium.
+* Pour se connecter à la passerelle hub, le circuit ExpressRoute doit être un circuit Premium/Standard.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -105,7 +105,7 @@ Dans cette section, vous créez la connexion de peering entre votre hub et un r�
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Connecter votre circuit à la passerelle de hub
 
-Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Les circuits ExpressRoute Premium qui se trouvent dans les emplacements pris en charge par ExpressRoute Global Reach peuvent se connecter à une passerelle ExpressRoute Virtual WAN.
+Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Les circuits ExpressRoute Premium/Standard qui se trouvent dans des emplacements pris en charge par ExpressRoute Global Reach peuvent se connecter à une passerelle ExpressRoute WAN virtuel et bénéficier de toutes les fonctionnalités de transit Virtual WAN (transit VPN à VPN, VPN et ExpressRoute). Les circuits ExpressRoute Premium/standard qui se trouvent dans des emplacements non Global Reach peuvent se connecter aux ressources Azure, mais ils ne peuvent pas utiliser les fonctionnalités de transit Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Pour connecter votre circuit à la passerelle de hub
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945051"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569665"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -20,7 +20,7 @@ Deux modes de déploiement sont disponibles pour Azure Database pour MySQL optim
 - Serveur unique 
 - Serveur flexible (préversion)
 
-Cet article contient une vue d'ensemble et une présentation des concepts de base du modèle de déploiement de serveur unique. 
+Cet article contient une vue d'ensemble et une présentation des concepts de base du modèle de déploiement de serveur unique. Pour plus d’informations sur la façon de déterminer l’option de déploiement qui convient à votre charge de travail, consultez [choix de l’option de serveur MySQL appropriée dans Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -50,7 +50,7 @@ Si la haute disponibilité redondante interzone est configurée, le service appr
 
 Pour plus d’informations, consultez [Concepts de haute disponibilité](concepts-high-availability.md).
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Schéma conceptuel de haute disponibilité redondante interzone"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Schéma conceptuel de haute disponibilité à zone unique"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Mise à jour corrective automatisée avec fenêtre de maintenance gérée
 
@@ -112,6 +112,15 @@ Le service exécute la version de la communauté de MySQL. Cela permet une compa
 
 - **Image mémoire et restauration** : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez Migrer à l'aide de l'image mémoire et de la restauration. 
 - **Azure Database Migration Service** : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) peut être utilisé. 
+
+## <a name="contacts"></a>Contacts
+Pour toute question ou suggestion au sujet de l’utilisation d’Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL ([@Ask Azure DB pour MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Cette adresse e-mail n’est pas un alias de support technique.
+
+En outre, tenez compte des points de contact suivants le cas échéant :
+
+- Pour contacter le support technique Azure, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
+- Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez lu l'introduction au mode de déploiement Azure Database pour MySQL - Serveur unique, vous êtes prêt à :

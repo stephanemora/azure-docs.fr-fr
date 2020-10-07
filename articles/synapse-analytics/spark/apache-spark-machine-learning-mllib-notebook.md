@@ -1,22 +1,22 @@
 ---
-title: Créer une application d’apprentissage automatique avec Apache Spark MLlib
-description: Découvrez comment utiliser Spark MLlib pour créer une application d’apprentissage automatique qui analyse un jeu de données en utilisant une classification par régression logistique.
+title: 'Tutoriel : Créer une application d’apprentissage automatique avec Apache Spark MLlib'
+description: Tutoriel sur la façon d’utiliser Spark MLlib pour créer une application d’apprentissage automatique qui analyse un jeu de données en utilisant une classification par régression logistique.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
-ms.reviewer: jrasnick, carlrab
-ms.topic: conceptual
+ms.reviewer: jrasnick
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719340"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540317"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
+# <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutoriel : Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
 Cet article explique comment utiliser Apache Spark [MLlib](https://spark.apache.org/mllib/) pour créer une application d’apprentissage automatique qui effectue une analyse prédictive simple sur un jeu de données ouvert Azure. Spark fournit des bibliothèques d’apprentissage automatique intégrées. Cet exemple utilise un *classification* par régression logistique.
 
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Cela produit une nouvelle tramedonnées avec toutes les colonnes au format approprié pour effectuer l’apprentissage d’un modèle.
+Cette action se traduit par une nouvelle tramedonnées avec toutes les colonnes au format approprié pour effectuer l’apprentissage d’un modèle.
 
 ## <a name="train-a-logistic-regression-model"></a>Effectuer l’apprentissage d’un modèle de régression logistique
 

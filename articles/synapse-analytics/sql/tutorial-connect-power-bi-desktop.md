@@ -1,5 +1,5 @@
 ---
-title: Connecter SQL à la demande à Power BI Desktop et créer un rapport
+title: 'Tutoriel : Connecter SQL à la demande à Power BI Desktop et créer un rapport'
 description: Dans ce tutoriel, vous allez apprendre à connecter SQL à la demande dans Azure Synapse Analytics à Power BI Desktop, et à créer un rapport de démonstration basé sur une vue.
 services: synapse analytics
 author: azaricstefan
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089173"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539552"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutoriel : Utiliser SQL à la demande avec Power BI Desktop et créer un rapport
 
-Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/) : nécessaire pour visualiser les données et créer un rapport.
-- [Espace de travail Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) : nécessaire pour créer une base de données, une source de données externe et un affichage.
+- [Espace de travail Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) : nécessaire pour créer une base de données, une source de données externe et une vue.
 
 Facultatif :
 
@@ -45,7 +45,7 @@ Valeurs pour les paramètres suivants :
 | Adresse de point de terminaison de service SQL à la demande    | Utilisée comme nom de serveur                                   |
 | Région de point de terminaison de service SQL à la demande     | Utilisée pour déterminer le stockage utilisé dans les exemples. |
 | Nom d’utilisateur et mot de passe pour l’accès au point de terminaison | Utilisés pour accéder au point de terminaison                               |
-| Base de données à utiliser pour créer des vues     | Base de données utilisée comme point de départ dans les exemples       |
+| La base de données que vous allez utiliser pour créer des vues     | Base de données utilisée comme point de départ dans les exemples       |
 
 ## <a name="1---create-database"></a>1 - Créer la base de données
 
