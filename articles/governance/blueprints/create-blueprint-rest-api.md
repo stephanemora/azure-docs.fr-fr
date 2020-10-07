@@ -4,10 +4,10 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Bluep
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85971196"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST

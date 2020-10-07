@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135704"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Démarrage rapide : Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure
@@ -48,7 +48,7 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 1. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
 1. Pour voir les détails de réplication à partir de la **Vue d’ensemble**, sélectionnez **Bases**. Vous trouverez plus de détails dans les sections **Intégrité et état** et **Disponibilité du basculement** ainsi que dans la carte **Affichage de l’infrastructure**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="État de la réplication.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Activez la réplication.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -65,7 +65,7 @@ Pour désactiver la réplication, effectuez les étapes suivantes :
 1. Dans la **Vue d’ensemble**, sélectionnez **Désactiver la réplication**.
 1. Pour désinstaller l’extension Site Recovery, accédez à la machine virtuelle et sélectionnez **Paramètres** > **Extensions**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Désactivez la réplication":::.
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Activez la réplication.":::.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

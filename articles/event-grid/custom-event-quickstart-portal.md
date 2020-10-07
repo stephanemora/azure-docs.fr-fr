@@ -4,10 +4,10 @@ description: 'Démarrage rapide : Utilisez Azure Event Grid et le portail Azure
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87421040"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec le portail Azure et Event Grid
@@ -29,7 +29,7 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
     Rechercher et sélectionner :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Rubriques Event Grid":::
 3. Dans la page **Rubriques Event Grid**, sélectionnez **+ Ajouter** dans la barre d’outils. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Bouton d’ajout de rubrique Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Rubriques Event Grid":::
 4. Dans la page **Créer une rubrique**, procédez comme suit :
     1. Sélectionnez votre **abonnement**Azure.
     2. Sélectionnez un groupe de ressources existant ou sélectionnez **Créer**, puis entrez un **nom** pour le **groupe de ressources**.
@@ -37,18 +37,18 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
     4. Sélectionnez un **emplacement** pour la rubrique Event Grid.
     5. Au bas de la page, sélectionnez **Examiner et créer**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Page Créer une rubrique":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Rubriques Event Grid":::
     6. Sous l’onglet **Vérifier + créer** de la page **Créer une rubrique**, sélectionnez **Créer**. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Vérifier les paramètres et créer":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Rubriques Event Grid":::
 5. Une fois le déploiement correctement effectué, retapez **Rubriques Event Grid** dans la barre de recherche, puis sélectionnez **Rubriques Event Grid** dans la liste déroulante comme vous l’avez fait précédemment. 
 6. Sélectionnez la rubrique que vous avez créée dans la liste. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Sélectionner votre rubrique dans la liste":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Rubriques Event Grid":::
 
 7. La page **Rubrique Event Grid** associée à votre rubrique apparaît. Ne fermez pas cette page. Vous l’utiliserez plus loin dans le guide de démarrage rapide. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Page d’accueil de la rubrique Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Rubriques Event Grid":::
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 Avant de créer un abonnement pour la rubrique personnalisée, créez un point de terminaison pour le message d’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
@@ -69,16 +69,16 @@ Vous vous abonnez à une rubrique Event Grid pour indiquer à Event Grid les év
 
 1. Maintenant, dans la page **Rubrique Event Grid** de votre rubrique personnalisée, sélectionnez **+ Abonnement aux événements** sur la barre d’outils.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Bouton d’ajout d’abonnement aux événements":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Rubriques Event Grid":::
 2. Dans la page **Créer un abonnement aux événements**, effectuez les étapes suivantes :
     1. Entrez un **nom** pour l’abonnement aux événements.
     3. Sélectionnez **Webhook** pour **Type de point de terminaison**. 
     4. Choisissez **Sélectionner un point de terminaison**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Fournir des valeurs d’abonnement à un événement":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Rubriques Event Grid":::
     5. Pour le point de terminaison du webhook, indiquez l’URL de votre application web et ajoutez `api/updates` à l’URL de la page d’accueil. Sélectionnez **Confirmer la sélection**.
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Fournir une URL du point de terminaison":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Rubriques Event Grid":::
     6. Dans la page **Créer un abonnement aux événements**, sélectionnez **Créer**.
 
 3. Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. Sélectionnez l’icône en forme d’œil pour développer les données d’événements. Event Grid envoie l’événement de validation pour que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
@@ -95,7 +95,7 @@ Le premier exemple utilise Azure CLI. Il obtient l’URL et la clé de la rubriq
 ### <a name="azure-cli"></a>Azure CLI
 1. Dans le portail Azure, sélectionnez **Cloud Shell**. Cloud Shell s’ouvre dans le volet inférieur du navigateur web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Icône Sélectionner Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Rubriques Event Grid":::
 1. Sélectionnez **Bash** dans l’angle supérieur gauche de la fenêtre Cloud Shell. 
 
     ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,7 +125,7 @@ Le deuxième exemple utilise PowerShell pour effectuer des étapes similaires.
 
 1. Dans le portail Azure, sélectionnez **Cloud Shell** (ou accédez à `https://shell.azure.com/`). Cloud Shell s’ouvre dans le volet inférieur du navigateur web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Icône Sélectionner Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Rubriques Event Grid":::
 1. Dans **Cloud Shell**, sélectionnez **PowerShell** en haut à gauche de la fenêtre Cloud Shell. Consultez l’exemple d’image de fenêtre **Cloud Shell** dans la section Azure CLI.
 2. Définissez les variables suivantes. Après avoir copié et collé la commande, et avant de l’exécuter, mettez à jour le **nom de la rubrique** et le **nom du groupe de ressources** :
 
@@ -178,7 +178,7 @@ Le deuxième exemple utilise PowerShell pour effectuer des étapes similaires.
 ### <a name="verify-in-the-event-grid-viewer"></a>Vérifier dans la visionneuse Event Grid
 Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Affichez votre application web pour voir l’événement que vous venez d’envoyer.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Visionneuse Event Grid":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Rubriques Event Grid":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Dans le cas contraire, supprimez les ressources créées avec cet article.
