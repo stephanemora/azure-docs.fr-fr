@@ -8,10 +8,10 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88510624"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Windows à l’aide du portail Azure
@@ -45,7 +45,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez l’onglet « Gestion » et vérifiez que vous avez bien un compte de stockage des diagnostics. Si vous n’en avez pas, sélectionnez « Créer », donnez un nom à votre nouveau compte, puis sélectionnez « OK ».
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Écran de la création du groupe de ressources":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Écran Création de machine virtuelle Windows":::
 
 1. Cliquez sur « Vérifier + créer ».
 1. Sur la page **Create a virtual machine** (Créer une machine virtuelle), vous pouvez voir les détails de la machine virtuelle que vous allez créer. Lorsque vous êtes prêt, sélectionnez **Créer**.
@@ -59,19 +59,19 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 1. Dans la barre en haut, sélectionnez **Paramètres supplémentaires**.
 1. Sous **Paramètres de chiffrement** > **Disques à chiffrer**, sélectionnez **Disques de système d’exploitation et de données**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="sélection dans Disques et Chiffrement":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Écran Création de machine virtuelle Windows":::
 
 1. Sous **Paramètres de chiffrement**, choisissez **Sélectionner un coffre de clés et une clé de chiffrement**.
 1. Dans l’écran **Sélectionner une clé dans Azure Key Vault**, sélectionnez **Créer**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="sélection dans Disques et Chiffrement":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Écran Création de machine virtuelle Windows":::
 
 1. À gauche de **Coffre de clés et clé**, sélectionnez **Cliquer pour sélectionner une clé**.
 1. Dans l’écran **Sélectionner une clé dans Azure Key Vault**, sous le champ **Key Vault**, sélectionnez **Créer**.
 1. Dans l’écran **Créer un coffre de clés**, assurez-vous que le groupe de ressources est *myResourceGroup* et nommez votre coffre de clés.  Chaque coffre de clés dans Azure doit avoir un nom unique.
 1. Sous l’onglet **Stratégies d’accès**, cochez la case **Azure Disk Encryption pour chiffrer des volumes**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="sélection dans Disques et Chiffrement":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Écran Création de machine virtuelle Windows":::
 
 1. Sélectionnez **Revoir + créer**.  
 1. Une fois que le coffre de clés a été validé, sélectionnez **Créer**. Ceci vous ramène à l’écran **Sélectionner une clé dans Azure Key Vault**.

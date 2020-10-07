@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642263"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Démarrage rapide : Créer et déployer des ressources Azure Functions à partir d’un modèle ARM
@@ -117,7 +117,7 @@ Dans la sortie, copiez l’URL du déclencheur HTTP. Vous l’utilisez pour test
 
 1. Une fois la publication terminée, copiez l’**URL du site**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Copier l’URL du site à partir du résumé de la publication":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Choisir une cible de publication existante":::
 
 1. Ajoutez le chemin `/api/<FUNCTION_NAME>?name=Functions`, où `<FUNCTION_NAME>` correspond au nom de votre fonction. L’URL qui appelle la fonction à déclencheur HTTP est au format suivant :
 

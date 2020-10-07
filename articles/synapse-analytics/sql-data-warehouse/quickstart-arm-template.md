@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
 ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88641872"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Démarrage rapide : Créer un pool SQL Azure Synapse Analytics à l’aide d’un modèle ARM
@@ -49,7 +49,7 @@ Le modèle définit une ressource :
 
    * **Abonnement**: Sélectionnez un abonnement Azure.
    * **Groupe de ressources** : Sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources et sélectionnez **OK**. La création d’un nouveau groupe de ressources facilitera le nettoyage des ressources.
-   * **Région** : Sélectionnez une région.  Par exemple, **USA Centre**.
+   * **Région** : sélectionnez une région.  Par exemple, **USA Centre**.
    * **Nom du serveur SQL** : acceptez le nom par défaut ou entrez un nom pour le serveur SQL.
    * **Connexion de l’administrateur SQL** : entrez le nom d’administrateur pour le serveur SQL.
    * **Mot de passe de l’administrateur SQL** : entrez le mot de passe d’administrateur pour le serveur SQL.

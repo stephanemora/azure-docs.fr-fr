@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851934"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Démarrage rapide : Déployer l’API Azure pour FHIR à l’aide du portail Azure
@@ -37,13 +37,13 @@ Vous pouvez trouver l’API Azure pour FHIR en tapant « FHIR » dans la zone 
 
 Sélectionnez **Créer** afin de créer un compte d’API Azure pour FHIR :
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Créer un compte d’API Azure pour FHIR":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Rechercher des API médicales":::
 
 ## <a name="enter-account-details"></a>Entrer les détails du compte
 
 Sélectionnez un groupe de ressources existant, ou créez-en un, choisissez un nom pour le compte, puis cliquez sur **Vérifier + créer** :
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Détails de la nouvelle API médicale":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Rechercher des API médicales":::
 
 Confirmez la création et attendez le déploiement de l’API FHIR.
 
@@ -51,7 +51,7 @@ Confirmez la création et attendez le déploiement de l’API FHIR.
 
 Vous pouvez également cliquer sur **suivant : Paramètres supplémentaires** pour afficher les paramètres d’authentification. La configuration par défaut de l’API Azure pour FHIR consiste à [utiliser Azure RBAC pour attribuer des rôles de plan de données](configure-azure-rbac.md). Dans ce mode de configuration, l’ « Autorité » pour le service FHIR est définie sur le locataire Azure Active Directory de l’abonnement :
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Paramètres d’authentification par défaut":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Rechercher des API médicales":::
 
 Notez que la zone de saisie des ID d’objet autorisés est grisée, car nous utilisons Azure RBAC pour configurer des attributions de rôles dans ce cas.
 

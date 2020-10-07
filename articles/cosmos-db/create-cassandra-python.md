@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88234939"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK Python et Azure Cosmos DB
@@ -157,11 +157,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     Appuyez sur CTRL+C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Afficher et vérifier la sortie":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Afficher et copier un nom d’utilisateur, un mot de passe et un point de contact dans le panneau de chaîne de connexion du portail Azure":::
     
 4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Afficher les données dans l’Explorateur de données":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Afficher et copier un nom d’utilisateur, un mot de passe et un point de contact dans le panneau de chaîne de connexion du portail Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
