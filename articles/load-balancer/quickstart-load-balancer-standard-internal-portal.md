@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654495"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446115"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -42,8 +42,6 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
-
-Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. 
 
 Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
 
@@ -125,7 +123,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 4. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Créer un équilibreur de charge interne standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Créer un équilibreur de charge interne standard." border="true":::
  
 ## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
@@ -213,7 +211,7 @@ Dans cette section, vous allez :
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Dans cette section, vous allez créer deux machines virtuelles (**myVM1** et **myVM2**) avec une adresse IP publique standard dans deux zones (**Zone 1** et **Zone 2**). 
+Dans cette section, vous allez créer deux machines virtuelles (**myVM1** et **myVM2**).
 
 Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur de charge créé auparavant.
 
@@ -248,7 +246,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
     | Subnet | **myBackendSubnet** |
-    | Adresse IP publique | Acceptez la valeur par défaut **myVM-ip**. </br> L’adresse IP est automatiquement une adresse IP de référence SKU Standard dans la Zone 1. |
+    | Adresse IP publique | Sélectionnez **Aucun** |
     | Groupe de sécurité réseau de la carte réseau | Sélectionnez **Avancé**|
     | Configurer un groupe de sécurité réseau | Sélectionnez **Créer nouveau**. </br> Dans **Créer un groupe de sécurité réseau**, entrez **myNSG** dans **Nom**. </br> Sélectionnez **OK**. |
     | **Équilibrage de charge**  |
@@ -257,21 +255,12 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Options d’équilibrage de charge | Sélectionnez **Équilibrage de charge Azure** |
     | Sélectionnez un équilibreur de charge | Sélectionnez **myLoadBalancer**  |
     | Sélectionnez un pool principal | Sélectionnez **myBackendPool** |
-
-5. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**.
-
-6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
-    
-    | Paramètre | Valeur |
-    |-|-|
-    | **Surveillance** |  |
-    | Diagnostics de démarrage | Sélectionnez **Désactivé** |
    
-7. Sélectionnez **Revoir + créer**. 
+5. Sélectionnez **Revoir + créer**. 
   
-8. Passez en revue les paramètres, puis sélectionnez **Créer**.
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
-9. Suivez les étapes 1 à 8 pour créer une machine virtuelle supplémentaire avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
+7. Suivez les étapes 1 à 8 pour créer une machine virtuelle supplémentaire avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
 
     | Paramètre | Machine virtuelle 2|
     | ------- | ----- |
@@ -286,8 +275,6 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
-
-Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. 
 
 Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
 
@@ -368,7 +355,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 4. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Créer un équilibreur de charge interne standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Créer un équilibreur de charge interne standard." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
@@ -461,9 +448,7 @@ Dans cette section, vous allez :
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Les références SKU d’adresse IP publique et d’équilibreur de charge doivent correspondre. Pour un équilibreur de charge de base, utilisez des machines virtuelles auxquelles sont associées des adresses IP de base dans le pool de back-ends. 
-
-Dans cette section, vous allez créer deux machines virtuelles (**myVM1** et **myVM2**) avec une adresse IP publique de base.  
+Dans cette section, vous allez créer deux machines virtuelles (**myVM1** et **myVM2**).
 
 Les deux machines virtuelles vont être ajoutées à un groupe à haute disponibilité nommé **myAvailabilitySet**.
 
@@ -505,21 +490,12 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Configurer un groupe de sécurité réseau | Sélectionnez **Créer nouveau**. </br> Dans **Créer un groupe de sécurité réseau**, entrez **myNSG** dans **Nom**. </br> Sélectionnez **OK**. |
     | **Équilibrage de charge**  |
     | Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ? | Sélectionnez **Non** |
- 
-5. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**.
 
-6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
-    
-    | Paramètre | Valeur |
-    |-|-|
-    | **Surveillance** |  |
-    | Diagnostics de démarrage | Sélectionnez **Désactivé** |
-
-7. Sélectionnez **Revoir + créer**. 
+5. Sélectionnez **Revoir + créer**. 
   
-8. Passez en revue les paramètres, puis sélectionnez **Créer**.
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
-9. Suivez les étapes 1 à 8 pour créer une machine virtuelle supplémentaire avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
+7. Suivez les étapes 1 à 8 pour créer une machine virtuelle supplémentaire avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
 
     | Paramètre | Machine virtuelle 2 |
     | ------- | ----- |
@@ -583,19 +559,10 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
     | Adresse IP publique | Sélectionnez **Aucun**. |
     | Groupe de sécurité réseau de la carte réseau | Sélectionnez **Avancé**|
     | Configurer un groupe de sécurité réseau | Sélectionnez **MyNSG** créé à l’étape précédente.|
-    
-5. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**.
-
-6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
-    
-    | Paramètre | Valeur |
-    |-|-|
-    | **Surveillance** |  |
-    | Diagnostics de démarrage | Sélectionnez **Désactivé** |
-   
-7. Sélectionnez **Revoir + créer**. 
+       
+5. Sélectionnez **Revoir + créer**. 
   
-8. Passez en revue les paramètres, puis sélectionnez **Créer**.
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
 ## <a name="install-iis"></a>Installer IIS
 
@@ -647,23 +614,21 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
 
 8. Entrez l’adresse IP de l’étape précédente dans la barre d’adresse du navigateur. La page par défaut du serveur Web IIS s’affiche sur le navigateur.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Créer un équilibreur de charge interne standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Créer un équilibreur de charge interne standard." border="true":::
    
-Pour voir l’équilibreur de charge répartir le trafic entre les trois machines virtuelles, vous pouvez personnaliser la page par défaut du serveur web IIS de chaque machine virtuelle, puis forcer votre navigateur à s’actualiser à partir de la machine cliente.
+Pour voir l’équilibreur de charge répartir le trafic entre les deux machines virtuelles, vous pouvez personnaliser la page par défaut du serveur web IIS de chaque machine virtuelle, puis forcer votre navigateur à s’actualiser à partir de la machine cliente.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources **myResourceGroupLB** qui contient les ressources, puis sélectionnez **Supprimer**.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources **myResourceGroupLB** qui contient les ressources, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous :
 
-* Avez créé un équilibreur de charge Azure Standard ou De base
+* Avez créé un équilibreur de charge Azure interne standard ou de base
 * Avez attaché 2 machines virtuelles à l’équilibreur de charge.
 * Avez configuré la règle de trafic de l’équilibreur de charge, configuré la sonde d’intégrité, puis testé l’équilibreur de charge 
 
 Pour en savoir plus sur Azure Load Balancer, consultez [Qu’est-ce qu’Azure Load Balancer ?](load-balancer-overview.md) et [Questions fréquentes sur Load Balancer](load-balancer-faqs.md).
 
-* Découvrez-en plus sur les [équilibreurs de charge et les zones de disponibilité](load-balancer-standard-availability-zones.md).
-* Apprenez-en davantage sur [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).

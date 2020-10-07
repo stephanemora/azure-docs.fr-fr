@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90525335"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439077"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -133,7 +133,7 @@ Une fois la découverte terminée, vous pouvez commencer la réplication des mac
 
     ![Paramètres de capacité de calcul de la machine virtuelle](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
+12. Dans **Disques**, spécifiez les disques de machine virtuelle qui doivent être répliqués sur Azure. Cliquez ensuite sur **Suivant**.
     - Vous pouvez exclure des disques de la réplication.
     - Si vous excluez des disques, ils ne seront pas présents sur la machine virtuelle Azure après la migration. 
 

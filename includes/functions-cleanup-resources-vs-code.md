@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
 ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91408545"
 ---
 1. Dans Visual Studio Code, appuyez sur <kbd>F1</kbd> pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez `Azure Functions: Open in portal`.

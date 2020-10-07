@@ -4,12 +4,12 @@ description: Apprenez à découvrir les machines virtuelles Hyper-V locales avec
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603949"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442324"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutoriel : Découvrir les machines virtuelles Hyper-V avec Server Assessment
 
@@ -39,7 +39,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 **Prérequis** | **Détails**
 --- | ---
 **Hôte Hyper-V** | Les hôtes Hyper-V sur lesquels les machines virtuelles sont situées peuvent être autonomes ou appartenir à un cluster.<br/><br/> L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).
-**Étapes de déploiement d’appliance** | vCenter Server doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - Windows Server 2016<br/><br/> \- 32 Go de RAM<br/><br/> - 8 processeurs virtuels<br/><br/> - Environ 80 Go de stockage sur disque<br/><br/> - Un commutateur virtuel externe<br/><br/> - Un accès à Internet pour la machine virtuelle, directement ou via un proxy
+**Étapes de déploiement d’appliance** | L’hôte Hyper-v doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - Windows Server 2016<br/><br/> \- 16 Go de RAM<br/><br/> - 8 processeurs virtuels<br/><br/> - Environ 80 Go de stockage sur disque<br/><br/> - Un commutateur virtuel externe<br/><br/> - Un accès à Internet pour la machine virtuelle, directement ou via un proxy
 **Machines virtuelles** | Les machines virtuelles peuvent exécuter le système d’exploitation Windows ou Linux. 
 
 Avant de commencer, vous pouvez [examiner les données](migrate-appliance.md#collected-data---hyper-v) que l’appliance collecte pendant la découverte.
@@ -72,6 +72,8 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 8. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
+
+9. L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle **Développeur d’applications** pour permettre l’inscription d’applications AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-hyper-v-hosts"></a>Préparer les hôtes Hyper-V
 
@@ -135,7 +137,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
 2. Exécutez la commande PowerShell suivante pour générer le code de hachage du fichier ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Exemple d’utilisation : ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Exemple d’utilisation : ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
 
@@ -143,13 +145,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
         **Scénario** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (10,4 Go) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8,91 Go) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - Pour Azure Government :
 
         **Scénario*** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
 
@@ -214,7 +216,7 @@ Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la d�
 1. Sur la machine virtuelle de l’appliance, exécutez cette commande. HyperVHost1/HyperVHost2 sont des exemples de noms d’hôte.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Vous pouvez également effectuer cette opération dans l’éditeur d’objets de stratégie de groupe sur l’appliance :

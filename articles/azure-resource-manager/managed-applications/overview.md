@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377010"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403685"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -77,7 +77,7 @@ Quand le consommateur supprime l’application managée, le groupe de ressources
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Vous pouvez appliquer [Azure Policy](../../governance/policy/overview.md) pour auditer votre application gérée. Vous appliquez des définitions de stratégie pour garantir que les instances déployées de votre application gérée sont conformes aux exigences liées à la sécurité et aux données. Si votre application interagit avec des données sensibles, assurez-vous que vous avez évalué comment il convient de la protéger. Par exemple, si votre application interagit avec des données d’Office 365, appliquez une définition de stratégie pour garantir que le chiffrement des données est activé.
+Vous pouvez appliquer [Azure Policy](../../governance/policy/overview.md) pour auditer votre application gérée. Vous appliquez des définitions de stratégie pour garantir que les instances déployées de votre application gérée sont conformes aux exigences liées à la sécurité et aux données. Si votre application interagit avec des données sensibles, assurez-vous que vous avez évalué comment il convient de la protéger. Par exemple, si votre application interagit avec des données de Microsoft 365, appliquez une définition de stratégie pour garantir que le chiffrement des données est activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

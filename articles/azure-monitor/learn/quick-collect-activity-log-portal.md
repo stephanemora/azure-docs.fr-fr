@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446252"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439206"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide du portail Azure
 Le journal d’activité est un journal de plateforme dans Azure qui fournit des insights de tous les événements de niveau abonnement. Les informations qu’il contient indiquent, par exemple, à quel moment une ressource a été modifiée ou qu’une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité aux journaux Azure Monitor, où vous pouvez l’analyser à l’aide de [requêtes de journal](../log-query/log-query-overview.md) et activer d’autres fonctionnalités comme les [alertes de journal](../platform/alerts-log-query.md) et les [classeurs](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 Dans le portail Azure, recherchez puis sélectionnez **Espaces de travail Log Analytics**. 
 
-![Portail Azure](media/quick-create-workspace/azure-portal-01.png)
+![Capture d’écran du portail Azure, montrant « espaces de travail log analytics » dans la zone de recherche et les espaces de travail Log Analytics sélectionnés sous Services.](media/quick-create-workspace/azure-portal-01.png)
   
 Cliquez sur **Ajouter**, puis fournissez des valeurs pour le **Groupe de ressources**, le **Nom** de l’espace de travail et l’**Emplacement**. Le nom de l’espace de travail doit être unique parmi tous les abonnements Azure.
 
@@ -36,7 +36,7 @@ Cliquez sur **Vérifier + créer** pour passer en revue les paramètres, puis 
 ## <a name="create-diagnostic-setting"></a>Créer un paramètre de diagnostic
 Dans le portail Azure, recherchez puis sélectionnez **Superviser**. 
 
-![Portail Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Capture d’écran du portail Azure, montrant « monitor » dans la zone de recherche et Monitor sélectionné sous Services.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Sélectionnez **Journal d’activité**. Vous devez normalement voir les événements récents relatifs à l’abonnement actuel. Cliquez sur **Paramètres de diagnostic** pour voir les paramètres de diagnostic de l’abonnement.
 

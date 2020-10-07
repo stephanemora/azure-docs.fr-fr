@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689522"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447542"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutoriel : Consulter votre facture Contrat client Microsoft
 
@@ -47,7 +47,7 @@ Vérifiez le type de contrat pour déterminer si vous avez accès au compte de f
 
 Dans le portail Azure, tapez *gestion des coûts + facturation* dans la zone de recherche, puis sélectionnez **Gestion des coûts + facturation**.
 
-![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Capture d’écran montrant la recherche de « gestion des coûts + facturation » dans le Portail Azure.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Si vous avez accès à une seule étendue de facturation, sélectionnez **Propriétés** dans la partie gauche. Vous avez accès au compte de facturation d’un contrat client Microsoft si le type de compte de facturation est **Contrat client Microsoft**.
 
@@ -106,7 +106,7 @@ Sélectionnez l’onglet **Résumé** en haut de l’écran.
 
 La section Frais affiche le mois en cours et les frais du mois dernier.
 
-![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Capture d’écran illustrant le résumé d’un profil de facturation.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Les frais du mois en cours sont des frais en attente. Ils seront facturés lors de la génération de la facture à la fin du mois. Si la facture du mois dernier n’est pas encore générée, les frais du mois dernier sont également en attente et seront reportés sur votre prochaine facture.
 
@@ -138,7 +138,7 @@ Sur le côté gauche de la page, sélectionnez **Tous les abonnements**.
 
 La page Abonnements Azure affiche les frais actuels et ceux du mois dernier pour chaque abonnement dans le profil de facturation. Les frais du mois en cours sont des frais en attente. Ils seront facturés lors de la génération de la facture à la fin du mois. Si la facture du mois dernier n’est pas encore générée, les frais du mois dernier sont également en attente.
 
-![Capture d’écran montrant la liste des abonnements Azure pour le profil de facturation](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Capture d’écran montrant les abonnements avec les frais en cumul mensuel à ce jour et les frais du mois précédent.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analyser vos frais d’utilisation Azure
 
@@ -172,7 +172,7 @@ Vous pouvez filtrer le fichier CSV Utilisation et frais Azure pour rapprocher le
 
 L’image suivante montre la liste des abonnements dans le portail Microsoft Azure.
 
-![Capture d’écran montrant la liste des abonnements Azure pour le profil de facturation](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Capture d’écran montrant la liste des abonnements dans le Portail Azure avec un abonnement encadré.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtre la colonne **subscriptionName** dans le fichier CSV Utilisation et frais Azure pour **WA_Subscription** afin d’afficher les frais d’utilisation détaillés pour WA_Subscription.
 

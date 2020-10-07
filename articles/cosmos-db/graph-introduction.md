@@ -1,18 +1,18 @@
 ---
 title: Présentation de l’API Gremlin Azure Cosmos DB
 description: Découvrez comment utiliser Azure Cosmos DB pour stocker, interroger et parcourir des graphes volumineux avec une faible latence grâce au langage de requête de graphe Gremlin d’Apache TinkerPop.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: jasonh
+ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523738"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409610"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Présentation de l’API Gremlin dans Azure Cosmos DB
 
@@ -106,7 +106,7 @@ Les bases de données de graphes sont souvent incluses dans la catégorie de bas
 
 Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes peuvent être exprimées dans Gremlin. L’illustration suivante montre une application métier qui gère les données sur les utilisateurs, les centres d’intérêt et les appareils sous la forme d’un graphe.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Exemple de base de données montrant des personnes, des appareils et des centres d’intérêt" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Architecture graphique Azure Cosmos DB" border="false"::: 
 
 Ce graphe présente les types suivants de *sommets* (également appelés « label » dans Gremlin) :
 

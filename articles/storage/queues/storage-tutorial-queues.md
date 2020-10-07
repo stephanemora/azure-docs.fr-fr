@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008792"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400568"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente de stockage Azure dans .NET
 
@@ -227,6 +227,8 @@ Créez une méthode pour récupérer un message de la file d’attente. Une fois
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    Cette méthode reçoit un message de la file d’attente par l’appel à [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), en passant 1 dans le premier paramètre pour ne récupérer que le message suivant dans la file d’attente. Une fois que le message est reçu, supprimez-le de la file d’attente en appelant [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   Quand un message est envoyé à la file d’attente avec une version du SDK antérieure à v12, il est automatiquement encodé en Base64. À compter de v12, cette fonctionnalité a été supprimée. Quand vous récupérez un message en utilisant le SDK v12, il n’est pas décodé automatiquement en base64. Vous devez [décoder le contenu en Base64](/dotnet/api/system.convert.frombase64string) vous-même.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690185"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446451"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
@@ -152,7 +152,7 @@ Utiliser une instruction conditionnelle pour vérifier si la quantité seuil a a
 1. Sélectionnez **OK** pour définir l’expression.
 1. Sélectionnez **est supérieur ou égal à** dans la zone déroulante de la **Condition**.
 1. Dans la zone **Choisir une valeur** de la condition, entrez `.8`.  
-    ![Azure - Application logique - Expression de type Float avec une valeur](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Capture d’écran montrant la boîte de dialogue Condition avec des valeurs sélectionnées.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Sélectionnez **Ajouter** > **Ajouter une ligne** dans la boîte de dialogue Condition pour ajouter une autre partie de la condition.
 1. Dans la boîte de dialogue **Condition**, sélectionnez la zone de texte contenant `Choose a value`.
 1. Sélectionnez **Expression** en haut de la liste et entrez l’expression suivante dans l’éditeur d’expressions : `float()`
@@ -160,7 +160,7 @@ Utiliser une instruction conditionnelle pour vérifier si la quantité seuil a a
 1. Sélectionnez **OK** pour définir l’expression.
 1. Sélectionnez **est inférieur à** dans la zone déroulante de la **Condition**.
 1. Dans la zone **Choisir une valeur** de la condition, entrez `1`.  
-    ![Azure - Application logique - Expression de type Float avec une valeur](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Capture d’écran montrant la boîte de dialogue Condition avec deux conditions.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. Dans la boîte de dialogue **Si true**, sélectionnez **Ajouter une action**. Vous ajoutez une action HTTP POST permettant d’arrêter les machines virtuelles facultatives.  
     ![Azure - Application logique - Ajouter une action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Entrez **HTTP** pour rechercher l’action HTTP et sélectionnez l’action **HTTP – HTTP**.  
@@ -183,7 +183,7 @@ Utiliser une instruction conditionnelle pour vérifier si la quantité seuil a a
 Utiliser une instruction conditionnelle pour vérifier si la quantité seuil a atteint ou dépassé 100 % de la valeur du budget. Si la quantité seuil est atteinte, envoyer une requête HTTP POST avec le webhook nommé **Complet**. Cette action arrête toutes les autres machines virtuelles.
 
 1. Sélectionnez **Nouvelle étape** > **Ajouter une condition**.  
-    ![Azure - Application logique - Ajouter une action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Capture d’écran montrant la boîte dialogue Si true avec le bouton Ajouter une action encadré.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. Dans la boîte de dialogue **Condition**, sélectionnez la zone de texte contenant `Choose a value` pour afficher la liste des valeurs disponibles.
 1. Sélectionnez **Expression** en haut de la liste et entrez l’expression suivante dans l’éditeur d’expressions : `float()`
 1. Sélectionnez **Contenu dynamique**, placez le curseur entre les parenthèses () et sélectionnez **NotificationThresholdAmount** dans la liste pour remplir l’expression complète.
@@ -194,11 +194,11 @@ Utiliser une instruction conditionnelle pour vérifier si la quantité seuil a a
 1. Dans la zone **Choisir une valeur** de la condition, entrez `1`.  
     ![Azure - Application logique - Définir une valeur de condition](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. Dans la boîte de dialogue **Si true**, sélectionnez **Ajouter une action**. Vous allez ajouter une action HTTP POST permettant d’arrêter toutes les machines virtuelles restantes.  
-    ![Azure - Application logique - Ajouter une action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Capture d’écran montrant la boîte de dialogue Si true avec l’option permettant d’ajouter une action POST H T T P.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Entrez **HTTP** pour rechercher l’action HTTP et sélectionnez l’action **HTTP – HTTP**.
 1. Sélectionnez **Post** comme valeur de **Méthode**.
 1. Comme valeur de l’**Uri**, entrez l’URL du webhook nommé **Complet** que vous avez créée précédemment dans ce tutoriel.  
-    ![Azure - Application logique - Ajouter une action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Capture d’écran montrant la boîte de dialogue H T T P dans laquelle vous pouvez entrer la valeur U R L.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Dans la boîte de dialogue **Si true**, sélectionnez **Ajouter une action**. Vous allez ajouter une action de messagerie qui enverra un e-mail informant le destinataire que les machines virtuelles restantes ont été arrêtées.
 1. Recherchez « Envoyer un e-mail » et sélectionnez une action *Envoyer un e-mail* selon le service de messagerie que vous utilisez.
 1. Ajoutez les zones **À**, **Objet** et **Corps** de texte pour l’e-mail qui notifie l’arrêt des machines virtuelles facultatives au destinataire. Utilisez le contenu dynamique de **BudgetName** et de **NotificationThresholdAmount** pour remplir les champs Objet et Corps.  

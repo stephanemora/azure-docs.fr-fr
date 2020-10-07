@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057005"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446098"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -93,7 +93,7 @@ Créez un groupe de sécurité réseau pour définir les connexions entrantes ve
     - *myNetworkSecurityGroup* : pour le nom du groupe de sécurité réseau.
     - *myResourceGroupLBAZ* : pour le nom du groupe de ressources existant.
    
-![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![La capture d’écran montre le volet Créer un groupe de sécurité réseau.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Créer des règles pour le groupe de sécurité réseau
 
@@ -112,7 +112,7 @@ Dans cette section, vous allez créer des règles pour le groupe de sécurité r
     - *Allow HTTP* : pour la description de la règle de l’équilibreur de charge.
 4. Cliquez sur **OK**.
  
-   ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![La capture d’écran montre le volet Ajouter une règle de sécurité de trafic entrant.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Répétez les étapes 2 à 4 pour créer une autre règle nommée *myRDPRule* pour autoriser une connexion RDP entrante à l’aide du port 3389 avec les valeurs suivantes :
     - *Service Tag* : pour **Source**.
     - *Internet* : pour **Balise de service source**

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281070"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409542"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans le portail Azure
 
@@ -199,9 +199,7 @@ Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionne
 
 Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle d’informatique confidentielle et installé le SDK Open Enclave. Pour plus d’informations sur les machines virtuelles d’informatique confidentielle sur Azure, consultez [Solutions sur les machines virtuelles](virtual-machine-solutions.md). 
 
-Si vous avez déployé une machine virtuelle Windows, découvrez comment créer des applications avec les [exemples du SDK OE pour Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) sur GitHub. 
-
-Découvrez comment créer des applications d’informatique confidentielle sur Linux en accédant aux exemples du SDK Open Enclave sur GitHub. 
+Découvrez comment créer des applications d’informatique confidentielle en accédant aux exemples du SDK Open Enclave sur GitHub. 
 
 > [!div class="nextstepaction"]
-> [Génération des exemples du SDK Open Enclave sur Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Création d’exemples de SDK Open Enclave](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

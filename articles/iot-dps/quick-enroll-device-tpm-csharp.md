@@ -1,20 +1,20 @@
 ---
-title: Inscrire un appareil TPM auprès du service Azure Device Provisioning avec C#
+title: 'Démarrage rapide : Inscrire un appareil TPM auprès du service Azure Device Provisioning avec C#'
 description: 'Démarrage rapide : Inscrire un appareil TPM auprès du service Azure IoT Hub Device Provisioning (DPS) à l’aide du SDK du service C#. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6176ff91029817e6891f0ee1e043cc3a827c2d6c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999051"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409508"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Démarrage rapide : Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du C# Service SDK
 
@@ -128,12 +128,15 @@ Cette section montre comment créer une application console .NET Core qui ajoute
    }
    ```
 
-1. Enfin, remplacez le corps de la méthode `Main` par les lignes suivantes :
+1. Enfin, remplacez la méthode `Main` par les lignes suivantes :
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Générez la solution.

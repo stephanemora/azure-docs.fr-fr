@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905482"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91447215"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Azure Security Center collecte des données à partir de vos machines virtuelles Azure, groupes de machines virtuelles identiques, conteneurs IaaS et ordinateurs autres qu’Azure (y compris locaux) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de l’agent Log Analytics, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté.
@@ -71,7 +71,7 @@ Security Center peut créer automatiquement un espace de travail par défaut dan
 Pour sélectionner un espace de travail créé par Security Center :
 
 1. Sous **Configuration de l’espace de travail par défaut**, sélectionnez Utiliser un ou des espaces de travail créés par Security Center.
-   ![Sélectionnez le niveau tarifaire][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics"::: 
 
 1. Cliquez sur **Enregistrer**.<br>
     Security Center crée un groupe de ressources et un espace de travail par défaut dans cette zone géographique et connecte l’agent à cet espace de travail. La convention d’affectation de noms pour l’espace de travail et le groupe de ressources est la suivante :<br>
@@ -99,8 +99,7 @@ Pour utiliser votre espace de travail Log Analytics existant, vous devez avoir d
 Pour sélectionner un espace de travail Log Analytics existant :
 
 1. Sous **Configuration de l’espace de travail par défaut**, sélectionnez **Utiliser un autre espace de travail**.
-
-   ![Utiliser un autre espace de travail][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics"::: 
 
 2. Dans le menu déroulant, sélectionnez un espace de travail pour stocker les données collectées.
 
@@ -191,10 +190,10 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 >
 
 Pour choisir votre stratégie de filtrage :
-1. Sur la page **Collecte de données**, sélectionnez votre stratégie de filtrage sous **Événements de sécurité**.
-2. Sélectionnez **Enregistrer**.
-
-   ![Choix de la stratégie de filtrage][5]
+1. Sur la page **Collecte de données**, sélectionnez votre stratégie de filtrage sous **Stocker des données brutes supplémentaires - Événements de sécurité Windows**.
+ 
+1. Sélectionnez **Enregistrer**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics":::
 
 ### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Approvisionnement automatique en cas d’installation d’un agent préexistant <a name="preexisting"></a> 
 
@@ -224,7 +223,7 @@ Pour désactiver le provisionnement automatique de l’agent Log Analytics :
 1. Dans le menu de Security Center dans le portail, sélectionnez **Tarification et paramètres**.
 2. Sélectionnez l’abonnement approprié.
 
-   ![Sélectionner un abonnement][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics":::
 
 3. Sélectionnez **Collection de données**.
 4. Sous **Provisionnement automatique**, sélectionnez **Désactivé** pour désactiver le provisionnement automatique.
@@ -309,13 +308,7 @@ Cet article vous a montré le fonctionnement de la collecte de données et de l�
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png

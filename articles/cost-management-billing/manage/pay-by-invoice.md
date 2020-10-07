@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0667e253d50ecc34acef822a928a95e49f13282e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439790"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
@@ -85,7 +85,7 @@ Suivez les étapes ci-dessous pour modifier votre abonnement Azure afin de payer
 
 1. Accédez au [portail Azure](https://portal.azure.com) pour vous connecter en tant qu’administrateur de compte. Recherchez et sélectionnez **Gestion des coûts + facturation**.
 
-    ![Recherche de Gestion des coûts + facturation, portail Microsoft Azure](./media/pay-by-invoice/search.png)
+    ![Capture d’écran montrant la recherche de « gestion des coûts + facturation » dans le Portail Azure.](./media/pay-by-invoice/search.png)
 
 1. Sélectionnez l’abonnement que vous souhaitez faire passer au paiement par facture.
 1. Sélectionnez **Modes de paiement**.

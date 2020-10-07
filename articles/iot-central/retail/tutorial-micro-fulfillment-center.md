@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980537"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440195"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
@@ -62,11 +62,11 @@ Une fois le modèle d’application déployé, le **tableau de bord du centre de
    * Examiner le plan d’étage et l’emplacement des robots porteurs au sein de la structure de traitement.
    * Déclencher des commandes pour réinitialiser le système de contrôle, mettre à jour le microprogramme du porteur et reconfigurer le réseau, par exemple.
 
-     ![Capture d’écran montrant la moitié supérieure du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Capture d’écran montrant la moitié supérieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Consulter un exemple du tableau de bord dont peut se servir un opérateur pour superviser les conditions au sein du centre de traitement. 
    * Superviser l’intégrité des charges utiles qui s’exécutent sur l’appareil de passerelle au sein du centre de traitement.    
 
-     ![Capture d’écran montrant la moitié inférieure du tableau de bord du centre de microtraitement de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Capture d’écran montrant la moitié inférieure du tableau de bord du centre de microtraitement de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modèle d’appareil
 Si vous sélectionnez l’onglet Modèles d’appareil, vous constatez qu’il existe deux types d’appareils dans le modèle : 

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896709"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404916"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
 
@@ -75,7 +75,7 @@ Vous pouvez définir une **cible de calcul par défaut** pour le pipeline entier
     Si vous avez déjà une cible de calcul, vous pouvez la sélectionner pour exécuter ce pipeline.
 
     > [!NOTE]
-    > Le concepteur peut uniquement exécuter des expérimentations d’entraînement sur des instances de calcul Azure Machine Learning et Capacité de calcul Azure Machine Learning. Les autres cibles de calcul n’apparaîtront pas.
+    > Le concepteur peut uniquement exécuter des expérimentations d’entraînement sur des instances de calcul Azure Machine Learning. Les autres cibles de calcul n’apparaîtront pas.
 
 1. Entrez un nom pour la ressource de calcul.
 
@@ -221,7 +221,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
     > [!IMPORTANT]
     > Vérifiez que le port de sortie de gauche de **Split Data** est connecté à **Train Model**. Le port de gauche contient le jeu d’entraînement. Le port de droite contient le jeu de test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Capture d’écran montrant la configuration correcte du module Entraîner le modèle. Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
 
 1. Sélectionnez le module **Entraîner le modèle**.
 
@@ -236,7 +236,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     Votre pipeline doit se présenter comme suit :
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline après l’ajout du module Entraîner le modèle.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
 
 ### <a name="add-the-score-model-module"></a>Ajoutez le module Score Model (Noter le modèle)
 
@@ -256,7 +256,7 @@ Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le sco
 
     Le pipeline final doit maintenant se présenter comme ceci :
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
@@ -285,7 +285,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Capture d’écran de la visualisation de la sortie mettant en évidence la colonne d’étiquettes notées":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
 
 ### <a name="evaluate-models"></a>Évaluer les modèles
 

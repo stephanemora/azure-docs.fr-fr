@@ -4,12 +4,12 @@ description: Apprenez à découvrir des serveurs physiques locaux avec l’outil
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600736"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442282"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutoriel : Découvrir les serveurs physiques avec Server Assessment
 
@@ -37,7 +37,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 
 **Prérequis** | **Détails**
 --- | ---
-**Appliance** | Vous avez besoin d’une machine sur laquelle exécuter l’appliance Azure Migrate. La machine doit disposer des éléments suivants :<br/><br/> - Windows Server 2016, installé L’exécution de l’appliance sur un ordinateur doté de Windows Server 2019 n’est pas prise en charge.<br/><br/> - 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
+**Appliance** | Vous avez besoin d’une machine sur laquelle exécuter l’appliance Azure Migrate. La machine doit disposer des éléments suivants :<br/><br/> - Windows Server 2016, installé _(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_<br/><br/> -16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
 **Serveurs Windows** | Autorisez les connexions entrantes sur le port WinRM 5985 (HTTP) pour que l’appliance puisse tirer (pull) les métadonnées de configuration et de performances.
 **Serveurs Linux** | Autorisez les connexions entrantes via le port 22 (TCP).
 
@@ -69,7 +69,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle **Développeur d’applications** pour permettre l’inscription d’applications AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-physical-servers"></a>Préparer les serveurs physiques
 
@@ -139,13 +139,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
         **Scénario** | **Télécharger*** | **Valeur de hachage**
         --- | --- | ---
-        Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Pour Azure Government :
 
         **Scénario** | **Télécharger*** | **Valeur de hachage**
         --- | --- | ---
-        Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Exécuter le script du programme d’installation Azure Migrate
