@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904716"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439422"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -42,12 +42,12 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
 |[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Oui|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
 |Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
-|Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
-|Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
-|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
+|Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
+|Évaluation des vulnérabilités tierces|✔|-|-|Non|
+|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Non|
 
 
 ### <a name="linux-machines"></a>[**Machines Linux**](#tab/features-linux)
@@ -66,12 +66,12 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
 |[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Oui|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
-|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuit|
-|Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
-|Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
-|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Non|
+|Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
+|Évaluation des vulnérabilités tierces|✔|-|-|Non|
+|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Non|
 
 --- 
 

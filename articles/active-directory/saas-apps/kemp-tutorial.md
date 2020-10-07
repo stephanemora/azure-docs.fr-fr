@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 1d974badd715d7966f552603a77d77aab95d70f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299997"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Kemp LoadMaster Azure AD integration
 
@@ -197,11 +197,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="ssl-acceleration"></a>Accélération SSL
  
-1. Accédez à l’interface utilisateur web Kemp Load Master > Virtual Services (Services virtuels) > Virtual Services (Services virtuels).
+1. Accédez à l’interface utilisateur web Kemp LoadMaster > Virtual Services (Services virtuels) > View/Modify Services (Afficher/Modifier des services).
 
 1. Cliquez sur Modify (Modifier) sous Operation (Opération).
 
-1. Sous Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7, cliquez sur SSL Properties (Propriétés SSL).
+1. Cliquez sur SSL Properties (Propriétés SSL) (qui fonctionne au niveau 7).
     
     ![Serveur web Kemp LoadMaster Azure AD integration](./media/kemp-tutorial/kemp-3.png)
     

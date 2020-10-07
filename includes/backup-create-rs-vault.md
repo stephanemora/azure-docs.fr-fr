@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003740"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400986"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -54,7 +54,7 @@ Pour créer un coffre Recovery Services, effectuez les étapes suivantes.
 
 1. Après avoir défini les valeurs, sélectionnez **Vérifier + créer**.
 
-    ![Créer le coffre Recovery Services](./media/backup-create-rs-vault/review-and-create.png)
+    ![Capture d’écran montrant le bouton Vérifier + créer dans le processus de création d’un coffre Recovery Services.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Quand vous êtes prêt à créer le coffre Recovery Services, sélectionnez **Créer**.
 

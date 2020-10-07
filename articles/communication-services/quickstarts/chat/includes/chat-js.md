@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376399"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -90,6 +90,8 @@ Créez un fichier dans le répertoire racine de votre projet sous le nom **clien
 ### <a name="create-a-chat-client"></a>Créer un client de conversation
 
 Pour créer un client de conversation dans votre application web, vous allez utiliser le point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services. Une fois que vous avez généré ces jetons sur votre serveur, transmettez-les en retour à un appareil client. Vous devez utiliser la classe `AzureCommunicationUserCredential` de la `Common client library` pour transmettre le jeton à votre client de conversation.
+
+Créez un fichier **client.js** dans le répertoire racine de votre projet. Nous nous servirons de ce fichier pour ajouter la fonctionnalité de conversation (chat) à l’aide de la bibliothèque de client Azure Communication Chat pour JavaScript.
 
 ```JavaScript
 
@@ -272,9 +274,9 @@ Pour les messages supprimés, `chatMessage.deletedOn` retourne une valeur dateti
 
 - `ThreadActivity/TopicUpdate`: Message système qui indique que le sujet a été mis à jour.
 
-- `ThreadActivity/AddMember`: Message système qui indique qu’un ou plusieurs membres ont été ajoutés au fil de conversation
+- `ThreadActivity/AddMember`: Message système qui indique qu’un ou plusieurs membres ont été ajoutés au fil de conversation.
 
-- `ThreadActivity/RemoveMember`: Message système qui indique qu’un membre a été supprimé du fil de conversation
+- `ThreadActivity/RemoveMember`: Message système qui indique qu’un membre a été supprimé du fil de conversation.
 
 Pour plus d’informations, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
 

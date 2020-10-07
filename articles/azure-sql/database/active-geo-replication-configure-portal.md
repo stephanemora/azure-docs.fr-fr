@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031610"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445039"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutoriel : Configurer la géoréplication active et le basculement dans le Portail Azure (Azure SQL Database)
 
@@ -55,12 +55,12 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
     ![Configuration de la géo-réplication](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Sélectionnez ou configurez le serveur et le niveau tarifaire pour la base de données secondaire.
 
-    ![Configuration de la base de données secondaire](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![créer un formulaire secondaire](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool données élastique. Pour créer la base de données secondaire dans un pool, cliquez sur **Pool élastique**, puis sélectionnez un pool sur le serveur cible. Un pool doit déjà exister sur le serveur cible. Ce workflow ne crée pas un pool.
 5. Cliquez sur **créer** pour ajouter la base de données secondaire.
 6. La base de données secondaire est créée et le processus d’amorçage commence.
 
-    ![Configuration de la base de données secondaire](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![mappage de bases de données secondaires](./media/active-geo-replication-configure-portal/seeding0.png)
 7. Lorsque le processus d’amorçage est terminé, la base de données secondaire affiche son état.
 
     ![Amorçage terminé](./media/active-geo-replication-configure-portal/seeding-complete.png)

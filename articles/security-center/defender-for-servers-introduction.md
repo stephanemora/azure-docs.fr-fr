@@ -3,16 +3,16 @@ title: 'Azure Defender pour les serveurs : avantages et fonctionnalités'
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour les serveurs.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/23/2020
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 29f15aa7d1cbcd260ce44f6083138681ceb9fd79
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930695"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91448297"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Présentation d’Azure Defender pour les serveurs
 
@@ -41,7 +41,7 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
 
 - **Contrôles d’application adaptatifs (AAC)**  les contrôles d’application adaptatifs sont une solution intelligente et automatisée permettant la définition de listes vertes d’applications réputées sécurisées pour vos ordinateurs.
 
-    Lorsque vous avez activé et configuré des contrôles d’application adaptatifs, vous obtenez des alertes de sécurité si une autre application que celles que vous avez définies comme sécurisées s’exécute. [Plus d’informations](security-center-adaptive-network-hardening.md)
+    Lorsque vous avez activé et configuré des contrôles d’application adaptatifs, vous obtenez des alertes de sécurité si une autre application que celles que vous avez définies comme sécurisées s’exécute. [Plus d’informations](security-center-adaptive-application.md)
 
 - **Sécurisation adaptative du réseau (ANH)**  : l’application de groupes de sécurité réseau (NSG) pour filtrer le trafic vers et depuis des ressources améliore votre posture de sécurité réseau. Il peut toutefois rester des cas dans lesquels le trafic réel qui transite via le groupe de sécurité réseau est un sous-ensemble des règles NSG définies. Dans ces cas, une amélioration supplémentaire de la posture de sécurité est possible en renforçant les règles NSG en fonction des modèles de trafic réel.
 
@@ -58,7 +58,7 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
 
 - **Détection d’attaques sans fichier (Windows uniquement)**  : les attaques sans fichier injectent des charges utiles malveillantes en mémoire pour ne pas être détectées par les techniques d’analyse sur disque. La charge utile de l’attaquant est alors conservée dans la mémoire des processus compromis et effectue un large éventail d’activités malveillantes.
 
-  Avec la détection des attaques sans fichier, les techniques d’investigation automatique de la mémoire identifient les comportements, les techniques et les kits de ressources des attaques sans fichier. Cette solution analyse régulièrement votre machine au moment de l’exécution et extrait des insights directement de la mémoire des processus. Des insights spécifiques pour Linux incluent l’identification des éléments suivants : 
+  Avec la détection des attaques sans fichier, les techniques d’investigation automatique de la mémoire identifient les comportements, les techniques et les kits de ressources des attaques sans fichier. Cette solution analyse régulièrement votre machine au moment de l’exécution et extrait des insights directement de la mémoire des processus. Des insights spécifiques incluent l’identification des éléments suivants : 
 
   - Trousses à outils et logiciels d’exploration de données de chiffrement connus 
 
@@ -81,9 +81,9 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
 
 Vous pouvez simuler des alertes en téléchargeant l’un des playbooks suivants :
 
-- Pour Windows : [Playbook Azure Security Center : alertes de sécurité](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+- Pour Windows : [Playbook Azure Security Center : alertes de sécurité](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- Pour Linux : [Playbook Azure Security Center : Détections Linux](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef).
+- Pour Linux : [Playbook Azure Security Center : Détections Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 

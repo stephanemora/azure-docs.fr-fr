@@ -2,16 +2,16 @@
 title: Tutoriel - Créer et déployer un modèle
 description: Créez votre premier modèle Azure Resource Manager. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069235"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409214"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutoriel : Créer et déployer votre premier modèle ARM
 
@@ -25,7 +25,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="get-tools"></a>Obtenir les outils
 
-Commençons par nous assurer que vous disposez des outils indispensables pour créer et déployer des modèles.
+Commençons par nous assurer que vous disposez des outils indispensables pour créer et déployer des modèles. Installez ces outils sur votre machine locale.
 
 ### <a name="editor"></a>Éditeur
 

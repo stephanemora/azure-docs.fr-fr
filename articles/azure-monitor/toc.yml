@@ -141,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -378,7 +378,7 @@
               href: platform/data-collection-rule-azure-monitor-agent.md
         - name: Agent Log Analytics
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/log-analytics-agent.md
             - name: Agents Windows
               href: platform/agent-windows.md
@@ -432,7 +432,7 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Collecter des métriques avec Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
@@ -640,7 +640,7 @@
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -799,7 +799,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -958,7 +958,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: Superviser les performances
           href: insights/vminsights-performance.md
+        - name: Superviser les changements
+          href: insights/vminsights-change-analysis.md
         - name: Analyser des données avec des requêtes de journal
           href: insights/vminsights-log-search.md
         - name: Visualiser des données dans des classeurs
@@ -986,7 +988,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers
@@ -1126,7 +1128,7 @@
               href: insights/wire-data.md
     - name: Workbooks
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualisations
@@ -1324,6 +1326,8 @@
       href: samples/policy-reference.md
     - name: Retrait de fonctionnalités et d’API
       items:
+        - name: API OperationalInsights
+          href: platform/operationalinsights-api-retirement.md
         - name: API classique de mise à l’échelle et de métrique
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Génération classique d’alertes et supervision

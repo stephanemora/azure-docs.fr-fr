@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313091"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutoriel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
 
@@ -74,7 +74,7 @@ Nous allons maintenant vous expliquer comment basculer vers la synchronisation d
 
 1. Accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.</br>
-   ![Vérifier](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Capture d’écran montrant un message indiquant que le test de connexion a réussi. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Revenir à la fédération
 Nous allons maintenant vous montrer comment revenir à la fédération.  Pour cela, effectuez les étapes suivantes :
@@ -91,7 +91,7 @@ Nous allons maintenant vous montrer comment revenir à la fédération.  Pour ce
 10. Une fois la configuration terminée, cliquez sur **Suivant**.
 ![Configurer](media/tutorial-phs-backup/backup4.png)</br>
 11. Sur l’écran **Vérifier la connectivité de fédération** , cliquez sur **Vérifier**.  Vous devrez peut-être configurer des enregistrements DNS (ajouter des enregistrements A et AAAA) pour que cette opération aboutisse.
-![Vérifier](media/tutorial-phs-backup/backup5.png)</br>
+![Capture d’écran montrant l’écran Vérifier la connectivité de fédération et le bouton Vérifier.](media/tutorial-phs-backup/backup5.png)</br>
 12. Cliquez sur **Quitter**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Réinitialiser la confiance entre AD FS et Azure
@@ -106,7 +106,7 @@ Nous devons maintenant réinitialiser la confiance entre AD FS et Azure.
 6.  Dans l’écran **Se connecter à AD FS**, entrez le nom d’utilisateur contoso\Administrator et le mot de passe, puis cliquez sur **Suivant**.
 7.  Sur l’écran **Certificats**, cliquez sur **Suivant**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
+## <a name="test-signing-in-with-a-user"></a>Test de connexion avec un utilisateur
 
 1.  Accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.

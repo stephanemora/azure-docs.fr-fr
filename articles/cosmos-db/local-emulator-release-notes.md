@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ec034ac3cf6f4cbec2d373d9dade45a00f70ddbe
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988175"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566686"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -31,7 +31,7 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 Cette version ajoute deux nouvelles options de démarrage de l’émulateur Cosmos : 
 
 * « /EnablePreview » active les fonctionnalités en préversion pour l’émulateur. Il s’agit des fonctionnalités de préversion qui sont encore en cours de développement ; elles sont accessibles via l’intégration continue et l’exemple d’écriture.
-* « /EnableAadAuthentication » permet à l’émulateur d’accepter des jetons Azure Active Directory personnalisés comme alternative aux clés principales Azure Cosmos. Cette fonctionnalité est toujours en cours de développement ; les affectations de rôles spécifiques et les autres paramètres liés aux autorisations ne sont pas pris en charge actuellement.
+* « /EnableAadAuthentication » permet à l’émulateur d’accepter des jetons Azure Active Directory personnalisés comme alternative aux clés primaires Azure Cosmos. Cette fonctionnalité est toujours en cours de développement ; les affectations de rôles spécifiques et les autres paramètres liés aux autorisations ne sont pas pris en charge actuellement.
 
 ### <a name="2112-07-july-2020"></a>2.11.2 (07 juillet 2020)
 

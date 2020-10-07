@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 19bf43cfd305e74aadaf16dddc7bce318e193c84
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: f08b7a49d961c3408af6e5360344bdf500a8ac07
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640240"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542323"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Interactive Query dans Azure HDInsight à l’aide d’un modèle Resource Manager
 
@@ -73,7 +73,7 @@ Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être su
 
 Dans le portail Azure, accédez à votre cluster, puis sélectionnez **Supprimer**.
 
-![Cluster HBase basé sur un modèle Resource Manager](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
+![La capture d’écran montre un cluster HDInsight avec le groupe de ressources à supprimer.](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight et le compte de stockage par défaut.
 

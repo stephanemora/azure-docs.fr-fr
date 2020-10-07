@@ -6,16 +6,16 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6f1c016efb300dea2cdef91c84bb901cffd09fa0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 635b99df65676a4b8652d22db33002364abb1b23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319247"
 ---
-Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
+Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour .NET. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
 Utilisez la bibliothèque de client Détecteur d’anomalies pour .NET pour :
 

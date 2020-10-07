@@ -4,15 +4,15 @@ description: Découvrez les avantages et les fonctionnalités d’Azure Defender
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977157"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91448377"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -64,14 +64,11 @@ L’image est extraite du registre. Elle est ensuite exécutée dans un bac à s
 
 Security Center filtre et classifie les résultats à partir de l’analyseur. Quand une image est saine, Security Center la marque comme telle. Security Center génère des recommandations de sécurité uniquement pour les images qui ont des problèmes à résoudre. En n’avertissant qu’en cas de problème, Security Center réduit le risque d’alertes d’information indésirables.
 
-### <a name="how-often-does-security-center-scan-my-images"></a>Quelle est la fréquence à laquelle Security Center analyse mes images ?
-Les analyses d’images sont déclenchées à chaque envoi ou importation, et si l’image a été extraite au cours des 30 derniers jours. 
-
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Puis-je obtenir les résultats de l’analyse via l’API REST ?
 Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). De plus, vous pouvez utiliser Azure Resource Graph (ARG), l’API de type Kusto pour toutes vos ressources : une requête peut extraire une analyse spécifique.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quels sont les types de registres analysés ? Quels types sont facturés ?
-La section Disponibilité répertorie les types de registres de conteneurs pris en charge par Azure Defender pour les registres de conteneurs. 
+Pour une liste des types de registres de conteneurs pris en charge par Azure Defender pour les registres de conteneurs, consultez [Disponibilité](defender-for-container-registries-usage.md#availability).
 
 Si vous connectez des registres non pris en charge à votre abonnement Azure, ils ne seront pas analysés et ne vous seront pas facturés.
 

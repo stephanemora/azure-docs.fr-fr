@@ -1,6 +1,6 @@
 - name: Vue d’ensemble
   items:
-    - name: Prise en main
+    - name: Bien démarrer
       href: get-started.md
     - name: Certifications
       href: sap-certifications.md
@@ -114,6 +114,8 @@
           href: sap-hana-high-availability-netapp-files-red-hat.md
         - name: Résoudre les problèmes de scale-out de SAP HANA et Pacemaker sur SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: Scale-out de SAP HANA HSR avec Pacemaker sur RHEL
+          href: sap-hana-high-availability-scale-out-hsr-rhel.md
         - name: Scale-out de SAP HANA avec nœud de secours avec Azure NetApp Files sur SLES
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: Scale-out de SAP HANA avec nœud de secours avec Azure NetApp Files sur RHEL

@@ -265,8 +265,8 @@
                     - name: Préparer des disques à l’importation (v2)
         - name: Surveillance
           items:
-            - name: Surveiller un compte de stockage
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Superviser le stockage Blob
+              href: monitor-blob-storage.md
             - name: Transition à partir de métriques classiques
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Supervision (classique)
@@ -328,7 +328,7 @@
                   href: authorize-active-directory-powershell.md
                 - name: Azure CLI
                   href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gérer les droits d’accès à l’aide de RBAC
+            - name: Gérer les droits d’accès avec Azure RBAC
               items:
                 - name: Portail
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -554,7 +554,7 @@
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
         - name: Données de surveillance
-          href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: monitor-blob-storage-reference.md
         - name: Éléments intégrés Azure Policy
           displayName: 'samples, policies, definitions'
           href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -701,7 +701,7 @@
               href: data-lake-storage-supported-open-source-platforms.md
         - name: Surveillance
           items:
-            - name: Surveiller un compte de stockage
+            - name: Superviser le stockage Blob
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transition à partir de métriques classiques
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

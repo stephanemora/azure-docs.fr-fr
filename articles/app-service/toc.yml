@@ -226,7 +226,7 @@
       items:
         - name: Faire monter en puissance la capacité du serveur
           href: manage-scale-up.md
-        - name: Configurer le niveau PremiumV2
+        - name: Configurer le niveau PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Effectuer un scale-out de plusieurs instances
           href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json

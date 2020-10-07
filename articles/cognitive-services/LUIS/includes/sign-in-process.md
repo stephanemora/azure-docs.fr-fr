@@ -2,20 +2,18 @@
 title: Fichier include
 description: Fichier include
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: da9388a3bd5f4d46ec34ed226e3ee23a96b2f494
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375786"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541427"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Se connecter au portail LUIS
 
@@ -29,7 +27,7 @@ Un nouvel utilisateur de LUIS doit suivre cette procédure :
 
 1. Renseignez les détails de la ressource.
 
-    ![Créer une ressource de création](../media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![Capture d’écran présentant le volet Créer une ressource pour la création.](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     Quand vous **créez une ressource de création**, fournissez les informations suivantes :
 
@@ -42,8 +40,8 @@ Un nouvel utilisateur de LUIS doit suivre cette procédure :
 
 1. Un récapitulatif de la ressource à créer s’affiche. Sélectionnez **Suivant**.
 
-    ![Créer une ressource de création](../media/sign-in/sign-in-confirm-key-selection.png)
+    ![Capture d’écran affichant la page d’accueil avec l’option permettant de créer un lien vers votre compte Azure.](../media/sign-in/sign-in-confirm-key-selection.png)
 
 1. Confirmez en sélectionnant **Continuer**.
 
-    ![Créer une ressource de création](../media/sign-in/sign-in-confirm-continue.png)
+    ![Capture d’écran affichant la page d’accueil après l’établissement du lien vers votre compte Azure.](../media/sign-in/sign-in-confirm-continue.png)

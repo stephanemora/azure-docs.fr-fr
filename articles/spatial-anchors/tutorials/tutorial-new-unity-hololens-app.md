@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535874"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441277"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutoriel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
@@ -204,11 +204,11 @@ Avant de poursuivre, vous devez créer un compte Azure Spatial Anchors pour obte
 
 Une fois que vous avez l’identificateur, la clé et le domaine de votre compte Azure Spatial Anchors, affichez puis collez `Account Id` dans `SpatialAnchorsAccountId`, `Account Key` dans `SpatialAnchorsAccountKey` et `Account Domain` dans `SpatialAnchorsAccountDomain`.
 
-Enfin, raccordez tout ensemble. Dans votre méthode `SpawnNewAnchoredObject()`, ajoutez le code suivant. Il appelle la méthode `CreateAnchorAsync()` aussitôt que la sphère est créée. Une fois que la méthode retourne un résultat, le code met à jour votre sphère une dernière fois, en lui donnant la couleur bleue.
+Enfin, raccordez tout ensemble. Dans votre méthode `CreateAndSaveSphere()`, ajoutez le code suivant. Il appelle la méthode `CreateAnchorAsync()` aussitôt que la sphère est créée. Une fois que la méthode retourne un résultat, le code met à jour votre sphère une dernière fois, en lui donnant la couleur bleue.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Exécutez une nouvelle fois votre application à partir de **Visual Studio**. Bougez votre tête, puis faites un geste d’appui (air tap) pour placer votre sphère. Une fois que le nombre d’images est suffisant, la sphère devient jaune et le chargement cloud débute. À l’issue du chargement, la sphère passe au bleu. Si vous le souhaitez, vous pouvez aussi utiliser la fenêtre Sortie dans **Visual Studio** pour superviser les messages de journal envoyés par votre application. Vous pouvez regarder `RecommendedForCreateProgress` et, une fois le chargement terminé, vous pouvez voir l’identificateur d’ancre retourné à partir du cloud.
+Exécutez une nouvelle fois votre application à partir de **Visual Studio**. Bougez votre tête, puis faites un geste d’appui (air tap) pour placer votre sphère. Une fois que le nombre d’images est suffisant, la sphère devient jaune et le chargement cloud débute. À l’issue du chargement, la sphère passe au bleu. Si vous le souhaitez, vous pouvez aussi utiliser la [fenêtre Sortie](https://docs.microsoft.com/visualstudio/ide/reference/output-window) pendant le débogage dans **Visual Studio** pour superviser les messages de journal envoyés par votre application. Veillez à déployer la configuration `Debug` de votre application à partir de Visual Studio pour afficher les messages de journal. Vous pouvez regarder `RecommendedForCreateProgress` et, une fois le chargement terminé, vous pouvez voir l’identificateur d’ancre retourné à partir du cloud.
 
 > [!NOTE]
 > Si vous obtenez « DllNotFoundException : Impossible de charger la DLL AzureSpatialAnchors : le module spécifié est introuvable. », vous devez **Supprimer** et **Générer** à nouveau votre solution.

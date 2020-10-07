@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292674"
 ---
 ## <a name="configure-the-sample-project"></a>Configurer l’exemple de projet
 
-Ensuite, configurez un exemple d’application cliente qui interagit avec votre instance Azure Digital Twins. Si vous n’avez pas encore téléchargé l’exemple de projet, récupérez-le maintenant dans la page de destination [*Exemples Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples), en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
+Ensuite, configurez un exemple d’application cliente qui interagit avec votre instance Azure Digital Twins.
 
-Accédez au fichier téléchargé sur votre ordinateur et décompressez-le.
+Sur votre ordinateur, accédez au fichier que vous avez téléchargé précédemment à partir des [*exemples Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (et décompressez-le si vous ne l’avez pas déjà fait).
 
-Dans le dossier décompressé, accédez à _AdtSampleApp_. Ouvrez _**AdtE2ESample.sln**_ dans Visual Studio 2019. 
+Une fois dans le dossier, accédez à _AdtSampleApp_. Ouvrez _**AdtE2ESample.sln**_ dans Visual Studio 2019. 
 
 Dans Visual Studio, utilisez le volet *Explorateur de solutions* pour créer une copie du fichier _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (vous pouvez utiliser les menus contextuels pour copier et coller). Renommez la copie *serviceConfig.json*. Il s’agit d’un fichier JSON prédéfini avec les variables de configuration nécessaires pour exécuter le projet.
 

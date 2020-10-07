@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Form Recognizer pour Java'
-description: Dans ce guide de démarrage rapide, démarrez avec la bibliothèque de client Form Recognizer pour Java.
+description: Utilisez la bibliothèque de client Form Recognizer pour Java afin de créer une application de traitement des formulaires qui extrait des paires clé/valeur et des données de table de vos documents personnalisés.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 30c486ccb7bf3b7d537cd1ed3475a8dadc5b4f6d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4632c5cb12b6d3c2a1b8d4baebf37e9237704591
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89324673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318895"
 ---
 > [!IMPORTANT]
 > * Le kit SDK Form Recognizer cible actuellement la version 2.0 du service Form Recognizer.
@@ -132,7 +132,8 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 - Gérer les modèles créés dans votre compte.
 - Copier un modèle personnalisé d’une ressource Form Recognizer vers une autre.
 
-Notez que les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Les modèles peuvent aussi être entraînés à partir d’une interface graphique utilisateur comme l’[outil d’étiquetage Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Exemples de code
 

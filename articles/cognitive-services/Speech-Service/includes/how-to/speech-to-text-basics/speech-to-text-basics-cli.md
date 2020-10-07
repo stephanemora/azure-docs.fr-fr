@@ -4,13 +4,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2020
 ms.author: trbye
-ms.openlocfilehash: 9c2c46040dd741253e9a68855c4dca89c1dc9a9a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 905eacc3751b3d5d6c66a2fdb0e1391a747ab895
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327123"
 ---
+L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’interface CLI Speech dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="speech-to-text-from-microphone"></a>Reconnaissance vocale à partir du microphone
