@@ -3,20 +3,18 @@ title: Migration de l’API v1 vers v2
 titleSuffix: Azure Cognitive Services
 description: Les API de point de terminaison et de création Language Understanding de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344745"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541320"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) et de [création](https://go.microsoft.com/fwlink/?linkid=2092087).

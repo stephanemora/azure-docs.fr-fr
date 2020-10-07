@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d3a7b04e6169df21ad30017b72f70ff667429b23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902374"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541711"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -215,7 +215,7 @@ else:
 
 Cette section explique comment à utiliser l’[estimateur d’apprentissage par renforcement](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) pour soumettre un travail d’apprentissage à Azure Machine Learning.
 
-Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier facilement comment configurer l’exécution d’un script. Pour plus d’informations sur le modèle d’estimateur Azure Machine Learning, consultez [Comment former des modèles à l’aide d’estimateurs](how-to-train-ml-models.md).
+Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier facilement comment configurer l’exécution d’un script. 
 
 ### <a name="define-a-worker-configuration"></a>Définir une configuration de Worker
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) gère l’historique des exécutions des travaux en cours ou terminés. 
+[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) gère l’historique des exécutions des travaux en cours ou terminés. 
 
 ```python
 run = exp.submit(config=rl_estimator)

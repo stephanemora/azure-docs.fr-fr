@@ -3,20 +3,18 @@ title: Conversion de données - LUIS
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment les énoncés peuvent être modifiés avant les prédictions de Language Understanding (LUIS)
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: b2455df87c8eae1a48cb6c8b1381dad85d304bf4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099238"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541796"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertir le format de données des énoncés
 LUIS fournit les conversions suivantes d’un énoncé utilisateur avant prédiction

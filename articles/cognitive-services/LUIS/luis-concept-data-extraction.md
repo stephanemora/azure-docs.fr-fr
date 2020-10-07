@@ -1,15 +1,16 @@
 ---
 title: Extraction des données : LUIS
 description: Extraire des données d’un texte d’énoncé avec des intentions et des entités. Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
-author: diberry
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682193"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541779"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.

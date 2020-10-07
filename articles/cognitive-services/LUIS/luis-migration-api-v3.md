@@ -1,15 +1,16 @@
 ---
 title: Modifications de point de terminaison de prédiction dans l’API V3
 description: Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610878"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541337"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
