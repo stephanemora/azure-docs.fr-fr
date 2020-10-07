@@ -2,13 +2,13 @@
 title: Configurer un cluster Kubernetes compatible Azure Arc avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article explique comment configurer la supervision avec Azure Monitor pour conteneurs sur des clusters Kubernetes compatibles Azure Arc.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977533"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620288"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Activer la supervision d’un cluster Kubernetes compatible Azure Arc
 
@@ -21,8 +21,6 @@ Azure Monitor pour conteneurs peut être activé pour un ou plusieurs déploieme
 Azure Monitor pour conteneurs prend en charge la supervision de clusters Kubernetes compatibles Azure Arc (préversion) comme décrit dans l’article [Vue d’ensemble](container-insights-overview.md), à l’exception des fonctionnalités suivantes :
 
 - Données actives (préversion)
-
-- [Collecter les métriques](container-insights-update-metrics.md) à partir des nœuds de cluster et des Pod, et les stocker dans la base de données de métriques Azure Monitor
 
 Les éléments suivants sont officiellement pris en charge avec Azure Monitor pour conteneurs :
 
@@ -106,7 +104,7 @@ Pour activer la supervision de votre cluster à l’aide du script PowerShell ou
 1. Téléchargez et enregistrez dans un dossier local le script qui configure votre cluster avec le module complémentaire de supervision à l’aide des commandes suivantes :
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Configurez la variable `$azureArcClusterResourceId` en définissant les valeurs correspondantes pour `subscriptionId`, `resourceGroupName` et `clusterName` représentant l’ID de votre ressource de cluster Kubernetes compatible Azure Arc.
@@ -127,7 +125,7 @@ Pour activer la supervision de votre cluster à l’aide du script PowerShell ou
     $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
-5. Si votre cluster Kubernetes compatible Arc communique par le biais d’un serveur proxy, configurez la variable `$proxyEndpoint` avec l’URL du serveur proxy. Si le cluster ne communique pas via un serveur proxy, vous pouvez définir la valeur sur `""`.  Pour plus d’informations, consultez [Configurer le point de terminaison proxy](#configure-proxy-endpoint) plus loin dans cet article.
+5. Si votre cluster Kubernetes compatible Arc communique par le biais d’un serveur proxy, configurez la variable `$proxyEndpoint` avec l’URL du serveur proxy. Si le cluster ne communique pas via un serveur proxy, vous n’avez pas besoin de définir la valeur sur `""`.  Pour plus d’informations, consultez [Configurer le point de terminaison proxy](#configure-proxy-endpoint) plus loin dans cet article.
 
 6. Exécutez la commande suivante pour activer la supervision.
 

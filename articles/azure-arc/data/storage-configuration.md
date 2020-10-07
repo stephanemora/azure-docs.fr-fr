@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317325"
 ---
 # <a name="storage-configuration"></a>Configuration du stockage
 
@@ -151,10 +151,11 @@ Voici les facteurs importants à prendre en compte lors du choix d’une classe 
 
 - Vous **devez** utiliser une classe de stockage partagée distante afin de garantir la durabilité des données et que, si un pod ou un nœud est défaillant, quand le pod est rétabli, il peut se reconnecter au volume persistant.
 - Les données écrites dans l’instance SQL du contrôleur, dans la base de données des métriques et dans la base de données des journaux sont généralement relativement peu volumineuses et ne sont pas sensibles à la latence : un stockage avec des performances ultrarapides n’est donc pas critique. Si vous avez des utilisateurs qui utilisent fréquemment les interfaces Grafana et Kibana, et que vous avez un grand nombre d’instances de base de données, vos utilisateurs pourraient tirer un bénéfice d’un stockage plus rapide.
-- La capacité de stockage nécessaire varie en fonction du nombre d’instances de base de données que vous avez déployées, car les journaux et les métriques sont collectés pour chaque instance de base de données. Les données sont conservées dans les bases de données des journaux et des métriques pendant 2 semaines avant d’être supprimées. À FAIRE : Quelle quantité de stockage est nécessaire pour chaque instance de base de données ?
+- La capacité de stockage nécessaire varie en fonction du nombre d’instances de base de données que vous avez déployées, car les journaux et les métriques sont collectés pour chaque instance de base de données. Les données sont conservées dans les bases de données des journaux et des métriques pendant 2 semaines avant d’être supprimées. 
 - Changer la classe de stockage après le déploiement est très difficile, non documenté et non pris en charge. Veillez à choisir la classe de stockage correctement au moment du déploiement.
 
-> **Remarque :** Si aucune classe de stockage n’est spécifiée, la classe de stockage par défaut sera utilisée. Il ne peut y avoir qu’une seule classe de stockage par défaut par cluster Kubernetes. Vous pouvez [changer la classe de stockage par défaut](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Si aucune classe de stockage n’est spécifiée, la classe de stockage par défaut sera utilisée. Il ne peut y avoir qu’une seule classe de stockage par défaut par cluster Kubernetes. Vous pouvez [changer la classe de stockage par défaut](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Configuration du stockage de l’instance de base de données
 
@@ -162,7 +163,8 @@ Chaque instance de base de données a des volumes persistants pour les données,
 
 Quand vous créez une instance en utilisant les commandes `azdata arc sql mi create` ou `azdata arc postgres server create`, vous pouvez utiliser deux paramètres pour définir les classes de stockage :
 
-> **Remarque :** Certains de ces paramètres sont en cours de développement et seront disponibles sur `azdata arc sql mi create` et sur `azdata arc postgres server create` dans les versions à venir.
+> [!NOTE]
+> Certains de ces paramètres sont en cours de développement et seront disponibles sur `azdata arc sql mi create` et sur `azdata arc postgres server create` dans les versions à venir.
 
 |Nom du paramètre, nom abrégé|Utilisé pour|
 |---|---|

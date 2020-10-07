@@ -3,12 +3,12 @@ title: Configurer Azure Red Hat OpenShift v4.x avec Azure Monitor pour conteneur
 description: Cet article décrit comment configurer l’analyse d’un cluster Kubernetes avec Azure Monitor, hébergé sur Azure Red Hat OpenShift version 4 ou ultérieure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499169"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620322"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v4.x avec Azure Monitor pour conteneurs
 
@@ -20,7 +20,7 @@ Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour l
 
 Vous pouvez activer Azure Monitor pour conteneurs pour un ou plusieurs déploiements existants d’Azure Red Hat OpenShift v4.x à l’aide des méthodes prises en charge décrites dans cet article.
 
-Pour un cluster existant, exécutez [le script Bash dans Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+Pour un cluster existant, exécutez [le script Bash dans Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Fonctionnalités prises en charge et non prises en charge
 
@@ -138,7 +138,7 @@ L’espace de travail créé par défaut est semblable au format de *DefaultWork
 Remplacez les valeurs pour les paramètres `azureAroV4ClusterResourceId` et `kubeContext`.
 
 ```bash
-export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 

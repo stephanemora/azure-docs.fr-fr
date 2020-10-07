@@ -1,14 +1,16 @@
 ---
 title: Fichiers SharePoint – QnA Maker
 description: Ajoutez des sources de données SharePoint sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660311"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776865"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 

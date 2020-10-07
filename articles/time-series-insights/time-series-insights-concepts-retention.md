@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059429"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535687"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article décrit deux paramètres principaux qui affectent la conservation des données dans votre environnement Azure Time Series Insights.
 
@@ -37,7 +40,8 @@ De plus, votre environnement Azure Time Series Insights inclut un paramètre **C
 
 > [!NOTE]
 > Par défaut, lorsque vous créez un nouvel environnement, la conservation est configurée sur **Vidage des données anciennes**. Ce paramètre peut être activé ou désactivé après la création à l’aide du portail Microsoft Azure, sur la page **Configurer** de l’environnement Azure Time Series Insights.
-> * Pour plus d’informations sur la configuration des stratégies de rétention, consultez [Configuration de la conservation des données dans Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Pour plus d’informations sur la configuration des stratégies de rétention, consultez [Configuration de la conservation des données dans Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Les deux stratégies de rétention des données sont décrites plus en détail ci-dessous.
 
@@ -69,8 +73,8 @@ Quand le taux d’entrée quotidien de cet environnement dépasse 0,166 Go par 
 - Il offre une protection contre la perte de données, mais peut créer une opportunité en cas de perte de vos données les plus récentes si l’entrée est suspendue au-delà de la durée de conservation de votre source d’événements.
 - Toutefois, quand la capacité maximale d’un environnement est atteinte, l’environnement suspend l’entrée des données jusqu’à ce que des actions supplémentaires se produisent :
 
-   - Vous augmentez la capacité maximale de l’environnement pour ajouter des unités d’échelle comme décrit dans la section [Mise à l’échelle de votre environnement Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - La période de conservation des données est atteinte et les données sont vidées ; l’environnement est ainsi ramené sous sa capacité maximale.
+  - Vous augmentez la capacité maximale de l’environnement pour ajouter des unités d’échelle comme décrit dans la section [Mise à l’échelle de votre environnement Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+  - La période de conservation des données est atteinte et les données sont vidées ; l’environnement est ainsi ramené sous sa capacité maximale.
 
 ### <a name="example-three"></a>Troisième exemple
 

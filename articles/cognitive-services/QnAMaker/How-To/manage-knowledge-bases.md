@@ -1,14 +1,16 @@
 ---
 title: Gérer des bases de connaissances – QnA Maker
 description: QnA Maker vous permet de gérer vos bases de connaissances en donnant accès aux paramètres et au contenu de la base de connaissances.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551776"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777739"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Créer une base de connaissances et gérer les paramètres
 

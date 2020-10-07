@@ -5,22 +5,23 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662933"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779549"
 ---
 > [!NOTE]
 > Pour détecter des informations médicales protégées, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
 >
-> Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
-Les catégories d’entité suivantes sont retournées lorsque vous envoyez des requêtes au point de terminaison `/v3.1-preview.1/entities/recognition/pii`.
+Les catégories d’entité suivantes sont retournées lorsque vous envoyez des requêtes au point de terminaison `/v3.1-preview.2/entities/recognition/pii`.
 
 | Category   | Sous-catégorie | Description                          | Version de modèle de départ | Notes |
 |------------|-------------|--------------------------------------|------------------------|---|

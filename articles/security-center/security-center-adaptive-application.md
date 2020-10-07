@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894709"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439007"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -229,4 +229,4 @@ Voici certaines des fonctions disponibles à partir de l’API REST :
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptatifs dans Azure Security Center pour définir des listes vertes des applications s’exécutant sur vos les machines Azure et non Azure. Pour en savoir plus sur certaines des autres fonctionnalités de protection de la charge de travail cloud de Security Center, consultez :
 
 * [Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)](just-in-time-explained.md)
-* [Sécurisation de vos clusters Azure Kubernetes](azure-kubernetes-service-integration.md)
+* [Sécurisation de vos clusters Azure Kubernetes](defender-for-kubernetes-introduction.md)

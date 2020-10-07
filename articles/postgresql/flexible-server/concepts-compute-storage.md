@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a149d147b9817d8fde7a4fa7eb1b0e7a7eea8283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930711"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710071"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -22,7 +22,7 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 
 | Ressource/Niveau | **Expansible** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
-| vCores | 1, 2 | 4, 8, 16, 32, 64 | 4, 8, 16, 32, 48, 64 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Mémoire par vCore | Variable | 4 Go | 6,75 à 8 Go |
 | Taille de stockage | 32 Go à 16 To | 32 Go à 16 To | 32 Go à 16 To |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
