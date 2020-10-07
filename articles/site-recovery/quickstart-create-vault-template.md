@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684114"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle ARM
@@ -63,7 +63,7 @@ Pour déployer le modèle, vous devez définir l’**Abonnement**, le **Groupe d
 
 1. Pour commencer le déploiement du coffre, sélectionnez le bouton **Acheter**. Une fois le déploiement réussi, une notification s’affiche.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Le déploiement du coffre a réussi.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Modèle pour créer un coffre Recovery Services.":::
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 

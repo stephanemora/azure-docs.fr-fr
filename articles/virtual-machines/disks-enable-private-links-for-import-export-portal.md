@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815859"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utiliser le portail Azure afin de restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées
@@ -52,7 +52,7 @@ Vous devrez noter le réseau virtuel de la machine virtuelle à laquelle vos dis
 
 Une fois votre ressource créée, accédez directement à celle-ci.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Capture d’écran du bouton Accéder à la ressource dans le portail":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 ## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
 
@@ -61,13 +61,13 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. À partir de votre ressource d’accès au disque, sélectionnez **Connexions des points de terminaison privés**.
 1. Sélectionnez **+ Point de terminaison privé**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Capture d’écran du panneau de vue d’ensemble de votre ressource d’accès au disque. L’option Connexions des points de terminaison privés est mise en évidence.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 1. Sélectionner un groupe de ressources
 1. Indiquez un nom et sélectionnez la même région que celle dans laquelle votre ressource d’accès au disque a été créée.
 1. Sélectionnez **Suivant : Ressource >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, premier panneau. Si vous ne sélectionnez pas la région appropriée, vous risquez de rencontrer des problèmes par la suite.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 1. Dans le panneau **Ressource**, sélectionnez **Se connecter à une ressource Azure dans mon annuaire**.
 1. Pour **Type de ressource**, sélectionnez **Microsoft.Compute/diskAccesses**.
@@ -75,7 +75,7 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. Pour **Sous-ressource ciblen**, conservez **disks**.
 1. Sélectionnez **Suivant : Configuration >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, deuxième panneau. Toutes les valeurs sont mises en évidence : Type de ressource, Ressource, Sous-ressource cible.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 1. Sélectionnez le réseau virtuel auquel vous souhaitez limiter l’exportation du disque. Les autres réseaux virtuels ne pourront pas exporter votre disque.
 
@@ -85,7 +85,7 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. Sélectionner le sous-réseau approprié
 1. Sélectionnez **Revoir + créer**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, troisième panneau. Les options Réseau virtuel et Sous-réseau sont mise en évidence.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Activer un point de terminaison privé sur votre disque
 
@@ -94,7 +94,7 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. Sélectionnez **Point de terminaison privé (via l’accès de disque)** et sélectionnez l’accès au disque créé précédemment.
 1. Sélectionnez **Enregistrer**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Capture d’écran du panneau Réseau pour l’accès au disque. La sélection du point de terminaison privé et de l’accès au disque sont mises en évidence. Enregistrez pour configurer votre disque avec cet accès.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Capture d’écran du panneau de création d’accès au disque. Indiquez un nom, sélectionnez une région et un groupe de ressources, puis continuez.":::
 
 Vous venez de terminer la configuration des liaisons privées, que vous pouvez maintenant utiliser lors de l’importation ou de l’exportation de votre disque managé.
 

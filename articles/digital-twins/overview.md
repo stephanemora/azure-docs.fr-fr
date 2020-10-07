@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
 ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89003845"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
@@ -88,7 +88,7 @@ Une solution complète utilisant Azure Digital Twins peut contenir les élément
 
 Le schéma suivant montre où Azure Digital Twins se trouve dans le contexte d’une solution Azure IoT plus volumineuse.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Schéma montrant des sources d’entrée, des services de sortie et une communication bidirectionnelle avec les applications clientes et les ressources de calcul externes." border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Capture d’écran de l’exemple d’application Explorateur Azure Digital Twins, montrant un graphe des nœuds représentant des jumeaux numériques" border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits-in-public-preview"></a>Limites du service en préversion publique
 
