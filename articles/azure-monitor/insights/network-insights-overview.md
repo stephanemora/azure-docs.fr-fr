@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 88e69ac4156bb2bdfb217a4fc83ac2d798d08211
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330952"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor pour réseaux (préversion)
 Azure Monitor pour réseau fournit une vue complète de l’[intégrité](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) et des [métriques](../platform/metrics-supported.md) pour toutes les ressources réseau déployées sans aucune configuration.  Il permet également d’accéder à toutes les fonctionnalités de surveillance du réseau, comme le [Moniteur de connexion](../../network-watcher/connection-monitor-preview.md), la [journalisation des flux pour les groupes de sécurité réseau](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Traffic Analytics](../../network-watcher/traffic-analytics.md) et d’autres fonctionnalités de [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) du réseau.

@@ -3,12 +3,12 @@ title: Offres de conformité de Sauvegarde Azure
 description: Résumé des offres de conformité pour Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8f19896c157645104a392a6f5bb163b8d5729536
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e90a713eea07ac01212cfb3399167ed7e1b5449e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332659"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Offres de conformité de Sauvegarde Azure
 
@@ -31,7 +31,7 @@ Vous trouverez ci-dessous des offres de conformité pour Sauvegarde Azure qui vo
 
 ## <a name="us-government"></a>Gouvernement américain
 
-* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
+* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
 * [FedRAMP](/microsoft-365/compliance/offering-fedramp)
 * [FIPS 140-2](/microsoft-365/compliance/offering-fips-140-2)
 

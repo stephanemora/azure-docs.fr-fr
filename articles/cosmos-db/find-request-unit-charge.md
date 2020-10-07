@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422315"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316186"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -188,7 +188,7 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 
 1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Capture d’écran des frais de demande de requête MongoDB sur le portail Azure":::
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Capture d’écran des frais de demande de requête SQL sur le portail Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Utiliser le pilote .NET MongoDB
 

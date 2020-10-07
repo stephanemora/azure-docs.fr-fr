@@ -3,12 +3,12 @@ title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182137"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332761"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Nouveautés du serveur de sauvegarde Microsoft Azure (MABS)
 
@@ -23,7 +23,7 @@ Le serveur de sauvegarde Microsoft Azure (MABS) version 3 UR1 est la dernière
 
 MABS v2 a introduit le [stockage de sauvegarde moderne](backup-mabs-add-storage.md) (MBS), améliorant ainsi l’utilisation et les performances du stockage. MBS utilise ReFS comme système de fichiers sous-jacent et est conçu pour utiliser le stockage hybride, tel que le stockage hiérarchisé.
 
-Pour atteindre l’échelle et les performances du MBS, nous vous recommandons d’utiliser un petit pourcentage (4 % du stockage global) de l’espace de stockage flash (SSD) avec MABS v3 UR1 comme volume hiérarchisé en association avec le stockage HDD DPM. MABS v3 UR1 avec stockage hiérarchisé offre des sauvegardes 50 à 70 % plus rapides. Découvrez comment configurer un stockage hiérarchisé dans la section [Configurer MBS avec un stockage hiérarchisé](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) de l’article DPM.
+Pour atteindre l’échelle et les performances du MBS, nous vous recommandons d’utiliser un petit pourcentage (4 % du stockage global) de l’espace de stockage flash (SSD) avec MABS v3 UR1 comme volume hiérarchisé en association avec le stockage HDD DPM. MABS v3 UR1 avec stockage hiérarchisé offre des sauvegardes 50 à 70 % plus rapides. Découvrez comment configurer un stockage hiérarchisé dans la section [Configurer MBS avec un stockage hiérarchisé](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) de l’article DPM.
 
 ### <a name="support-for-refs-volumes"></a>Prise en charge des volumes ReFS
 

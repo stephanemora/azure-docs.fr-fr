@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331894"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -83,7 +83,7 @@ Dans ce tutoriel, nous allons décrire l’importation en parallèle de données
 Pour configurer votre environnement de science des données Azure :
 
 1. [Créez un compte de stockage](../../storage/common/storage-account-create.md)
-2. [Création d’un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md)
+2. [Création d’un espace de travail Microsoft Azure Machine Learning](../classic/create-workspace.md)
 3. [Approvisionnez une machine virtuelle de science des données](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), qui fournit un serveur SQL Server et un serveur Notebook IPython.
    
    > [!NOTE]
@@ -626,9 +626,9 @@ Nous pouvons à présent passer aux phases de création et de déploiement de mo
 3. Tâche de régression : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Création de modèles dans Azure Machine Learning
-Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](../studio/create-workspace.md).
+Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](../classic/create-workspace.md).
 
-1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](../studio/what-is-ml-studio.md)
+1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
 3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -668,7 +668,7 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
-Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
 

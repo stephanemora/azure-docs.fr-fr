@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332693"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -24,7 +24,7 @@ MABS est basé sur System Center DPM et fournit des fonctionnalités similaires,
 
 - Aucune licence System Center n’est nécessaire pour exécuter MABS.
 - Azure fournit un stockage de sauvegarde à long terme pour MABS et DPM. DPM vous permet aussi de sauvegarder des données sur bande pour le stockage à long terme. MABS n’offre pas cette fonctionnalité.
-- [Vous pouvez sauvegarder un serveur DPM principal avec un serveur DPM secondaire](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
+- [Vous pouvez sauvegarder un serveur DPM principal avec un serveur DPM secondaire](/system-center/dpm/back-up-the-dpm-server). Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
 
 Vous pouvez télécharger MABS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Il peut être exécuté localement ou sur une machine virtuelle Azure.
 
@@ -158,7 +158,7 @@ Aucune connectivité pendant plus de 15 jours | Expiré/déprovisionné | Aucun
 |Condition requise |Détails |
 |---------|---------|
 |Domaine    | Le serveur DPM/MABS doit se trouver dans un domaine Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.        |
-|Approbation de domaines   |  DPM/MABS prend en charge la protection des données sur plusieurs forêts pour autant que vous établissiez une relation d'approbation bidirectionnelle au niveau de la forêt entre les forêts distinctes.   <BR><BR>   DPM/MABS peut protéger des serveurs et des stations de travail sur plusieurs domaines au sein d'une forêt ayant une relation d'approbation bidirectionnelle avec le domaine du serveur DPM/MABS. Pour protéger des ordinateurs dans des groupes de travail ou des domaines non approuvés, consultez [Sauvegarder et restaurer des charges de travail dans des groupes de travail et des domaines non approuvés.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Approbation de domaines   |  DPM/MABS prend en charge la protection des données sur plusieurs forêts pour autant que vous établissiez une relation d'approbation bidirectionnelle au niveau de la forêt entre les forêts distinctes.   <BR><BR>   DPM/MABS peut protéger des serveurs et des stations de travail sur plusieurs domaines au sein d'une forêt ayant une relation d'approbation bidirectionnelle avec le domaine du serveur DPM/MABS. Pour protéger des ordinateurs dans des groupes de travail ou des domaines non approuvés, consultez [Sauvegarder et restaurer des charges de travail dans des groupes de travail et des domaines non approuvés.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Prise en charge du stockage pour DPM/MABS
 
@@ -185,7 +185,7 @@ Pour plus d’informations sur les différents serveurs et charges de travail qu
 
 ## <a name="supported-backups-to-dpm"></a>Sauvegardes prises en charge sur DPM
 
-Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger avec Data Protection Manager, reportez-vous à l’article [Que peut sauvegarder DPM ?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Pour plus d’informations sur les différents serveurs et charges de travail que vous pouvez protéger avec Data Protection Manager, reportez-vous à l’article [Que peut sauvegarder DPM ?](/system-center/dpm/dpm-protection-matrix).
 
 - Les charges de travail en cluster sauvegardées par DPM/MABS doivent se trouver dans le même domaine que DPM/MABS ou dans un domaine enfant/approuvé.
 - Vous pouvez utiliser l’authentification NTLM/par certificat pour sauvegarder les données dans des groupes de travail ou des domaines non approuvés.

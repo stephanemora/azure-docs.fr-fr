@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: eb91b6108cedd12299fcb3cfa89bf2cc91bcd69f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324550"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 
@@ -197,7 +197,7 @@ Cette section explique comment y parvenir avec l’API Azure Cosmos DB pour Mong
 
 1. Dans le portail Azure, vous remarquez que deux collections ont été créées dans Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Tutoriel Node.js – Capture d’écran du portail Azure montrant un compte Azure Cosmos DB avec plusieurs noms de collections en surbrillance – Base de données de nœud":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Didacticiel Node.js : capture d’écran du Portail Azure, montrant comment créer une base de données dans Azure Data Explorer pour un compte Azure Cosmos DB, à utiliser avec le module Node Mongoose":::
 
 1. Pour finir, nous allons lire les données à partir de Cosmos DB. Étant donné que nous utilisons le modèle de fonctionnement par défaut de Mongoose, la lecture est identique à n’importe quelle autre lecture avec Mongoose.
 
@@ -302,7 +302,7 @@ Nous créons ici un modèle d’objet de base, définissons une clé de différe
 
 1. De retour dans le portail Azure, vous remarquez qu’il n’existe qu’une seule collection appelée ```alldata``` contenant les données de « Family » et de « VacationDestinations ».
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Tutoriel Node.js – Capture d’écran du portail Azure montrant un compte Azure Cosmos DB avec le nom de la collection en surbrillance – Base de données de nœud":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Didacticiel Node.js : capture d’écran du Portail Azure, montrant comment créer une base de données dans Azure Data Explorer pour un compte Azure Cosmos DB, à utiliser avec le module Node Mongoose":::
 
 1. Vous remarquez également que chaque objet possède un autre attribut nommé ```__type```, qui vous permet de différencier les deux modèles d’objet.
 

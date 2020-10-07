@@ -4,17 +4,17 @@ description: Apprenez à utiliser le service Mobility Azure Maps pour demander d
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0aad822f0433a161e20c520296ce9fb9eb296f7e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310881"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Demande de données sur les transports en commun à l’aide du service Mobility Azure Maps
 

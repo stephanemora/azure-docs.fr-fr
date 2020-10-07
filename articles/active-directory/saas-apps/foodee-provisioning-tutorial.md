@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331156"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutoriel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
 
@@ -106,11 +106,11 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
 1. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 1. Dans la liste déroulante **Mode d’approvisionnement**, sélectionnez **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 1. Sous **Informations d’identification de l’administrateur**, procédez comme suit :
 

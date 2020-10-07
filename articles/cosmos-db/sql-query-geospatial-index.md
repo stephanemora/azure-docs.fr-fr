@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116296"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326624"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexer des données géospatiales avec Azure Cosmos DB
 
@@ -77,15 +77,15 @@ L’extrait de code JSON suivant montre une stratégie d’indexation avec l’i
 **JSON de stratégie d’indexation de conteneur avec indexation spatiale géographique**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -96,8 +96,8 @@ L’extrait de code JSON suivant montre une stratégie d’indexation avec l’i
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Créez un cadre englobant contenant la totalité (ou la plupart) de vos données
 Voici un exemple de stratégie d’indexation qui indexe des données **géométrie** avec **geospatialConfig** défini sur `geometry` :
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [

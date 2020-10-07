@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauv
 description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316917"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
@@ -24,10 +24,10 @@ Pour sauvegarder une base de données SQL Server et la récupérer à partir d'A
 
 * Si vous disposez d’une base de données avec des fichiers sur un partage de fichiers distant, la protection échouera avec l’ID d’erreur 104. MABS ne prend pas en charge la protection des données SQL Server sur un partage de fichiers distant.
 * MABS ne peut pas protéger les bases de données stockées sur des partages SMB distants.
-* Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Assurez-vous que les [réplicas de groupe de disponibilité sont configurés en lecture seule](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Vous devez explicitement ajouter le compte système **NTAuthority\System** au groupe Sysadmin sur SQL Server.
-* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données partiellement autonome, vous devez vous assurer que la fonctionnalité relative aux [bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) est activée sur l'instance SQL cible.
-* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données de flux de fichiers, vous devez vous assurer que la fonctionnalité relative à la [base de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) est activée sur l'instance SQL cible.
+* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données partiellement autonome, vous devez vous assurer que la fonctionnalité relative aux [bases de données autonomes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) est activée sur l'instance SQL cible.
+* Lorsque vous effectuez une récupération sur l'autre emplacement pour une base de données de flux de fichiers, vous devez vous assurer que la fonctionnalité relative à la [base de données de flux de fichiers](/sql/relational-databases/blob/enable-and-configure-filestream) est activée sur l'instance SQL cible.
 * Protection pour SQL Server AlwaysOn :
   * MABS détecte les groupes de disponibilité lors de l'exécution d'une demande au moment de la création d'un groupe de protection.
   * MABS détecte un basculement et poursuit la protection de la base de données.
@@ -45,7 +45,7 @@ Pour sauvegarder une base de données SQL Server et la récupérer à partir d'A
     * Si la sauvegarde échoue sur le nœud sélectionné, alors l'opération de sauvegarde échoue.
     * La récupération à l'emplacement d'origine n'est pas prise en charge.
 * Problèmes de sauvegarde de SQL Server 2014 ou versions ultérieures :
-  * SQL Server 2014 a ajouté une nouvelle fonctionnalité pour créer une [base de données pour une instance SQL Server locale dans le stockage d’objets BLOB Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS ne peut pas être utilisé pour protéger cette configuration.
+  * SQL Server 2014 a ajouté une nouvelle fonctionnalité pour créer une [base de données pour une instance SQL Server locale dans le stockage d’objets BLOB Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS ne peut pas être utilisé pour protéger cette configuration.
   * Il existe certains problèmes connus avec la préférence de sauvegarde « Préférer secondaire » pour l’option SQL AlwaysOn. MABS effectue toujours une sauvegarde de la base de données secondaire. Si aucune base de données secondaire n’est trouvée, la sauvegarde échoue.
 
 ## <a name="before-you-start"></a>Avant de commencer

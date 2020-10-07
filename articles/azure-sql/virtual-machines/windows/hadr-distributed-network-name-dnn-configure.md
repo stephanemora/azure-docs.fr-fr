@@ -8,18 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317002"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurer un nom de réseau distribué (DNN) pour une instance de cluster de basculement 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,7 @@ Pour mettre à jour les propriétaires possibles, procédez comme suit :
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menu contextuel de la ressource DNN avec la commande Propriétés mise en surbrillance.":::
 1. Désactivez la case à cocher pour les nœuds qui ne font pas partie de l’instance du cluster de basculement. La liste des propriétaires possibles de la ressource DNN doit correspondre à la liste des propriétaires possibles de la ressource d’instance SQL Server. Par exemple, en supposant que Data3 ne participe pas à l’instance FCI, l’image suivante est un exemple de suppression de Data3 de la liste des propriétaires possibles de la ressource DNN : 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Désactivez la case à cocher en regard des nœuds qui ne participent pas à l’instance FCI pour les propriétaires possibles de la ressource DNN":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu contextuel de la ressource DNN avec la commande Propriétés mise en surbrillance.":::
 
 1. Sélectionnez **OK** pour enregistrer vos paramètres. 
 

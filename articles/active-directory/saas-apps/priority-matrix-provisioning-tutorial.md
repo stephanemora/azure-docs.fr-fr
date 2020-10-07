@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: bca751c55182df99e87ff1651de534985d9b5e76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325995"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutoriel : Configurer Priority Matrix pour l’approvisionnement automatique d’utilisateurs
 
@@ -114,11 +114,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://sync.appfluence.com/scim/v2/` dans **URL de locataire**. Entrez la valeur que vous avez récupérée et enregistrée précédemment de Priority Matrix, dans **Secret Token** (Jeton secret). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Priority Matrix. Si la connexion échoue, vérifiez que votre compte Priority Matrix dispose des autorisations d’administrateur et réessayez.
 

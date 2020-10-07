@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314485"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation pour Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -29,8 +29,8 @@ Azure Security Center fournit une gestion unifiée de la sécurité et une prote
 Utilisez les ressources suivantes pour prendre en main Security Center.
 
 Articles
-- [Présentation d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Guide de démarrage rapide de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Présentation d’Azure Security Center](security-center-introduction.md)
+- [Guide de démarrage rapide de Azure Security Center](security-center-get-started.md)
 
 Videos
 - [Vidéo de présentation rapide](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Pour tirer pleinement parti du Centre de sécurité, il est important de compren
 
 Utilisez les ressources suivantes pour vous aider lors des processus de planification et de fonctionnement.
 
-- [Guide des opérations et de planification d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Intégration des ordinateurs à Security Center

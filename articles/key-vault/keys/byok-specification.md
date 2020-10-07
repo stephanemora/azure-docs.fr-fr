@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84198786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315777"
 ---
 # <a name="bring-your-own-key-specification"></a>Spécification Bring Your Own Key
 
@@ -159,19 +159,7 @@ Corps de la requête :
 la valeur « key_hsm » est le contenu entier du fichier KeyTransferPackage-ContosoFirstHSMkey.byok encodé au format Base64.
 
 ## <a name="references"></a>References
-
-### <a name="azure-key-vault-rest-api"></a>API REST d’Azure Key Vault
-
-* [Créer une clé](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Obtenir une clé (attributs de clé et clé publique uniquement)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [Importer une clé](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Commandes d’interface de ligne de commande Azure
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [az keyvault key download](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [az keyvault key import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Guide du développeur Key Vault](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * BYOK - Instructions pas à pas : [Importer des clés protégées par HSM dans un coffre de clés (BYOK)](hsm-protected-keys-byok.md)

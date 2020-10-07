@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313771"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>À propos de l’appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
 
@@ -50,7 +50,7 @@ Les partenaires NVA peuvent créer des ressources différentes en fonction du d
 * **Groupe de ressources du client** : contient un espace réservé pour l’application managée. Les partenaires peuvent l’utiliser pour exposer les propriétés du client qu’ils choisissent ici.
 * **Groupe de ressources managé** : les clients ne peuvent pas configurer ni modifier directement les ressources de ce groupe de ressources, car celui-ci est contrôlé par l’éditeur de l’application managée. Ce groupe de ressources contient la ressource **NetworkVirtualAppliances**.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Groupes de ressources Applications managées":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Vue d’ensemble du processus":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unités d’infrastructure NVA
 

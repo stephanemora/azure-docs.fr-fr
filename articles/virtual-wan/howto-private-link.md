@@ -6,15 +6,15 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: 98142e3a8904bcbb0352fa768fc72966412dae0b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306631"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Utiliser Azure Private Link dans Azure Virtual WAN
 
@@ -38,11 +38,11 @@ Vous pouvez créer un point de terminaison de liaison privée pour de nombreux s
 
 Après avoir créé la base de données Azure SQL, vous pouvez vérifier l’adresse IP du point de terminaison privé en parcourant vos points de terminaison privés :
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="points de terminaison privés" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="créer une liaison privée" lightbox="./media/howto-private-link/endpoints.png":::
 
 En cliquant sur le point de terminaison privé que nous avons créé, vous devez voir son adresse IP privée, ainsi que son nom de domaine complet (FQDN). Notez que le point de terminaison privé a une adresse IP comprise dans la plage du réseau virtuel où il a été déployé (10.1.3.0/24) :
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="point de terminaison SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="créer une liaison privée" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Vérifier la connectivité provenant du même réseau virtuel
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Comme vous pouvez le voir dans la sortie précédente, le nom de domaine complet `wantest.database.windows.net` est mappé à `wantest.privatelink.database.windows.net`, que la zone DNS privée créée avec le point de terminaison privé résoudra en l’adresse IP privée `10.1.3.228`. L’examen de la zone DNS privée confirmera qu’il existe un enregistrement A pour le point de terminaison privé mappé à l’adresse IP privée :
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Zone DNS" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="créer une liaison privée" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Après avoir vérifié la résolution DNS correcte, nous pouvons tenter de nous connecter à la base de données :
 
@@ -87,7 +87,7 @@ Une fois que vous disposez d’une connectivité entre le réseau virtuel ou la 
 
 Dans cet exemple, nous allons nous connecter à partir d’un autre réseau virtuel. Nous allons tout d’abord attacher la zone DNS privée au nouveau réseau virtuel afin que ses charges de travail puissent résoudre le nom de domaine complet de la base de données Azure SQL en adresse IP privée. Pour ce faire, vous pouvez lier la zone DNS privée au nouveau réseau virtuel :
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="lien DNS" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="créer une liaison privée" lightbox="./media/howto-private-link/dns-link.png":::
 
 Maintenant, toute machine virtuelle du réseau virtuel attaché doit résoudre correctement le FQDN de la base de données Azure SQL en adresse IP privée de la liaison privée :
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Afin de vérifier que ce réseau virtuel (10.1.1.0/24) dispose d’une connectivité au réseau virtuel d’origine dans lequel le point de terminaison privé a été configuré (10.1.3.0/24), vous pouvez vérifier la table de routage en vigueur dans toute machine virtuelle du réseau virtuel :
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="itinéraires effectifs" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="créer une liaison privée" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Comme vous pouvez le voir, il existe un itinéraire pointant vers le réseau virtuel 10.1.3.0/24 injecté par les passerelles du réseau virtuel dans Azure Virtual WAN. Nous pouvons à présent tester la connectivité à la base de données :
 

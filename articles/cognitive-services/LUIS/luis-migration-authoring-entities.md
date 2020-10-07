@@ -1,14 +1,16 @@
 ---
 title: Migrer vers une entité issue du Machine Learning v3
 description: La création v3 offre un nouveau type d’entité, l’entité issue du Machine Learning, ainsi que la possibilité d’ajouter des relations à l’entité issue du Machine Learning et à d’autres entités ou fonctionnalités de l’application.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324686"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrer vers l’entité de création v3
 

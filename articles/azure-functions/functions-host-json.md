@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321847"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -162,11 +162,11 @@ Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichi
 | isEnabled | true | Active ou désactive l’échantillonnage. | 
 | maxTelemetryItemsPerSecond | 20 | Nombre cible d’éléments de télémétrie enregistrés par seconde sur chaque hôte de serveur. Si votre application s’exécute sur de nombreux ordinateurs hôtes, réduisez cette valeur pour rester dans votre taux de trafic cible global. | 
 | evaluationInterval | 01:00:00 | Intervalle auquel le taux actuel de télémétrie est réévalué. L’évaluation est effectuée sous forme de moyenne mobile. Vous souhaiterez peut-être raccourcir cet intervalle si vos données de télémétrie sont soumises à des pics soudains. |
-| initialSamplingPercentage| 1.0 | Pourcentage d’échantillonnage initial appliqué au début du processus d’échantillonnage pour faire varier dynamiquement le pourcentage. Ne diminuez pas la valeur pendant le débogage. |
+| initialSamplingPercentage| 100.0 | Pourcentage d’échantillonnage initial appliqué au début du processus d’échantillonnage pour faire varier dynamiquement le pourcentage. Ne diminuez pas la valeur pendant le débogage. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Lorsque la valeur de pourcentage d’échantillonnage change, cette propriété détermine le moment où Application Insights est autorisé à augmenter à nouveau le pourcentage d’échantillonnage pour capturer plus de données. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Lorsque la valeur de pourcentage d’échantillonnage change, cette propriété détermine le moment où Application Insights est autorisé à diminuer à nouveau le pourcentage d’échantillonnage pour capturer moins de données. |
 | minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé minimal. |
-| minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé maximal. |
+| minSamplingPercentage | 100.0 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé maximal. |
 | movingAverageRatio | 1.0 | Lors du calcul de la moyenne mobile, poids affecté à la valeur la plus récente. Utilisez une valeur inférieure ou égale à 1. Plus les valeurs sont petites, moins l’algorithme est réactif en cas de modifications brusques. |
 | excludedTypes | null | Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont les suivants : `Dependency`, `Event`, `Exception`, `PageView`, `Request` et `Trace`. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
 | includedTypes | null | Liste délimitée par des points-virgules des types que vous souhaitez échantillonner ; une liste vide signifie que tous les types sont impliqués. Le type répertorié dans `excludedTypes` remplace les types répertoriés ici. Les types reconnus sont les suivants : `Dependency`, `Event`, `Exception`, `PageView`, `Request` et `Trace`. Les instances des types spécifiés sont échantillonnées ; les types non spécifiés ou implicites sont transmis sans échantillonnage. |

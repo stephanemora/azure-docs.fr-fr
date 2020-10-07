@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328493"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -113,7 +113,7 @@ Un lien de *Téléchargement* est alors activé dans la *VUE DU GRAPHE*. Sélect
 
 ### <a name="create-a-new-instance"></a>Créer une instance
 
-Tout d’abord, **créez une instance d’Azure Digital Twins dans votre région cible**. Pour ce faire, suivez les étapes décrites dans le [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-scripted.md), en gardant à l’esprit ces conseils :
+Tout d’abord, **créez une instance d’Azure Digital Twins dans votre région cible**. Pour ce faire, suivez les étapes décrites dans le [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md), en gardant à l’esprit ces conseils :
 * Vous pouvez conserver le même nom pour la nouvelle instance **si** elle se trouve dans un groupe de ressources différent. Si vous devez utiliser le groupe de ressources contenant votre instance d’origine, la nouvelle instance devra avoir son propre nom distinct.
 * Lorsque vous êtes invité à indiquer un emplacement, entrez la nouvelle région cible.
 * Vous n’avez **pas besoin** de recréer l’inscription de l’application. Votre nouvelle instance peut réutiliser l’inscription d’application que vous détenez déjà.

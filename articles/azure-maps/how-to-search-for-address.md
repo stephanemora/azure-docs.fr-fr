@@ -4,16 +4,16 @@ description: Apprenez-en plus sur le service Search Azure Maps. Découvrez comme
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310983"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
@@ -95,7 +95,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 
 4. Le comportement par défaut consiste à faire porter la recherche sur le monde entier, avec le risque de renvoyer des résultats superflus. Ensuite, nous chercherons le mot pizza uniquement aux États-Unis. Ajoutez la clé `countrySet` à la section **Params** et attribuez-lui la valeur `US`. La définition de la clé `countrySet` sur `US` liera les résultats aux États-Unis.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text=" Rechercher le mot pizza aux États-Unis ":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Rechercher une adresse":::
 
     Les résultats sont désormais délimités par le code de pays ; en l’occurrence, la requête retourne des pizzerias aux États-Unis.
 
@@ -143,13 +143,13 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
     | returnRoadUse | true | Retourne les types d’utilisation de la route à l’adresse. Pour tous les types d’utilisation routière possibles, consultez [Types d’utilisation routière](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Retourne le type de correspondance. Pour toutes les valeurs possibles, consultez [Résultats de la recherche d’adresse inversée](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult).
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Recherche inversée.":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Rechercher une adresse":::
 
 5. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse.
 
 6. Ensuite, nous allons ajouter la clé `entityType` et définir sa valeur sur `Municipality`. La clé `entityType` remplace la clé `returnMatchType` de l’étape précédente. Nous devrons également supprimer `returnSpeedLimit` et `returnRoadUse`, puisque nous demandons des informations sur la commune.  Pour tous les types d’entités possibles, consultez [Types d’entités](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Recherche d’entityType inversée.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Rechercher une adresse":::
 
 7. Cliquez sur **Envoyer**. Comparez les résultats à ceux retournés à l’étape 5.  Étant donné que le type d’entité demandé est désormais `municipality`, la réponse n’inclut pas d’informations sur l’adresse. En outre, la valeur `geometryId` retournée peut être utilisée pour demander un polygone de délimitation par le biais de l’[API Get Search Polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) d’Azure Maps.
 
@@ -168,7 +168,7 @@ Dans cet exemple, nous allons rechercher une intersection en nous basant sur les
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Rechercher une intersection.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Rechercher une adresse":::
   
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous remarquerez que la réponse contient une valeur `crossStreet` pour `Occidental Avenue South`.
 

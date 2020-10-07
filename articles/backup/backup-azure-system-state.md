@@ -3,12 +3,12 @@ title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server vers Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332885"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Sauvegarder l’état du système Windows vers Azure
 
@@ -38,7 +38,7 @@ Lorsque vous créez un coffre Recovery Services, vérifiez que la redondance du 
     ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Choisissez l’option de réplication de stockage à appliquer à votre archivage.
 
-    ![Options de configuration du stockage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Options de configuration du stockage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
     Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, laissez cette option **inchangée**. Sinon, choisissez l’option **Localement redondant**, qui réduit les coûts de stockage Azure. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md#geo-redundant-storage), [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et [redondant interzone](../storage/common/storage-redundancy.md#zone-redundant-storage), consultez la [présentation de la redondance du stockage](../storage/common/storage-redundancy.md).
 

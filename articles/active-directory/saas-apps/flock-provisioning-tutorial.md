@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5090741b6e7c50e7a3179fb2fdd84fa19ddf657c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312556"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutoriel : Configurer Flock pour l’attribution automatique d’utilisateurs
 
@@ -106,11 +106,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section Informations d’identification de l’administrateur, entrez respectivement les valeurs de `https://api.flock-staging.com/v2/scim` et du **Jeton d’API** récupérées précédemment dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Flock. Si la connexion échoue, vérifiez que votre compte Flock dispose des autorisations d’administrateur et réessayez.
 

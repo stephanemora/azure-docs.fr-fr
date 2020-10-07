@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318294"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Déclencher une exécution d’un pipeline Machine Learning à partir d’une application logique
 
@@ -94,3 +94,14 @@ Une fois que votre application logique a été provisionnée, effectuez les éta
     > ![Paramètres HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Sélectionnez **Enregistrer**. Votre planification est maintenant prête.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d'informations, consultez les pages suivantes :
+
+> [!div class="nextstepaction"]
+> [Utiliser des pipelines Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md)
+
+* En savoir plus sur les [pipelines](concept-ml-pipelines.md)
+* En savoir plus sur [l’exploration d’Azure Machine Learning avec Jupyter](samples-notebooks.md)
+

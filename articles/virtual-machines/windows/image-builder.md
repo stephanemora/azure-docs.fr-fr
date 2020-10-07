@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320011"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Windows avec le Générateur d’images Azure
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> Pour l’image source, vous devez toujours [spécifier une version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure) ; vous ne pouvez pas utiliser `latest`.
+> Pour l’image source, vous devez toujours [spécifier une version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version) ; vous ne pouvez pas utiliser `latest`.
 > Si vous ajoutez ou modifiez le groupe de ressources où l’image est distribuée, vous devez vous assurer que les [autorisations sont définies](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) sur le groupe de ressources.
  
 ## <a name="create-the-image"></a>Création de l’image
@@ -185,7 +185,7 @@ En arrière-plan, le générateur d’images crée également un groupe de resso
 > Vous ne devez pas supprimer directement le groupe de ressources de mise en lots. Commencez par supprimer l’artefact de modèle d’image ; cela supprimera le groupe de ressources de mise en lots.
 
 Si le service signale un échec lors de la soumission du modèle de configuration d’image,
--  consultez ces étapes de [résolution des problèmes](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting). 
+-  consultez ces étapes de [résolution des problèmes](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors). 
 - Vous devez supprimer le modèle, à l’aide de l’extrait de code suivant, avant de retenter la soumission.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Attendez que la compilation soit terminée. Cela peut durer environ 15 minutes.
 
-Si vous rencontrez des erreurs, passez en revue ces étapes de [résolution des problèmes](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Si vous rencontrez des erreurs, passez en revue ces étapes de [résolution des problèmes](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors).
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle

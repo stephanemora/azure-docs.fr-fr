@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315488"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics
 Dans ce tutoriel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant Azure Synapse Analytics pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire créé consiste à prédire si un trajet va faire l’objet d’un pourboire.  Les modèles incluent une classification multiclasse (qu'il y ait pourboire ou non) et une régression (distribution des montants des pourboires versés).
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Créez un espace de travail Azure Machine Learning dans votre abonnement Azure.** Pour connaître les instructions à suivre, consultez l’article [Création d’un espace de travail Azure Machine Learning](../studio/create-workspace.md).
+**Créez un espace de travail Azure Machine Learning dans votre abonnement Azure.** Pour connaître les instructions à suivre, consultez l’article [Création d’un espace de travail Azure Machine Learning](../classic/create-workspace.md).
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Charger les données dans Azure Synapse Analytics
 Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes PowerShell suivantes pour télécharger les fichiers d’exemple de script SQL que nous partageons avec vous sur GitHub dans un répertoire local que vous spécifiez avec le paramètre *-DestDir*. Vous pouvez remplacer la valeur du paramètre *-DestDir* par un répertoire local. Si *-DestDir* n’existe pas, il est créé par le script PowerShell.
@@ -941,9 +941,9 @@ Nous pouvons à présent passer aux phases de création et de déploiement de mo
 2. **Classification multiclasse** : Prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 3. **Tâche de régression** : Prédire le montant du pourboire versé pour une course.
 
-Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail **Azure Machine Learning (classique)** . Si vous n’avez pas encore créé d’espace de travail Machine Learning, consultez l’article [Créer un espace de travail Azure Machine Learning Studio (classique)](../studio/create-workspace.md).
+Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail **Azure Machine Learning (classique)** . Si vous n’avez pas encore créé d’espace de travail Machine Learning, consultez l’article [Créer un espace de travail Azure Machine Learning Studio (classique)](../classic/create-workspace.md).
 
-1. Pour bien démarrer avec Azure Machine Learning, consultez la page [Azure Machine Learning Studio (classique) - De quoi s’agit-il ?](../studio/what-is-ml-studio.md)
+1. Pour bien démarrer avec Azure Machine Learning, consultez la page [Azure Machine Learning Studio (classique) - De quoi s’agit-il ?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Connectez-vous à [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
 3. La page d’accueil de Machine Learning Studio (classique) permet d’accéder à une multitude d’informations, notamment des vidéos, des tutoriels, des liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -983,7 +983,7 @@ Un exemple d’expérience de classification binaire lisant directement les donn
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Déployer des modèles dans Azure Machine Learning
-Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
 

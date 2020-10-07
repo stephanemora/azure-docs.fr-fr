@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4d29b1301f66f2834c974bdcd2675cf1a672c742
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323513"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutoriel : Configurer Druva pour le provisionnement automatique d’utilisateurs
 
@@ -109,11 +109,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5.  Sous la section Informations d’identification de l’administrateur, entrez `https://apis.druva.com/insync/scim` dans le champ **URL de locataire**. Entrez la valeur du **jeton d’authentification** dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Druva. Si la connexion échoue, vérifiez que votre compte Druva dispose des autorisations d’administrateur, puis réessayez.
 

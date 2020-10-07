@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329752"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support pour la place de marché commerciale Microsoft
 
@@ -38,8 +38,7 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 ## <a name="marketing-resources"></a>Ressources marketing  
 
 | Canal de support | Description | Disponibilité |  
-|:--- |:--- |:--- |  
-| E-mail : [cosell@microsoft.com](mailto:cosell@microsoft.com) | Support pour les processus d’intégration et toutes les questions relatives au programme de vente conjointe. | Fuseau horaire du Pacifique. |  
+|:--- |:--- |:--- |
 | E-mail : [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support pour les avantages de commercialisation et toutes les questions relatives au programme. | Heures de bureau dans le fuseau horaire Pacifique. |  
 | E-mail : [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Réponses aux questions concernant l’utilisation de la marque et des logos Azure. |  |  
 

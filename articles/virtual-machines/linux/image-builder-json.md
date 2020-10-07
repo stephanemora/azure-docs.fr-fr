@@ -4,16 +4,16 @@ description: Découvrez comment créer un modèle à utiliser avec le générate
 author: danielsollondon
 ms.author: danis
 ms.date: 08/13/2020
-ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.topic: reference
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307277"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -96,7 +96,7 @@ Par défaut, Image Builder ne modifie pas la taille de l’image et utilise la t
 ```
 
 ## <a name="vnetconfig"></a>vnetConfig
-Si vous ne spécifiez pas de propriétés de réseau virtuel, le générateur d’images créera son propre réseau virtuel, sa propre adresse IP publique et son propre groupe de sécurité réseau. L’adresse IP publique est utilisée par le service pour communiquer avec la machine virtuelle de build. Toutefois, si vous ne souhaitez pas une adresse IP publique ou si vous souhaitez que le générateur d’images ait accès à vos ressources de réseau virtuel existantes, comme les serveurs de configuration (DSC, Chef, Puppet, Ansible), les partages de fichiers, etc., vous pouvez spécifier un réseau virtuel. Pour plus d’informations, consultez la [documentation relative à la mise en réseau](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder) (facultatif).
+Si vous ne spécifiez pas de propriétés de réseau virtuel, le générateur d’images créera son propre réseau virtuel, sa propre adresse IP publique et son propre groupe de sécurité réseau. L’adresse IP publique est utilisée par le service pour communiquer avec la machine virtuelle de build. Toutefois, si vous ne souhaitez pas une adresse IP publique ou si vous souhaitez que le générateur d’images ait accès à vos ressources de réseau virtuel existantes, comme les serveurs de configuration (DSC, Chef, Puppet, Ansible), les partages de fichiers, etc., vous pouvez spécifier un réseau virtuel. Pour plus d’informations, consultez la [documentation relative à la mise en réseau](image-builder-networking.md) (facultatif).
 
 ```json
     "vnetConfig": {
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez [Définir les dépendances des ressources]
 
 ## <a name="identity"></a>Identité
 
-(Obligatoire) Pour qu’Image Builder soit autorisé à lire/écrire des images et à lire des scripts provenant du Stockage Azure, vous devez créer une identité affectée par l’utilisateur Azure disposant d’autorisations sur les différentes ressources. Pour plus d’informations sur le fonctionnement des autorisations d’Image Builder et sur les étapes pertinentes, consultez la [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+(Obligatoire) Pour qu’Image Builder soit autorisé à lire/écrire des images et à lire des scripts provenant du Stockage Azure, vous devez créer une identité affectée par l’utilisateur Azure disposant d’autorisations sur les différentes ressources. Pour plus d’informations sur le fonctionnement des autorisations d’Image Builder et sur les étapes pertinentes, consultez la [documentation](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -233,7 +233,7 @@ Par défaut, Image Builder s’exécutera pendant 240 minutes. Après cela, il 
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-Si vous ne spécifiez pas de valeur buildTimeoutInMinutes ou si vous lui affectez la valeur 0, la valeur par défaut est utilisée. Vous pouvez augmenter ou diminuer la valeur, jusqu’à la valeur maximale de 960 min (16 heures). Pour Windows, nous vous déconseillons de définir cette valeur en dessous de 60 minutes. Si vous constatez que vous avez atteint le délai d’expiration, consultez les [journaux](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs) pour voir si l’étape de personnalisation attend par exemple une entrée de l’utilisateur. 
+Si vous ne spécifiez pas de valeur buildTimeoutInMinutes ou si vous lui affectez la valeur 0, la valeur par défaut est utilisée. Vous pouvez augmenter ou diminuer la valeur, jusqu’à la valeur maximale de 960 min (16 heures). Pour Windows, nous vous déconseillons de définir cette valeur en dessous de 60 minutes. Si vous constatez que vous avez atteint le délai d’expiration, consultez les [journaux](image-builder-troubleshoot.md#customization-log) pour voir si l’étape de personnalisation attend par exemple une entrée de l’utilisateur. 
 
 Si vous avez besoin de plus de temps pour que les personnalisations se terminent, définissez ce dont vous avez besoin, avec une faible surcharge. Toutefois, ne définissez pas une valeur trop élevée, car vous devrez peut-être attendre qu’il expire avant d’afficher une erreur. 
 
@@ -481,7 +481,7 @@ Pour remplacer les commandes, utilisez les fournisseurs de script PowerShell ou 
 * Windows : c:\DeprovisioningScript.ps1
 * Linux : /tmp/DeprovisioningScript.sh
 
-Le générateur d’images lira ces commandes, celles-ci sont écrites dans les journaux AIB, « customization.log ». Consultez la section de [dépannage](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) pour savoir comment collecter les journaux.
+Le générateur d’images lira ces commandes, celles-ci sont écrites dans les journaux AIB, « customization.log ». Consultez la section de [dépannage](image-builder-troubleshoot.md#customization-log) pour savoir comment collecter les journaux.
  
 ## <a name="properties-distribute"></a>Propriétés : distribuer
 
@@ -658,7 +658,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>Annulation d’un build d’image
 Si vous exécutez un build d’image qui vous semble incorrect, en attente d’une entrée d’utilisateur ou susceptible de ne jamais aboutir, vous pouvez l’annuler.
 
-Le build peut être annulé à tout moment. Si la phase de distribution a commencé, l’annulation reste possible, mais vous devrez nettoyer toutes les images non terminées. La commande Cancel n’attend pas la fin de l’annulation. Surveillez la progression de l’annulation dans `lastrunstatus.runstate` à l’aide de ces [commandes](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status) d’état.
+Le build peut être annulé à tout moment. Si la phase de distribution a commencé, l’annulation reste possible, mais vous devrez nettoyer toutes les images non terminées. La commande Cancel n’attend pas la fin de l’annulation. Surveillez la progression de l’annulation dans `lastrunstatus.runstate` à l’aide de ces [commandes](image-builder-troubleshoot.md#customization-log) d’état.
 
 
 Exemples de commandes `cancel` :

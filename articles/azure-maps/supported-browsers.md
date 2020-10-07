@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 5b186901551e421ba365b97a6de6a55ff791e5e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310184"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navigateurs pris en charge pour le kit SDK web
 
@@ -76,8 +76,6 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 
 En savoir plus sur le SDK web Azure Maps :
 
-> [!div class="nextstepaction"]
-> [Contrôle de carte](how-to-use-map-control.md)
+[Contrôle de carte](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [Module de services](how-to-use-services-module.md)
+[Module de services](how-to-use-services-module.md)

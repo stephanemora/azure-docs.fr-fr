@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328103"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Aperçu : Créer une machine virtuelle Windows avec le Générateur d’images Azure avec PowerShell
 
@@ -271,7 +271,7 @@ En outre, en arrière-plan, le générateur d’images crée un groupe de ressou
 
 Si le service signale un échec lors de la soumission du modèle de configuration d’image,
 
-- Consultez [Résolution des problèmes liés aux défaillances de création d’image de machine virtuelle Azure](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Consultez [Résolution des problèmes liés aux défaillances de création d’image de machine virtuelle Azure](../linux/image-builder-troubleshoot.md).
 - Supprimez le modèle à l’aide de l’exemple suivant avant de réessayer.
 
 ```azurepowershell-interactive
@@ -288,7 +288,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Attendez la fin du processus de génération de l’image. Cette étape peut prendre une heure.
 
-Si vous rencontrez des problèmes, consultez [Résolution des problèmes liés aux défaillances de création d’image de machine virtuelle Azure](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Si vous rencontrez des problèmes, consultez [Résolution des problèmes liés aux défaillances de création d’image de machine virtuelle Azure](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 

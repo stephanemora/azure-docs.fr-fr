@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3c4afc6c0adb8d499e38abf3d709a951774dda4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319994"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Exécuter Micro Focus Enterprise Server 5.0 dans un conteneur Docker sur Azure
 
@@ -121,9 +121,9 @@ Avant de commencer, consultez les prérequis suivants :
 
 1.  Pour lancer Enterprise Server 5.0 et l’application acctdemo, à l’invite de commandes, tapez :
 
-    ~~~
+    ```
     **docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_5.0\_x64
-    ~~~
+    ```
 
 1.  Installez un émulateur de terminal 3270 tel que [x3270](http://x3270.bgp.nu/) et utilisez-le pour vous lier, via le port 9040, à l’image est en cours d’exécution.
 
@@ -133,15 +133,15 @@ Avant de commencer, consultez les prérequis suivants :
 
     2.  Pour obtenir l’adresse IP du conteneur acctdemo, utilisez l’ID de conteneur de l’étape précédente comme suit :
 
-    ~~~
+    ```
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
     Par exemple :
 
-    ~~~
+    ```
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
 4. Notez l’adresse IP de l’image acctdemo. Par exemple, l’adresse dans la sortie suivante est 172.19.202.52.
 

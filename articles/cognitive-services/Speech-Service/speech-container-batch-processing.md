@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319076"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de traitement par lots pour des conteneurs Speech
 
@@ -76,6 +76,8 @@ Le client par lot peut détecter de manière dynamique si un point de terminaiso
 > * Cet exemple utilise le même répertoire (`/my_nfs`) pour le fichier de configuration et les répertoires d’entrées, de sorties et de journaux. Vous pouvez utiliser des répertoires hébergés ou montés sur NFS pour ces dossiers.
 > * L’exécution du client avec `–h` répertorie les paramètres de ligne de commande disponibles et leurs valeurs par défaut. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Utilisez la commande `run` de Docker pour exécuter le conteneur. Cela démarre un interpréteur de commandes interactif à l’intérieur du conteneur.
 
 ```Docker
@@ -94,6 +96,18 @@ Pour exécuter le client et le conteneur par lot dans une commande unique :
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Pour exécuter le client et le conteneur par lot dans une commande unique :
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 Le client commence à être exécuté. Si un fichier audio a déjà été transcrit dans une exécution précédente, le client ignore automatiquement le fichier. Les fichiers sont envoyés avec une nouvelle tentative automatique si des erreurs temporaires se produisent et vous pouvez différencier les erreurs pour lesquelles le client peut procéder à une nouvelle tentative et les autres. Dans le cas d’une erreur de transcription, le client continue la transcription et peut procéder à une nouvelle tentative sans perdre la progression.  
 
 ## <a name="run-modes"></a>Exécuter des modes 
@@ -104,7 +118,7 @@ Le kit de traitement par lots propose trois modes, à l’aide du paramètre `--
 
 Le mode `ONESHOT` retranscrit un seul lot de fichiers audio (à partir d’un répertoire d’entrée et d’une liste de fichiers facultative) dans un dossier de sortie.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode OneShot.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Placez les fichiers audio pour transcription dans un répertoire d’entrée.  
@@ -119,7 +133,7 @@ Le mode `ONESHOT` retranscrit un seul lot de fichiers audio (à partir d’un r�
 
 Le mode `DAEMON` configure les fichiers existants dans un dossier donné et retranscrit en permanence les nouveaux fichiers audio à mesure qu’ils sont ajoutés.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode Démon.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Appelez le conteneur sur un répertoire d’entrée. Le client par lot commence à analyser le répertoire pour les fichiers entrants. 
@@ -132,7 +146,7 @@ Le mode `DAEMON` configure les fichiers existants dans un dossier donné et retr
 
 Le mode `REST` est un mode de serveur d’API qui fournit un ensemble de base de points de terminaison HTTP pour l’envoi par lots de fichiers audio, la vérification de l’état et l’interrogation longue. Active également la consommation de programmatique à l’aide d’une extension de module Python ou l’importation en tant que sous-module.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramme montrant les fichiers de traitement de conteneur de kit par lot en mode Démon.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramme montrant un exemple de flux de travail de conteneurs de kits par lots.":::
 
 1. Définissez les points de terminaison de conteneur Speech que le client par lot utilisera dans le fichier `config.yaml`. 
 2. Envoyer une requête de requête HTTP à l’un des points de terminaison du serveur d’API. 

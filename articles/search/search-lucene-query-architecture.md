@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329480"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Recherche en texte intégral dans Recherche cognitive Azure
 
@@ -51,7 +51,7 @@ Une requête de recherche est une spécification complète de ce qui doit être 
 
 L’exemple suivant est une requête de recherche que vous pourriez envoyer à la Recherche cognitive Azure à l’aide de [l’API REST](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 Pour cette requête, le moteur de recherche effectue les opérations suivantes :
 
@@ -76,9 +76,9 @@ La majeure partie de cet article porte sur le traitement de la *requête de rech
 
 Comme indiqué, la chaîne de requête constitue la première ligne de la requête : 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 L’analyseur de requêtes distingue les opérateurs (tels que `*` et `+` dans l’exemple) des termes de recherche et décompose la requête de recherche en *sous-requêtes* d’un type pris en charge : 
 
@@ -104,9 +104,9 @@ Un autre paramètre de requête de recherche susceptible d’affecter l’analys
 
 Lorsque `searchMode=any` (valeur par défaut), le délimiteur d’espace entre spacieux et air condition est OU (`||`), rendant le texte d’exemple de requête équivalent à : 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Les opérateurs explicites, tels que `+` dans `+"Ocean view"`, ne sont pas équivoques dans la construction de requête booléenne (le terme *doit* correspondre). Il est moins évident d’interpréter les termes restants : spacieux et air condition. Le moteur doit-il rechercher les correspondances avec vue mer *et* spacieux *et* air condition ? Ou doit-il rechercher les correspondances avec vue mer et *l’un des* termes restants ? 
 
@@ -114,9 +114,9 @@ Par défaut (`searchMode=any`), le moteur de recherche choisit l’interprétati
 
 Supposons que nous avons maintenant défini `searchMode=all`. Dans ce cas, l’espace est interprété comme une opération « et ». Chacun des termes restants doit être présent dans le document pour être considéré comme une correspondance. L’exemple de requête résultant serait interprété comme suit : 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Une arborescence de requête modifiée pour cette requête se présente comme suit, où un document correspondant représente l’intersection des trois sous-requêtes : 
 
@@ -152,16 +152,16 @@ Lorsque l’analyseur par défaut traite le terme, « vue mer » et « spacie
 
 Le comportement d’un analyseur peut être testé à l’aide de [l’API Analyser](/rest/api/searchservice/test-analyzer). Saisissez le texte que vous souhaitez analyser pour voir les termes qu’un analyseur donné génère. Par exemple, pour voir comment l’analyseur standard traite le texte « air condition », vous pouvez émettre la requête suivante :
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 L’analyseur standard fractionne le texte d’entrée en deux jetons, les annotant avec des attributs tels que les décalages de début et de fin (pour la mise en surbrillance des correspondances), et annotant également leur position (pour la correspondance d’expression) :
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ L’analyseur standard fractionne le texte d’entrée en deux jetons, les annot
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessi
 
 L’extraction de documents fait référence à la recherche de documents avec des termes correspondants dans l’index. Vous comprendrez mieux cette étape à l’aide d’un exemple. Commençons par un index des hôtels dont le schéma simple est le suivant : 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ L’extraction de documents fait référence à la recherche de documents avec d
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Supposons également que cet index contient les quatre documents suivants : 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Supposons également que cet index contient les quatre documents suivants :
         }
     ]
 }
-~~~~
+```
 
 **Comment les termes sont indexés**
 
@@ -321,10 +321,12 @@ Un score de pertinence est attribué à chaque document d’un jeu de résultats
 ### <a name="scoring-example"></a>Exemple de notation
 
 Souvenez-vous des trois documents correspondant à notre exemple de requête :
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 Le document 1 correspond mieux à la requête, car le terme *spacieux* et l’expression requise *vue mer* se trouvent tous les deux dans le champ Description. Les documents2 et 3 correspondent uniquement à l’expression *vue mer*. Il peut être surprenant que le score de pertinence des documents 2 et 3 soit différent, bien qu’ils correspondent à la requête de la même façon. Cela signifie que la formule de notation a plus de composants que la formule TF/IDF. Dans ce cas, un score légèrement plus élevé a été affecté au document 3, car sa description est plus courte. En savoir plus sur la [formule de notation pratique Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) pour comprendre comment la longueur de champ et d’autres facteurs peuvent influencer le score de pertinence.
 
