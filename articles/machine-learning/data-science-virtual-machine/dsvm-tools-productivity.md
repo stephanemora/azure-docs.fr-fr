@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: f26b02755c68b4ece4edca8cbbd90ec3330c5d1d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032501"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761190"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Outils de productivité sur la machine virtuelle DSVM
 
@@ -24,6 +24,6 @@ En plus des outils dédiés à la science des données et à la programmation, l
 
 | Outil | DSVM Windows | Machine virtuelle DSVM Linux | DSVM Windows 2019 Server | DSVM Ubuntu 18.04 | Notes d’utilisation |
 |---|:-:|:-:|:-:|:-:|:--|
-| [Applications Microsoft 365 Entreprise](/microsoft-365/business/microsoft-365-apps-for-enterprise-product) avec activation partagée : Excel, Word et PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Vous pouvez activer les applications Microsoft 365 Entreprise :<br/><ul><li>Consultez [Activation d'ordinateurs partagés](/deployoffice/overview-shared-computer-activation)</ul> |
+| [Applications Microsoft 365 Entreprise](https://www.microsoft.com/microsoft-365/business/microsoft-365-apps-for-enterprise) avec activation partagée : Excel, Word et PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Vous pouvez activer les applications Microsoft 365 Entreprise :<br/><ul><li>Consultez [Activation d'ordinateurs partagés](/deployoffice/overview-shared-computer-activation)</ul> |
 | [Power BI Desktop](https://powerbi.microsoft.com/) | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | |
 | Navigateur Microsoft Edge | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | |

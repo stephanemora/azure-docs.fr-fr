@@ -1,18 +1,18 @@
 ---
 title: Isolation de machines virtuelles dans Azure
 description: Découvrez le fonctionnement de l’isolation de machine virtuelle dans Azure.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831445"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666838"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolation de machine virtuelle dans Azure
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033640"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577762"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -52,7 +52,7 @@ Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://
 | [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | Oui |
 | [Flux d’appareils (préversion)](iot-hub-device-streams-overview.md) |   | Oui |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Oui |
-| [Préversion d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Oui |
+| [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Oui |
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard.
 

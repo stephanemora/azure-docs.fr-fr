@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221124"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450164"
 ---
 # <a name="monitor-module-twins"></a>Superviser les jumeaux de module
 
@@ -213,7 +213,7 @@ Si vous apportez des modifications, sélectionnez **Mettre à jour le jumeau de 
 
 Pour savoir si IoT Edge est en cours d’exécution, utilisez la méthode [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) pour effectuer un test ping sur l’agent IoT Edge.
 
-La structure [az iot hub module-twin](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fournit les commandes suivantes :
+La structure [az iot hub module-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fournit les commandes suivantes :
 
 * **az iot hub module-twin show** : afficher une définition de jumeau de module.
 * **az iot hub module-twin update** : mettre à jour une définition de jumeau de module.

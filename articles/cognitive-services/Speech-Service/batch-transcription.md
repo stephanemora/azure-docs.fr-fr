@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360750"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -43,7 +43,7 @@ Vous ne pouvez pas estimer le moment où un travail passe à l’état d’exéc
 
 ## <a name="prerequisites"></a>Prérequis
 
-Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md).
+Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > Pour pouvoir utiliser la transcription Batch, vous avez besoin d’un abonnement standard (S0) pour le service Speech. Les clés d’abonnement gratuit (F0) ne fonctionnent pas. Pour plus d’informations, voir [Tarification et limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294864"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740681"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
 
@@ -37,13 +37,13 @@ En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émett
 
 Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=** . 
 
-  ![en-tête de demande Postman définir les paramètres](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 ### <a name="set-the-request-url"></a>Définir l’URL de requête
 
 La requête est une commande GET accompagnée d’une URL contenant le point de terminaison de Recherche cognitive Azure et la chaîne de recherche.
 
-  ![en-tête de demande Postman GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 L’URL est composée des éléments suivants :
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La réponse pour cette requête doit ressembler à la capture d’écran suivante.
 
-  ![Exemple de réponse Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de 1 sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été appliqué. Pour la recherche de valeur Null sans aucun critère, les lignes sont renvoyées dans un ordre arbitraire. Si vous incluez des critères réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Utilisés conjointement, le filtre est d’abord appliqué à la totalité de l’index et la recherche est effectuée sur les résultats du filtre. Les filtres peuvent donc être utiles pour améliorer les performances des requêtes, puisqu’ils limitent le nombre de documents que devra traiter la requête de recherche.
 
-  ![Réponse d’une requête de filtre](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 Si vous souhaitez tester ce type de requête dans Postman à l’aide de GET, vous pouvez coller la chaîne suivante :
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Filtre de plage pour les plages numériques](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Filtre de plage pour les plages de texte](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 Vous pouvez également tester ces filtres dans Postman à l’aide de GET :
 
@@ -251,14 +251,14 @@ Avec le searchMode par défaut (any), 2800 documents sont retournés : ceux con
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![Mode de recherche any](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 Affecter la valeur `all` à searchMode applique un effet cumulé aux critères et retourne un jeu de résultats plus petit (21 documents) constitué de documents contenant l’expression entière « fire department », moins les emplois à l’adresse de Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![Mode de recherche all](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="En-tête de demande Postman Définir les paramètres" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exemple 8 : Structuration des résultats
 

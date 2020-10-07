@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360104"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Envoyer une activité Commandes personnalisées à l’application cliente
 
@@ -29,7 +29,7 @@ Effectuez les tâches suivantes :
 ## <a name="prerequisites"></a>Prérequis
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou version ultérieure. Ce guide utilise Visual Studio 2019
-> * Clé d'abonnement Azure pour le service Speech : [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
+> * Clé d'abonnement Azure pour le service Speech : [Obtenez-en une gratuitement](overview.md#try-the-speech-service-for-free) ou créez-la sur le [portail Azure](https://portal.azure.com)
 > * Application [Commandes personnalisées](quickstart-custom-commands-application.md) créée précédemment
 > * Application cliente compatible avec le kit de développement logiciel (SDK) Speech : [Guide pratique pour Intégration à une application cliente à l’aide du SDK Speech](./how-to-custom-commands-setup-speech-sdk.md)
 

@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936161"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743180"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessions de débogage dans Recherche cognitive Azure
 
@@ -35,8 +35,7 @@ Si le pipeline d’enrichissement ne contient pas d’erreur, une session de dé
 
 Pour démarrer une session de débogage, vous devez disposer d’un pipeline d’enrichissement par IA existant, incluant : une source de données, un ensemble de compétences, un indexeur et un index. Pour configurer une session de débogage, vous devez nommer la session et fournir un compte de stockage à usage général qui sera utilisé pour mettre en cache les exécutions de compétences lors de l’exécution de l’indexeur. Vous devrez également sélectionner l’indexeur qui sera exécuté. L’indexeur contient des références stockées dans la source de données, dans l’ensemble de compétences et dans l’index. La session de débogage utilise par défaut le premier document de la source de données. Sinon, vous pouvez spécifier le document à parcourir dans la source de données.
 
-> [!div class="mx-imgBorder"]
-> ![Création d’une session de débogage](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Création d’une session de débogage":::
 
 ## <a name="debug-session-features"></a>Fonctionnalités de la session de débogage
 
@@ -52,8 +51,7 @@ L’affichage du **graphe des compétences** fournit une représentation visuell
 
 Sélectionner une compétence dans le graphique mettra en surbrillance les compétences qui y sont connectées, les nœuds qui créent ses entrées et ceux qui acceptent ses sorties. Le type, les erreurs ou avertissements ainsi que le nombre d’exécutions de chaque nœud de compétence apparaissent. Le **graphique des compétence** vous permet de sélectionner les compétences à déboguer ou améliorer. Lorsque vous sélectionnez une compétence, les informations la concernant sont affichées dans le volet d’information de la compétence à droite du graphique.
 
-> [!div class="mx-imgBorder"]
-> ![Graphique des compétences](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Création d’une session de débogage":::
 
 ## <a name="skill-details"></a>Détails de la compétence
 
@@ -75,8 +73,7 @@ Lors de la création d’une compétence personnalisée ou du débogage d’une 
 
 Le volet **Structure de données enrichie** montre les enrichissements du document via l’ensemble de compétences, en détaillant le contexte et la compétence d’origine pour chaque enrichissement. **L’évaluateur d’expression** peut également servir à afficher le contenu de chaque enrichissement.
 
-> [!div class="mx-imgBorder"]
-> ![Structure de données enrichie](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Création d’une session de débogage":::
 
 ## <a name="expression-evaluator"></a>Évaluateur d’expression
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360121"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Intégration à une application cliente à l’aide du SDK Speech
 
@@ -34,7 +34,7 @@ Vous devez disposer d’une application Commandes personnalisées pour poursuivr
 Vous aurez également besoin de ce qui suit :
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou version ultérieure. Ce guide est basé sur Visual Studio 2019.
-> * Clé d’abonnement Azure pour les services Speech. [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
+> * Clé d’abonnement Azure pour les services Speech. [Obtenez-en une gratuitement](overview.md#try-the-speech-service-for-free) ou créez-la sur le [portail Azure](https://portal.azure.com)
 > * [Activer votre appareil pour le développement](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Étape 1 : Publier une application Commandes personnalisées

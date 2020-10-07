@@ -1,19 +1,19 @@
 ---
 title: Configurer les paramètres - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article explique comment configurer des paramètres Postgres dans Azure Database pour PostgreSQL - Serveur unique à l’aide d’Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 06/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e0d19720df6f3bea8d65c24076709e84c585c638
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4231f348f99073406fcb6a5bef9bf0f84cacf2eb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87493497"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707674"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personnaliser les paramètres de configuration du serveur d’Azure Database pour PostgreSQL (serveur unique) à l’aide d’Azure CLI
 Il est possible de lister, d’afficher et de mettre à jour les paramètres de configuration d’un serveur Azure PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Un sous-ensemble de configurations de moteur est exposé au niveau du serveur et peut être modifié. 

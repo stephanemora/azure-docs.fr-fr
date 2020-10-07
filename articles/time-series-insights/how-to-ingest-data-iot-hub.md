@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e963c092b968476d20e25482cbe165234f7e86f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527934"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665920"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Découvrez comment ajouter une source d’événement de Hub IoT à votre environnement Azure Time Series Insights
 
@@ -65,10 +65,10 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 1. Sélectionnez une valeur pour **Option d’importation** :
 
    * Si vous avez déjà un IoT Hub dans l’un de vos abonnements, sélectionnez **Utiliser IoT Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
-   
+
      [![Sélectionnez les options dans le volet Nouvelle source d’événement](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
-    * Le tableau suivant décrit les propriétés requises pour l’option **Utiliser IoT Hub à partir des abonnements disponibles** :
+   * Le tableau suivant décrit les propriétés requises pour l’option **Utiliser IoT Hub à partir des abonnements disponibles** :
 
        [![Volet Nouvelle source d’événement : Propriétés à définir dans l’option Utiliser IoT Hub à partir des abonnements disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
@@ -79,7 +79,7 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
        | Nom de la stratégie IoT Hub | Sélectionnez la stratégie d’accès partagé. Vous trouverez la stratégie d’accès partagé dans l’onglet Paramètres IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **connexion au service**. |
        | Clé de stratégie IoT Hub | La clé est déjà renseignée. |
 
-    * Sélectionnez **Fournir les paramètres d’IoT Hub manuellement** si l’IoT Hub est externe à vos abonnements ou si vous souhaitez choisir des options avancées.
+   * Sélectionnez **Fournir les paramètres d’IoT Hub manuellement** si l’IoT Hub est externe à vos abonnements ou si vous souhaitez choisir des options avancées.
 
       Le tableau suivant décrit les propriétés requises pour l’option **Fournir des paramètres IoT Hub manuellement** :
 
@@ -91,14 +91,13 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
        | Nom de la stratégie IoT Hub | Stratégie d’accès partagé. Vous pouvez créer la stratégie d’accès partagé dans l’onglet Paramètres IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **connexion au service**. |
        | Clé de stratégie IoT Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Azure Service Bus. Entrez la clé primaire ou secondaire ici. |
 
-    * Les deux options partagent les options de configuration suivantes :
+   * Les deux options partagent les options de configuration suivantes :
 
        | Propriété | Description |
        | --- | --- |
        | Groupe de consommateurs IoT Hub | Groupe de consommateurs qui lit les événements de l’IoT Hub. Il est vivement recommandé d’utiliser un groupe de consommateurs dédié pour votre source de l’événement. |
        | Format de sérialisation de l’événement | Actuellement, JSON est le seul format de sérialisation disponible. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
        | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format de message des données de message envoyées dans IoT Hub. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message à utiliser comme horodateur de l’événement. Cette valeur respecte la casse. Lorsque ce champ est vide, l’**heure de mise en file d’attente de l’événement** dans la source de l’événement est utilisée comme timestamp de l’événement. |
-
 
 1. Ajoutez le nom du groupe de consommateurs Azure Time Series Insights dédié que vous avez ajouté à votre Hub IoT.
 

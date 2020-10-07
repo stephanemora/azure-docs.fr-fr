@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646929"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710717"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -193,7 +193,7 @@ Voici un exemple de la façon dont les informations de l’offre s’affichent d
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -242,7 +242,7 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **Contact 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com que l’Espace partenaires utilise.
@@ -559,7 +559,7 @@ Pour autoriser le déploiement de la version d’évaluation pour votre compte, 
 * **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés**, puis cherchez le numéro d’**ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 * **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory**, choisissez **Inscriptions d’applications**, puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
+* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory**, choisissez **Inscriptions d’applications**, puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 15119a76e1e59b339a9012896a525a0ecc91f34d
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761413"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761054"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Tutoriel : Configurer myday pour l’attribution automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à effectuer dans myday et Azure Active Directory (Azure AD) pour configurer le provisionnement automatique d’utilisateurs. Une fois configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs et les groupes pour [myday](https://www.mydaycloud.com) à l’aide du service Provisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+Ce tutoriel décrit les étapes à effectuer dans myday et Azure Active Directory (Azure AD) pour configurer le provisionnement automatique d’utilisateurs. Une fois configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs et les groupes pour [myday](https://go.mydaycloud.com) à l’aide du service Provisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge

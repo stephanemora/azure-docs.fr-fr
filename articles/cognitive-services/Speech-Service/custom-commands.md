@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362157"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358540"
 ---
 # <a name="what-is-custom-commands"></a>Présentation des commandes personnalisées
 
@@ -52,7 +52,7 @@ Après avoir terminé le guide de démarrage rapide, consultez nos guides pratiq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 * [Consulter les exemples de notre référentiel d’assistants vocaux sur GitHub](https://aka.ms/speech/cc-samples)
 * [Accéder à Speech Studio pour tester les commandes personnalisées](https://speech.microsoft.com/customcommands)
 * [Obtenir le kit SDK Speech](speech-sdk.md)

@@ -1,18 +1,18 @@
 ---
 title: Redémarrer un serveur - Azure CLI - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article explique comment redémarrer un serveur Azure Database pour PostgreSQL - Single Server à l’aide d’Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 495c9015da3c169a3325e1379487aa5a1ac4dfdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 30770dd7ed71f4cde68c1a616a256bf60b5acaef
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489926"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704716"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Redémarrer une base de données Azure Database pour PostgreSQL - Single Server à l’aide d’Azure CLI
 Cette rubrique explique comment redémarrer un serveur Azure Database pour PostgreSQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.

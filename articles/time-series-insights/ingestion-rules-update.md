@@ -8,14 +8,14 @@ ms.author: lyhughes
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 9a345661a50b18d53411d073ccf12375fe17cdb9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088593"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667807"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Modifications à venir des règles JSON de mise à plat et d’échappement pour les nouveaux environnements
 
@@ -47,8 +47,9 @@ Tous les nouveaux déploiements doivent obéir aux nouvelles règles d’ingesti
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si votre charge utile contient des caractères spéciaux ou un JSON imbriqué et que vous automatisez la création des expressions de variable du[modèle de série chronologique](.\time-series-insights-update-tsm.md) :
 
 Mettez à jour votre code client en exécutant [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) pour qu’il respecte les nouvelles règles d’ingestion. Par exemple, une ancienne [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` doit être mise à jour vers l’une des options suivantes :
-  * `"value": {"tsx": "$event.series.value.Double"}`
-  * `"value": {"tsx": "$event['series']['value'].Double"}`
+
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

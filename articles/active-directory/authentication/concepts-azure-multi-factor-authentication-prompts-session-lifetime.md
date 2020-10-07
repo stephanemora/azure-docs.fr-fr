@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ab36eb9d5c66f61fbb320c91087659cc811eca85
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052662"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595550"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication
 
@@ -121,7 +121,7 @@ Pour configurer des stratégies d’accès conditionnel pour la fréquence de co
 1. Sélectionnez **Sécurité**, puis **Accès conditionnel**.
 1. Configurez une stratégie avec les options de gestion de session recommandées qui sont décrites dans cet article.
 
-Pour vérifier les durées de vie des jetons, [utilisez Azure AD PowerShell pour rechercher les stratégies Azure AD existantes](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Désactivez les stratégies qui sont appliquées.
+Pour vérifier les durées de vie des jetons, [utilisez Azure AD PowerShell pour rechercher les stratégies Azure AD existantes](../develop/configure-token-lifetimes.md#prerequisites). Désactivez les stratégies qui sont appliquées.
 
 Si plusieurs paramètres sont activés dans votre locataire, nous vous recommandons d’effectuer leur mise à jour en fonction des licences que vous avez. Par exemple, si vous avez des licences Azure AD Premium, vous devez utiliser uniquement les stratégies d’accès conditionnel *Fréquence de connexion* et *Session de navigateur persistante*. Si vous avez des licences Applications Microsoft 365 ou Azure AD Free, vous devez choisir la configuration *Rester connecté ?* .
 

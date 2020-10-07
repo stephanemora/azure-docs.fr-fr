@@ -3,12 +3,12 @@ title: Opérations du plan de contrôle et du plan de données
 description: Décrit la différence entre les opérations du plan de contrôle et du plan de données. Les opérations du plan de contrôle sont gérées par Azure Resource Manager. Les opérations de plan de données sont gérées par un service.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90038877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371267"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plan de contrôle et plan de données Azure
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager gère toutes les requêtes du plan de contrôle. Il applique automatiquement les fonctionnalités Azure que vous avez implémentées pour gérer vos ressources, comme :
 
-* [Contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md)
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Verrous de gestion](lock-resources.md)
 * [Journaux d’activité](view-activity-logs.md)

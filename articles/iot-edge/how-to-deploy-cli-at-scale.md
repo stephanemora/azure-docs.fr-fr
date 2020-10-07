@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501557"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439676"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 
@@ -29,7 +29,7 @@ Dans cet article, vous configurez Azure CLI et l’extension IoT. Vous apprendre
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) dans votre abonnement Azure.
 * [Appareils IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) avec le runtime IoT Edge installé.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az --version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az --version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack.
 * [Extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurer un manifeste de déploiement
@@ -183,7 +183,7 @@ Pour plus d’informations sur les étiquettes et les jumeaux d’appareils, con
 
 Vous déployez les modules sur vos appareils cibles en créant un déploiement comprenant le manifeste de déploiement ainsi que d’autres paramètres.
 
-Utilisez la commande [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) pour créer un déploiement :
+Utilisez la commande [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) pour créer un déploiement :
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -216,7 +216,7 @@ Si vous mettez à jour la condition cible, les mises à jour suivantes se produi
 
 Vous ne pouvez pas mettre à jour le contenu d’un déploiement, ce qui comprend les modules et itinéraires définis dans le manifeste de déploiement. Pour mettre à jour le contenu d’un déploiement, vous devez créer un déploiement ciblant les mêmes appareils avec une priorité plus élevée. Vous pouvez modifier certaines propriétés d’un module existant, y compris la condition, les étiquettes, les métriques et la priorité de la cible.
 
-Utilisez la commande [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) pour mettre à jour un déploiement :
+Utilisez la commande [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) pour mettre à jour un déploiement :
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -237,7 +237,7 @@ La commande « deployment update » utilise les paramètres suivants :
 
 Quand vous supprimez un déploiement, tous les appareils prennent leur déploiement suivant dans l’ordre de priorité. Si vos appareils ne remplissent la condition cible d’aucun autre déploiement, les modules ne sont pas supprimés lors de la suppression du déploiement.
 
-Utilisez la commande [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) pour supprimer un déploiement :
+Utilisez la commande [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) pour supprimer un déploiement :
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

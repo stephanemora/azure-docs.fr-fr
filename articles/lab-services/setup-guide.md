@@ -3,12 +3,12 @@ title: Guide de configuration du laboratoire de classe accéléré pour Azure La
 description: Ce guide aide les créateurs de laboratoires à configurer rapidement un compte de laboratoire pour une utilisation au sein de leur école.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445574"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652208"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guide de configuration du laboratoire de classe
 
@@ -60,9 +60,6 @@ Les services Lab utilisent un modèle tarifaire avec paiement à l’utilisation
 - **Planification** : une planification vous permet de contrôler automatiquement le moment où les machines virtuelles de vos labos sont démarrées et arrêtées.
 - **Quota** : le quota contrôle le nombre d’heures pendant lesquelles les étudiants auront accès à une machine virtuelle en dehors des heures planifiées. Si le quota est atteint pendant qu’un étudiant l’utilise, la machine virtuelle est automatiquement arrêtée. L’étudiant ne pourra redémarrer la machine virtuelle que si le quota est augmenté.
 - **Arrêt automatique** : quand cette option est activée, le paramètre d’arrêt automatique entraîne l’arrêt automatique des machines virtuelles Windows après un certain laps de temps, après qu’un étudiant s’est déconnecté d’une session RDP (Remote Desktop Protocol). Par défaut, ce paramètre est désactivé.  
-
-    > [!NOTE]
-    > Ce paramètre n’existe actuellement que pour Windows.
 
 ### <a name="how-will-students-save-their-work"></a>Comment les étudiants vont-ils enregistrer leur travail ?
 

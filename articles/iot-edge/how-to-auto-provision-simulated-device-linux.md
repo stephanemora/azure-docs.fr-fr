@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531489"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447822"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Création et provisionnement d’un appareil IoT Edge avec un module TPM sur Linux
 
@@ -147,7 +147,7 @@ Récupérez les informations de provisionnement à partir de votre machine virtu
 Lorsque vous créez une inscription auprès du service Device Provisioning, vous avez la possibilité de déclarer un **État initial du jumeau d’appareil**. Dans le jumeau d’appareil, vous pouvez définir des balises pour regrouper les appareils en fonction des métriques dont vous avez besoin dans votre solution, comme la région, l’environnement, l’emplacement ou le type d’appareil. Ces balises sont utilisées pour créer [des déploiements automatiques](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> Dans Azure CLI, vous pouvez créer une [inscription](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) et utiliser l’indicateur **compatible avec Edge** pour spécifier qu’il s’agit d’un appareil IoT Edge.
+> Dans Azure CLI, vous pouvez créer une [inscription](/cli/azure/ext/azure-iot/iot/dps/enrollment) et utiliser l’indicateur **compatible avec Edge** pour spécifier qu’il s’agit d’un appareil IoT Edge.
 
 1. Dans le [Portail Microsoft Azure](https://portal.azure.com), accédez à votre instance du service IoT Hub Device Provisioning.
 

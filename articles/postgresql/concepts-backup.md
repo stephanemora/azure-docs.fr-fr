@@ -1,17 +1,17 @@
 ---
 title: Sauvegarde et restauration - Azure Database pour PostgreSQL - Serveur unique
 description: Apprenez-en davantage sur la restauration et les sauvegardes automatiques de votre serveur Azure Database pour PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292869"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708452"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Single Server
 

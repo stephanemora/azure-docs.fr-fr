@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362812"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -59,9 +59,9 @@ L’indexeur avec une source de données Blob n’a pas pu extraire le contenu o
 
 | Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| l’objet Blob dépasse la limite de taille | Le document affiche une taille de `'134217728'`, ce qui est supérieur à la taille maximale de `'150441598'` pour l’extraction de document correspondant à votre niveau de service actuel. | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| L’objet Blob a un type de contenu non pris en charge | Le document contient un type de contenu `'image/png'` non pris en charge | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| L’objet Blob est chiffré | Le document n'a pas pu être traité car il est peut-être chiffré ou protégé par un mot de passe. | Vous pouvez ignorer le blob grâce aux [paramètres de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| l’objet Blob dépasse la limite de taille | Le document affiche une taille de `'134217728'`, ce qui est supérieur à la taille maximale de `'150441598'` pour l’extraction de document correspondant à votre niveau de service actuel. | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| L’objet Blob a un type de contenu non pris en charge | Le document contient un type de contenu `'image/png'` non pris en charge | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| L’objet Blob est chiffré | Le document n'a pas pu être traité car il est peut-être chiffré ou protégé par un mot de passe. | Vous pouvez ignorer le blob grâce aux [paramètres de blob](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | problèmes temporaires | « Erreur de traitement des objets blob : La demande a été abandonnée : La demande a été annulée. » « Le document a expiré pendant le traitement ». | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ Dans tous ces cas, consultez les [types de données pris en charge ](/rest/api/s
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erreur : Impossible d’utiliser la stratégie de suivi des modifications intégré car la table contient une clé primaire composite
 
-Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
+Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

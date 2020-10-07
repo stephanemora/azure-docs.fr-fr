@@ -1,17 +1,17 @@
 ---
 title: Gérer des règles de pare-feu - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Serveur unique à l'aide du portail Azure
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: b2cb6a5378afac74c971ba5429775782723bef09
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 02bd4927216b6b60d2720e6f32c5768499e310bb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882087"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710870"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Serveur unique à l'aide du portail Azure
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour PostgreSQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifique.
@@ -29,20 +29,20 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 2. Cliquez sur **Ajouter mon adresse IP** dans la barre d’outils. Cette opération crée automatiquement une règle de pare-feu avec l’adresse IP publique de votre ordinateur, telle que détectée par le système Azure.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - cliquez sur Ajouter mon adresse IP":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 3. Vérifiez votre adresse IP avant d’enregistrer la configuration. Dans certains cas, l’adresse IP identifiée par le portail Azure diffère de l’adresse IP utilisée lors de l’accès à Internet et aux serveurs Azure. Par conséquent, vous devrez peut-être modifier l’adresse IP de début et l’adresse IP de fin pour que la règle fonctionne comme prévu.
    Utilisez un moteur de recherche ou tout autre outil en ligne pour vérifier votre adresse IP (par exemple, lancez une recherche sur « quelle est mon adresse IP »).
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Recherche Bing « quelle est mon adresse IP »":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 4. Ajoutez des plages d’adresses supplémentaires. Dans les règles de pare-feu d’Azure Database pour PostgreSQL, vous pouvez spécifier une seule adresse IP ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, saisissez la même adresse dans les champs d’adresse IP de début et d’adresse IP de fin. L'ouverture du pare-feu permet aux administrateurs, utilisateurs et applications d'accéder à toute base de données du serveur PostgreSQL pour laquelle ils disposent d'informations d'identification valides.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Portail Azure - règles de pare-feu":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 5. Cliquez sur **Enregistrer** sur la barre d’outils pour enregistrer cette règle de pare-feu de niveau serveur. Attendez la confirmation que la mise à jour des règles de pare-feu a réussi.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Portail Azure - cliquez sur Enregistrer":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 ## <a name="connecting-from-azure"></a>Connexion à partir d’Azure
 Pour autoriser des applications d’Azure à se connecter à votre serveur Azure Database pour PostgreSQL, les connexions Azure doivent être activées. Par exemple, pour héberger une application Azure Web Apps ou une application qui s’exécute sur une machine virtuelle Azure, ou pour vous connecter à partir d’une passerelle de gestion des données Azure Data Factory. Les ressources ne doivent pas obligatoirement se trouver sur le même réseau virtuel (VNET) ou dans le même groupe de ressources pour que la règle de pare-feu autorise ces connexions. Quand une application à partir d’Azure tente de se connecter à votre serveur de base de données, le pare-feu vérifie que les connexions Azure sont autorisées. Il existe deux méthodes pour activer ces types de connexions. Un paramètre de pare-feu avec des adresses de début et de fin égales à 0.0.0.0 indique que ces connexions sont autorisées. Vous pouvez également affecter la valeur **ON** à l’option **Autoriser l’accès aux services Azure** dans le portail à partir du volet **Sécurité de la connexion** et cliquer sur **Enregistrer**. Si la tentative de connexion n’est pas autorisée, la demande n’atteint pas le serveur Azure Database pour PostgreSQL.

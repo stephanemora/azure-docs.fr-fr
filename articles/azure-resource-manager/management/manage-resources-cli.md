@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ecaf7a7df80cbb62bcb27373c47e26c70108d1e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9111a16a4264c4b225eaf0888fc09bd1bba07ef4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372117"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gérer des ressources Azure à l’aide d’Azure CLI
 
@@ -137,7 +137,7 @@ Le balisage facilite l’organisation logique des ressources et du groupe de res
 
 ## <a name="manage-access-to-resources"></a>Gérer l’accès aux ressources
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide du contrôle RBAC et d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019731"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596935"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -35,6 +35,9 @@ Ce modèle centralisé de déploiement présente les avantages suivants :
 - Les données de toutes les sources de données et de tous les connecteurs de données intégrés à Azure Sentinel (comme les journaux d’activité Azure AD, les journaux Office 365 ou les alertes de Protection Microsoft contre les menaces) sont conservées dans chaque locataire client.
 - Il réduit le temps de réponse du réseau.
 - Il est facile d’ajouter ou de supprimer de nouvelles filiales ou clients.
+
+> [!NOTE]
+> Vous pouvez gérer des ressources déléguées situées dans différentes [régions](../../availability-zones/az-overview.md#regions). Toutefois, la délégation d’abonnements sur un [cloud national](../../active-directory/develop/authentication-national-cloud.md) et le cloud public Azure, ou sur deux clouds nationaux distincts, n’est pas prise en charge.
 
 ## <a name="granular-role-based-access-control-rbac"></a>Contrôle d’accès granulaire en fonction du rôle (RBAC)
 

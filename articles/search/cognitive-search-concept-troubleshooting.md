@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935464"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403379"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
@@ -110,12 +110,11 @@ Pour une indexation basée sur le portail (telle que décrite dans le démarrage
 ## <a name="tip-8-increase-indexing-throughput"></a>Conseil 8 : augmentez le débit d’indexation
 
 Pour une [indexation parallèle](search-howto-large-index.md), placez vos données dans plusieurs conteneurs ou dans plusieurs dossiers virtuels au sein du même conteneur. Créez ensuite plusieurs paires source de données et indexeur. Tous les indexeurs pouvant utiliser le même jeu de compétences et écrire dans le même index de recherche cible, votre application de recherche n’a pas besoin d’être informée de ce partitionnement.
-Pour plus d’informations, voir [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Voir aussi
+
 + [Démarrage rapide : Créer un pipeline d’enrichissement de l’IA dans le portail](cognitive-search-quickstart-blob.md)
 + [Tutoriel : Découvrir les API REST d’enrichissement de l’IA](cognitive-search-tutorial-blob.md)
 + [Spécification des informations d’identification de la source de données](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Guide pratique pour mapper des champs enrichis à un index](cognitive-search-output-field-mapping.md)

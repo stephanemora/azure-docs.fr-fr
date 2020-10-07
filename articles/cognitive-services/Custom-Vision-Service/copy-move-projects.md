@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532930"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758572"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copier et déplacer vos projets Custom Vision
 
 Une fois que vous avez créé et formé un projet Custom Vision, vous souhaiterez peut-être copier votre projet vers une autre ressource. Par exemple, vous souhaiterez peut-être déplacer un projet d’un environnement de développement vers un environnement de production ou sauvegarder un projet vers un compte dans une autre région Azure pour une sécurité accrue des données.
 
-Les API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** et **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** rendent ce scénario possible en vous permettant de copier des projets d’un compte Custom Vision vers d’autres. Ce guide vous montre comment utiliser ces API REST avec cURL. Vous pouvez également utiliser un service de requête HTTP tel que Postman pour émettre les demandes.
+Les API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** et **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** rendent ce scénario possible en vous permettant de copier des projets d’un compte Custom Vision vers d’autres. Ce guide vous montre comment utiliser ces API REST avec cURL. Vous pouvez également utiliser un service de requête HTTP tel que Postman pour émettre les demandes.
 
 ## <a name="business-scenarios"></a>Scénarios d’entreprise
 

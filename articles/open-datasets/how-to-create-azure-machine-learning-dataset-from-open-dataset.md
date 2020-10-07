@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a80559761c8a3eba6045db5cd99a7719dd041fa8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902723"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704393"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Créer des jeux de données Azure Machine Learning à partir de Azure Open Datasets
 
@@ -45,20 +45,20 @@ Pour cet article, vous avez besoin des éléments suivants :
 
 * Un [espace de travail Azure Machine Learning](../machine-learning/how-to-manage-workspace.md).
 
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), qui inclut le paquet `azureml-datasets`.
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ), qui inclut le paquet `azureml-datasets`.
 
-    * Créez une [instance de calcul Azure Machine Learning](../machine-learning/concept-compute-instance.md#managing-a-compute-instance), qui est un environnement de développement entièrement configuré et géré qui comprend des blocs-notes intégrés et le kit de développement logiciel (SDK) déjà installé.
+    * Créez une [instance de calcul Azure Machine Learning](../machine-learning/how-to-create-manage-compute-instance.md), qui est un environnement de développement entièrement configuré et géré qui comprend des blocs-notes intégrés et le kit de développement logiciel (SDK) déjà installé.
 
     **OR**
 
-    * Travaillez sur votre propre environnement Python et installez vous-même le Kit de développement logiciel (SDK) à l’aide de [ces instructions](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    * Travaillez sur votre propre environnement Python et installez vous-même le Kit de développement logiciel (SDK) à l’aide de [ces instructions](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ).
 
 > [!NOTE]
 > Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Créer des jeux de données avec le kit de développement logiciel (SDK)
 
-Pour créer des jeux de données Azure Machine Learning à l’aide des classes Azure Open Datasets dans le Kit de développement logiciel (SDK) Python, assurez-vous d’avoir installé le package avec `pip install azureml-opendatasets`. Chaque jeu de données discret est représenté par sa propre classe dans le SDK, et certaines classes sont disponibles en tant que [`TabularDataset` ou `FileDataset`](../machine-learning/how-to-create-register-datasets.md#dataset-types) Azure Machine Learning, ou les deux. Pour obtenir la liste complète des classes `opendatasets`, consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py).
+Pour créer des jeux de données Azure Machine Learning à l’aide des classes Azure Open Datasets dans le Kit de développement logiciel (SDK) Python, assurez-vous d’avoir installé le package avec `pip install azureml-opendatasets`. Chaque jeu de données discret est représenté par sa propre classe dans le SDK, et certaines classes sont disponibles en tant que [`TabularDataset` ou `FileDataset`](../machine-learning/how-to-create-register-datasets.md#dataset-types) Azure Machine Learning, ou les deux. Pour obtenir la liste complète des classes `opendatasets`, consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py&preserve-view=true ).
 
 Vous pouvez récupérer certaines classes `opendatasets` en tant que `TabularDataset` ou `FileDataset`, ce qui vous permet de manipuler et/ou de télécharger les fichiers directement. D’autres classes peuvent obtenir un jeu de données **seulement** à l’aide des fonctions `get_tabular_dataset()` ou `get_file_dataset()` de la classe `Dataset` dans le SDK Python.
 
@@ -88,7 +88,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Inscrivez un jeu de données Azure Machine Learning auprès de votre espace de travail afin de pouvoir les partager avec d’autres personnes et les réutiliser dans des expériences dans votre espace de travail. Lorsque vous inscrivez un jeu de données Azure Machine Learning créé à partir d’Open Datasets, aucune donnée n’est immédiatement téléchargée, mais les données seront accessibles ultérieurement à la demande (pour la formation, par exemple) à partir d’un emplacement de stockage central.
 
-Pour inscrire vos jeux de données auprès d’un espace de travail, utilisez la méthode [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-). 
+Pour inscrire vos jeux de données auprès d’un espace de travail, utilisez la méthode [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ). 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',

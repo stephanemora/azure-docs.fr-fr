@@ -1,15 +1,15 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595561"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578068"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -143,6 +143,7 @@ Cette fonctionnalité est actuellement prise en charge pour les métriques de pl
 | Pools de capacité NetApp Files | **Oui** | **Oui** | **Oui** |
 | Volumes NetApp Files | **Oui** | **Oui** | **Oui** |
 | Coffres de clés | **Oui** | **Oui** | **Oui** |
+| Cache Azure pour Redis | **Oui** | **Oui** | **Oui** |
 | Appareils Data Box Edge | **Oui** | **Oui** | **Oui** |
 
 <sup>1</sup> Pas pris en charge pour les métriques de réseau des machines virtuelles (Octets entrants réseau totaux, Octets sortants réseau totaux, Flux entrants, Flux sortants, Taux de création maximal de flux entrants, Taux de création maximal de flux sortants).

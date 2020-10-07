@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191424"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666243"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Conseils sur la haute disponibilité et la reprise d’activité pour Data Lake Storage Gen1
 
@@ -37,8 +37,6 @@ Si Data Lake Storage Gen1 assure la résilience des données via des réplicas a
 Pour éviter toute suppression accidentelle, nous vous recommandons de définir tout d’abord les stratégies d’accès adaptées à votre compte Data Lake Storage Gen1. Cela inclut la mise en œuvre de [verrous de ressources Azure](../azure-resource-manager/management/lock-resources.md) pour verrouiller des ressources importantes ainsi que l’application d’un contrôle d’accès au niveau du compte et des fichiers à l’aide des [fonctionnalités de sécurité Data Lake Storage Gen1](data-lake-store-security-overview.md) disponibles. Nous vous recommandons également de créer régulièrement des copies de vos données critiques avec [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) dans un autre compte Data Lake Storage Gen1, dossier ou abonnement Azure. Cela peut servir à la récupération après un incident de corruption ou de suppression de données. Azure Data Factory est un service utile pour créer et déployer des pipelines de déplacement des données à intervalles réguliers.
 
 Vous pouvez également activer la [journalisation des diagnostics](data-lake-store-diagnostic-logs.md) pour un compte Data Lake Storage Gen1 afin de collecter des pistes d’audit d’accès aux données. Les pistes d’audit fournissent des informations sur les personnes qui ont peut-être supprimé ou mis à jour un fichier.
-
-Vous pouvez essayer de restaurer un élément supprimé à l’aide du Azure PowerShell [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) pour Data Lake Storage Gen1. Plus précisément, reportez-vous à la commande [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem). Veillez à consulter la section [Description](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) avant d’essayer d’utiliser cette commande.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

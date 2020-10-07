@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941980"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447329"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erreur d’arrêt de Windows - 0x00000074 Informations de configuration système incorrectes
 
@@ -61,10 +61,10 @@ Le code d’arrêt **BAD_SYSTEM_CONFIG_INFO** intervient en cas de corruption de
 1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
 1. Recherchez une éventuelle corruption de la ruche.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
-1. Copiez le dossier `\windows\system32\config` et enregistrez-le dans votre partition de disque saine ou dans un autre emplacement sécurisé. Sauvegardez ce dossier par précaution, car vous allez modifier les fichiers de Registre critiques.
+1. Copiez le dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` et enregistrez-le dans votre partition de disque saine ou dans un autre emplacement sécurisé. Sauvegardez ce dossier par précaution, car vous allez modifier les fichiers de Registre critiques. 
 
 > [!NOTE]
-> Effectuez une copie du dossier `\windows\system32\config` en guise de sauvegarde au cas où il vous faudrait restaurer les modifications que vous apportez au registre.
+> Effectuez une copie du dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` en guise de sauvegarde au cas où il vous faudrait restaurer les modifications que vous apportez au registre.
 
 ### <a name="check-for-hive-corruption"></a>Rechercher une éventuelle corruption de la ruche
 
@@ -72,7 +72,7 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
 1. Sur la machine virtuelle de réparation, ouvrez l’applicaiton **Éditeur du Registre**. Entrez « REGEDIT » dans la barre de recherche Windows pour la trouver.
 1. Dans l’Éditeur du Registre, sélectionnez **HKEY_LOCAL_MACHINE** pour le mettre en surbrillance, puis sélectionnez **Fichier > Charger la ruche...** .
-1. Accédez à `\windows\system32\config\SYSTEM` et sélectionnez **Ouvrir**.
+1. Accédez à `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` et sélectionnez **Ouvrir**.
 1. Lorsque vous êtes invité à entrer un nom, entrez **BROKENSYSTEM**.
 
    1. Si la ruche ne s’ouvre pas ou si elle est vide, cela signifie qu’elle est corrompue. Si la ruche est corrompue, [ouvrez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

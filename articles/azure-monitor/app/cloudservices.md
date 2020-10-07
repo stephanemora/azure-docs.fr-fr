@@ -4,12 +4,12 @@ description: Surveillance efficace de vos rôles Web et de travail avec Applicat
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437324"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759371"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](../platform/diagnostics-extension-overview.md) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -42,7 +42,7 @@ Les sections suivantes décrivent les options supplémentaires suivantes :
 * Ajouter une télémétrie personnalisée à partir de votre application.
 
 ## <a name="sample-app-instrumented-with-application-insights"></a>Exemple d’application instrumentée avec Application Insights
-Dans cet [exemple d’application](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService), Application Insights est ajouté à un service cloud avec deux rôles de travail hébergés dans Azure. 
+Dans cet [exemple d’application](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService), Application Insights est ajouté à un service cloud avec deux rôles de travail hébergés dans Azure. 
 
 Dans la section suivante, vous découvrez comment adapter votre propre projet de service cloud de la même façon.
 
@@ -93,7 +93,7 @@ Si vous avez décidé d’utiliser une ressource Application Insights distincte 
 
 ![Configurer Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-L’objectif est d’insérer vos clés d’instrumentation Application Insights dans les fichiers nommés *ServiceConfiguration.\*.cscfg*. Voici l’[exemple de code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+L’objectif est d’insérer vos clés d’instrumentation Application Insights dans les fichiers nommés *ServiceConfiguration.\*.cscfg*. Voici l’[exemple de code](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Si vous voulez changer le niveau des informations de diagnostics envoyées à Application Insights, [modifiez directement les fichiers *.cscfg*](../platform/diagnostics-extension-to-application-insights.md).
 
@@ -123,9 +123,9 @@ Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Applicat
    
     b. Répétez l’« étape a » pour chaque rôle de votre application. Consultez les exemples :
    
-    * [Rôle Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-    * [Rôle de travail](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-    * [Pour les pages web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
+    * [Rôle Web](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+    * [Rôle de travail](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+    * [Pour les pages web](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
 1. Définissez le fichier *ApplicationInsights.config* pour qu’il soit toujours copié dans le répertoire de sortie.
 
@@ -150,7 +150,7 @@ Cette étape est uniquement nécessaire si vous voulez capturer des requêtes SQ
     </Startup>
     ```
     
-2. Téléchargez [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) et [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), et placez-les dans le dossier `AppInsightsAgent` de chaque projet de rôle. Veillez à les copier dans le répertoire de sortie par le biais des propriétés de fichier Visual Studio ou de scripts de build.
+2. Téléchargez [InstallAgent.bat](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) et [InstallAgent.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), et placez-les dans le dossier `AppInsightsAgent` de chaque projet de rôle. Veillez à les copier dans le répertoire de sortie par le biais des propriétés de fichier Visual Studio ou de scripts de build.
 
 3. Sur tous les workers, ajoutez les variables d’environnement : 
 
@@ -199,26 +199,26 @@ Pour rechercher dans les différents journaux de trace envoyés par Azure Diagno
 Les sections suivantes décrivent comment obtenir davantage de données de télémétrie à partir de différents aspects de votre application.
 
 ## <a name="track-requests-from-worker-roles"></a>Suivre les demandes des rôles de travail
-Dans les rôles Web, le module des requêtes collecte automatiquement les données relatives aux requêtes HTTP. Pour obtenir des exemples de remplacement du comportement de collecte par défaut, consultez l’[exemple MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole). 
+Dans les rôles Web, le module des requêtes collecte automatiquement les données relatives aux requêtes HTTP. Pour obtenir des exemples de remplacement du comportement de collecte par défaut, consultez l’[exemple MVCWebRole](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole). 
 
 Vous pouvez capturer les performances des appels aux rôles de travail en effectuant le suivi de la même façon que les requêtes HTTP. Dans Application Insights, le type de demande de télémétrie mesure une unité de travail côté serveur nommée, pouvant être chronométrée et réussir ou échouer indépendamment. Même si les requêtes HTTP sont automatiquement capturées par le SDK, vous pouvez insérer votre propre code pour suivre les requêtes envoyées aux rôles de travail.
 
 Consultez les deux exemples de rôles de travail instrumentés pour signaler des requêtes : 
-* [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA)
-* [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+* [WorkerRoleA](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA)
+* [WorkerRoleB](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Exceptions
 Pour plus d’informations sur la collecte des exceptions non prises en charge à partir de différents types d’application web, consultez [Supervision des exceptions dans Application Insights](./asp-net-exceptions.md).
 
 L’exemple du rôle Web dispose de contrôleurs MVC5 et API Web 2. Les exceptions non gérées à partir de deux sont capturées avec les gestionnaires suivants :
 
-* [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) configuré pour les contrôleurs MVC5 [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) 
-* [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) configuré pour les contrôleurs de l’API Web 2 [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) 
+* [AiHandleErrorAttribute](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) configuré pour les contrôleurs MVC5 [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) 
+* [AiWebApiExceptionLogger](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) configuré pour les contrôleurs de l’API Web 2 [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) 
 
 Pour les rôles de travail, il existe deux façons de suivre les exceptions :
 
 * Utilisez TrackException(ex).
-* Si vous avez ajouté le package NuGet de l’écouteur de trace Application Insights, vous pouvez utiliser System.Diagnostics.Trace pour journaliser les exceptions [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107).
+* Si vous avez ajouté le package NuGet de l’écouteur de trace Application Insights, vous pouvez utiliser System.Diagnostics.Trace pour journaliser les exceptions [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107).
 
 ## <a name="performance-counters"></a>Compteurs de performance
 Les compteurs suivants sont collectés par défaut :
@@ -236,7 +236,7 @@ Pour les rôles web, ces compteurs sont également collectés :
 * \Applications ASP.NET (??APP_W3SVC_PROC??)\Durée d’exécution de la demande
 * \Applications ASP.NET (??APP_W3SVC_PROC??)\Demandes dans la file d’attente d’application
 
-Vous pouvez spécifier des compteurs de performances personnalisés ou d’autres compteurs de performances Windows en modifiant *ApplicationInsights.config* [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+Vous pouvez spécifier des compteurs de performances personnalisés ou d’autres compteurs de performances Windows en modifiant *ApplicationInsights.config* [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Compteurs de performance](./media/cloudservices/002-servers.png)
 
@@ -247,9 +247,9 @@ Pour avoir la même chose avec les rôles de travail, vous pouvez utiliser un in
 
 Voici comment faire :
 
-* Définissez l’ID de corrélation dans un CallContext [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Dans ce cas, nous utilisons l’ID de demande comme ID de corrélation.
-* Ajoutez une implémentation personnalisée de TelemetryInitializer pour définir l’Operation.Id sur le correlationId défini précédemment. Pour obtenir un exemple, consultez [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
-* Ajoutez l'initialiseur de télémétrie personnalisée. Pour ce faire, utilisez le fichier *ApplicationInsights.config* ou du code [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
+* Définissez l’ID de corrélation dans un CallContext [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Dans ce cas, nous utilisons l’ID de demande comme ID de corrélation.
+* Ajoutez une implémentation personnalisée de TelemetryInitializer pour définir l’Operation.Id sur le correlationId défini précédemment. Pour obtenir un exemple, consultez [ItemCorrelationTelemetryInitializer](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
+* Ajoutez l'initialiseur de télémétrie personnalisée. Pour ce faire, utilisez le fichier *ApplicationInsights.config* ou du code [comme indiqué dans cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Télémétrie client
 Pour obtenir des données de télémétrie basées sur un navigateur, comme le nombre de pages consultées, le temps de chargement des pages ou les exceptions de script, et pour écrire des données de télémétrie personnalisées dans vos scripts de page, consultez [Ajouter le SDK JavaScript à vos pages web][client].
@@ -265,7 +265,7 @@ Si votre système utilise d’autres services Azure, comme Stream Analytics, ajo
 Si vous avez une application mobile cliente, utilisez [App Center](../learn/mobile-center-quickstart.md). Créez des requêtes dans [Analytics](../log-query/log-query-overview.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
 
 ## <a name="example"></a>Exemple
-[L'exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
+[L'exemple](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » pendant l’exécution dans les services cloud Azure
 Avez-vous effectué une génération pour .NET 4.6 ? .NET 4.6 n’est pas automatiquement pris en charge dans les rôles de services cloud Azure. [Installez .NET 4.6 sur chaque rôle](../../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.

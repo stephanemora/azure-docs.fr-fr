@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905428"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578476"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -131,7 +131,7 @@ Consultez également [Déployer et gérer Azure Sentinel as a Code](https://tech
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gérer les espaces de travail parmi les locataires avec Azure Lighthouse
 
-Comme indiqué ci-dessus, dans de nombreux scénarios, les différents espaces de travail Azure Sentinel peuvent se trouver dans différents locataires Azure AD. Vous pouvez utiliser [Azure Lighthouse](../lighthouse/overview.md) pour étendre toutes les activités inter-espaces de travail au sein des limites des locataires, ce qui permet aux utilisateurs de votre locataire gérant de travailler sur des espaces de travail Azure Sentinel parmi tous les clients. Une fois qu’Azure Lighthouse est [intégré](../lighthouse/how-to/onboard-customer.md), utilisez le [sélecteur de répertoire et d’abonnement](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) sur le Portail Azure pour sélectionner tous les abonnements contenant les espaces de travail que vous souhaitez gérer, afin de vous assurer qu’ils seront tous disponibles dans les différents sélecteurs d’espace de travail dans le portail.
+Comme indiqué ci-dessus, dans de nombreux scénarios, les différents espaces de travail Azure Sentinel peuvent se trouver dans différents locataires Azure AD. Vous pouvez utiliser [Azure Lighthouse](../lighthouse/overview.md) pour étendre toutes les activités inter-espaces de travail au sein des limites des locataires, ce qui permet aux utilisateurs de votre locataire gérant de travailler sur des espaces de travail Azure Sentinel parmi tous les clients. Une fois qu’Azure Lighthouse est [intégré](../lighthouse/how-to/onboard-customer.md), utilisez le [sélecteur de répertoire et d’abonnement](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) sur le Portail Azure pour sélectionner tous les abonnements contenant les espaces de travail que vous souhaitez gérer, afin de vous assurer qu’ils seront tous disponibles dans les différents sélecteurs d’espace de travail dans le portail.
 
 Quand vous utilisez Azure Lighthouse, il est recommandé de créer un groupe pour chaque rôle Azure Sentinel et de déléguer les autorisations de chaque locataire à ces groupes.
 

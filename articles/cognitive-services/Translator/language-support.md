@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300219"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568095"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -38,6 +38,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Arabe|    `ar`    |
+|Assamais|  `as`    |
 |Bangla|    `bn`    |
 |Bosniaque (latin)|   `bs`    |
 |Bulgare| `bg`    |
@@ -71,7 +72,6 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Japonais|  `ja`    |
 |Kannada|`kn`|
 |Kazakh|`kk`|
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coréen |`ko`   |
@@ -102,6 +102,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Slovaque|    `sk`    |
 |Slovène| `sl`    |
 |Espagnol|   `es`    |
+|Swahili|   `sw`    |
 |Suédois|   `sv`    |
 |Tahitien|  `ty`    |
 |Tamoul| `ta`    |
@@ -152,7 +153,6 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 |Irlandais | `ga`|
 |Italien|   `it`    |
 |Japonais|  `ja`    |
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coréen |`ko`   |
 |Kurde (central)  |`ku-Arab`  |
@@ -173,6 +173,7 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 |Slovaque|    `sk`    |
 |Slovène| `sl`    |
 |Espagnol|   `es`    |
+|Swahili|   `sw`    |
 |Suédois|   `sv`    |
 |Tahitien|  `ty`    |
 |Thaï|  `th`    |
@@ -246,7 +247,6 @@ Consultez la documentation de référence pour les opérations [Dictionary Looku
 | Indonésien      | `id`          |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coréen      | `ko`          |
 | Letton      | `lv`          |
@@ -263,6 +263,7 @@ Consultez la documentation de référence pour les opérations [Dictionary Looku
 | Slovaque     | `sk`          |
 | Slovène      | `sl`          |
 | Espagnol      | `es`          |
+| Swahili      | `sw`          |
 | Suédois      | `sv`          |
 | Tamoul      | `ta`          |
 | Thaï      | `th`          |
@@ -314,7 +315,6 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Italien      | `it`          |
 | Japonais      | `ja`          |
 |Kannada|`kn`|
-| Kiswahili|    `sw`    |
 | Coréen      | `ko`          |
 | Letton      | `lv`          |
 | Lituanien      | `lt`          |
@@ -335,6 +335,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Slovaque     | `sk`          |
 | Slovène      | `sl`          |
 | Espagnol      | `es`          |
+| Swahili|  `sw`    |
 | Suédois      | `sv`          |
 |Tahitien|  `ty`    |
 | Thaï      | `th`          |

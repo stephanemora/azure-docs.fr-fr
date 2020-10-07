@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054260"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760251"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -430,7 +430,7 @@ Cela ne dépend pas de l’emplacement où est hébergée votre ressource Applic
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Puis-je envoyer des données de télémétrie au portail Application Insights ?
 
-Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](app/api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app/platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
+Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](app/api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app/platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Puis-je surveiller un serveur web intranet ?
 

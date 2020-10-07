@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461017"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Ligne de base de la sécurité Azure pour Azure Machine Learning
 
@@ -260,7 +260,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -718,7 +718,7 @@ Vous pouvez implémenter votre propre processus de suppression des logiciels non
 
 Supprimez les ressources Azure qui ne sont plus nécessaires.
 
-- [Guide pratique pour utiliser le monitoring d’intégrité des fichiers](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [Guide pratique pour utiliser le monitoring d’intégrité des fichiers](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Comprendre la fonctionnalité Suivi des modifications et inventaire d’Azure Automation](../automation/change-tracking.md)
 

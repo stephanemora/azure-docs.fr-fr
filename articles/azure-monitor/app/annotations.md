@@ -3,12 +3,12 @@ title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258415"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758181"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
@@ -96,9 +96,9 @@ Pour activer les annotations dans votre classeur, accédez à **Paramètres avan
 Sélectionnez un marqueur d’annotation pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production et l’environnement.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Créer des annotations personnalisées à partir de PowerShell
-Vous pouvez utiliser le script PowerShell [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub pour créer des annotations à partir de tout processus de votre choix, sans utiliser Azure DevOps. 
+Vous pouvez utiliser le script PowerShell [CreateReleaseAnnotation](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub pour créer des annotations à partir de tout processus de votre choix, sans utiliser Azure DevOps. 
 
-1. Effectuez une copie locale du fichier [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Effectuez une copie locale du fichier [CreateReleaseAnnotation.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Suivez les étapes de la procédure précédente pour obtenir votre ID Application Insights et créer une clé API à partir de l’onglet **Accès d’API** d’Application Insights.
    

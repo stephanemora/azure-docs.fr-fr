@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647650"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708184"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -80,7 +80,7 @@ Votre profil d’éditeur inclut le nom de votre entreprise et l’identifiant M
     
 1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
 
-Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour plus d’informations, consultez [Vue d’ensemble de la place de marché commerciale](./commercial-marketplace-overview.md). Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Créer un compte à l’aide d’une inscription Microsoft Partner Network existante
 
@@ -129,7 +129,7 @@ Après vous être connecté, terminez la configuration de votre compte en procé
     
 1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
 
-Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour plus d’informations, consultez [Vue d’ensemble de la place de marché commerciale](./commercial-marketplace-overview.md). Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>Que se passe-t-il si je suis déjà inscrit dans un programme pour les développeurs ?
 
@@ -157,7 +157,7 @@ Après vous être connecté à l’Espace partenaires, terminez la configuration
     
 1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
 
-Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour plus d’informations, consultez [Vue d’ensemble de la place de marché commerciale](./commercial-marketplace-overview.md). Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour obtenir de l’aide sur l’ajout d’éditeurs, consultez [Ajouter de nouveaux éditeurs au programme Place de marché commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Pour les éditeurs qui effectuent une migration à partir du portail Cloud Partner
 
@@ -190,4 +190,5 @@ Une fois le processus terminé, vous pouvez gérer l’éditeur nouvellement cr�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Qu’est-ce que la place de marché commerciale Microsoft ?](../overview.md)
 - [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](./manage-account.md)

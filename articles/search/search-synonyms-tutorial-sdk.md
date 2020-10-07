@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019757"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538804"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche cognitive Azure en C#
 
@@ -23,8 +23,8 @@ Les synonymes développent une requête en faisant correspondre les termes consi
 Dans la Recherche cognitive Azure, les synonymes sont définis dans une *carte de synonymes*, par le biais des *règles de mappage* qui associent des termes équivalents. Cet exemple décrit les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une carte de synonymes en utilisant la classe [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
-> * Définir la propriété [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) sur des champs qui doivent prendre en charge l’extension de requête par le biais de synonymes.
+> * Créer une carte de synonymes en utilisant la classe [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap). 
+> * Définir la propriété [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) sur des champs qui doivent prendre en charge l’extension de requête par le biais de synonymes.
 
 Vous pouvez interroger un champ acceptant les synonymes comme vous le faites habituellement. Aucune syntaxe de requête supplémentaire n’est requise pour accéder aux synonymes.
 
@@ -97,7 +97,7 @@ results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
 Aucun des deux documents indexés ne contient les termes, nous avons donc la sortie suivante à partir du premier `RunQueriesWithNonExistentTermsInIndex`.
-~~~
+```
 Search the entire index for the phrase "five star":
 
 no document matched
@@ -109,7 +109,7 @@ no document matched
 Search the entire index for the terms 'economy' AND 'hotel':
 
 no document matched
-~~~
+```
 
 ## <a name="enable-synonyms"></a>Activation des synonymes
 
@@ -148,7 +148,7 @@ L’activation des synonymes est un processus en deux étapes. Tout d’abord no
 
 Une fois que la carte de synonymes est téléchargée et l’index mis à jour pour utiliser la carte de synonymes, le deuxième appel `RunQueriesWithNonExistentTermsInIndex` affiche les éléments suivants :
 
-~~~
+```
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
@@ -160,7 +160,7 @@ Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concier
 Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
-~~~
+```
 La première requête trouve le document à partir de la règle `five star=>luxury`. La deuxième requête étend la recherche à l’aide de `internet,wifi` et la troisième avec à la fois `hotel, motel` et `economy,inexpensive=>budget` pour trouver les documents en correspondance.
 
 L’ajout de synonymes modifie complètement l’expérience de recherche. Dans cet exemple, les requêtes d’origine n’ont pas pu retourner de résultats significatifs même si les documents dans notre index étaient pertinents. En activant les synonymes, nous pouvons développer un index pour inclure les termes communément utilisés, sans modification de données sous-jacentes dans l’index.

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: bbec605f25c2e74178bdb5c28d0a7995e4e265f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690389"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665806"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -85,7 +85,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet sur la façon d’interroger des données à partir d’un environnement Gen1, consultez [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 
-        Consultez le référentiel [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] pour accéder au code C#. 
+        Consultez le référentiel [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] pour accéder au code C#.
 
    1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Azure Time Series Insights.
 
@@ -117,7 +117,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 > [!IMPORTANT]
 > Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
 
-> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
 > * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
 Les en-têtes de requête facultatifs sont décrits ci-dessous.

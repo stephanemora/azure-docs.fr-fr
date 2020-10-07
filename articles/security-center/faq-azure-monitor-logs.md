@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906370"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613643"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>FAQ pour les clients qui utilisent déjà les journaux Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Une solution de Security Center est installée sur l’espace de travail sélect
 Lorsque Security Center identifie qu’une machine virtuelle est déjà connectée à un espace de travail que vous avez créé, Security Center active des solutions sur cet espace de travail en fonction de votre configuration tarifaire. Les solutions sont appliquées uniquement aux machines virtuelles Azure pertinentes, via le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md), de sorte que la facturation reste la même.
 
 - **Azure Defender désactivé** : Security Center installe la solution « SecurityCenterFree » sur l’espace de travail. Vous ne serez pas facturé.
-- 
 - **Azure Defender activé** : Security Center installe la solution « sécurité » sur l’espace de travail.
 
    ![Solutions sur l’espace de travail par défaut](./media/security-center-platform-migration-faq/solutions.png)

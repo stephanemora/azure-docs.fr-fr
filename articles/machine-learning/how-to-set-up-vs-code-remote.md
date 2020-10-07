@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461559"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708371"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Se connecter à une instance de calcul Azure Machine Learning dans Visual Studio Code (préversion)
 
@@ -68,7 +68,7 @@ Pour se connecter à une instance de calcul :
 Pour bénéficier d’une expérience de développement à distance complète, vous devez respecter quelques conditions préalables :
 
 * [Extension Remote SSH de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instance de calcul compatible SSH. Pour plus d’informations, consultez le guide [Créer une instance de calcul](concept-compute-instance.md#create).
+* Instance de calcul compatible SSH. Pour plus d’informations, consultez le guide [Créer une instance de calcul](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > Sur les plateformes Windows, vous devez [installer un client SSH compatible OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) s’il n’en existe pas déjà un. PuTTY n’est pas pris en charge sur Windows, car la commande SSH doit se trouver dans le chemin d’accès.

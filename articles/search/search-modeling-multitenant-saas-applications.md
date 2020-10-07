@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935022"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397366"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure
 
@@ -76,7 +76,8 @@ Dans le cas d’un scénario mutualisé, le développeur de l’application cons
 3. *Combinaison des deux :* les locataires les plus volumineux et actifs se voient attribuer des services dédiés, tandis que les locataires plus petits se voient attribuer des index individuels au sein de services partagés.
 
 ## <a name="1-index-per-tenant"></a>1. Index par client
-![Une image du modèle d’index par client](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Une image du modèle d’index par client" border="false":::
 
 Dans un modèle d’index par client, plusieurs clients occupent un seul service Recherche cognitive Azure où chaque client a son propre index.
 
@@ -93,7 +94,8 @@ Recherche cognitive Azure permet la croissance des index individuels et du nombr
 Si le nombre total d’index devient trop important pour un seul service, un autre service doit être configuré pour prendre en charge les nouveaux clients. Si les index doivent être déplacés entre les services de recherche lorsque de nouveaux services sont ajoutés, les données de l’index doivent être copiées manuellement d’un index vers l’autre car le déplacement d’un index n’est pas autorisé dans Recherche cognitive Azure.
 
 ## <a name="2-service-per-tenant"></a>2. Service par client
-![Une image du modèle de service par client](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Une image du modèle d’index par client" border="false":::
 
 Dans une architecture de service par client, chaque client possède son propre service de recherche.
 

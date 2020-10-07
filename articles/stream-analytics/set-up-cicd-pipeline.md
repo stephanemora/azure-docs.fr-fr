@@ -8,20 +8,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 23ac1e241c0811944a943c3c3fef3116eff68a67
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929953"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757756"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utiliser Azure DevOps pour créer un pipeline CI/CD pour une tâche Stream Analytics
 
-Dans cet article, vous allez apprendre à créer des pipelines Azure DevOps [build](/devops/pipelines/get-started-designer) et [release](/devops/pipelines/release/define-multistage-release-process) à l’aide des outils Azure Stream Analytics CI/CD.
+Dans cet article, vous allez apprendre à créer des pipelines Azure DevOps [build](/azure/devops/pipelines/get-started/pipelines-get-started) et [release](/azure/devops/pipelines/release/define-multistage-release-process) à l’aide des outils Azure Stream Analytics CI/CD.
 
 ## <a name="commit-your-stream-analytics-project"></a>Valider votre projet Stream Analytics
 
-Avant de commencer, validez vos projets Stream Analytics complets en tant que fichiers sources dans un référentiel [Azure DevOps](/devops/user-guide/source-control). Vous pouvez référencer cette [exemple de référentiel](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) et [le code source du projet Stream Analytics ](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) dans Azure Pipelines.
+Avant de commencer, validez vos projets Stream Analytics complets en tant que fichiers sources dans un référentiel [Azure DevOps](/azure/devops/user-guide/source-control). Vous pouvez référencer cette [exemple de référentiel](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) et [le code source du projet Stream Analytics ](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) dans Azure Pipelines.
 
 Les étapes décrites dans cet article utilisent un projet Stream Analytics Visual Studio Code. Si vous utilisez un projet Visual Studio, suivez les étapes décrites dans [Automatiser les builds, les tests et les déploiements d’une tâche Azure Stream Analytics à l’aide des outils CI/CD](cicd-tools.md).
 
@@ -39,7 +39,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
 
 1. Sélectionnez votre type de source, votre projet d’équipe et votre référentiel. Sélectionnez ensuite **Continuer**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Sélectionner un projet Azure Stream Analytics":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Créer un pipeline Azure":::
 
 1. Dans la page **Sélectionner un modèle**, sélectionnez **Projet vide**.
 
@@ -47,7 +47,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
 
 1. Dans la page **Tâches**, sélectionnez le signe plus en regard de **Travail d’agent 1**. Entrez *npm* dans la recherche de tâches et sélectionnez **npm**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Sélectionner une tâche npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Créer un pipeline Azure":::
 
 2. Donnez à la tâche un **nom d’affichage**. Définissez l'option **Commande** sur *Personnalisée*, puis entrez la commande suivante dans **Commande et arguments**. Conservez les options par défaut restantes.
 
@@ -55,7 +55,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Entrer les configurations pour la tâche npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="add-a-build-task"></a>Ajoutez une tâche de build
 
@@ -77,7 +77,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
 
    L’image ci-dessous utilise un projet Stream Analytics Visual Studio Code à titre d’exemple.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Entrer les configurations pour la tâche de ligne de commande Visual Studio Code":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="add-a-test-task"></a>Ajouter une Tâche de test
 
@@ -87,7 +87,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
    |-|-|
    |testPath|Test|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Ajouter des variables de pipeline":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Créer un pipeline Azure":::
 
 2. Dans la page **Tâches**, sélectionnez le signe plus en regard de **Travail d’agent 1**. Recherchez **Ligne de commande**.
 
@@ -99,7 +99,7 @@ Dans cette section, vous découvrez comment créer un pipeline de build. Vous po
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Entrer les configurations pour la tâche de ligne de commande":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="add-a-copy-files-task"></a>Ajouter une tâche de copie des fichiers
 
@@ -116,7 +116,7 @@ Vous devez ajouter une tâche de copie des fichiers pour copier le fichier de r�
 
 2. Développez **Options de contrôle** Sélectionnez **Même en cas d'échec d'une tâche antérieure, sauf si la build a été annulée** dans **Exécuter cette tâche**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Entrer les configurations pour la tâche de copie":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Ajouter une tâche Publier des artefacts de build
 
@@ -124,7 +124,7 @@ Vous devez ajouter une tâche de copie des fichiers pour copier le fichier de r�
 
 2. Développez **Options de contrôle** Sélectionnez **Même en cas d'échec d'une tâche antérieure, sauf si la build a été annulée** dans **Exécuter cette tâche**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Entrer les configurations pour la tâche de publication":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="save-and-run"></a>Enregistrer et exécuter
 
@@ -134,9 +134,9 @@ Après avoir ajouté les tâches npm, ligne de commande, copier les fichiers et 
 
 Le fichier de résumé de test et les fichiers de modèle Azure Resource Manager se trouvent dans le dossier **Publié**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Vérifier les résultats de build et de test":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Créer un pipeline Azure":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Vérifier les artefacts":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="release-with-azure-pipelines"></a>Mettre en production avec Azure Pipelines
 
@@ -150,7 +150,7 @@ Ouvrez un navigateur web et accédez à votre projet Azure Stream Analytics Visu
 
 3. Dans la zone **Artefacts**, sélectionnez **+ Ajouter un artefact**. Sous **Source**, sélectionnez le pipeline de build que vous venez de créer, puis **Ajouter**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Entrer un artefact de pipeline de build":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Créer un pipeline Azure":::
 
 4. Remplacez le nom de **Étape 1** par **Travail de déploiement dans l’environnement de test**.
 
@@ -196,7 +196,7 @@ Ouvrez un navigateur web et accédez à votre projet Azure Stream Analytics Visu
 
 Pour créer une mise en production, sélectionnez **Créer une mise en production** dans le coin supérieur droit.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Créer une mise en production à l'aide d'Azure Pipelines":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Créer un pipeline Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

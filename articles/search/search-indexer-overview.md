@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971390"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397893"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexeurs dans Recherche cognitive Azure
 
@@ -60,7 +60,7 @@ Lors d’une exécution initiale, lorsque l’index est vide, un indexeur lit to
 
 Pour chacun des documents qu’il reçoit, un indexeur implémente ou coordonne plusieurs étapes, de la récupération du document à un « transfert » vers un moteur de recherche final pour indexation. Si vous le souhaitez, un indexeur peut également opérer de manière instrumentale pour gérer l’exécution d’un ensemble de compétences et des sorties, en supposant qu’un ensemble de compétences est défini.
 
-![Étapes de l'indexeur](./media/search-indexer-overview/indexer-stages.png "étapes de l'indexeur")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Étapes de l'indexeur" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Étape 1 : Décodage du document
 
@@ -88,7 +88,7 @@ Tout comme les mappages de champs qui associent les valeurs verbatim des champs 
 
 L’image suivante montre un exemple de [session de débogage](cognitive-search-debug-session.md) représentant les étapes de l’indexeur : le décodage de document, les mappages de champs, l’exécution d’un ensemble de compétences, et les mappages de champs de sortie.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="exemple de session de débogage" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Étapes de l'indexeur" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Étapes de configuration de base
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889861"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567449"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 
@@ -31,7 +31,7 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * Un modèle Machine Learning entraîné inscrit dans votre espace de travail. Si vous n’avez pas de modèle, utilisez le [tutoriel de classification d’image : entraîner un modèle](tutorial-train-models-with-aml.md) pour entraîner et inscrire un modèle.
 
     > [!IMPORTANT]
@@ -120,7 +120,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 
 ## <a name="deploy-image-as-a-web-app"></a>Déployer une image en tant qu’application web
 
-1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<myacr>` par la valeur retournée précédemment par `package.location` : 
+1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<myacr>` par la valeur retournée précédemment par `blob.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -181,7 +181,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactiv
+    ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Enregistrez cette chaîne de connexion à fournir à l’application de fonction. Nous l’utiliserons plus tard quand nous vous demanderons `<triggerConnectionString>`

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930220"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756532"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Sauvegarder et restaurer dans un serveur flexible Azure Database pour MySQL (préversion)
 
@@ -24,7 +24,7 @@ Un serveur flexible Azure Database pour MySQL crée automatiquement des sauvegar
 
 Un serveur flexible prend des sauvegardes de capture instantanée des fichiers de données et les stocke dans un stockage localement redondant. Le serveur effectue également une sauvegarde des journaux des transactions qu’il stocka dans un stockage localement redondant. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement configurer la sauvegarde de la base de données de 1 à 35 jours. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES 256 bits pour les données stockées au repos.
 
-Vous ne pouvez pas exporter ces fichiers de sauvegarde. Les sauvegardes sont utilisables uniquement pour les opérations de restauration dans le serveur flexible. Vous pouvez également utiliser [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) à partir d’un client MySQL pour copier une base de données.
+Vous ne pouvez pas exporter ces fichiers de sauvegarde. Les sauvegardes sont utilisables uniquement pour les opérations de restauration dans le serveur flexible. Vous pouvez également utiliser [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) à partir d’un client MySQL pour copier une base de données.
 
 ## <a name="backup-frequency"></a>Fréquence de sauvegarde
 

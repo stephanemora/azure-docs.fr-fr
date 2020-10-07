@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357639"
 ---
 # <a name="what-is-direct-line-speech"></a>Qu’est-ce que Direct Line Speech ?
 
@@ -27,7 +27,7 @@ Direct Line Speech offre les plus hauts niveaux de personnalisation et de sophis
 
 ## <a name="getting-started-with-direct-line-speech"></a>Prise en main de Direct Line Speech
 
-Les premières étapes de création d’un assistant vocal à l’aide de Direct Line Speech consiste à [obtenir une clé d’abonnement de reconnaissance vocale](get-started.md), créer un bot associé à cet abonnement et à connecter le bot au canal Direct Line Speech.
+Les premières étapes de création d’un assistant vocal à l’aide de Direct Line Speech consiste à [obtenir une clé d’abonnement de reconnaissance vocale](overview.md#try-the-speech-service-for-free), créer un bot associé à cet abonnement et à connecter le bot au canal Direct Line Speech.
 
    ![Diagramme conceptuel du flux de service d’orchestration Direct Line Speech](media/voice-assistants/overview-directlinespeech.png "Flux du canal Speech")
 
@@ -64,7 +64,7 @@ Direct Line Speech et ses fonctionnalités pour les assistants vocaux sont un su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 * [Obtenir le kit SDK Speech](speech-sdk.md)
 * [Créer et déployer un bot de base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtenir le modèle Virtual Assistant Solution and Enterprise](https://github.com/Microsoft/AI)

@@ -4,12 +4,12 @@ description: Mise à l’échelle automatique dans Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073482"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567262"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -102,11 +102,14 @@ Vous pouvez configurer la mise à l’échelle automatique via
 | Machines virtuelles : Classique |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Machines virtuelles : Groupes identiques Windows |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Machines virtuelles : Groupes identiques Linux |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Machines virtuelles : Exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](autoscale-virtual-machine-scale-sets.md) |
+| Machines virtuelles : Exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Azure App Service |[Montez une application en puissance dans Azure App Service](../../app-service/manage-scale-up.md)|
 | Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](../../api-management/api-management-howto-autoscale.md)
 | Clusters Azure Data Explorer|[Gérer la mise à l’échelle des clusters Azure Data Explorer pour prendre en compte les fluctuations de la demande](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Montez une application en puissance dans Azure App Service](../../app-service/manage-scale-up.md)|
 | Logic Apps |[Ajout de la fonctionnalité d’environnement de service d’intégration (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Configurer la mise à l’échelle automatique pour les applications de microservice](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Service Bus |[Mettre à jour automatiquement les unités de messagerie d’un espace de noms Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la mise à l’échelle automatique, utilisez les guides sur la mise à l’échelle automatique répertoriés précédemment ou consultez les ressources suivantes :
 

@@ -1,18 +1,18 @@
 ---
 title: Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 description: Découvrez comment modéliser une base de données de graphe avec l’API Gremlin d’Azure Cosmos DB. Cet article explique à quel moment utiliser une base de données de graphe et précise les bonnes pratiques de modélisation des entités et des relations.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261815"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409763"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 
@@ -105,7 +105,7 @@ L’utilisation d’étiquettes de relation descriptives peut améliorer l’eff
 * Utilisez des termes non génériques pour étiqueter une relation.
 * Associez l’étiquette du sommet source à l’étiquette du sommet cible avec le nom de la relation.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemples d’étiquetage des relations." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modèle d’entité avec des sommets pour les propriétés." border="false":::
 
 Plus l’étiquette utilisée par la traversée pour filtrer les arêtes sera spécifique, meilleur sera le résultat. Cette décision peut également avoir un impact significatif sur le coût des requêtes. Vous pouvez évaluer le coût des requêtes à tout moment [en utilisant l’étape executionProfile](graph-execution-profile.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74379118"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627370"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -40,7 +40,6 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 
 - Le fonctionnement de la jonction Azure AD Hybride pour appareils Windows de bas niveau est légèrement différent dans Windows 10. De nombreux clients ne se rendent pas compte qu’ils ont besoin d’AD FS (pour les domaines fédérés) ou de l’authentification unique transparente configurée (pour les domaines managés).
 - Pour les clients disposant de domaines fédérés : si le point de connexion de service a été configuré de sorte qu’il pointe vers le nom de domaine géré (par exemple contoso.onmicrosoft.com au lieu de contoso.com), la jonction Azure AD Hybride pour appareils Windows de bas niveau ne fonctionne pas.
-- Pour le moment, le nombre maximal d’appareils par utilisateur s’applique également aux appareils de bas niveau joints par Azure AD Hybride. 
 - Le même appareil physique apparaît plusieurs fois dans Azure AD si plusieurs utilisateurs de domaine se connectent aux appareils de bas niveau joints par Azure AD Hybride.  Par exemple, si *jdoe* et *jharnett* se connectent à un appareil, une inscription (DeviceID) distincte est créée pour chacun d’eux dans l’onglet d’informations **UTILISATEUR**. 
 - Vous pouvez également obtenir plusieurs entrées pour un appareil dans l’onglet Informations utilisateur en raison d’une réinstallation du système d’exploitation ou d’une réinscription manuelle.
 - L’inscription / jointure d’appareils initiale est configurée pour effectuer une tentative à la connexion ou au verrouillage / déverrouillage. Un délai de cinq minutes peut être déclenché par une tâche du Planificateur de tâches. 
@@ -91,7 +90,7 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
 
     ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Vous pouvez également trouver les informations d’état dans le journal des événements sous **Applications and Services Log\Microsoft-Workplace Join**.
+Vous pouvez aussi trouver ces informations dans le journal des événements, sous : **Applications and Services Log\Microsoft-Workplace Join**
   
 **Voici les causes les plus courantes d’échec d’une jointure Azure AD hybride :** 
 

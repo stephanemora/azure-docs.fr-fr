@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449959"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613626"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Couverture des fonctionnalités pour les services Azure PaaS <a name="paas-services"></a>
 
@@ -36,9 +36,9 @@ Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Secur
 |Azure Container Registry|-|-|✔|
 |Azure Cosmos DB*|-|✔|-|
 |Service Analytique Azure Data Lake|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Azure Database pour MySQL*|✔|✔|-|
-|Azure Database pour PostgreSQL*|✔|✔|-|
+|Azure Data Lake Storage|✔|✔|-|
+|Azure Database pour MySQL*|-|✔|-|
+|Azure Database pour PostgreSQL*|-|✔|-|
 |Espace de noms Azure Event Hubs|✔|-|-|
 |Application Azure Functions|✔|-|-|
 |Azure Key Vault|✔|✔|-|
@@ -49,7 +49,7 @@ Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Secur
 |Azure SQL Managed Instance|✔|✔|✔|
 |Espace de noms Azure Service Bus|✔|-|-|
 |Compte Azure Service Fabric|✔|-|-|
-|Comptes de stockage Azure|✔|-|-|
+|Comptes de stockage Azure|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Abonnement Azure|✔ **|✔|-|
 |Réseau virtuel Azure</br> (y compris les sous-réseaux, les cartes réseau et les groupes de sécurité réseau)|✔|-|-|

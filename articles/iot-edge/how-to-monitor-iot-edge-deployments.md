@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489110"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450176"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Superviser les déploiements IoT Edge
 
@@ -63,12 +63,11 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
 
    ![Affichage des métriques d’un déploiement](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-
 Pour apporter des modifications à votre déploiement, consultez [Modification d’un déploiement](how-to-deploy-at-scale.md#modify-a-deployment).
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorage d’un déploiement avec Azure CLI
 
-Utilisez la commande [az iot edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) pour afficher les détails d’un déploiement unique :
+Utilisez la commande [az iot edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) pour afficher les détails d’un déploiement unique :
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -86,7 +85,7 @@ Inspectez le déploiement dans la fenêtre de commande. La propriété **metric
 * **reportedSuccessfulCount** : métrique d’appareil qui spécifie le nombre d’appareils IoT Edge dans le déploiement indiquant une réussite de l’exécution du client IoT Edge.
 * **reportedFailedCount** : métrique d’appareil qui spécifie le nombre d’appareils IoT Edge dans le déploiement indiquant un échec de l’exécution du client IoT Edge.
 
-Vous pouvez afficher la liste des ID d’appareil ou des objets de chacune des métriques avec la commande [az iot edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric) :
+Vous pouvez afficher la liste des ID d’appareil ou des objets de chacune des métriques avec la commande [az iot edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

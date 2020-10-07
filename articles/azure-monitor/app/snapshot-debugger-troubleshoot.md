@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707830"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760510"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé le Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.
@@ -62,7 +62,7 @@ Si l’application utilise une préversion de .NET Core et que Débogueur de cap
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Mettre à niveau vers la dernière version du package NuGet
 
-Si le Débogueur de capture instantanée a été activé par le biais du [volet Application Insights du portail](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), votre application doit déjà exécuter le dernier package NuGet. Si le Débogueur de capture instantanée a été activé en incluant le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), utilisez le Gestionnaire de package NuGet de Visual Studio pour vérifier que vous utilisez la dernière version de Microsoft.ApplicationInsights.SnapshotCollector. Les notes de publication sont disponibles dans la page https://github.com/Microsoft/ApplicationInsights-Home/issues/167.
+Si le Débogueur de capture instantanée a été activé par le biais du [volet Application Insights du portail](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), votre application doit déjà exécuter le dernier package NuGet. Si le Débogueur de capture instantanée a été activé en incluant le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), utilisez le Gestionnaire de package NuGet de Visual Studio pour vérifier que vous utilisez la dernière version de Microsoft.ApplicationInsights.SnapshotCollector.
 
 ## <a name="check-the-uploader-logs"></a>Vérifier les journaux d’activité du chargeur
 

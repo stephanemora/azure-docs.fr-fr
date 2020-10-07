@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919707"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531023"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database pour MySQL Chiffrement double d’infrastructure
-
-> [!NOTE]
-> À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, veuillez contacter AskAzureDBforMySQL@service.microsoft.com.
 
 Azure Database pour MySQL utilise le stockage [chiffrement des données au repos](concepts-security.md#at-rest) pour les données utilisant des clés gérées par Microsoft. Les données, y compris les sauvegardes, sont chiffrées sur le disque et ce chiffrement est toujours activé et ne peut pas être désactivé. Le chiffrement utilise le module de chiffrement validé FIPS 140-2 et un chiffrement AES 256 bits pour le chiffrement de stockage Azure.
 

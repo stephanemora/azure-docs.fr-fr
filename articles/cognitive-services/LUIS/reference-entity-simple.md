@@ -3,19 +3,17 @@ title: Type d’entité simple - LUIS
 titleSuffix: Azure Cognitive Services
 description: Une entité simple décrit un même concept issu du contexte de machine-learning. Ajoutez une liste d’expressions lorsque vous utilisez une entité simple pour améliorer les résultats.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 384d3df2de551e7c79f13a0fe47ffb26c7825f1b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684555"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539283"
 ---
 # <a name="simple-entity"></a>Entité simple
 

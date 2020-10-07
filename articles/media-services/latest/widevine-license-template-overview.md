@@ -14,21 +14,22 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8cc24722832fac9b2d353a6d87772ffce6c0a4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527120"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598151"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine avec Media Services v3
 
 Azure Media Services vous permet de chiffrer votre contenu avec **Google Widevine**. Media Services fournit également un service de remise de licences Widevine. Vous pouvez utiliser les API Azure Media Services pour configurer des licences Widevine. Quand un lecteur tente de lire votre contenu protégé par Widevine, une demande est envoyée au service de remise de licence pour obtenir la licence. Si le service de licence approuve la demande, le service émet la licence. Elle est envoyée au client et utilisée pour déchiffrer et lire le contenu spécifié.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 Une demande de licence Widevine se présente sous forme de message JSON.  
 
->[!NOTE]
-> Vous pouvez créer un message vide sans valeur, simplement « {} ». Dans ce cas, un modèle de licence est créé avec les valeurs par défaut. Les valeurs par défaut fonctionnent pour la plupart des cas. Les scénarios de remise de licence Microsoft doivent toujours utiliser les valeurs par défaut. Si vous devez définir les valeurs « provider » et « content_id », un fournisseur doit correspondre aux informations d’identification Widevine.
+
 
 ```json
 {  
@@ -60,6 +61,9 @@ Une demande de licence Widevine se présente sous forme de message JSON.
     }
 }
 ```
+
+>[!NOTE]
+> Vous pouvez créer un message vide sans valeur, simplement « {} ». Dans ce cas, un modèle de licence est créé avec les valeurs par défaut. Les valeurs par défaut fonctionnent pour la plupart des cas. Les scénarios de remise de licence Microsoft doivent toujours utiliser les valeurs par défaut. Si vous devez définir les valeurs « provider » et « content_id », un fournisseur doit correspondre aux informations d’identification Widevine.
 
 ## <a name="json-message"></a>Message JSON
 

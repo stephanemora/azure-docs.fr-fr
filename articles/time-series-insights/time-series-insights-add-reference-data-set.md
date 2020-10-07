@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168182"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614238"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Azure Time Series Insights Gen1 à l’aide du portail Azure
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article décrit comment ajouter un jeu de données de référence à votre environnement Azure Time Series Insights. Les données de référence sont utiles, joignez-les à votre source de données pour augmenter les valeurs.
 

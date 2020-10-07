@@ -1,19 +1,19 @@
 ---
 title: 'Partitionnement des données dans Azure Cosmos DB : API Gremlin'
 description: Découvrez comment vous pouvez utiliser un graphique partitionné dans Azure Cosmos DB. Cet article décrit également la configuration requise et les meilleures pratiques relatives aux graphiques partitionnés.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261764"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400500"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
@@ -33,39 +33,39 @@ Les instructions suivantes décrivent le fonctionnement de la stratégie de part
 
 - **Les arêtes seront stockées avec leur sommet source**. En d’autres termes, la clé de partition de chaque sommet définit là où elles sont stockées avec ses arêtes sortantes. Cette optimisation permet d’éviter les requêtes entre partitions lors de l’utilisation de la cardinalité `out()` dans les requêtes de graphique.
 
-- **Les bords contiennent des références aux sommets vers lesquels ils pointent**. Tous les bords sont stockés avec les clés de partition et les ID des sommets vers lesquels ils pointent. Suite à ce calcul, toutes les requêtes de direction `out()` ont la portée d’une requête partitionnée, et non d’une requête entre partition. 
+- **Les bords contiennent des références aux sommets vers lesquels ils pointent**. Tous les bords sont stockés avec les clés de partition et les ID des sommets vers lesquels ils pointent. Suite à ce calcul, toutes les requêtes de direction `out()` ont la portée d’une requête partitionnée, et non d’une requête entre partition.
 
 - **Les requêtes de graphique doivent spécifier une clé de partition**. Pour tirer pleinement parti du partitionnement horizontal dans Azure Cosmos DB, la clé de partition doit être spécifiée lorsqu’un sommet unique est sélectionné, dans la mesure du possible. Les requêtes suivantes permettent de sélectionner un ou plusieurs sommets dans un graphique partitionné :
 
     - `/id` et `/label` ne sont pas pris en charge en tant que clés de partition d’un conteneur dans l’API Gremlin.
 
 
-    - Sélection d’un sommet par ID, puis **à l’aide de l’étape `.has()` pour spécifier la propriété de clé de partition** : 
-    
+    - Sélection d’un sommet par ID, puis **à l’aide de l’étape `.has()` pour spécifier la propriété de clé de partition** :
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Sélection d’un sommet en **spécifiant un tuple comprenant la valeur de la clé de partition et l’ID** : 
-    
+
+    - Sélection d’un sommet en **spécifiant un tuple comprenant la valeur de la clé de partition et l’ID** :
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Spécification d’un **tableau de tuples de valeurs de clé de partition et d’ID** :
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Sélection d’un ensemble de sommets avec leurs ID et **spécification d’une liste de valeurs de clé de partition** : 
-    
+
+    - Sélection d’un ensemble de sommets avec leurs ID et **spécification d’une liste de valeurs de clé de partition** :
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Utilisation de la **stratégie de partition** au début d’une requête et spécification d’une partition pour l’étendue du reste de la requête Gremlin : 
-    
+    - Utilisation de la **stratégie de partition** au début d’une requête et spécification d’une partition pour l’étendue du reste de la requête Gremlin :
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

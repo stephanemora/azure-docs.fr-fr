@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: b2c994d23e63f9e2118cd3e6571c5dcc0449a367
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601093"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710598"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -26,6 +26,8 @@ Chaque demande doit inclure votre clé d’accès et un point de terminaison HTT
 Rappelez-vous qu’Analyse de texte étant sans état, il y a pas de ressources de données à gérer. Votre texte est chargé et analysé dès réception, puis les résultats sont retournés immédiatement à l’application appelante.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

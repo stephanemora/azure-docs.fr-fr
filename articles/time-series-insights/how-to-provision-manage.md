@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288816"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667824"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Approvisionner et gérer Azure Time Series Insights Gen2
 
@@ -30,12 +30,13 @@ Lorsque vous provisionnez un environnement Azure Time Series Insights Gen2, vous
 * Un magasin chaud facultatif pour des requêtes plus rapides et illimitées
 
 > [!TIP]
+>
 > * Découvrez [comment planifier votre environnement](./time-series-insights-update-plan.md).
 > * Lisez les articles expliquant comment [Ajouter une source de hub d’événements](./time-series-insights-how-to-add-an-event-source-eventhub.md) et comment [Ajouter une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 Vous apprendrez à :
 
-1.  Associez chaque environnement Azure Time Series Insights Gen2 à une source d’événement. Vous devez également fournir une propriété ID d’horodatage et un groupe de consommateurs unique pour garantir que l’environnement a accès aux événements appropriés.
+1. Associez chaque environnement Azure Time Series Insights Gen2 à une source d’événement. Vous devez également fournir une propriété ID d’horodatage et un groupe de consommateurs unique pour garantir que l’environnement a accès aux événements appropriés.
 
 1. Une fois l’approvisionnement terminé, vous pouvez modifier vos stratégies d’accès et d’autres attributs de l’environnement pour qu’ils correspondent à vos besoins.
 
@@ -45,6 +46,7 @@ Vous apprendrez à :
 ## <a name="create-the-environment"></a>Créer l’environnement
 
 Pour créer un environnement Azure Time Series Insights Gen2 :
+
 1. Créez une ressource Azure Time Series Insights sous *Internet des objets* sur le [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Gen2 (L1)** comme **Niveau**. Fournissez un nom d’environnement et choisissez le groupe d’abonnements et le groupe de ressources à utiliser. Sélectionnez ensuite un emplacement pris en charge pour héberger l’environnement.
@@ -54,18 +56,20 @@ Pour créer un environnement Azure Time Series Insights Gen2 :
 1. Entrez un ID Time Series.
 
     > [!NOTE]
+    >
     > * L’ID de série chronologique *respecte la casse* et est *immuable*. (il ne peut pas être modifié une fois défini).
     > * Les ID de série chronologique peuvent comprendre jusqu’à *trois* clés. Considérez cela comme une clé primaire dans une base de données, qui représente de façon unique chaque capteur d’appareil qui envoie des données à votre environnement. Il peut s’agir d’une propriété ou d’une combinaison de jusqu’à trois propriétés.
     > * En savoir plus sur la façon de [choisir un ID de série chronologique](time-series-insights-update-how-to-id.md)
 
-1. Créez un compte de Stockage Azure en sélectionnant un nom de compte de stockage ainsi qu’un type de compte et en spécifiant un choix de [réplication](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal). Un compte Stockage Azure est alors automatiquement créé. Par défaut, un [compte à usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) sera créé. Ce compte est créé dans la même région que l’environnement Azure Time Series Insights Gen2 que vous avez sélectionné précédemment. Vous pouvez également apporter votre propre stockage (BYOS) via le [modèle ARM](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) lorsque vous créez un nouvel environnement Azure Time Series Gen2. 
+1. Créez un compte de Stockage Azure en sélectionnant un nom de compte de stockage ainsi qu’un type de compte et en spécifiant un choix de [réplication](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal). Un compte Stockage Azure est alors automatiquement créé. Par défaut, un [compte à usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) sera créé. Ce compte est créé dans la même région que l’environnement Azure Time Series Insights Gen2 que vous avez sélectionné précédemment.
+Vous pouvez également apporter votre propre stockage (BYOS) via le [modèle ARM](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) lorsque vous créez un nouvel environnement Azure Time Series Gen2.
 
 1. **(Facultatif)** Activez le magasin chaud pour votre environnement si vous voulez des requêtes plus rapides et illimitées sur les données les plus récentes de votre environnement. Vous pouvez également créer ou supprimer un magasin chaud par le biais de l’option **Configuration du stockage** dans le volet de navigation gauche, après avoir créé un environnement Azure Time Series Insights Gen2.
 
 1. **(Facultatif)** Vous pouvez ajouter une source d’événement maintenant. Vous pouvez également attendre que l’instance soit provisionnée.
 
-   * Azure Time Series Insights prend en charge [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) et [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) en tant que source d’événement. Si vous ne pouvez ajouter qu’une seule source d’événement lors de la création d’un environnement, vous pouvez en ajouter une autre ultérieurement. 
-   
+   * Azure Time Series Insights prend en charge [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) et [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) en tant que source d’événement. Si vous ne pouvez ajouter qu’une seule source d’événement lors de la création d’un environnement, vous pouvez en ajouter une autre ultérieurement.
+
      Vous pouvez sélectionner un groupe de consommateurs existant ou bien en créer un nouveau lors de l’ajout de la source d’événement. Notez que la source de l’événement requiert un groupe de consommateurs unique pour votre environnement pour y lire des données.
 
    * Choisissez la propriété Timestamp appropriée. Par défaut, Azure Time Series Insights utilise l’heure de placement du message dans la file d’attente pour chaque source d’événement.
@@ -99,8 +103,8 @@ Vous pouvez gérer votre environnement Azure Time Series Insights Gen2 à l’ai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les environnements Azure Time Series Insights en disponibilité générale et Gen2, consultez [Planifier votre environnement](./time-series-insights-update-plan.md).
+* Pour plus d’informations sur les environnements Azure Time Series Insights en disponibilité générale et Gen2, consultez [Planifier votre environnement](./time-series-insights-update-plan.md).
 
-- Découvrez comment [ajouter une source Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Découvrez comment [ajouter une source Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-- Configurez une [source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Configurez une [source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).

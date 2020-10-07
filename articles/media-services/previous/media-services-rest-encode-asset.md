@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d2e7be89b3319445a69d5b91990e9888cccd484a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359594"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Encodage d’une ressource à l’aide de Media Encoder Standard
 
@@ -101,7 +101,7 @@ L’exemple suivant montre comment définir l’attribut assetName :
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Considérations
+### <a name="considerations"></a>Considérations
 * les propriétés TaskBody doivent utiliser un XML littéral pour définir le nombre de ressources d’entrée ou de sortie qui sont utilisées par la tâche. L’article de tâche contient la définition du schéma XML pour le XML.
 * Dans la définition TaskBody, chaque valeur interne de `<inputAsset>` et `<outputAsset>` doit être définie en tant que JobInputAsset(valeur) ou JobOutputAsset(valeur).
 * Une tâche peut comporter plusieurs ressources de sortie. Un JobOutputAsset(x) ne peut être utilisé qu’une fois en tant que résultat d’une tâche dans un travail.

@@ -4,17 +4,17 @@ description: Apprenez en plus sur les fonctionnalités de requêtes de données 
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501693"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665903"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -54,13 +54,13 @@ Il est également possible d’effectuer des opérations d’exportation sur des
 
 Les données personnelles peuvent suivre cette méthode dans le stockage Time Series Insights, un scénario différent des données utilisateur et administrateur. Si vous considérez les données stockées dans Time Series Insights comme des données personnelles, vous pouvez exporter et supprimer ces données en procédant comme suit :
 
-**Afficher et exporter des données**
+### <a name="view-and-export-data"></a>Afficher et exporter des données
 
 Pour afficher et exporter des données stockées dans Time Series Insights, vous devez rechercher ces données. Vous pouvez utiliser l’Explorateur Time Series Insights ou des API de requête Time Series Insights pour afficher et exporter des données. Pour afficher et exporter des données à l’aide de l’Explorateur Time Series Insights, recherchez tout d’abord les données utilisateur en question. Après la recherche, cliquez avec le bouton droit sur le graphique, puis sélectionnez **Explorer les événements**. La grille d’événements s’affiche et présente des options pour exporter les données au forme CSV et JSON.
 
 Pour plus d’informations, consultez [Explorateur Azure Time Series Insights](time-series-insights-explorer.md).
 
-**Supprimer des données**
+### <a name="delete-data"></a>Suppression de données
 
 Time Series Insights ne prend actuellement pas en charge la suppression granulaire de données. Toutefois, Time Series Insights offre la possibilité de supprimer des données client stockées dans Time Series Insights en configurant des stratégies de rétention. Vous pouvez définir la période de rétention de l’ensemble de l’environnement Time Series Insights sur un nombre quelconque de jours pour prendre en charge vos besoins de suppression.
 

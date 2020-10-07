@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 463f5d5360e19fdd7f49139aea4c6dc65baf903c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357469"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD pour Custom Speech
 
@@ -74,7 +74,7 @@ La plupart des équipes requièrent un processus de révision et d’approbation
 Utilisez les outils suivants pour les workflows d’automatisation CI/CD pour Custom Speech :
 
 - [L’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), pour créer une authentification du principal du service Azure, interroger les abonnements Azure, et stocker les résultats des tests dans Azure Blob.
-- [L’interface de ligne de commande Azure Speech](https://github.com/msimecek/Azure-Speech-CLI), pour interagir avec le service Speech à partir de la ligne de commande ou d’un workflow automatisé.
+- [L’interface de ligne de commande Azure Speech](spx-overview.md), pour interagir avec le service Speech à partir de la ligne de commande ou d’un workflow automatisé.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Solution DevOps pour Custom Speech à l’aide d’actions GitHub
 

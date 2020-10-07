@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dadf523c5d17ffb91f4fefa71b52d1d1855c978
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070090"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570222"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Comment mettre à l’échelle votre environnement Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article explique comment changer la capacité de votre environnement Azure Time Series Insights à l’aide du [portail Azure](https://portal.azure.com). La capacité est le multiplicateur appliqué au débit d’entrée, à la capacité de stockage et au coût associé à votre référence SKU.
 

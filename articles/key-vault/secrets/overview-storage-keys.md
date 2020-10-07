@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20418dbc7432000116dcbe73a64987d83f38419d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585064"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612181"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
@@ -28,7 +28,6 @@ Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé, 
 - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
 - Seul Key Vault doit gérer vos clés de compte de stockage. Ne gérez pas les clés vous-même et évitez d’interférer avec les processus de Key Vault.
 - Un seul objet Key Vault doit gérer les clés de compte de stockage. Vous ne devez pas autoriser la gestion des clients par des objets multiples.
-- Vous pouvez demander à Key Vault de gérer votre compte de stockage avec un principal utilisateur, mais pas avec un principal de service.
 - Régénérez les clés à l’aide de Key Vault uniquement. Ne régénérez pas manuellement vos clés de compte de stockage.
 
 Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azure Active Directory (Azure AD), le service Microsoft basé sur le cloud qui gère les identités et les accès. L’intégration d’Azure AD est disponible pour les [objets blob et les files d’attente Azure](../../storage/common/storage-auth-aad.md) et fournit un accès basé sur les jetons OAuth2 au Stockage Azure (comme Azure Key Vault).

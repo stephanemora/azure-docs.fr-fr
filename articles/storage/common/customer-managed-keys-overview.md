@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7a6584b1566d1fa2e1e250938212a01d845e113
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992524"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578221"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -27,6 +27,8 @@ Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azur
 
 > [!NOTE]
 > Azure Key Vault et le module HSM managé par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-customer-managed-keys"></a>À propos des clés gérées par le client
 

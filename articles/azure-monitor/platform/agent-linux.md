@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294526"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -102,10 +102,10 @@ L'agent Log Analytics pour Linux comprend plusieurs packages. Le fichier de la v
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Agent Log Analytics pour Linux
+omsagent | 1.13.9 | Agent Log Analytics pour Linux
 omsconfig | 1.1.1 | Agent de configuration pour l'agent Log Analytics
-omi | 1.6.3 | Open Management Infrastructure (OMI) -- Serveur CIM léger. *Notez qu'OMI a besoin d'un accès root pour exécuter une tâche cron nécessaire au fonctionnement du service*
-scx | 1.6.3 | Fournisseurs CIM OMI pour les mesures de performances des systèmes d’exploitation
+omi | 1.6.4 | Open Management Infrastructure (OMI) -- Serveur CIM léger. *Notez qu'OMI a besoin d'un accès root pour exécuter une tâche cron nécessaire au fonctionnement du service*
+scx | 1.6.4 | Fournisseurs CIM OMI pour les mesures de performances des systèmes d’exploitation
 apache-cimprov | 1.0.1 | Fournisseur de surveillance des performances d’Apache HTTP Server pour OMI. Installé uniquement si Apache HTTP Server est détecté.
 mysql-cimprov | 1.0.1 | Fournisseur de surveillance des performances de MySQL Server pour OMI. Installé uniquement si MySQL/MariaDB Server est détecté.
 docker-cimprov | 1.0.0 | Fournisseur de Docker pour OMI. Installé uniquement si Docker est détecté.

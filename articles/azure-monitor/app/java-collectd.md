@@ -3,12 +3,12 @@ title: Surveiller les performances des applications web Java sur Linux - Azure |
 description: Surveillance étendue des performances des applications de votre site web Java avec le plug-in collectd pour Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322599"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761020"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd : métriques de performances Linux dans Application Insights
 
@@ -28,7 +28,7 @@ Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 Sur vos ordinateurs serveurs Linux :
 
 1. Installez [collectd](https://collectd.org/) version 5.4.0 ou ultérieure.
-2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notez le numéro de version.
+2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Notez le numéro de version.
 3. Copiez le fichier JAR du plug-in dans `/usr/share/collectd/java`.
 4. Modifiez `/etc/collectd/collectd.conf`:
    * Vérifiez que [le plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) est activé.

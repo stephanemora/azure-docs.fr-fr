@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046412"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569440"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planifier votre environnement Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article explique comment planifier votre environnement Azure Time Series Insights Gen1 en fonction de votre taux d’entrée attendu et de vos besoins de rétention de données.
 
@@ -48,12 +51,12 @@ Par défaut, Azure Time Series Insights conserve les données en fonction de la 
 
 ## <a name="data-retention"></a>Conservation des données
 
-Vous pouvez modifier le paramètre de **durée de conservation des données** dans votre environnement Azure Time Series Insights. Vous pouvez activer jusqu’à 400 jours de rétention. 
+Vous pouvez modifier le paramètre de **durée de conservation des données** dans votre environnement Azure Time Series Insights. Vous pouvez activer jusqu’à 400 jours de rétention.
 
 Azure Time Series Insights a deux modes :
 
-* Un mode optimise les données les plus récentes. Il applique une stratégie pour **vider les anciennes données** laissant les données récentes disponibles avec l’instance. Ce mode est activé par défaut. 
-* L’autre optimise les données pour qu’elles restent sous les limites de rétention configurées. L’option **Suspendre l’entrée**  empêche l’entrée des nouvelles données lorsqu’elles sont sélectionnées comme **Comportement de limite de stockage dépassée**.
+- Un mode optimise les données les plus récentes. Il applique une stratégie pour **vider les anciennes données** laissant les données récentes disponibles avec l’instance. Ce mode est activé par défaut.
+- L’autre optimise les données pour qu’elles restent sous les limites de rétention configurées. L’option **Suspendre l’entrée**  empêche l’entrée des nouvelles données lorsqu’elles sont sélectionnées comme **Comportement de limite de stockage dépassée**.
 
 Vous pouvez ajuster la rétention et basculer entre les deux modes dans la page de configuration de l’environnement dans le portail Azure.
 
@@ -83,7 +86,7 @@ La deuxième zone sur laquelle se concentrer pour planifier votre environnement 
 
 Vous pouvez augmenter la capacité d’une référence SKU S1 ou S2 à 10 unités dans un environnement unique. Vous ne pouvez pas migrer d’un environnement S1 vers S2. Vous ne pouvez pas migrer d’un environnement S2 vers S1.
 
-Pour la capacité d’entrée, déterminez tout d’abord le total des entrées dont vous avez besoin chaque mois. Déterminez ensuite vos besoins par minute. 
+Pour la capacité d’entrée, déterminez tout d’abord le total des entrées dont vous avez besoin chaque mois. Déterminez ensuite vos besoins par minute.
 
 La limitation et la latence jouent un rôle dans la capacité par minute. En cas de pic d’entrée de données d’une durée inférieure à 24 heures, Azure Time Series Insights peut effectuer un « rattrapage » à un taux d’entrée égal à deux fois les taux indiqués dans le tableau précédent.
 

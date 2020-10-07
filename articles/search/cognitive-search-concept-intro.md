@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363135"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -69,7 +69,7 @@ Au début du pipeline, vous avez du texte non structuré ou du contenu non textu
 
 ![Phase de craquage de document](./media/cognitive-search-intro/document-cracking-phase-blowup.png "craquage de document")
 
- Les sources prises en charge comprennent le stockage Blob Azure, le stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Étant donné que l’indexation prend un certain temps, commencez par un petit ensemble de données représentatif, puis augmentez sa taille de façon incrémentielle à mesure que votre solution grandit.
+ Les sources prises en charge comprennent le stockage Blob Azure, le stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Étant donné que l’indexation prend un certain temps, commencez par un petit ensemble de données représentatif, puis augmentez sa taille de façon incrémentielle à mesure que votre solution grandit.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Étape 2 : Phase d’enrichissement et compétences cognitives
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462732"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630149"
 ---
 # <a name="speech-service-for-telephony-data"></a>Service Speech pour les données de téléphonie
 
@@ -142,9 +142,9 @@ Un exemple de code est disponible sur GitHub pour chacune des fonctionnalités d
 - [SDK Speech Devices](speech-devices-sdk.md)
 - [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 - [API REST : Synthèse vocale](rest-text-to-speech.md)
-- [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
+- [API REST : Transcription et personnalisation par lot](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+> [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)

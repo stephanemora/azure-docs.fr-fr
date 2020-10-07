@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928834"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537716"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Types et composition de requête dans Recherche cognitive Azure
 
@@ -92,7 +92,7 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. Il est recommandé pour l’exploration, le test et la validation. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
 | [Postman ou autres outils REST](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche cognitive Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche cognitive Azure.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Choisir un analyseur : simple | full

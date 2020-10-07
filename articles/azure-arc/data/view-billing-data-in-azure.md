@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 375191bbe6f45189fba50ea927454c0ec4f64678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930176"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760304"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Télécharger des données de facturation dans Azure et les afficher dans le portail Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "90930176"
 - **Connecté indirectement** – Il n’existe pas de connexion directe à Azure. Les données sont envoyées à Azure uniquement via un processus d’exportation/chargement. Tous les déploiements de services de données Azure Arc fonctionnent dans ce mode actuellement en préversion.
 - **Connecté directement** – Dans ce mode, il y aura une dépendance du service Kubernetes activé par Azure Arc pour fournir une connexion directe entre Azure et le cluster Kubernetes sur lequel s’exécutent les services de données activés par Azure Arc. Cela permet d’obtenir davantage de fonctionnalités ainsi que d’utiliser le portail Azure et Azure CLI pour gérer vos services de données compatibles Azure Arc, tout comme vous gérez vos services de données dans Azure PaaS.  Ce mode de connectivité n’est pas encore disponible en préversion, mais le sera bientôt.
 
-Si vous le souhaitez, vous pouvez en savoir plus sur la différence entre les [modes de connectivité](/docs/connectivity.md).
+Si vous le souhaitez, vous pouvez en savoir plus sur la différence entre les [modes de connectivité](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
 
 Dans le mode connecté indirectement, les données de facturation sont régulièrement exportées du contrôleur de données Azure Arc vers un fichier sécurisé, puis chargées dans Azure et traitées.  Dans le mode connecté directement à venir, les données de facturation seront automatiquement envoyées à Azure environ 1 fois par heure pour fournir une vue en quasi-temps réel des coûts de vos services. Le processus d’exportation et de chargement des données dans le mode connecté indirectement peut également être automatisé à l’aide de scripts, ou nous pouvons créer un service qui le fera pour vous.
 

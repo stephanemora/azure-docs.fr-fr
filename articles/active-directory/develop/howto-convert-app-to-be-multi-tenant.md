@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705892"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631305"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -97,7 +97,7 @@ Comme le point de terminaison /common ne correspond pas à un client et n’a pa
     https://sts.windows.net/{tenantid}/
 ```
 
-Par conséquent, une application mutualisée ne peut pas valider les jetons simplement en faisant correspondre la valeur issuer dans les métadonnées avec la valeur `issuer` dans le jeton. Une application mutualisée a besoin d’une logique pour déterminer les valeurs issuer valides et celles qui ne le sont pas, en fonction de la partie ID client de la valeur issuer. 
+Par conséquent, une application mutualisée ne peut pas valider les jetons simplement en faisant correspondre la valeur issuer dans les métadonnées avec la valeur `issuer` dans le jeton. Une application mutualisée a besoin d’une logique pour déterminer les valeurs issuer valides et celles qui ne le sont pas, en fonction de la partie ID client de la valeur issuer.
 
 Par exemple, si une application mutualisée permet uniquement la connexion à partir de clients spécifiques qui se sont inscrits à leur service, elle doit vérifier la valeur issuer ou la valeur de revendication `tid` dans le jeton pour s’assurer que ce client figure dans sa liste d’abonnés. Si une application mutualisée ne gère que des personnes et ne prend aucune décision concernant l’accès en fonction des clients, elle peut donc totalement ignorer la valeur issuer.
 
@@ -116,7 +116,7 @@ Ce processus de consentement dépend des autorisations demandées par l’applic
 * une autorisation déléguée accorde à une application la possibilité d’agir comme un utilisateur connecté pour un sous-ensemble d’actions que l’utilisateur peut effectuer. Par exemple, vous pouvez accorder à une application l’autorisation déléguée pour lire le calendrier de l’utilisateur connecté.
 * Une autorisation d’application seule est directement accordée à l’identité de l’application. Par exemple, vous pouvez accorder à une application une autorisation application seule pour lire la liste des utilisateurs d’un client, quels que soient les clients connectés à l’application.
 
-Certaines autorisations peuvent être accordées par un utilisateur standard, tandis que d’autres nécessitent le consentement de l’administrateur d’un client. 
+Certaines autorisations peuvent être accordées par un utilisateur standard, tandis que d’autres nécessitent le consentement de l’administrateur d’un client.
 
 ### <a name="admin-consent"></a>Consentement de l’administrateur
 
@@ -179,10 +179,6 @@ Si un administrateur donne son consentement à une application pour tous les uti
 
 Les applications mutualisées peuvent également obtenir des jetons d’accès pour appeler des API protégées par Azure AD. Une erreur courante lors de l’utilisation de la bibliothèque d’authentification Active Directory (ADAL) avec une application mutualisée consiste à demander initialement un jeton pour un utilisateur en utilisant le point de terminaison /common, à recevoir une réponse, puis à demander un nouveau jeton pour ce même utilisateur également en utilisant le point de terminaison /common. Comme la réponse d’Azure AD provient d’un client et non du point de terminaison /common, ADAL met en cache le jeton comme provenant du client. L’appel suivant à /common pour obtenir un jeton d’accès pour l’utilisateur manque l’entrée du cache, et l’utilisateur est invité à se reconnecter. Pour éviter de manquer le cache, assurez-vous que les appels suivants pour un utilisateur déjà connecté sont effectués vers le point de terminaison du client.
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Cet article vous a montré comment créer une application pouvant connecter un utilisateur à partir de tout client Azure AD. Après activation de l’authentification unique (SSO) entre votre application et Azure AD, vous pouvez également mettre à jour votre application pour accéder aux API exposées par des ressources Microsoft telles que Microsoft 365. Cela vous permet de proposer une expérience personnalisée dans votre application, par exemple en affichant des informations contextuelles aux utilisateurs, comme leur photo de profil ou leur prochain rendez-vous de calendrier. Pour en savoir plus sur les appels d’API à des services Azure AD et Microsoft 365 comme Exchange, SharePoint, OneDrive, OneNote, et bien plus, voir [API Microsoft Graph][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Contenu connexe
 
 * [Exemple d’application mutualisée](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 * [Intégration d’applications dans Azure Active Directory][AAD-Integrating-Apps]
 * [Vue d’ensemble de l’infrastructure de consentement][AAD-Consent-Overview]
 * [Étendues des autorisations de l’API Microsoft Graph][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Cet article vous a montré comment créer une application pouvant connecter un utilisateur à partir de tout client Azure AD. Après activation de l’authentification unique (SSO) entre votre application et Azure AD, vous pouvez également mettre à jour votre application pour accéder aux API exposées par des ressources Microsoft telles que Microsoft 365. Cela vous permet de proposer une expérience personnalisée dans votre application, par exemple en affichant des informations contextuelles aux utilisateurs, comme leur photo de profil ou leur prochain rendez-vous de calendrier. Pour en savoir plus sur les appels d’API à des services Azure AD et Microsoft 365 comme Exchange, SharePoint, OneDrive, OneNote, et bien plus, voir [API Microsoft Graph][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

@@ -1,17 +1,17 @@
 ---
 title: Gérer les journaux - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article explique comment configurer et accéder aux journaux de serveur (fichiers .log) dans Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907524"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704285"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurer et consulter les journaux Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure
 
@@ -37,7 +37,7 @@ Configurer l’accès aux journaux d’activité des requêtes et journaux d’a
 
    Après avoir changé les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos changements. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Capture d’écran des options Paramètres du serveur":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Capture d’écran des options Journaux du serveur":::
 
 À partir de la page **Paramètres du serveur**, vous pouvez revenir à la liste des journaux en fermant la page.
 
@@ -50,18 +50,18 @@ Une fois que la journalisation a commencé, vous pouvez voir la liste des journa
 
 3. Dans la section **Supervision** de la barre latérale, sélectionnez **Journaux du serveur**. La page présente la liste de vos fichiers journaux.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Capture d’écran de la page Journaux du serveur, avec la liste des journaux mise en évidence":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Capture d’écran des options Journaux du serveur":::
 
    > [!TIP]
    > La convention d’affectation des noms de journaux est **postgresql-aaaa-mm-dd_hh0000.log**. La date et l’heure utilisées dans le nom de fichier correspondent au moment où le journal a été émis. Les fichiers journaux font l’objet d’une rotation toutes les heures ou par tranche de 100 Mo, selon la limite atteinte en premier.
 
 4. Si nécessaire, utilisez la zone de recherche pour trouver rapidement un journal spécifique en fonction d’une date et d’une heure. La recherche est effectuée sur le nom du journal.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Capture d’écran de la page Journaux du serveur, avec la zone de recherche et les résultats mis en évidence":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Capture d’écran des options Journaux du serveur":::
 
 5. Pour téléchargez un fichier journal en particulier, sélectionnez l’icône de flèche bas à côté du fichier journal dans la ligne du tableau.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Capture d’écran de la page Journaux du serveur, avec l’icône de flèche bas mise en évidence":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Capture d’écran des options Journaux du serveur":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour savoir comment télécharger des journaux par programmation, consultez [Accéder aux journaux du serveur dans l’interface CLI](howto-configure-server-logs-using-cli.md).

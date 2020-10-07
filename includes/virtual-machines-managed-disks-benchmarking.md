@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451577"
 ---
 *Préchauffage du cache*  
 Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
@@ -25,7 +25,7 @@ Le disque dont la mise en cache de l’hôte est définie en lecture seule peut 
 
 ### <a name="iometer"></a>Iometer
 
-[Téléchargez l’outil Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
+[Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) sur la machine virtuelle.
 
 #### <a name="test-file"></a>Fichier de test
 

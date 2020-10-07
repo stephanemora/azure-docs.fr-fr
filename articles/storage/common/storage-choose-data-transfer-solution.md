@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400540"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 

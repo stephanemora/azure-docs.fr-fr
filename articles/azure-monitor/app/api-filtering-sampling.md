@@ -3,13 +3,13 @@ title: Filtrage et pré-traitement dans le Kit de développement logiciel (SDK) 
 description: Écrivez des processeurs de télémétrie et des initialiseurs de télémétrie que le Kit de développement logiciel (SDK) doit filtrer ou ajoutez des propriétés aux données avant que la télémétrie ne soit envoyée au portail Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c42b3a79e1c816e92c71e41a738bbb116a39aee1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936552"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758028"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-[Voir l’intégralité de cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+[Voir l’intégralité de cet exemple](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 **Applications ASP.NET Core/Worker service : Charger votre initialiseur**
 
@@ -327,24 +327,22 @@ Insérer un initialiseur de télémétrie immédiatement après le code d’init
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.

@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531472"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447782"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Créer et provisionner un appareil IoT Edge simulé avec un TPM virtuel sous Windows
 
@@ -61,7 +61,7 @@ Choisissez le langage du kit SDK que vous souhaitez utiliser pour créer l’app
 Lorsque vous créez l’inscription individuelle, sélectionnez **True** pour déclarer que l’appareil TPM simulé sur votre machine de développement Windows est un **appareil IoT Edge**.
 
 > [!TIP]
-> Dans l'interface de ligne de commande Azure, vous pouvez créer une [inscription](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou un [groupe d'inscriptions](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) et utiliser l'indicateur **compatible avec Edge** pour spécifier qu'un appareil, ou un groupe d'appareils, est un appareil IoT Edge.
+> Dans l'interface de ligne de commande Azure, vous pouvez créer une [inscription](/cli/azure/ext/azure-iot/iot/dps/enrollment) ou un [groupe d'inscriptions](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) et utiliser l'indicateur **compatible avec Edge** pour spécifier qu'un appareil, ou un groupe d'appareils, est un appareil IoT Edge.
 
 Guides d’appareils simulés et d’inscriptions individuelles :
 

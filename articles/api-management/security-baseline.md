@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d6c954d6336a0b88f57ba1f70571263af5d1c583
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713769"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -102,7 +102,7 @@ Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure
 
 * [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/threat-protection.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -118,7 +118,7 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -178,7 +178,7 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 
 * [Ports nécessaires pour la Gestion des API](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -187,13 +187,13 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau relatifs à vos déploiements de gestion des API Azure. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.ApiManagement » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos déploiements de gestion des API Azure et des ressources associées. Vous pouvez également utiliser des définitions de stratégies intégrées pour Azure Virtual Networks, par exemple :
 - DDoS Protection Standard doit être activé
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, le contrôles d'accès en fonction du rôle (RBAC) et les stratégies au sein d'une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -207,7 +207,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -219,7 +219,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -275,7 +275,7 @@ Pour la journalisation d’audit du plan de données, les journaux de diagnostic
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -287,7 +287,7 @@ Pour la journalisation d’audit du plan de données, les journaux de diagnostic
 
 * [Archiver les journaux d’activité dans un compte de stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -331,7 +331,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -339,7 +339,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Non applicable. La Gestion des API Azure ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -355,7 +355,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -383,7 +383,7 @@ Suivez les recommandations d’Azure Security Center concernant la gestion et la
 
 * [Recommandations Azure Security Center concernant l’accès et les identités](../security-center/recommendations-reference.md#recs-identity)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -412,7 +412,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 * [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -450,7 +450,7 @@ Le processus de connexion ou d’inscription peut également être personnalisé
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -464,7 +464,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 * [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -474,7 +474,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -512,7 +512,7 @@ Les administrateurs peuvent créer des groupes personnalisés ou utiliser des gr
 
 * [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -554,7 +554,7 @@ Configurez une supervision avancée avec la Gestion des API à l’aide de la st
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -564,7 +564,7 @@ Configurez une supervision avancée avec la Gestion des API à l’aide de la st
 
 * [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -578,7 +578,7 @@ Configurez une supervision avancée avec la Gestion des API à l’aide de la st
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -594,7 +594,7 @@ Configurez une supervision avancée avec la Gestion des API à l’aide de la st
 
 * [Utilisation de la gestion des API Azure avec des réseaux virtuels](./api-management-using-with-vnet.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -656,7 +656,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -678,7 +678,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 * [Utiliser Azure Monitor et le journal d’activité Azure dans la Gestion des API Azure](./api-management-howto-use-azure-monitor.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -702,7 +702,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Passez en r
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -710,7 +710,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Passez en r
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -718,7 +718,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Passez en r
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -750,7 +750,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -760,7 +760,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -778,7 +778,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -786,7 +786,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -810,7 +810,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -818,7 +818,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -826,7 +826,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -840,7 +840,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -848,7 +848,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -860,7 +860,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Contrôle d’accès en fonction du rôle dans la Gestion des API Azure](./api-management-role-based-access-control.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -868,7 +868,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -876,7 +876,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -892,7 +892,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -900,7 +900,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -912,7 +912,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -920,7 +920,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -934,7 +934,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Kit de ressources DevOps Gestion des API Azure](./api-management-security-controls.md#configuration-management)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -942,7 +942,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -954,7 +954,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -962,7 +962,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -978,7 +978,7 @@ En outre, définissez et implémentez des configurations de sécurité standard 
 
 * [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -986,7 +986,7 @@ En outre, définissez et implémentez des configurations de sécurité standard 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1018,7 +1018,7 @@ En outre, définissez et implémentez des configurations de sécurité standard 
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1032,7 +1032,7 @@ En outre, définissez et implémentez des configurations de sécurité standard 
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (comme la Gestion des API Azure). Toutefois, il ne s’exécute pas sur du contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1042,7 +1042,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (comme la Gestion des API Azure). Toutefois, il ne s’exécute pas sur du contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1052,7 +1052,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (comme la Gestion des API Azure). Toutefois, il ne s’exécute pas sur du contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1100,7 +1100,7 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 * [Restaurer des certificats Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1114,9 +1114,9 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 Activez la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-* [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1134,7 +1134,7 @@ Activez la suppression réversible dans Key Vault pour protéger les clés contr
 
 * [Tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1148,7 +1148,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1158,7 +1158,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1180,7 +1180,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1190,7 +1190,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment configurer l’automatisation des workflows et Logic Apps](../security-center/workflow-automation.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

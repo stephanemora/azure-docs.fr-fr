@@ -3,20 +3,20 @@ title: Configurer l’authentification
 titleSuffix: Azure Machine Learning
 description: Découvrez comment installer et configurer l’authentification pour divers workflows et ressources dans Azure Machine Learning. Il existe plusieurs façons de configurer et d’utiliser l’authentification sur le service, qu’il s’agisse de l’authentification simple basée sur l’interface utilisateur pour le développement ou les tests, ou de l’authentification complète du principal de service dans Azure Active Directory.
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885984"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729030"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -77,7 +77,7 @@ Pour utiliser l’authentification du principal de service, vous devez d’abord
 >
 > La raison pour laquelle vous accordez l’accès le plus bas est qu’un principal de service utilise un mot de passe pour l’authentification et que le mot de passe peut être stocké dans le cadre d’un script d’automatisation. Si le mot de passe est divulgué, le fait d’avoir un accès minimal requis pour une tâche spécifique réduit au minimum l’utilisation malveillante du principal de service.
 
-Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
+Le moyen le plus simple de créer un principal de service et de lui accorder l’accès à votre espace de travail consiste à utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Pour créer un principal de service et lui accorder l’accès à votre espace de travail, procédez comme suit :
 
 > [!NOTE]
 > Vous devez être administrateur de l’abonnement pour pouvoir effectuer toutes les étapes ci-dessous.
@@ -92,7 +92,7 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Installez l’extension Azure Machine Learning :
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Utiliser un principal de service à partir d’Azure CLI
 
-Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+Vous pouvez utiliser un principal de service pour les commandes Azure CLI. Pour plus d’informations, consultez [Se connecter avec un principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Utiliser un principal de service avec l’API REST (préversion)
 

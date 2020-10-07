@@ -1,15 +1,16 @@
 ---
 title: Forum Aux Questions - LUIS
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054829"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542221"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 

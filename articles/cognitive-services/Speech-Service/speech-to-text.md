@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359934"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
@@ -58,5 +58,5 @@ La transcription par lots est un ensemble d’opérations d’API REST qui vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+- [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 - [Obtenir le kit SDK Speech](speech-sdk.md)

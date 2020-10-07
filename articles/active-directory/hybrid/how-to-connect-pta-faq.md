@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280160"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461272"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -34,10 +34,6 @@ Consultez [ce guide](./choose-ad-authn.md) pour voir une comparaison entre les d
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 
 L’authentification directe est une fonctionnalité gratuite. Il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
-
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
-
-Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L’accès conditionnel](../conditional-access/overview.md) fonctionne-t-il avec l’authentification directe ?
 

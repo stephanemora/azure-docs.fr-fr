@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 2a66ef2f91715180ae84036fc7eead759e7ee00f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685049"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447656"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
@@ -47,7 +47,7 @@ Pour installer l’application :
 9. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber**. Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’**Étendue** par défaut de **Numéro d’inscription**, puis sélectionnez **Suivant**.  
   ![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. La boîte de dialogue suivante se connecte à Azure et obtient les données nécessaires pour les recommandations d’instances réservées. *Laissez les valeurs par défaut comme elles sont configurées* et sélectionnez **Sign in** (Se connecter).  
-  ![Connexion à Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![Capture d’écran illustrant la boîte de dialogue d’application Se connecter à Azure Cost Management avec les valeurs par défaut.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. La dernière étape de l’installation est de se connecter à votre inscription Contrat Entreprise ; elle nécessite un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md). Sélectionnez **Sign in** (Se connecter) pour vous authentifier avec votre inscription Contrat Entreprise. Cette étape lance également une action d’actualisation des données dans Power BI.  
   ![Se connecter à l’inscription Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -189,7 +189,7 @@ Cette erreur se produit si vous changez la méthode d’authentification pour la
 
 1. Connectez-vous à vos données.
 1. Après avoir entré votre inscription EA et le nombre de mois, veillez à conserver la valeur par défaut **Anonyme** pour la méthode d’authentification et **Aucun** pour le paramètre niveau de confidentialité.  
-  ![Connexion à Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![Capture d’écran illustrant la boîte de dialogue d’application Se connecter à Azure Cost Management avec les valeurs Anonyme et Aucun.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. Dans la page suivante, définissez **OAuth2** pour la méthode d’authentification et **Aucun** pour le niveau de confidentialité. Ensuite, connectez-vous pour vous authentifier auprès de votre inscription. Cette étape lance également une action d’actualisation des données Power BI.
 
 

@@ -3,12 +3,12 @@ title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372521"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -149,7 +149,7 @@ Si vous tentez de créer un pairage entre un espace de noms principal avec un po
 > [!NOTE]
 > Lorsque vous tentez d’appairer l’espace de noms principal avec un point de terminaison privé et l’espace de noms secondaire, le processus de validation vérifie uniquement s’il existe un point de terminaison privé sur l’espace de noms secondaire. Il ne vérifie pas si le point de terminaison fonctionne ou fonctionnera après le basculement. Il vous incombe de vous assurer que l’espace de noms secondaire avec un point de terminaison privé fonctionnera comme prévu après le basculement.
 >
-> Pour vérifier que les configurations de point de terminaison privé sont identiques, envoyez une requête [Get queues](/rest/api/servicebus/queues/get) à l’espace de noms secondaire depuis l’extérieur du réseau virtuel et vérifiez que vous recevez un message d’erreur de la part du service.
+> Pour vérifier que les configurations de point de terminaison privé sont identiques, envoyez une requête [Get queues](/rest/api/servicebus/stable/queues/get) à l’espace de noms secondaire depuis l’extérieur du réseau virtuel et vérifiez que vous recevez un message d’erreur de la part du service.
 
 ### <a name="existing-pairings"></a>Pairages existants
 Si un pairage entre les espaces de noms principal et secondaire existe déjà, la création d’un point de terminaison privé sur l’espace de noms principal échoue. Pour résoudre ce problème, commencez par créer un point de terminaison privé sur l’espace de noms secondaire, puis créez-en un pour l’espace de noms principal.
@@ -179,7 +179,7 @@ L’avantage de cette approche est que le basculement peut se produire au niveau
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [informations de référence de l’API REST](/rest/api/servicebus/disasterrecoveryconfigs) sur la géorécupération d’urgence.
+- Consultez les [informations de référence de l’API REST](/rest/api/servicebus/stable/disasterrecoveryconfigs) sur la géorécupération d’urgence.
 - Exécutez [l’exemple de géorécupération d’urgence sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - Consultez [l’exemple d’envoi de messages à un alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) pour la géorécupération d’urgence.
 

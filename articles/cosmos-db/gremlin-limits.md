@@ -1,23 +1,23 @@
 ---
 title: Limites d’Azure Cosmos DB Gremlin
 description: Documentation de référence pour les limitations du runtime du moteur de graphe
-author: LuisBosquez
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: lbosq
-ms.openlocfilehash: 76ad787990c355d29613c05ca9fce31885a2eccc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: sngun
+ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72029852"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400466"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limites d’Azure Cosmos DB Gremlin
 Cet article aborde les limites du moteur Azure Cosmos DB Gremlin et explique comment elles peuvent avoir un impact sur les traversées des clients.
 
-Cosmos DB Gremlin est basé sur l’infrastructure Cosmos DB. Pour cette raison, toutes les limites expliquées dans [Limites du service Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) continuent à s’appliquer. 
+Cosmos DB Gremlin est basé sur l’infrastructure Cosmos DB. Pour cette raison, toutes les limites expliquées dans [Limites du service Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) continuent à s’appliquer.
 
 ## <a name="limits"></a>limites
 
@@ -34,5 +34,5 @@ Quand une limite Gremlin est atteinte, la traversée est annulée avec un code *
 *Jetons de ressource par heure* | **100** | Nombre de jetons de ressource uniques utilisés par les clients Gremlin pour se connecter au compte Gremlin dans une région. Lorsque l’application dépasse la limite de jetons uniques horaire, `"Exceeded allowed resource token limit of 100 that can be used concurrently"` est renvoyé lors de la prochaine demande d’authentification.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En-têtes de réponse d’Azure Cosmos DB Gremlin](gremlin-headers.md) 
+* [En-têtes de réponse d’Azure Cosmos DB Gremlin](gremlin-headers.md)
 * [Jetons de ressource Azure Cosmos DB avec Gremlin](how-to-use-resource-tokens-gremlin.md)

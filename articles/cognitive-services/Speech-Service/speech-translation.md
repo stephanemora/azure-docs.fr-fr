@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduction vocale
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401212"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630068"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 
@@ -58,10 +58,10 @@ Si vos applications, outils ou produits utilisent l’[API Traduction de convers
 * [SDK Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription et personnalisation par lot](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Effectuer le [démarrage rapide](get-started-speech-translation.md) de la traduction vocale
-* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 * [Obtenir le kit SDK Speech](speech-sdk.md)

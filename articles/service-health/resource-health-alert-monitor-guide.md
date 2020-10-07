@@ -3,21 +3,18 @@ title: Créer des alertes d’intégrité de ressources avec le portail Azure
 description: Créez des alertes via le portail Azure qui vous informent de l’indisponibilité de vos ressources Azure.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091570"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540674"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurer des alertes d’intégrité de ressources avec le portail Azure
 
 Cet article vous indique comment configurer des alertes de journal d’activité pour les notifications sur l’intégrité des ressources à l’aide du Portail Azure.
 
 Azure Resource Health vous tient informé de l’état d’intégrité actuel et précédent de vos ressources Azure. Les alertes Azure Resource Health peuvent vous signaler quasiment en temps réel tout changement de l’état d’intégrité des ressources. La création par programmation d’alertes Resource Health permet aux utilisateurs de créer et personnaliser leurs alertes en bloc.
-
-> [!NOTE]
-> Les alertes Resource Health sont actuellement en préversion.
 
 Les notifications sur l’intégrité des ressources sont stockées dans le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md). Dans la mesure où le volume d’informations stockées dans le journal d’activité peut être important, il existe une interface utilisateur distincte permettant de faciliter l’affichage et la configuration d’alertes sur ces notifications.
 Vous pouvez recevoir une alerte lorsque les ressources Azure envoie des notifications sur l’état du service sur votre abonnement Azure. Vous pouvez configurer l’alerte en fonction des éléments suivants :

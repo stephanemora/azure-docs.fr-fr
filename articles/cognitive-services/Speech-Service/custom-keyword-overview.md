@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356602"
 ---
 # <a name="what-is-a-keyword"></a>Qu’est-ce qu’un mot clé ?
 
@@ -61,6 +61,6 @@ Il est essentiel de créer un mot clé efficace pour que votre appareil réponde
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+* [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 * [Obtenir le kit SDK Speech](speech-sdk.md)
 * [En savoir plus sur les assistants vocaux](voice-assistants.md)

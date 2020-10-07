@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 051361860a6a2d9ad70aa81e313857ec86cacfb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372100"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gérer des ressources Azure à l’aide du portail Azure
 
@@ -114,7 +114,7 @@ Vous pouvez sélectionner l’icône d’épingle dans l’angle supérieur droi
 
 ## <a name="manage-access-to-resources"></a>Gérer l’accès aux ressources
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

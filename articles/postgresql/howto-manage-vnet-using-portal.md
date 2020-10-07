@@ -1,17 +1,17 @@
 ---
 title: Utiliser des règles de réseau virtuel - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Création et gestion des points de terminaison de service de réseau virtuel et des règles Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 87f8c298345bb1d427163758974948bd8a841e2c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8ff1800bc699a7fb29f64b63a3098225921628df
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882050"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710836"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Création et gestion des points de terminaison de service et des règles de réseau virtuel dans Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour PostgreSQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour PostgreSQL.
@@ -36,7 +36,7 @@ Les règles et points de terminaison de service de réseau virtuel étendent l�
 
 4. Entrez un nom de règle de réseau virtuel, sélectionnez l’abonnement, le réseau virtuel et le nom du sous-réseau, puis cliquez sur **Activer**. Les points de terminaison de service de réseau virtuel sont alors automatiquement activés sur le sous-réseau à l’aide du nom de service **Microsoft.SQL**.
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Portail Azure - Configurer le réseau virtuel":::
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
     Le compte doit avoir les autorisations nécessaires pour créer un réseau virtuel et un point de terminaison de service.
 
@@ -54,7 +54,7 @@ Les règles et points de terminaison de service de réseau virtuel étendent l�
 
 5. Une fois l’activation effectuée, cliquez sur **OK** : vous verrez que les points de terminaison de service de réseau virtuel sont activés en même temps qu’une règle de réseau virtuel.
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Points de terminaison de service de réseau virtuel activés et règle de réseau virtuel créée":::
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 - De la même manière, vous pouvez créer un script pour [activer des point de terminaison de service de réseau virtuel et créer une règle de réseau virtuel pour Azure Database pour PostgreSQL en utilisant Azure CLI](howto-manage-vnet-using-cli.md).

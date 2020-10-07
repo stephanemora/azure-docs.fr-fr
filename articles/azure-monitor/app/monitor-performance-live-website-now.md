@@ -4,12 +4,12 @@ description: Analysez les performances d'un site web sans le redéployer. Foncti
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923821"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758661"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
 
@@ -130,7 +130,7 @@ Pour y remédier, mettez à jour votre fichier web.config :
 </dependentAssembly>
 ```
 
-Ce problème est suivi [ici](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+Ce problème est suivi [ici](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### <a name="application-diagnostic-messages"></a>Messages de diagnostic d’application

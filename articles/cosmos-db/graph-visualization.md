@@ -1,18 +1,18 @@
 ---
 title: Visualiser vos données de graphe dans l’API Gremlin d’Azure Cosmos DB
 description: Découvrez comment intégrer des données de graphe Azure Cosmos DB à des solutions de visualisation (Linkurious Enterprise, Cambridge intelligence).
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261781"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400517"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualiser des données de graphe stockées dans l’API Gremlin d’Azure Cosmos DB avec des solutions de visualisations de données
 
@@ -26,11 +26,11 @@ Vous pouvez visualiser des données stockées dans l’API Gremlin d’Azure Cos
 
 L’interface interactive de Linkurious Enterprise offre un moyen facile d’examiner des données complexes. Vous pouvez rechercher des entités spécifiques, développer des connexions pour découvrir des relations cachées et appliquer les dispositions de votre choix pour démêler des réseaux complexes. Linkurious Enterprise est désormais compatible avec l’API Gremlin d’Azure Cosmos DB. Elle est adaptée aux scénarios de visualisation de graphique de bout en bout et prend en charge la lecture et l’écriture de fonctionnalités à partir de l’interface utilisateur. Vous pouvez demander une [démonstration de Linkurious avec Azure Cosmos DB](https://linkurio.us/contact/)
 
-:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Démonstration de Linkurious" border="false":::
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Logo de Linkurious" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Cambridge Intelligence
 
-:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Logo de Cambridge Intelligence" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Logo de Linkurious" border="false":::
 
 Les kits de ressources pour la visualisation de graphe de [Cambridge Intelligence](https://cambridge-intelligence.com/products/) prennent désormais en charge Azure Cosmos DB. Les deux kits de ressources de visualisation suivants sont pris en charge par Azure Cosmos DB :
 
@@ -38,15 +38,15 @@ Les kits de ressources pour la visualisation de graphe de [Cambridge Intelligenc
 
 - [Re-Graph pour développeurs React](https://cambridge-intelligence.com/regraph/)
 
-:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Démonstration de Cambridge Intelligence" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Logo de Linkurious" border="false":::
 
 Ces kits de ressources vous permettent de concevoir des applications de visualisation et d’analyse de graphe à hautes performances pour votre cas d’usage. Ils exploitent un rendu WebGL(Web Graphics Library) puissant et du code élaboré avec soin pour offrir aux utilisateurs une expérience de visualisation rapide et pertinente. Ils sont compatibles avec n’importe quel navigateur, appareil, serveur ou base de données, et sont fournis avec des tutoriels pas à pas, des API entièrement documentées et des démonstrations interactives.
 
-:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Démonstration de Cambridge Intelligence" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Logo de Linkurious" border="false":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes
- 
+
 - [Essayez les kits de ressources](https://cambridge-intelligence.com/try/)
 - [Présentation des technologies KeyLines](https://cambridge-intelligence.com/keylines/technology/)
 - [Présentation des technologies Re-Graph](https://cambridge-intelligence.com/regraph/technology/)

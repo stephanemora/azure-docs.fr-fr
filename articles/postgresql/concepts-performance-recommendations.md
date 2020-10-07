@@ -1,17 +1,17 @@
 ---
 title: Recommandations sur les performances - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la fonctionnalité Recommandations sur les performances dans Azure Database pour PostgreSQL - Serveur unique.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903867"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710564"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -33,7 +33,7 @@ Sélectionnez **Analyser** et choisissez une base de données, l’analyse comme
 
 La fenêtre **Recommandations** affiche une liste de recommandations si des recommandations ont été trouvées.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nouvelle page Suggestions sur les performances":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Page d’accueil des suggestions sur les performances":::
 
 Les recommandations ne sont pas appliquées automatiquement. Pour appliquer la recommandation, copiez le texte de la requête et exécutez-le à partir du client de votre choix. N’oubliez pas de tester et de surveiller pour évaluer la recommandation. 
 
