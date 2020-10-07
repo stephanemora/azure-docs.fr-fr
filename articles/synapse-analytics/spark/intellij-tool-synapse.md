@@ -4,21 +4,21 @@ description: Tutoriel - Utilisez Azure Toolkit for IntelliJ pour développer des
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: c17addc313954fbca5b81c4594d7317065350c09
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249567"
 ---
-# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer des applications Apache Spark avec IntelliJ à l’aide d’un espace de travail Synapse
+# <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer une application Apache Spark avec IntelliJ en utilisant un espace de travail Synapse
 
-Ce tutoriel explique comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Spark (préversion) à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
+Ce tutoriel vous montre comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, qui sont écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Spark (préversion) à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
 
 - Développer et soumettre une application Scala Spark sur un pool Spark.
 - Accéder aux ressources de vos pools Spark.
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous allez apprendre à :
 - Plug-in du kit de ressources Azure 3.27.0-2019.2, à installer à partir du [dépôt de plug-ins IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (version 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Plug-in Scala, à installer à partir du [dépôt de plug-ins IntelliJ](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
-- Ce prérequis ne concerne que les utilisateurs Windows.
+- Le prérequis suivant concerne seulement les utilisateurs Windows :
 
   Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Cette exception est liée à l’absence du fichier WinUtils.exe sur Windows.
   Pour résoudre cette erreur, [téléchargez le fichier exécutable WinUtils](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**. Ajoutez ensuite la variable d’environnement **HADOOP_HOME** et définissez la valeur de la variable sur **C:\WinUtils**.
@@ -100,11 +100,11 @@ Connectez-vous à l’abonnement Azure pour vous connecter à vos pools Spark.
 
     ![IntelliJ IDEA - Connexion à Azure](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
-4. Dans la boîte de dialogue **Connexion à l’appareil Azure**, cliquez sur **Copier et ouvrir**.
+4. Dans la boîte de dialogue **Connexion à l’appareil Azure**, sélectionnez **Copier et ouvrir**.
 
    ![IntelliJ IDEA - Connexion à l’appareil Azure](./media/intellij-tool-synapse/intellij-view-explorer5.png)
 
-5. Dans l’interface du navigateur, collez le code, puis cliquez sur **Suivant**.
+5. Dans l’interface du navigateur, collez le code, puis sélectionnez **Suivant**.
 
    ![Microsoft - Boîte de dialogue d’entrée de code pour HDI](./media/intellij-tool-synapse/intellij-view-explorer6.png)
 
@@ -112,7 +112,7 @@ Connectez-vous à l’abonnement Azure pour vous connecter à vos pools Spark.
 
    ![Microsoft - Boîte de dialogue d’entrée de code pour HDI](./media/intellij-tool-synapse/intellij-view-explorer7.png)
 
-7. Une fois que vous êtes connecté, la boîte de dialogue **Sélectionner des abonnements** répertorie tous les abonnements Azure associés aux informations d’identification. Sélectionnez votre abonnement, puis cliquez sur **Sélectionner**.
+7. Une fois que vous êtes connecté, la boîte de dialogue **Sélectionner des abonnements** répertorie tous les abonnements Azure associés aux informations d’identification. Sélectionnez votre abonnement, puis choisissez **Sélectionner**.
 
     ![Boîte de dialogue Sélectionner des abonnements](./media/intellij-tool-synapse/Select-Subscriptions.png)
 
@@ -128,13 +128,13 @@ Connectez-vous à l’abonnement Azure pour vous connecter à vos pools Spark.
 
 Après avoir créé une application Scala, vous pouvez l’exécuter à distance.
 
-1. Ouvrez la fenêtre **Run/Debug Configurations** (Exécuter/déboguer les configurations) en cliquant sur l’icône.
+1. Ouvrez la fenêtre **Run/Debug Configurations** (Exécuter/déboguer les configurations) en sélectionnant l’icône.
 
-    ![Commande d’envoi de l’application Spark à HDInsight](./media/intellij-tool-synapse/open-configuration-window.png)
+    ![Commande d’envoi de l’application Spark à HDInsight 1](./media/intellij-tool-synapse/open-configuration-window.png)
 
-2. Dans la boîte de dialogue **Run/Debug Configurations** (Exécuter/déboguer les configurations), cliquez sur **+** , puis sélectionnez **Apache Spark on Synapse**.
+2. Dans la boîte de dialogue **Run/Debug Configurations** (Exécuter/déboguer les configurations), sélectionnez **+** , puis sélectionnez **Apache Spark on Synapse**.
 
-    ![Commande d’envoi de l’application Spark à HDInsight](./media/intellij-tool-synapse/create-synapse-configuration02.png)
+    ![Commande d’envoi de l’application Spark à HDInsight 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
 3. Dans la fenêtre **Run/Debug Configurations** (Exécuter/déboguer les configurations), entrez les valeurs suivantes, puis sélectionnez **OK** :
 
@@ -152,13 +152,13 @@ Après avoir créé une application Scala, vous pouvez l’exécuter à distance
     |Clé de stockage|Entrez votre clé de stockage.|
     |Conteneur de stockage|Sélectionnez votre conteneur de stockage dans la liste déroulante après avoir entré les valeurs **Compte de stockage** et **Clé de stockage**.|
 
-    ![Boîte de dialogue Spark Submission (Envoi Spark)](./media/intellij-tool-synapse/create-synapse-configuration03.png)
+    ![Boîte de dialogue Spark Submission (Envoi Spark) 1](./media/intellij-tool-synapse/create-synapse-configuration03.png)
 
-4. Cliquez sur l’icône **SparkJobRun** pour envoyer votre projet au pool Spark sélectionné. L’onglet **Remote Spark Job in Cluster** (Travail Spark distant dans le cluster) affiche la progression de l’exécution du travail au bas de la page. Vous pouvez arrêter l’application en cliquant sur le bouton rouge.
+4. Sélectionnez l’icône **SparkJobRun** pour envoyer votre projet au pool Spark sélectionné. L’onglet **Remote Spark Job in Cluster** (Travail Spark distant dans le cluster) affiche la progression de l’exécution du travail au bas de la page. Vous pouvez arrêter l’application en sélectionnant le bouton rouge.
 
     ![Fenêtre Apache Spark Submission (Envoi Spark)](./media/intellij-tool-synapse/remotely-run-synapse.png)
 
-    ![Boîte de dialogue Spark Submission (Envoi Spark)](./media/intellij-tool-synapse/remotely-run-result.png)
+    ![Boîte de dialogue Spark Submission (Envoi Spark) 2](./media/intellij-tool-synapse/remotely-run-result.png)
 
 ## <a name="local-rundebug-apache-spark-applications"></a>Exécuter et déboguer les applications Apache Spark localement
 
@@ -168,26 +168,26 @@ Vous pouvez suivre les instructions ci-dessous pour configurer l’exécution et
 
 1. Ouvrez la boîte de dialogue **Run/Debug Configurations** (Exécuter/Déboguer les configurations), puis sélectionnez le signe plus ( **+** ). Sélectionnez ensuite l’option **Apache Spark on Synapse**. Entrez les informations sur le nom (**Name**) et le nom principal de la classe (**Main class name**) à enregistrer.
 
-    ![Intellij - Exécution locale des configuration de débogage](./media/intellij-tool-synapse/local-run-synapse.png)
+    ![Intellij - Exécution locale des configuration de débogage 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
     - Les variables d’environnement et l’emplacement de WinUtils.exe ne concernent que les utilisateurs Windows.
     - Variables d’environnement : la variable d’environnement système peut être détectée automatiquement si vous l’avez définie avant et que vous n’avez pas besoin de l’ajouter manuellement.
-    - [Emplacement de WinUtils.exe](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) : vous pouvez spécifier l’emplacement de WinUtils en cliquant sur l’icône de dossier à droite.
+    - [Emplacement de WinUtils.exe](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) : Vous pouvez spécifier l’emplacement de WinUtils en sélectionnant l’icône de dossier à droite.
 
-2. Cliquez ensuite sur le bouton de lecture locale.
+2. Sélectionnez ensuite le bouton de lecture locale.
 
-    ![Intellij - Exécution locale des configuration de débogage](./media/intellij-tool-synapse/local-run-synapse01.png)
+    ![Intellij - Exécution locale des configuration de débogage 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
 3. Une fois l’exécution locale terminée, si le script contient une sortie, vous pouvez vérifier le fichier de sortie à partir de **data** > **__default__**.
 
-    ![Intellij - Résultat d'exécution locale du projet](./media/intellij-tool-synapse/spark-local-run-result.png)
+    ![Intellij - Résultat de l’exécution locale du projet 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
 ### <a name="scenario-2-do-local-debugging"></a>Scénario 2 : Effectuer un débogage local
 
 1. Ouvrez le script **LogQuery**, puis définissez des points d’arrêt.
-2. Cliquez sur l’icône **Local debug** (Débogage local) pour effectuer le débogage local.
+2. Sélectionnez l’icône **Local debug** (Débogage local) pour effectuer le débogage local.
 
-    ![Intellij - Résultat d'exécution locale du projet](./media/intellij-tool-synapse/local-debug-synapse.png)
+    ![Intellij - Résultat d’exécution locale du projet 2](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## <a name="access-and-manage-synapse-workspace"></a>Accéder à l’espace de travail Synapse et le gérer
 
@@ -201,9 +201,9 @@ Vous pouvez effectuer différentes opérations dans Azure Explorer au sein d’A
 
 2. Cliquez avec le bouton droit sur un espace de travail, puis sélectionnez **Launch workspace** (Lancer l’espace de travail) ; le site web s’ouvre.
 
-    ![Travail Spark - Affichage des détails de l’application](./media/intellij-tool-synapse/launch-workspace-synapse.png)
+    ![Travail Spark - Affichage des détails de l’application 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
-    ![Travail Spark - Affichage des détails de l’application](./media/intellij-tool-synapse/launch-workspace-result.png)
+    ![Travail Spark - Affichage des détails de l’application 2](./media/intellij-tool-synapse/launch-workspace-result.png)
 
 ## <a name="spark-console"></a>Console Spark
 
@@ -233,7 +233,7 @@ Veillez à respecter les prérequis WINUTILS.EXE.
 
     ![IntelliJ IDEA Spark - Boîte de dialogue2 Auto Fix](./media/intellij-tool-synapse/intellij-console-autofix2.png)
 
-8. La console doit ressembler à l’image ci-dessous. Dans la fenêtre de la console, tapez `sc.appName`, puis appuyez sur Ctrl + Entrée. Le résultat s’affiche. Vous pouvez arrêter l’exécution de la console locale en cliquant sur le bouton rouge.
+8. La console doit ressembler à l’image ci-dessous. Dans la fenêtre de la console, tapez `sc.appName`, puis appuyez sur Ctrl + Entrée. Le résultat s’affiche. Vous pouvez arrêter l’exécution de la console locale en sélectionnant le bouton rouge.
 
     ![IntelliJ IDEA - Résultat de la console locale](./media/intellij-tool-synapse/local-console-result.png)
 
@@ -260,13 +260,13 @@ Elle est uniquement prise en charge sur IntelliJ 2018.2 et 2018.3.
 5. Dans le projet, accédez à **myApp** > **src** > **main** > **scala** > **myApp**.
 
 6. Dans la barre de menus, accédez à **Tools** > **Spark console** > **Run Spark Livy Interactive Session Console(Scala)** .
-7. La console doit ressembler à l’image ci-dessous. Dans la fenêtre de la console, tapez `sc.appName`, puis appuyez sur Ctrl + Entrée. Le résultat s’affiche. Vous pouvez arrêter l’exécution de la console locale en cliquant sur le bouton rouge.
+7. La console doit ressembler à l’image ci-dessous. Dans la fenêtre de la console, tapez `sc.appName`, puis appuyez sur Ctrl + Entrée. Le résultat s’affiche. Vous pouvez arrêter l’exécution de la console locale en sélectionnant le bouton rouge.
 
     ![IntelliJ IDEA - Résultat de la console interactive](./media/intellij-tool-synapse/interactive-console-result.png)
 
 ### <a name="send-selection-to-spark-console"></a>Envoyer la sélection vers la console Spark
 
-Il est pratique pour vous de prévoir le résultat du script en envoyant du code à la console locale ou à la console de session interactive Livy (Scala). Vous pouvez mettre en surbrillance du code dans le fichier Scala, puis cliquer avec le bouton droit sur **Send Selection To Spark Console** (Envoyer la sélection vers la console Spark). Le code sélectionné est envoyé vers la console pour être exécuté. Le résultat s’affiche après le code dans la console. La console vérifie les erreurs, le cas échant.
+Vous pouvez voir le résultat du script en envoyant du code vers la console locale ou la console de sessions interactives Livy (Scala). Pour cela, vous pouvez mettre en surbrillance du code dans le fichier Scala, puis cliquer avec le bouton droit sur **Send Selection To Spark Console** (Envoyer la sélection vers la console Spark). Le code sélectionné est envoyé vers la console pour être exécuté. Le résultat s’affiche après le code dans la console. La console va vérifie les éventuelles erreurs.
 
    ![Envoyer la sélection vers la console Spark](./media/intellij-tool-synapse/send-selection-to-console.png)
 

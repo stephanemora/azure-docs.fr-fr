@@ -1,25 +1,27 @@
 ---
-title: Modifier les informations de contact de votre compte Azure
-description: Décrit comment modifier les informations de contact de votre compte d’administration Azure.
+title: Modifier les informations de contact d’un compte de facturation Azure
+description: Décrit comment modifier les informations de contact de votre compte de facturation Azure
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6045afba230fa204dd5f93adc11b67ff0e3e209f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: contperfq1
+ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684896"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297723"
 ---
-# <a name="change-the-contact-information-for-your-azure-account"></a>Modifier les informations de contact de votre compte Azure
+# <a name="change-contact-information-for-an-azure-billing-account"></a>Modifier les informations de contact d’un compte de facturation Azure
 
-Cet article vous aide à mettre à jour les informations de contact de votre compte dans le portail Azure. Les instructions permettant de mettre à jour les informations de contact varient en fonction du type de compte de facturation. Pour plus d’informations sur les comptes de facturation et savoir comment identifier le type de votre compte de facturation, consultez [Afficher les comptes de facturation dans le portail Azure](view-all-accounts.md).
+Cet article vous aide à mettre à jour les informations de contact d’un *compte de facturation* dans le Portail Azure. Les instructions permettant de mettre à jour les informations de contact varient en fonction du type de compte de facturation. Pour plus d’informations sur les comptes de facturation et savoir comment identifier le type de votre compte de facturation, consultez [Afficher les comptes de facturation dans le portail Azure](view-all-accounts.md). Un compte de facturation Azure est distinct du compte d’utilisateur Azure et du [compte Microsoft](https://account.microsoft.com/).
+
+Si vous voulez mettre à jour les informations de votre profil d’utilisateur Azure Active Directory, seul un administrateur d’utilisateurs peut apporter des modifications. Si vous n’avez pas le rôle d’administrateur d’utilisateurs, contactez la personne concernée. Pour plus d’informations sur la modification du profil d’utilisateur, consultez [Ajouter ou mettre à jour les informations du profil de l’utilisateur avec Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Adresse du donneur d’ordre* : l’adresse du donneur d’ordre est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable d’un compte de facturation. Elle s’affiche dans toutes les factures générées pour le compte de facturation.
 
@@ -31,21 +33,21 @@ Cet article vous aide à mettre à jour les informations de contact de votre com
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de l’adresse e-mail disposant de l’autorisation d’administration de compte sur ce compte.
 1. Recherchez **Gestion des coûts + facturation**.  
-    ![Capture d’écran montrant la recherche dans le portail pour Gestion des coûts + facturation](./media/change-azure-account-profile/search-cmb.png)
+    ![Capture d’écran montrant la recherche de « gestion des coûts + facturation » dans le Portail Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Sélectionnez **Propriétés** dans la partie gauche.  
-    ![Capture d’écran montrant la page de mise à jour de l’adresse](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![Capture d’écran montrant les propriétés d’un compte de facturation MOSP](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. Sélectionnez **Mettre à jour l’adresse de facturation** pour mettre à jour l’adresse du donneur d’ordre et l’adresse de facturation. Entrez la nouvelle adresse, puis sélectionnez **Enregistrer**.  
-    ![Capture d’écran montrant la page de mise à jour de l’adresse](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![Capture d’écran illustrant la mise à jour de l’adresse pour le compte de facturation MOSP](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Mettre à jour une adresse de donneur d’ordre d’un compte de facturation MCA
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de l’adresse e-mail disposant d’un rôle propriétaire ou contributeur sur le compte de facturation d’un contrat client Microsoft.
 1. Recherchez **Gestion des coûts + facturation**.  
-    ![Capture d’écran montrant la recherche dans le portail pour Gestion des coûts + facturation](./media/change-azure-account-profile/search-cmb.png)
+    ![Capture d’écran montrant la zone de recherche dans le Portail Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Sélectionnez **Propriétés** dans la partie gauche, puis sélectionnez **Mettre à jour le donneur d’ordre**.  
-    ![Capture d’écran montrant la sélection de la mise à jour du donneur d’ordre](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![Capture d’écran montrant les propriétés d’un compte de facturation MCA, dans lesquelles vous pouvez modifier l’adresse du donneur d’ordre](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. Entrez la nouvelle adresse, puis sélectionnez **Enregistrer**.  
-    ![Capture d’écran montrant la mise à jour de l’adresse](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![Capture d’écran montrant la modification de l’adresse du donneur d’ordre pour un compte MCA](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > Certains comptes nécessitent une vérification supplémentaire avant de pouvoir mettre à jour leur donneur d’ordre. Si votre compte a besoin d’une approbation manuelle, il vous sera demandé de contacter le support Azure.
@@ -54,13 +56,12 @@ Cet article vous aide à mettre à jour les informations de contact de votre com
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de l’adresse e-mail disposant d’un rôle propriétaire ou collaborateur sur un compte de facturation ou un profil de facturation pour un MCA.
 1. Recherchez **Gestion des coûts + facturation**.  
-    ![Capture d’écran montrant la recherche dans le portail pour Gestion des coûts + facturation](./media/change-azure-account-profile/search-cmb.png)
 1. Sélectionnez **Profils de facturation** sur le côté gauche.
 1. Sélectionnez un profil de facturation pour mettre à jour l’adresse de facturation.  
-    ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![Capture d’écran montrant la page Profils de facturation, où vous pouvez sélectionner un profil de facturation](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Sélectionnez **Propriétés** dans la partie gauche.
 1. Sélectionnez **Mettre à jour l’adresse**.  
-    ![Capture d’écran montrant la recherche dans le portail pour Gestion des coûts + facturation](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![Capture d’écran montrant où modifier l’adresse](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Entrez la nouvelle adresse, puis sélectionnez **Enregistrer**.  
     ![Capture d’écran montrant la mise à jour de l’adresse](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
@@ -83,11 +84,9 @@ Entrez l’adresse e-mail sur laquelle vous souhaitez recevoir des communication
 
 Vous pouvez modifier votre adresse e-mail de contact en utilisant l’une des méthodes suivantes. La mise à jour de votre adresse e-mail de contact ne met pas à jour l’adresse e-mail avec laquelle vous vous connectez.
 
-* Si vous êtes administrateur de compte d’un compte MOSP, suivez les instructions dans [Mettre à jour une adresse de compte de facturation MOSP](#update-an-mosp-billing-account-address) et sélectionnez **Mettre à jour les informations de contact** à la dernière étape. Ensuite, entrez la nouvelle adresse e-mail.
-
-* Accédez à la section [Informations de contact](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) du portail Azure et entrez la nouvelle adresse e-mail. 
-
-* Dans le [portail Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), sélectionnez l’icône avec vos initiales ou votre photo. Puis, sélectionnez le menu contextuel ( **...** ). Ensuite, sélectionnez **Mes informations de contact** dans le menu et entrez la nouvelle adresse e-mail.
+1. Si vous êtes administrateur de compte d’un compte MOSP, suivez les instructions dans [Mettre à jour une adresse de compte de facturation MOSP](#update-an-mosp-billing-account-address) et sélectionnez **Mettre à jour les informations de contact** à la dernière étape. Ensuite, entrez la nouvelle adresse e-mail.
+1. Accédez à la section [Informations de contact](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) du portail Azure et entrez la nouvelle adresse e-mail. 
+1. Dans le [portail Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), sélectionnez l’icône avec vos initiales ou votre photo. Puis, sélectionnez le menu contextuel ( **...** ). Ensuite, sélectionnez **Mes informations de contact** dans le menu et entrez la nouvelle adresse e-mail.
 
 ![Exemple de mise à jour d’une adresse e-mail dans Azure](./media/change-azure-account-profile/azure-contact-information.png)
 

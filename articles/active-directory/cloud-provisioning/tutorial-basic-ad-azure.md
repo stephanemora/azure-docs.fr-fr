@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266307"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutoriel : Environnement Azure Active Directory simple
 
 Ce tutoriel vous guide dans la création d’un environnement Active Directory simple. 
 
-![Créer](media/tutorial-single-forest/diagram1.png)
+![Schéma illustrant un environnement Azure AD de base.](media/tutorial-single-forest/diagram1.png)
 
 Vous pouvez utiliser l’environnement que vous créez dans le tutoriel pour tester divers aspects des scénarios d’identité hybride et en faire un prérequis pour certains tutoriels.  Si vous disposez déjà d’un environnement Active Directory existant, vous pouvez l’utiliser comme substitut.  Ces informations sont fournies aux personnes qui commencent à partir de rien.
 
@@ -200,7 +200,7 @@ Vous devez à présent créer un locataire Azure AD pour synchroniser vos utili
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
 3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
 4. Sélectionnez **Create** (Créer).</br>
-![Créer](media/tutorial-single-forest/create1.png)</br>
+![Capture d’écran montrant la page Azure Active Directory dans le portail Azure.](media/tutorial-single-forest/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.
 
@@ -208,7 +208,7 @@ Vous devez à présent créer un locataire Azure AD pour synchroniser vos utili
 Maintenant que vous disposez d’un locataire Azure AD, vous allez créer un compte d’administrateur général.  Pour créer le compte d’administrateur général, procédez comme suit.
 
 1.  Sous **Gérer**, sélectionnez **Utilisateurs**.</br>
-![Créer](media/tutorial-single-forest/administrator1.png)</br>
+![Capture d’écran montrant le menu « Vue d’ensemble » avec l’option « Utilisateurs » sélectionnée.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Sélectionnez **Tous les utilisateurs**, puis **+ Nouvel utilisateur**.
 3.  Renseignez un nom et un nom d’utilisateur pour cet utilisateur. Il s’agit de votre administrateur général pour le locataire. Vous devez également définir le **rôle d’annuaire** sur **Administrateur général**. Vous pouvez également afficher le mot de passe temporaire. Lorsque vous avez terminé, sélectionnez **Créer**.</br>
 ![Créer](media/tutorial-single-forest/administrator2.png)</br>

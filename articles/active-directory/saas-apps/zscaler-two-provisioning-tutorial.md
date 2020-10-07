@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bea34b2a8b8827b709cc637c0a33132477419a83
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3cd69876eb5fa18d9763bd7f89233d7608384ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317500"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Two pour le provisionnement automatique d’utilisateurs
 
@@ -119,7 +119,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Zscaler Two. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler Two dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Groups to Zscaler Two** (Synchroniser les groupes Azure Active Directory avec Zscaler Two) :
 
@@ -127,7 +127,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 13. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler Two. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler Two dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Pour configurer des filtres d’étendue, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](./../active-directory-saas-scoping-filters.md).
 

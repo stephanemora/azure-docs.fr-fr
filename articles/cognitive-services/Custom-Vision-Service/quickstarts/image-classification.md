@@ -1,20 +1,22 @@
 ---
-title: 'Démarrage rapide : Créer une classification d’images avec la bibliothèque de client Custom Vision'
-description: 'Démarrage rapide : Créer un projet, ajouter des étiquettes, charger des images, entraîner un projet et faire une prédiction avec le SDK Custom Vision'
+title: 'Démarrage rapide : Classification d’images avec la bibliothèque de client Custom Vision'
+titleSuffix: Azure Cognitive Services
+description: 'Démarrage rapide : Créer un projet de classification d’images, ajouter des étiquettes, charger des images, entraîner un projet et faire une prédiction avec la bibliothèque de client Custom Vision'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/17/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.date: 09/14/2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: custom vision, reconnaissance d’images, application de reconnaissance d’images, analyse d’images, logiciel de reconnaissance d’images
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 805a88824d0fdf3102fb56ebcb02eb0d6dfa36bc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6583086c4b64c50f0cbef1fc12b7f4dc9e36be1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321054"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Démarrage rapide : Créer un projet de classification d’images avec la bibliothèque de client Custom Vision
 

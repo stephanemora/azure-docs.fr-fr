@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288217"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
@@ -29,7 +29,7 @@ Suggestions pour choisir le nombre idéal de Data Warehouse Units (DWU) en vue d
 
 ### <a name="data-warehouse-units"></a>Data Warehouse Units
 
-Un pool Synapse SQL représente une collection de ressources analytiques en cours de provisionnement. Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S. Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
+Un pool Synapse SQL représente une collection de ressources analytiques en cours de provisionnement. Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S. Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Un changement de votre niveau de service modifie le nombre de DWU disponibles pour le système. À son tour, cette modification ajuste les performances et le coût de votre système.
 
 Pour un meilleur niveau de performance, vous pouvez augmenter le nombre de DWU. Pour un niveau de performance inférieur, vous pouvez diminuer le nombre de DWU. Les coûts de stockage et de calcul sont facturés séparément. Ainsi, la modification des DWU n’a pas d’effet sur les coûts de stockage.
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Pour modifier les DWU :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com), ouvrez votre base de données, puis cliquez sur **Mettre à l’échelle**.
+1. Ouvrez le [portail Azure](https://portal.azure.com), ouvrez votre base de données, puis sélectionnez **Mettre à l’échelle**.
 
 2. Sous **Mettre à l’échelle**, déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
 
-3. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
+3. Sélectionnez **Enregistrer**. Un message de confirmation s’affiche. Sélectionnez **Oui** pour confirmer, ou **Non** pour annuler.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -180,7 +180,7 @@ Les modifications de DWU peuvent prendre plusieurs minutes. Si vous effectuez un
 
 Nous vous conseillons de vérifier l’état de la base de données en différents points de terminaison afin d’implémenter correctement l’automatisation. Si le portail vous informe de la fin d’une opération et de l’état actuel des bases de données, il ne vous permet pas de programmer la vérification de l’état.
 
-Vous ne pouvez pas vérifier l’état de la base de données pour les opérations de montée en puissance avec le portail Azure.
+Vous ne pouvez pas vérifier l’état de la base de données pour les opérations de scale-out avec le portail Azure.
 
 Pour vérifier l’état des modifications de DWU :
 

@@ -1,6 +1,6 @@
 ---
 title: Diffuser en continu des fichiers vidéo avec Azure Media Services - .NET | Microsoft Docs
-description: Suivez les étapes de tutoriel pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Lecteur multimédia Azure.
+description: Suivez les étapes de ce tutoriel utiliser .NET afin de créer un compte Azure Media Services, encoder un fichier et le streamer vers le Lecteur multimédia Azure.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268687"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - .NET
 
@@ -70,7 +70,7 @@ Lorsque vous exécutez l’application, les URL qui peuvent être utilisées pou
 1. Appuyez sur Ctrl + F5 pour exécuter l’application *EncodeAndStreamFiles*.
 2. Choisissez le protocole **HLS** d’Apple (se termine par *manifest(format=m3u8-aapl)* ), puis copiez l’URL de diffusion en continu à partir de la console.
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Capture d’écran de la sortie de l’application EncodeAndStreamFiles dans Visual Studio montrant trois URL de streaming à utiliser dans le Lecteur multimédia Azure.](./media/stream-files-tutorial-with-api/output.png)
 
 Le [code source](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) de l’exemple montre comment l’URL est construite. Pour générer cette URL, vous devez concaténer le nom d’hôte du point de terminaison de streaming et le chemin d’accès au localisateur de diffusion en continu.  
 

@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f97aab59d38e9b15838a78d0227bc2848615cd92
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3442c3b6023edcde97aabcb13e91120ba6811027
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323071"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide d’Azure CLI
 
@@ -91,7 +91,7 @@ az blockchain member create \
 | **protocol** | Protocole Blockchain. Actuellement, le protocole *Quorum* est pris en charge.
 | **consortium** | Nom du consortium à rejoindre ou créer. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
 | **consortium-management-account-password** | Le mot de passe du compte consortium est également appelé mot de passe du compte du membre. Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
-| **sku** | Niveau de service. *Standard* ou *De base*. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Vous devez également utiliser le niveau *Standard* si vous utilisez Blockchain Data Manager, ou si vous envoyez un volume élevé de transactions privées. Après la création du membre, le changement du niveau tarifaire entre le niveau de base et le niveau standard n’est pas prise en charge.
+| **sku** | Niveau de service. *Standard* ou *De base*. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Utilisez également le niveau *Standard* si vous utilisez Blockchain Data Manager ou si vous envoyez un volume élevé de transactions privées. Après la création du membre, le changement du niveau tarifaire entre le niveau de base et le niveau standard n’est pas prise en charge.
 
 La création du membre blockchain et des ressources de prise en charge prend environ 10 minutes.
 

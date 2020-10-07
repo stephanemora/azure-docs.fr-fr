@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320555"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Qu’est-ce qu’Azure Key Vault Managed HSM (préversion) ?
 
@@ -33,7 +33,7 @@ Azure Key Vault Managed HSM est un service cloud complètement managé, à haut 
 
 - **Gestion centralisée des clés** : gérez les clés critiques et à forte valeur à l’échelle de votre organisation depuis un seul et même emplacement. Avec des autorisations précises par clé, contrôlez l’accès à chaque clé selon le principe de l’accès à privilèges minimum.
 - **Contrôle d’accès isolé** : le modèle de contrôle d’accès « RBAC local » de Managed HSM permet aux administrateurs de cluster HSM désignés de disposer d’un contrôle total sur les HSM que même les administrateurs de groupes d’administration, d’abonnements ou de groupes de ressources ne peuvent pas remplacer.
-- **HSM certifiés FIPS 140-2 de niveau 3** : protégez vos données et respectez les exigences de conformité avec des HSM certifiés FIPS (Federal Information Protection Standard) 140-2 de niveau 3. Les HSM managés s’appuient sur la famille de HSM Marvell LiquidSecurity.
+- **HSM certifiés FIPS 140-2 de niveau 3** : protégez vos données et respectez les exigences de conformité avec des HSM certifiés FIPS (Federal Information Protection Standard) 140-2 de niveau 3. Les HSM managés utilisent les adaptateurs HSM Marvell LiquidSecurity.
 - **Superviser et auditer** : entièrement intégré à Azure Monitor. Obtenez des journaux complets de toutes les activités via Azure Monitor. Utilisez Azure Log Analytics pour l’analytique et les alertes.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Intégré aux services PaaS/SaaS d’Azure et Microsoft 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292470"
 ---
 # <a name="chat-concepts"></a>Concepts relatifs aux conversations
 
@@ -28,7 +28,7 @@ Pour en savoir plus sur les langages et les fonctionnalités de la bibliothèque
 
 Les conversations ont lieu dans des fils de conversation. Un fil de conversation peut contenir de nombreux messages et utilisateurs. Chaque message appartient à un seul fil et un utilisateur peut faire partie d’un ou de plusieurs fils. 
 
-Les utilisateurs d’un fil de conversation en sont des « membres ». Un fil de conversation peut comprendre jusqu’à 250 membres. Seuls les membres du fil peuvent envoyer et recevoir des messages, ainsi qu’ajouter ou supprimer des membres dans le fil de conversation. La taille maximale autorisée pour un message est d’environ 28 Ko. Communication Services stocke l’historique des conversations jusqu’à ce que vous exécutiez une opération de suppression sur le fil de conversation. Vous pouvez récupérer tous les messages d’un fil de conversation à l’aide de l’opération `List/Get Messages`.
+Les utilisateurs d’un fil de conversation en sont des « membres ». Un fil de conversation peut comprendre jusqu’à 250 membres. Seuls les membres du fil peuvent envoyer et recevoir des messages, ainsi qu’ajouter ou supprimer des membres dans le fil de conversation. La taille maximale autorisée pour un message est d’environ 28 Ko. Vous pouvez récupérer tous les messages d’un fil de conversation à l’aide de l’opération `List/Get Messages`. Communication Services stocke l’historique de conversation jusqu’à ce que vous exécutiez une opération de suppression sur le fil de conversation ou message, ou jusqu’à ce qu’il ne reste aucun membre dans le fil de conversation, auquel cas ce dernier est considéré comme orphelin et supprimé.   
 
 Pour les fils de conversation comprenant plus de 20 membres, les confirmations de lecture et l’indicateur de saisie sont désactivés. 
 
@@ -130,7 +130,7 @@ Pour ce faire, vous pouvez faire en sorte que votre service approuvé agisse en 
 
 De cette façon, l’historique des messages contient à la fois les messages d’origine et les messages traduits. Dans l’application cliente, vous pouvez ajouter une logique pour afficher le message d’origine ou le message traduit. Pour savoir comment utiliser les API cognitives dans le but de traduire du texte en différentes langues, consultez [ce guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate). 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramme montrant Cognitive Services qui interagit avec Communication Services":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramme montrant l’architecture des conversations dans Communication Services":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

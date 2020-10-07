@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure AD avec FortiGate SSL VPN'
-description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et FortiGate SSL VPN.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à FortiGate SSL VPN | Microsoft Docs'
+description: Découvrez les étapes à suivre pour intégrer FortiGate SSL VPN à Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FortiGate SSL VPN
 
@@ -94,16 +94,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
     > [!NOTE]
     > Ces valeurs sont juste des modèles. Vous devez utiliser l’**URL de connexion**, l’**identificateur**, l’**URL de réponse** et l’**URL de déconnexion** réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique FortiGate SSL VPN](mailto:tac_amer@fortinet.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. FortiGate SSL VPN attend les assertions SAML dans un format spécifique. Par conséquent, vous devrez ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. Cette capture d’écran montre les attributs par défaut :
+1. L’application FortiGate SSL VPN s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration. La capture d’écran suivante montre la liste des attributs par défaut.
 
     ![Capture d’écran montrant les attributs par défaut.](common/default-attributes.png)
 
-1. FortiGate SSL VPN s’attend également à ce que quelques attributs supplémentaires soient retournés dans la réponse SAML. Ces attributs sont présentés dans le tableau suivant. Ils sont également préremplis, mais vous pouvez les examiner, en prenant en compte vos exigences.
-    
-    | Nom |  Attribut source|
-    | ------------ | --------- |
-    | username | user.userprincipalname |
-    | group | user.groups |
+1. Les deux revendications supplémentaires exigées par FortiGate SSL VPN sont indiquées dans le tableau suivant. Les noms de ces revendications doivent correspondre aux noms utilisés dans la section **Exécuter la configuration de ligne de commande FortiGate** de ce tutoriel. 
+
+   | Nom |  Attribut source|
+   | ------------ | --------- |
+   | username | user.userprincipalname |
+   | group | user.groups |
+   
+   Pour créer ces revendications supplémentaires :
+   
+   1. En regard de **Attributs utilisateur et revendications**, sélectionnez **Modifier**.
+   1. Sélectionnez **Ajouter une nouvelle revendication**.
+   1. Pour **Nom**, entrez **username**.
+   1. Pour **Attribut source**, sélectionnez **user.userprincipalname**.
+   1. Sélectionnez **Enregistrer**.
+   1. Sélectionnez **Ajouter une revendication de groupe**.
+   1. Sélectionnez **Tous les groupes**.
+   1. Cochez la case **Personnaliser le nom de la revendication de groupe**.
+   1. Pour **Nom**, entrez **group**.
+   1. Sélectionnez **Enregistrer**.   
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** en regard de **Certificat (en base64)** pour télécharger le certificat et l’enregistrer sur votre ordinateur :
 

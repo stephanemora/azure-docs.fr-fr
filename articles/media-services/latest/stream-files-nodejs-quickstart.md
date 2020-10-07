@@ -10,15 +10,15 @@ keywords: azure media services, diffuser en continu
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 901287a82ece873a572d7773dd53f80e1e8af716
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268670"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - Node.js
 
@@ -74,7 +74,7 @@ L’exemple effectue les actions suivantes :
 
 Une fois l’exécution terminée, vous devez voir une sortie similaire à celle-ci :
 
-![Exécuter](./media/stream-files-nodejs-quickstart/run.png)
+![Capture d’écran d’une fenêtre de commande avec la sortie de l’exemple d’application StreamFileSample montrant les URL de trois fichiers téléchargés dans le répertoire local.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Test avec Azure Media Player
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327936"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutoriel : Créer une stratégie WAF sur Azure CDN à l’aide du portail Azure
 
@@ -72,17 +72,22 @@ Pour créer une règle personnalisée, sélectionnez **Ajouter une règle person
 
 La capture d’écran suivante montre une règle de correspondance personnalisée permettant de bloquer une demande si la chaîne de requête contient la valeur **blockme**.
 
-![Changer le mode de stratégie WAF](../media/waf-cdn-create-portal/custommatch.png)
+![Ajouter une règle de correspondance personnalisée](../media/waf-cdn-create-portal/custommatch.png)
 
 Les règles de limite de débit nécessitent deux champs supplémentaires : **Durée de la limite de débit** et **Seuil limite du débit (demandes)** comme indiqué dans l’exemple suivant :
 
-![Changer le mode de stratégie WAF](../media/waf-cdn-create-portal/customrate.png)
+![Ajouter une règle de limitation du débit](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>Ensemble de règles par défaut
 
 L’ensemble de règles par défaut managées par Azure est activé par défaut. Pour désactiver une règle spécifique dans un groupe de règles, développez les règles de celui-ci, cochez la case devant le numéro de la règle, puis sélectionnez **Désactiver** sous l’onglet situé au-dessus. Pour changer le type d’action associée à une règle dans l’ensemble de règles, sélectionnez la case à cocher devant le numéro de la règle, puis sélectionnez l’onglet **Changer l’action** ci-dessus.
 
  ![Changer l’ensemble de règles WAF](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources associées.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

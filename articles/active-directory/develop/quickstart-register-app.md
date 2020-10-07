@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258130"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -59,13 +59,13 @@ Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’
 
 Le code de votre application, ou plus généralement une bibliothèque d’authentification utilisée dans votre application, utilise également l’ID client comme un aspect de la validation des jetons de sécurité reçus de la plateforme d’identités.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Capture d’écran du portail Azure dans un navigateur web montrant le volet Vue d’ensemble d’une inscription d’application.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Capture d’écran du portail Azure dans un navigateur web montrant le volet Inscrire une application.":::
 
 ## <a name="add-a-redirect-uri"></a>Ajouter un URI de redirection
 
 Un URI de redirection est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.
 
-Dans une application web de production, par exemple, l’URI de redirection est souvent un point de terminaison public sur lequel votre application s’exécute, comme `https://contoso.com/auth-response`. Pendant le développement, il est courant d’ajouter également le point de terminaison dans lequel vous exécutez votre application localement, comme `https://127.0.0.1/auth-response`.
+Dans une application web de production, par exemple, l’URI de redirection est souvent un point de terminaison public sur lequel votre application s’exécute, comme `https://contoso.com/auth-response`. Pendant le développement, il est courant d’ajouter également le point de terminaison où vous exécutez votre application localement, comme `https://127.0.0.1/auth-response` ou `http://localhost/auth-response`.
 
 Pour ajouter et modifier des URI de redirection pour vos applications inscrites, vous devez configurer leurs [paramètres de plateforme](#configure-platform-settings).
 
@@ -80,7 +80,7 @@ Pour configurer des paramètres d’application en fonction de la plateforme ou 
 1. Sous **Configurations de plateformes**, sélectionnez **Ajouter une plateforme**.
 1. Dans **Configurer des plateformes**, sélectionnez la vignette correspondant à votre type d’application (plateforme) pour configurer ses paramètres.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Capture d’écran du volet Configuration de la plateforme dans le portail Azure" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Capture d’écran du portail Azure dans un navigateur web montrant le volet Inscrire une application." border="false":::
 
     | Plateforme | Paramètres de configuration |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Les informations d’identification sont utilisées par les applications cliente
 
 Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant qu’informations d’identification à votre inscription d’application cliente confidentielle.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Capture d’écran du portail Azure montrant le volet Certificats et secrets dans une inscription d’application":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Capture d’écran du portail Azure dans un navigateur web montrant le volet Inscrire une application.":::
 
 ### <a name="add-a-certificate"></a>Ajouter un certificat
 

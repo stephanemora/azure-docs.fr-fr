@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ca330357e88ff6f4824c74a6048769638542cc29
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278020"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutoriel : Attribuer le rôle Lecteurs d’annuaires à un groupe Azure AD et gérer les attributions de rôles
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les avantages de l’attribution du rôle Lecteur
 
 Pour vérifier et gérer le groupe qui a été créé, revenez au volet **Groupes** dans le portail Azure et recherchez le nom de votre groupe. Après avoir sélectionné votre groupe, vous pouvez ajouter des propriétaires et des membres sous le menu **Propriétaires** et **Membres** du paramètre **Gérer**. Vous pouvez également consulter les **Rôles affectés** pour le groupe.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Groupe Azure AD créé":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Ajouter un nouveau groupe":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Ajouter une identité managée Azure SQL au groupe
 
@@ -68,17 +68,17 @@ Pour les étapes suivantes, l’utilisateur doté de l’autorisation Administra
 
 1. Recherchez le nom votre ressource **SQL Managed Instance** dans le portail Azure.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Instance managée Azure AD":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Ajouter un nouveau groupe":::
 
    Lors de la création de votre instance SQL Managed Instance, une identité Azure a été créée pour celle-ci. L’identité créée porte le même nom que le préfixe du nom de votre instance SQL Managed Instance. Pour trouver le principal de service de l’identité SQL Managed Instance qui a été créée en tant qu’application Azure AD, suivez ces étapes :
 
     - Accédez à la ressource **Azure Active Directory** . Sous le paramètre **Gérer**, sélectionnez **Applications d’entreprise**. L’**ID d’objet** est l’identité de l’instance.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Principal de service de l’instance managée Azure AD":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Ajouter un nouveau groupe":::
 
 1. Accédez à la ressource **Azure Active Directory** . Sous **Géré**, accédez à **Groupes**. Sélectionnez le groupe que vous avez créé. Sous le paramètre **Géré** de votre groupe, sélectionnez **Membres**. Sélectionnez **Ajouter des membres** et ajoutez le principal de service de votre instance SQL Managed Instance en tant que membre du groupe en recherchant le nom trouvé ci-dessus.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Azure AD - Ajouter le principal de service de l’instance managée Azure":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Ajouter un nouveau groupe":::
 
 > [!NOTE]
 > Plusieurs minutes peuvent être nécessaires pour propager les autorisations du principal de service via le système Azure et autoriser l’accès à l’API Graph Azure AD. Vous devrez peut-être patienter quelques minutes avant de provisionner un administrateur Azure AD pour SQL Managed Instance.

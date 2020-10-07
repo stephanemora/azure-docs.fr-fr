@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0f3e517e60037de6456bc3a549e072e58e2fa67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285416"
 ---
 # <a name="claim-and-claim-rules"></a>Revendication et règles de revendication
 
@@ -60,7 +60,7 @@ La condition est structurée comme suit :
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-La condition est composée de conditions individuelles associées aux différentes propriétés d’une revendication. Une condition peut avoir un identificateur facultatif, qui peut être utilisé pour faire référence aux revendications qui satisfont à la condition. Cette référence peut être utilisée dans les autres conditions ou l’action de la même règle.
+La liste de conditions est composée de conditions individuelles associées aux différentes propriétés d’une revendication. Une condition peut avoir un identificateur facultatif, qui peut être utilisé pour faire référence aux revendications qui satisfont à la condition. Cette référence peut être utilisée dans les autres conditions ou l’action de la même règle.
 
 Par exemple
 

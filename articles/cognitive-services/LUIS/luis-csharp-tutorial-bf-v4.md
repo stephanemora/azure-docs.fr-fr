@@ -1,15 +1,17 @@
 ---
 title: 'Tutoriel : Bot Language Understanding C# v4'
 description: À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est créé avec Bot Framework version 4 et le service du bot d’application web Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316424"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutoriel : Utiliser un Web App Bot activé avec Language Understanding dans C#
 
@@ -320,12 +322,12 @@ Dans Visual Studio 2019, démarrez le bot. Une fenêtre de navigateur s’ouvre
 
 1. Dans l’émulateur de bot, entrez `Book a flight from Seattle to Berlin tomorrow` et obtenez la même réponse pour le bot de base que celle que vous avez reçue dans le **Test dans le Chat Web** effectué dans une section précédente.
 
-    [![Réponse pour le bot de base dans l’émulateur](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Capture d’écran montrant Bot Framework Emulator bot avec une réponse de bot de base.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Sélectionnez **Oui**. Le bot répond par un résumé de ses actions.
 1. Dans le journal de l’émulateur de bot, sélectionnez la ligne qui contient `<- trace LuisV3 Trace`. Cela affiche la réponse JSON de LUIS pour l’intention et les entités de l’énoncé.
 
-    [![Réponse pour le bot de base dans l’émulateur](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Capture d’écran montrant une réponse de bot de base avec la trace LuisV3 sélectionnée et la réponse JSON mise en évidence.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 

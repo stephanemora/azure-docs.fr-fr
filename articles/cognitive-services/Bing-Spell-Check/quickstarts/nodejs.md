@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST et Node.js - Vérification orthographique Bing'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire avec ce guide de démarrage rapide.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing et Node.js pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: aaaa571928556a6972d3136ef4cacaa3bd4cb798
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 050e06a389ec1deb019677b0bd6ecc92c51d0762
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330687"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Node.js
 

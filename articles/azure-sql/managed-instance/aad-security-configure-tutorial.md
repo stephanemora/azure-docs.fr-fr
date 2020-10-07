@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283868"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité dans Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Consultez les articles suivants pour obtenir des exemples de connexion à SQL Ma
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Capture d’écran de l’onglet Résultats dans l’Explorateur d’objets SSMS montrant les détails de la connexion nouvellement ajoutée : nom, principal_id, SID, type et type_desc.](./media/aad-security-configure-tutorial/native-login.png)
 
 Pour plus d’informations, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
    - Active Directory - Authentification par mot de passe
    - Active Directory - Authentification intégrée </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Capture d’écran de la boîte de dialogue Connexion au serveur dans SSMS avec l’option « Active Directory - Authentification universelle avec MFA » sélectionnée dans la liste déroulante Authentification.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Pour plus d’informations, consultez [Authentification universelle (prise en charge de SSMS pour Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Sélectionnez **Active Directory - Authentification universelle avec MFA**. Cela entraîne l’ouverture de la fenêtre de connexion Multi-Factor Authentication. Connectez-vous avec votre mot de passe Azure AD.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Capture d’écran de la fenêtre de connexion Multi-Factor Authentication avec le curseur dans le champ Entrer le mot de passe.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. Dans l’**Explorateur d’objets** SSMS, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
 1. Dans la fenêtre de requête, utilisez la syntaxe suivante afin de créer une connexion pour un autre compte Azure AD local :
@@ -222,7 +222,7 @@ L’octroi d’autorisations pour des bases de données individuelles fonctionne
 
 Nous avons créé une base de données appelée **MyMITestDB** ainsi qu’une connexion qui a uniquement des autorisations par défaut. La prochaine étape consiste à créer un utilisateur à partir de cette connexion. Pour le moment, le compte de connexion peut se connecter à l’instance managée et voir toutes les bases de données, mais il ne peut pas interagir avec les bases de données. Si vous vous connectez avec le compte Azure AD disposant des autorisations par défaut, et si vous tentez de développer la base de données créée, le message d’erreur suivant s’affiche :
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Capture d’écran d’un message d’erreur de l’Explorateur d’objets SSMS indiquant : « La base de données MyMITestDB n’est pas accessible. (ObjectExplorer) ».](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Pour plus d’informations sur l’octroi d’autorisations de base de données, consultez [Bien démarrer avec les autorisations du Moteur de base de données](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
@@ -326,7 +326,7 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
 1. Créez une connexion à l’instance managée à l’aide de l’utilisateur ajouté au rôle `db_datareader`.
 1. Développez la base de données dans l’**Explorateur d’objets** pour voir la table.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Capture d’écran de l’Explorateur d’objets dans SSMS montrant la structure des dossiers pour les tables dans MyMITestDB. Le dossier dbo.TestTable est mis en évidence.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Ouvrez une nouvelle fenêtre de requête et exécutez l’instruction SELECT suivante :
 
@@ -337,7 +337,7 @@ Pour que les utilisateurs puissent voir les données de la base de données, nou
 
     Pouvez-vous voir les données de la table ? Vous devez voir les colonnes retournées.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Capture d’écran de l’onglet Résultats dans l’Explorateur d’objets SSMS montrant les en-têtes de colonnes de table AccountNum, City, Name et State.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Emprunter l’identité des principaux au niveau du serveur Azure AD (connexions)
 

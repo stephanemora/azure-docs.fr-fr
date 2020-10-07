@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308960"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Réactivation d’un abonnement Azure désactivé
 
@@ -32,7 +32,7 @@ Les abonnements Azure avec un crédit tel que Essai gratuit et Visual Studio Ent
 > [!NOTE]
 > Si vous utilisez un abonnement d’essai gratuit et que vous supprimez la limite de dépense, ce dernier est converti en abonnement individuel, avec des taux de paiement à l’utilisation, au terme de l’essai gratuit. Vous conservez votre crédit restant pendant les 30 jours complets suivant la création de l’abonnement. Vous avez également accès aux services gratuits pendant 12 mois.
 
-Pour superviser et gérer l’activité de facturation pour Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](getting-started.md).
+Pour surveiller et gérer les activités de facturation pour Azure, consultez [Planifier la gestion des coûts Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Votre facture est en retard
@@ -60,4 +60,4 @@ Pour les autres types d’abonnement, [contactez le support technique](https://p
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [surveiller et gérer les activités de facturation pour Azure](getting-started.md).
+- Découvrez comment [planifier la gestion des coûts Azure](../understand/plan-manage-costs.md).

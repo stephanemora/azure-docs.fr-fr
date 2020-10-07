@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de l’API REST Azure Key Vault
+title: Vue d’ensemble des clés, secrets et certificats Azure Key Vault
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés, les secrets et les certificats.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296835"
 ---
-# <a name="azure-key-vault-rest-api-overview"></a>Vue d’ensemble de l’API REST Azure Key Vault
+# <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Vue d’ensemble des clés, secrets et certificats Azure Key Vault
 
 Azure Key Vault permet aux applications Microsoft Azure et à leurs utilisateurs de stocker et d’utiliser plusieurs types de données de secret/clé. Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les coffres et les HSM managés.
 
@@ -38,12 +38,12 @@ Cloud Azure – Allemagne | .vault.microsoftazure.de | Non pris en charge
 Type d'objet|Suffixe d'URL|Coffres|Pools de HSM managés
 --|--|--|--
 **Clés de chiffrement**||
-Clés protégées par HSM|/keys|Prise en charge|Prise en charge
-Clés protégées par logiciel|/keys|Prise en charge|Non pris en charge
+Clés protégées par HSM|/keys|Pris en charge|Pris en charge
+Clés protégées par logiciel|/keys|Pris en charge|Non pris en charge
 **Autres types d’objets**||
-Secrets|/secrets|Prise en charge|Non pris en charge
-Certificats|/certificates|Prise en charge|Non pris en charge
-Clés de compte de stockage|/storageaccount|Prise en charge|Non pris en charge
+Secrets|/secrets|Pris en charge|Non pris en charge
+Certificats|/certificates|Pris en charge|Non pris en charge
+Clés de compte de stockage|/storageaccount|Pris en charge|Non pris en charge
 |||
 - **Clés de chiffrement** : Prend en charge plusieurs algorithmes et types de clés, et permet l’utilisation de clés protégées par logiciel et par HSM. Pour plus d’informations sur les clés, consultez [À propos des clés](../keys/about-keys.md).
 - **Secrets** : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données. Pour plus d’informations, consultez [À propos des secrets](../secrets/about-secrets.md).

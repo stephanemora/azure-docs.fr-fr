@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297859"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -150,7 +150,7 @@ Regardez la vidéo [Partager et enregistrer des vues dans Azure Cost Management]
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Pour épingler l’analyse des coûts, cliquez sur l’icône en forme d’épingle située dans l’angle supérieur droit. L’épinglage de l’analyse des coûts enregistre uniquement la vue du graphique ou du tableau principal. Partagez le tableau de bord pour permettre à d’autres utilisateurs d’accéder à la vignette. Notez que seule la configuration du tableau de bord est partagée et que les autres utilisateurs n’auront pas accès aux données sous-jacentes. Si bous n’avez pas accès aux coûts mais bien à un tableau de bord partagé, vous voyez s’afficher le message « Accès refusé ».
+Pour épingler l’analyse des coûts, sélectionnez l’icône d’épingle dans le coin supérieur droit ou juste après « <Subscription Name> | Analyse des coûts ». L’épinglage de l’analyse des coûts enregistre uniquement la vue du graphique ou du tableau principal. Partagez le tableau de bord pour permettre à d’autres utilisateurs d’accéder à la vignette. Notez que seule la configuration du tableau de bord est partagée et que les autres utilisateurs n’auront pas accès aux données sous-jacentes. Si bous n’avez pas accès aux coûts mais bien à un tableau de bord partagé, vous voyez s’afficher le message « Accès refusé ».
 
 Pour partager un lien vers l’analyse des coûts, sélectionnez **Partager** en haut du panneau. Une URL personnalisée s’affiche, qui permet d’ouvrir cette vue de l’étendue. Si vous n’avez pas accès aux coûts et obtenez cette URL, vous voyez s’afficher un message « accès refusé ».
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259916"
 ---
 # <a name="introduction"></a>Introduction
 
@@ -30,7 +30,7 @@ Le connecteur pool Azure Synapse Apache Spark-Synapse SQL est une implémentatio
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Authentification dans Azure Synapse Analytics
 
-L’authentification entre systèmes est rendue transparente dans Azure Synapse Analytics. Il existe un service de jeton qui se connecte à Azure Active Directory pour obtenir des jetons de sécurité à utiliser lors de l’accès au compte de stockage ou au serveur de l’entrepôt de données.
+L’authentification entre systèmes est rendue transparente dans Azure Synapse Analytics. Le service de jeton se connecte à Azure Active Directory pour obtenir des jetons de sécurité à utiliser lors de l’accès au compte de stockage ou au serveur de l’entrepôt de données.
 
 Pour cette raison, il n’est pas nécessaire de créer des informations d’identification ou de les spécifier dans l’API du connecteur, tant que l’authentification AAD est configurée sur le compte de stockage et le serveur de l’entrepôt de données. Si ce n’est pas le cas, l’authentification SQL peut être spécifiée. Pour plus d’informations, consultez la section [Utilisation](#usage).
 
@@ -91,7 +91,7 @@ L’API ci-dessus fonctionne pour les tables internes (gérées) et externes dan
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-L’API d’écriture crée la table dans le pool SQL, puis appelle Polybase pour charger les données.  La table ne doit pas exister dans le pool SQL, sinon une erreur est retournée indiquant qu’il existe déjà un objet nommé.
+L’API d’écriture crée la table dans le pool SQL, puis appelle Polybase pour charger les données.  La table ne doit pas exister dans le pool SQL, sinon une erreur est retournée indiquant qu’« il existe déjà un objet nommé... »
 
 Valeurs TableType
 
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Table externe dans le pool SQL
 
-Pour écrire dans une table externe dans le pool SQL, une EXTERNAL DATA SOURCE et un EXTERNAL FILE FORMAT doivent exister dans le pool SQL.  Pour plus d’informations, consultez [Création d’une source de données externe](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et de [formats de fichiers externes](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dans le pool SQL.  Vous trouverez ci-dessous des exemples de création d’une source de données externe et de formats de fichiers externes dans le pool SQL.
+Pour écrire dans une table externe dans le pool SQL, une EXTERNAL DATA SOURCE et un EXTERNAL FILE FORMAT doivent exister dans le pool SQL.  Pour plus d’informations, consultez [Création d’une source de données externe](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et de [formats de fichiers externes](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dans le pool SQL.  Vous trouverez ci-dessous des exemples de création d’une source de données externe et de formats de fichiers externes dans le pool SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258096"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java
 
@@ -193,15 +193,16 @@ Si vous souhaitez déployer l’exemple web sur Tomcat, vous devrez apporter que
 3.   Le port HTTP par défaut de Tomcat est 8080, même si une connexion HTTPS sur le port 8443 est nécessaire. Pour configurer cela :
         - Accédez à tomcat/conf/server.xml
         - Recherchez la balise `<connector>`, puis remplacez le connecteur existant par :
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Ouvrez une invite de commandes, accédez au dossier racine de cet exemple (où se trouve le fichier pom.xml), puis exécutez `mvn package` pour générer le projet.
     - Un fichier `msal-web-sample-0.1.0.war` est généré dans votre répertoire /targets.
     - Renommez ce fichier `msal4jsample.war`.
@@ -249,16 +250,11 @@ Ajoutez la référence à MSAL for Java en ajoutant le code suivant au début du
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les autorisations et le consentement :
+Pour obtenir une présentation plus approfondie de la génération d’applications web qui connectent des utilisateurs à la plateforme d’identités Microsoft, passez à notre série de scénarios en plusieurs parties :
 
 > [!div class="nextstepaction"]
-> [Autorisations et consentement](./v2-permissions-and-consent.md)
-
-Pour en savoir plus sur le flux d’authentification applicable à ce scénario, consultez cet article sur le flux du code d’autorisation OAuth 2.0 :
-
-> [!div class="nextstepaction"]
-> [Flux du code d’autorisation OAuth](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Scénario : application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md?tabs=java)

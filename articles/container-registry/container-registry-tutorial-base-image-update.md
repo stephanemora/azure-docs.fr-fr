@@ -3,13 +3,13 @@ title: Tutoriel – Déclencher la génération d’images lors de la mise à j
 description: Dans ce tutoriel, vous allez découvrir comment configurer une tâche Azure Container Registry pour déclencher automatiquement la génération d’images conteneur dans le cloud lorsqu’une image de base est mise à jour dans le même registre.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 0efac34d05dfaf8877efec2e66f1f95a19ca95be
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 0b87f4ca138e0da76efd184e87f12bec32e3960e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262244"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutoriel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
@@ -133,7 +133,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Accédez à `http://localhost:8080` dans le navigateur ; vous devez voir le numéro de version Node.js affiché dans la page web, comme dans l’exemple suivant. Dans une étape ultérieure, vous allez augmenter le numéro de version en ajoutant un « a » à la chaîne de version.
 
-![Capture d’écran de votre exemple d’application affichée dans le navigateur][base-update-01]
+![Capture d’écran montrant un exemple d’application affiché dans le navigateur.][base-update-01]
 
 Pour arrêter et supprimer le conteneur, exécutez la commande suivante :
 

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de Stockage Table Azure
-description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL.
+description: Découvrez comment utiliser le Stockage Table pour stocker des jeux de données flexibles, comme des données utilisateur pour des applications web, des carnets d’adresses, des informations sur les appareils ou d’autres types de métadonnées.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76770734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318719"
 ---
 # <a name="azure-table-storage-overview"></a>Vue d’ensemble du stockage de table Azure
 

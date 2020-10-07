@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265270"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -53,8 +53,8 @@ Identity Protection identifie les risques selon les classifications suivantes :
 | Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
 | Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné. |
 | Adresse IP liée à un programme malveillant | Connexion à partir d’une adresse IP liée à un programme malveillant. |
-| Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fuité. |
-| Pulvérisation de mots de passe | Indique que plusieurs noms d’utilisateurs font l’objet d’une attaque par force brute unifiée avec des mots de passe communs. |
+| Informations d'identification divulguées | Indique que les informations d’identification valides de l’utilisateur ont été divulguées. |
+| Pulvérisation de mots de passe | Indique que plusieurs noms d’utilisateurs font l’objet d’une attaque par force brute unifiée avec des mots de passe courants. |
 | Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu. |
 
 Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
@@ -102,7 +102,7 @@ Les administrateurs d’accès conditionnel peuvent également créer des strat�
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Fonctionnalité | Détails  | Azure AD Free / Applications Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
+| Fonctionnalité | Détails  | Applications Azure AD Free / Microsoft 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
 | Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection)  | Non | Non |Oui | 
 | Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel)  | Non |  Non |Oui |

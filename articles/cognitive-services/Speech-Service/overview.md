@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2277c054be3e0649d48350b21eb9add2a1e52e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282865"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -74,13 +74,13 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
    - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
    - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
    - Choisissez la [région](regions.md) où la ressource sera utilisée.
-   - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification**.
+   - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification**. Pour connaître les limites des ressources que vous pouvez créer pour chaque abonnement, consultez [Limites d’Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
    - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.
-
+<!--
 > [!NOTE]
-> Vous pouvez créer autant d’abonnements de niveau standard que vous le souhaitez dans une ou plusieurs régions. Toutefois, vous ne pouvez créer qu’un seul abonnement de niveau gratuit. Les modèles de déploiement au niveau gratuit qui restent inutilisés durant sept jours sont supprimés automatiquement.
-
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
 Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** et, dans le volet de navigation gauche, sélectionnez **Clés** pour afficher vos clés d’abonnement au service Speech. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Pour copier-coller rapidement une clé dans votre éditeur de code ou dans un autre emplacement, cliquez sur le bouton Copier à côté de chaque clé, puis changez de fenêtre pour coller le contenu du Presse-papiers à l’emplacement souhaité.
 
 > [!IMPORTANT]

@@ -5,12 +5,12 @@ ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions
-ms.openlocfilehash: 5632c8a17c5ac25c8b4b436297d0dd5a0071df26
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a7f5aaea56f34e8107664ab786a14b59cd1cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292726"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Démarrage rapide : Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Un membre Azure Blockchain Service est un nœud blockchain dans un réseau block
     Consortium | Pour un nouveau consortium, entrez un nom unique. Si vous rejoignez un consortium par le biais d’une invitation, choisissez le consortium que vous rejoignez. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
     Nom | Choisissez un nom unique pour le membre Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.
     Mot de passe du compte du membre | Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
-    Tarifs | Configuration des nœuds et coût de votre nouveau service. Sélectionnez le lien **Modifier** pour choisir le niveau **Standard** ou **De base**. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Vous devez également utiliser le niveau *Standard* si vous utilisez Blockchain Data Manager, ou si vous envoyez un volume élevé de transactions privées. Après la création du membre, le changement du niveau tarifaire entre le niveau de base et le niveau standard n’est pas pris en charge.
+    Tarifs | Configuration des nœuds et coût de votre nouveau service. Sélectionnez le lien **Modifier** pour choisir le niveau **Standard** ou **De base**. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Utilisez également le niveau *Standard* si vous utilisez Blockchain Data Manager ou si vous envoyez un volume élevé de transactions privées. Après la création du membre, le changement du niveau tarifaire entre le niveau de base et le niveau standard n’est pas pris en charge.
     Mot de passe du nœud | Le mot de passe du nœud de transaction par défaut du membre. Utilisez le mot de passe pour l’authentification de base lorsque vous vous connectez au point de terminaison public du nœud de transaction par défaut du membre blockchain.
 
 1. Sélectionnez **Vérifier + créer** pour valider vos paramètres. Sélectionnez **Créer** pour provisionner le service. Le provisionnement prend environ 10 minutes.

@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289376"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Chaînes de connexion pour Synapse SQL (préversion)
 
 Vous pouvez vous connecter à Synapse SQL (préversion) avec plusieurs protocoles d’application différents, comme [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) et [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Voici quelques exemples de chaînes de connexion pour chaque protocole. 
 
-Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux*, cliquez sur *Afficher les chaînes de connexion de la base de données*.
+Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux*, sélectionnez *Afficher les chaînes de connexion de la base de données*.
 
 ## <a name="sample-adonet-connection-string"></a>Exemple de chaîne de connexion ADO.NET
 

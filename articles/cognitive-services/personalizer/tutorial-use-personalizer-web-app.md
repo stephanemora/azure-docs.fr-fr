@@ -4,12 +4,12 @@ description: Personnalisez une application web .NET C# à l’aide d’une boucl
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316220"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutoriel : Ajouter Personalizer à une application web .NET
 
@@ -254,7 +254,7 @@ Créez et exécutez HttpRequestFeaturesExample de l’une des méthodes suivante
 Via un navigateur web, vous pouvez envoyer une demande de classement et une demande de récompense et voir leurs réponses, ainsi que les fonctionnalités de requête HTTP extraites de votre environnement.
 
 > [!div class="mx-imgBorder"]
-> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Capture d’écran montrant un exemple de la fonctionnalité de requête HTTP dans un navigateur web.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Illustrer la boucle Personalizer
 
@@ -267,7 +267,7 @@ Via un navigateur web, vous pouvez envoyer une demande de classement et une dema
 1. Définissez la valeur de récompense, puis sélectionnez le bouton **Envoyer une demande de récompense**. Si vous ne modifiez pas la valeur de récompense, l’application du client envoie toujours la valeur `1` à Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Capture d’écran montrant la section de demande de récompense.](./media/tutorial-web-app/reward-score-api-call.png)
 
     Pour votre future application, la génération du score de récompense peut se faire après avoir recueilli des informations sur le comportement de l’utilisateur sur le client, ainsi que la logique métier sur le serveur.
 

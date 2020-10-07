@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 6c76fcc0fefdf8aa3ae97a4c131481f7ea6ada81
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288849"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -29,7 +29,7 @@ Dans un pool SQL, vous pouvez utiliser une table externe pour :
 - Interroger Stockage Blob Azure et Azure Data Lake Gen2 avec des instructions Transact-SQL.
 - Importer et stocker des données à partir de Stockage Blob Azure et Azure Data Lake Storage dans le pool SQL.
 
-Utilisée conjointement avec l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), la sélection à partir d’une table externe permet d’importer des données dans une table du pool SQL. Outre [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), les tables externes sont utiles pour le chargement de données. 
+Utilisée conjointement avec l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), la sélection à partir d’une table externe permet d’importer des données dans une table du pool SQL. Outre [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), les tables externes sont utiles pour le chargement de données. 
 
 Pour obtenir un tutoriel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -60,7 +60,7 @@ La table externe accède au stockage Azure sous-jacent à l’aide des informati
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
-Les sources de données externes sont utilisées pour se connecter aux comptes de stockage. La documentation complète est présentée [ici](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Les sources de données externes sont utilisées pour se connecter aux comptes de stockage. La documentation complète est présentée [ici](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="syntax-for-create-external-data-source"></a>Syntaxe de CREATE EXTERNAL DATA SOURCE
 
@@ -96,7 +96,7 @@ data_source_name
 Spécifie le nom défini par l’utilisateur de la source de données. Le nom doit être unique au sein de la base de données.
 
 #### <a name="location"></a>Emplacement
-LOCATION = `'<prefix>://<path>'`   - Fournit le protocole de connectivité et le chemin de la source de données externe. Les modèles suivants peuvent être utilisés dans l’emplacement :
+LOCATION = `'<prefix>://<path>'`   - Fournit le protocole de connectivité et le chemin de la source de données externe. Les modèles suivants peuvent être utilisés à cet emplacement :
 
 | Source de données externe        | Préfixe de l’emplacement | Chemin d’emplacement                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
@@ -159,7 +159,7 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 ## <a name="create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT
 
-Crée un objet de format de fichier externe qui définit des données externes stockées dans Stockage Blob Azure ou Azure Data Lake Storage. La création d’un format de fichier externe est un prérequis à la création d’une table externe. La documentation complète se trouve [ici](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Crée un objet de format de fichier externe qui définit des données externes stockées dans Stockage Blob Azure ou Azure Data Lake Storage. La création d’un format de fichier externe est un prérequis à la création d’une table externe. La documentation complète se trouve [ici](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 En créant un format de fichier externe, vous spécifiez la disposition des données référencées par une table externe.
 
@@ -349,7 +349,7 @@ SELECT TOP 1 * FROM census_external_table
 
 - Vous devez avoir accès à l’espace de travail avec au moins le rôle d’accès ARM Contributeur aux données Blob du stockage au compte ADLS Gen2.
 
-- Vous devez disposer au moins d’[autorisations de créer](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2) et d’interroger des tables externes sur le pool SQL ou SQL à la demande.
+- Vous devez disposer au moins d’[autorisations de créer](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) et d’interroger des tables externes sur le pool SQL ou SQL à la demande.
 
 - Le service lié associé au compte ADLS Gen2 **doit avoir accès au fichier**. Par exemple, si le mécanisme d’authentification du service lié est l’identité managée, celle de l’espace de travail doit disposer au moins de l’autorisation Lecteur des données Blob du stockage sur le compte de stockage.
 

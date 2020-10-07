@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315080"
 ---
-# <a name="changelog"></a>Journal des modifications #
+# <a name="changelog"></a>Journal des modifications
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (mise à jour officielle du 21 septembre 2020)
+
+### <a name="features-236"></a>Fonctionnalités 2.3.6
+
+Ajout du support audio uniquement pour la technologie azureHtml5JS (DASH) Prise en charge du début tardif de transcription en direct Prise en charge du changement de langue dans la transcription en direct
+
+### <a name="bug-fixes-236"></a>Correctifs de bogues 2.3.6
+
+Lors de l’utilisation de « playsinline » dans les lectures HLS sur les appareils Apple, le fait de cliquer sur le bouton « LIVE » entraîne le redémarrage de la vidéo L’image de l’affiche AMP provoque parfois une exception Le bouton de volume était manquant lors d’une lecture FairPlay HLS [Accessibilité] Info-bulles non définies pour les boutons lorsque le clavier est utilisé [Accessibilité] Le ratio de luminosité est inférieur à 1,3:1 pour la barre de progression [Accessibilité] Le focus clavier ne retourne parfois pas au bouton de qualité vidéo [Accessibilité] Les contrôles ne sont pas visibles sur l’écran vidéo et le Narrateur ne parvient pas à les trouver
+
+### <a name="changes-236"></a>Modifications 2.3.6
+
+Retourner les erreurs significatives de remise de clé aux applications appelantes
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (mise à jour officielle du 1er juin 2020)
 

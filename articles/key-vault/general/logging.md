@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485453"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290651"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -133,6 +133,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
   * Création, modification ou suppression de ces clés ou secrets.
   * Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
 * les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.  
+* Les événements de notification Event Grid concernant l’expiration proche, l’expiration et la modification de la stratégie d’accès au coffre (l’événement de nouvelle version n’est pas consigné). Les événements sont consignés, quel que soit l’abonnement aux événements créé sur le coffre de clés. Pour plus d’informations, consultez [Schéma d’événement Event Grid pour Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Activer la journalisation à l’aide d’Azure CLI
 
@@ -289,6 +290,8 @@ Les valeurs du champ **operationName** sont indiquées au format *ObjectVerb*. P
 
 Le tableau ci-après répertorie les valeurs **operationName** et les commandes API REST correspondantes :
 
+### <a name="operation-names-table"></a>Table des noms d’opération
+
 | operationName | Commande API REST |
 | --- | --- |
 | **Authentification** |Authentification par le biais du point de terminaison Azure Active Directory |
@@ -318,6 +321,13 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **SecretDelete** |[Suppression d’une clé secrète](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Événement lié à la modification de la stratégie d’accès au coffre publié |
+| **SecretNearExpiryEventGridNotification** |Événement lié à un secret proche de l’expiration publié |
+| **SecretExpiredEventGridNotification** |Événement lié à un secret expiré publié |
+| **KeyNearExpiryEventGridNotification** |Événement lié à une clé proche de l’expiration publié |
+| **KeyExpiredEventGridNotification** |Événement lié à une clé expirée publié |
+| **CertificateNearExpiryEventGridNotification** |Événement lié à un certificat proche de l’expiration publié |
+| **CertificateExpiredEventGridNotification** |Événement lié à un certificat expiré publié |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utiliser les journaux Azure Monitor
 

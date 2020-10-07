@@ -1,5 +1,5 @@
 ---
-title: Configurer le service Azure IoT Hub Device Provisioning avec Azure CLI
+title: Démarrage rapide – Configurer le service Azure IoT Hub Device Provisioning avec Azure CLI
 description: Démarrage rapide - Configurer le service Azure IoT Hub Device Provisioning (DPS) avec Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 313dfe930dec5233f96b89fdebf978a41fdcdf80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330245"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec Azure CLI
 
@@ -84,7 +84,11 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> Ces deux commandes sont valides pour un hôte exécuté par Bash. Si vous utilisez un interpréteur de commande CMD/ Windows local ou un hôte PowerShell, vous devez modifier les commandes et utiliser la syntaxe appropriée à l’environnement.
+> Ces deux commandes sont valides pour un hôte exécuté par Bash.
+> 
+> Si vous utilisez un interpréteur de commandes Windows/CMD local ou un hôte PowerShell, modifiez les commandes pour utiliser la syntaxe appropriée à cet environnement.
+>
+> Si vous utilisez Azure Cloud Shell, vérifiez que la liste déroulante de l’environnement sur le côté gauche de la fenêtre de l’interpréteur de commandes indique **Bash**.
 >
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>Lier le hub IoT et le service d’approvisionnement

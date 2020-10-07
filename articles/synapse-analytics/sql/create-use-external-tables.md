@@ -1,6 +1,6 @@
 ---
 title: Créer et utiliser des tables externes dans SQL à la demande (préversion)
-description: Dans cette section, vous allez apprendre à créer et à utiliser des tables externes dans SQL à la demande (préversion). Les tables externes sont utiles lorsque vous souhaitez contrôler l’accès aux données externes dans SQL à la demande et si vous souhaitez utiliser des outils, tels que Power BI, conjointement avec SQL à la demande.
+description: Dans cette section, vous allez apprendre à créer et à utiliser des tables externes dans SQL à la demande (préversion).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289325"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Créer et utiliser des tables externes dans SQL à la demande (préversion) avec Azure Synapse Analytics
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le stockage des résultats d’une requête dans le stockage, consultez [Stocker les résultats d’une requête dans le stockage](../sql/create-external-table-as-select.md).
+Pour plus d’informations sur le stockage des résultats d’une requête dans le stockage, consultez l’article [Stocker les résultats d’une requête dans le stockage](../sql/create-external-table-as-select.md).

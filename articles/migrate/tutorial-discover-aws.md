@@ -4,12 +4,12 @@ description: Apprenez à découvrir des instances AWS avec Azure Migrate Server 
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275453"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutoriel : Découvrir des instances AWS avec Server Assessment
 
@@ -76,7 +76,18 @@ Configurez un compte que l’appliance peut utiliser pour accéder aux instances
 
 - Pour les serveurs Windows, configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Ajoutez le compte d’utilisateur aux groupes suivants : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du journal de performances.
  - Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir.
-
+- Azure Migrate utilise l’authentification par mot de passe lors de la découverte des instances AWS. Les instances AWS ne prennent pas en charge l’authentification par mot de passe par défaut. Avant de pouvoir découvrir l’instance, vous devez activer l’authentification par mot de passe.
+    - Pour les machines Windows, autorisez le port WinRM 5985 (HTTP). Cela permet les appels WMI distants.
+    - Pour les machines Linux :
+        1. Connectez-vous à chaque machine Linux.
+        2. Ouvrez le fichier sshd_config : vi /etc/ssh/sshd_config
+        3. Dans le fichier, localisez la ligne **PasswordAuthentication**, puis remplacez la valeur par **Oui**.
+        4. Enregistrez le fichier et fermez-le. Redémarrez le service ssh.
+    - Si vous vous servez d’un utilisateur racine pour découvrir vos machines virtuelles Linux, assurez-vous que la connexion racine est autorisée sur les machines virtuelles.
+        1. Connectez-vous à chaque machine Linux.
+        2. Ouvrez le fichier sshd_config : vi /etc/ssh/sshd_config
+        3. Dans le fichier, repérez la ligne **PermitRootLogin**, puis remplacez la valeur par **yes**.
+        4. Enregistrez le fichier et fermez-le. Redémarrez le service ssh.
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 

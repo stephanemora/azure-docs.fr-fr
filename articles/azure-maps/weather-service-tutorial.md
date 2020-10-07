@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python) | Microsoft Azure Maps'
-description: Ce tutoriel vous montre comment joindre des données de capteur à des prévisions météorologiques à partir du service météo de Microsoft Azure Maps avec Azure Notebooks (Python).
+description: Tutoriel montrant comment joindre des données de capteur à des prévisions météorologiques à partir du service météo de Microsoft Azure Maps avec Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310099"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python)
 
@@ -182,9 +182,6 @@ Les graphiques permettent de visualiser les données de prévisions. Pour conna�
 
 ![Tracé de la vitesse du vent](./media/weather-service-tutorial/speed-date-plot.png) ![Tracé de la direction du vent](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## <a name="next-steps"></a>Étapes suivantes
-
 Dans ce tutoriel, vous avez appris comment appeler les API REST Azure Maps pour obtenir des données de prévisions météorologiques. Vous avez également appris à visualiser ces données dans des graphiques.
 
 Pour en savoir plus sur l’appel des API REST Azure Maps dans Azure Notebooks, consultez [Router les véhicules électriques avec Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -196,4 +193,9 @@ Pour explorer les API Azure Maps qui sont utilisées dans ce tutoriel, consulte
 
 Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Pour en savoir plus sur Azure Notebooks, consultez [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur Azure Notebooks, consultez
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

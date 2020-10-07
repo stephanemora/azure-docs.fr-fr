@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288985"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Accéder au stockage externe dans Synapse SQL (à la demande)
 
@@ -52,12 +52,12 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-S’il n’existe aucune information d’identification au niveau du serveur (CREDENTIAL) correspondant à l’URL ou que l’utilisateur SQL ne dispose pas de l’autorisation REFERENCES pour ces informations d’identification, une erreur est retournée. Les principaux SQL ne peuvent pas emprunter d’identité à l’aide d’une identité Azure AD.
+S’il n’existe aucune information d’identification (CREDENTIAL) au niveau du serveur correspondant à l’URL, ou que l’utilisateur SQL ne dispose pas de l’autorisation REFERENCES pour ces informations d’identification, une erreur est retournée. Les principaux SQL ne peuvent pas emprunter d’identité à l’aide d’une identité Azure AD.
 
 ### <a name="direct-access"></a>[Accès direct](#tab/direct-access)
 
 Aucune configuration supplémentaire n’est requise pour permettre aux utilisateurs Azure AD d’accéder aux fichiers à l’aide de leurs identités.
-Tout utilisateur peut accéder au Stockage Azure qui autorise l’accès anonyme (aucune configuration supplémentaire n’est requise).
+Tout utilisateur peut accéder au Stockage Azure qui autorise l’accès anonyme (aucune configuration supplémentaire n’est nécessaire).
 
 ---
 
@@ -75,7 +75,7 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-L’utilisateur qui exécute cette requête doit être en mesure d’accéder aux fichiers. Les utilisateurs doivent être impersonnés à l’aide d'un [jeton SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou d’une [identité managée de l’espace de travail](develop-storage-files-storage-access-control.md?tabs=managed-identity) s’ils ne peuvent accéder directement aux fichiers avec leur [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou l’[accès anonyme](develop-storage-files-storage-access-control.md?tabs=public-access).
+L’utilisateur qui exécute cette requête doit être en mesure d’accéder aux fichiers. Les utilisateurs doivent être emprunter l’identité à l’aide d’un [jeton SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou d’une [identité managée de l’espace de travail](develop-storage-files-storage-access-control.md?tabs=managed-identity) s’ils ne peuvent accéder directement aux fichiers avec leur [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou l’[accès anonyme](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### <a name="impersonation"></a>[Emprunt d'identité](#tab/impersonation)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 L’utilisateur disposant des autorisations de lecture de table peut accéder à des fichiers externes à l’aide d’une table externe (EXTERNAL TABLE) créée par-dessus l’ensemble de dossiers et de fichiers Stockage Azure.
 
-L’utilisateur qui dispose des [autorisations de créer une table externe](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (par exemple CREATE TABLE et ALTER ANY CREDENTIAL ou REFERENCES DATABASE SCOPED CREDENTIAL) peut utiliser le script suivant pour créer une table sur la source de données du Stockage Azure :
+L’utilisateur qui dispose des [autorisations de créer une table externe](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (par exemple CREATE TABLE et ALTER ANY CREDENTIAL ou REFERENCES DATABASE SCOPED CREDENTIAL) peut utiliser le script suivant pour créer une table sur la source de données du Stockage Azure :
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320742"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Qu’est-ce qu’Azure Stack Edge Pro avec GPU ?
 
@@ -44,11 +44,10 @@ Azure Stack Edge Pro intègre les fonctionnalités suivantes :
 |---------|---------|
 |Inférence accélérée avec l’intelligence artificielle| Activé par le GPU intégré (un ou deux selon le modèle).|
 |Edge Computing      |Prend en charge les charges de travail de machine virtuelle et conteneurisées pour permettre l’analyse, le traitement et le filtrage des données. |
-|Hautes performances | Transferts de données et calcul haute performance.|
 |Accès aux données     | Accès direct aux données à partir d’objets blob Stockage Azure et Azure Files à l’aide des API cloud pour le traitement d’autres données dans le cloud. Un cache local sur l’appareil est utilisé pour accéder rapidement aux fichiers les plus récemment utilisés.|
 |Géré par le cloud     |L’appareil et le service sont gérés via le portail Azure.  |
 |Chargement hors connexion     | Un mode déconnecté prend en charge les scénarios de chargement hors connexion.|
-|Protocoles de stockage pris en charge     | Prise en charge des protocoles SMB, NFS et REST standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
+|Protocoles de transfert de fichiers pris en charge      | Prise en charge des protocoles SMB, NFS et REST standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
 |Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud.|
 |Chiffrement    | Prise en charge de BitLocker pour chiffrer les données localement et transférer de façon sécurisée des données vers le cloud via *https*.|
 |Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe.|
@@ -73,6 +72,8 @@ La solution Azure Stack Edge Pro se compose d’une ressource Azure Stack Edge, 
 L’appareil physique Azure Stack Edge Pro, la ressource Azure et le compte de stockage cible vers lequel vous transférez des données n’ont pas besoin de se trouver dans la même région.
 
 - **Disponibilité de la ressource** : pour cette préversion, la ressource est disponible dans les régions USA Est, Europe Ouest et Asie Sud-Est.
+
+- **Disponibilité de l’appareil** : pour obtenir la liste de tous les pays où l’appareil Azure Stack Edge Pro est disponible, accédez à la section **Disponibilité** sous l’onglet **Azure Stack Edge Pro**, qui indique les [tarifs d’Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. Pour garantir des performances optimales, les régions où des comptes de stockage stockent les données Azure Stack Edge Pro doivent se trouver à proximité de l’appareil. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances.
 

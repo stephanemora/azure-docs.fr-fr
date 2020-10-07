@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Obtenir des insights sur des images avec l’API REST et C# - Recherche visuelle Bing'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment charger une image dans l’API Recherche visuelle Bing pour récupérer des insights sur celle-ci.
+description: Découvrez comment charger une image à l’aide de l’API Recherche visuelle Bing et C#, puis récupérez des insights sur l’image.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e5f772fe8152f209a8188ab5bf2d0010248feabf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0f908863b16b892e0978964a549b20bd9393fbae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277120"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de C#
 

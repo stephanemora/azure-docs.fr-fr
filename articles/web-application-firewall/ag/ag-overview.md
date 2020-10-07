@@ -5,15 +5,15 @@ description: Cet article fournit une vue d’ensemble du pare-feu d’applicatio
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226996"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91267021"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -75,9 +75,21 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 - Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays/régions à vos applications. (préversion)
 - Protégez vos applications des bots avec l’ensemble de règles d’atténuation des risques des bots. (préversion)
 
-## <a name="waf-policy"></a>Stratégie WAF
+## <a name="waf-policy-and-rules"></a>Stratégie et règles WAF
 
-Pour activer un pare-feu d’applications web sur une Application Gateway, vous devez créer une stratégie WAF. Il s’agit de la stratégie dans laquelle existent l’ensemble des règles managées, règles personnalisées, exclusions et autres personnalisations telles qu’une limite de chargement de fichier. 
+Pour activer un pare-feu d’applications web sur Application Gateway, vous devez créer une stratégie WAF. Cette stratégie est l’endroit où se trouve l’ensemble des règles managées, des règles personnalisées, des exclusions et d’autres personnalisations, comme une limite de chargement des fichiers.
+
+Vous pouvez configurer une stratégie WAF et l’associer à une ou plusieurs passerelles d’application pour la protection. Une stratégie WAF se compose de deux types de règles de sécurité :
+
+- Les règles personnalisées que vous créez
+
+- Les ensembles de règles managées, qui sont des collections d’ensembles de règles préconfigurés et gérés par Azure.
+
+Quand ces deux types de règles sont utilisés conjointement, les règles personnalisées sont appliquées avant celles d’un ensemble de règles managées. Une règle est constituée d’une condition de correspondance, d’une priorité et d’une action. Les types d’actions pris en charge sont : ALLOW, BLOCK et LOG. Vous pouvez créer une stratégie entièrement personnalisée qui répond aux exigences de protection spécifiques de votre application en combinant des règles personnalisées et des règles managées.
+
+Les règles d’une stratégie sont traitées selon un ordre de priorité. La priorité est représentée par un entier unique qui définit l’ordre des règles à traiter. Plus la valeur entière est petite, plus la priorité est élevée ; les règles ayant des valeurs inférieures sont évaluées avant les règles ayant des valeurs plus élevées. Une fois qu'une correspondance de règle est trouvée, l’action associée définie dans la règle est appliquée à la requête. Une fois qu’une telle correspondance est traitée, aucune autre règle avec une priorité inférieure n’est traitée.
+
+Une application web fournie par Application Gateway peut être associée à une stratégie WAF au niveau global, au niveau de chaque site ou au niveau de chaque URI.
 
 ### <a name="core-rule-sets"></a>Ensembles de règles de base
 
@@ -159,6 +171,11 @@ Avec le classeur des événements de pare-feu WAF Azure intégré, vous pouvez a
 
 
 ![Classeur d’événements du pare-feu Azure WAF](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Classeur Azure Monitor pour WAF
+
+Ce classeur permet une visualisation personnalisée des événements WAF pertinents pour la sécurité sur plusieurs panneaux filtrables. Il fonctionne avec tous les types de WAF, y compris Application Gateway, Front Door et CDN, et il peut être filtré en fonction du type de WAF ou d’une instance WAF spécifique. Importez via un modèle ARM ou un modèle de la galerie. Pour déployer ce classeur, consultez [Classeur WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Journalisation
 

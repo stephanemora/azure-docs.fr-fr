@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Rechercher et afficher des itinéraires pour des modes de déplacement spécifiques avec Microsoft Azure Maps'
-description: Découvrez comment utiliser Azure Maps pour rechercher et afficher des itinéraires pour des modes de déplacement spécifiques.
+title: 'Tutoriel : Trouver plusieurs routes en fonction du mode de transport | Microsoft Azure Maps'
+description: Didacticiel sur l’utilisation d’Azure Maps afin de rechercher des itinéraires pour des modes spécifiques de déplacement vers des points d'intérêt. Apprenez à afficher plusieurs itinéraires sur des cartes.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321745"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher et afficher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -160,11 +160,13 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
 
     ```
 
+
     Dans le gestionnaire d’événements `ready` du contrôle de carte, une source de données est créée pour stocker l’itinéraire du départ jusqu’à l’arrivée. Des [expressions](data-driven-style-expressions-web-sdk.md) sont utilisées pour récupérer la largeur et la couleur de ligne à partir des propriétés de la caractéristique de ligne d’itinéraire. Pour vous assurer que la ligne d’itinéraire ne couvre pas les étiquettes de route, nous avons transmis un deuxième paramètre avec la valeur de `'labels'`.
 
     Ensuite, une couche de symbole est créée et jointe à la source de données. Ce calque spécifie comment les points de départ et d’arrivée sont affichés. Des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés à partir de chaque objet de point. Pour en savoir plus sur les expressions, consultez [Expressions de style basé sur les données](data-driven-style-expressions-web-sdk.md).
 
 2. Définissez le point de départ sur une entreprise fictive de Seattle appelée Fabrikam, et le point d’arrivée sur un bâtiment Microsoft.  Dans le gestionnaire d’événements du contrôle de carte `ready`, ajoutez le code suivant.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ Cette section montre comment utiliser le service Route Azure Maps pour trouver d
 
     L’itinéraire pour camion est affiché à l’aide d’une ligne bleue épaisse. L’itinéraire pour voiture est affichée à l’aide d’une fine ligne violette. L’itinéraire pour voiture passe au-dessus du Lac Washington via l’I-90, qui traverse des tunnels installés sous des zones résidentielles. Les tunnels étant proches de zones résidentielles, tout transport de déchets dangereux est interdit. L’itinéraire pour camion, pour lequel est défini le type de chargement `USHazmatClass2`, utilise une voie de circulation différente.
 
-    Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Vous pouvez trouver un exemple en direct [ici](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Vous pouvez trouver un exemple en direct [ici](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+Vous pouvez également [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

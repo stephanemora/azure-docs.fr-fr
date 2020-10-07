@@ -1,18 +1,18 @@
 ---
-title: Activer le complément Ingress Controller pour un cluster AKS existant avec une passerelle Azure Application Gateway existante
+title: 'Tutoriel : Activer le complément Ingress Controller pour un cluster AKS existant avec une passerelle Azure Application Gateway existante'
 description: Ce tutoriel vous permet d’activer le complément Ingress Controller pour votre cluster AKS existant avec une passerelle Application Gateway existante
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285626"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutoriel : Activer le complément Application Gateway Ingress Controller pour un cluster AKS existant avec une passerelle Application Gateway existante à l’aide d’Azure CLI (préversion)
 
@@ -28,6 +28,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Appairer le réseau virtuel Application Gateway et le réseau virtuel du cluster AKS
 > * Déployer un exemple d’application à l’aide du complément AGIC pour l’entrée sur le cluster AKS
 > * Vérifier que l’application est accessible par le biais de la passerelle Application Gateway
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -151,7 +153,6 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur la désactivation du complément AGIC](./ingress-controller-disable-addon.md)
-* [En savoir plus sur les annotations prises en charge avec AGIC](./ingress-controller-annotations.md)
-* [Résoudre les problèmes liés à AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [En savoir plus sur la désactivation du complément AGIC](./ingress-controller-disable-addon.md)

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8c1e47db4f5f5bb64c31d16c26f6c3860b5bcb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323054"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de C#
 
@@ -75,7 +75,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Recevoir l’image en entrée
 
-Ajoutez le code suivant à la méthode **Main** de la classe **Program**. Ce code écrit une invite dans la console pour demander à l’utilisateur de d’entrer une URL d’image. Il appelle ensuite une autre méthode, **MakeAnalysisRequest**, pour traiter l’image à cet emplacement.
+Ajoutez le code suivant à la méthode **Main** de la classe **Program**. Ce code écrit une invite dans la console pour demander à l’utilisateur d’entrer le chemin d’accès de son image locale. Il appelle ensuite une autre méthode, **MakeAnalysisRequest**, pour traiter l’image à cet emplacement.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +159,7 @@ Vous allez définir les méthodes d’assistance dans les étapes suivantes.
 
 ### <a name="process-the-input-image-data"></a>Traiter les données de l’image en entrée
 
-Ajoutez la méthode suivante à la classe **Program**. Cette méthode convertit l’image située à l’URL spécifiée en tableau d’octets.
+Ajoutez la méthode suivante à la classe **Program**. Cette méthode convertit l’image située au chemin d’accès spécifié en tableau d’octets.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

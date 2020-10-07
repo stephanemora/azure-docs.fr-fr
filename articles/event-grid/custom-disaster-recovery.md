@@ -4,12 +4,12 @@ description: Ce tutoriel vous aide à configurer votre architecture de gestion d
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324125"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
@@ -72,7 +72,7 @@ Tout d’abord, créez deux rubriques Event Grid. Il s’agira de la rubrique pr
    * Sélectionnez un webhook de type de point de terminaison.
    * Définissez le point de terminaison sur l’URL d’événement de votre récepteur d’événements, qui doit ressembler à ceci : `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Abonnement d’événements principal Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Capture d’écran montrant la page « Créer un abonnement aux événements - De base » avec les valeurs « Nom », « Type de point de terminaison » et « Point de terminaison » mises en évidence.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Répétez la même procédure pour créer votre rubrique et votre abonnement secondaire. Cette fois-ci, remplacez le suffixe « -principal(e) » par le suffixe « -secondaire » pour faciliter le suivi. Enfin, placez-le dans une autre région Azure. Même si vous pouvez le placer n’importe où, il est recommandé d’utiliser les [régions associées Azure](../best-practices-availability-paired-regions.md). Le fait de placer la rubrique et l’abonnement secondaires dans une autre région garantit la transmission des nouveaux événements, même lorsque la région primaire est indisponible.
 

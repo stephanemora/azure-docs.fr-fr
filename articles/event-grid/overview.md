@@ -2,13 +2,13 @@
 title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
 ms.topic: overview
-ms.date: 07/07/2020
-ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326494"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -20,16 +20,17 @@ Azure Event Grid est déployé pour optimiser la disponibilité via une réparti
 
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). 
 
-![Modèle Event Grid de sources et de gestionnaires](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modèle Event Grid de sources et de gestionnaires" lightbox="./media/overview/functional-model.png":::
 
 Cette image montre comment Event Grid connecte les sources et les gestionnaires, mais il ne s'agit pas d'une liste exhaustive des intégrations prises en charge.
 
 ## <a name="event-sources"></a>Sources d’événement
 
-Actuellement, les services Azure suivants prennent en charge l’envoi d’événements vers Event Grid :
+Les services Azure suivants prennent en charge l’envoi d’événements vers Event Grid. Pour plus d’informations sur une source dans la liste, sélectionnez le lien correspondant.
 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Stockage Blob Azure](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)

@@ -1,6 +1,6 @@
 ---
 title: Créer une fabrique de données Azure à l’aide du kit de développement logiciel (SDK) .NET
-description: Créez une fabrique de données Azure pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
+description: Créez une fabrique de données Azure et un pipeline à l’aide du kit de développement logiciel (SDK) .NET pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322867"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Démarrage rapide : Créer une fabrique de données et un pipeline avec le kit .NET SDK
 
@@ -49,7 +49,7 @@ Dans les sections de la rubrique *Procédure : Utiliser le portail pour créer 
 
 1. Dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), créez une application qui représente l’application .NET que vous créez dans ce didacticiel. Pour l’URL de connexion, vous pouvez fournir une URL factice, comme indiqué dans l’article (`https://contoso.org/exampleapp`).
 2. Dans [Obtenir les valeurs pour la connexion](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), récupérez l’**ID d’application** et l’**ID de locataire**, puis notez ces valeurs que vous allez utiliser ultérieurement dans ce didacticiel. 
-3. Dans [Certificats et secrets](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), récupérez la **clé d’authentification**, puis notez cette valeur que vous allez utiliser ultérieurement dans ce didacticiel.
+3. Dans [Certificats et secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), récupérez la **clé d’authentification**, puis notez cette valeur que vous allez utiliser ultérieurement dans ce didacticiel.
 4. Dans [Affecter l’application à un rôle](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), affectez l’application au rôle **Contributeur** au niveau de l’abonnement de sorte que l’application puisse créer des fabriques de données dans l’abonnement.
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio

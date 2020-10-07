@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249500"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -27,7 +27,9 @@ Azure Synapse prend en charge les liaisons privées. Une liaison privée vous pe
 
 Quand vous utilisez une liaison privée, le trafic entre votre Réseau virtuel et l’espace de travail transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
-Le point de terminaison privé utilise une adresse IP privée de votre Réseau virtuel pour placer de fait le service dans votre Réseau virtuel. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
+Le point de terminaison privé utilise une adresse IP privée de votre Réseau virtuel pour placer de fait le service dans votre Réseau virtuel. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. 
+
+Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Les points de terminaison privés managés sont uniquement pris en charge dans les espaces de travail Azure Synapse avec un Réseau virtuel d’espace de travail managé.
@@ -35,9 +37,9 @@ Le point de terminaison privé utilise une adresse IP privée de votre Réseau v
 >[!NOTE]
 >Tout le trafic sortant en provenance du Réseau virtuel d’espace de travail managé via des points de terminaison privés sera bloqué à l’avenir. Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure externes à l’espace de travail. 
 
-Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Synapse. Un workflow d’approbation est lancé. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
+Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Synapse. Un workflow d’approbation est démarré. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
 
-Si le propriétaire approuve la connexion, la liaison privée est établie. S’il la refuse, la liaison privée n’est pas établie. Dans les deux cas, le point de terminaison privé managé est mis à jour avec l’état de la connexion.
+Si le propriétaire approuve la connexion, la liaison privée est établie. Toutefois, si le propriétaire n’approuve pas la connexion, le lien privé n’est pas établi. Dans les deux cas, le point de terminaison privé managé est mis à jour avec l’état de la connexion.
 
 Seule une instance de point de terminaison privé managé dans un état approuvé peut envoyer du trafic vers une ressource de liaison privée donnée.
 
@@ -56,4 +58,4 @@ Ces deux points de terminaison privés managés sont créés automatiquement pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer des points de terminaison privés managés à vos sources de données](./how-to-create-managed-private-endpoints.md)
+Pour plus d’informations, passez à l’article [Créer des points de terminaison privés managés dans vos sources de données](./how-to-create-managed-private-endpoints.md).

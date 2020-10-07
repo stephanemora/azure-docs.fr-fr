@@ -1,5 +1,5 @@
 ---
-title: Disque managé d’un fichier VHD dans le même compte - Exemple d’interface de ligne de commande
+title: Créer un disque managé à partir d’un fichier VHD dans le même compte - Exemple CLI
 description: Exemple de script avec l’interface de ligne de commande Azure CLI - Créer un disque managé à partir d’un fichier de VHD dans un compte de stockage dans le même abonnement
 documentationcenter: storage
 author: ramankumarlive
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4d979830e622e68cd795f0137b96442a762daade
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: d0795f67390faec4a08882adb1f2b15efcbc6619
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274875"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli-linux"></a>Créer un disque managé à partir d’un fichier VHD dans un compte de stockage dans le même abonnement avec l’interface de ligne de commande (Linux)
 

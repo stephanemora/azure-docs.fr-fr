@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 29778d872541ea251a46affcccd0e2befbd9003d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 989e3f4a285d44128bba1c9811aebcb76b8c0220
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327967"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Grammarly
 
@@ -81,16 +81,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
 
-1. L’application Grammarly s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
-
-    ![image](common/default-attributes.png)
-
-1. En plus de ce qui précède, l’application Grammarly s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+1. L’application Grammarly attend les assertions SAML dans un format spécifique. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
     
     | Nom |  Attribut source|
     | -------------- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
+    | EmailAddress | user.principalname|
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -126,7 +123,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-grammarly-sso"></a>Configurer l’authentification unique Grammarly
 
-Pour configurer l’authentification unique côté **Grammarly**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Grammarly](mailto:support@grammarly.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique sur **Grammarly**, vous devez copier l’**URL de connexion**, l’**Identificateur Azure AD** et le **Certificat (base64)** téléchargé dans le volet d’administration de Grammarly. [Découvrez comment](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### <a name="create-grammarly-test-user"></a>Créer un utilisateur de test Grammarly
 

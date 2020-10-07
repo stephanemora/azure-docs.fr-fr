@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318276"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui autorise un provisionnement sans contact, juste-à-temps sur le hub IoT approprié et sans aucune intervention humaine. DPS permet de provisionner plusieurs millions d’appareils de manière sécurisée et scalable.
@@ -88,7 +88,7 @@ DPS propose de nombreuses fonctionnalités qui le rendent idéal pour le provisi
 * Le **chiffrement des données au repos** est conforme à la norme FIPS 140-2 et permet de chiffrer et déchiffrer les données dans DPM de façon transparente avec le chiffrement AES 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles.
 
 
-Vous trouverez d’autres d’informations sur les concepts et les fonctionnalités impliqués dans l’approvisionnement d’appareils dans les [concepts d’appareil](concepts-device.md), les [concepts de service](concepts-service.md) et les [concepts de sécurité](concepts-security.md).
+Pour plus d’informations sur les concepts et les fonctionnalités impliqués dans le provisionnement des appareils, consultez la rubrique [Terminologie DPS](concepts-service.md) et les autres rubriques conceptuelles de la même section.
 
 ## <a name="cross-platform-support"></a>Prise en charge multiplateforme
 Comme tous les services Azure IoT, DPS fonctionne sur plusieurs plateformes avec une variété de systèmes d’exploitation. Azure propose des kits SDK open source dans différents [langages](https://github.com/Azure/azure-iot-sdks), ce qui facilite la connexion des appareils et la gestion du service. DPS prend en charge les protocoles suivants pour la connexion des appareils :
@@ -123,7 +123,9 @@ DPS automatise le provisionnement d’appareils avec Azure IoT Hub. Découvrez p
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez maintenant une vue d’ensemble de l’approvisionnement des appareils IoT dans Azure. L’étape suivante consiste à tester un scénario IoT de bout en bout.
-> [!div class="nextstepaction"]
-> [Configurer le service IoT Hub Device Provisioning avec le portail Azure](quick-setup-auto-provision.md)
-> [Créer et approvisionner un appareil simulé](quick-create-simulated-device.md)
-> [Configurer un appareil pour l’approvisionnement](tutorial-set-up-device.md)
+
+[Configurer le service IoT Hub Device Provisioning avec le portail Azure](quick-setup-auto-provision.md)
+
+[Créer et provisionner un appareil simulé](quick-create-simulated-device.md)
+
+[Configurer l’appareil pour l’approvisionnement](tutorial-set-up-device.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b7cb55b5d14208128c894a007d13f4e73fc54b3b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265525"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs
 
@@ -119,7 +119,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Zscaler Three. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Zscaler Three dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Groups to Zscaler Three** (Synchroniser les groupes Azure Active Directory avec Zscaler Three) :
 
@@ -127,7 +127,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 13. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler Three. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans Zscaler Three dans le cadre des opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’attributs](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Pour configurer des filtres d’étendue, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](./../active-directory-saas-scoping-filters.md).
 

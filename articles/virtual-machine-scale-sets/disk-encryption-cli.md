@@ -1,6 +1,6 @@
 ---
 title: Chiffrer des disques pour des groupes identiques Azure avec Azure CLI
-description: Découvrez comment utiliser Azure PowerShell pour chiffrer les instances de machine virtuelle et les disques attachés dans un groupe de machines virtuelles identiques Windows
+description: Découvrez comment utiliser Azure CLI pour chiffrer des instances de machine virtuelle et les disques attachés dans un groupe de machines virtuelles identiques Windows
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: dfb8a0dc6c27b042319f43bc5970dd8d1bc2b094
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321972"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI
 

@@ -3,12 +3,12 @@ title: Déployer une application .NET dans un conteneur vers Azure Service Fabri
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314298"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 2. Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute sans erreur.  Lancez Visual Studio en tant qu’**administrateur** et ouvrez le fichier [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Appuyez sur F5 pour déboguer et exécuter l’application.
 
-   ![Exemple Fabrikam Web][fabrikam-web-page]
+   ![Capture d’écran de la page d’accueil de l’application Fabrikam Fiber CallCenter s’exécutant sur l’hôte local. La page montre un tableau de bord avec une liste d’appels de support.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Conteneuriser l’application
 
@@ -235,7 +235,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie. Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Exemple Fabrikam Web][fabrikam-web-page-deployed]
+![Capture d’écran de la page d’accueil de l’application Fabrikam Fiber CallCenter s’exécutant sur azure.com. La page montre un tableau de bord avec une liste d’appels de support.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurer l’intégration et le déploiement continus (CI/CD) avec un cluster Service Fabric
 

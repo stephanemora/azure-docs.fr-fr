@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260850"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de t
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs (préversion) dans l’espace de travail ainsi que le moteur SQL à la demande.
+Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs (préversion) dans l’espace de travail, y compris le moteur SQL à la demande.
 
 La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL à la demande sous le nom `default`.
 

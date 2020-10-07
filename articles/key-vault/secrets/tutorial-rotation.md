@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: e34349f9f52c61d27e57e6ac7f4b3515ee746b22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331843"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
@@ -68,6 +68,8 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Créer et déployer la fonction de rotation de mot de passe SQL Server
+> [!IMPORTANT]
+> Le modèle ci-dessous nécessite que Key Vault, SQL Server et Azure Function se trouvent dans le même groupe de ressources
 
 Ensuite, créez une application de fonction avec une identité managée par le système en plus des autres composants nécessaires, et déployez les fonctions de rotation de mot de passe SQL Server.
 
@@ -93,7 +95,7 @@ L’application de fonction nécessite les composants suivants :
 
    ![Sélectionnez Vérifier + créer.](../media/rotate-3.png)
 
-Après avoir effectué les étapes précédentes, vous disposez d’un compte de stockage, d’une batterie de serveurs et d’une application de fonction. Vous pouvez vérifier cette configuration dans l’interface de ligne de commande Azure CLI en exécutant la commande suivante :
+Après avoir effectué les étapes précédentes, vous disposez d’un compte de stockage, d’une batterie de serveurs et d’une application de fonction. Vous pouvez vérifier cette configuration dans l’interface de ligne de commande (CLI) Azure en exécutant la commande suivante :
 
 ```azurecli
 az resource list -o table

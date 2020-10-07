@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle - Azure CLI'
 titleSuffix: Azure Network Watcher
-description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
+description: Découvrez comment utiliser Azure CLI pour diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9fcc26d17b9bb1d67d85a1775c4df191fe3524f0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295955"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle - Azure CLI
 

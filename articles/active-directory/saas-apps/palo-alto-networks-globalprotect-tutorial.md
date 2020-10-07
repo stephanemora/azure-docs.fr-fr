@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 2b8c74b8a456815400f6d68200ea93f43e3adff0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Palo Alto Networks - GlobalProtect
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Palo Alto Networks - G
 * Contrôler dans Azure AD qui a accès à Palo Alto Networks - GlobalProtect.
 * Permettre à vos utilisateurs de se connecter automatiquement à Palo Alto Networks - GlobalProtect avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,18 +44,18 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de Palo Alto Networks - GlobalProtect à Azure AD, vous devez ajouter Palo Alto Networks - GlobalProtect à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Palo Alto Networks - GlobalProtect** dans la zone de recherche.
 1. Sélectionnez **Palo Alto Networks - GlobalProtect** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-palo-alto-networks---globalprotect"></a>Configurer et tester l’authentification unique Azure AD pour Palo Alto Networks - GlobalProtect
+## <a name="configure-and-test-azure-ad-sso-for-palo-alto-networks---globalprotect"></a>Configurer et tester l’authentification unique Azure AD pour Palo Alto Networks - GlobalProtect
 
 Configurez et testez l’authentification unique Azure AD avec Palo Alto Networks - GlobalProtect pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Palo Alto Networks - GlobalProtect associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Networks - GlobalProtect, suivez les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Networks - GlobalProtect, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -70,7 +68,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Ne
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Palo Alto Networks - GlobalProtect**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Palo Alto Networks - GlobalProtect**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -112,32 +110,26 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Palo Alto Networks - GlobalProtect**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Configurer l’authentification unique pour Palo Alto Networks - GlobalProtect
 
-1. Ouvrez l’interface utilisateur de l’administration du pare-feu Palo Alto Networks en tant qu’administrateur dans une autre fenêtre de navigateur.
+1. Ouvrez Palo Alto Networks Firewall GlobalProtect en tant qu’administrateur dans une autre fenêtre de navigateur.
 
 2. Cliquez sur **Appareil**.
 
-    ![Configurer l’authentification unique Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![Configurer l’authentification unique Palo Alto (1)](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
 
 3. Sélectionnez **Fournisseur d’identité SAML** dans la barre de navigation gauche et cliquez sur « Importer » pour importer le fichier de métadonnées.
 
-    ![Configurer l’authentification unique Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
+    ![Configurer l’authentification unique Palo Alto (2)](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
 
 4. Effectuez les actions suivantes sur la fenêtre Importer
 
-    ![Configurer l’authentification unique Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Configurer l’authentification unique Palo Alto (3)](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
     a. Dans la zone de texte **Nom du profil**, spécifiez un nom, par exemple Azure AD GlobalProtect.
 
@@ -151,14 +143,14 @@ Dans cette section, vous allez créer un utilisateur nommé B.Simon dans Palo Al
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Palo Alto Networks - GlobalProtect dans le panneau d’accès, vous devez être connecté automatiquement à l’application Palo Alto Networks - GlobalProtect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Palo Alto Networks - GlobalProtect où vous pouvez lancer le processus de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+2. Accédez directement à l’URL de connexion Palo Alto Networks - GlobalProtect pour lancer le processus de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Vous pouvez utiliser le volet d’accès Microsoft. Quand vous cliquez sur la vignette Palo Alto Networks - GlobalProtect dans le panneau d’accès, vous devez être connecté automatiquement à l’application Palo Alto Networks - GlobalProtect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Essayer Palo Alto Networks - GlobalProtect avec Azure AD](https://aad.portal.azure.com/)
+Après avoir configuré Palo Alto Networks  - GlobalProtect, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

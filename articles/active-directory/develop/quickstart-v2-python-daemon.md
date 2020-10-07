@@ -1,6 +1,7 @@
 ---
-title: Démon Python de plateforme d’identité Microsoft | Azure
-description: Découvrez comment un processus Python peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identité Microsoft à l’aide de l’identité de l’application
+title: 'Démarrage rapide : Appeler Microsoft Graph à partir d’un démon Python | Azure'
+titleSuffix: Microsoft identity platform
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment un processus Python peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identités Microsoft à l’aide de la propre identité de l’application
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257739"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Python à l’aide de l’identité de l’application
 
@@ -224,18 +225,3 @@ Pour en savoir plus sur les applications démon, consultez la page de destinatio
 
 > [!div class="nextstepaction"]
 > [Application démon qui appelle des API web](scenario-daemon-overview.md)
-
-Pour le tutoriel d’application démon, consultez :
-
-> [!div class="nextstepaction"]
-> [Didacticiel de la console Python du démon](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-En savoir plus sur les autorisations et le consentement :
-
-> [!div class="nextstepaction"]
-> [Autorisations et consentement](v2-permissions-and-consent.md)
-
-Pour en savoir plus sur le flux d’authentification applicable à ce scénario, consultez les informations sur le flux d’informations d’identification du client OAuth 2.0 :
-
-> [!div class="nextstepaction"]
-> [Flux d’informations d’identification du client OAuth](v2-oauth2-client-creds-grant-flow.md)

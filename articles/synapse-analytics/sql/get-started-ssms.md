@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288781"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Se connecter à Synapse SQL avec SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * Pour le pool SQL, vous avez besoin d’un entrepôt de données existant. Pour en créer un, consultez la page [Créer un pool SQL](../quickstart-create-sql-pool-portal.md). Pour SQL à la demande, un tel entrepôt est déjà provisionné dans votre espace de travail au moment de la création. 
-* Le nom complet du serveur SQL Server. Pour le trouver, consultez [Se connecter à Synapse SQL](connect-overview.md).
+* Le nom complet du serveur SQL Server. Pour trouver ce nom, consultez [Se connecter à Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Se connecter
 
@@ -50,9 +50,9 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
 Pour vous connecter à Synapse SQL au moyen d’un pool SQL, suivez ces étapes : 
 
 1. Ouvrez SQL Server Management Studio (SSMS). 
-1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs, puis sélectionnez **Se connecter** : 
+1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs et sélectionnez **Se connecter** : 
   
-    ![Se connecter au serveur](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Se connecter au serveur 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Nom du serveur** : Saisissez le **nom du serveur** précédemment identifié.
    * **Authentification** :  Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory**.
@@ -60,7 +60,7 @@ Pour vous connecter à Synapse SQL au moyen d’un pool SQL, suivez ces étapes�
 
 1. Développez votre serveur Azure SQL Server dans l’**Explorateur d’objets**. Vous pouvez afficher les bases de données associées au serveur, telles que l’exemple de base de données AdventureWorksDW. Vous pouvez développer la base de données pour afficher les tables :
    
-    ![Explorer AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Explorer AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL à la demande (préversion)
@@ -68,18 +68,18 @@ Pour vous connecter à Synapse SQL au moyen d’un pool SQL, suivez ces étapes�
 Pour vous connecter à Synapse SQL à l’aide de SQL à la demande, suivez ces étapes : 
 
 1. Ouvrez SQL Server Management Studio (SSMS).
-1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs, puis sélectionnez **Se connecter** : 
+1. Dans la boîte de dialogue **Se connecter au serveur**, renseignez les champs et sélectionnez **Se connecter** : 
    
-    ![Se connecter au serveur](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Se connecter au serveur 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Nom du serveur** : Saisissez le **nom du serveur** précédemment identifié.
    * **Authentification** : Choisissez un type d’authentification, tel que **Authentification SQL Server** ou **Authentification intégrée à Active Directory** :
    * **Nom d’utilisateur** et **Mot de passe** : Entrez votre nom d’utilisateur et votre mot de passe si l’authentification SQL Server a été sélectionnée plus haut.
-   * Cliquez sur **Connecter**.
+   * Sélectionnez **Connecter**.
 
 4. Pour voir plus d’informations, développez votre serveur SQL Azure. Vous pouvez afficher les bases de données associées au serveur. Développez la *démonstration* pour voir le contenu dans votre exemple de base de données.
    
-    ![Explorer AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explorer AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Exécuter un exemple de requête
@@ -91,18 +91,18 @@ Pour vous connecter à Synapse SQL à l’aide de SQL à la demande, suivez ces 
 1. Cliquez avec le bouton droit sur votre base de données dans l’Explorateur d’objets SQL Server.
 2. Sélectionnez **Nouvelle requête**. Une nouvelle fenêtre de requête s’ouvre.
    
-    ![Nouvelle requête](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+    ![Nouvelle requête 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
 3. Copiez la requête T-SQL suivante dans la fenêtre de requête :
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Exécute la requête. Pour ce faire, cliquez sur `Execute` ou utilisez le raccourci `F5`.
+4. Exécutez la requête en sélectionnant `Execute` ou utilisez le raccourci : `F5`.
    
-    ![Exécuter une requête](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Passez en revue les résultats de la requête. Dans cet exemple, la table FactInternetSales a 60 398 lignes.
+    ![Exécuter la requête 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Passez en revue les résultats de la requête. Dans l’exemple suivant, la table FactInternetSales contient 60 398 lignes.
    
-    ![Résultats de la requête](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Résultats de la requête 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL à la demande
 
@@ -111,18 +111,18 @@ Pour vous connecter à Synapse SQL à l’aide de SQL à la demande, suivez ces 
 1. Cliquez avec le bouton droit sur votre base de données dans l’Explorateur d’objets SQL Server.
 2. Sélectionnez **Nouvelle requête**. Une nouvelle fenêtre de requête s’ouvre.
    
-    ![Nouvelle requête](./media/get-started-ssms/new-query.png)
+    ![Nouvelle requête 2](./media/get-started-ssms/new-query.png)
 3. Copiez la requête T-SQL suivante dans la fenêtre de requête :
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Exécute la requête. Pour ce faire, cliquez sur `Execute` ou utilisez le raccourci `F5`.
+4. Exécutez la requête en sélectionnant `Execute` ou utilisez le raccourci : `F5`.
    
-    ![Exécuter une requête](./media/get-started-ssms/execute-query.png)
+    ![Exécuter la requête 2](./media/get-started-ssms/execute-query.png)
 5. Passez en revue les résultats de la requête. Dans cet exemple, la vue usPopulationView contient 3664512 lignes.
    
-    ![Résultats de la requête](./media/get-started-ssms/results.png)
+    ![Résultats de la requête 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous pouvez vous connecter et exécuter des requêtes, essayez de [visualiser les données avec Power BI](get-started-power-bi-professional.md).

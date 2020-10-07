@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines physiques vers Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 7091d95a07da60faed7012df04c05def340df7b4
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296329"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -228,14 +228,14 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
 
 1. Dans le projet Azure Migrate > **Serveurs**, **Azure Migrate : Server Migration**, cliquez sur **Répliquer**.
 
-    ![Répliquer des machines virtuelles](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+    ![Capture d’écran de l’écran Azure Migrate - Serveurs montrant le bouton Répliquer sélectionné dans Azure Migrate : Migration du serveur sous Outils de migration.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Non virtualisé/autre**.
 3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée.
 4. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication.
 6. Sous **Informations d’identification de l’invité**, sélectionnez le compte factice créé durant l’[installation de l’appliance de réplication](#download-the-replication-appliance-installer) pour installer manuellement le service Mobility (l’installation push n’est pas prise en charge). Cliquez ensuite sur **Suivant : Machines virtuelles**.   
 
-    ![Répliquer des machines virtuelles](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Capture d’écran de l’onglet Paramètres de la source dans l’écran Répliquer avec le champ Informations d’identification de l’invité en surbrillance.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. Dans **Machines virtuelles**, dans **Importer les paramètres de migration à partir d’une évaluation ?** , conservez le paramètre par défaut **Non, je vais spécifier les paramètres de migration manuellement**.
 8. Cochez chaque machine virtuelle devant faire l’objet d’une migration. Cliquez ensuite sur **Suivant : Paramètres de la cible**.
@@ -264,9 +264,9 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
     - **Groupe à haute disponibilité** : Spécifiez le groupe à haute disponibilité à utiliser.
 
 > [!NOTE]
->Si vous souhaitez sélectionner une autre option de disponibilité pour un ensemble de machines virtuelles, allez à l’étape 1 et répétez les étapes en sélectionnant différentes options de disponibilité après le démarrage de la réplication pour un ensemble de machines virtuelles.
+> Si vous souhaitez sélectionner une autre option de disponibilité pour un ensemble de machines virtuelles, allez à l’étape 1 et répétez les étapes en sélectionnant différentes options de disponibilité après le démarrage de la réplication pour un ensemble de machines virtuelles.
 
-    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Paramètres de capacité de calcul](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 13. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
     - Vous pouvez exclure des disques de la réplication.

@@ -4,16 +4,17 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: metrics-advisor
+ms.service: cognitive-services
+ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ms.author: aahi
-ms.openlocfilehash: 82eec57b30e177f75a3ac689dc096dfea54c6717
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 603668f5bd4bb3909c895c3b2816b7521312ab59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253738"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,10 +24,17 @@ ms.locfileid: "90944282"
     * Les exemples BASH suivants utilisent le caractère de continuation de ligne `\`. Si votre console ou terminal utilise un caractère de continuation de ligne différent, utilisez ce caractère.
 
 > [!TIP]
-> * Vous trouverez un exemple Python qui utilise l’API REST dans [GitHub](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/).
-> * 10 à 30 minutes peuvent être nécessaires pour le déploiement de votre ressource Metrics Advisor. Cliquez sur **Accéder à la ressource** une fois le déploiement réussi.
-> * Après le déploiement, vous pouvez commencer à utiliser votre instance Metrics Advisor avec le portail web et l’API REST. Vous pouvez trouver les deux URL dans la ressource que vous avez créée.
-> * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour commencer à utiliser le service, qui se trouve dans **Clés et point de terminaison**, dans votre ressource. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+> * Vous trouverez un exemple Python qui appelle l’API REST dans [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/MetricsAdvisor).
+> * 10 à 30 minutes peuvent être nécessaires pour que votre ressource Metrics Advisor déploie une instance de service que vous puissiez utiliser. Cliquez sur **Accéder à la ressource** une fois le déploiement réussi. Après le déploiement, vous pouvez commencer à utiliser votre instance Metrics Advisor avec le portail web et l’API REST. 
+> * Vous trouverez l’URL de l’API REST dans le portail Azure, dans la section **Vue d’ensemble** de votre ressource. Elle se présente comme suit :
+>    * `https://<instance-name>.cognitiveservices.azure.com/`
+
+Vous aurez besoin de deux clés pour commencer à utiliser l’API REST :
+
+* Clé de votre ressource Metrics Advisor. Vous la trouverez dans la section **Clés et point de terminaison** de votre ressource dans le portail Azure.
+    * Plus tard, vous remplacerez `Ocp-Apim-Subscription-Key` dans les exemples par cette clé. 
+* Clé API de votre instance Metrics Advisor. Vous la trouverez dans le portail web de Metrics Advisor, dans **Clés API**, dans le menu de navigation de gauche.
+    * Plus tard, vous remplacerez `x-api-key` dans les exemples par cette clé.
 
 ## <a name="add-a-data-feed-from-a-sample-or-data-source"></a>Ajouter un flux de données à partir d’un exemple ou d’une source de données
 
@@ -87,10 +95,10 @@ Pour démarrer l’analyse de vos données de série chronologique, vous devez a
 La commande cURL est exécutée à partir d’un interpréteur de commandes BASH. Modifiez cette commande avec vos propres nom de ressource, clé de ressource et valeurs JSON.
 
 ```bash
-curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds \
+curl -i https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -100,7 +108,7 @@ curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds \
 ```
 HTTP/1.1 201 Created
 Content-Length: 0
-Location: https://gualala-beta-0617.cognitiveservices.azure.com/anomalydetector-ee/v1.0/datafeeds/b5921405-8001-42b2-8746-004ddeeb780d
+Location: https://gualala-beta-0617.cognitiveservices.azure.com/metricsadvisor/v1.0/datafeeds/b5921405-8001-42b2-8746-004ddeeb780d
 x-envoy-upstream-service-time: 564
 apim-request-id: 4e4fe70b-d663-4fb7-a804-b9dc14ba02a3
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
@@ -112,14 +120,14 @@ Dans la réponse ci-dessus, l’en-tête **Emplacement** est l’URL du flux de 
 À l’aide de l’URL ci-dessus, vous pouvez exécuter des requêtes sur les informations détaillées du flux de données que vous avez créé à l’étape précédente. (Nous allons utiliser **metricID** dans les informations de flux de données, dans les étapes suivantes)
 
 ```bash
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID \
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse
 
-```
+```json
 {
    "dataFeedId":"90919c03-be13-4efa-86e5-aa9dc72764ce",
    "dataFeedName":"test_data_feed_00000007",
@@ -168,12 +176,12 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLAC
    "maxConcurrency":-1,
    "viewMode":"Private",
    "admins":[
-      "zhli2@microsoft.com"
+      "xyz@microsoft.com"
    ],
    "viewers":[
       
    ],
-   "creator":"bowgong@microsoft.com",
+   "creator":"xyz@microsoft.com",
    "status":"Active",
    "createdTime":"2020-09-08T08:39:28Z",
    "isAdmin":true,
@@ -202,10 +210,10 @@ La commande cURL est exécutée à partir d’un interpréteur de commandes BASH
 
 
 ```bash
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID/ingestionStatus/query \
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID/ingestionStatus/query \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -265,10 +273,10 @@ Une configuration par défaut est automatiquement appliquée à chaque métrique
 La commande cURL est exécutée à partir d’un interpréteur de commandes BASH. Modifiez cette commande avec vos propres informations relatives au nom de ressource, à la clé de ressource ainsi qu’aux valeurs JSON et à la taille de JSON.
 
 ```bash
-curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations \
+curl -i https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDetection/configurations \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -278,7 +286,7 @@ curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/an
 ```
 HTTP/1.1 201 Created
 Content-Length: 0
-Location: https://gualala-beta-0617.cognitiveservices.azure.com/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations/6a977d61-f0f5-488a-a162-2feb4643ae09
+Location: https://gualala-beta-0617.cognitiveservices.azure.com/metricsadvisor/v1.0/enrichment/anomalyDetection/configurations/6a977d61-f0f5-488a-a162-2feb4643ae09
 x-request-id: 17752fcc-9085-46d5-ad37-c4e9e9ba6a5a
 x-envoy-upstream-service-time: 253
 apim-request-id: 17752fcc-9085-46d5-ad37-c4e9e9ba6a5a
@@ -291,10 +299,10 @@ L’en-tête **Emplacement** ci-dessus contient l’URL de la ressource nouvelle
 
 En utilisant l’URL ci-dessus dans l’en-tête **Emplacement**, vous pouvez interroger la configuration de la détection que vous avez créée (nous utiliserons **anomalyDetectionConfigurationId** dans le contenu de la réponse, dans les étapes suivantes)
 
-```
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/enrichment/anomalyDetection/configurations/REPLACE-WITH-YOUR-DETECTION-CONFIGURATION-ID \
+```bash
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDetection/configurations/REPLACE-WITH-YOUR-DETECTION-CONFIGURATION-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse
@@ -349,10 +357,10 @@ Enregistrez le corps de la demande JSON ci-dessous dans un fichier nommé *body.
 La commande cURL est exécutée à partir d’un interpréteur de commandes BASH. Modifiez cette commande avec vos propres informations relatives au nom de ressource, à la clé de ressource ainsi qu’aux valeurs JSON et à la taille de JSON.
 
 ```bash
-curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/hooks \
+curl -i https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/hooks \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -362,7 +370,7 @@ curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/hooks \
 ```
 HTTP/1.1 201 Created
 Content-Length: 0
-Location: https://gualala-beta-0617.cognitiveservices.azure.com/anomalydetector-ee/v1.0/hooks/34d677bd-0875-4760-8bf6-24d48abde7c3
+Location: https://gualala-beta-0617.cognitiveservices.azure.com/metricsadvisor/v1.0/hooks/34d677bd-0875-4760-8bf6-24d48abde7c3
 x-request-id: 7b6cc1a6-02cb-405b-bee3-174fdae0a7d2
 x-envoy-upstream-service-time: 1640
 apim-request-id: 7b6cc1a6-02cb-405b-bee3-174fdae0a7d2
@@ -373,10 +381,10 @@ Date: Tue, 08 Sep 2020 10:37:59 GMT
 
 En utilisant l’URL ci-dessus dans l’en-tête **Emplacement**, vous pouvez interroger le webhook que vous avez créé.
 
-```
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/hooks/REPLACE-WITH-YOUR-HOOK-ID \
+```bash
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/hooks/REPLACE-WITH-YOUR-HOOK-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse
@@ -437,10 +445,10 @@ En paramétrant la configuration des alertes, vous pouvez spécifier la conditio
 La commande cURL est exécutée à partir d’un interpréteur de commandes BASH. Modifiez cette commande avec vos propres informations relatives au nom de ressource, à la clé de ressource ainsi qu’aux valeurs JSON et à la taille de JSON.
 
 ```bash
-curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations \
+curl -i https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/configurations \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY" \
 -H "Content-Type:application/json" \
 -d @body.json
 ```
@@ -450,7 +458,7 @@ curl -i https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly
 ```
 HTTP/1.1 201 Created
 Content-Length: 0
-Location: https://gualala-beta-0617.cognitiveservices.azure.com/anomalydetector-ee/v1.0/alert/anomaly/configurations/40004c91-6996-47c0-b8c8-fd20a8f4f0ab
+Location: https://gualala-beta-0617.cognitiveservices.azure.com/metricsadvisor/v1.0/alert/anomaly/configurations/40004c91-6996-47c0-b8c8-fd20a8f4f0ab
 x-request-id: 17752fcc-9085-46d5-ad37-c4e9e9ba6a5a
 x-envoy-upstream-service-time: 253
 apim-request-id: 17752fcc-9085-46d5-ad37-c4e9e9ba6a5a
@@ -463,10 +471,10 @@ L’en-tête **Emplacement** ci-dessus contient l’URL de la ressource nouvelle
 
 En utilisant l’URL ci-dessus dans l’en-tête **Emplacement**, vous pouvez interroger la configuration d’alerte que vous avez créée. (Nous allons utiliser **anomalyAlertingConfigurationId** dans la configuration d’alerte, dans les étapes suivantes)
 
-```
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID \
+```bash
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse
@@ -508,10 +516,10 @@ L’exemple suivant montre comment interroger une alerte et utiliser cette alert
 
 Vous pouvez utiliser la configuration des alertes créée à l’étape ci-dessus pour interroger l’alerte.
 
-```
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/query \
+```bash
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/query \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse
@@ -536,10 +544,10 @@ Dans la réponse ci-dessus, nous avons reçu une alerte. À l’aide de ce param
 
 #### <a name="query-anomalies-using-alertid"></a>Interroger les anomalies à l’aide du paramètre alertID
 
-```
-curl https://REPLACE-WITH-YOUR-ENDPOINT/anomalydetector-ee/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/REPLACE-WITH-YOUR-ALERTID/anomalies \
+```bash
+curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID/alerts/REPLACE-WITH-YOUR-ALERTID/anomalies \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "x-api-key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+-H "x-api-key: REPLACE-WITH-YOUR-API-KEY"
 ```
 
 #### <a name="example-response"></a>Exemple de réponse

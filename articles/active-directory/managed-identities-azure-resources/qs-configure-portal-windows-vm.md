@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331333"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure
 
@@ -63,7 +63,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
 3. Sous **Attribuée par le système**, **État**, sélectionnez **Activé** puis cliquez sur **Enregistrer** :
 
-   ![Capture d’écran de la page Configuration](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Capture d’écran montrant la page « Identité (préversion) » avec l’état « Attribué par le système » défini sur « Activé ».](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Supprimer une identité managée affectée par le système d’une machine virtuelle
 
@@ -99,7 +99,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte associé à l’abonnement Azure qui contient la machine virtuelle.
 2. Accédez à la machine virtuelle souhaitée, cliquez sur **Identité**, **Attribuée par l’utilisateur**, puis sur **\+Ajouter**.
 
-   ![Ajouter une identité managée affectée par l’utilisateur à une machine virtuelle](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   ![Capture d’écran montrant la page « Identité » avec l’option « Attribué par l’utilisateur » sélectionnée et le bouton « Ajouter » en surbrillance.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. Cliquez sur l’identité managée affectée par l’utilisateur que vous souhaitez ajouter à la machine virtuelle, puis cliquez sur **Ajouter**.
 

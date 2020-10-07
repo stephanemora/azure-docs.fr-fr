@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 09/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 319f3a116d52c482dde009a218ba4d2cf93d80e5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4e7d8c4917f7860ba07ef9eb749337afd83f723a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255534"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamzskill"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TeamzSkill
 
@@ -103,6 +103,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | employeeid | user.employeeid |
     | postalcode | user.postalcode |
     | country | user.country |
+    | rôle | user.assignedroles |
+
+    > [!NOTE]
+    > TeamzSkill attend des rôles pour les utilisateurs affectés à l’application. Veuillez configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [cette page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -134,7 +138,6 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-teamzskill-sso"></a>Configurer l’authentification unique TeamzSkill

@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261411"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 
@@ -66,7 +66,7 @@ Ce guide de démarrage rapide vous montre comment utiliser le portail Azure pour
 
 Si vous accédez à la fenêtre de vos actifs multimédias, vous voyez qu’un nouvel actif multimédia a été ajouté à la liste :
 
-![Télécharger](./media/manage-assets-quickstart/upload.png)
+![Capture d’écran du portail Azure montrant la fenêtre Actifs multimédias ouverte en sélectionnant Actifs multimédias (nouveau), et un nouvel actif multimédia ajouté en sélectionnant le bouton Télécharger.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Encoder
 
@@ -78,7 +78,7 @@ Si vous accédez à la fenêtre de vos actifs multimédias, vous voyez qu’un n
 
 Si vous accédez à la fenêtre de vos actifs multimédias, vous voyez que le nouvel actif multimédia de sortie a été ajouté à la liste :
 
-![Encoder](./media/manage-assets-quickstart/encode.png)
+![Capture d’écran de la fenêtre Actifs multimédias dans le portail Azure, montrant l’actif multimédia ignite.mp4 encodé au format standard, ajouté à la liste des actifs multimédias.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>Superviser la progression des travaux
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322051"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ?
 
@@ -100,6 +100,8 @@ Pour bénéficier de performances optimales, vérifiez que votre réseau remplit
 * La latence aller-retour entre le réseau du client et la région Azure où les pools hôtes ont été déployés doit être inférieure à 150 ms Utilisez l’[estimateur d’expérience](https://azure.microsoft.com/services/virtual-desktop/assessment) pour afficher l’intégrité de votre connexion et votre région Azure recommandée.
 * Le trafic réseau peut circuler au-delà des frontières du pays ou de la région lorsque des machines virtuelles qui hébergent des bureaux et des applications se connectent au service de gestion
 * Pour optimiser les performances du réseau, nous vous recommandons de colocaliser les machines virtuelles de l’hôte de session dans la même région Azure que le service de gestion
+
+Vous pouvez consulter une configuration architecturale classique de Windows Virtual Desktop pour l’entreprise dans notre [documentation d’architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Clients Bureau à distance pris en charge
 

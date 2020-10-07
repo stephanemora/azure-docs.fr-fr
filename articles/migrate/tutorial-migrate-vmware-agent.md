@@ -4,12 +4,12 @@ description: Découvrez comment exécuter la migration avec agent des machines v
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296142"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -251,7 +251,7 @@ Sélectionnez les machines virtuelles pour la migration.
 
 1. Dans le projet Azure Migrate > **Serveurs**, **Azure Migrate : Server Migration**, cliquez sur **Répliquer**.
 
-    ![Répliquer des machines virtuelles](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Capture d’écran de l’écran Serveurs dans Azure Migrate. Le bouton Répliquer est sélectionné dans Azure Migrate : Migration du serveur sous Outils de migration.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec VMware vSphere**.
 3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée.
@@ -259,7 +259,7 @@ Sélectionnez les machines virtuelles pour la migration.
 5. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication.
 6. Dans **Informations d’identification de l’invité**, spécifiez le compte d’administrateur de machine virtuelle qui sera utilisé pour l’installation de type push du service Mobilité. Cliquez ensuite sur **Suivant : Machines virtuelles**.
 
-    ![Répliquer des machines virtuelles](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Capture d’écran de l’onglet Paramètres de la source dans l’écran Réplication. Le champ Informations d’identification de l’invité est mis en surbrillance, et la valeur est définie sur VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. Dans **Machines virtuelles**, sélectionnez les machines à répliquer.
 

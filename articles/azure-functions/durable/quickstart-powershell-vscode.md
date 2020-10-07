@@ -1,16 +1,16 @@
 ---
 title: Créer votre première fonction durable dans Azure Functions à l’aide de PowerShell
-description: Créez et publiez une fonction durable Azure à l’aide de Visual Studio Code.
+description: Créez et publiez une fonction durable Azure dans PowerShell à l’aide de Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 11ae695a898e011fd287730d894394eff013a0ca
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317257"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Créer votre première fonction durable dans PowerShell
 

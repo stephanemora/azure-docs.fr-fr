@@ -9,15 +9,19 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 21b571c859ec8ecc66c1c9a222e0648dc7f28f4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249414"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Sécurisation de vos informations d’identification via les services liés avec la bibliothèque de jetons (TokenLibrary)
-L’accès aux données de sources externes est un modèle courant. À moins que la source de données externe autorise l’accès anonyme, il est probable que vous aurez besoin de sécuriser votre connexion avec des informations d’identification, un secret ou une chaîne de connexion.  Azure Synapse Analytics propose des services liés pour simplifier le processus d’intégration en stockant les détails de connexion dans un service lié ou Azure Key Vault. Une fois que vous avez créé un service lié, Apache Spark peut faire référence au service lié pour appliquer les informations de connexion dans votre code. Pour plus d’informations, consultez [services liés](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+L’accès aux données de sources externes est un modèle courant. À moins que la source de données externe autorise l’accès anonyme, il est probable que vous aurez besoin de sécuriser votre connexion avec des informations d’identification, un secret ou une chaîne de connexion.  
+
+Azure Synapse Analytics propose des services liés pour simplifier le processus d’intégration en stockant les détails de connexion dans un service lié ou Azure Key Vault. Une fois que vous avez créé un service lié, Apache Spark peut faire référence au service lié pour appliquer les informations de connexion dans votre code. 
+
+Pour plus d’informations, consultez [services liés](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > [!NOTE]
 > Sachant que l’accès aux fichiers d’Azure Data Lake Storage à partir votre espace de travail utilise l’authentification directe AAD, vous n’avez pas besoin d’utiliser TokenLibrary. 
 
@@ -26,7 +30,7 @@ L’accès aux données de sources externes est un modèle courant. À moins que
 * Service lié : vous devez créer un service lié à la source de données externe et référencer le service lié à partir de la bibliothèque de jetons. Apprenez-en davantage sur les [services liés](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
-## <a name="connecting-to-adls-gen2-outside-of-synapse-workspace"></a>Connexion à ADLS Gen2 en dehors de l’espace de travail Synapse
+## <a name="connect-to-adls-gen2-outside-of-synapse-workspace"></a>Se connecter à ADLS Gen2 en dehors de l’espace de travail Synapse
 
 Synapse propose une expérience de services liés intégrée pour Azure Data Lake Storage Gen2.
 
@@ -52,7 +56,7 @@ df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTO
 
 df.show()
 ```
-## <a name="using-the-token-library"></a>Utilisation de la bibliothèque de jetons
+## <a name="use-the-token-library"></a>Utiliser la bibliothèque de jetons
 
 Pour vous connecter à d’autres services liés, vous pouvez effectuer un appel direct à TokenLibrary.
 

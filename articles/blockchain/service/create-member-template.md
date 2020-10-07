@@ -5,13 +5,13 @@ services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
-ms.date: 07/16/2020
-ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.date: 09/16/2020
+ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292759"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Démarrage rapide : Créer un membre d’Azure Blockchain Service à l’aide d’un modèle ARM
 
@@ -49,14 +49,16 @@ Ressources Azure définies dans le modèle :
     --------|------------
     Abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
     Resource group | Créez un nom de groupe de ressources ou choisissez un nom de groupe existant dans votre abonnement.
-    Emplacement | Choisissez un emplacement où créer le membre. Tous les membres du consortium doivent se trouver au même emplacement. Les emplacements disponibles pour le déploiement sont *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* et *japaneast*. Les fonctionnalités peuvent ne pas être disponibles dans certaines régions. Azure Blockchain Data Manager est disponible dans les régions Azure suivantes : USA Est et Europe Ouest.
-    Nom du membre | Choisissez un nom unique pour le membre Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.
+    Région | Choisissez une région où créer le groupe de ressources. Tous les membres du consortium doivent se trouver au même emplacement. Les emplacements disponibles pour le déploiement sont *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* et *japaneast*. Les fonctionnalités peuvent ne pas être disponibles dans certaines régions. Azure Blockchain Data Manager est disponible dans les régions Azure suivantes : USA Est et Europe Ouest.
+    Nom du membre Bc | Choisissez un nom unique pour le membre Azure Blockchain Service. Le nom du membre blockchain doit être uniquement composé de lettres minuscules et de chiffres. Le premier caractère doit être une lettre. Le nom doit comprendre entre 2 et 20 caractères.
     Nom du consortium | Entrez un nom unique. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
-    Mot de passe du membre | Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
-    Niveau de référence SKU | Niveau tarifaire pour votre nouveau service. Choisissez le niveau **Standard** ou **De base**. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Vous devez également utiliser le niveau *Standard* si vous utilisez Blockchain Data Manager, ou si vous envoyez un volume élevé de transactions privées. Le passage du niveau tarifaire de base au niveau standard (ou inversement) après la création du membre n'est pas pris en charge.
-    Nom de la référence SKU | Configuration des nœuds et coût de votre nouveau service.
+    Mot de passe du membre | Le mot de passe du nœud de transaction par défaut du membre. Utilisez le mot de passe pour l’authentification de base lorsque vous vous connectez au point de terminaison public du nœud de transaction par défaut du membre blockchain.
+    Mot de passe du compte de gestion du consortium | Le mot de passe du compte du consortium sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Il est utilisé pour la gestion du consortium.
+    Niveau de référence SKU | Niveau tarifaire pour votre nouveau service. Choisissez le niveau **Standard** ou **De base**. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Utilisez également le niveau *Standard* si vous utilisez Blockchain Data Manager ou si vous envoyez un volume élevé de transactions privées. Le passage du niveau tarifaire de base au niveau standard (ou inversement) après la création du membre n'est pas pris en charge.
+    Nom de la référence SKU | Configuration des nœuds et coût de votre nouveau service. Utilisez **B0** pour De base ou **S0** pour Standard.
+    Emplacement | Choisissez un emplacement où créer le membre. Par défaut, l’emplacement du groupe de ressources (`[resourceGroup().location]`) est utilisé. Tous les membres du consortium doivent se trouver au même emplacement. Les emplacements disponibles pour le déploiement sont *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* et *japaneast*. Les fonctionnalités peuvent ne pas être disponibles dans certaines régions. Azure Blockchain Data Manager est disponible dans les régions Azure suivantes : USA Est et Europe Ouest.
 
-1. Sélectionnez **Acheter** pour déployer le modèle.
+1. Sélectionnez **Vérifier + créer** pour vérifier et déployer le modèle.
 
   Le portail Azure est utilisé ici pour déployer le modèle. Vous pouvez également utiliser Azure PowerShell, Azure CLI ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../../azure-resource-manager/templates/deploy-powershell.md).
 

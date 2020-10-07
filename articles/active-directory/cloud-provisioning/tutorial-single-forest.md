@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228373"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266324"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -61,16 +61,16 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 5. Exécutez l’agent de provisionnement Azure AD Connect.
 6. Dans l’écran de démarrage, **acceptez** les termes du contrat de licence et cliquez sur **Installer**.
 
-   ![Écran d’accueil](media/how-to-install/install1.png)
+   ![Capture de l’écran de démarrage « Package de l’agent de provisionnement Microsoft Azure AD Connect ».](media/how-to-install/install1.png)
 
 7. Une fois cette opération terminée, l’Assistant de configuration démarre.  Connectez-vous avec votre compte d’administrateur général Azure AD.  Notez que si la sécurité renforcée d’Internet Explorer est activée, elle bloque la connexion.  Si c’est le cas, fermez l’installation, désactivez la sécurité renforcée d’Internet Explorer dans le Gestionnaire de serveur, puis cliquez sur l’**Assistant Agent de provisionnement AAD Connect** pour redémarrer l’installation.
 8. Dans l’écran **Connexion à Active Directory**, cliquez sur **Ajout d’un annuaire**, puis connectez-vous avec votre compte d’administrateur de domaine Active Directory.  REMARQUE :  Le compte d’administrateur de domaine ne doit pas vous demander de changer de mot de passe. En cas d’expiration ou de changement du mot de passe, vous devez reconfigurer l’agent avec les nouvelles informations d’identification. Cette opération ajoute votre annuaire local.  Cliquez sur **Suivant**.
 
-   ![Écran d’accueil](media/how-to-install/install3.png)
+   ![Capture de l’écran « Connexion à Active Directory ».](media/how-to-install/install3.png)
 
 9. Dans l’écran **Configuration terminée**, cliquez sur **Confirmer**.  Cette opération inscrit et redémarre l’agent.
 
-   ![Écran d’accueil](media/how-to-install/install4.png)
+   ![Capture de l’écran « Configuration terminée ».](media/how-to-install/install4.png)
 
 10. Une fois cette opération terminée, vous devriez voir une notification : **La configuration de votre agent a été vérifiée avec succès.**  Vous pouvez cliquer sur **Quitter**.</br>
 ![Écran d’accueil](media/how-to-install/install5.png)</br>

@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Configurer une stratégie WAF de géofiltrage - Azure Front Door'
-description: Dans ce tutoriel, vous allez apprendre à créer une stratégie de géofiltrage et à l’associer à votre hôte front-end Front Door existant.
+description: Dans ce tutoriel, vous allez apprendre à créer une stratégie WAF de géofiltrage et à l’associer à votre hôte front-end Front Door existant.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 20aa038e15b1ae5734ad6f463c6f450368617119
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090026"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324023"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Tutoriel : Guide pratique pour configurer une stratégie WAF de filtrage géographique pour votre porte d’entrée
 Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de filtrage géographique bloquera les demandes de tous les autres pays/régions, à l’exception des États-Unis.

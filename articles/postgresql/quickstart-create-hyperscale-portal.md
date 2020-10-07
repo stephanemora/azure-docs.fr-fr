@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268450"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Démarrage rapide : créer un groupe de serveurs Hyperscale (Citus) dans le portail Azure
 
@@ -25,7 +25,7 @@ Azure Database pour PostgreSQL est un service administré que vous utilisez pour
 
 Une fois connecté au nœud coordinateur Hyperscale avec psql, vous pouvez effectuer certaines tâches de base.
 
-Il existe trois types de tables dans les serveurs Hyperscale :
+Il existe trois types de tables dans les serveurs Hyperscale (Citus) :
 
 - Tables distribuées ou partitionnées (réparties dans le but de faciliter la scalabilité pour les performances et la parallélisation)
 - Tables de référence (plusieurs copies gérées)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Ensuite, nous allons placer ces tables Postgres sur le nœud coordinateur et indiquer à Hyperscale de les partitionner sur les workers. Pour cela, nous allons exécuter une requête pour chaque table, en spécifiant la clé sur laquelle la partitionner. Dans notre exemple, nous allons partitionner la table des événements et des utilisateurs sur `user_id` :
+Ensuite, nous allons placer ces tables Postgres sur le nœud coordinateur et indiquer à Hyperscale (Citus) de les partitionner sur les workers. Pour cela, nous allons exécuter une requête pour chaque table, en spécifiant la clé sur laquelle la partitionner. Dans notre exemple, nous allons partitionner la table des événements et des utilisateurs sur `user_id` :
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Jusqu’à présent, les requêtes impliquaient exclusivement github\_events, mais nous pouvons combiner ces informations avec github\_users. Comme nous avons partitionné les utilisateurs et les événements sur le même identificateur (`user_id`), les lignes des deux tables avec des ID d’utilisateur correspondants sont [colocalisées](concepts-hyperscale-colocation.md) sur les mêmes nœuds de base de données et peuvent facilement faire l’objet d’une jointure.
 
-Si nous faisons une jointure sur `user_id`, Hyperscale peut procéder à l’exécution de la jointure au niveau des partitions pour permettre une exécution en parallèle sur les nœuds worker. Par exemple, recherchons les utilisateurs qui ont créé le plus grand nombre de dépôts :
+Si nous faisons une jointure sur `user_id`, Hyperscale (Citus) peut procéder à l’exécution de la jointure au niveau des partitions pour permettre une exécution en parallèle sur les nœuds worker. Par exemple, recherchons les utilisateurs qui ont créé le plus grand nombre de dépôts :
 
 ```sql
 SELECT gu.login, count(*)

@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331809"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutoriel : Configurer des matériaux PBR dans 3ds Max
 
@@ -22,6 +22,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Attribuer des matériaux dotés d’un éclairage avancé à des objets dans une scène.
 > * Gérer l’instanciation des objets et des matériaux.
 > * Exporter une scène au format FBX et sélectionner les options importantes.
+
+> [!Note]
+> La procédure décrite dans ce tutoriel fonctionne dans 3ds Max 2019 et 3ds Max 2020.
+> Un changement dans la façon dont 3ds Max 2021 exporte les placages de texture fait que les placages normaux ne seront pas trouvés par le service de conversion si cette version est utilisée.
 
 La création de [matériaux au rendu physique réaliste (matériaux PBR)](../../overview/features/pbr-materials.md) dans 3ds Max est une tâche simple. Elle est semblable en de nombreux points à la configuration du rendu PBR dans d’autres applications de création de contenu comme Maya. Ce tutoriel explique les étapes de base de la configuration du nuanceur PBR et de l’exportation au format FBX dans le cadre de projets Azure Remote Rendering.
 

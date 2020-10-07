@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un pare-feu d’application web (WAF) v2 sur Application Gateway - Modèle Azure Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Découvrez comment utiliser un modèle Azure Resource Manager (modèle ARM) pour créer un pare-feu d’applications web v2 sur Azure Application Gateway.
+description: Découvrez comment utiliser un modèle de démarrage rapide Azure Resource Manager (modèle ARM) pour créer un pare-feu d’applications web v2 sur Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266953"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Démarrage rapide : Créer un pare-feu d’application web (WAF) v2 sur Application Gateway à l’aide d’un modèle Resource Manager
 

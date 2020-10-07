@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289019"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
 
@@ -119,7 +119,7 @@ L’élément unstructured_data_path qui établit un chemin d’accès aux donn�
 | Stockage Blob Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/$$$path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net $$$/path/file   |
-| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/chemin/fichier](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/chemin/fichier](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -135,7 +135,7 @@ Si vous spécifiez l’élément unstructured_data_path comme dossier, une requ�
 > [!NOTE]
 > Contrairement à Hadoop et à PolyBase, SQL à la demande ne retourne pas de sous-dossiers. Par ailleurs, à la différence d’Hadoop et de PolyBase, SQL à la demande retourne les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
-Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête SQL à la demande retournera des lignes de mydata.txt et de _hidden.txt. Il ne retournera pas mydata2.txt ni mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
+Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête SQL à la demande retournera des lignes de mydata.txt et de _hidden.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
 
 ![Données récursives pour les tables externes](./media/develop-openrowset/folder-traversal.png)
 
@@ -184,7 +184,7 @@ Le paramètre ESCAPE_CHAR est appliqué, que FIELDQUOTE soit ou non activé. Il 
 
 FIRSTROW = 'first_row' 
 
-Numéro de la première ligne à charger. La valeur par défaut est 1. Cela indique la première ligne du fichier de données spécifié. Les numéros des lignes sont déterminés en comptant les indicateurs de fin de ligne. FIRSTROW commence à 1.
+Numéro de la première ligne à charger. La valeur par défaut est 1, et indique la première ligne du fichier de données spécifié. Les numéros des lignes sont déterminés en comptant les indicateurs de fin de ligne. FIRSTROW commence à 1.
 
 FIELDQUOTE = 'field_quote' 
 
@@ -203,7 +203,7 @@ Spécifie la version d’analyseur à utiliser lors de la lecture de fichiers. S
 - PARSER_VERSION = ’1.0’
 - PARSER_VERSION = ’2.0’
 
-La version 1.0 de l’analyseur CSV (version par défaut) est riche en fonctionnalités, tandis que la version 2.0, conçue pour les performances, ne prend pas en charge l’ensemble des options et des encodages. 
+La version 1.0 de l’analyseur CSV, qui est la version par défaut, est riche en fonctionnalités. La version 2.0, conçue pour les performances, ne prend pas en charge l’ensemble des options et des encodages. 
 
 Caractéristiques la version 2.0 de l’analyseur CSV :
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-L’exemple suivant retourne toutes les colonnes de la première ligne du jeu de données de recensement au format Parquet, sans spécifier les noms des colonnes et les types de données : 
+L’exemple suivant retourne toutes les colonnes de la première ligne du jeu de données de recensement, au format Parquet, et sans spécifier les noms des colonnes et les types de données : 
 
 ```sql
 SELECT 

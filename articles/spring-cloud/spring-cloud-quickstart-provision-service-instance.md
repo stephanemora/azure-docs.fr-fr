@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f44ebc3885fe57d68756d908c4b392cd43b0366f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326199"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Démarrage rapide : Provisionner le service Azure Spring Cloud
 
@@ -158,23 +158,9 @@ La procédure suivante utilise l’extension Azure CLI pour provisionner une ins
 ---
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-Si vous prévoyez de passer au prochain guide de démarrage rapide de cette série, vous pouvez ignorer cette étape.
-
-Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous ne prévoyez pas de passer au guide de démarrage suivant, et si vous pensez que vous n’aurez pas besoin de ces ressources, supprimez le groupe de ressources du portail en exécutant la commande suivante dans Cloud Shell :
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-Dans ce guide de démarrage rapide, vous avez également défini le nom du groupe de ressources par défaut. Si vous ne prévoyez pas de passer au guide de démarrage rapide suivant, supprimez cette valeur par défaut en exécutant la commande CLI suivante :
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous n’avez pas prévu de passer au guide de démarrage rapide suivant, consultez [Nettoyer les ressources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Dans le cas contraire, passez au guide de démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
 > [Configurer un serveur de configuration](spring-cloud-quickstart-setup-config-server.md)

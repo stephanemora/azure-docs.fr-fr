@@ -1,27 +1,29 @@
 ---
 title: Présentation de l’API Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
-description: Utiliser les algorithmes avancés de l’API Détecteur d’anomalies pour identifier des anomalies dans vos données de série chronologique.
+description: Utilisez les algorithmes de l’API Détecteur d’anomalies pour appliquer la détection d’anomalies à vos données de séries chronologiques.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: détection d’anomalie, Machine Learning, algorithmes
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319314"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique. L’API Détecteur d’anomalies s’adapte en identifiant et en appliquant automatiquement les modèles les mieux adaptés à vos données, indépendamment du secteur d’activité, du scénario ou du volume de données. À l’aide de vos données de série chronologique, l’API détermine les limites pour la détection des anomalies, les valeurs attendues et les points de données qui constituent des anomalies.
+L’API Détecteur d’anomalies vous permet de superviser et de détecter des anomalies dans vos données de séries chronologiques sans avoir à connaître le machine learning. Les algorithmes de l’API Détecteur d’anomalies s’adaptent en identifiant et en appliquant automatiquement les modèles les mieux adaptés à vos données, indépendamment du secteur d’activité, du scénario ou du volume de données. À l’aide de vos données de série chronologique, l’API détermine les limites pour la détection des anomalies, les valeurs attendues et les points de données qui constituent des anomalies.
 
 ![Détecter des modifications de modèle dans les demandes de service](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des an
 
 |Fonctionnalité  |Description  |
 |---------|---------|
-|Détecter les anomalies en temps réel. | Détectez les anomalies dans vos données de diffusion en continu à l’aide des points de données préalablement vus pour déterminer si le dernier point est une anomalie. Cette opération génère un modèle à l’aide des points de données que vous envoyez et détermine si le point cible est une anomalie. En appelant l’API avec chaque nouveau point de données que vous générez, vous pouvez surveiller vos données au moment de leur création. |
+|Détection d’anomalie en temps réel. | Détectez les anomalies dans vos données de diffusion en continu à l’aide des points de données préalablement vus pour déterminer si le dernier point est une anomalie. Cette opération génère un modèle à l’aide des points de données que vous envoyez et détermine si le point cible est une anomalie. En appelant l’API avec chaque nouveau point de données que vous générez, vous pouvez surveiller vos données au moment de leur création. |
 |Détecter les anomalies tout au long de votre jeu de données par lots. | Utilisez votre série chronologique pour détecter d’éventuelles anomalies dans l’ensemble de vos données. Cette opération génère un modèle à l’aide de vos données de série chronologique complètes, chaque point étant analysé avec le même modèle.         |
 |Détecter les points de changement tout au long de votre jeu de données dans un même lot. | Utilisez votre série chronologique pour détecter les points de changement de tendance présents dans vos données. Cette opération génère un modèle à l’aide de vos données de série chronologique complètes, chaque point étant analysé avec le même modèle.    |
 | Obtenir des informations supplémentaires sur vos données. | Obtenez des détails utiles sur vos données et sur les anomalies constatées, notamment les valeurs attendues ainsi que les limites et les positions des anomalies. |

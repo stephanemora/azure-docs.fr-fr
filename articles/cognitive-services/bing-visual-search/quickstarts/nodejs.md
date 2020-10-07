@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Obtenir des insights sur des images avec l’API REST et Node.js - Recherche visuelle Bing'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment charger une image dans l’API Recherche visuelle Bing pour récupérer des insights sur celle-ci.
+description: Découvrez comment charger une image à l’aide de l’API Recherche visuelle Bing et Node.js, puis récupérez des insights sur l’image.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1e5594fab6e4b1758e8e3cd722c053b9d3d301ce
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: e96ff9173d920208e067988602323626767d9017
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404006"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277090"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de Node.js
 

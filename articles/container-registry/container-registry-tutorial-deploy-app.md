@@ -4,12 +4,12 @@ description: Déployez une application web basée sur Linux sur deux régions Az
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74456108"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328687"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutoriel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 
@@ -58,7 +58,7 @@ Sous **Web App pour conteneurs** qui s’affiche lorsque vous sélectionnez « D
 
 Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Ouest*.
 
-![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-02]
+![Capture d’écran montrant Web App pour conteneurs avec le bouton Créer mis en évidence.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Afficher l’application web déployée
 
@@ -68,11 +68,11 @@ Dans le portail, sélectionnez **App Services**, puis l’application web que vo
 
 Sélectionnez le lien hypertexte de l’URL de l’application web dans l’angle supérieur droit de la vue d’ensemble **App Service** pour afficher l’application en cours d’exécution dans votre navigateur.
 
-![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-04]
+![Capture d’écran montrant la vue d’ensemble App Service avec l’URL de l’application web mise en évidence.][deploy-app-portal-04]
 
 Une fois l’image Docker déployée à partir de votre registre de conteneurs géorépliqué, le site affiche une image représentant la région Azure hébergeant le registre de conteneurs.
 
-![Application web déployée affichée dans un navigateur][deployed-app-westus]
+![Capture d’écran montrant l’application web déployée dans un navigateur.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Déployer une deuxième instance Web App pour conteneurs
 
@@ -88,9 +88,9 @@ Suivez la procédure décrite dans la section précédente pour déployer une de
 
 Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Est*.
 
-![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-06]
+![Capture d’écran montrant la fenêtre Créer de Web App pour conteneurs avec le bouton Créer mis en évidence.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>Afficher l’application web déployée
+## <a name="view-the-second-deployed-web-app"></a>Afficher la seconde application web déployée
 
 Comme auparavant, vous pouvez afficher l’application en cours d’exécution en accédant à son URL dans votre navigateur.
 

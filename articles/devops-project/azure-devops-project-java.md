@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer un pipeline CI/CD pour Java – Azure DevOps Starter'
-description: DevOps Starter facilite la prise en main d’Azure. Ce composant vous aide à lancer une application sur le service Azure de votre choix en quelques étapes rapides.
+description: Apprenez à utiliser l’expérience Azure DevOps Starter simplifiée pour configurer un pipeline d’intégration continue (CI) et de livraison continue (CD) pour votre application Java dans Azure Pipelines.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 738822d2dd4a67ea0b5c83c6c5f6c289e93766c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 29b05feab0a44629c3d450709a3bc05481be6e84
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330364"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurer un pipeline CI/CD pour une application Java à l’aide d’Azure DevOps Starter
 
@@ -35,7 +35,7 @@ DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans la zone de recherche, saisissez puis sélectionnez **DevOps Starter**. Cliquez sur **Ajouter** pour en créer une.
+1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter**. Cliquez sur le **signe +** pour créer une ressource.
 
     ![Tableau de bord DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST et Python - Vérification orthographique Bing'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire avec ce guide de démarrage rapide.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing et Python pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: e121aaf6725c179189b25dff6534b019c5de730c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb07b105cedc9b017eb99212f3225c4f9d43511e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852733"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330670"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Python
 

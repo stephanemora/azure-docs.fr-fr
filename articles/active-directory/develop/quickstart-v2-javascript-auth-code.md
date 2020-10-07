@@ -1,7 +1,7 @@
 ---
 title: Connexion d’utilisateurs dans des applications monopages JavaScript (SPA) avec du code d’authentification | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez de quelle manière une application JavaScript peut appeler une API qui nécessite des jetons d’accès à l’aide de la plateforme d’identités Microsoft.
+description: Découvrez comment une application monopage (SPA) JavaScript peut connecter les utilisateurs de comptes personnels, professionnels et scolaires à l’aide du flux de code d’autorisation.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257977"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification
 

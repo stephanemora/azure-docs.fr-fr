@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326604"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
 
@@ -131,7 +131,7 @@ Effectuez la procédure suivante pour mettre à jour les paramètres de cookies 
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>J’ai vu des frais sur mon compte d’essai gratuit
 
-Vous pouvez voir une petite vérification temporaire retenue sur votre compte de carte de crédit après votre inscription. La retenue est supprimée dans un délai de trois à cinq jours. Si vous êtes soucieux quant à la gestion des coûts, lisez-en davantage sur la [prévention des coûts inattendus](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+Vous pouvez voir une petite vérification temporaire retenue sur votre compte de carte de crédit après votre inscription. La retenue est supprimée dans un délai de trois à cinq jours. Si vous êtes soucieux quant à la gestion des coûts, lisez l’article dédié à l’[analyse des frais inattendus](../understand/analyze-unexpected-charges.md).
 
 ## <a name="agreement"></a>Contrat
 

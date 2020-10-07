@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331095"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway à l’aide d’Azure PowerShell
 
@@ -53,6 +53,8 @@ Azure a besoin d’un réseau virtuel pour communiquer avec les différentes res
 1. Créez les configurations de sous-réseau en utilisant `New-AzVirtualNetworkSubnetConfig`.
 2. Créez le réseau virtuel à l’aide des configurations de sous-réseau en utilisant `New-AzVirtualNetwork`. 
 3. Créez l’adresse IP publique en utilisant `New-AzPublicIpAddress`. 
+> [!NOTE]
+> Les [stratégies de points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoint-policies-overview.md) ne sont pas prises en charge dans un sous-réseau Application Gateway.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

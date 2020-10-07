@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313160"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutoriel :  Intégrer une forêt AD unique avec la synchronisation du hachage de mot de passe (PHS)
 
@@ -184,7 +184,7 @@ Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utili
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
 3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
 4. Sélectionnez **Create** (Créer).</br>
-![Créer](media/tutorial-password-hash-sync/create1.png)</br>
+![Capture d’écran montrant comment créer un locataire Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.
 
@@ -192,10 +192,10 @@ Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utili
 Maintenant que nous avons un locataire Azure AD, nous allons créer un compte d’administrateur général.  Ce compte est utilisé pour créer le compte de connecteur Azure AD lors de l’installation d’Azure AD Connect.  Le compte de connecteur Azure AD sert à écrire des informations dans Azure AD.   Pour créer le compte d’administrateur général, procédez comme suit.
 
 1.  Sous **Gérer**, sélectionnez **Utilisateurs**.</br>
-![Créer](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Capture d’écran montrant l’option Utilisateur sélectionnée dans la section Gérer où vous créez un administrateur général dans Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Sélectionnez **Tous les utilisateurs**, puis **+ Nouvel utilisateur**.
 3.  Renseignez un nom et un nom d’utilisateur pour cet utilisateur. Il s’agit de votre administrateur général pour le locataire. Vous devez également définir le **rôle d’annuaire** sur **Administrateur général**. Vous pouvez également afficher le mot de passe temporaire. Lorsque vous avez terminé, sélectionnez **Créer**.</br>
-![Créer](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Capture d’écran montrant le bouton Créer que vous sélectionnez quand vous créez un administrateur général dans Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Une fois cette opération terminée, ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à myapps.microsoft.com en utilisant le nouveau compte d’administrateur général et le mot de passe temporaire.
 5. Remplacez le mot de passe de l’administrateur général par quelque chose de facile à retenir.
 
@@ -206,7 +206,7 @@ Il est maintenant temps de télécharger et d’installer Azure AD Connect.  U
 2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
 3. Sur l'écran d’accueil, sélectionnez la case pour accepter les termes du contrat de licence et cliquez sur **Continuer**.  
 4. Sur l'écran Paramètres Express, cliquez sur **Utiliser les paramètres Express**.</br>  
-![Créer](media/tutorial-password-hash-sync/express1.png)</br>
+![Capture d’écran montrant l’écran des paramètres Express et le bouton Utiliser les paramètres Express.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Sur l’écran Connexion à Azure AD, entrez le nom d’utilisateur et le mot de passe de l’administrateur général pour l’instance Azure AD. Cliquez sur **Suivant**.  
 6. Sur l’écran Connexion à AD DS, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Cliquez sur **Suivant**.  
 7. Sur l’écran Prêt à configurer, cliquez sur **Installer**.

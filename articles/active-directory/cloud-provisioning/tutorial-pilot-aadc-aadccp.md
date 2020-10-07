@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266494"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -40,7 +40,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 - Un environnement de test avec la synchronisation Azure AD Connect version 1.4.32.0 ou ultérieure
 - Une unité d’organisation ou un groupe figurant dans l’étendue de la synchronisation et pouvant servir de pilote. Nous vous recommandons de commencer avec un ensemble réduit d’objets.
 - Un serveur exécutant Windows Server 2012 R2 ou ultérieur, qui hébergera l’agent de provisionnement.  Ce serveur ne peut pas être identique au serveur Azure AD Connect.
-- L’ancre source pour la synchronisation AAD Connect doit être *objectGuid* ou *ms-ds-consistencyGUID*
+- L’ancre source pour la synchronisation Azure AD Connect doit être *objectGuid* ou *ms-ds-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Mettre à jour Azure AD Connect
 
@@ -54,7 +54,7 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
 3.  Exécutez `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->Si vous exécutez votre propre planificateur personnalisé pour la synchronisation AAD Connect, désactivez le planificateur. 
+>Si vous exécutez votre propre planificateur personnalisé pour la synchronisation Azure AD Connect, désactivez le planificateur. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Créer une règle personnalisée de trafic entrant utilisateur
 
@@ -62,7 +62,7 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
  ![Menu de l’Éditeur de règles de synchronisation](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Sélectionnez **Inbound** (Entrant) dans la liste déroulante Direction, puis cliquez sur **Add new rule** (Ajouter une nouvelle règle).
- ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Capture d’écran montrant la fenêtre « View and manage your synchronization rules » (Afficher et gérer vos règles de synchronisation) avec « Inbound » (Entrant) et le bouton « Add new rule » (Ajouter une nouvelle règle) sélectionnés.](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. Dans la page **Description**, entrez les informations ci-dessous et cliquez sur **Suivant** :
 
@@ -74,7 +74,7 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
     **Link Type** (Type de lien) : Join<br>
     **Precedence** (Précédence) : indiquez une valeur unique dans le système.<br>
     **Tag** (Balise) : laissez ce champ vide.<br>
-    ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Capture d’écran montrant la page « Create inbound synchronization rule - Description » (Créer une règle de synchronisation de trafic entrant - Description) avec des valeurs entrées.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4. Dans la page **Scoping filter** (Filtre d’étendue), entrez l’unité d’organisation ou le groupe de sécurité sur lesquels vous souhaitez que le pilote s’appuie.  Pour filtrer sur l’unité d’organisation, ajoutez la partie UO du nom unique. Cette règle s’appliquera à tous les utilisateurs qui se trouvent dans cette unité d’organisation.  Par conséquent, si DN se termine par « OU=CPUsers,DC=contoso,DC=com », vous devez ajouter ce filtre.  Cliquez ensuite sur **Suivant**. 
 
@@ -83,31 +83,31 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
     |Étendue d’unité d’organisation|DN|ENDSWITH|Nom unique de l’unité d’organisation.|
     |Étendue de groupe||ISMEMBEROF|Nom unique du groupe de sécurité.|
 
-    ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Capture d’écran montrant la page « Create inbound synchronization rule - Scoping filter » (Créer une règle de synchronisation de trafic - Filtre d’étendue) avec une valeur de filtre d’étendue entrée.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Dans la page **Join rules** (Règles de jointure), cliquez sur **Suivant**.
  6. Dans la page **Transformations**, ajoutez une transformation constante : spécifiez True pour l’attribut cloudNoFlow. Cliquez sur **Add**.
- ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Capture d’écran montrant la page « Create inbound synchronization rule - Transformations » (Créer une règle de synchronisation de trafic entrant - Transformations) avec un flux « Constant transformation » (Transformation constante) ajouté.](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Les mêmes étapes doivent être suivies pour tous les types d’objets (utilisateur, groupe et contact). Répétez les étapes par connecteur AD configuré/par forêt AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Créer une règle personnalisée de trafic sortant utilisateur
 
  1. Sélectionnez **Outbound** (Sortant) dans la liste déroulante Direction, puis cliquez sur **Add new rule** (Ajouter une nouvelle règle).
- ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Capture d’écran montrant la direction « Outbound » (Sortant) sélectionnée et le bouton « Add new rule » (Ajouter une nouvelle règle) mis en évidence.](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. Dans la page **Description**, entrez les informations ci-dessous et cliquez sur **Suivant** :
 
     **Nom :** attribuez un nom explicite à la règle.<br>
     **Description :** ajoutez une description explicite.<br>
-    **Connected System** (Système connecté) : Choisissez le connecteur AAD pour lequel vous écrivez la règle de synchronisation personnalisée.<br>
+    **Connected System** (Système connecté) : Choisissez le connecteur Azure AD pour lequel vous écrivez la règle de synchronisation personnalisée.<br>
     **Connected System Object Type** (Type d’objet système connecté) : Utilisateur<br>
     **Metaverse Object Type** (Type d’objet métaverse) : Personne<br>
     **Link Type** (Type de lien) : JoinNoFlow<br>
     **Precedence** (Précédence) : indiquez une valeur unique dans le système.<br>
     **Tag** (Balise) : laissez ce champ vide.<br>
     
-    ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Capture d’écran montrant la page « Description » avec des propriétés entrées.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. Dans la page **Scoping filter** (Filtre d’étendue), choisissez **cloudNoFlow** EQUAL **True**. Cliquez ensuite sur **Suivant**.
  ![Règle personnalisée](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -122,14 +122,14 @@ Les mêmes étapes doivent être suivies pour tous les types d’objets (utilisa
 2. Téléchargez l’agent de provisionnement cloud Azure AD Connect en utilisant la procédure décrite [ici](how-to-install.md#install-the-agent).
 3. Exécuter le provisionnement cloud Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. Dans l’écran de démarrage, **acceptez** les termes du contrat de licence et cliquez sur **Installer**.</br>
-![Écran d’accueil](media/how-to-install/install1.png)</br>
+![Capture de l’écran de démarrage « Agent de provisionnement Microsoft Azure AD Connect ».](media/how-to-install/install1.png)</br>
 
 4. Une fois cette opération terminée, l’Assistant de configuration démarre.  Connectez-vous avec votre compte d’administrateur général Azure AD.
 5. Dans l’écran **Connexion à Active Directory**, cliquez sur **Ajout d’un annuaire**, puis connectez-vous avec votre compte d’administrateur Active Directory.  Cette opération ajoute votre annuaire local.  Cliquez sur **Suivant**.</br>
-![Écran d’accueil](media/how-to-install/install3.png)</br>
+![Capture de l’écran « Connexion à Active Directory » avec une valeur d’annuaire entrée.](media/how-to-install/install3.png)</br>
 
 6. Dans l’écran **Configuration terminée**, cliquez sur **Confirmer**.  Cette opération inscrit et redémarre l’agent.</br>
-![Écran d’accueil](media/how-to-install/install4.png)</br>
+![Capture d’écran montrant le volet « Configuration terminée » avec le bouton « Confirmer » sélectionné.](media/how-to-install/install4.png)</br>
 
 7. Une fois cette opération terminée, vous devriez voir une notification : **La configuration de votre agent a été vérifiée avec succès.**  Vous pouvez cliquer sur **Quitter**.</br>
 ![Écran d’accueil](media/how-to-install/install5.png)</br>

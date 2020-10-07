@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure IoT Hub Device Provisioning avec un modèle Azure Resource Manager
+title: Démarrage rapide – Configurer Azure IoT Hub Device Provisioning avec un modèle Azure Resource Manager
 description: 'Démarrage rapide Azure : Configurer le service Azure IoT Hub Device Provisioning (DPS) avec un modèle'
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297145"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -300,7 +300,7 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
 
 Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérifier le déploiement.
 
-1. Pour déployer votre modèle, accédez au dossier contenant les fichiers de modèle et de paramètres, puis exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) :
+1. Pour déployer votre modèle, accédez au dossier contenant les fichiers de modèle et de paramètres, puis exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true) :
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérif
    ![Sortie de l’approvisionnement](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Pour vérifier votre déploiement, exécutez la [commande suivante pour répertorier les ressources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) et recherchez le nouveau service d’approvisionnement et l’IoT Hub dans la sortie :
+2. Pour vérifier votre déploiement, exécutez la [commande suivante pour répertorier les ressources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) et recherchez le nouveau service d’approvisionnement et l’IoT Hub dans la sortie :
 
     ```azurecli
      az resource list -g {your resource group name}

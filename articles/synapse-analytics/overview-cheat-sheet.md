@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3141f8044a4a257de8022ff789b12d5d3e6e7a90
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 98fc8b23369f961ca023832430d47c8868e42158
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260663"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Aide-mémoire sur Azure Synapse Analytics
 
@@ -22,18 +22,21 @@ ms.locfileid: "85807024"
 
 L’aide-mémoire sur Azure Synapse Analytics vous guide tout au long des concepts de base du service et des commandes importantes. Cet article est utile tant pour les débutants que pour les personnes qui souhaitent connaître les points essentiels des principales rubriques Azure Synapse.
 
-## <a name="architecture"></a>Architecture
+## <a name="basics"></a>Informations de base
 
-> [!div class="mx-imgBorder"]
->![Architecture de Synapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
+Un **espace de travail Synapse** est une limite de collaboration sécurisable pour l’analytique d’entreprise basée sur le cloud dans Azure. Un espace de travail est déployé dans une région spécifique et est associé à un compte ADLS Gen2 et à un système de fichiers (pour le stockage des données temporaires). Un espace de travail se trouve sous un groupe de ressources.
+
+Un espace de travail vous permet d’effectuer des analyses avec SQL et Apache Spark. Les ressources disponibles pour les analyses SQL et Spark sont organisées en **pools** SQL et Spark. 
+
+## <a name="synapse-sql"></a>SQL Synapse
+**Synapse SQL** permet d’effectuer des analyses basées sur T-SQL dans un espace de travail Synapse. Synapse SQL dispose de deux modèles de consommation : dédié et serverless.  Pour le modèle dédié, utilisez des **pools SQL** dédiés. Un espace de travail peut avoir un nombre quelconque de ces pools. Pour utiliser le modèle serverless, utilisez le pool SQL serverless appelé « SQL à la demande ». Chaque espace de travail possède un de ces pools.
+
+## <a name="apache-spark-for-synapse"></a>Apache Spark pour Synapse
+Pour utiliser les analyses Spark, créez et utilisez des **pools Spark** dans votre espace de travail Synapse.
 
 ## <a name="terminology"></a>Terminologie
 | Terme                         | Définition      |
 |:---                                 |:---                 |
-| **Espace de travail Synapse** | Limite de collaboration sécurisable pour l’analytique d’entreprise basée sur le cloud dans Azure. Un espace de travail est déployé dans une région spécifique et est associé à un compte ADLS Gen2 et à un système de fichiers (pour le stockage des données temporaires). Un espace de travail se trouve sous un groupe de ressources. |
-| **SQL Synapse**   | Exécutez des analytiques avec des pools ou avec des fonctionnalités à la demande.  |
-| **Pool SQL**   | 0 à N ressources provisionnées SQL avec leurs bases de données correspondantes peuvent être déployées dans un espace de travail. Chaque pool SQL est associé à une base de données. Un pool SQL peut être mis à l’échelle, suspendu et repris manuellement ou automatiquement. Un pool SQL peut évoluer de 100 DWU à 30 000 DWU.       |
-| **SQL à la demande**   | Système de traitement de données distribué conçu pour les données à grande échelle qui vous permet d’exécuter des requêtes T-SQL sur les données d’un lac de données. Comme il est serverless, vous n’avez pas besoin de gérer l’infrastructure.       |
 |**Apache Spark pour Synapse** | Runtime Spark utilisé dans un pool Spark. La version actuelle prise en charge est Spark 2.4 avec Python 3.6.1, Scala 2.11.12, la prise en charge de .NET pour Apache Spark 0.5 et Delta Lake 0.3.  | 
 | **Pool Apache Spark**  | 0 à N ressources provisionnées Spark avec leurs bases de données correspondantes peuvent être déployées dans un espace de travail. Un pool Spark peut être mis en pause, repris et mis à l’échelle automatiquement.  |
 | **Application Spark**  |   Elle se compose d’un processus de pilote et d’un ensemble de processus d’exécuteur. Une application Spark s’exécute sur un pool Spark.            |

@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Recherche interactive sur une carte avec Azure Maps'
-description: Apprenez à créer des cartes interactives sur lesquelles des recherches peuvent être effectuées. Apprenez à créer un compte Azure Maps, à vous procurer une clé primaire et à utiliser le kit de développement logiciel (SDK) Web pour configurer des applications cartographiques.
+description: 'Démarrage rapide : Apprenez à créer des cartes interactives sur lesquelles des recherches peuvent être effectuées. Apprenez à créer un compte Azure Maps, à vous procurer une clé primaire et à utiliser le kit SDK web pour configurer des applications cartographiques'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264284"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Démarrage rapide : Créer une carte de recherche interactive avec Azure Maps
 
@@ -62,7 +62,7 @@ Une fois le compte Maps créé, récupérez la clé principale qui vous permet d
 >[!NOTE]
 > Si vous utilisez la clé d’abonnement au lieu de la clé principale, votre mappage ne s’affiche pas correctement. En outre, pour des raisons de sécurité, il est recommandé de permuter vos clés principale et secondaire. Pour permuter les clés, mettez à jour votre application pour utiliser la clé secondaire, déployez, puis appuyez sur le bouton cycle/actualiser en regard de la clé principale pour générer une nouvelle clé principale. L’ancienne clé principale est désactivée. Pour plus d’informations sur la permutation des clés, consultez [Configurer Azure Key Vault avec la permutation des clés et l’audit](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtenir la clé primaire Azure Maps dans le portail Azure":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Créer un compte Maps sur le portail":::
 
 ## <a name="download-the-demo-application"></a>Télécharger l’application de démonstration
 
@@ -78,7 +78,7 @@ Une fois le compte Maps créé, récupérez la clé principale qui vous permet d
 4. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants**.
 5. Déplacez votre souris sur la liste des adresses et emplacements qui s’affichent sous la zone de recherche. Le repère correspondant sur la carte affiche des informations à propos de cet emplacement. Pour des raisons de confidentialité des entreprises privées, des adresses et des noms fictifs sont présentés.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Application web de recherche interactive sur une carte":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Créer un compte Maps sur le portail":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -92,17 +92,15 @@ Sinon, effectuez ces étapes pour nettoyer les ressources :
 2. Accédez à la page du portail Azure. Sélectionnez **Toutes les ressources** dans la page principale du portail. Ou cliquez sur l’icône de menu dans le coin supérieur gauche. Sélectionnez **Toutes les ressources**.
 3. Cliquez sur votre compte Azure Maps. En haut de la page, cliquez sur **Supprimer**.
 
+Pour obtenir d’autres exemples de code et bénéficier d’une expérience de codage interactive, consultez ces guides :
+
+[Rechercher une adresse avec le service Recherche Azure Maps](how-to-search-for-address.md)
+
+[Utiliser la bibliothèque Map Control d’Azure Maps](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé votre compte Azure Maps ainsi qu’une application de démonstration. Pour en savoir plus sur Azure Maps, consultez les tutoriels suivants :
 
 > [!div class="nextstepaction"]
 > [Rechercher des points d’intérêt de proximité avec Azure Maps](tutorial-search-location.md)
-
-Pour obtenir d’autres exemples de code et bénéficier d’une expérience de codage interactive, consultez ces guides :
-
-> [!div class="nextstepaction"]
-> [Rechercher une adresse avec le service Recherche Azure Maps](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Utiliser la bibliothèque Map Control d’Azure Maps](how-to-use-map-control.md)

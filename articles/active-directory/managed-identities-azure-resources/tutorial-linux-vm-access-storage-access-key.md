@@ -1,6 +1,6 @@
 ---
 title: Tutoriel `:` ​​Utiliser une identité managée pour accéder au Stockage Azure via une clé d’accès - Linux - Azure AD
-description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure.
+description: Ce tutoriel vous guide tout au long du processus consistant à utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure par le biais d’une clé d’accès.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312ca5f693c42d70ecb5e210ef0d30df5c9739bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e99a199fcc5f43f3710fe2e2fcfe55b7e624987b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317461"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288526"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>Bonnes pratiques concernant SQL à la demande (préversion) dans Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL à la demande est un service de requête sur les données de votre lac de do
 - Une syntaxe T-SQL familière pour interroger des données sur place sans avoir besoin de les copier ou de les charger dans un magasin spécialisé 
 - Une connectivité intégrée via l’interface T-SQL qui offre un large éventail d’outils décisionnels et d’outils de requête ad hoc, y compris les pilotes les plus populaires 
 
-SQL à la demande est un système de traitement de données distribué, conçu pour des données et des calculs à grande échelle. SQL à la demande vous permet d’analyser vos Big Data en quelques secondes ou quelques minutes, selon la charge de travail. Grâce à la tolérance de panne de l’exécution intégrée des requêtes, le système fournit des taux de réussite et de fiabilité élevés, même pour les requêtes longues qui impliquent des jeux de données volumineux.
+SQL à la demande est un système de traitement de données distribué, conçu pour des fonctions de calcul et de données à grande échelle. SQL à la demande vous permet d’analyser vos Big Data en quelques secondes ou quelques minutes, selon la charge de travail. Grâce à la tolérance de panne de l’exécution intégrée des requêtes, le système fournit des taux de réussite et de fiabilité élevés, même pour les requêtes longues qui impliquent des jeux de données volumineux.
 
-SQL à la demande est serverless, il n’y a donc pas d’infrastructure à configurer ni de clusters à gérer. Pour ce service, un point de terminaison par défaut est fourni dans chaque espace de travail Azure Synapse. Vous pouvez donc commencer à interroger les données dès que l’espace de travail est créé. Les ressources réservées n’impliquent aucuns frais. Seules les données analysées par les requêtes que vous exécutez vous sont facturées. Par conséquent, ce modèle est un véritable modèle de paiement à l’utilisation.  
+SQL à la demande est serverless, il n’y a donc pas d’infrastructure à configurer ni de clusters à gérer. Pour ce service, un point de terminaison par défaut est fourni dans chaque espace de travail Azure Synapse. Vous pouvez donc commencer à interroger les données dès que l’espace de travail est créé. 
+
+Les ressources réservées n’impliquent aucuns frais. Seules les données traitées par les requêtes que vous exécutez vous sont facturées. Par conséquent, ce modèle est un véritable modèle de paiement à l’utilisation.  
 
 Si vous utilisez Apache Spark pour Azure Synapse dans votre pipeline de données, pour la préparation, le nettoyage ou l’enrichissement des données, vous pouvez [interroger les tables externes Spark](develop-storage-files-spark-tables.md) que vous avez créées durant ce processus, directement à partir de SQL à la demande. Utilisez [Liaison privée](../security/how-to-connect-to-workspace-with-private-links.md) pour placer votre point de terminaison SQL à la demande dans le [réseau virtuel de votre espace de travail managé](../security/synapse-workspace-managed-vnet.md).  
 
@@ -56,7 +58,7 @@ SQL à la demande permet aux outils de requêtes SQL ad hoc et aux outils déci
 
 ## <a name="t-sql-support"></a>Prise en charge de T-SQL
 
-SQL à la demande fournit une surface d’exposition de requête T-SQL qui a été légèrement améliorée et étendue à certains niveaux, afin de prendre en charge l’interrogation des données semi-structurées et non structurées. En outre, certains aspects du langage T-SQL ne sont pas pris en charge en raison de la conception de SQL à la demande. À titre d’exemple, la fonctionnalité DML n’est pas prise en charge.
+SQL à la demande fournit une surface d’exposition de requête T-SQL qui a été légèrement améliorée et étendue à certains niveaux, afin de prendre en charge l’interrogation des données semi-structurées et non structurées. De plus, certains aspects du langage T-SQL ne sont pas pris en charge en raison de la conception de SQL à la demande. À titre d’exemple, la fonctionnalité DML n’est pas prise en charge.
 
 - La charge de travail peut être organisée à l’aide de concepts familiers :
 - Bases de données : le point de terminaison SQL à la demande peut avoir plusieurs bases de données.
