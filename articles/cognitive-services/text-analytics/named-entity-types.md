@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: f66ed9a7d26a0c2d7def7d17820379b8e3460460
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 77b75b1134bbc8366478b1f9f4d14e86e9684f70
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373065"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709310"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Catégories d’entité prises en charge dans l’API Analyse de texte v3
 
@@ -27,7 +27,7 @@ Utilisez cet article pour rechercher les catégories d’entité qui peuvent êt
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal"></a>[Données personnelles](#tab/personal)
+#### <a name="pii"></a>[PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 

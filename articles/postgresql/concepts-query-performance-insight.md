@@ -1,17 +1,17 @@
 ---
 title: Analyse des performances des requêtes - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la fonctionnalité Analyse des performances des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906519"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710258"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -40,7 +40,7 @@ Le tableau sous le graphique fournit plus d’informations sur les requêtes lon
 
 Sélectionnez l’onglet **Statistiques sur les attentes** pour voir les visualisations correspondantes sur les temps d’attente dans le serveur.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Statistiques sur les attentes de l’analyse des performances des requêtes":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Requêtes longues d’analyse des performances des requêtes":::
 
 ## <a name="considerations"></a>Considérations
 * Query Performance Insight n’est pas disponible pour les [réplicas en lecture](concepts-read-replicas.md).

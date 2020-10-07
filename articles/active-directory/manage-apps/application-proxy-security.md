@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362144"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -83,7 +83,7 @@ Pour améliorer la sécurité des applications publiées par le proxy d’applic
 
 #### <a name="azure-ddos-protection-service"></a>Service Azure DDoS Protection
 
-Les applications publiées via le proxy d’application sont protégées contre les attaques par déni de service distribué (DDoS). **Azure DDoS Protection** est un service proposé avec la plateforme Azure, qui permet de protéger vos ressources Azure contre les attaques par déni de service. Le niveau de service **De base** est automatiquement activé, ce qui permet de superviser en continu le trafic et d’atténuer en temps réel les risques associés aux attaques courantes au niveau du réseau. Un niveau **Standard** est également disponible. Il propose des fonctionnalités d’atténuation supplémentaires qui sont destinées spécialement aux ressources du réseau virtuel Azure. Pour plus d’informations, consultez [Vue d’ensemble d’Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Les applications publiées via le proxy d’application sont protégées contre les attaques par déni de service distribué (DDoS). **Azure DDoS Protection** est un service proposé avec la plateforme Azure, qui permet de protéger vos ressources Azure contre les attaques par déni de service. Le niveau de service **De base** est automatiquement activé, ce qui permet de superviser en continu le trafic et d’atténuer en temps réel les risques associés aux attaques courantes au niveau du réseau. Pour plus d’informations, consultez [Vue d’ensemble d’Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Sous le capot
 

@@ -3,12 +3,12 @@ title: Gestion du cycle de vie des machines virtuelles du service Azure VMware S
 description: Découvrez comment gérer tous les aspects du cycle de vie des machines virtuelles de votre service Azure VMware Solution avec les outils natifs de Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 20948ec088d11468b5750ca89979050965246b58
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663123"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575472"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
 
@@ -38,7 +38,7 @@ Les outils natifs de Microsoft Azure vous permettent de surveiller et gérer vos
 
 Le diagramme suivant illustre l’architecture de surveillance intégrée pour les machines virtuelles du service Azure VMware Solution.
 
-![Architecture de surveillance Azure intégrée](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![Architecture de surveillance Azure intégrée](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## <a name="integrating-and-deploying-azure-native-services"></a>Intégration et déploiement des services natifs d’Azure
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 93b47d2147a7438ebd38a5ae36363950639ba414
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380389"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708898"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la place de marché commerciale
 
@@ -69,7 +69,7 @@ Une version d’évaluation constitue un excellent moyen de présenter votre off
 Connectez votre système de gestion des relations avec la clientèle (CRM) à votre offre de la place de marché commerciale pour recevoir les coordonnées d’un client qui exprime son intérêt votre produit ou déploie celui-ci. Vous pouvez modifier cette connexion à tout moment pendant ou après la création de l’offre.
 
 > [!NOTE]
-> Vous devez configurer la gestion des prospects si vous vendez votre offre par le biais de Microsoft ou si vous avez sélectionné l’option de référencement **Me contacter**. Pour obtenir des instructions détaillées, consultez [Gestion des prospects pour la place de marché commerciale](lead-management-for-cloud-marketplace.md).
+> Vous devez configurer la gestion des prospects si vous vendez votre offre par le biais de Microsoft ou si vous avez sélectionné l’option de référencement **Me contacter**. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Pour configurer les détails de connexion dans l’Espace partenaires
 

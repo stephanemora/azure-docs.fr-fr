@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362108"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 ## <a name="prerequisites"></a>Prérequis
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Clé d'abonnement Azure pour le service Speech : [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
+> * Clé d'abonnement Azure pour le service Speech : [Obtenez-en une gratuitement](overview.md#try-the-speech-service-for-free) ou créez-la sur le [portail Azure](https://portal.azure.com)
 > * Application [Commandes personnalisées](quickstart-custom-commands-application.md) créée précédemment
 > * Application cliente compatible avec le kit de développement logiciel (SDK) Speech : [Guide pratique : Envoyer une activité à l’application cliente](./how-to-custom-commands-setup-speech-sdk.md)
 

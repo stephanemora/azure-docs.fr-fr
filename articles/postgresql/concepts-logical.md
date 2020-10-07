@@ -1,17 +1,17 @@
 ---
 title: Décodage logique – Azure Database pour PostgreSQL – Serveur unique
 description: Décrit le décodage logique et wal2json pour la capture des changements de données dans Azure Database pour PostgreSQL – Serveur unique
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903898"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708609"
 ---
 # <a name="logical-decoding"></a>Décodage logique
  
@@ -56,7 +56,7 @@ Le serveur doit être redémarré après une modification de ce paramètre. En i
 
 2. Redémarrez le serveur pour appliquer le changement en sélectionnant **Oui**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Prise en charge de la réplication Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Démarrer le décodage logique

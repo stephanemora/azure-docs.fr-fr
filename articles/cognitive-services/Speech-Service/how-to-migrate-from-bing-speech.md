@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656451"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362076"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le service Speech
 
@@ -87,7 +87,7 @@ Pour la prise en charge du service Speech, du SDK et de l’API, consultez la [p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Essayer gratuitement le service Speech](get-started.md)
+* [Essayer gratuitement le service Speech](overview.md#try-the-speech-service-for-free)
 * [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Voir aussi
