@@ -20,10 +20,14 @@
       items:
         - name: Obtenir un numéro de téléphone
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Ajouter les appels téléphoniques à votre application
+          href: quickstarts/voice-video-calling/pstn-call.md
         - name: Envoyer un message SMS
           href: quickstarts/telephony-sms/send.md
         - name: Gérer les événements SMS
           href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Envoyer un SMS dans Azure Logic Apps
+          href: quickstarts/telephony-sms/logic-app.md
     - name: Appel vocal et appel vidéo
       items:
         - name: Ajouter l’appel vocal à votre application

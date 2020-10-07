@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4643e18088fe32f6b02f684b7a71307798b12c12
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441552"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767717"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -29,7 +29,7 @@ Les bibliothèques de gestion des fonctionnalités .NET Core étendent le framew
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Sélectionnez **Opérations** > **Gestionnaire de fonctionnalités** > **Ajouter** pour ajouter un indicateur de fonctionnalité appelé *Beta*.
+8. Sélectionnez **Opérations** > **Gestionnaire de fonctionnalités** > **Ajouter** pour ajouter un indicateur de fonctionnalité appelé *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Activer l’indicateur de fonctionnalité nommé Beta](media/add-beta-feature-flag.png)

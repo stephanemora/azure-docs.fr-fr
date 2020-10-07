@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998325"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767701"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application Azure Functions
 
@@ -31,14 +31,14 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Gestionnaire de fonctionnalités** >  **+Ajouter** pour ajouter un indicateur de fonctionnalité appelé `Beta`.
+7. Sélectionnez **Gestionnaire de fonctionnalités** >  **+Ajouter** pour ajouter un indicateur de fonctionnalité appelé `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Activer l’indicateur de fonctionnalité nommé Beta](media/add-beta-feature-flag.png)
 
     Laissez `label` et `Description` non définis pour le moment.
 
-7. Sélectionnez **Appliquer** pour enregistrer le nouvel indicateur de fonctionnalité.
+8. Sélectionnez **Appliquer** pour enregistrer le nouvel indicateur de fonctionnalité.
 
 ## <a name="create-a-functions-app"></a>Créer une application Functions
 

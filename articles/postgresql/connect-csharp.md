@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Se connecter avec C# – Azure Database pour PostgreSQL – Serveur unique'
 description: Ce démarrage rapide fournit un exemple de code C# (.NET) que vous pouvez utiliser pour vous connecter et interroger des données à partir d’ Azure Database pour PostgreSQL (serveur unique).
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: c176caf4bd2bac68b1994b5eef51ebc2f7e7be4b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cfa7a6e7e2de11978709fd662dcbfaa2085a0716
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903853"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710411"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser .NET (C#) afin de se connecter à Azure Database pour PostgreSQL et d'interroger les données - Serveur unique
 

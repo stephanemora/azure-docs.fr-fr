@@ -30,7 +30,7 @@
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: quickstart-v2-javascript.md
-    - name: les applications web
+    - name: Applications web
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
@@ -66,7 +66,7 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Démon de console Python
           href: quickstart-v2-python-daemon.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: Applications monopages
       displayName: SPA
@@ -145,7 +145,7 @@
               href: scenario-spa-production.md
         - name: Application web qui connecte les utilisateurs
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: scenario-web-app-sign-user-overview.md
             - name: Inscription d'application
               href: scenario-web-app-sign-user-app-registration.md
@@ -384,6 +384,9 @@
             - name: Migrer des applications d’ADAL vers MSAL
               href: msal-migration.md
               displayName: migration
+    - name: Bibliothèque Microsoft Identity Web
+      href: microsoft-identity-web.md
+      displayName: 'auth, library, .NET Core'
     - name: Protocoles d’authentification
       displayName: Auth protocol
       items:

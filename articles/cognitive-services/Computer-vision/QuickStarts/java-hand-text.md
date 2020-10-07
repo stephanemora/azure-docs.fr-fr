@@ -8,23 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 2ef95af333bad96e443821e1bc039ef2614593f5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9f31a16434c8b54e13f4d52a412afbc90fb5c6b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327223"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760884"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de Java
 
 Dans ce guide de démarrage rapide, vous allez extraire le texte imprimé et manuscrit d’une image à l’aide de l’API REST Vision par ordinateur. Avec les méthodes [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) et [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), vous pouvez détecter le texte dans une image et extraire les caractères reconnus dans un flux de caractères lisibles par une machine.
 
-
-> [!IMPORTANT]
-> La méthode [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) s’exécute de façon asynchrone. Cette méthode ne retourne pas d’informations dans le corps d’une réponse réussie. Au lieu de cela, la méthode Batch Read retourne un URI dans la valeur du champ d’en-tête de réponse `Operation-Location`. Vous pouvez ensuite appeler cet URI, qui représente l’API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), pour vérifier l’état et retourner les résultats de l’appel de la méthode Read.
+La méthode [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) s’exécute de façon asynchrone. Cette méthode ne retourne pas d’informations dans le corps d’une réponse réussie. Au lieu de cela, la méthode Batch Read retourne un URI dans la valeur du champ d’en-tête de réponse `Operation-Location`. Vous pouvez ensuite appeler cet URI, qui représente l’API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), pour vérifier l’état et retourner les résultats de l’appel de la méthode Read.
 
 ---
 

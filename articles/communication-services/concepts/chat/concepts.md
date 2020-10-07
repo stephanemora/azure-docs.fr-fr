@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292470"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762040"
 ---
 # <a name="chat-concepts"></a>Concepts relatifs aux conversations
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser les [API Azure Cognitive Services](https://docs.microsoft.c
 
 Pour ce faire, vous pouvez faire en sorte que votre service approuvé agisse en tant que membre d’un fil de conversation. Supposons que vous souhaitiez activer la fonctionnalité de traduction. Ce service est chargé d’écouter les messages échangés par d’autres membres [1], d’appeler les API cognitives pour traduire le contenu vers la langue souhaitée [2, 3] et d’envoyer le résultat traduit sous la forme d’un message dans le fil de conversation [4]. 
 
-De cette façon, l’historique des messages contient à la fois les messages d’origine et les messages traduits. Dans l’application cliente, vous pouvez ajouter une logique pour afficher le message d’origine ou le message traduit. Pour savoir comment utiliser les API cognitives dans le but de traduire du texte en différentes langues, consultez [ce guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate). 
+De cette façon, l’historique des messages contient à la fois les messages d’origine et les messages traduits. Dans l’application cliente, vous pouvez ajouter une logique pour afficher le message d’origine ou le message traduit. Pour savoir comment utiliser les API cognitives dans le but de traduire du texte en différentes langues, consultez [ce guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator). 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramme montrant l’architecture des conversations dans Communication Services":::
 

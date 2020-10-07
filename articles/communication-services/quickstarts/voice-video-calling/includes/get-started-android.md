@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944819"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779492"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Appel Azure Communication Services pour Android.
 
@@ -19,12 +19,10 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un a
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), pour la création de votre application Android
-- Un [jeton d’accès utilisateur](../../access-tokens.md) pour votre service Azure Communication
 - Une ressource Communication Services déployée. [Créer une ressource Communication Services](../../create-communication-resource.md)
-
+- Un [jeton d’accès utilisateur](../../access-tokens.md) pour votre service Azure Communication
 
 ## <a name="setting-up"></a>Configuration
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Créer une application Android avec une activité vide
 
@@ -34,11 +32,11 @@ Dans Android Studio, sélectionnez Start a new Android Studio project (Commencer
 
 Sélectionnez le modèle de projet « Empty Activity » sous « Phone and Tablet ».
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Capture d’écran montrant l’option « Empty Activity » sélectionnée dans l’écran Project Template.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Capture d’écran montrant le bouton « Start a new Android Studio Project » sélectionné dans Android Studio.":::
 
 Sélectionnez la bibliothèque de client minimale « API 26 : Android 8.0 (Oreo) » ou version ultérieure.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Capture d’écran montrant l’option « Empty Activity » sélectionnée dans l’écran 2 Project Template.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Capture d’écran montrant le bouton « Start a new Android Studio Project » sélectionné dans Android Studio.":::
 
 
 ### <a name="install-the-package"></a>Installer le package
@@ -80,7 +78,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 ```
@@ -126,7 +124,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Configurer la disposition de l’application
+### <a name="set-up-the-layout-for-the-app"></a>Configurer la disposition de l’application
 
 Deux entrées sont nécessaires : une entrée de texte pour l’ID de l’appelé et un bouton pour établir l’appel. Vous pouvez les ajouter par le biais du concepteur ou en modifiant le fichier xml de disposition. Créez un bouton avec `call_button` comme ID et `callee_id` comme entrée de texte. Accédez à (`app/src/main/res/layout/activity_main.xml`) et remplacez le contenu du fichier par ce qui suit :
 
@@ -291,7 +289,7 @@ private void createAgent() {
 
 ## <a name="start-a-call-using-the-call-agent"></a>Démarrer un appel à l’aide de l’agent d’appel
 
-L’appel peut être établi par le biais de l’agent d’appel, et cela nécessite simplement de fournir une liste d’ID d’appelés et les options d’appel. Pour les besoins de ce guide de démarrage rapide, nous utiliserons les options d’appel par défaut sans vidéo et un ID d’appel unique tiré de l’entrée de texte.
+L’appel peut être établi par le biais de l’agent d’appel, et cela nécessite simplement de fournir une liste d’ID d’appelés et les options d’appel. Pour les besoins de ce guide de démarrage rapide, nous utiliserons les options d’appel par défaut sans vidéo et un ID d’appelé unique tiré de l’entrée de texte.
 
 ```java
 /**
@@ -315,4 +313,8 @@ private void startCall() {
 
 L’application peut maintenant être lancée à l’aide du bouton « Run App » de la barre d’outils (Maj+F10). Vérifiez que vous êtes en mesure d’établir des appels en appelant `8:echo123`. Un message pré-enregistré est lu, puis votre propre message est répété.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Capture d’écran montrant l’application terminée.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Capture d’écran montrant le bouton « Start a new Android Studio Project » sélectionné dans Android Studio.":::
+
+## <a name="sample-code"></a>Exemple de code
+
+Vous pouvez télécharger l’exemple d’application à partir de [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java).

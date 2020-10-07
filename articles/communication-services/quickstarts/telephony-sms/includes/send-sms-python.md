@@ -10,12 +10,12 @@ ms.date: 09/03/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
-ms.openlocfilehash: 3fe27bf31385e0310211b5e1b0b7bbfa636eb19b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9265caa3054cde6af311e655db2b2496524e8d24
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944858"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757128"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS Python pour envoyer des SMS.
 
@@ -107,7 +107,7 @@ sms_response = sms_client.send(
 
 ```
 
-Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre service de communication et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message. Tous les paramètres de numéro de téléphone doivent respecter la [norme E.164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre service de communication et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message. 
 
 Le paramètre `send_sms_options` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
 

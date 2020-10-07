@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/05/2020
+ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268364"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741004"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -47,7 +47,7 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 1. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
 
-![Créer une ressource dans le portail](./media/search-create-service-portal/find-search3.png "Créer une ressource dans le portail")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 ## <a name="choose-a-subscription"></a>Sélectionnez un abonnement
 
@@ -59,11 +59,11 @@ Un groupe de ressources est un conteneur qui contient des ressources associées 
 
 Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes de ressources existants sont remplis de ressources utilisées dans des solutions non liées, créez un groupe de ressources uniquement pour votre ressource Recherche cognitive Azure. 
 
-![Créer un groupe de ressources](./media/search-create-service-portal/new-resource-group.png "Création d’un groupe de ressources")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 Au fil du temps, vous pouvez effectuer le suivi des coûts actuels et prévus ou consulter les frais des différentes ressources. La capture d’écran suivante montre le type d’informations relatives aux coûts que vous pouvez vous attendre à voir quand vous combinez plusieurs ressources dans un groupe.
 
-![Gérer les coûts au niveau du groupe de ressources](./media/search-create-service-portal/resource-group-cost-management.png "Gérer les coûts au niveau du groupe de ressources")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 > [!TIP]
 > Les groupes de ressources simplifient le nettoyage, car la suppression d’un groupe supprime tous les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
@@ -114,11 +114,11 @@ N’oubliez pas que vous ne pouvez pas changer de niveau tarifaire une fois le s
 
 Une fois que vous avez fourni les entrées nécessaires, continuez et créez le service. 
 
-![Passer en revue et créer le service](./media/search-create-service-portal/new-service3.png "Passer en revue et créer le service")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 Votre service est déployé en quelques minutes. Vous pouvez superviser la progression par le biais de notifications Azure. Vous pouvez épingler le service à votre tableau de bord afin d’y accéder plus facilement la prochaine fois.
 
-![Superviser et épingler le service](./media/search-create-service-portal/monitor-notifications.png "Superviser et épingler le service")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obtenir une clé et un point de terminaison d’URL
 
@@ -128,7 +128,7 @@ Si vous n’utilisez pas le portail, l’accès programmatique à votre nouveau 
 
 2. Dans la page **Clés**, copiez l’une des clés d’administration (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service. Les clés de requête, quant à elles, fournissent un accès en lecture seule au contenu indexé.
 
-   ![Page Vue d’ensemble du service avec le point de terminaison d’URL](./media/search-create-service-portal/get-url-key.png "Point de terminaison d’URL et autres détails du service")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 Un point de terminaison et une clé ne sont pas nécessaires pour les tâches effectuées via le portail. Le portail est déjà lié à votre ressource Recherche cognitive Azure avec des droits d’administrateur. Pour obtenir une procédure pas à pas à effectuer dans le portail, commencez par [Guide de démarrage rapide : Créez un index de Recherche cognitive Azure dans le portail](search-get-started-portal.md).
 
@@ -149,7 +149,7 @@ L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de pr
 2. Dans le volet de navigation de gauche, sélectionnez **Paramètres** > **Mise à l’échelle**.
 3. Utilisez le curseur pour ajouter des ressources de chaque type.
 
-![Ajouter de la capacité](./media/search-create-service-portal/settings-scale.png "Ajouter de la capacité via des réplicas et des partitions")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Créer une ressource dans le portail" border="false":::
 
 > [!Note]
 > Le stockage par partition et la vitesse sont plus élevés dans les niveaux de service supérieurs. Pour plus d’informations, consultez [Capacité et limitations](search-limits-quotas-capacity.md).

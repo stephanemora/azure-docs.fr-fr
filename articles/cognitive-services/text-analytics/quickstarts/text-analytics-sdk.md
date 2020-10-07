@@ -1,27 +1,28 @@
 ---
-title: 'Démarrage rapide : Bibliothèque cliente Analyse de texte v3 | Microsoft Docs'
+title: 'Démarrage rapide : Exploration de texte à l’aide de la bibliothèque de client Analyse de texte'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide de démarrage rapide pour connecter vos applications à l’API Analyse de texte d’Azure Cognitive Services.
+description: Suivez ce guide de démarrage rapide pour effectuer notamment une analyse de sentiments à l’aide de l’API Analyse de texte d’Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: exploration de texte, analyse de sentiments, analyse de texte
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931180"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710778"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte
 
-Découvrez comment utiliser la bibliothèque de client Analyse de texte. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
+Consultez cet article pour découvrir comment utiliser la bibliothèque de client Analyse de texte. Procédez comme suit pour installer le package et essayer l’exemple de code pour les tâches de base.
 
 Utilisez la bibliothèque de client Analyse de texte dans le cadre des opérations suivantes :
 
@@ -36,6 +37,8 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 > * La dernière version stable de l’API Analyse de texte est la version `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

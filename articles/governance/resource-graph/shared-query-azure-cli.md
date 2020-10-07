@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une requête partagée avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer l’extension Resource Graph pour Azure CLI et vous créez une requête partagée.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050945"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667518"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure CLI
 
@@ -24,7 +24,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="add-the-resource-graph-extension"></a>Ajouter l’extension Resource Graph
 
-Pour permettre à Azure CLI d’utiliser Azure Resource Graph, vous devez ajouter l’extension. Cette extension fonctionne avec Azure CLI quel que soit l’endroit où vous l’utilisez : [bash sur Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (en version autonome et à l’intérieur du portail), [image Docker Azure CLI](https://hub.docker.com/r/microsoft/azure-cli/) ou installation locale.
+Pour permettre à Azure CLI d’utiliser Azure Resource Graph, vous devez ajouter l’extension. Cette extension fonctionne avec Azure CLI quel que soit l’endroit où vous l’utilisez : [bash sur Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (en version autonome et à l’intérieur du portail), [image Docker Azure CLI](https://hub.docker.com/_/microsoft-azure-cli) ou installation locale.
 
 1. Vérifiez que la version la plus récente d’Azure CLI est installée (**2.8.0** au minimum). S’il n’est pas installé, suivez [ces instructions](/cli/azure/install-azure-cli-windows).
 

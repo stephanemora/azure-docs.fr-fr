@@ -6,19 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02a0a5dd5cfe3a1ecaa264f1e81c848a8da6c58d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944675"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756746"
 ---
 # <a name="quickstart-handle-sms-events"></a>Démarrage rapide : Gérer les événements SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Commencez avec Azure Communication Services en utilisant Azure Event Grid pour gérer les événements SMS Communication Services. 
 
@@ -65,11 +65,11 @@ Vous pouvez vous abonner à des événements spécifiques pour indiquer à Event
 
 Consultez la liste complète des [événements pris en charge par Azure Communication Services](../../concepts/event-handling.md).
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Capture d’écran montrant les types d’événements SMS Received (SMS reçu) et SMS Delivery Report Received (Rapport de remise de SMS reçu) sélectionnés.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
 Sélectionnez **Webhook** pour **Type de point de terminaison**. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Capture d’écran montrant le champ Type de point de terminaison défini sur Webhook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
 Pour **Point de terminaison**, cliquez sur **Sélectionner un point de terminaison**, puis entrez l’URL de votre application web.
 
@@ -77,7 +77,7 @@ Dans le cas présent, nous allons utiliser l’URL de l’[exemple de la visionn
 
 Sélectionnez ensuite **Confirmer la sélection**.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Capture d’écran montrant la confirmation d’un point de terminaison webhook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
 ## <a name="viewing-sms-events"></a>Affichage d’événements SMS
 
@@ -94,9 +94,9 @@ Consultez la liste complète des [événements pris en charge par Azure Communic
 
 Une fois que vous avez effectué l’une des actions ci-dessus, vous remarquerez que les événements `SMS Received` et `SMS Delivery Report Received` sont envoyés à votre point de terminaison. Ces événements s’affichent dans l’[exemple de la visionneuse Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que nous avons configuré au début. Vous pouvez appuyer sur l’icône représentant un œil en regard de l’événement pour voir l’intégralité de la charge utile. Les événements se présentent comme suit :
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Capture d’écran montrant le schéma Event Grid pour un événement SMS Received (SMS reçu).":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Capture d’écran montrant le schéma Event Grid pour un événement SMS Delivery Report (Rapport de remise de SMS).":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
 En savoir plus sur les [schémas d’événements et d’autres concepts liés aux événements](../../concepts/event-handling.md)
 

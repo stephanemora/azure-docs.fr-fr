@@ -29,7 +29,7 @@
           href: create-sql-api-python.md
         - name: Application Xamarin
           href: create-sql-api-xamarin-dotnet.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: "1\_- Créer et gérer des données"
       items:
@@ -975,6 +975,8 @@
           displayName: ARM
         - name: Déplacer d’une région à l’autre
           href: how-to-move-regions.md
+        - name: Empêcher les changements ou la suppression
+          href: resource-locks.md
     - name: Diffusion mondiale
       items:
         - name: Configurer les écritures multirégions

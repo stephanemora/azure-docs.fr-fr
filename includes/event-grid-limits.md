@@ -5,28 +5,37 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 10/18/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7e7a0424e4454639211c6494aab0700e75269361
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e084256d9c2043d4382ca180ef3178175b301367
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83721286"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745598"
 ---
-Les limites suivantes s’appliquent aux rubriques système Azure Event Grid et aux rubriques personnalisées, et  *non pas* aux domaines d’événements.
+Les limites suivantes s’appliquent aux **rubriques** Azure Event Grid (rubriques système, personnalisées et partenaire). 
 
 | Ressource | Limite |
 | --- | --- |
 | Rubriques personnalisées par abonnement Azure | 100 |
 | Abonnements à des événements par rubrique | 500 |
-| Taux de publication pour une rubrique personnalisée (entrée) | 5 000 événements par seconde et par rubrique |
-| Taille d’événement | 1 Mo. Toutefois, les opérations sont facturées par incréments de 64 Ko. Ainsi, les événements de plus de 64 Ko entraînent des frais d’opération comme s’il s’agissait de plusieurs événements. Par exemple, un événement d’une taille de 130 Ko entraîne des opérations équivalents à 3 événements distincts.  |
+| Taux de publication pour une rubrique personnalisée ou partenaire (entrée) | 5 000 événements/s ou 1 Mo/s (selon la première valeur atteinte)<br/>Ne s’applique pas aux rubriques système. |
+| Taille d’événement | 1 Mo  |
+| Connexions de point de terminaison privées par rubrique  | 64 | 
+| Règles de pare-feu IP par rubrique | 16 | 
+
+Les limites suivantes s’appliquent aux **domaines** Azure Event Grid. 
+
+| Ressource | Limite |
+| --- | --- |
 | Rubriques par domaine d’événements | 100 000 |
 | Abonnements à des événements par rubrique dans un domaine | 500 |
 | Abonnements d’événements à l’étendue de domaine | 50 |
-| Taux de publication pour un Domaine d’événements (entrée) | 5 000 événements par seconde |
+| Taux de publication pour un Domaine d’événements (entrée) | 5 000 événements/s ou 1 Mo/s (selon la première valeur atteinte) |
 | Domaines d’événements par abonnement Azure | 100 |
-| Connexions de point de terminaison privées par rubrique ou domaine | 64 | 
-| Règles de pare-feu IP par rubrique ou domaine | 16 | 
+| Connexions de point de terminaison privé par domaine | 64 | 
+| Règles de pare-feu IP par domaine | 16 | 
+
+

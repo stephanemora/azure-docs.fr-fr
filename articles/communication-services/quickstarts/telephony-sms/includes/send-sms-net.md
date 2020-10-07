@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 7fc1225a37353e43f5fb17f3394df167fb795bf7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c044e9dc7b8ee622b157a93726e7700e62ba2dfa
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303309"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779313"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS C# pour envoyer des SMS.
 
@@ -59,7 +59,7 @@ dotnet build
 Toujours dans le répertoire de l’application, installez le package de la bibliothèque de client Communication Services SMS pour .NET à l’aide de la commande `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
 ```
 
 Ajoutez une directive `using` en haut du fichier **Program.cs** pour inclure l’espace de noms `Azure.Communication`.
@@ -106,7 +106,7 @@ smsClient.Send(
 );
 ```
 
-Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message. Tous les paramètres de numéro de téléphone doivent respecter la [norme E.164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+Vous devez remplacer `<leased-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message.
 
 Le paramètre `EnableDeliveryReport` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
 
