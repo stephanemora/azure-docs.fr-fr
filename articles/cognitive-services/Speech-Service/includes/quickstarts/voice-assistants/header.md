@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
 ms.openlocfilehash: bb88ef7f048b2454f05ef33286e59277070c3ea0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80241761"
 ---
 Dans ce guide de démarrage rapide, vous allez utiliser le [SDK Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour créer une application d’assistant vocal personnalisé qui se connecte à un bot que vous avez déjà créé et configuré. Si vous avez besoin de créer un bot, consultez [le tutoriel associé](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) pour obtenir un guide plus complet.
