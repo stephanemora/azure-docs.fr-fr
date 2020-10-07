@@ -635,7 +635,7 @@
   items:
     - name: Documentation
       href: managed-instance/index.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que SQL Managed Instance\_?"
           href: managed-instance/sql-managed-instance-paas-overview.md
@@ -916,7 +916,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
@@ -992,6 +992,8 @@
                 - name: S’inscrire auprès de SQL VM RP
                   displayName: 'resource provider, registration'
                   items:
+                    - name: Inscription automatique
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: Machine virtuelle unique
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Inscrire en bloc plusieurs machines virtuelles
