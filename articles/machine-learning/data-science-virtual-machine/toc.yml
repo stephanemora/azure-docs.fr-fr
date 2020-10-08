@@ -56,6 +56,8 @@
           href: dsvm-common-identity.md
         - name: Sécuriser les informations d’identification d’accès de ressource
           href: dsvm-secure-access-keys.md
+    - name: "Mettre à niveau votre Data Science Virtual Machine vers Ubuntu\_18.04"
+      href: ubuntu-upgrade.md
 - name: Ressources
   items:
     - name: Page de questions Microsoft Q&A
