@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008367"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802138"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
 
@@ -42,7 +42,7 @@ Le kit SDK [.NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) est sorti.
 
 Nous recommandons les processus hôte Windows 64 bits pour améliorer les performances. Le Kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. Les types d’applications suivants utilisent les processus hôte 32 bits par défaut. Pour modifier les processus hôte en traitement 64 bits, procédez comme suit, selon le type de votre application :
 
-- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet**, sous l’onglet **Générer**.
+- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64** dans la fenêtre **Propriétés du projet**, sous l’onglet **Générer**.
 
 - Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test**.
 
@@ -203,7 +203,7 @@ Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous
 > [!NOTE] 
 > La propriété `maxItemCount` ne doit pas être utilisée uniquement pour la pagination. Son utilisation principale consiste à améliorer les performances des requêtes en réduisant le nombre maximal d’éléments retournés dans une seule page.  
 
-Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles. La propriété [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) dans `FeedOptions` vous permet de définir le nombre maximal d’éléments à retourner dans l’opération d’énumération. Lorsque la propriété `maxItemCount` est définie sur -1, le Kit de développement logiciel (SDK) recherche automatiquement la valeur optimale en fonction de la taille du document. Par exemple :
+Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles. La propriété [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) dans `FeedOptions` vous permet de définir le nombre maximal d’éléments à retourner dans l’opération d’énumération. Lorsque la propriété `maxItemCount` est définie sur -1, le Kit de développement logiciel (SDK) recherche automatiquement la valeur optimale en fonction de la taille du document. Par exemple :
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

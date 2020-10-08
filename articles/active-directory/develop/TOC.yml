@@ -535,10 +535,6 @@
     - name: Configuration de l’application
       displayName: App configuration
       items:
-        - name: Guide de formation sur l’inscription d’applications dans le portail Azure
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Expérience d’inscription d’applications dans le portail Azure
-          href: app-registration-portal-training-guide.md
         - name: Convertir une application monolocataire en application multilocataire
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Créer un principal du service

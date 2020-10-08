@@ -106,6 +106,8 @@
       items:
         - name: Guide du développeur de coffre de clés Azure
           href: developers-guide.md
+        - name: Utiliser Azure Resource Manager pour déployer Key Vault
+          href: vault-create-template.md
         - name: Enregistrer des secrets d’application web
           href: vs-secure-secret-appsettings.md
         - name: Authentification de service à service avec .NET

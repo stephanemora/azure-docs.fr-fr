@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515578"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802059"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -86,7 +86,7 @@ Le [journal d’activité Azure](platform-logs-overview.md) comprend des enregis
 ## <a name="azure-resources"></a>Ressources Azure
 Les journaux de diagnostic au niveau métriques et ressources fournissent des informations sur le fonctionnement _interne_ des ressources Azure. Ceux-ci sont disponibles pour la plupart des services d'Azure, et les solutions de surveillance et les informations recueillies collectent des données supplémentaires pour des services particuliers.
 
-![Collection de ressources Azure](media/data-sources/azure-resources.png)
+![Collection de ressources Azure](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Métriques de plateforme 

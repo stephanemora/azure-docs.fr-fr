@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83402489"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Démarrage rapide : Créer un cache de niveau Entreprise (préversion)
@@ -44,7 +44,7 @@ Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en ave
    | ------------ |  ------- | -------------------------------------------------- |
    | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement sous lequel créer cette nouvelle instance d’Azure Cache pour Redis. | 
    | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre cache et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
-   | **Nom DNS** | Entrez un nom globalement unique. | Le nom du cache doit être une chaîne de 1 à 63 caractères ne contenant que des chiffres, des lettres et des traits d’union. Le nom doit commencer et se terminer par un chiffre ou une lettre, et ne peut pas contenir de traits d’union consécutifs. Le *nom d’hôte* de votre instance de cache sera *\<nom DNS >.<Azure region>.redisenterprise.cache.azure.net*. | 
+   | **Nom DNS** | Entrez un nom globalement unique. | Le nom du cache doit être une chaîne de 1 à 63 caractères ne contenant que des chiffres, des lettres et des traits d’union. Le nom doit commencer et se terminer par un chiffre ou une lettre, et ne peut pas contenir de traits d’union consécutifs. Le *nom d’hôte* de votre instance de cache sera *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. | 
    | **Lieu** | Dans la liste déroulante, sélectionnez un emplacement. | Les niveaux Enterprise sont disponibles dans les régions USA Ouest, USA Est 2 et Europe Ouest. |
    | **Niveau de cache** | Ouvrez le menu déroulant et sélectionnez un niveau *Enterprise DRAM* ou *Enterprise SSD* et une taille. |  Le niveau détermine la taille, les performances et les fonctionnalités disponibles pour le cache. |
    

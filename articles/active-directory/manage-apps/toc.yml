@@ -110,18 +110,26 @@
   items:
     - name: Affecter des utilisateurs et gérer l’accès aux applications
       items:
-        - name: Configurer le consentement de l’utilisateur
-          href: configure-user-consent.md
-        - name: Gérer et évaluer les demandes de consentement
-          href: manage-consent-requests.md
-        - name: Accorder le consentement de l’administrateur au niveau locataire
-          href: grant-admin-consent.md
-        - name: Configurer le workflow du consentement administrateur (préversion)
-          href: configure-admin-consent-workflow.md
+        - name: Consentement et autorisations
+          items:
+            - name: Configurer le consentement de l’utilisateur
+              href: configure-user-consent.md
+            - name: Configurer le consentement du propriétaire du groupe
+              href: configure-user-consent-groups.md
+            - name: Configurer des classifications d’autorisations
+              href: configure-permission-classifications.md
+            - name: Gérer les stratégies de consentement des applications
+              href: manage-app-consent-policies.md
+            - name: Configurer le workflow du consentement administrateur (préversion)
+              href: configure-admin-consent-workflow.md
+            - name: Gérer et évaluer les demandes de consentement
+              href: manage-consent-requests.md
+            - name: Accorder le consentement de l’administrateur au niveau locataire
+              href: grant-admin-consent.md
+            - name: Vérifier les autorisations accordées aux applications
+              href: manage-application-permissions.md
         - name: Gérer les affectations d’utilisateurs aux applications
           href: assign-user-or-group-access-portal.md
-        - name: Vérifier les autorisations accordées aux applications
-          href: manage-application-permissions.md
         - name: Créer des collections sur Mes applications
           href: access-panel-collections.md
         - name: Utiliser l’accès aux applications en libre-service

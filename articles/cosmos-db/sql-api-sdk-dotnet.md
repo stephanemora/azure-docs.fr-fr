@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 694cb2ddde4f923445119c24fa98f532ab6c3471
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 454e5fdd6fae8fc7bf8e37833124bb3d188cb028
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998354"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802546"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>SDK .NET v2 Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "88998354"
 | |  |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**Documentation de l’API**|[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Documentation de l’API**|[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Exemples**|[Exemples de code .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Prise en main**|[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)|
 |**Didacticiel d’application web**|[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)|

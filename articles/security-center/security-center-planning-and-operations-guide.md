@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447401"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713792"
 ---
 # <a name="planning-and-operations-guide"></a>Guide Planification et opérations
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -120,7 +120,7 @@ Les stratégies Security Center comprennent les composants suivant :
 - [Collecte des données](security-center-enable-data-collection.md) : paramètres de l’approvisionnement d’agent et de la collecte de données.
 - [Stratégie de sécurité](tutorial-security-policy.md) : [Azure Policy](../governance/policy/overview.md) qui détermine les contrôles surveillés et recommandés par Security Center. Vous pouvez aussi utiliser une stratégie Azure pour créer des définitions, définir des stratégies supplémentaires et assigner des stratégies à des groupes d’administration.
 - [Notifications par e-mail](security-center-provide-security-contact-details.md) : paramètres des contacts de sécurité et des notifications.
-- [Niveau de tarification](security-center-pricing.md) : avec ou sans Azure Defender, qui détermine les fonctionnalités Security Center disponibles pour les ressources visées (à spécifier pour les abonnements, les groupes de ressources et les espaces de travail).
+- [Niveau tarifaire](security-center-pricing.md) : avec ou sans Azure Defender, qui détermine les fonctionnalités Security Center disponibles pour les ressources ciblées (à spécifier pour les abonnements et les espaces de travail ou les groupes de ressources utilisant l’API).
 
 > [!NOTE]
 > Spécifier un contact de sécurité permettra à Azure de joindre la personne adéquate de votre organisation si un incident survient. Pour plus d’informations sur la mise en œuvre de cette recommandation, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) .
@@ -161,9 +161,9 @@ Pour les espaces de travail créés par Azure Security Center, les données sont
 > Microsoft prend des engagements fermes pour protéger la confidentialité et la sécurité de ces données. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service. Pour plus d’informations sur la gestion des données et la confidentialité, lisez [Sécurité des données d’Azure Security Center](security-center-data-security.md).
 >
 
-## <a name="onboarding-non-azure-resources"></a>Intégration de ressources non Azure
+## <a name="onboard-non-azure-resources"></a>Intégrer des ressources non-Azure
 
-Security Center peut surveiller l’état de sécurité de vos ordinateurs autres qu’Azure, mais vous devez d’abord intégrer ces ressources. Pour plus d’informations sur la façon d’intégrer des ressources non-Azure, consultez [Intégrer des ordinateurs non Azure](quickstart-onboard-machines.md).
+Security Center peut surveiller l’état de sécurité de vos ordinateurs autres qu’Azure, mais vous devez d’abord intégrer ces ressources. Pour plus d’informations sur la façon d’intégrer des ressources non-Azure, consultez [Intégrer des ordinateurs non-Azure](quickstart-onboard-machines.md).
 
 ## <a name="ongoing-security-monitoring"></a>Surveillance continue de la sécurité
 Après la configuration initiale et la mise en œuvre des recommandations du Centre de sécurité, l’étape suivante détermine les processus opérationnels de ce dernier.
@@ -219,11 +219,9 @@ L’exemple suivant montre une activité RDP suspecte :
 
 Cette page affiche des informations sur l’heure de l’attaque, le nom d’hôte source, la machine virtuelle cible, et détaille une procédure recommandée. Parfois, aucune information ne sera disponible concernant la source de l’attaque. Pour plus d’informations sur ce type de comportement, voir [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Informations sur la source manquantes dans les alertes Azure Security Center).
 
-Depuis cette page, vous pouvez aussi lancer un examen pour mieux comprendre la chronologie de l’attaque et comment elle s’est produite, les systèmes potentiellement compromis, les informations d’identification utilisées, et pour voir une représentation graphique de l’ensemble de la chaîne d’attaque.
-
 Une fois le système compromis identifié, vous pouvez exécuter une [automatisation de workflow](workflow-automation.md) précédemment créée. Il s’agit d’une collection de procédures qui peuvent être exécutées à partir de Security Center une fois qu’elles ont été déclenchées par une alerte.
 
-La vidéo [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Comment tirer profit d’Azure Security Center et de Microsoft Operations Management Suite pour répondre aux incidents) présente des démonstrations pouvant vous aider à comprendre comment Azure Security Center peut être utilisé dans chacune de ces étapes.
+La vidéo [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) présente des démonstrations montrant comment Azure Security Center peut être utilisé dans chacune de ces étapes.
 
 > [!NOTE]
 > Consultez l’article [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) pour plus d’informations sur l’utilisation des fonctionnalités d’Azure Security Center afin de vous aider lors du processus de réponse aux incidents.

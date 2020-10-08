@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548512"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760192"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
 Dans ce tutoriel, vous allez apprendre à utiliser Azure Content Moderator, pour faciliter la modération des publications et commentaires sur une page Facebook. Facebook enverra le contenu publié par les visiteurs au service Content Moderator. Vos flux de travail Content Moderator publient le contenu ou créent des révisions dans l’outil de révision selon les scores et les seuils de contenu. Consultez la [vidéo de démonstration du build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) pour obtenir un exemple de ce scénario.
+
+> [!IMPORTANT]
+> En 2018, Facebook a implémenté une politique de filtrage plus stricte pour les applications Facebook. Vous ne pourrez suivre ce tutoriel que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -33,9 +36,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Ce diagramme illustre chaque composant du scénario :
 
 ![Diagramme de Content Moderator recevant des informations de Facebook via « FBListener » et envoyant des informations via « CMListener ».](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> En 2018, Facebook a implémenté une politique de filtrage plus stricte pour les applications Facebook. Vous ne pourrez suivre ce tutoriel que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
 ## <a name="prerequisites"></a>Prérequis
 

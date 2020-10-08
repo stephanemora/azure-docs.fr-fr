@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: c5537552e35c1738e6c3cd4873b4c6444685a5fe
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448315"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713736"
 ---
 # <a name="pricing-of-azure-security-center"></a>Niveaux tarifaires d’Azure Security Center
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
@@ -58,7 +58,7 @@ Vous trouverez ci-dessous la page de tarification d’un exemple d’abonnement.
 :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Page de tarification de Security Center dans le portail":::
 
 > [!NOTE]
-> Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez activer Azure Defender sur l’abonnement contenant les charges de travail applicables. L’activation au niveau espace de travail espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure. 
+> Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez activer Azure Defender sur l’abonnement contenant les charges de travail applicables. L’activation au niveau espace de travail espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure. De plus, les seuls plans Azure Defender disponibles au niveau de l’espace de travail sont Azure Defender pour les serveurs et Azure Defender pour les serveurs SQL sur les machines.
 >
 > Vous pouvez activer des **comptes Azure Defender pour le stockage** au niveau de l’abonnement ou de la ressource.
 > Vous pouvez activer **Azure Defender pour SQL** au niveau de l’abonnement ou de la ressource.

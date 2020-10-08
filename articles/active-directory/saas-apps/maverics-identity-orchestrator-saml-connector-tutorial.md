@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 116ee7c8db3070a667c21a052bec739fd397a2dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825560"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758137"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutoriel : Intégrer l’authentification unique Azure AD avec Maverics Identity Orchestrator SAML Connector
 
@@ -36,7 +36,7 @@ Ce tutoriel montre comment migrer une application web locale protégée par un p
 4. Configurer un coffre de clés Azure et configurer Maverics pour l’utiliser en tant que fournisseur de gestion des secrets.
 5. Illustrer la migration d’utilisateurs et l’abstraction de session à l’aide de Maverics pour fournir l’accès à une application web Java locale.
 
-Pour obtenir des instructions d’installation et de configuration supplémentaires, consultez le [Site web de Strata](https://strata.io/docs).
+Pour obtenir des instructions d’installation et de configuration supplémentaires, consultez le [Site web de Strata](https://www.strata.io).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ Pour obtenir des instructions d’installation et de configuration supplémentai
 
 ## <a name="install-maverics-identity-orchestrator"></a>Installer Maverics Identity Orchestrator
 
-Pour vous familiariser avec l’installation de Maverics Identity Orchestrator, reportez-vous aux [instructions d’installation](https://strata.io/docs).
+Pour vous familiariser avec l’installation de Maverics Identity Orchestrator, reportez-vous aux [instructions d’installation](https://www.strata.io).
 
 ### <a name="system-requirements"></a>Configuration système requise
 * Systèmes d’exploitation pris en charge

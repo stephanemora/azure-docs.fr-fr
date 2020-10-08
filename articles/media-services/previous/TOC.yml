@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Conception multi-DRM de référence
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Traiter avec Indexer
-          href: media-services-index-content.md
-          items:
-            - name: Présélection de tâches
-              href: indexer-task-preset.md
     - name: Analyser le contenu
       items:
+        - name: Traiter avec Indexer
+          href: media-services-index-content.md
+        - name: Présélection de tâches
+          href: indexer-task-preset.md
         - name: Traiter avec Face Redactor
           href: media-services-face-redaction.md
         - name: Procédure pas à pas de Face Redactor

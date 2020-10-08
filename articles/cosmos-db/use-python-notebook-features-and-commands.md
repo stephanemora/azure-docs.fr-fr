@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761193"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801849"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Utiliser les fonctionnalités et commandes de notebook intégrées dans les notebooks Python Azure Cosmos DB (préversion)
 
@@ -167,7 +167,7 @@ Consultez [Exemples du kit SDK Python](https://github.com/Azure/azure-sdk-for-py
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Créer une instance personnalisée de ``cosmos_client``
 Pour plus de flexibilité, vous pouvez créer une instance personnalisée de ``cosmos_client``. Vous pourrez ainsi :
 
-- Personnaliser la [stratégie de connexion](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Personnaliser la [stratégie de connexion](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Exécuter des opérations sur un compte Azure Cosmos différent de celui dans lequel vous vous trouvez
 
 Vous pouvez accéder à la chaîne de connexion et à la clé primaire du compte actuel à l’aide des [variables d’environnement](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Réinitialiser l’espace de travail des notebooks
 Pour rétablir les paramètres par défaut de l’espace de travail des notebooks, sélectionnez **Réinitialiser l’espace de travail** dans la barre de commandes. Cette opération supprime tous les packages personnalisés installés et redémarre le serveur Jupyter. Vos notebooks, fichiers et ressources Azure Cosmos ne seront pas affectés.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Réinitialiser l’espace de travail des notebooks":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorateur de données nteract":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

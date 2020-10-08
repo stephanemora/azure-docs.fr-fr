@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578737"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802206"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -19,6 +19,40 @@ Les processus de ce démarrage rapide génèrent un environnement prêt pour la 
 >[!IMPORTANT]
 >Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un ticket de support pour que des nœuds vous soient alloués. Une fois que l’équipe du support technique reçoit votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des nœuds. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage de nœuds vous soient alloués, vous passerez par le même processus. Pour plus d’informations, voir [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Abonnement
+
+Identifiez l’abonnement que vous prévoyez d’utiliser pour déployer Azure VMware Solution.  Vous pouvez soit créer un nouvel abonnement, soit réutiliser un abonnement existant.
+
+>[!NOTE]
+>L’abonnement doit être associé à un Contrat Entreprise Microsoft.
+
+## <a name="resource-group"></a>Resource group
+
+Identifiez le groupe de ressources que vous souhaitez utiliser pour votre Azure VMware Solution.  En règle générale, un groupe de ressources est créé spécifiquement pour Azure VMware Solution, mais vous pouvez utiliser un groupe de ressources existant.
+
+## <a name="region"></a>Région
+
+Identifiez la région dans laquelle vous souhaitez déployer Azure VMware Solution.  Pour plus d’informations, consultez le guide [Disponibilité des produits Azure par région](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## <a name="resource-name"></a>Nom de la ressource
+
+Définissez le nom de la ressource que vous allez utiliser au cours du déploiement.  Le nom de la ressource est le nom convivial et descriptif que vous utilisez pour votre cloud privé Azure VMware Solution.
+
+## <a name="size-nodes"></a>Nœuds de taille
+
+Identifiez les nœuds de taille que vous souhaitez utiliser lors du déploiement d’Azure VMware Solution.  Pour obtenir une liste complète, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#hosts).
+
+## <a name="number-of-hosts"></a>Nombre d’hôtes
+
+Définissez le nombre d’hôtes que vous souhaitez déployer dans le cloud privé Azure VMware Solution.  Le nombre minimal de nœuds est de trois, et la valeur maximale est de 16 par cluster.  Pour plus d’informations, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
+
+Vous pouvez toujours étendre le cluster ultérieurement si vous devez aller au-delà du chiffre de déploiement initial.
+
+## <a name="vcenter-admin-password"></a>Mot de passe de l’administrateur du vCenter
+Définissez le mot de passe d'administrateur vCenter.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur vCenter. Le mot de passe est adressé au compte d’administrateur cloudadmin@vsphere.local lors de la build vCenter. Vous l’utiliserez pour vous connecter à vCenter.
+
+## <a name="nsx-t-admin-password"></a>Mot de passe administrateur NSX-T
+Définissez le mot de passe administrateur NSX-T.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur NSX-T. Le mot de passe est attribué à l’utilisateur administrateur dans le compte NSX au cours de la build NSX. Vous l’utiliserez pour vous connecter à NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segment d’adresse IP
 
@@ -63,41 +97,6 @@ Identifiez un bloc d’adresses réseau CIDR `/29`, requis pour le Peering Expre
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifier : segment d’adresse IP" border="false":::
 
-## <a name="subscription"></a>Abonnement
-
-Identifiez l’abonnement que vous prévoyez d’utiliser pour déployer Azure VMware Solution.  Vous pouvez soit créer un nouvel abonnement, soit réutiliser un abonnement existant.
-
->[!NOTE]
->L’abonnement doit être associé à un Contrat Entreprise Microsoft.
-
-## <a name="resource-group"></a>Resource group
-
-Identifiez le groupe de ressources que vous souhaitez utiliser pour votre Azure VMware Solution.  En règle générale, un groupe de ressources est créé spécifiquement pour Azure VMware Solution, mais vous pouvez utiliser un groupe de ressources existant.
-
-## <a name="region"></a>Région
-
-Identifiez la région dans laquelle vous souhaitez déployer Azure VMware Solution.  Pour plus d’informations, consultez le guide [Disponibilité des produits Azure par région](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## <a name="resource-name"></a>Nom de la ressource
-
-Définissez le nom de la ressource que vous allez utiliser au cours du déploiement.  Le nom de la ressource est le nom convivial et descriptif que vous utilisez pour votre cloud privé Azure VMware Solution.
-
-## <a name="size-nodes"></a>Nœuds de taille
-
-Identifiez les nœuds de taille que vous souhaitez utiliser lors du déploiement d’Azure VMware Solution.  Pour obtenir une liste complète, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#hosts).
-
-## <a name="number-of-hosts"></a>Nombre d’hôtes
-
-Définissez le nombre d’hôtes que vous souhaitez déployer dans le cloud privé Azure VMware Solution.  Le nombre minimal de nœuds est de trois, et la valeur maximale est de 16 par cluster.  Pour plus d’informations, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
-
-Vous pouvez toujours étendre le cluster ultérieurement si vous devez aller au-delà du chiffre de déploiement initial.
-
-## <a name="vcenter-admin-password"></a>Mot de passe de l’administrateur du vCenter
-Définissez le mot de passe d'administrateur vCenter.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur vCenter. Le mot de passe est adressé au compte d’administrateur cloudadmin@vsphere.local lors de la build vCenter. Vous l’utiliserez pour vous connecter à vCenter.
-
-## <a name="nsx-t-admin-password"></a>Mot de passe administrateur NSX-T
-Définissez le mot de passe administrateur NSX-T.  Pendant le déploiement, vous allez créer un mot de passe d’administrateur NSX-T. Le mot de passe est attribué à l’utilisateur administrateur dans le compte NSX au cours de la build NSX. Vous l’utiliserez pour vous connecter à NSX-T Manager.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Réseau virtuel Azure pour joindre Azure VMware Solution
 
 Pour accéder à votre cloud privé Azure VMware Solution, le circuit ExpressRoute, fourni avec Azure VMware Solution, doit être attaché à un réseau virtuel Azure.  Pendant le déploiement, vous pouvez définir un nouveau réseau virtuel ou en choisir un existant.
@@ -120,8 +119,6 @@ Dans les deux cas, documentez ce que vous souhaitez faire au cours de cette éta
 >Ce réseau virtuel est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identifier : segment d’adresse IP" border="false":::
-
-
 
 ## <a name="vmware-hcx-network-segments"></a>Segments réseau VMware HCX
 
