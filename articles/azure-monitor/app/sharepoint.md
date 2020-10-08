@@ -3,12 +3,12 @@ title: Surveillance d’un site SharePoint avec Application Insights
 description: Démarrage de la surveillance d'une nouvelle application avec une nouvelle clé d'instrumentation
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: afd7a5fc8ccf7546078fa8a4ffa7a076cb05be6a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f07c317a61c91daf7a469c1f9eaf1fb80d4ecc49
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757246"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825283"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Surveillance d’un site SharePoint avec Application Insights
 
@@ -141,4 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](./app-insights-overview.md) pour les autres types d'applications.
 
 <!--Link references-->
-

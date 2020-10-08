@@ -293,7 +293,7 @@
             - name: Flexibilité de taille d'instance des machines virtuelles
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Machines virtuelles Spot
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Machines virtuelles Azure sans disque temporaire
           href: ../azure-vms-no-temp-disk.md
@@ -400,7 +400,7 @@
             - name: Interface de ligne de commande
               href: spot-cli.md
             - name: Portail
-              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+              href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Modèle ARM
               displayName: Azure Resource Manager
               href: spot-template.md
@@ -623,7 +623,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md

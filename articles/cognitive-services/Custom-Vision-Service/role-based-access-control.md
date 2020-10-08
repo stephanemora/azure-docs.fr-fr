@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057110"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826940"
 ---
 # <a name="role-based-access-control"></a>Contrôle d'accès en fonction d'un rôle
 
@@ -43,8 +43,8 @@ Utilisez le tableau suivant pour déterminer les besoins d’accès à vos resso
 
 |Role  |Autorisations  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Accès complet aux projets, y compris la possibilité de créer, de modifier et de supprimer un projet.        |
-|`Cognitive Service Custom Vision Trainer`     | Accès complet, à l’exception de la possibilité de créer et de supprimer un projet. Les entraîneurs peuvent afficher et modifier des projets, ainsi qu’entraîner, publier, dépublier ou exporter les modèles.        |
-|`Cognitive Service Custom Vision Labeler`     | Possibilité de télécharger, de modifier ou de supprimer des images d’entraînement, ainsi que de créer, ajouter, supprimer ou effacer des étiquettes. Les étiqueteurs peuvent consulter les projets, mais ne peuvent pas mettre à jour autre chose que des images d’entraînement et des étiquettes.         |
-|`Cognitive Service Custom Vision Deployment`     | Possibilité de publier, d’annuler la publication ou d’exporter les modèles. Les responsables de déploiement peuvent consulter les projets, mais ne peuvent pas mettre à jour un projet, des images d’entraînement ni des étiquettes.        |
-|`Cognitive Service Custom Vision Reader`     | Possibilité de consulter les projets. Les lecteurs ne peuvent apporter aucune modification.        |
+|`Cognitive Services Custom Vision Contributor`     | Accès complet aux projets, y compris la possibilité de créer, de modifier et de supprimer un projet.        |
+|`Cognitive Services Custom Vision Trainer`     | Accès complet, à l’exception de la possibilité de créer et de supprimer un projet. Les entraîneurs peuvent afficher et modifier des projets, ainsi qu’entraîner, publier, dépublier ou exporter les modèles.        |
+|`Cognitive Services Custom Vision Labeler`     | Possibilité de télécharger, de modifier ou de supprimer des images d’entraînement, ainsi que de créer, ajouter, supprimer ou effacer des étiquettes. Les étiqueteurs peuvent consulter les projets, mais ne peuvent pas mettre à jour autre chose que des images d’entraînement et des étiquettes.         |
+|`Cognitive Services Custom Vision Deployment`     | Possibilité de publier, d’annuler la publication ou d’exporter les modèles. Les responsables de déploiement peuvent consulter les projets, mais ne peuvent pas mettre à jour un projet, des images d’entraînement ni des étiquettes.        |
+|`Cognitive Services Custom Vision Reader`     | Possibilité de consulter les projets. Les lecteurs ne peuvent apporter aucune modification.        |

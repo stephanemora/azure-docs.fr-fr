@@ -15,7 +15,7 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: "Démarrer avec Python, jour\_1"
+    - name: "Démarrer avec Python (jour\_1)"
       expanded: true
       items:
         - name: 1. Configurer l’ordinateur local
@@ -188,6 +188,8 @@
             - name: Utiliser Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Utiliser le DNS personnalisé
+              href: how-to-custom-dns.md
             - name: Configurer des services web sécurisés
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

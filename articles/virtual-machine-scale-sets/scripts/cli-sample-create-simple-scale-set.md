@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 97fc21f111e9b95fb9645fd042e47cc53b0af42c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 31c90879d6f80f598ba71846ba68da814f254677
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499702"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825181"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Créer un groupe de machines virtuelles identiques avec Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques Azure avec un système d’exploitation Ubuntu et les ressources réseau associées, y compris un équilibreur de charge. Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle sur SSH.
@@ -24,7 +24,27 @@ Ce script permet de créer un groupe de machines virtuelles identiques Azure ave
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Exemple de script
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.sh "Create a simple virtual machine scale set")]
+```azurecli-interactive
+#!/bin/bash
+
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+
+# Create a Network Security Group and allow access to port 22
+az network nsg create --resource-group MyResourceGroup --name MyNsg
+az network nsg rule create --resource-group MyResourceGroup --name AllowSsh --nsg-name MyNsg --priority 100 --destination-port-ranges 22
+
+# Create a scale set
+# Network resources such as an Azure load balancer are automatically created
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --generate-ssh-keys
+  --nsg MyNsg
+```
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 Exécutez la commande suivante pour supprimer le groupe de ressources, le groupe identique et toutes les ressources associées.
