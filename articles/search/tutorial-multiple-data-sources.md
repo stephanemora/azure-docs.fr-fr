@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998456"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819789"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutoriel : Indexer à partir de plusieurs sources de données à l’aide du SDK .NET
 
@@ -61,19 +61,19 @@ Cet exemple utilise deux petits ensembles de données qui décrivent sept hôtel
 
 1. Sélectionnez **Explorateur de données**, puis sélectionnez **Nouvelle base de données**.
 
-   ![Créer une base de données](media/tutorial-multiple-data-sources/cosmos-newdb.png "Créer une base de données")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Créer une base de données" border="false":::
 
 1. Entrez le nom **hotel-rooms-db**. Acceptez les valeurs par défaut pour les autres paramètres.
 
-   ![Configurer la base de données](media/tutorial-multiple-data-sources/cosmos-dbname.png "Configurer la base de données")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Créer une base de données" border="false":::
 
 1. Créez un conteneur. Utilisez la base de données existante que vous venez de créer. Entrez **hotels** comme nom de conteneur et utilisez **/HotelId** comme clé de partition.
 
-   ![Ajouter un conteneur](media/tutorial-multiple-data-sources/cosmos-add-container.png "Ajouter un conteneur")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Créer une base de données" border="false":::
 
 1. Sélectionnez **Éléments** sous **Hôtels**, puis cliquez sur **Charger un élément** dans la barre de commandes. Accédez au fichier **cosmosdb/HotelsDataSubset_CosmosDb.json** dans le dossier du projet, puis sélectionnez-le.
 
-   ![Charger dans la collection Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Charger dans la collection Azure Cosmos DB")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Créer une base de données" border="false":::
 
 1. Utilisez le bouton Actualiser pour actualiser l’affichage des éléments dans la collection hotels. Sept nouveaux documents doivent être listés.
 
@@ -83,11 +83,11 @@ Cet exemple utilise deux petits ensembles de données qui décrivent sept hôtel
 
 1. [Créez un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md) nommé **hotel-rooms** pour stocker les exemples de fichiers JSON des chambres d’hôtel. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
 
-   Créer un ![conteneur d’objets blob](media/tutorial-multiple-data-sources/blob-add-container.png "Création d’un conteneur d’objets blob")
+   Créer un :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Créer une base de données" border="false":::
 
 1. Une fois le conteneur créé, ouvrez-le et sélectionnez **Charger** dans la barre de commandes. Accédez au dossier contenant les exemples de fichiers. Sélectionnez-les tous, puis cliquez sur **Charger**.
 
-   ![Charger des fichiers](media/tutorial-multiple-data-sources/blob-upload.png "Charger des fichiers")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Créer une base de données" border="false":::
 
 Une fois le chargement terminé, les fichiers doivent apparaître dans la liste liée au conteneur de données.
 
@@ -105,7 +105,7 @@ Pour interagir avec votre service Recherche cognitive Azure, vous devrez dispose
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Créer une base de données" border="false":::
 
 L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -115,7 +115,7 @@ L’utilisation d’une clé valide permet d’établir, en fonction de chaque d
 
 1. Sous l’onglet **Parcourir**, recherchez et installez **Microsoft.Azure.Search** (version 9.0.1 ou ultérieure). Vous devrez valider une série de boîtes de dialogue supplémentaires pour terminer l’installation.
 
-    ![Utilisation de NuGet pour ajouter des bibliothèques Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Créer une base de données" border="false":::
 
 1. Recherchez le package NuGet **Microsoft.Extensions.Configuration.Json** et installez-le également.
 
@@ -352,7 +352,7 @@ Une fois le programme exécuté, vous pouvez explorer l’index de recherche rem
 
 Dans le portail Azure, ouvrez la page **Vue d’ensemble** du service de recherche, puis recherchez l’index **hotel-rooms-sample** dans la liste **Index**.
 
-  ![Liste des index de Recherche cognitive Azure](media/tutorial-multiple-data-sources/index-list.png "Liste des index de Recherche cognitive Azure")
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Créer une base de données" border="false":::
 
 Cliquez sur l’index hotel-rooms-sample dans la liste. Vous verrez une interface de l’Explorateur de recherche pour l’index. Entrez une requête portant sur un terme, par exemple « Luxury » (Luxe). Vous devriez voir au moins un document dans les résultats, et ce document doit afficher une liste d’objets de chambre dans son tableau de chambres.
 
