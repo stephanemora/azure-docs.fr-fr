@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 5b3893dce2d20b1de0a78f11263d880e262098d2
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: b5936d68ba98054eb6d98860c6edfaf12d6736d8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142382"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710123"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
 
@@ -31,6 +31,8 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 > Analyse de texte fournit également une image conteneur Docker basée sur Linux pour la détection de la langue. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
 
 ## <a name="preparation"></a>Préparation
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 Vous devez disposer des documents JSON dans ce format : ID et texte.
 
@@ -263,7 +265,7 @@ Le résultat obtenu se compose de la langue prédominante, avec un score inféri
 
 Dans cet article, vous avez vu les concepts et le flux de travail de détection de langue à l’aide de l’API Analyse de texte dans Azure Cognitive Services. Les points suivants ont été décrits et illustrés :
 
-+ [Détection de langue](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) est disponible pour une grande variété de langues, de variantes, de langues minoritaires, et pour certaines langues régionales ou de culture.
++ [Détection de langue](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) est disponible pour une grande variété de langues, de variantes, de dialectes, et certaines langues régionales ou de culture.
 + Les documents JSON figurant dans le corps de la demande incluent un ID et un texte.
 + La requête POST s’effectue sur un point de terminaison `/languages`, à l’aide [d’une clé d’accès et d’un point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personnalisés valides pour votre abonnement.
 + La sortie de réponse se compose d’identificateurs de langue pour chaque ID de document. La sortie peut être diffusée vers n’importe quelle application qui accepte JSON, par exemple Excel et Power BI, pour n’en citer que quelques-unes.

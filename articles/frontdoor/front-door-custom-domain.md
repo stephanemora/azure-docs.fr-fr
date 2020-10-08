@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ebc0ee2e029e1f349972e3cd7fada46495534d54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252389"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729166"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutoriel : Ajouter un domaine personnalisé à votre Front Door
 Ce tutoriel montre comment ajouter un domaine personnalisé à votre Front Door. Quand vous utilisez Azure Front Door pour la livraison d’applications, vous avez besoin d’un domaine personnalisé si vous souhaitez que votre propre nom de domaine soit visible dans votre demande d’utilisateur final. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation.
@@ -209,4 +209,4 @@ Dans ce didacticiel, vous avez appris à :
 Pour savoir comment activer le protocole HTTPS de votre domaine personnalisé, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Activer le protocole HTTPS pour un domaine personnalisé](front-door-custom-domain.md)
+> [Activer le protocole HTTPS pour un domaine personnalisé](front-door-custom-domain-https.md)

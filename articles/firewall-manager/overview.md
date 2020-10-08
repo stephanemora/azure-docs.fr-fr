@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855050"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596686"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -78,7 +78,7 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 
 |Problème  |Description  |Limitation des risques  |
 |---------|---------|---------|
-|Fractionnement du trafic|Le fractionnement du trafic Office 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Par conséquent, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Office 365 via le service partenaire.|Enquête sur la division du trafic au niveau du hub.
+|Fractionnement du trafic|Le fractionnement du trafic Microsoft 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Ainsi, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Microsoft 365 via le service partenaire.|Enquête sur la division du trafic au niveau du hub.
 |Un seul hub virtuel sécurisé par région|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région.|Créez plusieurs réseaux étendus virtuels dans une région.|
 |Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Enquête|
 |Filtrage du trafic entre hubs dans des déploiements de hubs virtuels sécurisés|Le filtrage de la communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore pris en charge. Toutefois, la communication de hub à hub continue de fonctionner si le filtrage du trafic privé via le Pare-feu Azure n’est pas activé.|Enquête|
@@ -87,6 +87,9 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
 |Les règles d'application échouent dans un hub sécurisé où un DNS personnalisé (préversion) est configuré.|Le DNS personnalisé (préversion) ne fonctionne pas dans les déploiements de hubs sécurisés et les déploiements de réseaux de hubs virtuels où le tunneling forcé est activé.|Correctif en cours d'examen.|
+|Protection DDoS Standard non prise en charge avec les hubs virtuels sécurisés|La protection DDoS Standard n’est pas intégrée aux réseaux WAN virtuels.|Enquête|
+|Journaux d’activité non entièrement pris en charge|La stratégie de pare-feu ne prend pas en charge les journaux d’activité.|Enquête|
+|Configuration de la traduction de l’adresse réseau source des plages d’adresses IP privées|Les [paramètres de plage d’adresses IP privées](../firewall/snat-private-range.md) sont ignorés si la stratégie de pare-feu Azure est configurée. Le comportement par défaut du Pare-feu Azure est utilisé : celui-ci ne traduit pas l’adresse réseau source avec des règles de réseau lorsque l’adresse IP de destination se trouve dans une plage d’adresses IP privées définie par la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Enquête
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905565"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626868"
 ---
 # <a name="import-an-openapi-specification"></a>Importer une spécification OpenAPI
 
@@ -42,7 +42,7 @@ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion d
 2. Sélectionnez **Spécification OpenAPI** dans la liste **Ajouter une nouvelle API**.
 
     ![Spécification OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Entrez les paramètres de l’API. Vous pouvez définir les valeurs lors de la création, ou les configurer ultérieurement en accédant à l’onglet **Paramètres**. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
+3. Entrez les paramètres de l’API. Vous pouvez définir les valeurs lors de la création, ou les configurer ultérieurement en accédant à l’onglet **Paramètres**. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#import-and-publish-a-backend-api).
 4. Sélectionnez **Create** (Créer).
 
 > [!NOTE]

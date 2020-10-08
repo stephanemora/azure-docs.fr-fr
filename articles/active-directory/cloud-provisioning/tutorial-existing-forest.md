@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 803663f845272c6b1573fceed8025cc23483ec09
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266409"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628738"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Intégrer une forêt existante et une nouvelle forêt à un seul locataire Azure AD
 
@@ -109,7 +109,7 @@ Pour vérifier que l’agent est en cours d’exécution, effectuez les étapes 
 5.  Cliquez sur **Nouvelle configuration**
 ![Capture d’écran de l’écran Provisionnement Azure AD (préversion) avec le lien « Nouvelle configuration » mis en surbrillance.](media/tutorial-single-forest/configure1.png)
 7.  Dans l’écran de configuration, entrez une adresse **e-mail de notification**, déplacez le sélecteur sur **Activer** et cliquez sur **Enregistrer**.
-![Capture d’écran de l’écran de configuration avec l’e-mail de notification rempli et l’option Activer sélectionnée.](media/tutorial-single-forest/configure2.png)
+![Capture d’écran de l’écran de configuration avec l’e-mail de notification rempli et l’option Activer sélectionnée.](media/how-to-configure/configure2.png)
 1.  L’état de la configuration doit maintenant être **Sain**.
 ![Capture d’écran de l’écran Provisionnement Azure AD (préversion) montrant l’état Intègre.](media/how-to-configure/manage4.png)
 

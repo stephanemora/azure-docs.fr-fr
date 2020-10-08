@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: a8d34d60cfb4037192abcc20649b478e9f58a6bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992185"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620135"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -44,7 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
         * Un abonnement à F5 IP Intelligence pour détecter et bloquer les attaquants connus et le trafic malveillant 
         * Un module de sécurité matériel (HSM) réseau pour protéger et gérer les clés numériques pour une authentification forte
 1. Un système F5 BIG-IP provisionné avec les modules APM (LTM est facultatif) 
-1. Bien que facultatif, il est vivement recommandé de déployer les systèmes F5 dans un [groupe d’appareils de synchronisation/basculement](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), qui comprend la paire en veille active, avec une adresse IP flottante pour la haute disponibilité. Il est possible de bénéficier d’une redondance d’interface plus poussée en utilisant le protocole LACP (Link Aggregation Control Protocol). Le protocole LACP gère les interfaces physiques connectées comme une seule et même interface 
+1. Bien que facultatif, il est vivement recommandé de déployer les systèmes F5 dans un [groupe d’appareils de synchronisation/basculement](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), qui comprend la paire en veille active, avec une adresse IP flottante pour la haute disponibilité. Il est possible de bénéficier d’une redondance d’interface plus poussée en utilisant le protocole LACP (Link Aggregation Control Protocol). LACP gère les interfaces physiques connectées comme une interface virtuelle unique (groupe agrégé) et détecte les échecs d’interface au sein du groupe.
 
 ## <a name="scenario-description"></a>Description du scénario
 

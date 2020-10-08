@@ -1,6 +1,6 @@
 ---
-title: Que faire si une interruption de service Azure affecte Azure Key Vault – Azure Key Vault | Microsoft Docs
-description: Découvrez comment réagir si une interruption de service Azure affecte Azure Key Vault.
+title: Disponibilité et redondance d’Azure Key Vault - Azure Key Vault | Microsoft Docs
+description: Découvrez des informations sur la disponibilité et la redondance d’Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 27d8d4de308fe7cf6e6f36dd33f33bb73c495073
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983233"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597878"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
@@ -25,7 +25,6 @@ Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos
 
 Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Consultez le document [Régions jumelées d’Azure](../../best-practices-availability-paired-regions.md) pour plus d’informations sur les paires de régions spécifiques.
 
-
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Vous n’avez besoin d’effectuer aucune action pour démarrer ce processus. Il se produit automatiquement sans que vous le perceviez.
 
 Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement acheminées (*basculées*) vers une région secondaire. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (*basculées*) vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout se passe automatiquement.
@@ -35,6 +34,7 @@ Dans cette conception haute disponibilité, Azure Key Vault n’exige aucun temp
 Il convient toutefois de prendre quelques précautions :
 
 * En cas de basculement vers une autre région, quelques minutes peuvent être nécessaires pour que le service soit de nouveau opérationnel. Les demandes effectuées pendant cette période, avant le basculement, peuvent échouer.
+* Si vous utilisez un lien privé pour vous connecter à votre coffre de clés, il peut falloir jusqu’à 20 minutes pour que la connexion soit rétablie en cas de basculement. 
 * Au cours du basculement, votre coffre de clés est en lecture seule. Les demandes prises en charge dans ce mode sont les suivantes :
   * Afficher la liste des certificats
   * Obtenir les certificats

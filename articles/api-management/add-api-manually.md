@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295259"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631288"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -39,7 +39,7 @@ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion d
 2. Dans le menu de gauche, cliquez sur **Ajouter l’API**.
 3. Sélectionnez **API vide** dans la liste.  
     ![API vide](media/add-api-manually/blank-api.png)  
-4. Entrez des paramètres pour l’API. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
+4. Entrez des paramètres pour l’API. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#import-and-publish-a-backend-api).
 5. Sélectionnez **Create** (Créer).
 
 À ce stade, vous ne disposez d’aucune opération dans Gestion des API qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas par l’intermédiaire de Gestion des API, vous obtenez une erreur **404**.

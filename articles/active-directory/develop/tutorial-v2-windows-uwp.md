@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574243"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627667"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutoriel : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
 Ce guide explique comment une application de plateforme Windows universelle (UWP) native peut demander un jeton d’accès. L’application appelle ensuite l’API Microsoft Graph. Ce guide s’applique également aux autres API qui utilisent des jetons d’accès reçus du point de terminaison de la plateforme d’identités Microsoft.
 
