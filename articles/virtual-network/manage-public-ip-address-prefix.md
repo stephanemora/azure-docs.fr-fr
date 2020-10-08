@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035057"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804008"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -88,7 +88,7 @@ Vous pouvez également utiliser l’interface CLI et les commandes PS ci-dessous
 2. Sélectionnez le nom du préfixe d’adresse IP publique que vous voulez voir, dont vous voulez changer les paramètres ou que vous voulez supprimer de la liste.
 3. Choisissez l’une des options suivantes, selon que vous voulez voir le préfixe d’adresse IP publique, le supprimer ou le changer.
    - **Afficher** : La section **Vue d’ensemble** montre les paramètres principaux du préfixe d’adresse IP publique, comme le préfixe.
-   - **Supprimer** : Pour supprimer le préfixe d’adresse IP publique, sélectionnez **Supprimer** dans la section **Vue d’ensemble**. Si les adresses dans le préfixe sont associées à des ressources d’adresse IP publique, vous devez d’abord supprimer les ressources d’adresse IP publique. Consultez [Supprimer une adresse IP publique](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Supprimer** : Pour supprimer le préfixe d’adresse IP publique, sélectionnez **Supprimer** dans la section **Vue d’ensemble**. Si les adresses dans le préfixe sont associées à des ressources d’adresse IP publique, vous devez d’abord supprimer les ressources d’adresse IP publique. Consultez [Supprimer une adresse IP publique](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Commandes**
 

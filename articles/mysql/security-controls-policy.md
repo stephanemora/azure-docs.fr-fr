@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Azure Database pour MySQL
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Azure Database pour MySQL. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0964edd95405ef0d8c291739fc46a482f4d60301
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 39ed26bdbc18b5e6fb0b9f6f1158e83c86194ac1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987068"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816234"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mysql"></a>Contrôles de conformité réglementaire Azure Policy pour Azure Database pour MySQL
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718099"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817733"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -34,7 +34,7 @@ Chaque cluster requiert un **type de nœud principal**, qui exécute des service
 
 **Les types de nœuds non principaux** peuvent être utilisés pour définir des rôles d’application (comme les services en *frontaux* et *principaux*) et pour isoler physiquement les services au sein d’un cluster. Les clusters Service Fabric peuvent avoir zéro, un ou plusieurs types de nœuds non principaux.
 
-Le type de nœud principal est configuré à l’aide de l’attribut `isPrimary` sous la définition du type de nœud dans le modèle de déploiement Azure Resource Manager. Pour obtenir la liste complète des propriétés de type de nœud, consultez l’[Objet NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object). Par exemple, ouvrez un fichier *AzureDeploy.json* dans [Exemples de cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) et *Rechercher sur la page* pour rechercher l’objet `nodetTypes`.
+Le type de nœud principal est configuré à l’aide de l’attribut `isPrimary` sous la définition du type de nœud dans le modèle de déploiement Azure Resource Manager. Pour obtenir la liste complète des propriétés de type de nœud, consultez l’[Objet NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object). Par exemple, ouvrez un fichier *AzureDeploy.json* dans [Exemples de cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) et *Rechercher sur la page* pour rechercher l’objet `nodeTypes`.
 
 ### <a name="node-type-planning-considerations"></a>Considérations relatives à la planification du type de nœud
 

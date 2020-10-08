@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 4b2727cfdc31dca509a4c8416010bbb40d2e46bb
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ad399272673f1e2ede7bcaa82b66688fbaa8ac45
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055416"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804042"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les paramètres de diagnostic dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer des paramètres de diagnostic destinés à une ressource Azure. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -30,7 +30,7 @@ L’exemple suivant crée un paramètre de diagnostic pour un journal d’activi
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -103,7 +103,7 @@ L’exemple suivant crée un paramètre de diagnostic pour un journal d’activi
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -251,7 +251,7 @@ L’exemple suivant crée un paramètre de diagnostic pour une base de données 
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/', parameters('settingName'))]",
           "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",

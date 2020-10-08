@@ -278,7 +278,7 @@
             - name: Flexibilité de taille d'instance des machines virtuelles
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Machines virtuelles Spot
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Machines virtuelles Azure sans disque temporaire
           href: ../azure-vms-no-temp-disk.md
@@ -380,7 +380,7 @@
         - name: Déployer des machines virtuelles Spot
           items:
             - name: Portail
-              href: spot-portal.md
+              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: PowerShell
               href: spot-powershell.md
             - name: Modèle ARM

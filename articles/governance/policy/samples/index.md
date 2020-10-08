@@ -3,12 +3,12 @@ title: Index des exemples de stratégie
 description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
 ms.date: 07/20/2020
 ms.topic: sample
-ms.openlocfilehash: b4f76c42eb23ce368875dfb91f2f7b9e7ee1bd50
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 9fec7c7b0db554d424f8faee7e4e10e6121f1caa
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481560"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812520"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
@@ -27,7 +27,7 @@ Voici quelques exemples de modèles différents utilisant le langage et les opé
 - [Fields](./pattern-fields.md)
 - [Paramètres](./pattern-parameters.md)
 - [Détails des effets](./pattern-effect-details.md)
-- [Utilisation d’étiquettes](./pattern-effect-details.md)
+- [Utilisation d’étiquettes](./pattern-tags.md)
 - [Opérateur value](./pattern-value-operator.md)
 - [Opérateur count](./pattern-count-operator.md)
 - [Regroupement de définitions de stratégie dans une initiative](./pattern-group-with-initiative.md)

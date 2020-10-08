@@ -115,7 +115,7 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Créer une ressource technique de machine virtuelle Azure
               items:
-                - name: Certification des machines virtuelles - problèmes et solutions
+                - name: Problèmes de certification des machines virtuelles
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Créer une ressource technique de machine virtuelle Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
@@ -328,6 +328,8 @@
       href: partner-center-portal/support.md
     - name: Disponibilité géographique et devises
       href: marketplace-geo-availability-currencies.md
+    - name: Rechercher un locataire et des ID d’objet
+      href: find-tenant-object-id.md
     - name: Pays et régions pris en charge
       href: sell-from-countries.md
     - name: Balises HTML prises en charge

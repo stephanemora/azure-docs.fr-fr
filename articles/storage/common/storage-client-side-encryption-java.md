@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: 230fac982e19c1106aa5757c9bf1c32d192740d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314507"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817521"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault avec Java pour le Stockage Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
-La [bibliothèque cliente de stockage Azure pour Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
+La [bibliothèque cliente de stockage Azure pour Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Chiffrement et déchiffrement via la technique d’enveloppe
 Les processus de chiffrement et de déchiffrement s’effectuent selon la technique d’enveloppe.  

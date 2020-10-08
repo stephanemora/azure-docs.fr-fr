@@ -183,6 +183,8 @@
                   href: roles-custom-available-permissions.md
                 - name: Autorisations d’application d’entreprise
                   href: custom-enterprise-app-permissions.md
+                - name: Autorisations de consentement d’application
+                  href: custom-consent-permissions.md
             - name: Déléguer les autorisations d’administration d’applications
               href: roles-delegate-app-roles.md
         - name: Utiliser des groupes pour gérer les attributions de rôles

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 7f7f895b61e3c638cb347a2d73bb5ee458b31acd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498818"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804195"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Pagination dans Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Si la requête retourne un jeton de continuation, il existe des résultats de re
 
 Dans l’API REST d’Azure Cosmos DB, vous pouvez gérer les jetons de continuation avec l’en-tête `x-ms-continuation`. Comme pour l’interrogation avec le kit SDK .NET ou Java, si l’en-tête de réponse `x-ms-continuation` n’est pas vide, cela signifie que la requête a des résultats supplémentaires.
 
-Tant que vous utilisez la même version du kit SDK, les jetons de continuation n’expirent pas. Vous pouvez éventuellement [restreindre la taille d’un jeton de continuation](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Quels que soient la quantité de données et le nombre de partitions physiques dans votre conteneur, les requêtes renvoient un jeton de continuation unique.
+Tant que vous utilisez la même version du kit SDK, les jetons de continuation n’expirent pas. Vous pouvez éventuellement [restreindre la taille d’un jeton de continuation](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Quels que soient la quantité de données et le nombre de partitions physiques dans votre conteneur, les requêtes renvoient un jeton de continuation unique.
 
 Vous ne pouvez pas utiliser de jetons de continuation pour les requêtes avec [GROUP BY](sql-query-group-by.md) ou [DISTINCT](sql-query-keywords.md#distinct), car ces requêtes nécessitent le stockage d’une grande quantité d’informations d’état. Pour les requêtes avec `DISTINCT`, vous pouvez utiliser des jetons de continuation si vous ajoutez `ORDER BY` à la requête.
 
