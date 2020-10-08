@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707762"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822402"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -164,7 +164,7 @@ $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy
-$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
 # <a name="template"></a>[Modèle](#tab/template)
