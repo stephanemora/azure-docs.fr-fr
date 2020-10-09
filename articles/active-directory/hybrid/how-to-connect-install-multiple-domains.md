@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306359"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
 La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Microsoft 365 ou Azure AD.
@@ -38,7 +38,7 @@ Lorsqu’un domaine est fédéré avec Azure AD, plusieurs propriétés sont dé
 
 Vous pouvez afficher IssuerUri à l’aide de la commande PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Capture d’écran montrant des résultats après l’entrée de la commande « Get-MsolDomainFederationSettings » dans PowerShell.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 Un problème survient lorsque vous ajoutez plusieurs domaines de niveau supérieur.  Par exemple, supposons que vous avez configuré la fédération entre Azure AD et votre environnement local.  Pour ce document, le domaine bmcontoso.com est utilisé.  Un second domaine de premier niveau, bmfabrikam.com, est alors ajouté.
 
@@ -46,7 +46,7 @@ Un problème survient lorsque vous ajoutez plusieurs domaines de niveau supérie
 
 Lorsque vous essayez de convertir le domaine bmfabrikam.com pour qu’il soit fédéré, une erreur se produit.  La raison de cette erreur tient à une contrainte dans Azure AD qui n’autorise pas IssuerURI à avoir la même valeur pour plusieurs domaines.  
 
-![Erreur de fédération](./media/how-to-connect-install-multiple-domains/error.png)
+![Capture d’écran montrant une erreur de fédération dans PowerShell.](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>Paramètre SupportMultipleDomain
 Pour contourner cette contrainte, nous devons ajouter un IssuerUri différent, ce qui peut être effectué à l’aide du paramètre `-SupportMultipleDomain`.  Ce paramètre est utilisé avec les applets de commande suivantes :
@@ -57,11 +57,11 @@ Pour contourner cette contrainte, nous devons ajouter un IssuerUri différent, c
 
 Ce paramètre permet à Azure AD de configurer l’IssuerUri afin qu’il soit basé sur le nom du domaine.  IssuerUri sera unique au sein des annuaires dans Azure AD.  L’utilisation du paramètre permet à la commande PowerShell de s’exécuter correctement.
 
-![Erreur de fédération](./media/how-to-connect-install-multiple-domains/convert.png)
+![Capture d’écran montrant la réussite de l’exécution de la commande PowerShell.](./media/how-to-connect-install-multiple-domains/convert.png)
 
 Les paramètres du domaine bmfabrikam.com ressemblent à ce qui suit :
 
-![Erreur de fédération](./media/how-to-connect-install-multiple-domains/settings.png)
+![Capture d’écran montrant les paramètres du domaine « bmfabrikam.com ».](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain` ne modifie pas les autres points de terminaison qui sont toujours configurés pour pointer vers le service de fédération adfs.bmcontoso.com.
 
@@ -88,11 +88,11 @@ Si vous n’avez pas configuré l’approbation fédérée entre AD FS et votre 
 
 Si vous avez correctement ajouté un nouveau domaine dans le portail Azure AD, puis que vous essayez de le convertir à l’aide de `Convert-MsolDomaintoFederated -DomainName <your domain>`, vous obtenez l’erreur suivante.
 
-![Erreur de fédération](./media/how-to-connect-install-multiple-domains/trust1.png)
+![Capture d’écran montrant une erreur de fédération dans PowerShell après une tentative de conversion d’un nouveau domaine à l’aide de la commande « Convert-MsolDomaintoFederated ».](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 Si vous essayez d’ajouter le commutateur `-SupportMultipleDomain`, vous recevez l’erreur suivante :
 
-![Erreur de fédération](./media/how-to-connect-install-multiple-domains/trust2.png)
+![Capture d’écran montrant une erreur de fédération après l’ajout du commutateur « -SupportMultipleDomain ».](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 Tenter d’exécuter `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` sur le domaine d’origine entraîne également une erreur.
 
@@ -121,7 +121,7 @@ Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l�
 Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l’aide d’Azure AD Connect.
 
 1. Lancez Azure AD Connect à partir du bureau ou du menu Démarrer
-2. Choisissez « Ajouter un domaine Azure AD supplémentaire » ![Ajouter un domaine Azure AD supplémentaire](./media/how-to-connect-install-multiple-domains/add1.png)
+2. Choisissez « Ajouter un domaine Azure AD supplémentaire » ![Capture d’écran montrant la page « Tâches supplémentaires » avec l’option « Ajouter un domaine Azure AD supplémentaire » sélectionnée.](./media/how-to-connect-install-multiple-domains/add1.png)
 3. Entrez votre informations d’identification Azure AD et Active Directory
 4. Sélectionnez le second domaine que vous souhaitez configurer pour la fédération.
    ![Ajouter un domaine Azure AD supplémentaire](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -130,7 +130,7 @@ Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l�
 ### <a name="verify-the-new-top-level-domain"></a>Vérifiez le nouveau domaine de niveau supérieur
 À l’aide de la commande PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`vous pouvez afficher l’IssuerUri mis à jour.  La capture d’écran ci-dessous montre les paramètres de la fédération mis à jour sur le domaine d’origine `http://bmcontoso.com/adfs/services/trust`
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Capture d’écran montrant les paramètres de fédération mis à jour sur le domaine d’origine.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 Et IssuerUri sur le nouveau domaine a été défini sur `https://bmfabrikam.com/adfs/services/trust`
 
