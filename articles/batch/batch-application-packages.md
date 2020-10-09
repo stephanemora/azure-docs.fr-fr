@@ -2,57 +2,54 @@
 title: Déployer des packages d’application sur des nœuds de calcul
 description: Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 0d705ca731c40563deaeb02c29da120211db7ff4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.custom:
+- H1Hack27Feb2017
+- devx-track-csharp
+- contperfq1
+ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277697"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
-La fonctionnalité de packages d’application d’Azure Batch vous aide à gérer les applications de tâche et leur déploiement sur des nœuds de calcul dans votre pool. Les packages d’application peuvent simplifier le code de votre solution Batch et alléger les coûts requis par la gestion des applications exécutées par vos tâches. Grâce aux packages d’application, vous pouvez charger et gérer plusieurs versions des applications que vos tâches exécutent, notamment leurs fichiers de prise en charge. Vous pouvez ensuite déployer automatiquement une ou plusieurs de ces applications sur les nœuds de calcul de votre pool.
-
-Des packages d’application peuvent aider vos clients à sélectionner applications pour leurs travaux, en spécifiant la version exacte à utiliser lors du traitement de travaux avec votre service Batch. Vous pouvez également offrir à vos clients la possibilité de télécharger et d’effectuer le suivi de leurs propres applications dans votre service.
+Des packages d’application peuvent simplifier le code de votre solution Azure Batch et faciliter la gestion des applications que vos tâches exécutent. Les packages d’application vous permettent de charger et gérer plusieurs versions d’applications que vos tâches exécutent, notamment leurs fichiers de prise en charge. Vous pouvez ensuite déployer automatiquement une ou plusieurs de ces applications sur les nœuds de calcul de votre pool.
 
 Les API servant à la création et la gestion des packages d’application font partie de la bibliothèque [Batch Management .NET](/dotnet/api/overview/azure/batch/management). Les API servant à l’installation des packages d’application sur un nœud de calcul font partie de la bibliothèque [Batch .NET](/dotnet/api/overview/azure/batch/client). Des fonctionnalités comparables sont dans les API de Batch disponibles pour d’autres langues.
 
-Cet article explique comment charger et gérer des packages d’application dans le portail Azure, et les installer sur les nœuds de calcul d’un pool avec la bibliothèque [Batch .NET](/dotnet/api/overview/azure/batch/client).
+Cet article explique comment charger et gérer des packages d’application dans le portail Azure. Il montre également comment les installer sur des nœuds de calcul d’un pool au moyen de la bibliothèque [Batch .NET](/dotnet/api/overview/azure/batch/client).
 
 ## <a name="application-package-requirements"></a>Configuration requise des packages d’application
 
 Pour utiliser des packages d’application, vous devez [lier un compte de stockage Azure](#link-a-storage-account) à votre compte Batch.
 
-Il existe des restrictions au nombre d’applications et de packages d’application à l’intérieur d’un compte Batch, ainsi qu’à la taille maximale des packages d’application. Pour plus d’informations sur ces limites, voir [Quotas et limites pour le service Azure Batch](batch-quota-limit.md) .
+Il existe des restrictions au nombre d’applications et de packages d’application à l’intérieur d’un compte Batch, ainsi qu’à la taille maximale des packages d’application. Pour plus d’informations, consultez [Quotas et limites pour le service Azure Batch](batch-quota-limit.md).
 
 > [!NOTE]
-> Les pools Batch créés avant le 5 juillet 2017 ne prennent pas en charge les packages d’applications (sauf s’ils ont été créés après le 10 mars 2016 à l’aide de Microsoft Azure Cloud Services).
->
-> La fonctionnalité de packages d’application décrite ici remplace la fonctionnalité d’applications Batch disponible dans les versions précédentes du service.
+> Les pools Batch créés avant le 5 juillet 2017 ne prennent pas en charge les packages d’applications (sauf s’ils ont été créés après le 10 mars 2016 à l’aide de Microsoft Azure Cloud Services). La fonctionnalité de packages d’application décrite ici remplace la fonctionnalité d’applications Batch disponible dans les versions précédentes du service.
 
-## <a name="about-applications-and-application-packages"></a>Concernant les applications et les packages d’applications
+## <a name="understand-applications-and-application-packages"></a>Comprendre les applications et les packages d’application
 
-Dans Azure Batch, une *application* fait référence à un jeu de versions de fichiers binaires automatiquement téléchargeable sur les nœuds de calcul de votre pool. Un *package d’application* est un ensemble spécifique de ces fichiers binaires, représentant une version donnée de l’application.
+Dans Azure Batch, une *application* fait référence à un jeu de versions de fichiers binaires automatiquement téléchargeable sur les nœuds de calcul de votre pool. Une application contient un ou plusieurs *packages d’application* qui représentent différentes versions de l’application.
+
+Chaque *package d’application* est un fichier. zip contenant les fichiers binaires d’application et tous les fichiers de prise en charge. Seul le format. zip est pris en charge.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagramme montrant une vue d’ensemble des applications et packages d’applications.":::
 
-Dans Batch, une *application* contient un ou plusieurs packages d’application et spécifie les options de configuration de l’application. Par exemple, une application peut indiquer la version par défaut du package d’application à installer sur les nœuds de calcul, et préciser si ses packages peuvent être mis à jour ou supprimés.
-
-Un *package d’application* est un fichier .zip contenant les fichiers binaires de l’application et les fichiers de prise en charge requis pour que vos tâches puissent exécuter l’application. Chaque package d’application représente une version spécifique de l’application. Seul le format. zip est pris en charge.
-
-Vous pouvez spécifier des packages d’application aux niveaux d’un pool ou d’une tâche. Lorsque vous créez un pool ou une tâche, vous pouvez spécifier un ou plusieurs de ces packages et, le cas échéant, une version.
+Vous pouvez spécifier des packages d’application aux niveaux d’un pool ou d’une tâche.
 
 - **Les packages d’application du pool** sont déployés sur tous les nœuds dans le pool. Les applications sont déployées lorsqu’un nœud rejoint un pool, et lorsqu’il est redémarré ou réinitialisé.
   
-    Les packages d’application de pool sont appropriés lorsque tous les nœuds dans un pool exécutent les tâches d’un travail. Vous pouvez spécifier un ou plusieurs packages d’application lorsque vous créez un pool, et vous pouvez ajouter ou mettre à jour les packages d’un pool existant. Si vous mettez à jour les packages d’application d’un pool existant, vous devez redémarrer ses nœuds pour installer le nouveau package.
+    Des packages d’application de pool sont appropriés lorsque tous les nœuds dans un pool exécutent les tâches d’un travail. Vous pouvez spécifier un ou plusieurs packages d’application à déployer lorsque vous créez un pool. Vous pouvez également ajouter ou mettre à jour les packages d’un pool existant. Pour installer un nouveau package dans un pool existant, vous devez redémarrer ses nœuds.
 
 - **Les packages d’application de tâche** sont déployés uniquement sur un nœud de calcul programmé pour exécuter une tâche, juste avant d’exécuter la ligne de commande de la tâche. Si le package d’application spécifié et la version sont déjà sur le nœud, il n’est pas redéployé et le package existant est utilisé.
   
-    Les packages d’application de tâche sont utiles dans les environnements de pool partagé, où différents travaux sont exécutés sur un même pool et le pool n’est pas supprimé lorsqu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’applications au niveau des tâches peuvent réduire le transfert de données, votre application n’étant déployée que sur les nœuds exécutant les tâches.
+    Les packages d’application de tâche sont utiles dans des environnements de pool partagé où différents travaux s’exécutent sur un pool qui n’est pas supprimé après qu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’application au niveau des tâches peuvent minimiser le transfert de données, votre application n’étant déployée que sur les nœuds exécutant des tâches.
   
-    Les autres scénarios pouvant tirer parti des packages d’application de tâche sont les travaux qui exécutent une application lourde, mais uniquement pour un petit nombre de tâches. Par exemple, une phase de prétraitement ou une tâche de fusion, où l’application de pré-traitement ou de fusion est lourde, peuvent bénéficier de l’utilisation de packages d’application de tâche.
+    Les autres scénarios pouvant tirer parti des packages d’application de tâche sont les travaux qui exécutent une application lourde, mais uniquement pour un petit nombre de tâches. Par exemple, des applications de tâches peuvent être utiles pour une étape de pré-traitement ou une tâche de fusion lourdes.
 
 Avec des packages d’application, la tâche de démarrage de votre pool ne doit pas nécessairement spécifier une longue liste de fichiers de ressources à installer sur les nœuds. Vous n’êtes pas obligé de gérer manuellement plusieurs versions de vos fichiers dans le stockage Azure ni sur vos nœuds. En outre, inutile de vous soucier de la génération [d’URL SAP](../storage/common/storage-sas-overview.md) pour fournir l’accès aux fichiers dans votre compte de stockage. Batch fonctionne en arrière-plan avec le stockage Azure pour stocker des packages d’application et les déployer sur les nœuds de calcul.
 
@@ -61,7 +58,7 @@ Avec des packages d’application, la tâche de démarrage de votre pool ne doit
 
 ## <a name="upload-and-manage-applications"></a>Téléchargement et gestion des applications
 
-Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de Batch Management pour gérer les packages d’application dans votre compte Batch. Dans les sections suivantes, nous allons commencer par montrer comment lier un compte de stockage, puis nous aborderons l’ajout d’applications et de packages et leur gestion avec le portail.
+Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de Batch Management pour gérer les packages d’application dans votre compte Batch. Les sections suivantes expliquent comment lier un compte de stockage, et comment ajouter et gérer des applications et des packages d’application dans le portail Azure.
 
 ### <a name="link-a-storage-account"></a>Lier un compte de stockage
 
@@ -88,19 +85,19 @@ La sélection de cette option de menu a pour effet d’ouvrir la fenêtre **Appl
 - **Version par défaut** : Le cas échéant, version de l’application qui sera installée si aucune version n’est spécifiée lors du déploiement de l’application.
 - **Autoriser les mises à jour** : Spécifie si les mises à jour et suppressions de package sont autorisées.
 
-Si vous voyez la [structure de fichiers](files-and-directories.md) du package d’application sur votre nœud de calcul, accédez à votre compte Batch dans le portail Azure. Sélectionnez **Pools**, puis le pool contenant le nœud de calcul qui vous intéresse. Sélectionnez ensuite le nœud de calcul sur lequel le package d’application est installé, puis ouvrez le dossier **Applications**.
+Si vous voyez la [structure de fichiers](files-and-directories.md) du package d’application sur un nœud de calcul, accédez à votre compte Batch dans le portail Azure. Sélectionnez **Pools**. Sélectionnez ensuite le pool contenant le nœud de calcul. Sélectionnez le nœud de calcul sur lequel le package d’application est installé, puis ouvrez le dossier **Applications**.
 
 ### <a name="view-application-details"></a>Affichage des détails de l’application
 
 Pour afficher les détails d’une application, sélectionnez celle-ci dans la fenêtre **Applications**. Vous pouvez configurer les paramètres suivants pour votre application.
 
-- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui**. Si la valeur est **Non**, les mises à jour et les suppressions de package ne sont pas autorisées pour l’application, même si de nouvelles versions de package d’application peuvent être ajoutées.
+- **Autoriser les mises à jour** : indique si les packages d’application peuvent être [mis à jour ou supprimés](#update-or-delete-an-application-package). La valeur par défaut de ce paramètre est **Oui**. Si la valeur est **Non**, les packages d’application existants ne peuvent pas être mis à jour ou supprimés, mais de nouvelles versions de package d’application peuvent toujours être ajoutées.
 - **Version par défaut** : package d’application par défaut à utiliser lors du déploiement de l’application, si aucune version n’est spécifiée.
 - **Nom d'affichage** : nom convivial que votre solution Batch peut utiliser quand elle affiche des informations sur l’application. Par exemple, ce nom peut être utilisé dans l’interface utilisateur d’un service que vous fournissez à vos clients par le biais de Batch.
 
 ### <a name="add-a-new-application"></a>Ajout d’une application
 
-Pour créer une application, ajoutez un package d’application et spécifiez un nouvel ID d’application unique.
+Pour créer une application, ajoutez un package d’application et spécifiez un ID d’application unique.
 
 Dans votre compte Batch, sélectionnez **Applications**, puis **Ajouter**.
 
@@ -143,7 +140,7 @@ Maintenant que vous avez vu comment gérer les packages d’application au sein 
 
 ### <a name="install-pool-application-packages"></a>Installation des packages d’application de pool
 
-Pour installer un package d’application sur les nœuds de calcul d’un pool, spécifiez au moins une référence de package d’application pour le pool. Les packages d’applications que vous spécifiez pour un pool sont installés sur chaque nœud de calcul lorsque ce nœud rejoint le pool, et lorsque le nœud est redémarré ou réinitialisé.
+Pour installer un package d’application sur les nœuds de calcul d’un pool, spécifiez au moins une référence de package d’application pour le pool. Les packages d’application que vous spécifiez pour un pool sont installés sur chaque nœud de calcul qui rejoint le pool, ainsi que sur tout nœud redémarré ou réinitialisé.
 
 Dans Batch .NET, spécifiez une ou plusieurs propriétés [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) lorsque vous créez un pool ou pour un pool existant. La classe [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) spécifie un ID et la version d’une application à installer sur les nœuds de calcul d’un pool.
 
@@ -170,7 +167,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Si un déploiement de package d’application échoue pour une raison quelconque, le service Batch marque le nœud comme [inutilisable](/dotnet/api/microsoft.azure.batch.computenode.state), et aucune tâche n’est planifiée sur ce nœud. Dans ce cas, vous devez redémarrer le nœud pour relancer le déploiement du package. Le redémarrage du nœud réactive également la planification des tâches sur celui-ci.
+> Si un déploiement de package d’application échoue, le service Batch marque le nœud comme [inutilisable](/dotnet/api/microsoft.azure.batch.computenode.state), et aucune tâche n’est planifiée sur ce nœud. Dans ce cas, redémarrez le nœud pour relancer le déploiement du package. Le redémarrage du nœud réactive également la planification des tâches sur celui-ci.
 
 ### <a name="install-task-application-packages"></a>Installation des packages d’application de tâche
 
@@ -246,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Mise à jour des packages d’applications d’un pool
 
-Si un pool existant a déjà été configuré avec un package d’application, vous pouvez spécifier un nouveau package pour le pool. Si vous spécifiez une nouvelle référence de package pour un pool, les points suivants s’appliquent :
+Si un pool existant a déjà été configuré avec un package d’application, vous pouvez spécifier un nouveau package pour le pool. La procédure est la suivante :
 
 - Le service Batch installe le package nouvellement spécifié sur tous les nouveaux nœuds rejoignant le pool, ainsi que sur tout nœud actuel redémarré ou réinitialisé.
 - Les nœuds de calcul qui sont déjà dans le pool lorsque vous mettez à jour les références du package n’installent pas automatiquement le nouveau package d’application. Ces nœuds de calcul doivent être redémarrés ou réinitialisés pour recevoir le nouveau package.
