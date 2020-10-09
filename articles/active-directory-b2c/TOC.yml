@@ -180,6 +180,12 @@
           href: basic-age-gating.md
         - name: Définir des attributs personnalisés
           href: user-flow-custom-attributes.md
+        - name: Connecteurs d’API
+          items:
+            - name: Vue d’ensemble
+              href: api-connectors-overview.md
+            - name: Ajouter un connecteur d'API
+              href: add-api-connector.md
         - name: Jeton IdP externe à transfert direct
           href: idp-pass-through-user-flow.md
     - name: Protection des identités et accès conditionnel
@@ -256,12 +262,6 @@
               href: configure-tokens-custom-policy.md
             - name: Configurer le comportement de la session
               href: session-behavior-custom-policy.md
-        - name: Connecteurs d’API
-          items:
-            - name: Vue d’ensemble
-              href: api-connectors-overview.md
-            - name: Ajouter un connecteur d'API
-              href: add-api-connector.md
         - name: Jeton IdP externe à transfert direct
           href: idp-pass-through-custom.md
         - name: Expérience adaptative

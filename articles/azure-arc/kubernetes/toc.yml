@@ -28,7 +28,7 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Dépannage
       href: Troubleshooting.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
