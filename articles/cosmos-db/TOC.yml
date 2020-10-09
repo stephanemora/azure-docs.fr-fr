@@ -29,7 +29,7 @@
           href: create-sql-api-python.md
         - name: Application Xamarin
           href: create-sql-api-xamarin-dotnet.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: "1\_- Créer et gérer des données"
       items:

@@ -30,7 +30,7 @@
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: quickstart-v2-javascript.md
-    - name: Applications web
+    - name: les applications web
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
