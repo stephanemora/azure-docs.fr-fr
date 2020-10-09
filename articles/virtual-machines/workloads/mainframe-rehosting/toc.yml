@@ -2,7 +2,7 @@
   items:
     - name: Vue d’ensemble
       items:
-        - name: Prise en main
+        - name: Bien démarrer
           href: overview.md
         - name: Charges de travail
           href: partner-workloads.md
