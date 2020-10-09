@@ -301,7 +301,7 @@
   items:
     - name: Windows
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: ../windows/disk-encryption-overview.md
         - name: Dépanner
           href: ../windows/disk-encryption-troubleshooting.md
