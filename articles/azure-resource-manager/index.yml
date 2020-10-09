@@ -12,10 +12,10 @@ metadata:
   ms.author: tomfitz
   ms.date: 03/04/2020
   ms.openlocfilehash: 6a0c4ecff3f381dc12ba3ce6f385782754857bfe
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/24/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "78297726"
 highlightedContent:
   items:
@@ -46,7 +46,7 @@ conceptualContent:
       text: Fonctions des modèles de gestionnaire des ressources Azure
     - url: /azure/templates/
       itemType: reference
-      text: Référence de modèle
+      text: Informations de référence sur les modèles
     - url: templates/deploy-powershell.md
       itemType: how-to-guide
       text: Déployer
@@ -55,7 +55,7 @@ conceptualContent:
       text: Meilleures pratiques
     footerLink:
       url: templates/index.yml
-      text: En savoir plus
+      text: Voir plus
   - title: Gestion des ressources
     links:
     - url: management/overview.md
@@ -78,7 +78,7 @@ conceptualContent:
       text: Limites du service et de l’abonnement
     footerLink:
       url: management/index.yml
-      text: En savoir plus
+      text: Voir plus
   - title: Applications gérées
     links:
     - url: managed-applications/overview.md
@@ -95,7 +95,7 @@ conceptualContent:
       text: Ajouter une application à la Place de marché
     footerLink:
       url: managed-applications/index.yml
-      text: En savoir plus
+      text: Voir plus
   - title: Fournisseurs personnalisés Azure
     links:
     - url: custom-providers/overview.md
