@@ -10,21 +10,21 @@
   items:
     - name: API REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
-        - name: Javascript
+        - name: JavaScript
           href: quickstarts/javascript.md
 - name: Concepts
   items:
     - name: Envoyer des données manuscrites à l’API Ink Recognizer
       href: concepts/send-ink-data.md
-- name: Exemples
+- name: exemples
   items:
-    - name: 'C# et UWP (Plateforme Windows universelle)'
+    - name: C# et UWP (Plateforme Windows universelle)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# et WPF (Windows Presentation Foundation)'
+    - name: C# et WPF (Windows Presentation Foundation)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: Application de navigateur web JavaScript
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
