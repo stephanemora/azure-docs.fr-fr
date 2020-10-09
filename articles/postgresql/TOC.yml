@@ -81,7 +81,7 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: Concevoir une base de données
           items:
