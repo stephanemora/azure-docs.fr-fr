@@ -89,7 +89,7 @@
   items:
     - name: Questions courantes
       href: service-fabric-mesh-faq.md
-    - name: Exemples d’applications
+    - name: Exemples d'applications
       href: 'https://github.com/Azure-Samples/service-fabric-mesh'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
