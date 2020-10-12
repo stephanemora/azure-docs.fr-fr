@@ -1,6 +1,6 @@
 ---
 title: FAQ sur la résolution des problèmes liés aux rôles attribués aux groupes cloud – Azure Active Directory | Microsoft Docs
-description: Attribuez un rôle Azure AD à un groupe assignable à un rôle dans le portail Azure, PowerShell ou l’API Graph.
+description: Découvrez quelques questions courantes et des conseils de dépannage pour l’attribution de rôles à des groupes dans Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7acbb9aa443cde8df7016d3f2a38d58002b98dcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317393"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Résoudre les problèmes de rôles attribués aux groupes cloud
 

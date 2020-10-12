@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224490"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397247"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos Azure
 
@@ -81,13 +81,13 @@ Les clés de chiffrement des données chiffrées avec des clés de chiffrement d
 
 Les services Microsoft Cloud sont utilisés dans les trois modèles de cloud : IaaS, PaaS, SaaS. Voici des exemples de la façon dont ils s’adaptent sur chaque modèle :
 
-- Services logiciels, appelés SaaS ou Software as a Server, qui ont des applications fournies par le cloud, comme Office 365.
+- Services logiciels, appelés SaaS ou Software as a Server, qui ont des applications fournies par le cloud, comme Microsoft 365.
 - Services de plateforme, dont les clients tirent parti sur le cloud dans leurs applications, en utilisant le cloud pour des fonctionnalités comme le stockage, l’analytique et Service Bus.
 - Services d’infrastructure, appelés IaaS ou Infrastructure as a Service, dans lesquels le client déploie des systèmes d’exploitation et des applications qui sont hébergés dans le cloud, et tirant éventuellement parti d’autres services cloud.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Chiffrement au repos pour les clients SaaS
 
-Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Office 365 propose plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Office 365, consultez l’article dédié au [chiffrement dans Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Microsoft 365 propose plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Microsoft 365, consultez l’article dédié au [chiffrement dans Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Chiffrement au repos pour les clients PaaS
 

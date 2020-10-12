@@ -3,14 +3,14 @@ title: Présentation de Start/Stop VMs during off-hours d’Azure Automation
 description: Cet article décrit la fonctionnalité Start/Stop VMs during off-hours, qui démarre ou arrête des machines virtuelles selon une planification et les surveille de manière proactive à partir des journaux d’activité d’Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317359"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
@@ -37,13 +37,15 @@ Les limitations de la fonctionnalité actuelle sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](./manage-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
+- Les runbooks de la fonctionnalité Start/Stop VMs during off-hours fonctionnent avec un [compte d’identification Azure](./manage-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
-Il vous est recommandé d’utiliser un compte Automation distinct pour travailler avec la fonctionnalité Start/Stop VMs during off-hours. Les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La fonctionnalité n’est pas mise à niveau à la même cadence et il est possible qu’elle ne fonctionne pas avec des versions plus récentes des cmdlets qu’elle utilise. Il vous est recommandé de tester les mises à jour de module dans un compte Automation de test avant de les importer dans vos comptes Automation de production.
+- Le compte Automation et l’espace de travail Log Analytics liés doivent se trouver dans le même groupe de ressources.
+
+- Il vous est recommandé d’utiliser un compte Automation distinct pour travailler avec la fonctionnalité Start/Stop VMs during off-hours. Les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La fonctionnalité n’est pas mise à niveau à la même cadence et il est possible qu’elle ne fonctionne pas avec des versions plus récentes des cmdlets qu’elle utilise. Il vous est recommandé de tester les mises à jour de module dans un compte Automation de test avant de les importer dans vos comptes Automation de production.
 
 ## <a name="permissions"></a>Autorisations
 
-Vous devez avoir certaines autorisations afin d’activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours. Les autorisations sont différentes selon que la fonctionnalité utilise un compte Automation et un espace de travail Log Analytics créés au préalable ou qu’elle les crée. 
+Vous devez avoir certaines autorisations afin d’activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours. Les autorisations sont différentes selon que la fonctionnalité utilise un compte Automation et un espace de travail Log Analytics créés au préalable ou qu’elle les crée.
 
 Vous n’avez pas besoin de configurer des autorisations si vous êtes un contributeur pour l’abonnement et un administrateur général dans votre locataire Azure Active Directory (AD). Si vous n’avez pas ces droits ou si vous devez configurer un rôle personnalisé, assurez-vous que vous disposez des autorisations décrites ci-dessous.
 

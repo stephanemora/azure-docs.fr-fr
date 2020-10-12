@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706317"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531239"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 
@@ -38,12 +38,12 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
 
-   ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
+   ![Capture d’écran représentant l’Assistant Ajout de règle de revendication et de transformation dans lequel vous sélectionnez un modèle Règle de revendication.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Nommez votre règle. 
 7. Sélectionnez **Références des méthodes d’authentification** pour le type de revendication entrante.
 8. Sélectionnez **Transférer toutes les valeurs de revendication**.
-    ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/configurewizard.png)
+    ![Capture d’écran représentant l’Assistant Ajout de règle de revendication et de transformation dans lequel vous sélectionnez Transférer toutes les valeurs de revendication.](./media/howto-mfa-adfs/configurewizard.png)
 9. Cliquez sur **Terminer**. Fermez la console de gestion AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Adresses IP de confiance pour les utilisateurs fédérés
@@ -63,7 +63,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle.** 
    ![Ajout de règle de revendication](./media/howto-mfa-adfs/trustedip2.png)
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
-   ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
+   ![Capture d’écran représentant l’Assistant Ajout de règle de revendication et de transformation dans lequel vous sélectionnez Transférer ou filtrer une revendication entrante.](./media/howto-mfa-adfs/trustedip3.png)
 6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple : InsideCorpNet.
 7. Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez **Dans le périmètre du réseau d’entreprise**.
    ![Ajout d’une revendication dans le périmètre du réseau d’entreprise](./media/howto-mfa-adfs/trustedip4.png)

@@ -9,36 +9,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276937"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Créer un jeu de données d’apprentissage pour un modèle personnalisé
 
-Lorsque vous utilisez le modèle Form Recognizer personnalisé, vous fournissez vos propres données d’entraînement afin d’entraîner le modèle en fonction de vos formulaires spécifiques au secteur. 
+Lorsque vous utilisez le modèle personnalisé Form Recognizer, vous fournissez vos propres données d’apprentissage à l’opération [Effectuer l’apprentissage d’un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) afin que le modèle puis s’entraîner sur des formulaires spécifiques de votre secteur. Suivez ce guide pour apprendre à collecter et préparer des données afin d’effectuer l’apprentissage du modèle efficacement.
 
 Si vous entraînez un modèle dépourvu d’étiquettes manuelles, vous pouvez utiliser cinq formulaires remplis, ou un formulaire vide (indiquez le mot « empty » (vide) dans le nom de fichier) et deux formulaires remplis. Même si vous disposez d’un nombre suffisant de formulaires remplis, vous pouvez améliorer la précision du modèle en ajoutant un formulaire vide à votre jeu de données d’apprentissage.
 
 Si vous souhaitez utiliser des données d’apprentissage étiquetées manuellement, il vous faut pour commencer au moins cinq formulaires remplis du même type. Vous pouvez également utiliser des formulaires sans étiquette et un formulaire vide en plus du jeu de données requis.
 
+## <a name="custom-model-input-requirements"></a>Exigences d’entrée de modèle personnalisé
+
+Commencez par vous assurer que votre jeu de données d’apprentissage respecte les exigences d’entrée pour Form Recognizer.
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## <a name="training-data-tips"></a>Conseils relatifs aux données d’entraînement
 
-Il est important d’utiliser un jeu de données optimisé pour l’entraînement. Suivez les conseils ci-dessous pour vous assurer que l’opération [Entraîner un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) vous fournisse les meilleurs résultats :
+Suivez les conseils supplémentaires suivants pour optimiser davantage votre jeu de données à des fins d’apprentissage.
 
 * Si possible, utilisez des documents PDF utilisant du texte au lieu d’images. Les fichiers PDF numérisés sont traités comme des images.
 * Pour les formulaires remplis, utilisez les exemples dont les champs sont tous renseignés.
 * Utilisez des formulaires avec des valeurs différentes dans chaque champ.
 * Si vos images de formulaire sont de faible qualité, utilisez un plus grand jeu de données (par exemple, 10 à 15 images).
-* La taille totale du jeu de données d’apprentissage peut atteindre jusqu’à 500 pages.
-
-## <a name="general-input-requirements"></a>Critères généraux des entrées
-
-Vérifiez que votre jeu de données d’apprentissage respecte également les critères d’entrée pour l’ensemble du contenu de Form Recognizer. 
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="upload-your-training-data"></a>Charger vos données d’entraînement
 
@@ -73,7 +72,12 @@ Si vous ajoutez le contenu suivant au corps de la demande, l’API sera entraîn
 
 Maintenant que vous avez appris à créer un jeu de données d’apprentissage, suivez un guide de démarrage rapide pour entraîner un modèle Form Recognizer personnalisé et commencer à l’utiliser sur vos formulaires.
 
+* [Effectuer l’apprentissage d’un modèle et extraire des données de formulaire à l’aide de la bibliothèque de client](./quickstarts/client-library.md)
 * [Entraînement d’un modèle et extraction de données de formulaire à l’aide de cURL](./quickstarts/curl-train-extract.md)
 * [Entraînement d’un modèle et extraction de données de formulaire à l’aide de l’API REST et de Python](./quickstarts/python-train-extract.md)
 * [Entraînement avec des étiquettes à l’aide de l’outil Exemple d’étiquetage](./quickstarts/label-tool.md)
 * [Entraîner avec des étiquettes en utilisant l’API REST et Python](./quickstarts/python-labeled-data.md)
+
+## <a name="see-also"></a>Voir aussi
+
+* [Qu’est-ce que Form Recognizer ?](./overview.md)

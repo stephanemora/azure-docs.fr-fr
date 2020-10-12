@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333101"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Résoudre les problèmes de déploiement d’Azure SQL Edge 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Vous pouvez maintenant exécuter des commandes comme si vous les exécutiez sur le terminal à l’intérieur du conteneur. Quand vous avez terminé, tapez `exit`. Cela quitte la session de commande interactive, mais votre conteneur continue à s’exécuter.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Résolution des problèmes liés au streaming de données
-
-Par défaut, les journaux du moteur de streaming Azure SQL Edge sont écrits dans un fichier nommé `current` dans le répertoire **/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000**. Le fichier est accessible soit directement via le volume ou conteneur de volume de données mappé, soit en lançant une session d’invite de commandes interactive sur le conteneur SQL Edge. 
-
-De plus, si vous pouvez vous connecter à l’instance SQL Edge à l’aide des outils clients, vous pouvez utiliser la commande T-SQL suivante pour accéder au journal du moteur de streaming. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Activer la journalisation détaillée
 
 Si le niveau de journalisation par défaut pour le moteur de streaming ne fournit pas suffisamment d’informations, la journalisation du débogage pour le moteur de streaming peut être activée dans SQL Edge. Pour activer la journalisation du débogage, ajoutez la variable d’environnement `RuntimeLogLevel=debug` à votre déploiement SQL Edge. Après avoir activé la journalisation du débogage, essayez de reproduire le problème et examinez les éventuels messages ou exceptions enregistrés dans les journaux. 
 
+> [!NOTE]
+> L’option de journalisation détaillée doit être utilisée uniquement pour la résolution des problèmes et non pour la charge de travail de production normale. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

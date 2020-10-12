@@ -1,16 +1,16 @@
 ---
 title: Colocalisation de machines virtuelles Linux
-description: En savoir plus sur la façon dont la colocalisation des ressources de machine virtuelle Azure peut améliorer la latence.
+description: En savoir plus sur la façon dont la colocalisation des ressources de machine virtuelle Azure pour Linux peut améliorer la latence.
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6bf01f4da6ce96b413c87b81c14a998603cebd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279721"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Colocalisation des ressources pour une latence améliorée
 
