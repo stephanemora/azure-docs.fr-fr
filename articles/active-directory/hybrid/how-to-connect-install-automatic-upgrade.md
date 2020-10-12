@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053284"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317614"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md) et prend désormais en charge des scénarios supplémentaires.
@@ -63,8 +63,8 @@ Il est également possible d’obtenir un résultat qui n’est pas un UpgradeRe
 
 Assurez-vous ensuite que vous avez ouvert les URL requises dans votre proxy ou pare-feu. La mise à jour automatique utilise Azure AD Connect Health comme décrit dans la [présentation](#overview). Si vous utilisez un proxy, vérifiez que Health a été configuré pour utiliser un [serveur proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testez également la [connectivité de Health](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) à Azure AD.
 
-Une fois que vous avez vérifié la connectivité à Azure AD, passez aux journaux d’événements. Démarrez l’Observateur d’événements et consultez le journal des événements **Application** . Ajoutez un filtre de journal des événements pour la source **mise à niveau d’Azure AD Connect** et la plage d'ID d’événements **300-399**.  
-![Filtre de journal des événements pour la mise à niveau automatique](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Une fois que vous avez vérifié la connectivité à Azure AD, passez aux journaux d’événements. Démarrez l’Observateur d’événements et consultez le journal des événements **Application** . Ajoutez un filtre de journal des événements pour la **mise à niveau d’Azure AD Connect** source et la plage d’ID d’événements **300-399**.  
+![Capture d’écran montrant la fenêtre « Filtrer le journal actuel » avec les « sources d’événements » et la zone d’ID d’événements « Inclure/Exclure » en évidence.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 Les journaux des événements associés à l’état de mise à niveau automatique s’affichent alors.  
 ![Filtre de journal des événements pour la mise à niveau automatique](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  

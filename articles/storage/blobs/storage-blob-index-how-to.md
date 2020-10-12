@@ -1,6 +1,6 @@
 ---
-title: Utiliser un index d’objets blob pour gérer et rechercher des données sur le Stockage Blob Azure
-description: Découvrez comment utiliser des balises d’index d’objets blob pour catégoriser, gérer et interroger afin de découvrir des objets blob.
+title: Utiliser des balises d’index de blobs pour gérer et rechercher des données sur Stockage Blob Azure
+description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
@@ -9,29 +9,29 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 41a21545939c5d15c8e2c4034a9648e98aa5a73e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280281"
 ---
-# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index d’objets blob (préversion) pour gérer et rechercher des données sur le Stockage Blob Azure
+# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blobs (préversion) pour gérer et rechercher des données sur Stockage Blob Azure
 
-Les balises d’index d’objets blob catégorisent les données de votre compte de stockage à l’aide d’attributs de balise clé-valeur. Ces balises sont automatiquement indexées et exposées en tant qu’index multidimensionnel pouvant faire l’objet d’une requête pour trouver facilement des données. Cet article explique comment définir, obtenir et trouver des données à l’aide de balises d’index d’objets blob.
+Les balises d’index de blobs catégorisent les données de votre compte de stockage à l’aide d’attributs de balise clé-valeur. Ces balises sont automatiquement indexées et exposées en tant qu’index multidimensionnel pouvant faire l’objet d’une requête pour trouver facilement des données. Cet article explique comment définir, obtenir et trouver des données à l’aide de balises d’index d’objets blob.
 
-Pour en savoir plus sur l’index d’objets blob, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+Pour en savoir plus sur la fonctionnalité d’index de blobs, consultez [Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+> L’index de blobs est actuellement disponible en préversion publique dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prérequis
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-- Abonnement inscrit et approuvé pour l’accès à la préversion de l’index d’objets blob
+- Abonnement inscrit et approuvé pour l’accès à la préversion de l’index de blobs
 - Accès à [Portail Azure](https://portal.azure.com/)
 
 # <a name="net"></a>[.NET](#tab/net)
-L’index d’objets blob étant en préversion publique, le package de stockage .NET est publié dans le flux NuGet de préversion. Cette bibliothèque est sujette à modification entre maintenant et le moment où elle deviendra officielle. 
+L’index de blobs étant en préversion publique, le package de stockage .NET est publié dans le flux NuGet de préversion. Cette bibliothèque est sujette à modification entre maintenant et le moment où elle deviendra officielle. 
 
 1. Configurez votre projet Visual Studio pour prendre en main la bibliothèque de client Stockage Blob Azure v12 pour .NET. Pour en savoir plus, consultez [Démarrage rapide .NET](storage-quickstart-blobs-dotnet.md).
 
@@ -56,7 +56,7 @@ using System.Threading.Tasks;
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
+2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs.
 
@@ -86,7 +86,7 @@ static async Task BlobIndexTagsOnCreate()
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -139,7 +139,7 @@ static async Task BlobIndexTagsExample()
           AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
           await appendBlob.CreateAsync();
 
-          // Set or Update Blob Index tags on existing blob
+          // Set or update blob index tags on existing blob
           Dictionary<string, string> tags = new Dictionary<string, string>
           {
               { "Project", "Contoso" },
@@ -148,7 +148,7 @@ static async Task BlobIndexTagsExample()
           };
           await appendBlob.SetTagsAsync(tags);
 
-          // Get Blob Index tags
+          // Get blob index tags
           Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
           Console.WriteLine(appendBlob.Name);
           foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
@@ -156,7 +156,7 @@ static async Task BlobIndexTagsExample()
               Console.WriteLine($"{tag.Key}={tag.Value}");
           }
 
-          // List Blobs with all options returned including Blob Index tags
+          // List blobs with all options returned including blob index tags
           await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
           {
               Console.WriteLine(Environment.NewLine + blobItem.Name);
@@ -166,7 +166,7 @@ static async Task BlobIndexTagsExample()
               }
           }
 
-          // Delete existing Blob Index tags by replacing all tags
+          // Delete existing blob index tags by replacing all tags
           Dictionary<string, string> noTags = new Dictionary<string, string>();
           await appendBlob.SetTagsAsync(noTags);
 
@@ -179,19 +179,19 @@ static async Task BlobIndexTagsExample()
 
 ---
 
-## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrer et rechercher des données avec des balises d’index d’objets blob
+## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrer et rechercher des données avec des balises d’index de blobs
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Dans le portail Azure, le filtre des balises d’index d’objets blob applique automatiquement le paramètre `@container` pour définir l’étendue de votre conteneur sélectionné. Si vous souhaitez filtrer et rechercher des données balisées dans votre compte de stockage, utilisez nos API REST, kits de développement logiciel (SDK) ou outils.
+Dans le portail Azure, le filtre des balises d’index de blobs applique automatiquement le paramètre `@container` pour définir l’étendue de votre conteneur sélectionné. Si vous souhaitez filtrer et rechercher des données balisées dans votre compte de stockage, utilisez nos API REST, kits de développement logiciel (SDK) ou outils.
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
+2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Filtre des balises d’index d’objets blob** pour filtrer à l’intérieur du conteneur sélectionné.
 
-4. Entrez une clé de balise d’index d’objets blob et une valeur de balise.
+4. Entrez une clé de balise d’index de blobs et une valeur de balise.
 
 5. Sélectionnez le bouton **Filtre des balises d’index d’objets blob** pour ajouter des filtres de balises (jusqu’à 10).
 
@@ -205,7 +205,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob Index queries and selection
+      // Blob index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -227,7 +227,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
            
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -286,19 +286,18 @@ static async Task FindBlobsByTagsExample()
 
 3. Sélectionnez *Ajouter une règle*, puis complétez les champs du formulaire Ensemble d’actions.
 
-4. Sélectionnez Jeu de filtres pour ajouter un filtre facultatif pour la correspondance des préfixes et des index d’objets blob. ![Ajouter des filtres de balises d’index d’objets blob pour la gestion du cycle de vie](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Sélectionnez **Ensemble de filtres** pour ajouter un filtre facultatif pour la correspondance des préfixes et des index de blobs. ![Add blob index tag filters for lifecycle management](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
 5. Sélectionnez **Vérifier + ajouter** pour examiner les paramètres de la règle. ![Exemple de règle de gestion du cycle de vie avec le filtre des balises d’index d’objets blob](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Sélectionnez **Ajouter** pour appliquer la nouvelle règle à la stratégie de gestion du cycle de vie.
 
 # <a name="net"></a>[.NET](#tab/net)
-Des stratégies de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) sont appliquées pour chaque compte de stockage au niveau du plan de contrôle. Pour .NET, installez la [Bibliothèque de stockage de Gestion Microsoft Azure version 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) ou version ultérieure pour tirer parti du filtre de correspondance d’index d’objets blob dans une règle de gestion du cycle de vie.
+Des stratégies de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) sont appliquées pour chaque compte de stockage au niveau du plan de contrôle. Pour .NET, installez la [bibliothèque de stockage et de gestion Microsoft Azure version 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) ou version ultérieure pour tirer parti du filtre de correspondance d’index de blobs dans une règle de gestion du cycle de vie.
 
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur l’index d’objets blob. Consultez [Gérer et rechercher des données sur le stockage d’objets blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md ).
-
-Apprenez-en davantage sur la gestion du cycle de vie. Consultez [Gérer le cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md)
+ - Pour en savoir plus sur un index de blobs, consultez [Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)](storage-manage-find-blobs.md ).
+ - Apprenez-en davantage sur la gestion du cycle de vie. Consultez [Gérer le cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md)

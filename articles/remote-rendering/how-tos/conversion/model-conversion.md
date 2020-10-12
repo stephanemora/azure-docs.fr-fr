@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318056"
 ---
 # <a name="convert-models"></a>Convertir des modèles
 
@@ -21,9 +21,8 @@ Une fois converti, un modèle peut être chargé à partir d’un compte Stockag
 
 Le service de conversion prend en charge les formats suivants :
 
-- **FBX** (version 2011 et ultérieure)
-- **GLTF** (version 2.x)
-- **GLB** (version 2.x)
+- **FBX**  (version 2011 vers la version 2020)
+- **GLTF**/**GLB** (version 2.x)
 
 Il existe des différences mineures entre les formats en ce qui concerne la conversion des propriétés de matériau, comme indiqué dans le chapitre [Mappage de matériaux pour les formats de modèle](../../reference/material-mapping.md).
 
