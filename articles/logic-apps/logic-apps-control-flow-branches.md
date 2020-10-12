@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 9dafb702117a7e171ff88b3c77d7b8b79503636f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269231"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Créer ou joindre des branches parallèles pour des actions de workflow dans Azure Logic Apps
 
@@ -47,7 +47,7 @@ Votre application logique attend que toutes les branches se terminent avant de p
 
 1. Dans la zone de recherche, recherchez et sélectionnez l’action souhaitée.
 
-   ![Rechercher et sélectionner l’action souhaitée](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Capture d’écran montrant la fenêtre « Choisir une action » dans le Concepteur d’application logique.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Maintenant, votre action sélectionnée s’affiche dans la branche parallèle, par exemple :
 
@@ -59,7 +59,7 @@ Votre application logique attend que toutes les branches se terminent avant de p
 
 1. Dans la zone de recherche, recherchez et sélectionnez l’action souhaitée.
 
-   ![Rechercher et sélectionner une action séquentielle](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Capture d’écran montrant la fenêtre « Choisir une action » et la zone de recherche dans le Concepteur d’application logique.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    Maintenant, votre action sélectionnée s’affiche dans la branche actuelle, par exemple :
 
