@@ -6,68 +6,79 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 2b4f768b25917e712380ca4a7f8ac58cb6140777
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4975bb2a8ad384b8abc28f1d1835c2c9e98b8c54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315425"
 ---
 Le script d’entrée reçoit les données envoyées à un service web déployé, puis les passe au modèle. Ensuite, il prend la réponse retournée par le modèle et la retourne au client. *Le script est propre à votre modèle*. Il doit comprendre les données que le modèle attend et retourne.
 
-Le script contient deux fonctions qui chargent et exécutent le modèle :
+Les deux choses que vous devez accomplir dans votre script d’entrée sont les suivantes :
 
-* `init()`: En général, cette fonction charge le modèle dans un objet global. Cette fonction est exécutée une seule fois quand le conteneur Docker de votre service web est démarré.
+1. Charger votre modèle (à l’aide d’une fonction appelée `init()`)
+1. Exécuter votre modèle sur des données d’entrée (à l’aide d’une fonction appelée `run()`)
 
-* `run(input_data)`: cette fonction utilise le modèle pour prédire une valeur basée sur les données d'entrée. Les entrées et les sorties de l’exécution utilisent en général JSON pour la sérialisation et la désérialisation. Vous pouvez également utiliser des données binaires brutes. Vous pouvez transformer les données avant de les envoyer au modèle ou avant de les retourner au client.
+Examinons ces étapes en détail.
 
-L’API REST attend que le corps de la demande soit un document JSON avec la structure suivante :
+### <a name="writing-init"></a>Écriture de la fonction init () 
+
+#### <a name="loading-a-registered-model"></a>Chargement d’un modèle inscrit
+
+Vos modèles inscrits sont stockés sous un chemin d’accès désigné par une variable d’environnement appelée `AZUREML_MODEL_DIR`. Pour plus d’informations sur la structure exacte du répertoire, consultez [Localiser les fichiers de modèles dans votre script d’entrée](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models).
+
+#### <a name="loading-a-local-model"></a>Chargement d’un modèle local
+
+Si vous avez choisi de ne pas inscrire votre modèle et que vous avez transmis votre modèle dans le cadre de votre répertoire source, vous pouvez le lire comme vous le feriez localement, en transmettant le chemin d’accès au modèle relatif à votre script de scoring. Par exemple, si vous aviez un répertoire structuré comme suit :
+
+```bash
+
+- source_dir
+    - score.py
+    - models
+        - model1.onnx
+
+```
+
+vous pouvez charger vos modèles avec le code Python suivant :
+
+```python
+import os
+
+model = open(os.path.join('.', 'models', 'model1.onnx'))
+```
+
+#### <a name="writing-run"></a>Écriture de la fonction run()
+
+`run()` est exécutée chaque fois que votre modèle reçoit une demande de scoring et s’attend à ce que le corps de la demande soit un document JSON avec la structure suivante :
 
 ```json
 {
-    "data":
-        [
-            <model-specific-data-structure>
-        ]
+    "data": <model-specific-data-structure>
 }
+
 ```
+
+L’entrée de `run()` est une chaîne Python contenant tout ce qui suit la clé « data ».
 
 L’exemple suivant montre comment charger un modèle scikit-Learn inscrit et le noter avec des données numpy :
 
 ```python
-#Example: scikit-learn and Swagger
 import json
 import numpy as np
 import os
 from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
 
 def init():
     global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
+        data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
@@ -76,11 +87,4 @@ def run(data):
         return error
 ```
 
-Pour obtenir d’autres exemples, consultez les scripts suivants :
-
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
-* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* [Binary Data](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#binary-data)
+Pour obtenir des exemples plus avancés, notamment la génération automatique de schémas Swagger et des données binaires (c’est-à-dire d’images), lisez [l’article sur la création de scripts d’entrée avancés](../articles/machine-learning/how-to-deploy-advanced-entry-script.md).

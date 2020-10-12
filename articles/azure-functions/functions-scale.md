@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372661"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -34,7 +34,7 @@ Pour une comparaison détaillée des différents plans d’hébergement (notamme
 
 Quand vous utilisez le plan Consommation, les instances de l’hôte Azure Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants. Ce plan serverless est mis à l’échelle automatiquement, et vous êtes facturé pour les ressources de calcul uniquement lorsque vos fonctions sont exécutées. Dans un plan Consommation, le délai d’attente de l’exécution d’une fonction arrive à expiration après une période configurable.
 
-La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. La facturation est unifiée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. L’utilisation est agrégée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 Le plan d’hébergement par défaut (le plan Consommation) présente les avantages suivants :
 
@@ -58,7 +58,7 @@ Quand vous utilisez le plan Premium, les instances de l’hôte Azure Functions 
 
 Pour en savoir plus sur la création d’une application de fonction dans un plan Premium, consultez le [Plan Premium Azure Functions](functions-premium-plan.md).
 
-Au lieu d’une facturation en fonction des exécutions et de la mémoire consommée, la facturation du plan Premium se base sur le nombre de cœurs-seconde et la mémoire utilisée sur les instances nécessaires et préparées. Au moins une instance doit être chaude en permanence par plan. Cela signifie qu’il existe un coût mensuel minimum par plan actif, quel que soit le nombre d’exécutions. Gardez à l’esprit que toutes les applications de fonction d’un plan Premium partagent des instances actives et préparées.
+Au lieu d’une facturation en fonction des exécutions et de la mémoire consommées, la facturation du plan Premium se base sur le nombre de cœurs-seconde et la mémoire alloués sur les instances.  Il n’y a pas de frais d’exécution avec le plan Premium. Au moins une instance doit être allouée en permanence par plan. Il en résulte un coût mensuel minimum par plan actif, que la fonction soit active ou inactive. Gardez à l’esprit que toutes les applications de fonction d’un plan Premium partagent les instances allouées.
 
 Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
 
@@ -79,12 +79,12 @@ Envisagez un plan App Service dans les situations suivantes :
 
 Le coût des Function App dans un plan App Service est le même que pour d’autres ressources App Service, par exemple les applications web. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/overview-hosting-plans.md).
 
-Avec un plan App Service, vous pouvez effectuer un scale-out manuel en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/manage-scale-up.md). 
+À l’aide d’un plan App Service, vous pouvez effectuer manuellement un scale-out en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique, bien que celle-ci soit plus lente que la mise à l’échelle élastique du plan Premium. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/manage-scale-up.md). 
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-L’exécution dans un [App Service Environment](../app-service/environment/intro.md) vous permet d’isoler entièrement vos fonctions et de tirer parti de la grande échelle.
+L’exécution dans une instance [App Service Environment](../app-service/environment/intro.md) vous permet d’isoler entièrement vos fonctions et de tirer parti d’un nombre d’instances plus élevé que dans un plan App Service.
 
 ### <a name="always-on"></a><a name="always-on"></a> Always On
 
@@ -121,6 +121,12 @@ Plusieurs applications de fonction peuvent partager le même compte de stockage 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services).
+
+### <a name="in-region-data-residency"></a>Résidence des données dans la région
+
+Lorsque cela est nécessaire pour que toutes les données clients restent dans une seule région, le compte de stockage associé à l’application de fonction doit être un compte avec une [redondance dans la région](../storage/common/storage-redundancy.md).  Un compte de stockage redondant dans la région doit également être utilisé avec [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) pour Durable Functions.
+
+Les autres données clients gérées par la plateforme ne seront stockées au sein de la région que si elles sont hébergées dans une instance Internal Load Balancer App Service Environment (ou ILB ASE).  Pour plus d’informations, consultez la section relative à la [redondance de zone ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Fonctionnement des plans Consommation et Premium
 
@@ -185,7 +191,7 @@ Le tableau de comparaison suivant présente tous les aspects importants pour aid
 |**[Plan de consommation](#consumption-plan)**| Mettez à l’échelle automatiquement et ne payez les ressources de calcul que lorsque vos fonctions sont en cours d’exécution. Dans le plan de consommation, les instances de l’hôte Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants.<br/> ✔ Plan d’hébergement par défaut.<br/>✔ Paiement uniquement en cas d’exécution de vos fonctions.<br/>✔ Scale-out automatique, même pendant les périodes de charge élevée.|  
 |**[Plan Premium](#premium-plan)**|Alors que la mise à l’échelle automatique dépend de la demande, utilisez des rôles de travail préparés pour exécuter des applications sans délai après leur inactivité, procédez à l’exécution sur des instances plus puissantes et connectez-vous à des réseaux virtuels. Envisagez le plan Azure Functions Premium dans les cas suivants, en plus de toutes les fonctionnalités du plan App Service : <br/>✔Vos applications de fonction s’exécutent en continu ou presque.<br/>✔ Vous disposez d’un grand nombre d’exécutions de petite taille et avez une facture d’exécution élevée, mais également une facture de Go par seconde faible dans le plan de consommation.<br/>✔Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan de consommation.<br/>✔Votre code exige une durée d’exécution supérieure à celle qui est autorisée dans le plan de consommation.<br/>✔ Vous avez besoin de fonctionnalités qui sont uniquement disponibles dans un plan Premium, notamment la connectivité de réseau virtuel.|  
 |**[Plan dédié](#app-service-plan)** <sup>1</sup>|Exécutez vos fonctions au sein d’un plan App Service aux tarifs habituels du plan App Service. Adapté aux opérations de longue durée et en cas de nécessité de coûts et d’une mise à l’échelle plus prédictifs. Envisagez un plan App Service dans les situations suivantes :<br/>✔ Vous disposez de machines virtuelles existantes sous-utilisées qui exécutent déjà d’autres instances App Service.<br/>✔ Vous souhaitez fournir une image personnalisée sur laquelle exécuter vos fonctions.|  
-|**[ASE](#app-service-plan)** <sup>1</sup>|App Service Environment(ASE) est une fonctionnalité d’App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Les environnements ASE conviennent aux charges de travail d’application qui nécessitent : <br/>✔ Une très grande échelle.<br/>✔ Une isolation et un accès réseau sécurisé.<br/>✔ Une utilisation élevée de la mémoire.|  
+|**[ASE](#app-service-plan)** <sup>1</sup>|App Service Environment(ASE) est une fonctionnalité d’App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Les environnements ASE conviennent aux charges de travail d’application qui nécessitent : <br/>✔ Une très grande échelle.<br/>✔ Une isolation totale du calcul et un accès réseau sécurisé.<br/>✔ Une utilisation élevée de la mémoire.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes offre un environnement totalement isolé et dédié qui s’exécute sur la plateforme Kubernetes.  Kubernetes convient aux charges de travail d’application qui nécessitent : <br/>✔ Des exigences matérielles personnalisées.<br/>✔ Une isolation et un accès réseau sécurisé.<br/>✔ Une possibilité d’exécution dans un environnement hybride ou multi-cloud.<br/>✔ Une exécution en parallèle de services et d’applications Kubernetes existants.|  
 
 <sup>1</sup> Pour connaître les limites spécifiques des différentes options du plan App Service, consultez les [limites du plan App Service](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).

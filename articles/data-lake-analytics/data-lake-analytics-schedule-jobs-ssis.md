@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318702"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
 
@@ -56,7 +56,7 @@ Suivez les étapes ci-dessous pour configurer la connexion entre une tâche de s
 
 En mode création du package SSIS, ajoutez une **tâche de système de fichiers Azure Data Lake Storage**, un **conteneur de boucle Foreach** et une **tâche Azure Data Lake Analytics (ADLS)** dans le conteneur de boucle Foreach. La tâche de système de fichiers Azure Data Lake Storage permet de télécharger les fichiers U-SQL dans un dossier temporaire de votre compte ADLS. Le conteneur de boucle Foreach et la tâche Azure Data Lake Analytics permettent de soumettre chaque fichier U-SQL du dossier temporaire au compte Azure Data Lake Analytics en tant que tâche U-SQL.
 
-![Utilisation des fichiers U-SQL dans Azure Data Lake Storage](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagramme qui montre une tâche de système de fichiers Azure Data Lake Storage ajoutée à un conteneur de boucles Foreach.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configurer une tâche de système de fichiers Azure Data Lake Storage
 
@@ -77,7 +77,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 
 3. Définissez **Fichiers** dans la zone **Configuration de l’énumérateur** sur `*.usql`, afin que le conteneur de boucle intercepte uniquement les fichiers se terminant par `.usql`.
 
-    ![Configurer un conteneur de boucle Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Capture d’écran qui montre l’éditeur de boucle Foreach avec « Collection » sélectionné et les sections Énumérateur et Configuration de l’énumérateur mises en évidence.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. Dans la page **Mappage de variables**, ajoutez une variable définie par l’utilisateur pour obtenir le nom de fichier pour chaque fichier U-SQL. Définissez l’**Index** sur 0 pour obtenir le nom de fichier. Dans cet exemple, définissez une variable appelée `User::FileName`. Cette variable est utilisée pour obtenir de façon dynamique la connexion des fichiers de script U-SQL et pour définir le nom de la tâche U-SQL dans la tâche Azure Data Lake Analytics.
 
@@ -94,7 +94,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
    1. Choisissez **\<New Connection...>** dans le paramètre FileConnection.
    2. Définissez **Type d’utilisation** sur **Fichier existant** et définissez le **Fichier** sur un chemin de fichier du fichier existant.
 
-       ![Configurer un conteneur de boucle Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Capture d’écran qui montre l’éditeur du gestionnaire de connexions de fichiers avec « Fichier existant » sélectionné pour « Type d’utilisation ».](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. Dans la vue **Gestionnaires de connexions**, cliquez avec le bouton droit sur la connexion de fichier créée à l’instant et choisissez **Propriétés**.
 

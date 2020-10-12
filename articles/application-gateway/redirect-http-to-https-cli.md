@@ -1,19 +1,19 @@
 ---
 title: Redirection HTTP vers HTTPS avec l’interface CLI
 titleSuffix: Azure Application Gateway
-description: Apprenez à créer une passerelle d'application et à ajouter un certificat pour un arrêt TLS à l'aide d'Azure CLI.
+description: Découvrez comment créer une redirection HTTP vers HTTPS et ajouter un certificat pour un arrêt TLS à l’aide de l’interface Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331027"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure CLI
 
@@ -223,13 +223,6 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Créer un certificat auto-signé
-> * Configurer un réseau
-> * Créer une passerelle d’application avec le certificat
-> * Ajouter un écouteur et une règle de redirection
-> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
+- [Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI](redirect-internal-site-cli.md)
 
 
