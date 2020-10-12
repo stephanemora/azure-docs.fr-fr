@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297604"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
@@ -35,7 +35,7 @@ La fonctionnalité suivante est disponible dans le flux de contrôle :
 
 ## <a name="capabilities"></a>Fonctionnalités
 
-L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée et retourne les informations de métadonnées en tant que sortie. Pour l’instant, les connecteurs suivants et les métadonnées récupérables correspondantes sont pris en charge. La taille maximale des métadonnées retournées est de 2 Mo.
+L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée et retourne les informations de métadonnées en tant que sortie. Pour l’instant, les connecteurs suivants et les métadonnées récupérables correspondantes sont pris en charge. La taille maximale des métadonnées retournées est d’environ 4 Mo.
 
 >[!NOTE]
 >Si vous exécutez l’activité d’obtention des métadonnées sur un runtime d’intégration auto-hébergé, les dernières fonctionnalités sont prises en charge sur la version 3.6 ou ultérieure.
@@ -87,7 +87,7 @@ Vous pouvez spécifier les types de métadonnées suivants dans la liste de cham
 | contentMD5 | MD5 du fichier. S’applique aux fichiers uniquement. |
 | structure | Structure de données du fichier ou de la table de base de données relationnelle. La valeur retournée est une liste de noms et de types de colonnes. |
 | columnCount | Nombre de colonnes dans le fichier ou la table relationnelle. |
-| exists| Indique si un fichier, un dossier ou une table existe ou non. Notez que si `exists` est spécifié dans la liste de champs de l’activité d’obtention des métadonnées, l’activité n’échouera pas, même si le fichier, le dossier ou la table n’existe pas. `exists: false` sera alors retourné dans la sortie. |
+| exists| Indique si un fichier, un dossier ou une table existe ou non. Si `exists` est spécifié dans la liste de champs de l’activité d’obtention des métadonnées, l’activité n’échouera pas, même si le fichier, le dossier ou la table n’existe pas. `exists: false` sera alors retourné dans la sortie. |
 
 >[!TIP]
 >Si vous souhaitez vérifier qu’un fichier, un dossier ou une table existe, spécifiez `exists` dans la liste de champs de l’activité d’obtention des métadonnées. Vous pouvez ensuite vérifier le résultat de `exists: true/false` dans la sortie de l’activité. Si `exists` n’est pas spécifié dans la liste de champs, l’activité d’obtention des métadonnées échouera si l’objet est introuvable.

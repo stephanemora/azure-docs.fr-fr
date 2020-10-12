@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052934"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439947"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connectivité SSL/TLS dans Azure Database pour MySQL
 
@@ -61,6 +61,17 @@ Par exemple, la définition de la valeur du paramètre de version minimale du pr
 > Une fois que vous avez appliqué une version TLS minimale, vous ne pourrez plus la désactiver.
 
 Pour découvrir comment définir le paramètre TLS pour Azure Database pour MySQL, consultez le [Guide pratique pour configurer le paramètre TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>Prise en charge du chiffrement par Azure Database pour MySQL – Serveur unique
+
+Dans le cadre de la communication SSL/TLS, les suites de chiffrement sont validées et seules les suites de chiffrement prises en charge sont autorisées à communiquer avec le serveur de la base de données. La validation de la suite de chiffrement est contrôlée dans la [couche passerelle](concepts-connectivity-architecture.md#connectivity-architecture) et non pas explicitement sur le nœud lui-même. Si les suites de chiffrement ne correspondent pas à l’une des suites listées ci-dessous, les connexions client entrantes seront rejetées.
+
+### <a name="cipher-suite-supported"></a>Suite de chiffrement prise en charge
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Étapes suivantes
 
