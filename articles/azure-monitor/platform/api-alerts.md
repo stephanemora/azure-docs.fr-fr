@@ -4,23 +4,23 @@ description: L’API REST d’alerte Log Analytics vous permet de créer et de
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294073"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST 
 
-L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
-
 > [!IMPORTANT]
-> Comme [annoncé précédemment](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le ou les espaces de travail Log Analytics créés après *le 1*er **juin 2019** peuvent gérer les règles d’alerte en utilisant [uniquement](/rest/api/monitor/scheduledqueryrules/) l’API REST [Azure scheduledQueryRules](./alerts-log.md#managing-log-alerts-using-azure-resource-template), [le modèle Azure Resource Manager](./alerts-log.md#managing-log-alerts-using-powershell) et {13}le cmdlet PowerShell{14}. Les clients peuvent facilement [modifier leurs méthodes de gestion des règles de sécurité et choisir celle qu’ils préfèrent](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) pour les espaces de travail plus anciens afin d’utiliser Azure Monitor scheduledQueryRules par défaut et de bénéficier de nombreux [autres avantages](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)tels que la possibilité d’utiliser les cmdlets PowerShell natifs, d’augmenter la période de recherche arrière dans les règles, de créer des règles dans un abonnement ou un groupe de ressources distinct, et bien plus encore.
+> Comme [annoncé](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), les espaces de travail Log Analytics créés après le *1er juin 2019* gèrent les règles d’alerte à l’aide de l’[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules/) actuelle. Les clients sont encouragés à [basculer vers l’API actuelle](./alerts-log-api-switch.md) dans des espaces de travail plus anciens pour tirer parti des [avantages](./alerts-log-api-switch.md#benefits) scheduledQueryRules d’Azure Monitor. Cet article décrit la gestion des règles d’alerte à l’aide de l’API héritée.
+
+L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
 
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l’API Azure Resource Manager RESTful pour effectuer des appels vers les espaces de travail Log Analytics et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](../log-query/log-query-overview.md) pour plus d’informations.
 
 ## <a name="schedules"></a>Planifications
@@ -151,7 +151,7 @@ Les propriétés des seuils sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| `Operator` |Opérateur de comparaison de seuil. <br> gt = supérieur à <br> lt = inférieur à |
+| `Operator` |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
 | `Value` |Valeur du seuil. |
 
 Par exemple, considérez une requête d’événement avec Interval défini sur 15 minutes, QueryTimeSpan sur 30 minutes et Threshold sur une valeur supérieure à 10. Dans ce cas, la requête est exécutée toutes les 15 minutes et une alerte se déclenche si la requête renvoie 10 événements créés en l’espace de 30 minutes.
@@ -192,7 +192,7 @@ Log Analytics vous permet de classer vos alertes en catégories, pour faciliter 
 |---------|---------|
 |`critical` |Gravité 0|
 |`warning` |Gravité 1|
-|`informational` | Gravité 2|
+|`informational` | Gravité 2|
 
 Voici un exemple de réponse pour une action comportant uniquement un seuil et une gravité. 
 

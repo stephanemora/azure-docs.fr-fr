@@ -1,6 +1,6 @@
 ---
-title: Partager des images de la bibliothèque entre tenants dans Azure
-description: Découvrez comment partager des images de machine virtuelle entre des locataires Azure à l’aide des galeries d’images partagées.
+title: Partager des images des galeries entre locataires
+description: Découvrez comment créer des groupes identiques à l’aide d’images partagées entre les locataires Azure avec Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323479"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Partager des images de machine virtuelle entre des tenants dans Azure
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Partager des images entre les locataires avec Shared Image Gallery
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](troubleshooting-shared-images.md).
+Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../virtual-machines/troubleshooting-shared-images.md).
