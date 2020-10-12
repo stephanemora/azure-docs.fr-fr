@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Linux dans Azure Automation
 description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987226"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776270"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -45,6 +45,10 @@ Pour ajouter la fonctionnalité Change Tracking and Inventory à votre espace de
 ### <a name="log-analytics-agent"></a>Agent Log Analytics
 
 Le rôle Runbook Worker hybride requiert l’[agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) pour le système d’exploitation Linux pris en charge.
+
+>[!NOTE]
+>Après l’installation de l’agent Log Analytics pour Linux, vous ne devez modifier ni les autorisations du dossier `sudoers.d` ni son appartenance. L’autorisation sudo est requise pour le compte **nxautomation**, qui est le contexte utilisateur sous lequel le Runbook Worker hybride s’exécute. Les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
+>
 
 ### <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 
