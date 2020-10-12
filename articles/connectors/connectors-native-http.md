@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292453"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
@@ -247,7 +247,7 @@ Certains points de terminaison, services, systèmes ou API retournent une répon
 
 Si un déclencheur HTTP ou une action contient les en-têtes ci-dessous, Logic Apps les supprime du message de requête généré sans afficher d’avertissement ou d’erreur :
 
-* `Accept-*`
+* En-têtes `Accept-*`, à l’exception de `Accept-version`
 * `Allow`
 * `Content-*` à ces exceptions près : `Content-Disposition`, `Content-Encoding` et `Content-Type`
 * `Cookie`
