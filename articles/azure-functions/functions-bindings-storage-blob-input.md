@@ -1,17 +1,17 @@
 ---
 title: Liaison d’entrée Stockage Blob Azure pour Azure Functions
-description: Découvrez comment fournir des données Stockage Blob Azure à une fonction Azure.
+description: Découvrez comment fournir des données de liaison d’entrée de Stockage Blob Azure à une fonction Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: de590af49e39832a52bf733319b86300ecab2a34
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325774"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Liaison d’entrée Stockage Blob Azure pour Azure Functions
 

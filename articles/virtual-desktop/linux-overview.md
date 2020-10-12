@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04ea73825d6ffe2282a8d5564bfb6bb965a8190e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320237"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
@@ -24,6 +24,7 @@ Les partenaires suivants ont approuvé les clients Windows Virtual Desktop pour 
 |Partenaire|Documentation du partenaire|Support technique du partenaire|
 |:------|:--------------------|:--------------|
 |![Logo IGEL](./media/partners/igel.png)|[Documentation du client IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Support technique IGEL](https://www.igel.com/support/)|
+|![Logo NComputing](./media/partners/ncomputing.png)|[Documentation du client NComputing](https://www.ncomputing.com/microsoft)|[Support NComputing](https://www.ncomputing.com/support/support-options)|
 |![Logo Stratodesk](./media/partners/stratodesk.png)|[Documentation du client Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Support Stratodesk](https://www.stratodesk.com/support-3/)|
 
 ## <a name="next-steps"></a>Étapes suivantes

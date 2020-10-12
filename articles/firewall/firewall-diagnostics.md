@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320640"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Superviser les journaux d’activité et les métriques du Pare-feu Azure
 
@@ -35,14 +35,17 @@ L’affichage des données dans vos journaux d’activité peut prendre quelques
 1. Sur le portail Azure, ouvrez votre groupe de ressources de pare-feu et sélectionnez le pare-feu.
 2. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
 
-   Pour le service Pare-feu Azure, les journaux d’activité propres à deux services sont disponibles :
+   Pour Pare-feu Azure, des journaux spécifiques à quatre services sont disponibles :
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Sélectionnez **Ajouter le paramètre de diagnostic**. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic.
 5. Dans cet exemple, les journaux d’activité Azure Monitor stockent les journaux d’activité. Par conséquent, tapez **analytique des journaux d’activité de pare-feu** comme nom.
-6. Sous **Journal**, sélectionnez **AzureFirewallApplicationRule** et **AzureFirewallNetworkRule** afin de collecter des journaux d'activité pour les règles de réseau et d'application.
+6. Sous **Journal**, sélectionnez **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** et **AzureFirewallDnsProxy** pour collecter les journaux.
 7. Sélectionnez **Envoyer à Log Analytics** pour configurer votre espace de travail.
 8. Sélectionnez votre abonnement.
 9. Sélectionnez **Enregistrer**.

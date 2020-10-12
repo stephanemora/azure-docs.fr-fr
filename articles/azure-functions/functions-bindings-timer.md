@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325791"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
-Cet article explique comment utiliser des déclencheurs de minuteur dans Azure Functions. Un déclencheur de minuteur vous permet d’exécuter une fonction de manière planifiée. 
+Cet article explique comment utiliser des déclencheurs de minuteur dans Azure Functions. Un déclencheur de minuteur vous permet d’exécuter une fonction de manière planifiée.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+L’exemple suivant lance et exécute la fonction toutes les cinq minutes. L’annotation `@TimerTrigger` sur la fonction définit le programme avec le même format de chaîne de caractères que les [expressions CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée. L’[objet de minuteur](#usage) est transmis à la fonction.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+L’exemple suivant montre comment configurer le fichier *function.json* et *run.ps1* pour un déclencheur de minuteur dans [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Une instance de l’[objet de minuteur](#usage) est transmise comme premier argument à la fonction.
+
 # <a name="python"></a>[Python](#tab/python)
 
-L’exemple suivant utilise une liaison de déclencheur de minuteur dont la configuration est décrite dans le fichier *function.json*. La véritable [fonction Python](functions-reference-python.md) qui utilise la liaison est décrite dans le fichier *__init__.py*. L’objet transmis à la fonction est de type [Objet azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logique de fonction écrit dans les journaux indiquant si l’appel est dû à une occurrence de planification manquée. 
+L’exemple suivant utilise une liaison de déclencheur de minuteur dont la configuration est décrite dans le fichier *function.json*. La véritable [fonction Python](functions-reference-python.md) qui utilise la liaison est décrite dans le fichier *__init__.py*. L’objet transmis à la fonction est de type [Objet azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logique de fonction écrit dans les journaux indiquant si l’appel est dû à une occurrence de planification manquée.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-L’exemple suivant lance et exécute la fonction toutes les cinq minutes. L’annotation `@TimerTrigger` sur la fonction définit le programme avec le même format de chaîne de caractères que les [expressions CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributs et annotations
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Les attributs ne sont pas pris en charge par JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Les attributs ne sont pas pris en charge par Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 L’annotation `@TimerTrigger` sur la fonction définit le programme avec le même format de chaîne de caractères que les [expressions CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Les attributs ne sont pas pris en charge par PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
 
 ---
 
@@ -229,7 +268,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Nous vous déconseillons de définir la propriété **runOnStartup** sur `true` en production. Si vous utilisez cette définition, le code s’exécute à des moments extrêmement imprévisibles. Dans certains paramètres de production, ces exécutions supplémentaires peuvent entraîner des coûts sensiblement plus élevés pour les applications hébergées dans les plans Consommation. Par exemple, avec la propriété **runOnStartup** activée, le déclencheur est appelé à chaque fois que votre Function App est mise à l’échelle. Veillez à bien comprendre le comportement en production de vos fonctions avant d’activer la propriété **runOnStartup** en production.   
+> Nous vous déconseillons de définir la propriété **runOnStartup** sur `true` en production. Si vous utilisez cette définition, le code s’exécute à des moments extrêmement imprévisibles. Dans certains paramètres de production, ces exécutions supplémentaires peuvent entraîner des coûts sensiblement plus élevés pour les applications hébergées dans les plans Consommation. Par exemple, avec la propriété **runOnStartup** activée, le déclencheur est appelé à chaque fois que votre Function App est mise à l’échelle. Veillez à bien comprendre le comportement en production de vos fonctions avant d’activer la propriété **runOnStartup** en production.
 
 ## <a name="usage"></a>Usage
 
@@ -250,8 +289,7 @@ Lorsqu’une fonction de déclencheur de minuteur est appelée, l’objet minute
 
 La propriété `IsPastDue` est `true` lorsque l’appel de fonction en cours arrive plus tard que prévu. Par exemple, un redémarrage de la fonction d’application peut entraîner l’échec d’un appel.
 
-
-## <a name="ncrontab-expressions"></a>Expressions NCRONTAB 
+## <a name="ncrontab-expressions"></a>Expressions NCRONTAB
 
 Azure Functions utilise la bibliothèque [NCronTab](https://github.com/atifaziz/NCrontab) pour interpréter les expressions NCRONTAB. Une expression NCRONTAB est semblable à une expression CRON, à ceci près qu’elle comprend un sixième champ supplémentaire au début pour utiliser la précision de temps en secondes :
 
@@ -300,12 +338,12 @@ Contrairement à une expression CRON, une valeur `TimeSpan` spécifie l’interv
 
 Exprimé sous forme de chaîne, le format `TimeSpan` est `hh:mm:ss` lorsque la valeur de `hh` est inférieure à 24. Lorsque les deux premiers chiffres sont 24 ou plus, le format est `dd:hh:mm`. Voici quelques exemples :
 
-|Exemple |En cas de déclenchement  |
-|---------|---------|
-|"01:00:00" | toutes les heures        |
-|"00:01:00"|chaque minute         |
-|"24:00:00" | tous les 24 jours        |
-|"1.00:00:00" | chaque jour        |
+| Exemple      | En cas de déclenchement |
+|--------------|----------------|
+| "01:00:00"   | toutes les heures     |
+| "00:01:00"   | chaque minute   |
+| "24:00:00"   | tous les 24 jours  |
+| "1.00:00:00" | chaque jour      |
 
 ## <a name="scale-out"></a>Montée en charge
 

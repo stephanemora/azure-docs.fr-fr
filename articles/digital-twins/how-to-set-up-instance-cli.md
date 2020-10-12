@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280092"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320765"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurer une instance Azure Digital Twins et l’authentification (interface CLI)
 
@@ -78,7 +78,7 @@ Les résultats de cette commande décrivent l’attribution de rôle que vous av
 >
 > Utilisez la [page du portail Azure des utilisateurs Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) pour sélectionner le compte d’utilisateur et afficher ses détails. Copiez la valeur *ObjectID* de l’utilisateur :
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Vue de la page utilisateur dans le portail Azure mettant en surbrillance le GUID dans le champ 'ID d’objet'" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins" lightbox="media/includes/user-id.png":::
 >
 > Ensuite, répétez la commande 'role assignment list' en utilisant l’*ID d’objet* de l’utilisateur pour le paramètre `assignee` ci-dessus.
 
@@ -115,7 +115,7 @@ Enregistrez ce fichier sous _**manifest.json**_.
 
 Ensuite, vous allez télécharger ce fichier dans Cloud Shell. Dans la fenêtre de Cloud Shell, cliquez sur l’icône « Charger/Télécharger des fichiers », puis choisissez « Charger ».
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fenêtre Cloud Shell présentant la sélection de l’option de chargement":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins":::
 Accédez au fichier *manifest.JSON* que vous venez de créer et appuyez sur « Ouvrir ».
 
 Ensuite, exécutez la commande suivante pour créer une inscription d’application, avec une URL de réponse *Client public/natif (mobile et bureau)* de `http://localhost`. Remplacez les espaces réservés le cas échéant :
@@ -126,13 +126,13 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Voici un extrait de la sortie de cette commande, qui montre des informations sur l’inscription que vous avez créée :
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Sortie Cloud Shell de la nouvelle inscription d’application Azure AD":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins":::
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Tout d’abord, vérifiez que les paramètres de votre fichier *manifest.json* téléchargé ont été correctement définis sur l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code jusqu’en bas et recherchez les champs de votre fichier *manifest.json* sous `requiredResourceAccess` :
+Ensuite, vérifiez que les paramètres de votre fichier *manifest.json* téléchargé ont été correctement définis sur l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code jusqu’en bas et recherchez les champs de votre fichier *manifest.json* sous `requiredResourceAccess` :
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -140,7 +140,7 @@ Tout d’abord, vérifiez que les paramètres de votre fichier *manifest.json* t
 
 Ensuite, sélectionnez *Vue d’ensemble* dans la barre de menus pour afficher les détails de l’inscription de l’application :
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Vue du portail des valeurs importantes pour l’inscription de l’application":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins":::
 
 Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (locataire)* affichés sur **votre** page. Ces valeurs seront requises ultérieurement pour [authentifier une application cliente par rapport aux API Azure Digital Twins](how-to-authenticate-client.md). Si vous n’êtes pas la personne chargée d’écrire du code pour de telles applications, vous devez partager ces valeurs avec la personne qui en sera chargée.
 
@@ -151,7 +151,7 @@ Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
 
 Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :

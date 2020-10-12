@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318787"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Vous pouvez interagir avec une base de données Azure Cosmos à l’aide des API
 
 ## <a name="azure-cosmos-containers"></a>Conteneurs Cosmos Azure
 
-Un conteneur Azure Cosmos correspond à l’unité de scalabilité du débit et du stockage provisionnés. Un conteneur est partitionné horizontalement, puis répliqué dans plusieurs régions. Les éléments que vous ajoutez au conteneur, et le débit que vous approvisionnez pour celui-ci, sont automatiquement distribués sur un ensemble de partitions logiques en fonction de la clé de partition. Pour en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement des données](partition-data.md). 
+Un conteneur Azure Cosmos correspond à l’unité de scalabilité du débit et du stockage provisionnés. Un conteneur est partitionné horizontalement, puis répliqué dans plusieurs régions. Les éléments que vous ajoutez au conteneur sont automatiquement regroupés en partitions logiques, lesquelles sont distribuées sur des partitions physiques, en fonction de la clé de partition. Le débit d’un conteneur est distribué uniformément entre les partitions physiques. Pour en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement des données](partition-data.md). 
 
 Lorsque vous créez un conteneur Azure Cosmos, vous configurez le débit avec l’un des modes suivants :
 

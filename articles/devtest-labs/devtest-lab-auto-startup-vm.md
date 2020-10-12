@@ -3,12 +3,12 @@ title: Configurer les paramètres de démarrage automatique pour une machine vir
 description: Découvrez comment configurer les paramètres de démarrage automatique pour les machines virtuelles dans un laboratoire. Ce paramètre permet aux machines virtuelles du laboratoire de démarrer automatiquement selon une planification.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328477"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Démarrer automatiquement des machines virtuelles de laboratoire  
 Azure DevTest Labs vous permet de configurer les machines virtuelles de votre laboratoire pour qu’elles soient automatiquement démarrées et arrêtées en fonction d’une planification. Pour plus d’informations sur la configuration des paramètres d’arrêt automatique, consultez [Gérer toutes les stratégies d’arrêt automatique d’un laboratoire dans Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
@@ -21,7 +21,7 @@ Cet article explique comment configurer la stratégie de démarrage automatique 
 1. Accédez à la page d’accueil de votre fabrique de données. 
 2. Sélectionnez **Configuration et stratégies** dans le menu de gauche. 
 
-    ![Menu Configuration et stratégies](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Capture d’écran du menu « Configuration et stratégies » dans le labo DevTest Labs](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. Dans la page **Configuration et stratégies**, effectuez les étapes suivantes :
     
     1. Sélectionnez **Activé** pour **Autoriser la planification du démarrage automatique des machines virtuelles** afin d’activer la fonctionnalité de démarrage automatique pour ce laboratoire. 

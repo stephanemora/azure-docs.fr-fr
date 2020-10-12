@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327916"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -30,7 +30,7 @@ Identity Protection offre aux organisations un accès à des ressources puissant
 
 Il existe deux types d’**utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
 
-Les détections en temps réel peuvent ne pas apparaître dans les rapports pendant cinq à dix minutes. Les détections hors connexion peuvent ne pas apparaître dans les rapports pendant deux à quatre heures.
+Les détections en temps réel peuvent ne pas apparaître dans les rapports pendant cinq à dix minutes. Les détections hors connexion peuvent ne pas apparaître dans les rapports pendant 2 à 24 heures.
 
 ### <a name="user-risk"></a>Risque de l’utilisateur
 

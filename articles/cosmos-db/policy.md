@@ -1,23 +1,26 @@
 ---
 title: Utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB
 description: Découvrez comment utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320895"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB
 
 [Azure Policy](../governance/policy/overview.md) permet d’appliquer les normes de gouvernance de l’organisation, d’évaluer la conformité des ressources et d’implémenter la correction automatique. Les cas d’utilisation courants incluent la gestion de la sécurité et des coûts et la cohérence de la configuration.
 
 Azure Policy fournit des définitions de stratégie intégrées. Vous pouvez créer des définitions de stratégie personnalisées pour les scénarios qui ne sont pas traités par les définitions de stratégie intégrées. Pour plus d’informations, consultez la documentation [Azure Policy](../governance/policy/overview.md).
+
+> [!IMPORTANT]
+> Azure Policy est appliqué au niveau du fournisseur de ressources pour les services Azure. Les Kits de développement logiciel (SDK) Cosmos DB peuvent effectuer la plupart des opérations de gestion sur les ressources de bases de données, de conteneurs et de débit qui contournent le fournisseur de ressources de Cosmos DB, ignorant ainsi toute stratégie créée à l’aide d’Azure Policy. Pour garantir l’application des stratégies, consultez [Prévention des modifications des Kits de développement logiciel (SDK) Azure Cosmos DB](role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="assign-a-built-in-policy-definition"></a>Affecter une définition de stratégie intégrée
 
@@ -123,7 +126,7 @@ La capture d’écran montre les résultats d’évaluation de la conformité su
 - Aucun des deux comptes n’est conforme à une stratégie requérant que le compte soit configuré pour plusieurs emplacements d’écriture
 - Aucun des deux comptes n’est conforme à une stratégie selon laquelle les ressources ont été déployées vers des régions Azure autorisées.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Résultats de conformité pour les affectations d’Azure Policy répertoriées":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Recherche de définitions de stratégie intégrée Azure Cosmos DB":::
 
 Pour comment corriger les ressources non conformes, consultez [Corriger les ressources non conformes avec Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

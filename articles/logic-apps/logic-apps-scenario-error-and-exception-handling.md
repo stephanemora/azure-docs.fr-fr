@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76902707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322425"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -103,15 +103,15 @@ Nous devons journaliser la source (requête) du dossier du patient à partir du 
 
    **Insérer une entrée de journal**
 
-   ![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Capture d’écran du Concepteur d’application logique montrant les paramètres de configuration pour l’opération InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Insérer une entrée d’erreur**
 
-   ![Insérer une entrée de journal](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Capture d’écran du Concepteur d’application logique montrant les paramètres de configuration pour l’opération CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Rechercher un échec de création d’enregistrement**
 
-   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Capture d’écran de l’écran CreateErrorRecord dans le Concepteur d’application logique montrant les champs pour la création d’une entrée d’erreur.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Code source d’application logique
 

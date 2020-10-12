@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541762"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91614255"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -45,7 +45,7 @@ Une stratégie peut constituer l’un des nombreux _artefacts_ d’une définiti
 
 ## <a name="blueprint-definition"></a>Définition de blueprint
 
-Un blueprint est composé _d’artefacts_. Azure Blueprints prend actuellement en charge les ressources suivantes comme artefacts :
+Un blueprint est composé d’_artefacts_. Azure Blueprints prend actuellement en charge les ressources suivantes comme artefacts :
 
 |Ressource  | Options de hiérarchie| Description  |
 |---------|---------|---------|
@@ -74,7 +74,10 @@ Quand vous créez un blueprint, celui-ci est initialement en mode **Brouillon**.
 
 ## <a name="blueprint-assignment"></a>Affectation de blueprint
 
-Chaque **version** **publiée** d’un blueprint peut être affectée à un abonnement existant (la longueur maximale du nom est de 90 caractères). Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact (ou des paramètres de blueprint) sont présents, ils sont définis durant le processus d’affectation.
+Chaque **version** **publiée** d’un blueprint peut être affectée (avec une longueur maximale de 90 caractères pour le nom) à un groupe d’administration ou un abonnement existant. Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact ou des paramètres de blueprint sont présents, ils sont définis durant le processus d’affectation.
+
+> [!NOTE]
+> L’affectation d’une définition de blueprint à un groupe d’administration signifie que l’objet d’affectation existe dans le groupe d’administration. Le déploiement d’artefacts cible toujours un abonnement. Pour effectuer une affectation de groupe d’administration, l’[API REST Créer ou Mettre à jour](/rest/api/blueprints/assignments/createorupdate) doit être utilisée et le corps de la demande doit inclure une valeur pour `properties.scope` afin de définir l’abonnement cible.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorisations dans Azure Blueprint
 

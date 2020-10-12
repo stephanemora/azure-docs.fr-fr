@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084836"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319977"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Microsoft 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -113,7 +113,7 @@ Pour définir le filtre de domaine, procédez comme suit :
    ![Propriétés du connecteur](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Cliquez sur **Configurer des partitions d’annuaire**.
 5. Dans la liste **Sélectionner des partitions d’annuaire** , sélectionnez et désélectionnez des domaines en fonction de vos besoins. Vérifiez que seules les partitions que vous voulez synchroniser sont sélectionnées.  
-   ![Partitions](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Capture d’écran montrant les partitions d’annuaire dans la fenêtre « Propriétés ».](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Si vous avez modifié votre infrastructure Active Directory locale et ajouté ou supprimé des domaines dans la forêt, cliquez sur le bouton **Actualiser** pour obtenir une liste mise à jour. Lorsque vous actualisez les données, des informations d’identification vous sont demandées. Fournissez des informations d’identification disposant d’un accès en lecture à Windows Server Active Directory. Il ne s’agit pas nécessairement de l’utilisateur déjà renseigné dans la boîte de dialogue.  
    ![Actualisation requise](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quand vous avez terminé, fermez la boîte de dialogue **Propriétés** en cliquant sur **OK**. Si vous avez supprimé des domaines de la forêt, un message contextuel vous indique qu’un domaine a été supprimé et que la configuration va être nettoyée.

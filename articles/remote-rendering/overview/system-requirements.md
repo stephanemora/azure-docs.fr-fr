@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323723"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -63,6 +63,17 @@ Une connexion réseau stable à faible latence est essentielle pour une bonne ex
 Consultez le chapitre dédié à la [configuration réseau requise](../reference/network-requirements.md).
 
 Pour résoudre les problèmes de réseau, reportez-vous au [Guide de résolution des problèmes](../resources/troubleshoot.md#unstable-holograms).
+
+### <a name="network-ports"></a>Ports réseau
+
+Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloquent pas les ports suivants :
+
+| Port              | Protocol | Allow    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Sortant | Connexion initiale (poignée de main HTTP) |
+| 8266              | UDP      | Sortant | Transfert de données |
+| 5000, 5433, 8443  | TCP      | Sortant | Requis pour l’[outil ArrInspector](../resources/tools/arr-inspector.md)|
+
 
 ## <a name="software"></a>Logiciel
 

@@ -3,12 +3,12 @@ title: Gérer les stratégies d’arrêt automatique dans Azure DevTest Labs | M
 description: Découvrez comment définir la stratégie d’arrêt automatique d’un labo afin que les machines virtuelles soient arrêtées automatiquement lorsqu’elles ne sont pas utilisées.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287550"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320708"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Pour commencer, créez une application logique dans votre abonnement Azure en pr
     }
     ```
     
-    ![Schéma JSON du corps de la demande](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Capture d’écran montrant le « Schéma JSON du corps de la demande ».](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Sélectionnez **+ Nouvelle étape** dans le concepteur et procédez comme suit :
     1. Recherchez **Office 365 Outlook - Envoyer un courrier**. 
     2. Sélectionnez **Envoyer un courrier** dans **Actions**. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320810"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Contrôle d’accès en fonction du rôle Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -91,25 +91,7 @@ Voici un diagramme qui illustre l’implémentation de RBAC sur les appareils Az
 
 Dans ce diagramme, Alice, Bob et Chuck ont accès uniquement aux espaces de noms utilisateur affectés, qui dans ce cas sont `ns1`, `ns2` et `ns3` respectivement. Au sein de ces espaces de noms, ils disposent d’un accès administrateur. En revanche, l’administrateur de cluster dispose d’un accès administrateur aux espaces de noms système et aux ressources sur l’ensemble du cluster.
 
-Vous pouvez utiliser des commandes `kubectl` pour créer des espaces de noms et des utilisateurs, affecter des utilisateurs à des espaces de noms ou télécharger des fichiers `kubeconfig`. Voici un workflow de haut niveau :
-
-1. Créez un espace de noms et un utilisateur.  
-
-    `New-HcsKubernetesNamespace -Namespace`  
-
-2. Créez un utilisateur.  
-
-    `New-HcsKubernetesUser -UserName`  
-
-3. Associez l’espace de noms à l’utilisateur que vous avez créé.  
-
-    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
-
-4. Enregistrez la configuration de l’utilisateur dans `C:\Users\<username>\.kube`.  
-
-5. Installez `kubectl` et commencez à déployer des applications dans `kubectl`. 
-
-Pour obtenir des instructions pas à pas détaillées, consultez [Accéder au cluster Kubernetes via kuebctl sur votre appareil Edge Azure Stack Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+En tant qu’utilisateur, vous pouvez créer des espaces de noms et des utilisateurs, attribuer des utilisateurs à des espaces de noms ou télécharger des fichiers `kubeconfig`. Pour obtenir des instructions pas à pas détaillées, consultez [Accéder au cluster Kubernetes via kuebctl sur votre appareil Edge Azure Stack Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
 Lorsque vous travaillez avec des espaces de noms et des utilisateurs sur vos appareils Azure Stack Edge Pro, les avertissements suivants s’appliquent :

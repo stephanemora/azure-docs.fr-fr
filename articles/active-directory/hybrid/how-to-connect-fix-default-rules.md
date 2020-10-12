@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320045"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Résoudre les règles par défaut modifiées dans Azure AD Connect
 
@@ -73,7 +73,7 @@ Si les extensions ne fonctionnent pas pour vous, essayez d’ajouter deux nouvel
 #### <a name="add-an-inbound-sync-rule"></a>Ajouter une règle de synchronisation entrante
 Une règle de synchronisation entrante signifie que la source de l’attribut est un espace de connecteur et la cible est le métaverse. Par exemple, pour avoir un nouveau flux d’attribut à partir d’Active Directory local vers Azure Active Directory, créez une nouvelle règle de synchronisation entrante. Lancez **l’éditeur de règles de synchronisation**, sélectionnez la direction **Entrante**, puis sélectionnez **Ajouter une nouvelle règle**. 
 
- ![Éditeur de règles de synchronisation](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Capture d’écran montrant l’« éditeur de règles de synchronisation » avec le réglage « Entrante » et le bouton « Ajouter une nouvelle règle » sélectionnés.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Suivez votre propre convention d’affectation de noms pour nommer la règle. Ici, nous utilisons **Personnalisé Entrante à partir d’AD - utilisateur**. Cela signifie que la règle est une règle personnalisée, et une règle entrante à partir de l’espace de connecteur Active Directory vers le métaverse.   
 
@@ -176,7 +176,7 @@ Sélectionnez **Aperçu...**
 
 Dans la fenêtre d’aperçu, sélectionnez **Générer un aperçu** et **Importer un flux d’attribut** dans le volet gauche.
 
-![PRÉVERSION](media/how-to-connect-fix-default-rules/default14.png)
+![Capture d’écran montrant la fenêtre « Aperçu » avec la rubrique « Importer un flux d’attribut » et le bouton « Générer un aperçu » sélectionnés.](media/how-to-connect-fix-default-rules/default14.png)
  
 Ici, notez que la règle nouvellement ajoutée est exécutée sur l’objet et qu’elle a défini l’attribut `cloudFiltered` sur True.
 

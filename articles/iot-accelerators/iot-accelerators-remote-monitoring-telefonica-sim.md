@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61442215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323955"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Intégrer des données SIM à la solution de supervision à distance
 
@@ -61,7 +61,7 @@ Les paramètres de connectivité suivants sont publiés :
 * Emplacement sur le réseau
 * Trafic de données consommées
 
-![tableau de bord](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
+![Capture d’écran de la fenêtre d’Explorateur d’appareils dans le tableau de bord de supervision à distance Azure IoT. Une ligne présentant les détails de l’appareil WeatherStation est mise en surbrillance.](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

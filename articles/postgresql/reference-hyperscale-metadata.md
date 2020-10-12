@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320453"
 ---
 # <a name="system-tables-and-views"></a>Tables système et vues
 
@@ -27,7 +27,7 @@ Vous pouvez afficher et interroger ces tables à l’aide de SQL après vous êt
 
 > [!NOTE]
 >
-> Les groupes de serveurs Hyperscale exécutant des versions antérieures du CItus Engine peuvent ne pas proposer toutes les tables listées ci-dessous.
+> Les groupes de serveurs Hyperscale (Citus) exécutant des versions antérieures du CItus Engine peuvent ne pas proposer toutes les tables listées ci-dessous.
 
 ### <a name="partition-table"></a>Table de partition
 
@@ -524,5 +524,5 @@ Dans cet exemple, les requêtes proviennent du coordinateur, mais l’affichage 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment certaines [fonctions Hyperscale](reference-hyperscale-functions.md) modifient les tables système
+* Découvrez comment certaines [fonctions Hyperscale (Citus)](reference-hyperscale-functions.md) modifient les tables système
 * Passez en revue les concepts de [nœuds et de tables](concepts-hyperscale-nodes.md)
