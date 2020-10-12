@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323635"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Comprendre l’application et le déploiement dans Azure Spring Cloud
 
@@ -29,11 +29,11 @@ Le niveau Standard d’Azure Spring Cloud permet à une application de disposer 
 ## <a name="app"></a>Application
 Les fonctionnalités/propriétés suivantes sont définies au niveau de l’application.
 
-| Énumération | Définition |
+| Fonctionnalités | Description |
 |:--|:----------------|
 | Public</br>Point de terminaison | URL pour accéder à l’application |
 | Custom</br>Domain | Enregistrement CNAME qui sécurise le domaine personnalisé |
-| Service</br>Liaison | Propriétés de configuration de liaison définies dans le fichier function.json et l’attribut *ServiceBusTrigger* |
+| Service</br>Liaison | Connexion prête à l’emploi avec d’autres services Azure |
 | Adresses IP gérées</br>Identité | Identité managée par Azure Active Directory qui permet à votre application d’accéder facilement à d’autres ressources protégées par Azure AD telles qu’Azure Key Vault |
 | Persistante</br>Stockage | Paramètre qui permet aux données d’être conservées au-delà du redémarrage de l’application |
 
@@ -41,14 +41,14 @@ Les fonctionnalités/propriétés suivantes sont définies au niveau de l’appl
 
 Les fonctionnalités/propriétés suivantes sont définies au niveau du déploiement et seront échangées lors du basculement entre un déploiement de production et un déploiement intermédiaire.
 
-| Énumération | Définition |
+| Fonctionnalités | Description |
 |:--|:----------------|
 | UC | Nombre de vCores par instance d’application |
-| Mémoire | Paramètre qui alloue de la mémoire pour effectuer un scale-up ou un scale-out des déploiements |
+| Mémoire | Go de mémoire par instance d’application|
 | Instance</br>Count | Nombre d’instances d’application, défini manuellement ou automatiquement |
 | Mise à l’échelle automatique | Met automatiquement à l’échelle le nombre d’instances en fonction des planifications et des règles prédéfinies |
-| JVM</br>Options | paramètre : JAVA_OPTS |
-| Environnement</br>Variables | Paramètres qui s’appliquent à l’ensemble de l’environnement Azure Spring Cloud |
+| JVM</br>Options | Définition des options JVM  |
+| Environnement</br>Variables | Définition des variables d'environnement |
 | Runtime</br>Version | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Restrictions

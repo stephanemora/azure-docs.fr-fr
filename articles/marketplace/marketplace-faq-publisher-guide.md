@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032110"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707980"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -229,7 +229,7 @@ Le compte d’utilisateur doit disposer d’autorisations *Propriétaire* ou *Co
 
 Les clients peuvent trouver des solutions à partir de Place de marché commercial dans 141 emplacements dans le monde entier.
 
-Pour consulter la liste des emplacements, accédez à la page [Détails des taxes pour les éditeurs du marketplace commercial](partner-center-portal/tax-details-paid-transactions.md).
+Pour consulter la liste des emplacements, accédez à la page [Détails des taxes pour les éditeurs du marketplace commercial](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Quels sont les devises prises en charge sur la Place de marché commerciale ?
 
@@ -274,32 +274,32 @@ Les clients sont généralement facturés tous les mois pour tous les achats eff
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>À quelle fréquence les paiements pour les ventes via la place de marché commerciale me sont-ils envoyés ?
 
-Les paiements sont effectués chaque mois. Pour plus d’informations sur les calendriers de paiement et pour savoir comment trouver vos paiements à venir dans l’Espace partenaires et comment nous traitons les défauts de paiement des clients, consultez [Informations sur la stratégie de paiement](partner-center-portal/payout-policy-details.md).
+Les paiements sont effectués chaque mois. Pour plus d’informations sur les calendriers de paiement, la recherche de vos paiements à venir dans Espace partenaires et la façon dont nous traitons les défauts de paiement des clients, consultez [Informations sur la stratégie de paiement](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
 - Dans le cas des transactions pour lesquelles le client a utilisé un Accord Entreprise, les paiements sont émis au cours du cycle suivant, dans un délai de 30 jours après la facture client. 
 - Dans le cas des transactions pour lesquelles le client a utilisé une carte de crédit, une période de consignation supplémentaire de 30 jours après réception du paiement s’applique pour s’assurer du déblocage des fonds et de l’absence de rétrofacturation ou de fraude.
 
 Les paiements ne sont émis que lorsque les ventes ont atteint une valeur combinée minimale de 50,00 $.
 
-Pour plus d’informations, consultez [Seuils, modes et délais de paiement](partner-center-portal/payment-thresholds-methods-timeframes.md).
+Pour plus d’informations, consultez [Seuils, modes et délais de paiement](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>Dans quels pays/quelles région les taxes sont-elles gérées en mon nom ?
 
 Les clients peuvent trouver des solutions à partir de la place de marché commerciale à travers le monde. Nous gérons les taxes dans de nombreux emplacements. 
 
-Pour consulter la liste complète des emplacements, accédez à la page [Détails des taxes pour les éditeurs du marketplace commercial](partner-center-portal/tax-details-paid-transactions.md).
+Pour consulter la liste complète des emplacements, accédez à la page [Détails des taxes pour les éditeurs du marketplace commercial](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Où puis-je trouver le rapport de paiements pour la place de marché commerciale ?
 
 Dans Espace partenaires, un utilisateur disposant d’autorisations *Propriétaire* ou *Contributeur financier* peut afficher les rapports de paiements. Ces utilisateurs peuvent accéder aux rapports en haut à droite en sélectionnant l’icône représentant une main contenant une facture.
 
-Pour plus d’informations, consultez la page relative aux [rapports sur les paiements](partner-center-portal/payout-summary.md).
+Pour plus d’informations, consultez [Relevés de paiements](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>Comment configurer ma méthode et la destination du paiement ?
 
 À l’aide d’Espace partenaires, un utilisateur disposant d’autorisations *Propriétaire* peut configurer le compte de paiement et les formulaires fiscaux. Pour ce faire, les utilisateurs peuvent cliquer sur le bouton **Paramètres** (icône d’engrenage) en haut à droite.
 
-Pour plus d’informations, accédez à la page relative [au compte de paiement et aux formulaires fiscaux](partner-center-portal/set-up-your-payout-account-tax-forms.md).
+Pour plus d’informations, consultez [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Les retours et les remboursements sont-ils pris en charge sur la Place de marché commerciale ?
 
@@ -311,9 +311,8 @@ Pour recevoir des remboursements, les clients peuvent annuler des abonnements da
 
 Voici quelques ressources pour démarrer :
 
-- [Présentation de la place de marché commerciale Microsoft](/azure/marketplace/marketplace-publishers-guide)
+- [Qu’est-ce que la place de marché commerciale Microsoft ?](overview.md)
 - [Hub partenaire de la place de marché commerciale Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Bienvenue sur la place de marché commerciale](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Comment puis-je m’engager auprès de Microsoft et d’autres partenaires ?
 
@@ -324,7 +323,7 @@ Nous vous recommandons d’utiliser les ressources suivantes :
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Où puis-je en savoir plus sur l’Espace partenaires ?
 
-- [Documentation sur Espace partenaires](https://docs.microsoft.com/partner-center/)
+- [Documentation sur Espace partenaires](/partner-center/)
 - [Bienvenue sur la place de marché commerciale](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Où puis-je en savoir plus sur le centre d’administration Microsoft ?

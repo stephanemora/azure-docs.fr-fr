@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288067"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Prise en charge des classements de base de données pour SQL Synapse
 
@@ -24,7 +24,7 @@ Vous pouvez modifier le classement par défaut de base de données du portail Az
 Vous pouvez spécifier le classement par défaut de la base de données SQL Synapse à la demande au moment de sa création à l’aide de l’instruction CREATE DATABASE.
 
 ## <a name="change-collation"></a>Modifier le classement
-Pour modifier le classement par défaut de la base de données de pool SQL, vous devez simplement mettre à jour le champ Classement dans l’expérience de provisionnement. Par exemple, si vous souhaitez modifier le classement par défaut en respectant la casse, vous devez simplement renommer le classement SQL_Latin1_General_CP1_CI_AS en SQL_Latin1_General_CP1_CS_AS. 
+Pour changer le classement par défaut de la base de données de pool SQL, vous devez mettre à jour le champ Classement dans l’expérience de provisionnement. Par exemple, si vous souhaitez modifier le classement par défaut en respectant la casse, vous devez renommer le classement SQL_Latin1_General_CP1_CI_AS en SQL_Latin1_General_CP1_CS_AS. 
 
 Pour modifier le classement par défaut de la base de données SQL à la demande, vous pouvez utiliser l’instruction ALTER DATABASE.
 
@@ -98,7 +98,7 @@ Pour modifier le classement par défaut de la base de données SQL à la demande
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-En outre, le pool SQL ne prend pas en charge les types de classements suivants :
+De plus, le pool SQL ne prend pas en charge les types de classements suivants :
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS

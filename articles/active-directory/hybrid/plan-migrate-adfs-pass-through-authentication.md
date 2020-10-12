@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661887"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335967"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -283,9 +283,9 @@ Ensuite, déployez des méthodes d’authentification supplémentaires :
 
 4. Exécutez l’installation de l’agent d’authentification. Lors de l’installation, vous devez fournir les informations d’identification d’un compte d’administrateur général.
 
-   ![Capture d’écran montrant le bouton Installer dans la page Package de l’agent d’authentification Microsoft Azure AD Connect](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Capture d’écran montrant le bouton Installer que vous utilisez pour exécuter le package de l’agent d’authentification Microsoft Azure AD Connect.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Capture d’écran montrant la page de connexion](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Capture d’écran montrant la page de connexion Microsoft.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Quand l’agent d’authentification est installé, vous pouvez revenir à la page d’intégrité de l’agent d’authentification directe pour vérifier l’état des agents supplémentaires.
 
@@ -327,7 +327,7 @@ Activez d’abord l’authentification directe :
    * **Authentification unique fluide** est défini sur **Activé**.
    * **Authentification directe** est défini sur **Activé**.
    
-   ![Capture d’écran montrant les paramètres de la section Connexion utilisateur](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Capture d’écran montrant les paramètres à vérifier dans la section Connexion utilisateur.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Sélectionnez **Authentification directe** et vérifiez que l’état est **Actif**.<br />
    
    Si l’agent d’authentification n’est pas actif, suivez des [étapes de dépannage](./tshoot-connect-pass-through-authentication.md) avant de passer au processus de conversion du domaine de l’étape suivante. Si vous convertissez vos domaines avant de vérifier que vos agents d’authentification directe ont bien été installés et qu’ils sont à l’état **Actif** dans le portail Azure, vous risquez de provoquer une interruption de l’authentification.
@@ -368,7 +368,7 @@ Effectuez la conversion en utilisant le module PowerShell Azure AD :
    * **Authentification unique fluide** est défini sur **Activé**.
    * **Authentification directe** est défini sur **Activé**.<br />
 
-   ![Capture d’écran montrant les paramètres de la section Connexion utilisateur](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Capture d’écran montrant les paramètres de la section Connexion utilisateur du portail Azure AD.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Tests et étapes suivantes
 

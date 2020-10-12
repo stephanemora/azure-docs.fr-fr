@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: 8 - Configurer le calcul
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: '9A - Ajouter, connecter pour partager'
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: '9B - Ajouter, connecter aux comptes de stockage'
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Concepts
       items:
         - name: Examiner les conditions requises
@@ -87,6 +83,8 @@
               items:
                 - name: Application sans état
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: "Développer un module\_C#"
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: Via Azure Arc (préversion)
               items:
                 - name: Activer Arc sur le cluster Kubernetes
@@ -123,12 +121,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Résoudre les erreurs de certificat
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: "Développer un module\_C#"
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Gérer le computing en périphérie
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gérer la passerelle de stockage
           items:
+            - name: Ajouter un partage et s’y connecter
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: Ajouter des comptes de stockage et s’y connecter
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Partages
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Utilisateurs
@@ -149,6 +149,10 @@
               href: azure-stack-edge-return-device.md
             - name: Remplacer l’appareil
               href: azure-stack-edge-replace-device.md
+            - name: Se préparer aux pannes d’appareil
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Récupérer suite à une panne d’appareil
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Superviser
           items:
             - name: Utilisation de graphiques de métriques

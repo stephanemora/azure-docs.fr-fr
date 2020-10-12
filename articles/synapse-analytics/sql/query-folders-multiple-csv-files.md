@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick
+ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288339"
 ---
 # <a name="query-folders-and-multiple-files"></a>Interroger des dossiers et plusieurs fichiers  
 
@@ -87,7 +87,7 @@ Le chemin d’accès que vous fournissez à la fonction OPENROWSET peut égaleme
 
 ### <a name="read-all-files-from-specific-folder"></a>Lire tous les fichiers d’un dossier spécifique
 
-Vous pouvez lire tous les fichiers figurant dans un dossier en utilisant le caractère générique de niveau fichier, comme indiqué dans [Lire tous les fichiers dans le dossier](#read-all-files-in-folder). Il existe cependant un moyen d’interroger un dossier et d’utiliser tous les fichiers qu’il contient.
+Vous pouvez lire tous les fichiers figurant dans un dossier en utilisant le caractère générique de niveau fichier, comme indiqué dans [Lire tous les fichiers dans le dossier](#read-all-files-in-folder). Il existe cependant un moyen d’interroger un dossier et de consommer tous les fichiers qu’il contient.
 
 Si le chemin d’accès fourni dans la fonction OPENROWSET pointe vers un dossier, tous les fichiers figurant dans celui-ci sont utilisés comme source pour votre requête. La requête suivante lit tous les fichiers figurant dans le dossier *csv/taxi*.
 

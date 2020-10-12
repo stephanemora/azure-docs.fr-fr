@@ -1,16 +1,16 @@
 ---
 title: Sécurité du réseau pour les ressources Azure Event Grid
-description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
+description: Cet article explique comment utiliser des étiquettes de service pour la sortie, des règles de pare-feu IP pour l’entrée et des points de terminaison privés pour les entrées à l’aide d’Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326454"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
