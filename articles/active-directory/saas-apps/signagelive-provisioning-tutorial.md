@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255724"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutoriel : Configurer Signagelive pour l’approvisionnement automatique d’utilisateurs
 
@@ -95,11 +95,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section Informations d’identification de l’administrateur, entrez ` https://samlapi.signagelive.com/scim/v2` dans **URL de locataire**. Dans le champ **Jeton secret**, entrez la valeur du **Jeton du porteur** fournie par l’équipe de développement. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Signagelive. Si la connexion échoue, vérifiez que votre compte Signagelive dispose des autorisations d’administrateur et réessayez.
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +112,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Signagelive**.
 
-    ![Mappages d’utilisateurs Signagelive](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Capture d’écran de la section Mappages avec l’option Synchroniser les utilisateurs Azure Active Directory avec Signagelive en évidence.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Attributs d’utilisateurs Signagelive](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser le groupe Azure Active Directory sur Signagelive**.
 
-    ![Mappages d’utilisateurs Signagelive](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Capture d’écran de la section Mappages avec l’option Synchroniser le Groupe Azure Active Directory avec Signagelive en évidence.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Signagelive. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes de groupe dans Signagelive pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Attributs d’utilisateurs Signagelive](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

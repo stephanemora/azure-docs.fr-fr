@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/01/2020
+ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 11184b2e9770ba6fd7c4ec9d04862c0890ac94c6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336528"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -45,7 +45,7 @@ La configuration IP frontale de votre équilibreur de charge inter-région est s
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagramme de l'équilibreur de charge inter-région" border="true":::
 
 > [!NOTE]
-> Le port principal de votre règle d'équilibrage de charge sur l'équilibreur de charge inter-région doit correspondre au port frontal de la règle d'équilibrage de charge/règle NAT de trafic entrant sur l'équilibreur de charge standard régional. 
+> Le port principal de votre règle d’équilibrage de charge sur l’équilibreur de charge inter-région doit correspondre au port front-end de la règle d’équilibrage de charge/règle NAT de trafic entrant sur l’équilibreur de charge standard régional. 
 
 ### <a name="regional-redundancy"></a>Redondance régionale
 
@@ -55,7 +55,7 @@ En cas de défaillance d'une région, le trafic est acheminé vers l'équilibreu
 
 La sonde d'intégrité de l'équilibreur de charge inter-région collecte les informations relatives à la disponibilité toutes les 20 secondes. Si la disponibilité d'un équilibreur de charge régional passe à 0, l'équilibreur de charge inter-région détecte la défaillance. L'équilibreur de charge régional est alors retiré de la rotation. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramme de la vue globale du trafic régional" border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramme de l'équilibreur de charge inter-région" border="true":::
 
 ### <a name="ultra-low-latency"></a>Latence ultra faible
 
