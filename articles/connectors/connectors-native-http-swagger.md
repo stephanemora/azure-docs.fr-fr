@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271186"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
 
@@ -54,17 +54,17 @@ Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagg
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Entrer l’URL du point de terminaison Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » et la propriété « URL du point de terminaison Swagger » définie sur une valeur URL.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Lorsque le concepteur affiche les opérations décrites par le fichier Swagger, sélectionnez l’opération que vous souhaitez utiliser.
 
-   ![Opérations dans le fichier Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » et une liste qui affiche les opérations Swagger.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Indiquez les valeurs correspondant aux paramètres du déclencheur (qui varient en fonction de l’opération sélectionnée) que vous souhaitez inclure dans l’appel du point de terminaison. Configurez la fréquence à laquelle le déclencheur doit appeler le point de terminaison.
 
    Cet exemple renomme le déclencheur « Déclencheur HTTP + Swagger : Visage - Détecter » afin que l’étape ait un nom plus descriptif.
 
-   ![Détails de l’opération](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec le déclencheur « HTTP + Swagger » qui affiche l’opération « Visage - Détecter ».](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
