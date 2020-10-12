@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269741"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajouter des ressources à votre environnement de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -40,7 +40,7 @@ Pour créer des applications logiques qui s’exécutent dans votre environnemen
 
 1. Fournissez des informations sur l’application logique que vous souhaitez créer, par exemple :
 
-   ![Sélection d’un environnement de service d’intégration](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Capture d’écran montrant la fenêtre de création d’une application logique avec des exemples d’informations entrés](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Pour utiliser des connecteurs personnalisés dans votre environnement ISE, crée
 
 1. Dans la liste **Emplacement**, sous la section **Environnements de service d’intégration**, sélectionnez le même environnement ISE que celui utilisé par vos applications logiques et sélectionnez **Créer**, par exemple :
 
-   ![Sélection d’un environnement de service d’intégration](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Capture d’écran montrant la fenêtre « Créer un connecteur personnalisé Logic Apps » avec des exemples d’informations sélectionnés](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Sélectionnez votre nouveau connecteur personnalisé, puis sélectionnez **Modifier**, par exemple :
 

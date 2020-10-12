@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330279"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -102,16 +102,19 @@ Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes 
 
 Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les définitions de stratégie qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour obtenir un exemple, consultez [Modèle : Balises – Exemple 1](../samples/pattern-tags.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modes du fournisseur de ressources (préversion)
+### <a name="resource-provider-modes"></a>Modes Fournisseur de ressources
 
-Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
+Le nœud Fournisseur de ressources suivant est entièrement pris en charge :
+
+- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
+
+Les modes Fournisseur de ressources suivants sont actuellement pris en charge en **préversion** :
 
 - `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les définitions utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
-- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’utilisation de l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillée_.
 - `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et ne prennent pas en charge les initiatives en préversion.
+> Les modes Fournisseur de ressources ne prennent en charge que les définitions de stratégie intégrées.
 
 ## <a name="metadata"></a>Métadonnées
 
@@ -206,8 +209,8 @@ Lors de la création d’une initiative ou d’une stratégie, il est important 
 
 Si l’emplacement de la définition est l’un ou l’autre élément suivant :
 
-- **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la définition de stratégie.
-- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la définition de stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant chaque abonnement.
+- **Abonnement** : seules les ressources au sein de cet abonnement peuvent être affectées à la définition de la stratégie.
+- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être affectées à la définition de la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant chaque abonnement.
 
 Pour plus d’informations, consultez [Comprendre l’étendue d’Azure Policy](./scope.md#definition-location).
 
@@ -552,9 +555,9 @@ Azure Policy prend en charge les types d’effet suivants :
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
 - **DeployIfNotExists** : déploie une ressource connexe si elle n’existe pas déjà
 - **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
-- **EnforceOPAConstraint** (préversion) : configure le contrôleur des admissions de l’agent de stratégie ouverte avec Gatekeeper V3 pour les clusters Kubernetes auto-managés sur Azure (préversion)
-- **EnforceRegoPolicy** (préversion) : configure le contrôleur des admissions de l’agent de stratégie ouverte avec Gatekeeper v2 dans Azure Kubernetes Service
 - **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
+- **EnforceOPAConstraint** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v3 pour les clusters Kubernetes automanagés sur Azure
+- **EnforceRegoPolicy** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v2 dans Azure Kubernetes Service
 
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, consultez [Présentation des effets Azure Policy](effects.md).
 
@@ -592,6 +595,18 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
 - `requestContext().apiVersion`
   - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
     Cette valeur est la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
+- `policy()`
+  - Retourne les informations suivantes sur la stratégie en cours d’évaluation. Les propriétés sont accessibles à partir de l’objet retourné (exemple : `[policy().assignmentId]`).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 

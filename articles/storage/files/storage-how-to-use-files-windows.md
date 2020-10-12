@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329344"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -34,8 +34,8 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 | Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903 et 1909.  
-<sup>2</sup>Windows Server, versions 1809, 1903 et 1909.  
+<sup>1</sup>Windows 10, versions 1507, 1607, 1803, 1809, 1903, 1909 et 2004.  
+<sup>2</sup>Windows Server, versions 1809, 1903, 1909, 2004.  
 <sup>3</sup>Le support Microsoft standard pour Windows 7 et Windows Server 2008 R2 a pris fin. Il est possible d’acheter du support supplémentaire pour les mises à jour de sécurité par l’intermédiaire du [Programme des correctifs de sécurité étendus (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates) uniquement. Nous vous recommandons vivement de procéder à la migration de ces systèmes d’exploitation.
 
 > [!Note]  
@@ -67,12 +67,12 @@ Pour obtenir ce script :
 
 1. Sélectionnez **Connecter**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Capture d’écran de l’icône de connexion pour votre partage de fichiers.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Exemple":::
 
 1. Sélectionnez la lettre de lecteur sur laquelle monter le partage.
 1. Copiez le script fourni.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exemple de texte":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exemple":::
 
 1. Collez le script dans un shell sur l’hôte sur lequel vous voulez monter le partage de fichiers, puis exécutez-le.
 
