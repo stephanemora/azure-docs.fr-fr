@@ -1,5 +1,5 @@
 ---
-title: Paramètres serveur - Hyperscale (Citus) - Azure Database pour PostgreSQL
+title: Paramètres de serveur – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Paramètres de l’API SQL d’Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336239"
 ---
 # <a name="server-parameters"></a>Paramètres de serveur
 
 Différents paramètres de serveur déterminent le comportement d'Hyperscale (Citus), qu'il s'agisse de paramètres PostgreSQL standard ou de paramètres spécifiques à Hyperscale (Citus).
 Ces paramètres peuvent être définis sur le portail Azure pour un groupe de serveurs Hyperscale (Citus). Dans la catégorie **Paramètres**, choisissez **Paramètres du nœud Worker** ou **Paramètres du nœud coordinateur**. Ces pages vous permettent de définir des paramètres pour tous les nœuds Worker, ou uniquement pour le nœud coordinateur.
 
-## <a name="hyperscale-parameters"></a>Paramètres Hyperscale
+## <a name="hyperscale-citus-parameters"></a>Paramètres Hyperscale (Citus)
 
 > [!NOTE]
 >
-> Les groupes de serveurs Hyperscale exécutant des versions antérieures du CItus Engine peuvent ne pas proposer tous les paramètres listés ci-dessous.
+> Les groupes de serveurs Hyperscale (Citus) exécutant des versions antérieures de Citus Engine peuvent ne pas proposer tous les paramètres listés ci-dessous.
 
 ### <a name="general-configuration"></a>Configuration générale
 

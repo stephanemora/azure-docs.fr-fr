@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321405"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Contrairement aux bases de données de calcul provisionné, la mémoire du cache
 
 Dans les bases de données de niveaux de calcul serverless et provisionné, des entrées de cache peuvent être supprimées si toute la mémoire disponible est utilisée.
 
-Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir un délai supplémentaire après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan périodiques répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage fantôme n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
+Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir un délai supplémentaire après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan périodiques répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression et les tâches de nettoyage QDS génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage des éléments fantômes n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
 
 #### <a name="cache-hydration"></a>Alimentation du cache
 

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287826"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Fonctionnalités prises en charge par Azure Synapse Link (préversion) pour Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Il existe deux types de conteneurs dans Azure Cosmos DB :
 > [!IMPORTANT]
 > Azure Synapse Link pour Azure Cosmos DB est actuellement pris en charge dans les espaces de travail Synapse où le réseau virtuel managé n’est pas activé. 
 
-Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse Link, auquel cas vous pouvez uniquement lire/écrire dans le magasin transactionnel. La liste ci-dessous répertorie les fonctionnalités actuellement prises en charge dans Synapse Link pour Azure Cosmos DB. 
+Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse Link. Dans ce scénario, vous pouvez uniquement lire et écrire des données dans le magasin transactionnel. La liste ci-dessous répertorie les fonctionnalités qui sont actuellement prises en charge dans Synapse Link pour Azure Cosmos DB. 
 
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -39,9 +39,9 @@ Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse 
 | **Lire**    | Type de conteneur Azure Cosmos DB qui peut être lu | OLTP / HTAP | HTAP  |
 | **Écrire**   | Le runtime Azure Synapse peut-il être utilisé pour écrire des données dans un conteneur Azure Cosmos DB | Oui | Non |
 
-* Si vous écrivez des données dans un conteneur Azure Cosmos DB à partir de Spark, cette opération se déroule via le magasin transactionnel d’Azure Cosmos DB, a un impact sur les performances des charges de travail transactionnelles sur Azure Cosmos DB et consomme des unités de requête.
-* L’intégration de pool Synapse SQL par le biais de tables externes n’est pas prise en charge actuellement.
-
+* Si vous écrivez des données dans un conteneur Azure Cosmos DB à partir de Spark, ce processus s’effectuera via le magasin transactionnel d’Azure Cosmos DB. Ce processus aura un impact sur les performances transactionnelles d’Azure Cosmos DB, puisqu’il consommera des unités de requête.
+* L’intégration de pool SQL par le biais de tables externes n’est pas prise en charge actuellement.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Actions générées par le code prises en charge pour Spark
 
 | Mouvement              | Description |OLTP |HTAP  |
@@ -51,7 +51,6 @@ Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse 
 | **Écrire un DataFrame dans un conteneur** |Écrire des données dans un conteneur|✓| ✓ |
 | **Charger un DataFrame de streaming à partir d’un conteneur** |Streamer des données à l’aide du flux de modification Azure Cosmos DB|✓| ✓ |
 | **Écrire un DataFrame de streaming dans le conteneur** |Streamer des données à l’aide du flux de modification Azure Cosmos DB|✓| ✓ |
-
 
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Actions générées par le code prises en charge pour SQL serverless
