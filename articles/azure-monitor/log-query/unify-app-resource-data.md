@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330891"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
 Cet article décrit comment interroger et afficher toutes vos données du journal Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector. Le nombre de ressources Application Insights que vous pouvez inclure dans une seule requête est limité à 100.
@@ -57,7 +57,7 @@ La requête utilise le schéma Application Insights, bien qu’elle soit exécut
 ![Exemple de résultats de requête croisée](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->Les [requêtes inter-ressources](./cross-workspace-query.md) des alertes de journal sont prises en charge par la nouvelle [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](../platform/api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer des règles d'alertes de journal pour les [requêtes inter-ressources](./cross-workspace-query.md) sans basculer en utilisant le [modèle ARM de l'API schededuRuRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template). Mais cette règle d'alerte est gérable via l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) et non à partir du portail Azure.
+>[Les requêtes de ressources croisées](./cross-workspace-query.md) dans les alertes de journal sont uniquement prises en charge dans l’[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actuelle. Si vous utilisez l’API Log Analytics Alerts héritée, vous devez [basculer sur l’API actuelle](../platform/alerts-log-api-switch.md). [Voir des exemples de modèles](../platform/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Différences entre les schémas d’espace de travail Log Analytics et Application Insights
 Le tableau suivant montre les différences entre les schémas Log Analytics et Application Insights.  

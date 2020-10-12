@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331775"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -234,6 +234,7 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 9033 : Détection impossible, car le nom d’utilisateur de la machine virtuelle contient des caractères non valides.     |   Des caractères non valides ont été détectés dans le nom d’utilisateur.   |   Fournissez à nouveau les informations d’identification de la machine virtuelle en vérifiant qu’il n’y a pas de caractères.
 9034 : Le nom d’utilisateur fourni n’est pas au format UPN.    |   Le nom d’utilisateur n’est pas au format UPN.  |   Assurez-vous que le nom d’utilisateur est au format User Principal Name (UPN).
 9035 : Impossible de détecter si le mode de langage PowerShell n’est pas défini sur « Full Language » (Langage complet).  |   Le mode de langage pour PowerShell dans la machine virtuelle invitée n’est pas défini sur « Full Language » (Langage complet).   |   Assurez-vous que le mode de langage PowerShell est défini sur « Full Language » (Langage complet).
+9037 : La collecte de données a été suspendue temporairement, car le temps de réponse de la machine virtuelle est trop élevé.    |   La machine virtuelle détectée prend trop de temps pour répondre     |   Aucune action requise. Une nouvelle tentative sera effectuée dans 24 heures pour la détection des applications et 3 heures pour l’analyse des dépendances (sans agent).
 10000 : Le type de système d'exploitation n'est pas pris en charge.   |   Le système d’exploitation en cours d’exécution sur le serveur n’est ni Windows, ni Linux.    |   Les types de système d’exploitation pris en charge sont Windows et Linux uniquement.
 10001 : Le script pour la détection de serveur est introuvable sur l’appliance.    |   Le bot de détection ne fonctionne pas comme prévu.   |   Contactez le Support Microsoft pour la résoudre.
 10002 : La tâche de détection n’a pas été terminée dans les temps.     |   L’agent de détection ne fonctionne pas comme prévu.     |   Le problème devrait être résolu automatiquement dans les 24 heures. Si le problème persiste, contactez le support technique Microsoft.

@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331248"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
 Avec les rapports Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
+
+
 
 Cette architecture de création de rapports est constituée des composants suivants :
 
@@ -45,7 +47,7 @@ Cet article présente une vue d’ensemble du rapport d’audit.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Surveillance** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence allant jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
+Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Surveillance** d’**Azure Active Directory**. 
 
 
 
@@ -62,15 +64,15 @@ Un journal d’audit inclut un mode Liste par défaut, qui indique :
 
 Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la barre d’outils.
 
-![Journaux d’audit](./media/concept-audit-logs/columns.png "Journaux d’audit")
+![Colonnes d’audit](./media/concept-audit-logs/columns.png "Colonnes d’audit")
 
 Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des champs qui sont déjà affichés.
 
-![Journaux d’audit](./media/concept-audit-logs/columnselect.png "Journaux d’audit")
+![Supprimer des champs](./media/concept-audit-logs/columnselect.png "Supprimer des champs")
 
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
-![Journaux d’audit](./media/concept-audit-logs/details.png "Journaux d’audit")
+![sélectionner un élément](./media/concept-audit-logs/details.png "Sélectionner un élément")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
@@ -85,7 +87,7 @@ Vous pouvez filtrer les données d’audit des champs suivants :
 - Initié par (intervenant)
 - Plage de dates
 
-![Journaux d’audit](./media/concept-audit-logs/filter.png "Journaux d’audit")
+![Objet de filtre](./media/concept-audit-logs/filter.png "Filter (objet)")
 
 Le filtre **Service** vous permet de sélectionner les services suivants dans une liste déroulante :
 
@@ -157,7 +159,7 @@ Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une 
 
 Vous pouvez également télécharger les données filtrées, jusqu’à 250 000 enregistrements, en sélectionnant le bouton **Télécharger**. Vous pouvez télécharger les journaux d’activité au format CSV ou JSON. Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).
 
-![Journaux d’audit](./media/concept-audit-logs/download.png "Journaux d’audit")
+![Télécharger des données](./media/concept-audit-logs/download.png "Télécharger des données")
 
 ## <a name="audit-logs-shortcuts"></a>Raccourcis de journaux d’audit
 
@@ -170,7 +172,7 @@ En plus d’**Azure Active Directory**, le portail Azure vous offre deux autres 
 
 Les rapports d’audit basés sur les utilisateurs et les groupes vous permettent d’obtenir des réponses aux questions telles que :
 
-- Quels types de mises à jour ont été appliquées aux utilisateurs ?
+- Quels types de mises à jour ont été appliqués aux utilisateurs ?
 
 - Combien d’utilisateurs ont été modifiés ?
 
@@ -188,11 +190,11 @@ Les rapports d’audit basés sur les utilisateurs et les groupes vous permetten
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
 
-![Journaux d’audit](./media/concept-audit-logs/users.png "Journaux d’audit")
+![Utilisateur](./media/concept-audit-logs/users.png "Utilisateur")
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
 
-![Journaux d’audit](./media/concept-audit-logs/groups.png "Journaux d’audit")
+![Filtrer les groupes](./media/concept-audit-logs/groups.png "Filtrer les groupes")
 
 ### <a name="enterprise-applications-audit-logs"></a>Journaux d’audit d’applications d’entreprise
 
@@ -206,7 +208,7 @@ Les rapports d’audit basés sur les applications vous permettent d’obtenir d
 
 Si vous souhaitez consulter les données d’audit associées à vos applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** du panneau **Applications d’entreprise**. Dans ce point d’entrée, **Applications d’entreprise** est présélectionné comme **Type d'application**.
 
-![Journaux d’audit](./media/concept-audit-logs/enterpriseapplications.png "Journaux d’audit")
+![Applications d’entreprise](./media/concept-audit-logs/enterpriseapplications.png "Applications d’entreprise")
 
 ## <a name="microsoft-365-activity-logs"></a>Journaux d’activité Microsoft 365
 

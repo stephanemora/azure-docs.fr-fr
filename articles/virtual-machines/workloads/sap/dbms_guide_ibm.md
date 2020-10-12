@@ -3,21 +3,22 @@ title: Déploiement SGBD de machines virtuelles IBM Db2 Azure pour charge de tr
 description: Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
-manager: patfilot
+manager: bburns
 tags: azure-resource-manager
+keywords: Azure, Db2, SAP, IBM
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2020
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331265"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP
 
@@ -80,7 +81,7 @@ Pour une machine virtuelle Azure de la série M, la latence d’écriture dans l
 
 Les applications IBM Db2 pour SAP NetWeaver sont prises en charge sur tous les types de machines virtuelles figurant dans la note de support SAP [1928533].  Les familles de machines virtuelles recommandées pour l’exécution de la base de données IBM Db2 sont Esd_v4/Eas_v4/Es_v3 et la série M/M_v2 pour les bases de données de plusieurs téraoctets. Les performances d’écriture sur le disque du journal des transactions IBM Db2 peuvent être améliorées en activant l’accélérateur d’écriture de la série M. 
 
-Voici une configuration de base pour différentes tailles et utilisations de SAP sur des déploiements Db2 de petite à très grande taille :
+Voici une configuration de base pour différentes tailles et utilisations de SAP sur des déploiements Db2 de petite à grande taille. La liste est basée sur le stockage Premium Azure. Toutefois, Azure ultra Disk est aussi entièrement pris en charge avec DB2 et peut également être utilisé. Il vous suffit d’utiliser les valeurs pour la capacité, le débit en rafale et les IOPS en rafale pour définir la configuration de disque Ultra. Vous pouvez limiter le nombre d’IOPS pour /db2/<SID>/log_dir à environ 5 000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Système SAP très petit : taille de base de données de 50 à 200 Go : exemple d’un gestionnaire de solutions
 | Nom/taille de machine virtuelle |Point de montage Db2 |Disque Premium Azure |Nbre de disques |E/S par seconde |Débit [Mo/s] |Taille [Go] |IOPS en rafale |Débit rafale [Go] | Taille de l’entrelacement | Mise en cache |
@@ -118,20 +119,20 @@ Voici une configuration de base pour différentes tailles et utilisations de SAP
 | |/db2/<SID>/log_dir |P20 |4 |9 200  |600  |2 048  |14 000  |680  |64 Ko ||
 | |/db2/<SID>/offline_log_dir |P20 |1 |2 300  |150  |512  |3 500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2tb-global-business-suite-system"></a>Système SAP volumineux de plusieurs téraoctets : base de données de 2 To et plus : système Global Business Suite
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Système SAP volumineux de plusieurs téraoctets : base de données de 2 To et plus : système Global Business Suite
 | Nom/taille de machine virtuelle |Point de montage Db2 |Disque Premium Azure |Nbre de disques |E/S par seconde |Débit [Mo/s] |Taille [Go] |IOPS en rafale |Débit rafale [Go] | Taille de l’entrelacement | Mise en cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3 500  |170  || |
-|Processeur virtuel : 128 |/db2/<SID>/sapdata |P40 |4 |30 000  |1 000  |8 192  |30 000  |1 000  |256 Ko |Lecture seule |
+|Processeur virtuel : 128 |/db2/<SID>/sapdata |P40 |4 |30,000  |1 000  |8 192  |30,000  |1 000  |256 Ko |Lecture seule |
 |RAM :  2 048 Gio |/db2/<SID>/saptmp |P20 |2 |4 600  |300  |1 024  |7 000  |340  |128 Ko ||
 | |/db2/<SID>/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 Ko |WriteAccelerator |
-| |/db2/<SID>/offline_log_dir |P30 |1 |5.000  |200  |1 024  |5.000  |200  || |
+| |/db2/<SID>/offline_log_dir |P30 |1 |5 000  |200  |1 024  |5 000  |200  || |
 
 
 ### <a name="backuprestore"></a>Sauvegarde/restauration
 La fonctionnalité de sauvegarde/restauration d’IBM Db2 pour LUW est prise en charge de la même façon que sur les systèmes d’exploitation Windows Server et Hyper-V standard.
 
-Vous devez vous assurer que vous disposez d’une stratégie de sauvegarde de base de données valide en place. 
+Assurez-vous de disposer d’une stratégie de sauvegarde de base de données valide en place. 
 
 À l’instar des déploiements sur système nu, les performances de sauvegarde/restauration dépendent du nombre de volumes pouvant être lus en parallèle et du débit éventuel de ces volumes. En outre, la consommation d’UC par la compression de sauvegarde peut jouer un rôle significatif sur les machines virtuelles ayant jusqu’à huit threads d’UC. Par conséquent, on peut partir des hypothèses suivantes :
 
@@ -161,7 +162,7 @@ Microsoft Cluster Server (MSCS) n’est pas pris en charge.
 
 La fonction HADR (haute disponibilité et récupération d’urgence) Db2 est prise en charge. Si les machines virtuelles de la configuration haute disponibilité disposent de la résolution de noms de travail, l’installation dans Azure ne diffère pas d’une installation effectuée en local. Il est déconseillé de se fier uniquement à la résolution IP.
 
-N’utilisez pas la géoréplication pour les comptes de stockage qui stockent les disques de base de données. Pour plus d’informations, reportez-vous au document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
+N’utilisez pas la géoréplication pour les comptes de stockage qui stockent les disques de base de données. Pour plus d’informations, consultez le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Mise en réseau accélérée
 Pour les déploiements Db2 sur Windows, il est fortement recommandé d’utiliser la fonctionnalité Azure de mise en réseau accélérée, comme décrit dans le document [Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Consultez aussi les recommandations dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
@@ -226,6 +227,12 @@ Tous les autres sujets généraux, notamment les groupes à haute disponibilité
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+
+
+## <a name="next-steps"></a>Étapes suivantes
+Lire l’article 
+
+- [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md)
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
