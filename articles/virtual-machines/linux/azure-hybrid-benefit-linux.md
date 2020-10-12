@@ -3,34 +3,35 @@ title: Azure Hybrid Benefit et machines virtuelles Linux
 description: Azure Hybrid Benefit vous permet de réaliser des économies sur vos machines virtuelles Linux s’exécutant sur Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279771"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Aperçu : Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Hybrid Benefit vous permet de migrer plus facilement vos serveurs sur site Red Hat Enterprise Linux (RHEL) et SUSE Linux Enterprise (SLES) vers Azure à l’aide de votre propre abonnement logiciel Red Hat ou SUSE préexistant. Avec cet avantage, vous payez uniquement les coûts d’infrastructure de votre machine virtuelle, car les frais liés aux logiciels sont couverts par votre abonnement RHEL ou SLES. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
+Azure Hybrid Benefit vous permet de migrer plus facilement vos machines virtuelles Red Hat Enterprise Linux (RHEL) et SUSE Linux Enterprise Server (SLES) locales vers Azure à l’aide de votre propre abonnement logiciel Red Hat ou SUSE préexistant. Avec cet avantage, vous payez uniquement les coûts d’infrastructure de votre machine virtuelle, car les frais liés aux logiciels sont couverts par votre abonnement RHEL ou SLES. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
+
+> [!IMPORTANT]
+> Azure Hybrid Benefit pour machines virtuelles Linux est actuellement disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Description de l’avantage
 
 Azure Hybrid Benefit vous permet de migrer plus facilement vos serveurs locaux RHEL et SLES vers Azure en convertissant les machines virtuelles PAYG RHEL et SLES existantes sur Azure pour la facturation Bring Your Own Subscription (BYOS). En règle générale, les machines virtuelles déployées à partir d’images PAYG sur Azure génèrent des frais d’infrastructure et des frais de logiciel. Avec Azure Hybrid Benefit, les machines virtuelles PAYG peuvent être converties en modèle de facturation BYOS sans redéploiement, ce qui évite tout risque de temps d’arrêt.
 
-![Visualisation des coûts Azure Hybrid Benefit sur les machines virtuelles Linux](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Visualisation des coûts Azure Hybrid Benefit sur les machines virtuelles Linux.":::
 
 Lors de l’activation de l’avantage sur une machine virtuelle RHEL ou SLES, vous ne serez plus facturé pour les frais de logiciel supplémentaires généralement engagés sur une machine virtuelle PAYG. Votre machine virtuelle fera l’objet d’une facturation BYOS, ce qui comprend uniquement les frais de matériel de calcul, et non les frais de logiciel.
 

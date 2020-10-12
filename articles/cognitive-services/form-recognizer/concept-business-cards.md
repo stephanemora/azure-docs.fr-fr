@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004899"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334546"
 ---
 # <a name="business-card-concepts"></a>Concepts relatifs aux cartes de visite
 
@@ -88,8 +88,8 @@ Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -389,7 +389,9 @@ L’API Carte de visite optimise également la [fonctionnalité de traitement de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivre le guide de démarrage rapide pour commencer [Guide de démarrage rapide Python de l’API des cartes de visite](./quickstarts/python-business-cards.md)
-- Découvrir l’[API REST Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- En savoir plus sur [Form Recognizer](overview.md)
+- Suivez le [Guide de démarrage rapide Python de l’API des cartes de visite](./quickstarts/python-business-cards.md) pour commencer à reconnaître les cartes de visite.
 
+## <a name="see-also"></a>Voir aussi
+
+* [Qu’est-ce que Form Recognizer ?](./overview.md)
+* [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

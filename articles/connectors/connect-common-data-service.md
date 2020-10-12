@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334580"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Créer et gérer des enregistrements dans Common Data Service à l’aide d’Azure Logic Apps
 
@@ -108,7 +108,7 @@ Pour les déclencheurs qui s’exécutent lorsque des enregistrements sont mis �
 
 1. Dans le déclencheur, dans la liste **Ajouter un nouveau paramètre**, sélectionnez **Filtres d’attribut**.
 
-   ![Ajouter la propriété « Filtres d’attribut »](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Capture d’écran montrant l’action « Lorsqu’un enregistrement est mis à jour » et la liste « Ajouter un nouveau paramètre » ouverte avec la propriété « Filtres d’attribut » sélectionnée.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. Pour chaque **Élément Filtres d’attribut**, sélectionnez l’attribut dont vous souhaitez analyser les mises à jour, par exemple :
 

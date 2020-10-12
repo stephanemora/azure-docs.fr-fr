@@ -3,12 +3,12 @@ title: Définir des mots de passe pour des machines virtuelles dans Azure Lab Se
 description: Découvrez comment définir et réinitialiser des mots de passe pour des machines virtuelles (VM) dans les labos de salle de classe de Microsoft Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334070"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -24,7 +24,7 @@ Pour augmenter ou diminuer la capacité du labo (nombre de machines virtuelles d
 2. Entrez le nouveau **nombre de machines virtuelles** que vous souhaitez dans le laboratoire. Ce nombre doit être supérieur ou égal au nombre d’utilisateurs inscrits dans le labo. 
 3. Sélectionnez ensuite **Enregistrer**. 
 
-    ![Bouton Démarrer tout](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Capture d’écran montrant la fenêtre « Capacité du labo » avec les boutons « Nombre maximal de machines dans le laboratoire » et « Enregistrer » sélectionnés.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. Si vous avez augmenté la capacité, vous pouvez voir la ou les machines virtuelles en cours de création. Si vous ne voyez pas la nouvelle machine virtuelle dans la liste, actualisez la page. 
 
     ![Machine virtuelle en cours de création](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)
