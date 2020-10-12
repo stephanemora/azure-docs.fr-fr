@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283035"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
@@ -35,10 +35,11 @@ Poursuivez la lecture pour en savoir plus sur la détermination d’un modèle s
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez maîtriser les concepts de la détection et de l'identification de visages par intelligence artificielle (AI). Si ce n’est pas les cas, consultez d’abord ces guides pratiques :
+Vous devez maîtriser les concepts de la détection et de l'identification de visages par intelligence artificielle (AI). Si ce n’est pas les cas, consultez d’abord ces guides :
 
+* [Concepts de détection de visage](../concepts/face-detection.md)
+* [Concepts de reconnaissance faciale](../concepts/face-recognition.md)
 * [Comment détecter des visages dans une image](HowtoDetectFacesinImage.md)
-* [Comment identifier des visages dans une image](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Détecter des visages avec le modèle spécifié
 

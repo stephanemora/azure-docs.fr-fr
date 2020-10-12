@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293504"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540589"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -27,7 +27,7 @@ Vous pouvez également les gérer via le [portail Azure](https://portal.azure.co
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous avez besoin d’un **compte Azure** (vous pouvez en définir un gratuitement [ici](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-scripted.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
+* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
     - Nom de l’instance
     - Resource group
     
@@ -44,7 +44,7 @@ Pour lier un point de terminaison à Azure Digital Twins, l’Event Hub, une rub
 
 ### <a name="create-an-event-grid-endpoint"></a>Créer un point de terminaison Event Grid
 
-L’exemple suivant montre comment créer un point de terminaison de type rubrique Event Grid à l’aide d’Azure CLI : Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com)ou [installer l’interface CLI localement](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+L’exemple suivant montre comment créer un point de terminaison de type rubrique Event Grid à l’aide d’Azure CLI : Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com)ou [installer l’interface CLI localement](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Premièrement, créez une rubrique Event Grid. Vous pouvez utiliser la commande suivante ou afficher les étapes plus en détail en visitant [la section *Créer une rubrique personnalisée*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) du démarrage rapide *Événements personnalisés* Event Grid.
 
@@ -58,7 +58,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins avec la commande suivante :
+Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins avec la [commande d’interface de ligne de commande Azure Digital Twins](how-to-use-cli.md) suivante :
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -90,7 +90,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
-Les exemples fournis dans cet article utilisent le Kit de développement logiciel (SDK) C#.
+Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
@@ -101,7 +101,7 @@ Les exemples fournis dans cet article utilisent le Kit de développement logicie
 
 ### <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
 
-Les itinéraires d’événements sont définis à l’aide d’API de plan de données. 
+Les itinéraires d’événements sont définis à l’aide d’[API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 Une définition d’itinéraire peut contenir les éléments suivants :
 * nom de l’itinéraire que vous souhaitez utiliser ;

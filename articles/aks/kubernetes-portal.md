@@ -4,14 +4,14 @@ description: Découvrez comment interagir avec les ressources Kubernetes pour g�
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335600"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
 
@@ -48,19 +48,19 @@ Dans cet exemple, nous allons utiliser notre exemple de cluster AKS pour déploy
 
 Une fois le fichier YAML ajouté, la visionneuse de ressources affiche les deux services Kubernetes qui ont été créés : le service interne (azure-vote-back) et le service externe (azure-vote-front) pour accéder à l’application Azure Vote. Le service externe comprend une adresse IP externe liée, ce qui vous permet d’afficher facilement l’application dans votre navigateur.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informations sur l’application Azure Vote affichées dans le Portail Azure." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informations de pod Kubernetes affichées dans le Portail Azure." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Analyser les insights du déploiement
 
 Les clusters AKS avec [Azure Monitor pour les conteneurs][enable-monitor] activés peuvent rapidement afficher les Insights de déploiement. À partir de l’affichage des ressources Kubernetes, les utilisateurs peuvent voir l’état en direct des déploiements individuels, y compris l’utilisation du processeur et de la mémoire, ainsi que la transition vers l’analyse Azure pour obtenir des informations plus approfondies. Voici un exemple d’insights de déploiement à partir d’un exemple de cluster AKS :
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Les insights de déploiement sont affichés dans le Portail Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informations de pod Kubernetes affichées dans le Portail Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Modifier YAML
 
 L’affichage des ressources Kubernetes comprend également un éditeur YAML. Un éditeur YAML intégré vous permet de mettre à jour ou de créer des services et des déploiements à partir du portail et d’appliquer les modifications immédiatement.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Éditeur YAML pour un service Kubernetes affiché dans le Portail Azure.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informations de pod Kubernetes affichées dans le Portail Azure.":::
 
 Après avoir modifié le YAML, les modifications sont appliquées en sélectionnant **Examiner + enregistrer**, en confirmant les modifications, puis en enregistrant à nouveau.
 
@@ -75,11 +75,25 @@ Cette section répond à des problèmes communs et à des étapes de résolution
 
 Pour accéder aux ressources Kubernetes, vous devez avoir accès au cluster AKS, à l’API Kubernetes et aux objets Kubernetes. Assurez-vous que vous êtes un administrateur de cluster ou un utilisateur disposant des autorisations appropriées pour accéder au cluster AKS. Pour plus d’informations sur la sécurité du cluster, consultez [Options d’accès et d’identité pour AKS][concepts-identity].
 
+>[!NOTE]
+> La vue de ressource kubernetes dans le portail Azure est uniquement prise en charge par les [clusters compatibles AAD gérés](managed-aad.md) ou les clusters non-AAD. Si vous utilisez un cluster compatible AAD géré, votre utilisateur ou votre identité AAD doit avoir les rôles/liaisons de rôle respectifs pour accéder à l’API kubernetes, en plus de l’autorisation d’extraire l’[utilisateur `kubeconfig`](control-kubeconfig-access.md).
+
 ### <a name="enable-resource-view"></a>Activer l’affichage des ressources
 
 Pour les clusters existants, vous devrez peut-être activer l’affichage des ressources Kubernetes. Pour activer l’affichage des ressources, suivez les invites dans le portail de votre cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Message du Portail Azure pour activer l’affichage des ressources Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Informations de pod Kubernetes affichées dans le Portail Azure." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> La fonctionnalité AKS de [**plages d’adresses IP autorisées du serveur d’API**](api-server-authorized-ip-ranges.md) peut être ajoutée pour limiter l’accès du serveur d’API au point de terminaison public du pare-feu. Une autre option pour ces clusters consiste à mettre à jour `--api-server-authorized-ip-ranges` pour inclure l’accès pour un ordinateur client local ou une plage d’adresses IP (à partir de laquelle parcourir le portail). Pour autoriser cet accès, vous avez besoin de l’adresse IPv4 publique de l’ordinateur. Vous pouvez trouver cette adresse avec la commande ci-dessous ou en recherchant « quelle est mon adresse IP » dans un navigateur Internet.
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
