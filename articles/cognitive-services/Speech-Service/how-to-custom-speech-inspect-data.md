@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319108"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 
@@ -79,11 +79,13 @@ Une fois les données importées, vous pouvez cliquer sur les jeux de données e
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Modifier la transcription en écoutant l’audio
 
-Une fois le chargement des données réussi, cliquez sur le nom de chaque élément pour afficher les détails des données. La page de détails répertorie tous les fichiers de votre jeu de données, et vous pouvez cliquer sur l’énoncé souhaité. Pour chaque énoncé, vous pouvez lire l’audio et examiner les transcriptions, puis modifier les transcriptions si vous trouvez des erreurs d’insertion, de suppression ou de substitution. Pour plus d’informations sur les types d’erreurs, consultez le [guide pratique relatif à l’évaluation des données](how-to-custom-speech-evaluate-data.md).
+Une fois le chargement des données réussi, cliquez sur le nom de chaque élément pour afficher les détails des données. Vous pouvez également utiliser **Précédent** et **Suivant** pour vous déplacer entre chaque fichier.
+
+La page de détails répertorie tous les segments de chaque fichier audio, et vous pouvez cliquer sur l’énoncé souhaité. Pour chaque énoncé, vous pouvez lire l’audio et examiner les transcriptions, puis modifier les transcriptions si vous trouvez des erreurs d’insertion, de suppression ou de substitution. Pour plus d’informations sur les types d’erreurs, consultez le [guide pratique relatif à l’évaluation des données](how-to-custom-speech-evaluate-data.md).
 
 ![Page de l’éditeur](media/custom-speech/custom-speech-editor.png)
 
-Si le fichier audio est long, il est automatiquement segmenté en morceaux plus petits. Vous pouvez les modifier un par un à l’aide des boutons **Précédent** et **Suivant** pour passer d’une page à l’autre. Une fois les modifications effectuées, cliquez sur le bouton **Enregistrer**.
+Une fois les modifications effectuées, cliquez sur le bouton **Enregistrer**.
 
 ### <a name="export-datasets-from-the-editor"></a>Exporter des jeux de données à partir de l’éditeur
 

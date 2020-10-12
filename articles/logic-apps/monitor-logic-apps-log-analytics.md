@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333951"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurer les journaux d'activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps
 
@@ -19,7 +19,7 @@ Pour obtenir des informations de débogage plus détaillées sur vos application
 
 Pour configurer la journalisation de votre application logique, vous pouvez [activer Log Analytics au moment de la création de l'application](#logging-for-new-logic-apps). Pour les applications logiques existantes, vous pouvez aussi [installer la solution Logic Apps Management](#install-management-solution) dans votre espace de travail Log Analytics. Cette solution fournit des informations agrégées sur les exécutions de votre application logique et inclut des détails spécifiques comme l'état, la durée d'exécution, l'état de la nouvelle soumission et les ID de corrélation. Ensuite, pour activer la journalisation et créer des requêtes propres à ces informations, [configurez les journaux Azure Monitor](#set-up-resource-logs).
 
-Cet article explique comment activer Log Analytics lors de la création d'applications logiques, comment installer et configurer la solution Logic Apps Management, et comment configurer et créer des requêtes pour les journaux d'activité Azure Monitor.
+Cet article explique comment activer Log Analytics sur les nouvelles applications logiques et les applications logiques existantes, comment installer et configurer la solution Logic Apps Management et comment configurer et créer des requêtes pour les journaux d’activité Azure Monitor.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -89,6 +89,9 @@ Si vous avez activé Log Analytics lors de la création de votre application log
 
 Lorsque vous stockez des informations sur les événements et données d'exécution dans les [journaux d'activité Azure Monitor](../azure-monitor/platform/data-platform-logs.md), vous pouvez créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md). Celles-ci vous aideront à rechercher et consulter ces informations.
 
+> [!NOTE]
+> Une fois que vous avez activé les paramètres de diagnostic, les données de diagnostic peuvent ne pas circuler pendant 30 minutes jusqu’aux journaux de la destination spécifiée, par exemple Log Analytics, Event Hub ou un compte de stockage. Ce retard signifie que les données de diagnostic de cette période pourraient ne pas exister et ne pas être consultables. Les événements terminés et les [propriétés suivies](#extend-data) peuvent ne pas apparaître dans votre espace de travail Log Analytics pendant 10 à 15 minutes.
+
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application logique.
 
 1. Dans le menu de votre application logique, sous **Supervision**, sélectionnez **Paramètres de diagnostic** > **Ajouter un paramètre de diagnostic**.
@@ -140,13 +143,12 @@ Après les exécutions de votre application logique, vous pouvez consulter les d
 
    ![Voir les exécutions et l’état des applications logiques](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > La capacité **Renvoyer** de cette page n’est actuellement pas disponible.
+
    Pour les actions pour lesquelles vous avez [configuré des propriétés suivies](#extend-data), vous pouvez également visualiser ces propriétés en sélectionnant **Afficher** dans la colonne **Propriétés suivies**. Pour rechercher les propriétés suivies, utilisez le filtre de colonne.
 
    ![Afficher les propriétés suivies pour une application de logique](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Les propriétés suivies ou les événements terminés peuvent apparaître dans votre espace de travail Log Analytics avec un décalage de 10 à 15 minutes.
-   > En outre, la fonction **Renvoyer** de cette page n'est actuellement pas disponible.
 
 1. Pour filtrer vos résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
 
@@ -177,7 +179,7 @@ Après les exécutions de votre application logique, vous pouvez consulter les d
 Avec les journaux Azure Monitor, vous pouvez étendre le mode d’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple :
 
 * [Archiver des journaux de ressources Azure sur un compte de stockage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-* [Diffuser en continu les journaux de la plateforme Azure sur Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+* [Diffuser en continu les journaux de plateforme Azure vers Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple :
 
@@ -194,9 +196,9 @@ En fonction des emplacements où vous souhaitez envoyer les données de diagnost
 
 Chaque événement de diagnostic comprend des détails sur votre application logique et l’événement, par exemple, l’état, l’heure de début, l’heure de fin, etc. Pour configurer par programmation la supervision, le suivi et la journalisation, vous pouvez utiliser ces informations avec l'[API REST d'Azure Logic Apps](/rest/api/logic) et l'[API REST d'Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Vous pouvez également utiliser les propriétés `clientTrackingId` et `trackedProperties`, qui apparaissent dans 
 
-* `clientTrackingId`: si cet ID n’est pas fourni, Azure le génère automatiquement et met en corrélation les événements de l’exécution d’une application logique, y compris les flux de travail imbriqués appelés par l’application logique. Vous pouvez manuellement spécifier cet ID dans un déclencheur en ajoutant à la demande de déclenchement un en-tête `x-ms-client-tracking-id` comportant votre valeur d'ID personnalisé. Vous pouvez utiliser un déclencheur de demande, un déclencheur HTTP ou un déclencheur de webhook.
+* `clientTrackingId` : si cet ID n’est pas fourni, Azure le génère automatiquement et met en corrélation les événements de l’exécution d’une application logique, y compris les flux de travail imbriqués appelés par l’application logique. Vous pouvez manuellement spécifier cet ID dans un déclencheur en ajoutant à la demande de déclenchement un en-tête `x-ms-client-tracking-id` comportant votre valeur d'ID personnalisé. Vous pouvez utiliser un déclencheur de demande, un déclencheur HTTP ou un déclencheur de webhook.
 
-* `trackedProperties`: Pour suivre les entrées ou les sorties dans les données de diagnostic, vous pouvez ajouter une section `trackedProperties` à une action soit à l'aide du Concepteur d'application logique, soit directement dans la définition JSON de votre application logique. Les propriétés suivies ne peuvent suivre les entrées ou sorties que d’une action unique, mais vous pouvez utiliser les propriétés `correlation` d’événements pour mettre en corrélation les actions d’une exécution. Pour effectuer le suivi d'une ou plusieurs propriétés, ajoutez la section `trackedProperties` et les propriétés souhaitées à la définition de l'action.
+* `trackedProperties` : Pour suivre les entrées ou les sorties dans les données de diagnostic, vous pouvez ajouter une section `trackedProperties` à une action soit à l'aide du Concepteur d'application logique, soit directement dans la définition JSON de votre application logique. Les propriétés suivies ne peuvent suivre les entrées ou sorties que d’une action unique, mais vous pouvez utiliser les propriétés `correlation` d’événements pour mettre en corrélation les actions d’une exécution. Pour effectuer le suivi d'une ou plusieurs propriétés, ajoutez la section `trackedProperties` et les propriétés souhaitées à la définition de l'action.
 
   Voici un exemple montrant que la définition de l'action **Initialiser la variable** inclut des propriétés suivies provenant de l'entrée de l'action, sachant que l'entrée est un tableau et non un enregistrement.
 
@@ -282,4 +284,4 @@ Cet exemple montre que l'événement `ActionCompleted` comprend les attributs `c
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des requêtes de supervision et de suivi](../logic-apps/create-monitoring-tracking-queries.md)
-* [Superviser les messages B2B avec les journaux d'activité Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Superviser les messages B2B avec les journaux d’activité Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)
