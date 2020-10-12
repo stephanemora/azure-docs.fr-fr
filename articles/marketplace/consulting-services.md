@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419752"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708354"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -22,7 +22,7 @@ Les offres de services de conseil sont des engagements spécifiques pour le clie
 
 ## <a name="compare-consulting-services"></a>Comparer les services de conseil
 
-Les magasins en ligne de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure, sont adaptées aux types de solutions et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque magasin en ligne propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux magasins en ligne, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
+Les magasins en ligne de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure, sont adaptées aux types de solutions et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque magasin en ligne propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre AppSource et Place de marché Azure, consultez [Magasins en ligne de la place de marché commerciale](overview.md#commercial-marketplace-online-stores).
 
 Les offres de services de conseil qui sont basées sur Dynamics 365, Power Apps et Power BI peuvent être listées sur AppSource. Pour plus d’informations, téléchargez le fichier PDF [Instructions de référencement des services de conseil Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 

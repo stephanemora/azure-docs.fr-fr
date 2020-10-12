@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 description: Découvrez les options de connectivité et de réseau de l’option de déploiement Serveur flexible pour Azure Database pour PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929801"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708779"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -62,7 +62,7 @@ Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels 
 
    Votre serveur flexible PostgreSQL doit se trouver sur un sous-réseau **délégué** réservé à l’usage de serveur flexible PostgreSQL. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver sur le sous-réseau délégué. Pour déléguer un sous-réseau, affectez à sa propriété de délégation la valeur Microsoft.DBforPostgreSQL/flexibleServers.
 
-Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
+* **Groupes de sécurité réseau (NSG)**  : les règles de sécurité dans les groupes de sécurité réseau permettent de filtrer le type de trafic qui peut circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel. Pour plus d’informations, consultez [Vue d’ensemble des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scénarios de réseau virtuel non pris en charge
@@ -71,6 +71,7 @@ Découvrez comment créer un serveur flexible avec accès privé (intégration a
 * Il est impossible d’augmenter la taille d’un sous-réseau (espaces d’adressage) une fois qu’il existe des ressources sur ce sous-réseau.
 * L’appairage (peering) de réseaux virtuels entre régions n’est pas pris en charge.
 
+Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Accès public (adresses IP autorisées)
 Les caractéristiques de la méthode d’accès public sont les suivantes :
@@ -107,12 +108,9 @@ Considérez les points suivants quand l’accès au service de serveur de base d
 ## <a name="hostname"></a>Nom d’hôte
 Quelle que soit l’option réseau choisie, nous vous recommandons de toujours utiliser un nom de domaine complet (FQDN) comme nom d’hôte lors de la connexion à votre serveur flexible. Il n’est pas garanti que l’adresse IP du serveur reste statique. L’utilisation du nom de domaine complet vous permet d’éviter d’apporter des modifications à votre chaîne de connexion. 
 
-En effet, l’adresse IP change si vous utilisez une haute disponibilité avec redondance interzone et qu’un basculement se produit entre le serveur principal et le serveur secondaire. L’utilisation du nom de domaine complet signifie que vous pouvez retenter de façon continue des connexions avec la même chaîne de connexion.
-
 Exemple
 * Recommandé : `hostname = servername.postgres.database.azure.com`
-* Évitez d’utiliser `hostname = 10.0.0.4` (adresse privée) ou `hostname = 40.2.45.67` (adresse publique).
-
+* Dans la mesure du possible, évitez d’utiliser `hostname = 10.0.0.4` (adresse privée) ou `hostname = 40.2.45.67` (adresse publique)
 
 
 ## <a name="tls-and-ssl"></a>TLS et SSL
