@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257552"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
 Découvrez tout ce que dont vous avez besoin pour générer une application de bureau qui appelle des API web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="get-started"></a>Prise en main
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+Si ce n’est déjà fait, créez votre première application en effectuant un démarrage rapide :
 
-## <a name="get-started"></a>Bien démarrer
-
-Si ce n’est déjà fait, créez votre première application en suivant le Guide de démarrage rapide du bureau .NET, de la plateforme Windows universelle (UWP) ou de l’application native macOS :
-
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application native macOS](./quickstart-v2-ios.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application native macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous écrivez une application de bureau et voulez connecter des utilisateurs à votre application, ainsi qu’appeler des API web telles que Microsoft Graph, d’autres API Microsoft ou votre propre API web. Vous avez plusieurs possibilités :
+Vous écrivez une application de bureau et voulez connecter des utilisateurs à votre application, ainsi qu’appeler des API web telles que Microsoft Graph, d’autres API Microsoft ou votre propre API web. Vous disposez de plusieurs options :
 
 - Vous pouvez utiliser l’acquisition de jetons interactive :
 
@@ -64,6 +54,10 @@ Vous écrivez une application de bureau et voulez connecter des utilisateurs à 
 ## <a name="specifics"></a>Spécificités
 
 Les applications de bureau ont un certain nombre de spécificités. Elles dépendent principalement du fait que votre application utilise ou non une authentification interactive.
+
+## <a name="recommended-reading"></a>Lectures recommandées
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258334"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
 
-Lorsqu'une application est marquée avec la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide de son compte Microsoft Partner Network (MPN) et a associé ce compte MPN à l'inscription de l'application. Cet article explique comment accomplir le processus de [vérification de l’éditeur](publisher-verification-overview.md).
+Quand une inscription d’application a un éditeur vérifié, cela signifie que l'éditeur de l’application a [vérifié](/partner-center/verification-responses) son identité à l'aide de son compte Microsoft Partner Network (MPN) et a associé ce compte MPN à l’inscription de l’application. Cet article explique comment accomplir le processus de [vérification de l’éditeur](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Démarrage rapide
 Si vous êtes déjà inscrit à Microsoft Partner Network (MPN) et que vous remplissez les [conditions préalables](publisher-verification-overview.md#requirements), vous pouvez commencer immédiatement : 
@@ -42,9 +42,9 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Vérifiez que vous êtes connecté avec une [authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) à un compte d’organisation (Azure AD) autorisé à apporter des modifications aux applications que vous souhaitez marquer avec la mention « éditeur vérifié » et sur le compte MPN dans l’Espace partenaires.
 
-    - Dans Azure AD, cet utilisateur doit être membre de l’un des rôles suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    - Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
 
-    - Dans l'Espace partenaires, cet utilisateur doit disposer des rôles suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD). 
+    - Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD). 
 
 1. Accédez au portail d’inscription des applications :  
 

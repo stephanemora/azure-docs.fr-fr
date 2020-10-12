@@ -1,47 +1,40 @@
 ---
 title: Actions webhook pour les alertes de journal dans les alertes Azure
-description: Cet article explique comment créer une règle d’alerte de journal à l’aide de l’espace de travail Log Analytics ou Application Insights, comment l’alerte envoie les données en tant que webhook HTTP et les détails des différentes personnalisations possibles.
+description: Décrit comment configurer des notifications Push d’alerte de journalisation avec une action webhook et des personnalisations disponibles
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294306"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
-Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions. Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
+
+L’[alerte de journal](alerts-log.md) prend en charge la [configuration des groupes d’actions webhook](action-groups.md#webhook). Dans cet article, nous allons décrire les propriétés disponibles et la manière de configurer un webhook JSON personnalisé.
 
 > [!NOTE]
-> Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs) pour vos intégrations de webhook. Le schéma d’alerte commun offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor. Notez que le schéma d’alerte commun n’honore pas l’option JSON personnalisée pour les alertes de journal. Elle défère à la charge utile du schéma d’alerte commun si celle-ci est sélectionnée, quelle que soit la personnalisation que vous pouvez avoir effectuée au niveau des règles d’alerte. [En savoir plus sur les définitions de schéma d’alerte commun.](https://aka.ms/commonAlertSchemaDefinitions)
-
-## <a name="webhook-actions"></a>Actions de webhook
-
-Les actions de webhook permettent d’appeler un processus externe par le biais d’une simple requête HTTP POST. Le service appelé doit prendre en charge les webhooks et déterminer comment il doit utiliser toute charge utile qu’il reçoit.
-
-Les propriétés requises par les actions webhook sont décrites dans le tableau suivant.
-
-| Propriété | Description |
-|:--- |:--- |
-| **URL du webhook** |URL du webhook. |
-| **Charge utile JSON personnalisée** |La charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Pour plus d’informations, consultez [Gérer les alertes de journal](alerts-log.md).|
+> Le webhook JSON personnalisé n’est actuellement pas pris en charge dans la version `2020-05-01-preview` de l’API.
 
 > [!NOTE]
-> Le bouton **Afficher le webhook** à côté de l’option **Inclure la charge utile JSON personnalisée pour le webhook** de l’alerte de journal affiche l’exemple de charge utile du webhook pour la personnalisation fournie. Il ne contient aucune donnée réelle et représentative du schéma JSON utilisé pour les alertes de journal. 
+> Nous vous recommandons d’utiliser le [schéma d’alerte commun](alerts-common-schema.md) pour vos intégrations de webhook. Le schéma d’alerte commun offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor. Pour des règles d’alerte de journal contenant une charge utile JSON personnalisée définie, l’activation du schéma courant a pour effet de rétablir le schéma de charge utile décrit [ici](alerts-common-schema-definitions.md#log-alerts). Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte ; les alertes de plus grande taille n’incluent pas les résultats de la recherche. Lorsque les résultats de la recherche ne sont pas inclus, vous devez utiliser `LinkToFilteredSearchResultsAPI` et `LinkToSearchResultsAPI` pour accéder aux résultats de la requête via l’API Log Analytics.
 
-Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe. Par défaut, la charge utile comprend les valeurs du tableau suivant. Vous pouvez choisir de remplacer cette charge utile par une charge utile personnalisée de votre choix. Dans ce cas, utilisez les variables de chacun des paramètres indiquées dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
+## <a name="webhook-payload-properties"></a>Propriétés de la charge utile du webhook
 
+Les actions webhook permettent d’appeler une seule requête HTTP POST. Le service appelé doit prendre en charge les webhooks et savoir comment utiliser la charge utile qu’il reçoit.
+
+Propriétés de l’action webhook par défaut et noms de paramètres JSON personnalisés :
 
 | Paramètre | Variable | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nom de la règle d’alerte. |
 | *Niveau de gravité* |#severity |Gravité définie pour l’alerte de journal déclenchée. |
-| *AlertThresholdOperator* |#thresholdoperator |Opérateur de seuil pour la règle d’alerte, qui utilise supérieur à ou inférieur à. |
+| *AlertThresholdOperator* |#thresholdoperator |Opérateur de seuil de la règle d’alerte. |
 | *AlertThresholdValue* |#thresholdvalue |Valeur de seuil de la règle d’alerte. |
 | *LinkToSearchResults* |#linktosearchresults |Lien vers le portail Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |Lien vers l’API Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
@@ -54,15 +47,15 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | *SearchQuery* |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
 | *SearchResults* |"IncludeSearchResults": true|Enregistrements retournés par la requête sous forme de table JSON, limitée aux 1 000 premiers enregistrements. « IncludeSearchResults » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
 | *Dimensions* |« IncludeDimension »" : true|Combinaisons de valeurs de dimensions ayant déclenché une alerte en tant que section JSON. « IncludeDimensions » : true est ajouté à une définition de webhook JSON personnalisée en tant que propriété de niveau supérieur. |
-| *Type d’alerte*| #alerttype | Le type de règle d’alerte de journal configuré en tant que [Mesure de métriques](alerts-unified-log.md#metric-measurement-alert-rules) ou [Nombre de résultats](alerts-unified-log.md#number-of-results-alert-rules).|
+| *Type d’alerte*| #alerttype | Le type de règle d’alerte de journal configuré en tant que [Mesure de métriques ou Nombre de résultats](alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID de votre espace de travail Log Analytics. |
 | *ID d’application* |#applicationid |ID de votre application Application Insights. |
-| *Identifiant d’abonnement* |#subscriptionid |ID de votre abonnement Azure utilisé. 
+| *Identifiant d’abonnement* |#subscriptionid |ID de votre abonnement Azure utilisé. |
 
-> [!NOTE]
-> Les liens fournis transmettent des paramètres, tels que *SearchQuery*, *Search Interval StartTime* et *Search Interval End time*, dans l’URL du portail Azure ou l’API.
+## <a name="custom-webhook-payload-definition"></a>Définition de la charge utile d’un webhook personnalisé
 
-Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*. Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
+Vous pouvez utiliser l’option **Inclure une charge utile JSON personnalisée pour webhook** pour obtenir une charge utile JSON personnalisée à l’aide des paramètres ci-dessus. Vous pouvez également générer des propriétés supplémentaires.
+Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*. Le service appelé par ce webhook s’attend à recevoir ce paramètre :
 
 ```json
 
@@ -77,18 +70,21 @@ Cette charge utile donne ce qui suit quand elle est envoyée au webhook :
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Étant donné que toutes les variables d’un webhook personnalisé doivent être spécifiées dans un boîtier JSON, comme « #searchinterval », le webhook qui en résulte possède également des données variables dans des boîtiers, comme « 00:05:00 ».
+Les variables d’un webhook personnalisé doivent être spécifiées dans un boîtier JSON. Par exemple, le fait de référencer « #searchresultcount » dans l’exemple de webhook ci-dessus génère une sortie en fonction des résultats de l’alerte.
 
-Pour inclure les résultats de la recherche dans une charge utile personnalisée, vérifiez que **IncudeSearchResults** est défini comme une propriété de niveau supérieur dans la charge utile JSON. 
+Pour inclure les résultats de la recherche, ajoutez **IncludeSearchResults** en tant que propriété de niveau supérieur dans le JSON personnalisé. Les résultats de la recherche sont inclus en tant que structure JSON, ce qui signifie que les résultats ne peuvent pas être référencés dans des champs définis personnalisés. 
+
+> [!NOTE]
+> Le bouton **Afficher le webhook** à côté de l’option **Inclure une charge utile JSON personnalisée pour webhook** affiche un aperçu de ce qui a été fourni. Il ne contient aucune donnée réelle, mais il est représentatif du schéma JSON utilisé. 
 
 ## <a name="sample-payloads"></a>Exemples de charges utiles
 Cette section présente des exemples de charge utile pour les webhooks pour les alertes de journal. Les exemples de charge utile incluent des exemples lorsque la charge utile est standard et quand elle est personnalisée.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook standard pour les alertes de journal 
-Ces deux exemples ont une charge utile fictive ne comprenant que deux colonnes et deux lignes.
+### <a name="log-alert-for-log-analytics"></a>Alerte de journal pour Log Analytics
+L’exemple de charge utile suivant est destiné à une action webhook standard utilisée pour les alertes basées sur Log Analytics :
 
-#### <a name="log-alert-for-log-analytics"></a>Alerte de journal pour Log Analytics
-L’exemple de charge utile suivant est destiné à une action de webhook standard *sans option JSON personnalisée* utilisée pour les alertes basées sur Log Analytics :
+> [!NOTE]
+> La valeur du champ « Gravité » change si vous avez [basculé sur l’API scheduledQueryRules actuelle](alerts-log-api-switch.md) à partir de l’[API d’alerte Log Analytique des journaux d’activité héritée](api-alerts.md).
 
 ```json
 {
@@ -152,14 +148,10 @@ L’exemple de charge utile suivant est destiné à une action de webhook standa
     "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
 }
- ```
+```
 
-> [!NOTE]
-> La valeur du champ « Gravité » peut changer si vous avez [modifié votre préférence API](alerts-log-api-switch.md) pour les alertes de journal sur Log Analytics.
-
-
-#### <a name="log-alert-for-application-insights"></a>Alerte de journal pour Application Insights
-L’exemple de charge utile suivant concerne un webhook standard *sans option JSON personnalisée* lorsqu’il est utilisé pour les alertes de journal basées sur application Insights :
+### <a name="log-alert-for-application-insights"></a>Alerte de journal pour Application Insights
+L’exemple de charge utile suivant concerne un webhook standard lorsqu’il est utilisé pour les alertes de journal basées sur des ressources Application Insights :
     
 ```json
 {
@@ -225,8 +217,73 @@ L’exemple de charge utile suivant concerne un webhook standard *sans option JS
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Alerte de journal avec charge utile JSON personnalisée
-Par exemple, pour créer une charge utile personnalisée qui inclut uniquement le nom de l’alerte et les résultats de recherche, vous pouvez utiliser ce qui suit : 
+### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>Alerte de journal pour les autres journaux de ressources (à partir de la version `2020-05-01-preview` de l’API)
+
+> [!NOTE]
+> Il n’existe actuellement aucun frais supplémentaire pour la version `2020-05-01-preview` de l’API et les alertes de journal centrées sur les ressources.  La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser la nouvelle version de l’API et les alertes de journal centrées sur les ressources après la période de notification, vous serez facturé au tarif en vigueur.
+
+L’exemple de charge utile suivant concerne un webhook standard lorsqu’il est utilisé pour les alertes de journal basées sur d’autres journaux de ressources (sauf espaces de travail et Application Insights) :
+
+```json
+{
+    "schemaId": "azureMonitorCommonAlertSchema",
+    "data": {
+        "essentials": {
+            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+            "alertRule": "AcmeRule",
+            "severity": "Sev4",
+            "signalType": "Log",
+            "monitorCondition": "Fired",
+            "monitoringService": "Log Alerts V2",
+            "alertTargetIDs": [
+                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+            ],
+            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+            "firedDateTime": "2020-07-09T14:04:49.99645Z",
+            "description": "log alert rule V2",
+            "essentialsVersion": "1.0",
+            "alertContextVersion": "1.0"
+        },
+        "alertContext": {
+            "properties": null,
+            "conditionType": "LogQueryCriteria",
+            "condition": {
+                "windowSize": "PT10M",
+                "allOf": [
+                    {
+                        "searchQuery": "Heartbeat",
+                        "metricMeasure": null,
+                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+                        "operator": "LowerThan",
+                        "threshold": "1",
+                        "timeAggregation": "Count",
+                        "dimensions": [
+                            {
+                                "name": "ResourceId",
+                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+                            }
+                        ],
+                        "metricValue": 0.0,
+                        "failingPeriods": {
+                            "numberOfEvaluationPeriods": 1,
+                            "minFailingPeriodsToAlert": 1
+                        },
+                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+                    }
+                ],
+                "windowStartTime": "2020-07-07T13:54:34Z",
+                "windowEndTime": "2020-07-09T13:54:34Z"
+            }
+        }
+    }
+}
+```
+
+### <a name="log-alert-with-a-custom-json-payload"></a>Alerte de journal avec une charge utile JSON personnalisée
+Par exemple, pour créer une charge utile personnalisée qui inclut uniquement le nom de l’alerte et les résultats de la recherche, utilisez cette configuration : 
 
 ```json
     {

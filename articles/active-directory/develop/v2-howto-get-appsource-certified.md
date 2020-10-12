@@ -1,6 +1,6 @@
 ---
 title: Obtenir une certification AppSource pour Azure Active Directory | Microsoft Docs
-description: Plus d’informations sur l’obtention de votre application AppSource certifié pour Azure Active Directory.
+description: Découvrez comment faire certifier votre application AppSource pour Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 08acaf4f0171e586ff2cc3f52134395fb5925df7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256872"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Obtenir une certification AppSource pour Azure Active Directory
 

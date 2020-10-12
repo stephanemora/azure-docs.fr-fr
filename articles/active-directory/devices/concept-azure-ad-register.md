@@ -1,6 +1,6 @@
 ---
 title: En quoi consiste un appareil inscrit sur Azure AD ?
-description: Découvrez comment la gestion d’identité des appareils peut vous aider à gérer les appareils qui accèdent aux ressources de votre environnement.
+description: Découvrez comment les appareils inscrits sur Azure AD fournissent à vos utilisateurs la prise en charge des scénarios d’appareil mobile et Bring Your Own Device (BYOD).
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256436"
 ---
 # <a name="azure-ad-registered-devices"></a>Appareils inscrits sur Azure AD
 
