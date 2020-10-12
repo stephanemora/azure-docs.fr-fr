@@ -1,6 +1,6 @@
 ---
 title: Utiliser des cartes d’intérieur dans le Créateur Azure Maps
-description: Cet article présente les concepts qui s’appliquent aux services du Créateur Azure Maps.
+description: Cet article présente les concepts qui s’appliquent aux services d’Azure Maps Creator.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 05/18/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad1b7ae08e74f455190c44a813dde44b0b683014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311357"
 ---
 # <a name="creator-for-indoor-maps"></a>Créateur pour cartes d’intérieur
 

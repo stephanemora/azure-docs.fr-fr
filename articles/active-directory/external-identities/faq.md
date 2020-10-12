@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274042"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -116,6 +116,9 @@ Si le partenaire a un client Azure AD qui est fédéré à l’infrastructure d�
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Je pensais qu’Azure AD B2B n’acceptait pas les adresses de messagerie gmail.com et outlook.com, et que B2C était utilisé pour ces types de comptes ?
 Nous supprimons les différences entre B2B et B2C (des entreprises aux particuliers) Collaboration en ce qui concerne la prise en charge des identités. L’identité utilisée n’est pas un bon critère de choix entre B2B et B2C. Pour plus d’informations sur le choix de l’option de collaboration, consultez la page [Comparer B2C et B2B Collaboration dans Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Un compte local Azure AD B2C peut-il être invité sur un locataire Azure AD pour B2B Collaboration ?
+Non. Un compte local Azure AD B2C ne peut être utilisé que pour se connecter au locataire Azure AD B2C. Le compte ne peut pas être utilisé pour se connecter à un locataire Azure AD. L’invitation d’un compte local Azure AD B2C sur un locataire Azure AD pour B2B Collaboration n’est pas prise en charge.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quelles applications et services prennent en charge les utilisateurs invités Azure B2B ?
 Toutes les applications intégrées Azure AD peuvent prendre en charge les utilisateurs invités Azure B2B, mais elles doivent utiliser un point de terminaison configuré comme locataire pour authentifier les utilisateurs invités. Vous devrez peut-être également [personnaliser les revendications](claims-mapping.md) dans le jeton SAML émis lorsqu’un utilisateur invité s’authentifie auprès de l’application. 
