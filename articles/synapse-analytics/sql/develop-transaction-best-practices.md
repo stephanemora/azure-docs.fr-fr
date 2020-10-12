@@ -1,6 +1,6 @@
 ---
 title: Optimiser les transactions pour le pool SQL
-description: Découvrez comment optimiser les performances de votre code transactionnel dans le pool SQL (entrepôt de données) tout en minimisant les risques de restaurations de longue durée.
+description: Découvrez comment optimiser les performances de votre code transactionnel dans un pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288645"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Optimiser les transactions pour le pool SQL
 
@@ -23,9 +23,9 @@ Découvrez comment optimiser les performances de votre code transactionnel dans 
 
 ## <a name="transactions-and-logging"></a>Transactions et journalisation
 
-Les transactions sont une composante importante d’un moteur de base de données relationnelle. Le pool SQL utilise des transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique.
+Les transactions sont une composante importante d’un moteur de base de données relationnelle. Le pool SQL utilise des transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une même unité atomique.
 
-Le pool SQL valide les modifications apportées à la base de données à l’aide de journaux des transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
+Le pool SQL valide les modifications apportées à la base de données à l’aide de journaux des transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge sur le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
 
 * Utilisez autant que possible des constructions de journalisation minimale.
 * Traitez les données en les regroupant par lots définis, afin d’éviter les transactions isolées de longue durée.
@@ -84,7 +84,7 @@ Le chargement de données dans une table non vide avec un index cluster comporte
 
 ## <a name="optimize-deletes"></a>Optimiser les suppressions
 
-DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour permuter l’ancienne table et la table nouvellement créée.
+DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour permuter l’ancienne table et la table nouvellement créée.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

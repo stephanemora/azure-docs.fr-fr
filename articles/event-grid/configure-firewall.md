@@ -3,12 +3,12 @@ title: Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid
 description: Cet article explique comment configurer les paramètres de pare-feu pour les rubriques ou domaines Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324159"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configurer le pare-feu IP pour les rubriques ou domaines Azure Event Grid 
 Par défaut, la rubrique et le domaine sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Les serveurs de publication provenant de toute autre adresse IP seront rejetés et recevront une réponse 403 (interdit). Pour plus d’informations sur les fonctionnalités de sécurité réseau prises en charge par Event Grid, consultez [Sécurité réseau pour Event Grid](network-security.md).
@@ -23,7 +23,7 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
 
     Vous pouvez limiter le trafic à l’aide de règles de pare-feu basées sur IP. Spécifiez une seule adresse IPv4 ou une plage d’adresses IP dans la notation CIDR (Classless Inter-Domain Routing). 
 
-    ![Page des réseaux publics](./media/configure-firewall/public-networks-page.png)
+    ![Capture d’écran montrant la page « Accès au réseau public » avec l’option « Réseaux publics » sélectionnée.](./media/configure-firewall/public-networks-page.png)
 3. Sélectionnez **Points de terminaison privés uniquement** pour autoriser uniquement les connexions de point de terminaison privées à accéder à cette ressource. Utilisez l’onglet **Connexions des points de terminaison privés** de cette page pour gérer les connexions. 
 
     ![Page des réseaux publics](./media/configure-firewall/private-endpoints-page.png)

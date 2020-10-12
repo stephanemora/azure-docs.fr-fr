@@ -1,16 +1,16 @@
 ---
 title: Performances et mise à l’échelle dans Fonctions durables - Azure
-description: Introduction à l’extension Fonctions durables pour Azure Functions.
+description: Découvrez les caractéristiques de mise à l’échelle uniques de l’extension de Durable Functions pour Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325808"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 

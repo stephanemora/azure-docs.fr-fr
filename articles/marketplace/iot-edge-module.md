@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420606"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708541"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -58,7 +58,7 @@ Toutes les conditions des contrats et politiques de la Place de marché Microsof
 
 Pour publier un module IoT Edge sur la Place de marché Microsoft Azure, vous devez satisfaire aux prérequis suivants :
 
-- Accès à l’Espace partenaires. Pour plus d’informations, consultez le [Guide de publication sur AppSource et la Place de marché Azure](marketplace-publishers-guide.md).
+- Accès à l’Espace partenaires. Pour plus d’informations, consultez [Créer un compte de marketplace commercial dans Espace partenaires](partner-center-portal/create-account.md).
 - Héberger votre module IoT Edge dans un registre de conteneurs Azure.
 - Disposer des métadonnées de votre module IoT Edge suivantes, (liste non exhaustive) :
     - Un titre

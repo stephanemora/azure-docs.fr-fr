@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355735"
 ---
 # <a name="azure-application-gateway-features"></a>Fonctionnalités Azure Application Gateway
 
@@ -147,9 +147,9 @@ Pour plus d’informations, consultez [Réécrire les en-têtes et les URL HTTP]
 
 ## <a name="sizing"></a>Dimensionnement
 
-Application Gateway Standard_v2 peut être configuré dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. Cette référence SKU n’offre pas de tailles d’instance différentes. Pour plus d’informations sur les performances et les tarifs de v2, consultez [Mise à l’échelle automatique de V2](application-gateway-autoscaling-zone-redundant.md) et [Compréhension de la tarification](understanding-pricing.md).
+Application Gateway Standard_v2 peut être configuré dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. La référence SKU v2 ne propose pas différentes tailles d’instance. Pour plus d’informations sur les performances et les tarifs de v2, consultez [Mise à l’échelle automatique de V2](application-gateway-autoscaling-zone-redundant.md) et [Compréhension de la tarification](understanding-pricing.md).
 
-Application Gateway Standard est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
+Application Gateway Standard (v1) est disponible en trois tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
 Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
 

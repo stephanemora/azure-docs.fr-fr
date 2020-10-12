@@ -4,17 +4,17 @@ description: 'Benchmark de sécurité Azure v2 : Journalisation et détection 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295462"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Contrôle de sécurité : Journalisation et détection des menaces
+# <a name="security-control-v2-logging-and-threat-detection"></a>Contrôle de sécurité V2 : Journalisation et détection des menaces
 
 La fonctionnalité Journalisation et détection des menaces recouvre les contrôles destinés à détecter les menaces dans Azure et à activer, collecter et stocker les journaux d’audit pour les services Azure. Cela comprend l’activation des processus de détection, d’investigation et de correction avec des contrôles visant à générer des alertes de haute qualité avec la détection native des menaces dans les services Azure. Cela inclut également la collecte des journaux avec Azure Monitor, la centralisation de l’analyse de la sécurité avec Azure Sentinel, la synchronisation de l’heure et la rétention des journaux. 
 
@@ -40,11 +40,11 @@ En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repè
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Opérations de sécurité (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -77,11 +77,11 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Opérations de sécurité (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Opérations de sécurité (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestion de la posture](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
-Activez la journalisation des ressources Azure pour répondre aux exigences de conformité, de détection des menaces et d’investigation et de chasse aux menaces. 
+Activez la journalisation des ressources Azure pour répondre aux exigences de conformité, de détection des menaces, de chasse aux menaces et d’investigation des incidents. 
 
 Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les journaux de ressources et la collecte des données de journal sur les ressources Azure pour accéder aux journaux d’audit, de sécurité et de ressources. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles. 
 
@@ -141,9 +141,9 @@ Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les jour
 
 **Responsabilité** : Partagé
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
-- [Opérations de sécurité (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Sécurité d’infrastructure et de point de terminaison 
 
@@ -171,7 +171,7 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Configurez la rétention des journaux en fonction de vos besoins en matière de conformité, de réglementation et autres exigences. 
+Configurez la rétention des journaux en fonction de vos besoins en matière de conformité, de réglementation et d’exigences métier. 
 
 Dans Azure Monitor, vous pouvez définir la période de rétention de votre espace de travail Log Analytics en fonction des règles de conformité de votre organisation. Utilisez des comptes Stockage Azure, Data Lake ou d’espace de travail Log Analytics pour le stockage à long terme et l’archivage.
 
 - [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Configuration de la stratégie de rétention pour les journaux de compte Stockage Azure : https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Exportation des alertes et recommandations Azure Security Center](../../security-center/continuous-export.md)
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Sécurité des applications et DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Opérations de sécurité (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestion de la conformité de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Tous les journaux générés par des ressources dans Azure fournissent des horod
 
 **Responsabilité** : Partagé
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Stratégie et normes](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

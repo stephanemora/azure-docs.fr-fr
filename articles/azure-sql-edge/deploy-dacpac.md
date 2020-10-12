@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293898"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Packages SQL Database DACPAC et BACPAC dans SQL Edge
 
 Azure SQL Edge est un moteur de base de données relationnelle optimisé conçu pour les déploiements IoT et de périphérie. Il repose sur les dernières versions du moteur de base de données Microsoft SQL, qui fournit des fonctionnalités de performances, de sécurité et de traitement des requêtes de pointe. Avec les fonctionnalités de gestion de base de données relationnelle de SQL Server les plus performantes du marché, Azure SQL Edge offre des fonctionnalités de diffusion en continu intégrées pour l’analyse en temps réel et le traitement des événements complexes.
 
-Azure SQL Edge fournit également une implémentation native de SqlPackage.exe qui vous permet de déployer un package [SQL Database DACPAC et BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) pendant le déploiement de SQL Edge. 
+Azure SQL Edge fournit un mécanisme natif vous permettant de déployer un package [SQL Database DACPAC et BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) pendant ou après le déploiement de SQL Edge.
 
 Vous pouvez déployer les packages SQL Database dacpac et bacpac sur SQL Edge à l’aide de la variable d’environnement `MSSQL_PACKAGE`. Vous pouvez configurer la variable d’environnement avec l’un des éléments suivants.  
 - Emplacement du dossier local dans le conteneur SQL contenant les fichiers dacpac et bacpac. Ce dossier peut être mappé à un volume hôte à l’aide de points de montage ou de conteneurs de volume de données. 
@@ -64,6 +64,10 @@ Pour déployer (ou importer) un package SQL Database DAC `(*.dacpac)` ou un fich
 5. Après la mise à jour du module, les fichiers de package sont téléchargés, décompressés et déployés pour l’instance SQL Edge.
 
 À chaque redémarrage du conteneur Azure SQL Edge, SQL Edge tente de télécharger le package de fichiers compressé et d’évaluer les modifications. Si une nouvelle version du fichier dacpac est rencontrée, les modifications sont déployées vers la base de données dans SQL Edge.
+
+## <a name="known-issue"></a>Problème connu
+
+Pendant certains déploiements DACPAC ou BACPAC, les utilisateurs peuvent rencontrer un dépassement du délai d’attente d’une commande, entraînant l’échec de l’opération de déploiement dacpac. Si vous rencontrez ce problème, utilisez SQLPackage.exe (ou les outils clients SQL) pour appliquer manuellement le déploiement DACPAC ou BACPAC. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257450"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -111,6 +111,12 @@ Si vous avez accepté l’URI ID d’application proposé par le portail d’ins
 
 Quand une application est appelée sur une action de contrôleur qui contient un attribut **[Authorize]**, ASP.NET et ASP.NET Core extraient le jeton d’accès à partir du jeton du porteur dans l’en-tête d’autorisation. Le jeton d’accès est ensuite transmis à l’intergiciel JwtBearer qui appelle Microsoft IdentityModel Extensions pour .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
+
+Microsoft vous recommande d’utiliser le package NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) lors du développement d’une API web avec ASP.NET Core.
+
+_Microsoft.Identity.Web_ fournit le ciment entre ASP.NET Core, l’intergiciel d’authentification et la [bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md) pour .NET. Il favorise une expérience développeur plus claire et plus robuste, et tire parti de la puissance de la plateforme d’identités Microsoft et d’Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Utilisation de modèles Microsoft.Identity.Web
 
 Vous pouvez créer une API web à partir de zéro à l’aide des modèles de projet Microsoft.Identity.Web. Pour plus d’informations, consultez [Modèles de projet d’API web Microsoft.Identity.Web](https://aka.ms/ms-id-web/webapi-project-templates).
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Actuellement, les modèles ASP.NET Core créent des API web Azure Active Directory (Azure AD) qui connectent des utilisateurs de votre organisation ou d’une autre organisation. Elles ne connectent pas d’utilisateurs à l’aide de comptes personnels. Toutefois, vous pouvez modifier les modèles pour utiliser le point de terminaison de Plateforme d’identités Microsoft à l’aide de [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), disponible en tant que package NuGet, en remplaçant le code dans *Startup.cs* :
+ Actuellement, les modèles ASP.NET Core créent des API web Azure Active Directory (Azure AD) qui connectent des utilisateurs de votre organisation ou d’une autre organisation. Elles ne connectent pas d’utilisateurs à l’aide de comptes personnels. Toutefois, vous pouvez modifier les modèles permettant d’utiliser le point de terminaison de la plateforme d’identités Microsoft en utilisant [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) pour remplacer le code dans *Startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;

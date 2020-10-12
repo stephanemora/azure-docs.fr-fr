@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258674"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -262,7 +262,7 @@ La convention de nommage vous permet de rechercher des stratégies et de compren
 
 * Quand elle s’applique (le cas échéant)
 
-![Convention de nommage](media/plan-conditional-access/11.png)
+![Capture d’écran montrant les normes d’attribution de noms pour les stratégies.](media/plan-conditional-access/11.png)
 
 **Exemple** Une stratégie qui exige MFA pour les utilisateurs Marketing accédant à l’application Dynamics CRP depuis les réseaux externes peut être formulée de la façon suivante :
 

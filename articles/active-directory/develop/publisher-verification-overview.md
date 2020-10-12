@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258147"
 ---
 # <a name="publisher-verification"></a>Vérification de l'éditeur
 
@@ -33,9 +33,10 @@ La vérification de l'éditeur offre les avantages suivants :
 
 - **Amélioration de l'image de marque** : un badge « vérifié » apparaît sur l'[invite de consentement](application-consent-experience.md) Azure AD, la page Applications d'entreprise et les autres pages auxquelles ont accès les utilisateurs finaux et les administrateurs. 
 
-- **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies. 
+- **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies.
 
-- **Amélioration de l'évaluation des risques** : les détections par Microsoft de demandes de consentement « risquées » peuvent inclure la vérification de l'éditeur comme signal. 
+> [!NOTE]
+> À compter du mois de novembre 2020, les utilisateurs finaux ne seront plus en mesure d’accorder leur consentement à la plupart des applications multilocataires nouvellement inscrites sans éditeurs vérifiés. Cela s’appliquera aux applications inscrites après le 8 novembre 2020, qui utilisent OAuth 2.0 pour demander des autorisations au-delà de la connexion de base et lire le profil utilisateur, et qui demandent le consentement d’utilisateurs situés dans d’autres locataires que celui où l’application est inscrite. Un avertissement s’affichera sur l’écran de consentement pour informer les utilisateurs que ces applications sont risquées et proviennent d’éditeurs non vérifiés.    
 
 ## <a name="requirements"></a>Spécifications
 Il existe quelques conditions préalables à la vérification de l'éditeur, dont certaines sont déjà remplies par de nombreux partenaires Microsoft. Il s'agit de : 
@@ -69,7 +70,7 @@ Vous trouverez ci-dessous quelques questions fréquemment posées au sujet du pr
 
   Les développeurs qui s'intègrent également à Microsoft 365 peuvent bénéficier d'avantages supplémentaires grâce à ces programmes. Pour plus d'informations, reportez-vous à [Attestation d'éditeur Microsoft 365](/microsoft-365-app-certification/docs/attestation) et [Certification d'application Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **Est-ce la même chose que la Galerie d'applications Azure AD ?** Non. La vérification de l'éditeur est un programme complémentaire mais distinct de la [Galerie d'applications Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Les développeurs qui remplissent les critères ci-dessus doivent finaliser le processus de vérification de l'éditeur indépendamment de leur participation à ce programme. 
+- **Est-ce la même chose que la Galerie d'applications Azure AD ?** Non. La vérification de l'éditeur est un programme complémentaire mais distinct de la [Galerie d'applications Azure Active Directory](v2-howto-app-gallery-listing.md). Les développeurs qui remplissent les critères ci-dessus doivent finaliser le processus de vérification de l'éditeur indépendamment de leur participation à ce programme. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à [marquer une application avec la mention « éditeur vérifié »](mark-app-as-publisher-verified.md).
