@@ -3,12 +3,12 @@ title: Architecture de l’appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322255"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architecture de l’appliance Azure Migrate
 
@@ -72,7 +72,7 @@ L'appliance communique avec les instances vCenter Server et les hôtes/grappes H
 2. **Recueillir des métadonnées et des données de performances** :
     - L’appliance utilise une session CIM (Common Information Model) pour collecter les données des machines virtuelles Hyper-V de l’hôte Hyper-V sur les ports 5985.
     - Par défaut, l'appliance communique avec le port 443 pour collecter les données des machines virtuelles VMware à partir de vCenter Server.
-3. **Envoyer des données** : L’appliance envoie les données collectées aux outils Évaluation de serveur Azure Migrate et Migration de serveur Azure Migrate via le port SSL 443. L’appliance peut se connecter à Azure via Internet, ou vous pouvez utiliser ExpressRoute avec le Peering public/Microsoft.
+3. **Envoyer des données** : L’appliance envoie les données collectées aux outils Évaluation de serveur Azure Migrate et Migration de serveur Azure Migrate via le port SSL 443. L’appliance peut se connecter à Azure via Internet ou via ExpressRoute (nécessite un Peering Microsoft).
     - Pour les données de performances, l’appliance collecte les données d'utilisation en temps réel.
         - Les données de performances sont collectées toutes les 20 secondes pour VMware et toutes les 30 secondes pour Hyper-V, pour chaque mesure de performance.
         - Les données collectées sont regroupées pour créer un point de données unique pendant 10 minutes.

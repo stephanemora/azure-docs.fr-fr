@@ -3,12 +3,12 @@ title: Webhooks pour répondre aux actions du registre
 description: Découvrez comment utiliser des webhooks pour déclencher des événements quand des actions d’extraction (pull) ou d’envoi (push) sont exécutées dans l’un des référentiels de votre registre.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253392"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 
 Exemple de formulaire webhook :
 
-![Interface utilisateur de création de webhook ACR dans le portail Azure](./media/container-registry-webhook/webhook.png)
+![Capture d’écran montrant l’interface utilisateur de création d’un webhook ACR dans le portail Azure.](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Créer un webhook - Azure CLI
 
