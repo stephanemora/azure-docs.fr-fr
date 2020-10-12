@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322085"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -104,7 +104,7 @@ Un instantané de cohérence en cas d’incident capture les données qui se tro
 
 **Description** | **Détails** | **Recommandation**
 --- | --- | ---
-Les points de récupération de cohérence des applications sont créés à partir d’instantanés de cohérence des applications.<br/><br/> Un instantané de cohérence des applications contient toutes les informations d’un instantané de cohérence en cas d’incident ainsi que toutes les données en mémoire et les transactions en cours. | Les instantanés de cohérence des applications utilisent le service de cliché instantané de volume (VSS) :<br/><br/>   (1) Lorsqu’une capture instantanée est lancée, le service VSS effectue une opération de copie pour écriture sur le volume.<br/><br/>   (2) Avant d’effectuer l’opération de copie pour écriture, le service VSS informe chaque application de l’ordinateur qu’il a besoin de vider ses données résidant en mémoire sur le disque.<br/><br/>   (3) VSS permet ensuite à l’application de sauvegarde ou de reprise d’activité (dans ce cas, Site Recovery) de lire les données d’instantanés afin de poursuivre. | Les instantanés de cohérence des applications sont réalisés selon la fréquence que vous avez spécifiée. Cette fréquence doit toujours être inférieure à celle que vous définissez pour conserver les points de récupération. Par exemple, si vous conservez les points de récupération à l’aide du paramètre par défaut (24 heures), vous devez définir une fréquence inférieure à 24 heures.<br/><br/>Ces instantanés sont plus complexes et plus longs à réaliser que les instantanés de cohérence en cas d’incident.<br/><br/> Ils affectent les performances des applications qui s’exécutent sur les machines virtuelles où est activée la réplication. 
+Les points de récupération de cohérence des applications sont créés à partir d’instantanés de cohérence des applications.<br/><br/> Un instantané de cohérence des applications contient toutes les informations d’un instantané de cohérence en cas d’incident ainsi que toutes les données en mémoire et les transactions en cours. | Les instantanés de cohérence des applications utilisent le service de cliché instantané de volume (VSS) :<br/><br/>   1) Azure Site Recovery utilise la méthode de sauvegarde de copie uniquement (VSS_BT_COPY) qui ne change pas le numéro de séquence et l’heure de la sauvegarde de fichier journal de Microsoft SQL </br></br> 2) Lorsqu’un instantané est lancé, le service VSS effectue une opération de copie pour écriture sur le volume.<br/><br/>   3) Avant d’effectuer l’opération de copie pour écriture, le service VSS informe chaque application de l’ordinateur qu’il a besoin de vider ses données résidant en mémoire sur le disque.<br/><br/>   4) VSS permet ensuite à l’application de sauvegarde ou de récupération d’urgence (ici, Site Recovery) de lire les données d’instantanés et de poursuivre. | Les instantanés de cohérence des applications sont réalisés selon la fréquence que vous avez spécifiée. Cette fréquence doit toujours être inférieure à celle que vous définissez pour conserver les points de récupération. Par exemple, si vous conservez les points de récupération à l’aide du paramètre par défaut (24 heures), vous devez définir une fréquence inférieure à 24 heures.<br/><br/>Ces instantanés sont plus complexes et plus longs à réaliser que les instantanés de cohérence en cas d’incident.<br/><br/> Ils affectent les performances des applications qui s’exécutent sur les machines virtuelles où est activée la réplication. 
 
 ## <a name="replication-process"></a>Processus de réplication
 

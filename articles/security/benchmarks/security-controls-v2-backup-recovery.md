@@ -4,17 +4,17 @@ description: Benchmark de sécurité Azure V2 pour la sauvegarde et la récupér
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fe6861a3319b9d9c0e6535ee3303c90f0a0f26c8
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322119"
 ---
-# <a name="security-control-backup-and-recovery"></a>Contrôle de sécurité : Sauvegarde et récupération
+# <a name="security-control-v2-backup-and-recovery"></a>Contrôle de sécurité V2 : Sauvegarde et récupération
 
 La sauvegarde et la récupération recouvrent les contrôles destinés à s’assurer que les sauvegardes de données et de configurations aux différents niveaux de service sont effectuées, validées et protégées.
 
@@ -24,11 +24,13 @@ La sauvegarde et la récupération recouvrent les contrôles destinés à s’as
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
-Veillez à sauvegarder les systèmes et les données pour assurer la continuité de l’activité après un événement inattendu. Il doit s’agir d’une orientation par rapport aux objectifs de point de récupération (RPO) et de délai de récupération (RTO).
+Veillez à sauvegarder les systèmes et les données pour assurer la continuité de l’activité après un événement inattendu. Ceci doit être défini par des objectifs de point de récupération (RPO) et de délai de récupération (RTO).
 
 Activez le service Sauvegarde Azure et configurez la source de la sauvegarde (par exemple, machines virtuelles Azure, SQL Server ou partages de fichiers), ainsi que la fréquence et la période de rétention souhaitées.  
 
-Pour un niveau de redondance plus élevé, vous pouvez activer l’option de stockage géoredondant afin de répliquer les données de sauvegarde dans une région secondaire et de les récupérer à l’aide d’une restauration inter-région.
+Pour un niveau plus élevé de protection, vous pouvez activer l’option de stockage géoredondant afin de répliquer les données de sauvegarde dans une région secondaire et de les récupérer à l’aide d’une restauration inter-région.
+
+- [Continuité d’activité et reprise d’activité à l’échelle de l’entreprise](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
 - [Guide pratique pour activer la Sauvegarde Azure](/azure/backup/)
 
@@ -36,7 +38,7 @@ Pour un niveau de redondance plus élevé, vous pouvez activer l’option de sto
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Stratégie et normes](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -62,17 +64,19 @@ Utilisez le contrôle d’accès en fonction du rôle dans le service Sauvegarde
 
 - [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](/azure/backup/encryption-at-rest-with-cmk) 
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+
+- [Fonctionnalités de sécurité pour la protection de sauvegardes hybrides contre des attaques](/azure/backup/backup-azure-security-feature#prevent-attacks)
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Préparation aux incidents](/) azure/cloud-adoption-framework/organize/cloud-security-incident-preparation
+- [Préparation aux incidents](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 ## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -84,11 +88,11 @@ Effectuez régulièrement une restauration des données de votre sauvegarde. Ass
 
 - [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](/azure/backup/backup-azure-restore-files-from-vm)
 
-- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Préparation aux incidents](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -102,11 +106,11 @@ Effectuez régulièrement une restauration des données de votre sauvegarde. Ass
 
 Assurez-vous que vous avez pris les mesures nécessaires pour empêcher la perte de clés et récupérer d’une telle perte. Activez la suppression réversible et la protection contre la purge dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.  
 
-- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
