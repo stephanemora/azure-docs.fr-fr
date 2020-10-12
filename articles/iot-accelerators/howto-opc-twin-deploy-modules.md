@@ -9,14 +9,17 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a0c5c601b0d3bc0d862ea4984ee2c6d4b76d13ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282066"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
+
+> [!IMPORTANT]
+> Pendant la mise à jour de cet article, consultez [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) pour obtenir le contenu le plus récent.
 
 Le module de représentations de OPC s’exécute sur IoT Edge et fournit plusieurs services edge au jumeau d’appareil et aux services de registre. 
 
@@ -110,7 +113,7 @@ Tous les modules sont déployés à l’aide d’un manifeste de déploiement.  
 
 Le moyen le plus facile de déployer les modules dans un appareil de passerelle IoT Edge est via le portail Azure.  
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 1. Déployez les [dépendances](howto-opc-twin-deploy-dependencies.md) d’OPC Twin et obtenez le fichier `.env`. Notez le `hub name` déployé de la variable `PCS_IOTHUBREACT_HUB_NAME` dans le fichier `.env` obtenu.
 
@@ -177,7 +180,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 ## <a name="deploying-using-azure-cli"></a>Déploiement à l’aide d’Azure CLI
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 1. Installez la dernière version de l’[interface de ligne de commande AZ](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) en suivant [ce lien](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

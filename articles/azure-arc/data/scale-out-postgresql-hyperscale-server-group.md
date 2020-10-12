@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285381"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Effectuer un scale-out de votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc en ajoutant des nœuds Worker
 Ce document explique comment effectuer un scale-out d’un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc. Pour ce faire, il vous guide dans un scénario. **Si vous ne souhaitez pas exécuter le scénario mais souhaitez simplement en savoir plus sur la manière d’effectuer un scale-out, allez au paragraphe [Effectuer un scale-out](#scale-out)** .
@@ -151,7 +151,11 @@ Le format général de la commande de scale-out est le suivant :
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-Par exemple, augmentez le nombre de nœuds Worker de 2 à 4, en exécutant la commande suivante :
+> [!CAUTION]
+> La préversion ne prend pas en charge l’annulation de mise à l’échelle. Par exemple, il n’est pas encore possible de réduire le nombre de nœuds Worker. Si vous devez le faire, vous devez extraire/sauvegarder les données, supprimer le groupe de serveurs, créer un groupe de serveurs avec moins de nœuds Worker, puis importer les données.
+
+Dans cet exemple, nous augmentons le nombre de nœuds Worker de 2 à 4, en exécutant la commande suivante :
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -196,7 +200,8 @@ Elle retourne la liste des groupes de serveurs créés dans votre espace de noms
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Remarque :** Si vous avez créé un groupe de serveurs PostgreSQL de la version 11 au lieu de la version 12, exécutez la commande suivante à la place : _kubectl get postgresql-11_
+> [!NOTE]
+> Si vous avez créé un groupe de serveurs PostgreSQL de la version 11 au lieu de la version 12, exécutez la commande suivante à la place : _kubectl get postgresql-11_
 
 #### <a name="with-a-sql-query"></a>Avec une requête SQL :
 Connectez-vous à votre groupe de serveurs avec l’outil client de votre choix, puis exécutez la requête suivante :
@@ -230,7 +235,6 @@ Notez la durée d’exécution.
 >* [HTAP haute performance avec Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Création d’applications HTAP avec Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> La préversion ne prend pas en charge l’annulation de mise à l’échelle. Par exemple, il n’est pas encore possible de réduire le nombre de nœuds Worker. Si vous devez le faire, vous devez extraire/sauvegarder les données, supprimer le groupe de serveurs, créer un groupe de serveurs avec moins de nœuds Worker, puis importer les données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
