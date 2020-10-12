@@ -4,19 +4,16 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271373"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
 Sauvegarde Azure prend en charge la sauvegarde de tous les disques (système d’exploitation et données) d’une machine virtuelle à travers la solution de sauvegarde de machine virtuelle. Désormais, en utilisant la fonctionnalité de sauvegarde et restauration sélectives de disques, vous pouvez sauvegarder un sous-ensemble de disques de données d’une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient uniquement les disques inclus dans l’opération de sauvegarde. Cela vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné pendant l’opération de restauration. Cela vaut pour les restaurations effectuées à partir de captures instantanées et du coffre.
-
->[!NOTE]
->La sauvegarde et la restauration sur disque sélectives pour les machines virtuelles Azure sont en préversion publique dans toutes les régions.
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -62,7 +59,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 Si la machine virtuelle n’est pas dans le même groupe de ressources que le coffre, **ResourceGroup** fait référence au groupe de ressources dans lequel le coffre a été créé. Fournissez l’ID et non le nom de la machine virtuelle comme indiqué ci-dessous.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modifier la protection pour les machines virtuelles déjà sauvegardées avec Azure CLI
@@ -86,7 +83,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### <a name="restore-disks-with-azure-cli"></a>Restaurer les disques avec Azure CLI
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Restaurer uniquement le disque du système d’exploitation avec Azure CLI
@@ -289,11 +286,32 @@ La fonctionnalité de sauvegarde sélective de disques n’est pas prise en char
 
 Les options de restauration **Créer une machine virtuelle** et **Remplacer l’existant** ne sont pas prises en charge par la machine virtuelle pour laquelle la fonctionnalité de sauvegarde sélective de disques est activée.
 
+Actuellement, la sauvegarde de machine virtuelle Azure ne prend pas en charge les machines virtuelles auxquelles sont attachés des disques Ultra ou des disques partagés. La sauvegarde sélective de disques ne peut pas être utilisée dans de tels cas, qui excluent le disque et sauvegardent la machine virtuelle.
+
 ## <a name="billing"></a>Facturation
 
 La sauvegarde de machine virtuelle Azure suit le modèle tarifaire existant, qui est expliqué en détail [ici](https://azure.microsoft.com/pricing/details/backup/).
 
-Le **coût de l’instance protégée** est calculé pour le disque du système d’exploitation uniquement si vous optez pour une sauvegarde avec l’option **Disque du système d’exploitation uniquement**.  Si vous configurez la sauvegarde et sélectionnez au moins un disque de données, le coût de l’instance protégée est calculé pour tous les disques attachés à la machine virtuelle. Le **coût du stockage de sauvegarde** est calculé en fonction des disques inclus, ce qui vous permet de réaliser des économies sur le coût du stockage. Le **coût de capture instantanée** est toujours calculé pour tous les disques de la machine virtuelle (disques inclus et exclus).  
+Le **coût de l’instance protégée** est calculé pour le disque du système d’exploitation uniquement si vous optez pour une sauvegarde avec l’option **Disque du système d’exploitation uniquement**.  Si vous configurez la sauvegarde et sélectionnez au moins un disque de données, le coût de l’instance protégée est calculé pour tous les disques attachés à la machine virtuelle. Le **coût du stockage de sauvegarde** est calculé en fonction des disques inclus, ce qui vous permet de réaliser des économies sur le coût du stockage. Le **coût de capture instantanée** est toujours calculé pour tous les disques de la machine virtuelle (disques inclus et exclus).
+
+Si vous avez choisi la fonctionnalité de restauration interrégion, la [tarification de la restauration interrégion](https://azure.microsoft.com/pricing/details/backup/) s’applique sur le coût du stockage de sauvegarde après l’exclusion du disque.
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Comment le coût de l’instance protégée est-il calculé pour la seule sauvegarde du disque du système d’exploitation dans Windows et Linux ?
+
+Le coût de l’instance protégée est calculé en fonction de la taille réelle (utilisée) de la machine virtuelle.
+
+- Pour Windows : Le calcul de l’espace utilisé est basé sur le lecteur qui stocke le système d’exploitation (généralement C:).
+- Pour Linux : Le calcul de l’espace utilisé est basé sur l’appareil sur lequel le système de fichiers racine (/) est monté.
+
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>J’ai configuré la sauvegarde du disque du système d’exploitation uniquement, pourquoi l’instantané se produit-il pour tous les disques ?
+
+Les fonctionnalités de sauvegarde sélective de disques vous permettent de réaliser des économies sur le coût de stockage du coffre de sauvegarde en renforçant les disques inclus qui font partie de la sauvegarde. Toutefois, l’instantané est pris pour tous les disques attachés à la machine virtuelle. Le coût de capture instantanée est donc toujours calculé pour tous les disques de la machine virtuelle (disques inclus et exclus). Pour plus d’informations, consultez [Facturation](#billing).
+
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>Je ne parviens pas à configurer la sauvegarde pour la machine virtuelle Azure en excluant le disque Ultra ou les disques partagés attachés à la machine virtuelle
+
+La fonctionnalité de sauvegarde sélective de disques est une capacité fournie en plus de la solution de sauvegarde de machine virtuelle Azure. Actuellement, la sauvegarde de machine virtuelle Azure ne prend pas en charge les machines virtuelles auxquelles sont attachés un disque Ultra ou un disque partagé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

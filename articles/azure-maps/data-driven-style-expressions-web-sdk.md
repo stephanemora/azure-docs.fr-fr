@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311374"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -98,6 +98,8 @@ Les expressions de données permettent d’accéder aux données de propriété 
 | `['length', string | array]` | nombre | Obtient la longueur d’une chaîne ou d’un tableau. |
 | `['in', boolean | string | number, array]` | boolean | Détermine si un élément existe dans un tableau |
 | `['in', substring, string]` | boolean | Détermine si une sous-chaîne existe dans une chaîne |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | nombre | Retourne la première position à laquelle un élément se trouve dans un tableau ou à laquelle une sous-chaîne se trouve dans une chaîne, ou `-1` si l’entrée est introuvable. Accepte un index facultatif à partir duquel commencer la recherche. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string` \| tableau | Retourne un élément d’un tableau ou une sous-chaîne d’une chaîne à partir d’un index de début spécifié, ou entre un index de début et un index de fin, s’il est défini. La valeur renvoyée comprend l’index de début, mais pas l’index de fin. |
 
 **Exemples**
 
@@ -151,8 +153,11 @@ Voici quelques exemples supplémentaires d’utilisation des expressions de donn
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ Voici quelques exemples supplémentaires d’utilisation des expressions de donn
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Expressions mathématiques
@@ -225,8 +236,8 @@ Lors de la comparaison de valeurs, la comparaison est strictement typée. Les va
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Négation logique. Retourne `true` si l’entrée est `false`, et `false` si l’entrée est `true`. |
-| `['!= ', value, value]` | boolean | Retourne `true` si les valeurs d’entrée ne sont pas égales ; `false` dans le cas contraire. |
+| `['!', boolean]` | boolean | Négation logique. Retourne `true` si l’entrée est `false`, et `false` si l’entrée est `true`. |
+| `['!=', value, value]` | boolean | Retourne `true` si les valeurs d’entrée ne sont pas égales ; `false` dans le cas contraire. |
 | `['<', value, value]` | boolean | Retourne `true` si la première entrée est strictement inférieure à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
 | `['<=', value, value]` | boolean | Retourne `true` si la première entrée est inférieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
 | `['==', value, value]` | boolean | Retourne `true` si les valeurs d’entrée sont égales ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |

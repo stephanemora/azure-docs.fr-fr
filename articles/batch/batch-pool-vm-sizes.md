@@ -2,14 +2,14 @@
 title: Choisir des tailles de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271305"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -37,11 +37,11 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Dv3, Dsv3 | Toutes les tailles |
 | Dav4<sup>1</sup> | Toutes les tailles |
 | Dasv4<sup>1</sup> | Toutes les tailles |
-| Ddv4, Ddsv4 |  Aucune – pas encore disponible |
-| Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 et E64i_v3 |
+| Ddv4, Ddsv4 |  Toutes les tailles |
+| Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
 | Eav4<sup>1</sup> | Toutes les tailles |
 | Easv4<sup>1</sup> | Toutes les tailles |
-| Edv4, Edsv4 |  Aucune – pas encore disponible |
+| Edv4, Edsv4 |  Toutes les tailles |
 | F, Fs | Toutes les tailles |
 | Fsv2 | Toutes les tailles |
 | G, Gs | Toutes les tailles |
@@ -52,7 +52,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Ls | Toutes les tailles |
 | Lsv2<sup>1</sup> | Toutes les tailles |
 | M<sup>1</sup> | Toutes les tailles |
-| Mv2 | Aucune – pas encore disponible |
+| Mv2<sup>1, 2</sup> | Toutes les tailles |
 | NC | Toutes les tailles |
 | NCv2<sup>1</sup> | Toutes les tailles |
 | NCv3<sup>1</sup> | Toutes les tailles |
@@ -60,10 +60,15 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | NDv2<sup>1</sup> | Aucune – pas encore disponible |
 | NV | Toutes les tailles |
 | NVv3<sup>1</sup> | Toutes les tailles |
-| NVv4 | None |
+| NVv4 | Aucune – pas encore disponible |
 | SAP HANA | None |
 
-<sup>1</sup> Ces tailles de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez créer un compte Batch et demander une [augmentation de quota](batch-quota-limit.md#increase-a-quota) spécifique. Cette limitation sera supprimée une fois que le quota de processeurs virtuels par série de machines virtuelles sera entièrement pris en charge pour les comptes Batch.
+<sup>1</sup> Ces séries de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez créer un compte Batch et demander une [augmentation de quota](batch-quota-limit.md#increase-a-quota) spécifique. Cette limitation sera supprimée une fois que le quota de processeurs virtuels par série de machines virtuelles sera entièrement pris en charge pour les comptes Batch.
+
+<sup>2</sup> Ces séries de machines virtuelles peuvent uniquement être utilisées avec les images de machine virtuelle de 2e génération.
+
+### <a name="using-generation-2-vm-images"></a>Utilisation d’images de machine virtuelle de 2e génération
+Certaines séries de machines virtuelles, telles que [Mv2](../virtual-machines/mv2-series.md), peuvent être utilisées uniquement avec des [images de machine virtuelle de 2e génération](../virtual-machines/generation-2.md). Les images de machine virtuelle de 2e génération sont spécifiées comme n’importe quelle image de machine virtuelle à l’aide de la propriété « SKU » de la configuration [« imageReference »](/rest/api/batchservice/pool/add#imagereference) ; les chaînes « SKU » ont un suffixe tel que « -g2 » ou « -gen2 ». Pour obtenir la liste des images de machines virtuelles prises en charge par Batch, notamment les images de 2e génération, utilisez l’API [« Répertorier les images prises en charge »](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools dans la configuration de service cloud
 
