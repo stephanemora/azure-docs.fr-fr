@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: 2fdce38b19cd38439baa5d640707d159cd713657
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331945"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
 Découvrez comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.
@@ -20,20 +20,20 @@ Découvrez comment utiliser la vue d’exécution du vertex pour examiner des tr
 ## <a name="open-the-vertex-execution-view"></a>Affichage de la vue d’exécution du vertex
 Ouvrez une tâche U-SQL dans Data Lake Tools pour Visual Studio. Dans l’angle inférieur gauche, cliquez sur **Vue de l’exécution du vertex**. Vous pouvez être invité à charger d’abord les profils, et cette opération peut prendre un certain temps en fonction de la connectivité réseau.
 
-![Vue d’exécution du vertex Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Capture d’écran montrant la vue d’exécution du vertex Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Présentation de la vue d’exécution du vertex
 La vue d’exécution du vertex comprend trois parties :
 
-![Vue d’exécution du vertex Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Capture d’écran montrant la vue d’exécution du vertex avec le « Sélecteur de vertex » et les volets centraux supérieur et inférieur mis en évidence.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
 Le **Sélecteur de vertex**, situé sur la gauche, permet de sélectionner les vertex par fonctionnalités (par exemple, les 10 premières données lues, ou par étape). L’un des filtres les plus utilisés est celui qui permet d’afficher les **vertex situés sur un chemin critique**. Le **chemin critique** est la plus longue chaîne de vertex d’une tâche U-SQL. Le fait de comprendre le chemin critique vous permet d’optimiser vos tâches, car vous pouvez identifier les vertex qui prennent le plus de temps.
   
-![Vue d’exécution du vertex Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Capture d’écran montrant le volet central supérieur de la vue d’exécution du vertex qui affiche « l’état d’exécution de tous les vertex ».](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
 Le volet central supérieur affiche **l’état d’exécution de tous les vertex**.
   
-![Vue d’exécution du vertex Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Capture d’écran montrant le volet central inférieur de la vue d’exécution du vertex qui affiche des informations sur chaque vertex.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 Le volet central inférieur affiche des informations sur chaque vertex :
 * Nom du processus : le nom de l’instance de vertex. Il est composé de différentes parties de StageName|VertexName|VertexRunInstance. Par exemple, le vertex SV7_Split[62].v1 représente la seconde instance en cours d’exécution (.v1, index commençant à 0) du vertex numéro 62 de l’étape SV7_Split.

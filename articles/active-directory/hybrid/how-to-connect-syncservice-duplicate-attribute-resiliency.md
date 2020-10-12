@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313311"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre les valeurs **UserPrincipalName** et **ProxyAddress** SMTP lors de l’exécution de l’un des outils de synchronisation de Microsoft.
@@ -124,7 +124,7 @@ Pour effectuer une recherche de chaîne élargie, utilisez l’indicateur **-Sea
 ## <a name="microsoft-365-admin-center"></a>Centre d’administration Microsoft 365
 Vous pouvez afficher les erreurs de synchronisation d’annuaires dans le Centre d’administration Microsoft 365. Le rapport dans le centre d’administration Microsoft 365 n’affiche que les objets **Utilisateur** qui présentent ces erreurs. Il n’indique pas d’informations sur les conflits entre **Groupes** et **Contacts**.
 
-![Utilisateurs actifs](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active users")
+![Screenshot that shows directory synchronization errors in the Microsoft 365 admin center.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active users")
 
 Pour obtenir des instructions sur l’affichage des erreurs de synchronisation d’annuaires dans le Centre d’administration Microsoft 365, consultez [Identifier les erreurs de synchronisation d’annuaires dans Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Pour obtenir des instructions sur l’affichage des erreurs de synchronisation d
 Lorsqu’un objet présentant un conflit d’attribut en double est traité avec ce nouveau comportement, une notification afférente est incluse dans l’e-mail standard contenant le rapport d’erreur de synchronisation d’identité. Ce dernier est envoyé au contact du client en charge des notifications techniques. Toutefois, ce comportement présente un changement majeur. Auparavant, les informations de conflit d’attribut en double apparaissaient dans chaque rapport d’erreurs généré jusqu’à la résolution du conflit. Avec ce nouveau comportement, la notification d’erreur pour un conflit donné n’apparaît qu’une fois : au moment où l’attribut en conflit est mis en quarantaine.
 
 Voici un exemple de notification par e-mail d’un conflit ProxyAddress :  
-    ![Utilisateurs actifs](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  
+    ![Screenshot that shows an example of an email notification for a ProxyAddress conflict.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  
 
 ## <a name="resolving-conflicts"></a>Résolution des conflits
 Les stratégies et tactiques de résolution des problèmes pour ces erreurs ne doivent pas différer de la façon dont les erreurs d’attribut en double ont été traitées par le passé. La seule différence est que la tâche du minuteur effectue un balayage du client côté serveur afin d’ajouter automatiquement l’attribut en question à l’objet concerné lorsque le conflit est résolu.
