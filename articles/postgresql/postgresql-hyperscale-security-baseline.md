@@ -1,22 +1,22 @@
 ---
-title: Base de référence de sécurité Azure pour Azure Database pour PostgreSQL - Hyperscale
-description: La base de référence de sécurité Azure Database pour PostgreSQL – Hyperscale propose des instructions procédurales et des ressources pour la mise en œuvre des recommandations de sécurité spécifiées dans le benchmark de sécurité Azure.
+title: Base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Hyperscale (Citus)
+description: La base de référence de sécurité Azure Database pour PostgreSQL – Hyperscale (Citus) propose des instructions procédurales et des ressources pour la mise en œuvre des recommandations de sécurité spécifiées dans le benchmark de sécurité Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318124"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL - Hyperscale
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-La base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Hyperscale contient des recommandations visant à améliorer l’état de la sécurité de votre déploiement.
+La base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Hyperscale (Citus) contient des recommandations visant à améliorer l’état de la sécurité de votre déploiement.
 
 La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 

@@ -4,17 +4,17 @@ description: Fournissez des commentaires sur les données à l’aide de l’out
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fb806aa444ba3b8b3247559b87ddd93fecdaa1b0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 807c8908b70065d5d82229e7750b166bfabcf53b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335362"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fournir des commentaires sur des données à Azure Maps
 
@@ -67,5 +67,4 @@ Vous pouvez également suivre le statut de votre demande en activant la case à 
 
 Pour publier des questions techniques concernant Azure Maps, visitez le site :
 
-* [Azure Maps Stack Overflow](https://stackoverflow.com/questions/tagged/azure-maps)
-* [Forum de commentaires Azure Maps](https://feedback.azure.com/forums/909172-azure-maps)
+* [Questions et réponses Microsoft](https://docs.microsoft.com/answers/topics/azure-maps.html)

@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930483"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400585"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -264,7 +264,7 @@ La rétention par défaut pour les ressources Application Insights est de 90 jo
 
 Pour changer le délai de conservation, dans votre ressource Application Insights, accédez à la page **Utilisation et coûts estimés**, puis sélectionnez l’option **Conservation des données** :
 
-![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
+![Capture d’écran montrant où modifier la période de rétention des données.](./media/pricing/pricing-005.png)
 
 En cas de diminution de la conservation, une période de grâce de plusieurs jours s’applique avant la suppression des données les plus anciennes.
 

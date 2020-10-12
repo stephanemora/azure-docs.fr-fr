@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334597"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accéder à des ressources IBM DB2 et les gérer à l’aide d’Azure Logic Apps
 
@@ -157,7 +157,7 @@ Pour extraire un seul enregistrement d’une table de base de données DB2, util
    | **ID de zone** | Oui | ID de l’enregistrement souhaité, par exemple, « 99999 » ici |
    ||||
 
-   ![Sélectionner une table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Capture d’écran montrant l’action « Obtenir la ligne (préversion) » avec la liste « Nom de la table » ouverte et la valeur « AREA » sélectionnée.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -192,7 +192,7 @@ Pour extraire tous les enregistrements d’une table de base de données DB2, ut
 
 1. Ouvrez la liste **Nom de la table**, puis sélectionnez la table souhaitée, en l’occurrence « AREA » (Zone) :
 
-   ![Sélectionner une table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Capture d’écran montrant l’action « Obtenir la ligne (préversion) » avec la valeur « AREA » sélectionnée dans la liste « Nom de la table ».](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Pour spécifier un filtre ou une requête pour les résultats, choisissez **Afficher les options avancées**.
 
@@ -241,7 +241,7 @@ Pour ajouter un seul enregistrement à une table de base de données DB2, utilis
 
    Par exemple :
 
-   ![Sélectionner une table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec l’action « Insérer une ligne (préversion) » et des exemples de valeurs de propriété.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -289,7 +289,7 @@ Pour mettre à jour un seul enregistrement dans une table de base de données DB
 
    Par exemple :
 
-   ![Sélectionner une table](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec l’action « Mettre à jour la ligne (préversion) » dans laquelle vous sélectionnez une table.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -334,7 +334,7 @@ Pour supprimer un seul enregistrement d’une table de base de données DB2, uti
 
    Par exemple :
 
-   ![Sélectionner une table](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Capture d’écran montrant le concepteur d’application logique avec l’action « Supprimer la ligne (préversion) » dans laquelle vous sélectionnez une table à supprimer.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
