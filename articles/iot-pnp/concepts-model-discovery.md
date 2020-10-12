@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032025"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577711"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
@@ -26,7 +26,7 @@ Il existe deux grandes catégories de solution IoT :
 
 Pour utiliser un modèle IoT Plug-and-Play, une solution IoT :
 
-1. Identifie l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play connecté à la solution.
+1. Identifie l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play, module ou module IoT Edge connecté à la solution.
 
 1. Utilise cet ID de modèle pour récupérer la définition de modèle de l’appareil connecté à partir d’un référentiel de modèles ou d’un magasin personnalisé.
 
@@ -40,7 +40,10 @@ Une solution peut obtenir l’ID de modèle de l’appareil IoT Plug-and-Play à
 
 ### <a name="get-device-twin-api"></a>API Obtenir un jumeau d’appareil
 
-La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
+La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
+
+> [!TIP]
+> Pour les modules et les modules IoT Edge, utilisez [ModuleClient. getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 Dans l’extrait de code suivant de réponse de jumeau d’appareil, `modelId` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
 

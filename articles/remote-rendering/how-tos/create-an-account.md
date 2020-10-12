@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057668"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318090"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Créer un compte Azure Remote Rendering
 
@@ -83,7 +83,7 @@ Vous devez effectuer les étapes de ce paragraphe pour chaque compte de stockage
 
  Cliquez sur le bouton **Ajouter** dans la vignette « Ajouter une attribution de rôle » pour ajouter le premier rôle :
 
-![Compte de stockage IAM](./media/azure-add-role-assignment.png)
+![Compte de stockage IAM – Ajouter une attribution de rôle](./media/azure-add-role-assignment.png)
 
 * Le premier rôle à attribuer est **Propriétaire** comme indiqué dans la capture d’écran ci-dessus.
 * Sélectionnez **Compte Remote Rendering** dans la liste déroulante ***Attribuer l’accès à**.
@@ -100,6 +100,8 @@ Répétez deux fois la procédure d’ajout de rôles en effectuant les sélecti
 Les sélections dans les autres listes déroulantes correspondent à celles de la première étape.
 
 Si vous avez ajouté les trois rôles, votre compte Azure Remote Rendering a accès à votre compte de stockage avec les identités de service managées affectées par le système.
+> [!IMPORTANT]
+> Les attributions de rôles Azure étant mises en cache par le service Stockage Azure, jusqu’à 30 minutes peuvent s’écouler entre le moment où vous accordez l’accès à votre compte de rendu à distance et le moment où celui-ci peut être utilisé pour accéder à votre compte de stockage. Pour plus d’informations, consultez la [documentation sur le contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

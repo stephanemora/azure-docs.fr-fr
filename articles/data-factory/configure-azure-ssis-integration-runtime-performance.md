@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276661"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -122,8 +122,7 @@ L’axe des Y est le nombre de packages dont l’exécution s’est terminée en
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Pour les nœuds Standard_D1_v2, 1 à 4 exécutions parallèles par nœud sont prises en charge. Pour tous les autres types de nœuds, 1-max(2 x le nombre de cœurs, 8) exécutions parallèles par nœud sont prises en charge. Si vous souhaitez **AzureSSISMaxParallelExecutionsPerNode** au-delà de la valeur maximale que nous avons prise en charge, vous pouvez ouvrir un ticket de support et nous pouvons augmenter la valeur maximale pour vous, après quoi vous devrez utiliser Azure Powershell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode**.
-Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/windows/sizes-general.md).
+Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Si vous souhaitez augmenter la valeur maximale, vous devez utiliser Azure PowerShell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode**. Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/windows/sizes-general.md).
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

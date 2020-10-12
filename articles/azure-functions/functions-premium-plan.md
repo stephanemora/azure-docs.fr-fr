@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145745"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578034"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -43,7 +45,7 @@ Si aucun événement ou aucune exécution ne se produisent aujourd’hui dans le
 Dans le plan Premium, vous pouvez faire en sorte que votre application soit toujours prête sur un nombre spécifié d’instances.  Le nombre maximal d’instances toujours prêtes est de 20.  Quand l’application commence à déclencher des événements, ceux-ci sont d’abord routés vers les instances toujours prêtes.  Dès que la fonction devient active, des instances supplémentaires sont initialisées en tant que mémoire tampon.  Cette mémoire tampon empêche le démarrage à froid des nouvelles instances nécessaires pendant la mise à l’échelle.  Ces instances mises en mémoire tampon s’appellent des [instances préchauffées](#pre-warmed-instances).  L’association des instances toujours prêtes combinées à une mémoire tampon préchauffée permet en quelque sorte à votre application d’éliminer le démarrage à froid.
 
 > [!NOTE]
-> Chaque plan Premium dispose en permanence d’au moins une instance active et une instance facturée.
+> Chaque plan Premium dispose en permanence d’au moins une instance active (facturée).
 
 Vous pouvez configurer le nombre d’instances toujours prêtes sur le portail Azure en sélectionnant votre **application de fonction**, en accédant à l’onglet **Fonctionnalités de la plateforme**, puis en sélectionnant les options **Monter en charge**. Dans la fenêtre de modification de l’application de fonction, les instances toujours prêtes sont propres à cette application.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Les instances préchauffées correspondent au nombre d’instances initialisées en tant que mémoire tampon à l’occasion d’événements de mise à l’échelle et d’activation.  Les instances préchauffées continuent d’être mises en mémoire tampon tant que la limite maximale de scale-out n’est pas atteinte.  Le nombre d’instances préchauffées par défaut est de 1, et dans la plupart des scénarios, la valeur reste à 1.  Si une application demande un long temps de préparation (comme une image de conteneur personnalisée), vous souhaiterez peut-être augmenter la capacité de cette mémoire tampon.  Une instance préchauffée ne devient active qu’après que toutes les instances actives ont été suffisamment utilisées.
 
-Pour illustrer la façon dont les instances toujours prêtes et les instances préchauffées fonctionnent ensemble, prenons l’exemple suivant :  une application de fonction Premium compte cinq instances toujours prêtes configurées et une instance préchauffée (valeur par défaut).  Quand l’application est inactive et qu’aucun événement n’est déclenché, l’application est provisionnée et s’exécute sur cinq instances.  
+Pour illustrer la façon dont les instances toujours prêtes et les instances préchauffées fonctionnent ensemble, prenons l’exemple suivant :  une application de fonction Premium compte cinq instances toujours prêtes configurées et une instance préchauffée (par défaut).  Quand l’application est inactive et qu’aucun événement n’est déclenché, l’application est provisionnée et s’exécute sur cinq instances.  À ce stade, vous ne serez pas facturé pour une instance préchauffée, car les instances toujours prêtes ne sont pas utilisées et aucune instance préchauffée n’est encore allouée.
 
-Dès que le premier déclencheur intervient, les cinq instances toujours prêtes s’activent et une instance préchauffée supplémentaire est allouée.  L’application s’exécute maintenant avec six instances provisionnées : les cinq instances toujours prêtes désormais actives et la sixième mémoire tampon préchauffée et inactive.  Si le rythme des exécutions continue d’augmenter, les cinq instances actives sont finalement utilisées.  Quand la plateforme décide de procéder à une mise à l’échelle au-delà de cinq instances, elle englobe l’instance préchauffée.  Dans ce cas, les instances actives sont au nombre de six et une septième instance est instantanément provisionnée et remplit la mémoire tampon préchauffée.  Cette séquence de mise à l’échelle et de préchauffage se poursuit tant que le nombre maximal d’instances pour l’application n’est pas atteint.  Aucune instance n’est préchauffée ou activée au-delà de la valeur maximale.
+Dès que le premier déclencheur intervient, les cinq instances toujours prêtes s’activent et une instance préchauffée est allouée.  L’application s’exécute maintenant avec six instances provisionnées : les cinq instances toujours prêtes désormais actives et la sixième mémoire tampon préchauffée et inactive.  Si le rythme des exécutions continue d’augmenter, les cinq instances actives sont finalement utilisées.  Quand la plateforme décide de procéder à une mise à l’échelle au-delà de cinq instances, elle englobe l’instance préchauffée.  Dans ce cas, les instances actives sont au nombre de six et une septième instance est instantanément provisionnée et remplit la mémoire tampon préchauffée.  Cette séquence de mise à l’échelle et de préchauffage se poursuit tant que le nombre maximal d’instances pour l’application n’est pas atteint.  Aucune instance n’est préchauffée ou activée au-delà de la valeur maximale.
 
 Vous pouvez modifier le nombre d’instances préchauffées pour une application à partir d’Azure CLI.
 
@@ -95,7 +97,7 @@ Azure Functions dans un Plan Consommation est limité à 10 minutes par exécut
 
 Pendant la création du plan, deux paramètres de taille de plan sont proposés : le nombre minimal d’instances (ou taille du plan) et la limite maximale en rafale.
 
-Si votre application exige un nombre d’instances supérieur au nombre d’instances toujours prêtes, elle peut continuer d’effectuer un scale-out tant que le nombre d’instances n’a pas atteint la limite maximale en rafale.  Vous êtes facturé pour des instances dépassant la taille de votre plan uniquement quand elles sont en cours d’exécution et louées pour vous.  Nous ferons tout notre possible pour assurer le scale-out de votre application jusqu’à sa limite maximale définie.
+Si votre application exige un nombre d’instances supérieur au nombre d’instances toujours prêtes, elle peut continuer d’effectuer un scale-out tant que le nombre d’instances n’a pas atteint la limite maximale en rafale.  Vous êtes facturé pour des instances au-delà de la taille de votre plan uniquement quand elles sont en cours d’exécution et vous sont allouées à la seconde.  Nous ferons tout notre possible pour assurer le scale-out de votre application jusqu’à sa limite maximale définie.
 
 Vous pouvez configurer la taille et les nombres maximaux d’instances du plan via le portail Azure en sélectionnant les options **Scale-out** du plan ou une Function App déployée sur celui-ci (sous **Fonctionnalités de la plateforme**).
 
@@ -120,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>Références SKU d’instance disponibles
 
-Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous êtes facturé pour le nombre total de cœurs et la mémoire consommés par seconde.  Votre application peut automatiquement effectuer un scale-out sur plusieurs instances en fonction des besoins.  
+Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous serez facturé en fonction du nombre total de cœurs et de mémoire approvisionnés, pour chaque seconde où chaque instance vous est allouée.  Votre application peut automatiquement effectuer un scale-out sur plusieurs instances en fonction des besoins.  
 
 |SKU|Cœurs|Mémoire|Stockage|
 |--|--|--|--|
@@ -141,13 +143,15 @@ La disponibilité régionale complète de Functions est indiquée ici : [Azure.
 
 |Région| Windows | Linux |
 |--| -- | -- |
-|Centre de l’Australie| 20 | Non disponible |
-|Centre de l’Australie 2| 20 | Non disponible |
+|Centre de l’Australie| 100 | Non disponible |
+|Centre de l’Australie 2| 100 | Non disponible |
 |Australie Est| 100 | 20 |
 |Sud-Australie Est | 100 | 20 |
-|Brésil Sud| 60 | 20 |
+|Brésil Sud| 100 | 20 |
 |Centre du Canada| 100 | 20 |
 |USA Centre| 100 | 20 |
+|Chine orientale 2| 100 | 20 |
+|Chine Nord 2| 100 | 20 |
 |Asie Est| 100 | 20 |
 |USA Est | 100 | 20 |
 |USA Est 2| 100 | 20 |
@@ -156,17 +160,24 @@ La disponibilité régionale complète de Functions est indiquée ici : [Azure.
 |Japon Est| 100 | 20 |
 |OuJapon Est| 100 | 20 |
 |Centre de la Corée| 100 | 20 |
+|Corée du Sud| Non disponible | 20 |
 |Centre-Nord des États-Unis| 100 | 20 |
 |Europe Nord| 100 | 20 |
-|Norvège Est| 20 | 20 |
+|Norvège Est| 100 | 20 |
 |États-Unis - partie centrale méridionale| 100 | 20 |
 |Inde Sud | 100 | Non disponible |
 |Asie Sud-Est| 100 | 20 |
+|Suisse Nord| 100 | Non disponible |
+|Suisse Ouest| 100 | Non disponible |
 |Sud du Royaume-Uni| 100 | 20 |
 |Ouest du Royaume-Uni| 100 | 20 |
+|Gouvernement des États-Unis - Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat East| 100 | Non disponible |
+|USNat West| 100 | Non disponible |
 |Europe Ouest| 100 | 20 |
 |Inde Ouest| 100 | 20 |
-|Centre-USA Ouest| 20 | 20 |
+|Centre-USA Ouest| 100 | 20 |
 |USA Ouest| 100 | 20 |
 |USA Ouest 2| 100 | 20 |
 
