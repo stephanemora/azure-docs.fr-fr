@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319892"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les capacités multigéographiques dans Microsoft 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Microsoft 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -118,7 +118,7 @@ Tous les attributs Azure AD ne sont pas importés dans l’espace de connecteur
 4. Assurez-vous que l’attribut source que vous avez sélectionné est activé dans la liste d’attributs. Si vous ne voyez pas votre attribut, sélectionnez la case à cocher **Afficher tout**.
 5. Pour enregistrer, sélectionnez **OK**.
 
-![Capture d’écran de Synchronization Service Manager et de la boîte de dialogue Propriétés](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Capture d’écran montrant Synchronization Service Manager et la boîte de dialogue Propriétés avec la liste « Attributs » en surbrillance.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Étape 4 : Ajouter **preferredDataLocation** au schéma du connecteur Azure AD
 **Cette étape est nécessaire seulement si vous exécutez Connect version 1.3.21 ou ultérieure. Si vous utilisez la version 1.4.18 ou une version plus récente, passez à l’étape 5.**  
