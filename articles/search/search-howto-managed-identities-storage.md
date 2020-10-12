@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275130"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée
 
@@ -143,6 +143,10 @@ Cet indexeur s’exécutera toutes les deux heures (intervalle de planification 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
 
 Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Accès aux données sécurisées dans les comptes de stockage
+
+Les comptes de stockage Azure peuvent être sécurisés davantage à l’aide de pare-feu et de réseaux virtuels. Si vous souhaitez indexer le contenu d’un compte de stockage Blob ou d’un compte de stockage Data Lake Gen2 qui est sécurisé par un pare-feu ou un réseau virtuel, suivez les instructions fournies dans [Accès aux données dans les comptes de stockage de manière sécurisée via une exception de service approuvé](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Voir aussi
 

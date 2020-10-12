@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329259"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -165,6 +165,13 @@ Vous pouvez associer une adresse IP publique à une [Application Gateway](../app
 * Affectez une adresse IP publique de base **dynamique** à une configuration frontale de passerelle d’application V1. 
 * Affectez une adresse de référence SKU **statique** à une configuration frontale V2.
 
+## <a name="azure-firewall"></a>Pare-feu Azure
+
+[Pare-feu Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vous permet de créer, d’appliquer et de consigner des stratégies de connectivité réseau et d’application entre les abonnements et les réseaux virtuels.
+
+Vous pouvez uniquement associer des IP publiques standard **statiques** à un pare-feu. Les pare-feu externes peuvent ainsi identifier le trafic provenant de votre réseau virtuel. 
+
+
 ## <a name="at-a-glance"></a>Aperçu
 
 Le tableau ci-dessous présente la propriété par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles.
@@ -175,6 +182,7 @@ Le tableau ci-dessous présente la propriété par le biais de laquelle une adre
 | Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
 | passerelle VPN |Configuration IP de la passerelle |Oui |Non |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
+| Pare-feu Azure | Configuration frontale | Non | Oui|
 
 ## <a name="limits"></a>limites
 

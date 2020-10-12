@@ -3,12 +3,12 @@ title: Évaluations de machines virtuelles Azure dans Azure Migrate Server Asses
 description: Apprenez-en davantage sur les évaluations dans l'outil Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275521"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers des machines virtuelles Azure)
 
@@ -80,7 +80,7 @@ Si vous utilisez l’appliance à des fins de découverte, elle collecte des don
     - **Machines virtuelles Hyper-V** : Un point d’échantillonnage est collecté toutes les 30 secondes.
     - **Serveurs physiques** : Un point d’échantillonnage est collecté toutes les cinq minutes.
 
-1. L’appliance combine les points d’échantillonnage pour créer un point de données unique toutes les 10 minutes. Pour créer le point de données, l’appliance sélectionne les valeurs maximales de tous les échantillons. Elle envoie ensuite le point de données à Azure.
+1. L’appliance combine les points d’échantillonnage afin de créer un point de données unique toutes les 10 minutes pour les serveurs VMware et Hyper-V, et toutes les 5 minutes pour les serveurs physiques. Pour créer le point de données, l’appliance sélectionne les valeurs maximales de tous les échantillons. Elle envoie ensuite le point de données à Azure.
 1. Évaluation de serveur stocke tous les points d’échantillonnage de 10 minutes pour le dernier mois.
 1. Lorsque vous créez une évaluation, Évaluation de serveur identifie le point de données approprié à utiliser pour le dimensionnement adéquat. L’identification est basée sur les valeurs de centile pour *Historique des performances* et *Utilisation en centile*.
 

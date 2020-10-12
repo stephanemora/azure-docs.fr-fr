@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275419"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gérer des règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l’accès à un nœud coordinateur Hyperscale (Citus) à partir d’une adresse IP ou d’une plage d’adresses IP spécifique.
@@ -30,18 +30,18 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 1. Dans la page du groupe de serveurs PostgreSQL, sous le titre Sécurité, cliquez sur **Réseaux** pour ouvrir les règles de pare-feu.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portail Azure - Cliquer sur Réseaux":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portail Azure - Onglet Réseaux":::
 
 2. Cliquez sur **Ajouter l’adresse IP actuelle du client** pour créer une règle de pare-feu avec l’adresse IP publique de votre ordinateur, telle que détectée par le système Azure.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - Cliquer sur Ajouter une adresse IP cliente":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portail Azure - Onglet Réseaux":::
 
 Vous pouvez également cliquer sur **+ Ajouter 0.0.0.0 - 255.255.255.255** (à droite de l’option B) pour autoriser l’accès au port 5432 du nœud coordinateur non seulement à votre adresse IP, mais à l’ensemble du réseau Internet. Dans ce cas, les clients doivent toujours se connecter avec le nom d’utilisateur et le mot de passe corrects pour utiliser le cluster. Néanmoins, nous vous recommandons d’autoriser l’accès mondial uniquement sur de courtes périodes et pour des bases de données hors production.
 
 3. Vérifiez votre adresse IP avant d’enregistrer la configuration. Dans certains cas, l’adresse IP identifiée par le portail Azure diffère de l’adresse IP utilisée lors de l’accès à Internet et aux serveurs Azure. Par conséquent, vous devrez peut-être modifier l’adresse IP de début et l’adresse IP de fin pour que la règle fonctionne comme prévu.
    Utilisez un moteur de recherche ou tout autre outil en ligne pour vérifier votre adresse IP (par exemple, lancez une recherche sur « quelle est mon adresse IP »).
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Recherche Bing « quelle est mon adresse IP »":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Portail Azure - Onglet Réseaux":::
 
 4. Ajoutez des plages d’adresses supplémentaires. Dans les règles de pare-feu, vous pouvez spécifier une seule adresse IP ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, saisissez la même adresse dans les champs d’adresse IP de début et d’adresse IP de fin. L’ouverture du pare-feu permet aux administrateurs, aux utilisateurs et aux applications d’accéder au nœud coordinateur sur le port 5432.
 
@@ -49,7 +49,7 @@ Vous pouvez également cliquer sur **+ Ajouter 0.0.0.0 - 255.255.255.255** (à d
 
 ## <a name="connecting-from-azure"></a>Connexion à partir d’Azure
 
-Il existe un moyen simple d’accorder l’accès à la base de données Hyperscale aux applications hébergées sur Azure (par exemple, une application Azure Web Apps ou celles qui s’exécutent sur une machine virtuelle Azure). Il vous suffit de définir l’option **Permettre aux services et ressources Azure d’accéder à ce groupe de serveurs** sur **Oui** dans le volet **Réseaux** du portail, puis de cliquer sur **Enregistrer**.
+Il existe un moyen simple d’accorder l’accès à la base de données Hyperscale (Citus) aux applications hébergées dans Azure (par exemple, une application Azure Web Apps ou celles qui s’exécutent sur une machine virtuelle Azure). Il vous suffit de définir l’option **Permettre aux services et ressources Azure d’accéder à ce groupe de serveurs** sur **Oui** dans le volet **Réseaux** du portail, puis de cliquer sur **Enregistrer**.
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
