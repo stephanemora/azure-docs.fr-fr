@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274110"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -52,11 +52,11 @@ Vous pouvez utiliser Azure AD Connect pour vérifier l’état actuel des servic
    ![Réparer la confiance AAD et ADFS](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. Dans la page **Connexion à Azure AD**, saisissez vos informations d’identification d’administrateur global d’Azure AD, puis cliquez sur **Suivant**.
-   ![Connexion à Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Screenshot that shows the "Connect to Azure AD" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. Dans la page **Informations d’identification d’accès à distance** , indiquez les informations d’identification de l’administrateur de domaine.
 
-   ![Informations d’identification d’accès à distance](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![Capture d’écran montrant la page « Informations d’identification d’accès à distance » avec des exemples d’informations d’identification entrées.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     Lorsque vous cliquez sur **Suivant**, Azure AD Connect vérifie l’intégrité du certificat et affiche les éventuels problèmes.
 
@@ -64,7 +64,7 @@ Vous pouvez utiliser Azure AD Connect pour vérifier l’état actuel des servic
 
     La page **Prêt à configurer** affiche la liste des actions qui seront effectuées afin de réparer l’approbation.
 
-    ![Prêt à configurer](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![Capture d’écran montrant la page « Prêt à configurer » avec une liste d’actions.](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. Cliquez sur **Installer** pour réparer l’approbation.
 
@@ -98,7 +98,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
 2. Dans la page **Connexion à Azure AD**, saisissez vos informations d’identification d’administrateur global d’Azure AD, puis cliquez sur **Suivant**.
 
-   ![Se connecter à Azure AD](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Capture d’écran montrant la page « Connexion à Azure AD » avec des exemples d’informations d’identification entrées.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Indiquez les informations d’identification de l’administrateur de domaine.
 
@@ -106,9 +106,9 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
 4. Azure AD Connect vous demande le mot de passe du fichier PFX que vous avez fourni lors de la configuration de votre nouvelle batterie de serveurs AD FS avec Azure AD Connect. Cliquez sur **Saisie du mot de passe** pour fournir le mot de passe du fichier PFX.
 
-   ![Mot de passe du certificat](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Capture d’écran montrant la page « Spécifier le certificat SSL » avec la fenêtre « Mot de passe du certificat » ouverte.](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Spécifier le certificat TLS/SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Capture d’écran montrant la page « Spécifier le certificat SSL » après l’entrée d’un mot de passe pour le fichier PFX.](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Dans la page **Serveurs AD FS** , entrez le nom ou l’adresse IP du serveur à ajouter à la batterie de serveurs AD FS.
 
@@ -116,9 +116,9 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
 6. Cliquez sur **Suivant** et parcourez la page **Configurer** finale. Une fois qu’Azure AD Connect a fini d’ajouter les serveurs à la batterie de serveurs AD FS, vous avez la possibilité de vérifier la connectivité.
 
-   ![Prêt à configurer](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   ![Capture d’écran montrant la page « Prêt à configurer » avec une liste d’actions à effectuer après avoir cliqué sur « Installer ».](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Installation terminée](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Capture d’écran montrant la page « Installation terminée » avec le message « La configuration de l’intranet a été vérifiée avec succès ». ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Ajout d’un serveur WAP AD FS 
 
@@ -131,7 +131,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
 2. Indiquez les informations d’identification de l’administrateur global Azure.
 
-   ![Se connecter à Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Capture d’écran montrant la page « Connexion à Azure AD » avec un exemple de nom d’utilisateur et de mot de passe entré.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. Dans la page **Spécifiez le certificat SSL** , indiquez le mot de passe du fichier PFX que vous avez fourni lors de la configuration de la batterie de serveurs AD FS avec Azure AD Connect.
    ![Mot de passe du certificat](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
 6. Dans la page **Prêt à configurer** , l’Assistant affiche la liste des actions qui seront effectuées.
 
-   ![Prêt à configurer](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Capture d’écran montrant la page « Prêt à configurer » avec une liste d’actions à effectuer.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. Cliquez sur **Installer** pour terminer la configuration. Une fois la configuration terminée, l’Assistant vous permet de vérifier la connectivité aux serveurs. Cliquez sur **Vérifier** pour vérifier la connectivité.
 

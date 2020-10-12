@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332710"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -39,6 +39,7 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
+**Stockage redondant interzone (ZRS)** | Disponible dans les régions Royaume-Uni Sud (UKS) et Asie Sud-Est (SEA).
 
 ## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales
 
@@ -150,9 +151,9 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Ensemble des régions publiques Azure et des clouds souverains.  |
-| SQL /SAP HANA | Oui                                                          | Ensemble des régions publiques Azure et des clouds souverains.             |
+| SQL /SAP HANA | Oui                                                          | USA Ouest 2 (WUS2), USA Centre-Ouest (WCUS), Canada Centre (CNC), Canada Est (CNE), USA Est (EUS), USA Ouest (WUS), Japon Est (JPE) |
 | Agent MARS/En local  | Non                                                           | N/A               |
-| AFS                    | Non                                                           | N/A               |
+| AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

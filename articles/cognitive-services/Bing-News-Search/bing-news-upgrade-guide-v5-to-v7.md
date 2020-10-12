@@ -1,7 +1,7 @@
 ---
 title: Mise à niveau de l’API Recherche d’actualités Bing version 5 vers version 7
 titleSuffix: Azure Cognitive Services
-description: Permet d’identifier les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
+description: Identifie les parties de votre application Recherche d’actualités Bing que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: bad0ef849af7c94e63f1dfbebda7f47caef9947d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7999ed5296f2ff4e64b9edc0fb355f72b7d7a04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316645"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d'actualités Bing
 
@@ -86,7 +86,7 @@ Bloqué|InvalidRequest.Blocked
 
 - Ajout du champ `mentions` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `mentions` contient une liste d’entités (personnes ou lieux) trouvées dans l’article.
 
-- Ajout du champ `video` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `video` contient une vidéo en lien avec l’article. La vidéo est soit \<iframe\>, et vous pouvez l’intégrer, soit un vidéo miniature.
+- Ajout du champ `video` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `video` contient une vidéo en lien avec l’article. La vidéo est soit un \<iframe\> que vous pouvez incorporer, soit un vidéo miniature.
 
 - Ajout du champ `sort` à l’objet [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Le champ `sort` indique l’ordre de tri des articles. Par exemple, les articles sont triés par pertinence (par défaut) ou par date.
 

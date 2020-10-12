@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019587"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332727"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -155,7 +155,7 @@ Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge p
 
 **Composant** | **Support**
 --- | ---
-Disques de données de machine virtuelle Azure | Prise en charge de la sauvegarde des machines virtuelles Azure avec un maximum de 32 disques en préversion publique dans toutes les régions.<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
+Disques de données de machine virtuelle Azure | Prise en charge de la sauvegarde de machines virtuelles Azure avec jusqu’à 32 disques.<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
 Taille de disque de données | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.

@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332676"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -67,6 +67,15 @@ Et à ces adresses IP :
 
 L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protocole HTTPS sur le port 443.
 
+Lors de la sauvegarde des fichiers et des dossiers de machines virtuelles Azure à l’aide de l’agent MARS, le réseau virtuel Azure doit également être configuré pour autoriser l’accès. Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
+
+1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+2. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
+3. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
+4. Sélectionnez **Ajouter** pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
+
+De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pour Stockage Azure et Azure AD. Pour plus d’informations sur les balises de service, consultez [cet article](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+
 ### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
 Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.
@@ -81,11 +90,11 @@ Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants�
 
 Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 
+- Sauvegarde Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 - Azure Active Directory (12076:5060)
-- Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 - Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
-Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).
+Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
