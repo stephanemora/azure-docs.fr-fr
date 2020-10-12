@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319858"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : Effectuer une mise à niveau depuis une version précédente vers la dernière
 Cette rubrique décrit les différentes méthodes que vous pouvez utiliser pour mettre à niveau votre installation Azure Active Directory (Azure AD) Connect vers la dernière version. Nous vous recommandons d’utiliser systématiquement les dernières versions d’Azure AD Connect. Vous pouvez également suivre les étapes décrites dans la section [Migration « swing »](#swing-migration) lorsque vous appliquez une modification importante à la configuration.
@@ -106,7 +106,7 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
 1. Pendant la mise à niveau, **désactivez** l’option **Démarrez le processus de synchronisation une fois la configuration terminée**. Cela désactive le planificateur de synchronisation et empêche l’exécution automatique du cycle de synchronisation avant la suppression des actions prioritaires.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Capture d’écran mettant en évidence l’option Démarrer le processus de synchronisation une fois la configuration terminée que vous devez désactiver.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. Une fois la mise à niveau terminée, exécutez l’applet de commande suivante pour connaître les actions prioritaires qui ont été ajoutées : `Get-ADSyncSchedulerConnectorOverride | fl`
 

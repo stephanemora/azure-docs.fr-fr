@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320742"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91617160"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Qu’est-ce qu’Azure Stack Edge Pro avec GPU ?
 
@@ -73,7 +73,7 @@ L’appareil physique Azure Stack Edge Pro, la ressource Azure et le compte de s
 
 - **Disponibilité de la ressource** : pour cette préversion, la ressource est disponible dans les régions USA Est, Europe Ouest et Asie Sud-Est.
 
-- **Disponibilité de l’appareil** : pour obtenir la liste de tous les pays où l’appareil Azure Stack Edge Pro est disponible, accédez à la section **Disponibilité** sous l’onglet **Azure Stack Edge Pro**, qui indique les [tarifs d’Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Disponibilité de l’appareil** : pour obtenir la liste de tous les pays/régions où l’appareil Azure Stack Edge Pro est disponible, accédez à la section **Disponibilité** sous l’onglet **Azure Stack Edge Pro** pour la [tarification d’Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. Pour garantir des performances optimales, les régions où des comptes de stockage stockent les données Azure Stack Edge Pro doivent se trouver à proximité de l’appareil. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances.
 
