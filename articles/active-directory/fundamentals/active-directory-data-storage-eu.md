@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985912"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395887"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients européens dans Azure Active Directory
 Les données d’identité sont stockées par Azure AD dans un emplacement géographique en fonction de l’adresse fournie par votre organisation lors de l’abonnement à un service Microsoft Online tel que Microsoft 365 ou Azure. Pour obtenir des informations sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) du Centre de gestion de la confidentialité Microsoft.
@@ -35,6 +35,10 @@ Pour Azure Multi-Factor Authentication basé sur le cloud, l’authentification 
 * Les demandes d’authentification multifacteur utilisant des codes OATH qui proviennent de centres de données européens sont validées dans l’Union européenne.
 
 Pour plus d’informations sur les informations utilisateur collectées par le serveur Azure Multi-Factor Authentication (serveur MFA) et Azure MFA basé sur le cloud, consultez [Collecte de données utilisateur via Azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Authentification unique par mot de passe pour les applications d’entreprise
+ 
+Si un client crée une application d’entreprise (par le biais de la galerie Azure AD Galerie ou non) et active l’authentification unique par mot de passe, l’URL de connexion de l’application et les champs de connexion capturés personnalisés sont stockés aux États-Unis. Pour plus d’informations sur cette fonctionnalité, consultez [Configurer l’authentification unique par mot de passe](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
