@@ -1,6 +1,6 @@
 ---
 title: Charger des fichiers dans un compte Azure Media Services à l’aide de REST | Microsoft Docs
-description: Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources.
+description: Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources à l’aide de REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 68968cdbc512df527b70d0a314c90ce45ebaf7e2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281063"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 

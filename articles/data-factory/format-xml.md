@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334291"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
 
@@ -85,7 +85,9 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Le type de formatSettings doit être défini sur **XmlReadSettings**. | Oui      |
 | validationMode | Spécifie s’il faut valider le schéma XML.<br>Les valeurs autorisées sont **none** (aucun) (valeur par défaut, pas de validation), **xsd** (validation avec XSD), **dtd** (validation avec DTD). | Non |
+| espaces de noms | Indique s’il faut activer l’espace de noms lors de l’analyse des fichiers XML. Valeurs autorisées : **true** (par défaut) et **false**. | Non |
 | namespacePrefixes | Mappage URI d’espace de noms à préfixe utilisé pour nommer les champs lors de l’analyse du fichier xml.<br/>Si un fichier XML a un espace de noms et que celui-ci est activé, par défaut, le nom du champ est le même que dans le document XML.<br>Si un élément est défini pour l’URI d’espace de noms dans ce mappage, le nom du champ est `prefix:fieldName`. | Non |
+| detectDataType | Indique s’il faut détecter les types de données entier, double et booléen. Valeurs autorisées : **true** (par défaut) et **false**.| Non |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
 | preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* )  | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
 | preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **TarGzip**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
@@ -109,6 +111,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source XM
 | Mode de validation | Spécifie s’il faut valider le schéma XML. | Non | `None` (valeur par défaut, pas de validation)<br>`xsd` (validation avec XSD)<br>`dtd` (validation avec DTD). | validationMode |
 | Espaces de noms | Indique s’il faut activer l’espace de noms lors de l’analyse des fichiers XML. | Non | `true` (par défaut) ou `false` | espaces de noms |
 | Paires espace de noms/préfixe | Mappage URI d’espace de noms à préfixe utilisé pour nommer les champs lors de l’analyse du fichier xml.<br/>Si un fichier XML a un espace de noms et que celui-ci est activé, par défaut, le nom du champ est le même que dans le document XML.<br>Si un élément est défini pour l’URI d’espace de noms dans ce mappage, le nom du champ est `prefix:fieldName`. | Non | Tableau avec modèle`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Exemple de script source XML
 

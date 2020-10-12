@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527969"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403236"
 ---
 # <a name="revisions-in-azure-api-management"></a>Révisions dans Gestion des API Azure
 
@@ -38,7 +38,7 @@ Chaque révision de votre API est accessible à l’aide d’une URL spécialeme
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-Par défaut, chaque révision présente les mêmes paramètres de sécurité que la révision actuelle. Vous pouvez modifier délibérément les stratégies d’une révision spécifique pour appliquer une sécurité différente à chaque révision. Par exemple, vous souhaiterez peut-être ajouter une [stratégie de mise en liste verte d’adresses IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) pour empêcher les appelants externes d’accéder à une révision en cours de développement.
+Par défaut, chaque révision présente les mêmes paramètres de sécurité que la révision actuelle. Vous pouvez modifier délibérément les stratégies d’une révision spécifique pour appliquer une sécurité différente à chaque révision. Par exemple, vous souhaiterez peut-être ajouter une [stratégie de filtrage d’adresses IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) pour empêcher les appelants externes d’accéder à une révision en cours de développement.
 
 Une révision peut être mise hors connexion, ce qui la rend inaccessible aux appelants, même s’ils essaient d’accéder à la révision via son URL. Vous pouvez marquer une révision comme hors connexion à l’aide du portail Azure. Si vous utilisez PowerShell, vous pouvez utiliser la cmdlet `Set-AzApiManagementApiRevision` et définir l’argument `Path` sur `$null`.
 

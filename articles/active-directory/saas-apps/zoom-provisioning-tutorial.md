@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333441"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zoom pour l’approvisionnement automatique d’utilisateurs
 
@@ -52,19 +52,19 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 2. Accédez à **Gérer** dans l’angle supérieur droit de la page. 
 
-    ![Installation de Zoom](media/zoom-provisioning-tutorial/zoom02.png)
+    ![Capture d’écran de la place de marché d’applications avec Zoom et l’option Gérer en évidence.](media/zoom-provisioning-tutorial/zoom02.png)
 
 3. Accédez à votre application Azure AD créée. 
     
-    ![Application Zoom](media/zoom-provisioning-tutorial/zoom03.png)
+    ![Capture d’écran de la section Applications créées avec l’application Azure AD en évidence.](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. Dans le volet de navigation de gauche, sélectionnez **Informations d’identification de l’application**.
 
-    ![Application Zoom](media/zoom-provisioning-tutorial/zoom04.png)
+    ![Capture d’écran du volet de navigation gauche avec l’option Informations d’identification de l’application mise en évidence.](media/zoom-provisioning-tutorial/zoom04.png)
 
 5. Copiez et enregistrez le **jeton JWT**. Vous devrez entrer cette valeur dans le champ **Jeton secret** sous l’onglet Approvisionnement de votre application Zoom dans le Portail Azure. Si vous avez besoin d’un nouveau jeton sans expiration, vous devrez reconfigurer l’expiration, ce qui générera automatiquement un nouveau jeton. 
 
-    ![Installation de Zoom](media/zoom-provisioning-tutorial/zoom05.png)
+    ![Capture d’écran de la page Informations d’identification de l’application.](media/zoom-provisioning-tutorial/zoom05.png)
 
 ## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Zoom à partir de la galerie d’applications Azure AD
 
@@ -95,11 +95,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez `https://api.zoom.us/scim` dans **URL de locataire**. Saisissez la valeur du **jeton JWT** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Zoom. Si la connexion échoue, vérifiez que votre compte Zoom dispose des autorisations d’administrateur et réessayez.
 
