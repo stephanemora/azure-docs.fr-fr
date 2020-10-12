@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314707"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
@@ -35,6 +35,8 @@ Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architectu
 ## <a name="encrypted-transmissions-and-storage"></a>Transmissions et stockage chiffrés
 
 Dans Recherche cognitive Azure, le chiffrement commence aux connexions et aux transmissions, et s’étend au contenu stocké sur disque. Pour les services de recherche sur l’Internet public, Recherche cognitive Azure écoute sur le port HTTPS 443. Toutes les connexions client-à-service utilisent le chiffrement TLS 1.2. Les versions antérieures (1.0 et 1.1) ne sont pas prises en charge.
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="Diagramme illustrant différents types de sécurité à chaque niveau d’engagement de service":::
 
 Pour les données gérées en interne par le service de recherche, le tableau suivant décrit les [modèles de chiffrement de données](../security/fundamentals/encryption-models.md). Certaines fonctionnalités, telles que la base de connaissances, l’enrichissement incrémentiel et l’indexation basée sur un indexeur, lisent ou écrivent dans des structures de données dans d’autres services Azure. Ces services disposent de leur propre niveau de prise en charge du chiffrement, distinct de Recherche cognitive Azure.
 
@@ -92,6 +94,8 @@ L’authentification est requise à chaque requête, chaque requête étant comp
 
 Pour contrôler davantage l’accès à votre service de recherche, vous pouvez créer des règles de pare-feu de trafic entrant qui autorisent l’accès à une adresse IP spécifique ou à une plage d’adresses IP. Toutes les connexions clientes doivent être effectuées via une adresse IP autorisée, sans quoi la connexion est refusée.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="Diagramme illustrant différents types de sécurité à chaque niveau d’engagement de service":::
+
 Vous pouvez utiliser le portail pour [configurer l’accès du trafic entrant](service-configure-firewall.md).
 
 Vous pouvez aussi utiliser les API REST de gestion. À compter de la version 13-03-2020 de l’API avec le paramètre [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule), vous pouvez limiter l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, qui doivent pouvoir accéder à votre service de recherche.
@@ -101,6 +105,8 @@ Vous pouvez aussi utiliser les API REST de gestion. À compter de la version 13-
 Un [point de terminaison privé](../private-link/private-endpoint-overview.md) pour Recherche cognitive Azure permet à un client d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) d’accéder de façon sécurisée aux données d’un index de recherche grâce à une [liaison privée](../private-link/private-link-overview.md).
 
 Le points de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour les connexions à votre service de recherche. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public. Un réseau virtuel permet une communication sécurisée entre des ressources, avec votre réseau local ainsi qu’avec Internet.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="Diagramme illustrant différents types de sécurité à chaque niveau d’engagement de service":::
 
 Bien que cette solution soit la plus sécurisée, l’utilisation de services supplémentaires représente un coût supplémentaire : veillez donc à avoir une compréhension claire des avantages avant de la mettre en place. Pour plus d’informations sur les coûts, consultez la [page Tarification](https://azure.microsoft.com/pricing/details/private-link/). Pour plus d’informations sur la façon dont ces composants fonctionnent ensemble, regardez la vidéo en haut de cet article. L’option du point de terminaison privé est présentée à partir de 5:48 dans la vidéo. Pour obtenir des instructions sur la configuration du point de terminaison, consultez [Créer un point de terminaison privé pour Recherche cognitive Azure](service-create-private-endpoint.md).
 

@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330449"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 
@@ -109,6 +109,8 @@ Les [métriques de requête](sql-api-query-metrics.md) vous aident à détermine
 
     > [!NOTE]
     > Le processus hôte Windows 64 bits est recommandé pour améliorer les performances. Le kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée.
+
+Si vous rencontrez l’erreur suivante : `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:`, et que vous utilisez Windows, vous devez effectuer une mise à niveau vers la version la plus récente de Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

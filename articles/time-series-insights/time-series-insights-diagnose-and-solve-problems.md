@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046457"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530134"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article décrit les problèmes que vous pouvez rencontrer dans votre environnement Azure Time Series Insights. Il présente les causes éventuelles et les solutions pour les résoudre.
 
@@ -66,12 +69,12 @@ Par exemple, si 5 millions d’événements se trouvent dans une source de l’�
 
 Si votre source de l’événement comporte des événements antérieurs, vous pouvez aborder la limitation de l’une des deux façons suivantes :
 
-- Modifiez les limites de rétention de votre source de l’événement pour vous débarrasser des anciens événements que vous ne souhaitez pas voir apparaître dans Azure Time Series Insights.
-- Configurez une plus grande taille d’environnement (nombre d’unités) pour augmenter le débit des anciens événements. Dans l’exemple précédent, si vous augmentez l’environnement S1 à cinq unités pendant un jour, l’environnement doit rattraper le retard en un seul jour. Si votre production d’événement stable compte un million d’événements par jour maximum, vous pouvez réduire la capacité d’événements à une unité après qu’Azure Time Series Insights ait rattrapé son retard.
+* Modifiez les limites de rétention de votre source de l’événement pour vous débarrasser des anciens événements que vous ne souhaitez pas voir apparaître dans Azure Time Series Insights.
+* Configurez une plus grande taille d’environnement (nombre d’unités) pour augmenter le débit des anciens événements. Dans l’exemple précédent, si vous augmentez l’environnement S1 à cinq unités pendant un jour, l’environnement doit rattraper le retard en un seul jour. Si votre production d’événement stable compte un million d’événements par jour maximum, vous pouvez réduire la capacité d’événements à une unité après qu’Azure Time Series Insights ait rattrapé son retard.
 
 Les limitations sont appliquées en fonction de la capacité et du type de référence SKU de l’environnement. Cette capacité est répartie entre les différentes sources d’événements de l’environnement. Si la source d’événements pour votre hub IoT/Event Hub envoie des données au-delà des limites définies, vous allez constater un ralentissement et un décalage.
 
-La figure suivante illustre un environnement Azure Time Series Insights ayant une référence SKU S1 et une capacité de 3 unités. Cet environnement peut recevoir 3 millions d’événements par jour.
+La figure suivante montre un environnement Azure Time Series Insights ayant une référence SKU S1 et une capacité de 3 unités. Cet environnement peut recevoir 3 millions d’événements par jour.
 
 [![Environment capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
@@ -128,12 +131,12 @@ Le premier en-tête de colonne doit correspondre au nom de votre propriété tim
 
 Les valeurs suivantes ne seront pas affichées :
 
-- *(abc)* : indique qu’Azure Time Series Insights lit les valeurs de données sous forme de chaînes.
-- *Icône de calendrier* : indique qu’Azure Time Series Insights lit les valeurs de données en tant que valeurs DateHeure.
-- *#*  : indique qu’Azure Time Series Insights lit les valeurs de données sous forme d’entiers.
+* *(abc)* : indique qu’Azure Time Series Insights lit les valeurs de données sous forme de chaînes.
+* *Icône de calendrier* : indique qu’Azure Time Series Insights lit les valeurs de données en tant que valeurs DateHeure.
+* *#*  : indique qu’Azure Time Series Insights lit les valeurs de données sous forme d’entiers.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [la façon de limiter la latence dans Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* En savoir plus sur [la façon de limiter la latence dans Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Apprenez [comment mettre à l’échelle votre environnement Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+* Apprenez [comment mettre à l’échelle votre environnement Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

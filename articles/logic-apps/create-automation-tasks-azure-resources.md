@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93c796fd16dde8c238265d16a96b9cfa4a254ea9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269724"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gérer les ressources Azure et surveiller les coûts en créant des tâches d'automatisation (préversion)
 
@@ -30,6 +30,7 @@ Les modèles de tâches disponibles dans cette préversion sont les suivants :
 | Toutes les ressources Azure | **Envoyer le coût mensuel de la ressource** |
 | Machines virtuelles Azure | En outre : <p>- **Mettre hors tension la machine virtuelle** <br>- **Démarrer la machine virtuelle** |
 | Comptes de stockage Azure | En outre : <p>- **Supprimer les anciens objets blob** |
+| Azure Cosmos DB | En outre : <p>- **Envoyer le résultat de la requête par e-mail** |
 |||
 
 Cet article explique comment accomplir les tâches suivantes :
@@ -40,11 +41,13 @@ Cet article explique comment accomplir les tâches suivantes :
 
 * [Modifier la tâche](#edit-task) afin de pouvoir la mettre à jour, ou personnaliser le workflow sous-jacent de la tâche dans le Concepteur d'application logique
 
+<a name="differences"></a>
+
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>En quoi les tâches d'automatisation diffèrent-elles d'Azure Automation ?
 
-Actuellement, vous pouvez créer une tâche d'automatisation au niveau des ressources uniquement, examiner l'historique des exécutions de la tâche et modifier le workflow d'application logique sous-jacent de la tâche, qui est alimenté par le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+Actuellement, vous pouvez créer une tâche d'automatisation au niveau des ressources uniquement, examiner l'historique des exécutions de la tâche et modifier le workflow d'application logique sous-jacent de la tâche, qui est alimenté par le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Les tâches d’automatisation sont plus basiques et légères qu’[Azure Automation](../automation/automation-intro.md).
 
-[Azure Automation](../automation/automation-intro.md) est un service d'automatisation et de configuration cloud qui prend en charge une gestion cohérente de vos environnements Azure et non Azure. Le service comprend l'[automatisation des processus pour assurer leur orchestration](../automation/automation-intro.md#process-automation) à l'aide de [runbooks](../automation/automation-runbook-execution.md), la gestion de la configuration avec [le suivi et l'inventaire des modifications](../automation/change-tracking.md), la gestion des mises à jour, des fonctionnalités partagées et des fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet lors du déploiement, des opérations et de la désaffectation des charges de travail et des ressources.
+À titre de comparaison, Azure Automation est un service d’automatisation et de configuration cloud qui prend en charge une gestion cohérente de vos environnements Azure et non-Azure. Le service comprend l'[automatisation des processus pour assurer leur orchestration](../automation/automation-intro.md#process-automation) à l'aide de [runbooks](../automation/automation-runbook-execution.md), la gestion de la configuration avec [le suivi et l'inventaire des modifications](../automation/change-tracking.md), la gestion des mises à jour, des fonctionnalités partagées et des fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet lors du déploiement, des opérations et de la désaffectation des charges de travail et des ressources.
 
 ## <a name="prerequisites"></a>Prérequis
 

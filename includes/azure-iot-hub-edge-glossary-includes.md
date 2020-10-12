@@ -4,14 +4,14 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b478775aa572ce89f3dcdc6f28ee0418e818d99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82132058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377363"
 ---
-## <a name="automatic-device-management"></a>Gestion automatique des appareils
+## <a name="automatic-device-management-in-azure-iot-hub"></a>Gestion automatique des appareils dans Azure IoT Hub
 La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils pendant tout leur cycle de vie. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et permettre à IoT Hub de mettre à jour les appareils chaque fois qu’ils se trouvent dans l’étendue.  La gestion automatique des appareils comprend les [configurations automatiques des appareils](../articles/iot-hub/iot-hub-auto-device-config.md) et les [déploiements automatiques IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge
