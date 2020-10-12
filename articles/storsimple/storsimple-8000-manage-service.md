@@ -1,6 +1,6 @@
 ---
 title: Déployer le service StorSimple Device Manager dans Azure | Microsoft Docs
-description: Cet article décrit comment créer et supprimer le service StorSimple Device Manager dans le Portail Azure, ainsi que la procédure de gestion de la clé d’inscription du service.
+description: En savoir plus sur les étapes requises pour la création, la suppression, la migration du service et la gestion de la clé d’inscription au service.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249550"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
