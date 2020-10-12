@@ -1,27 +1,27 @@
 ---
 title: Créez un compte de stockage.
 titleSuffix: Azure Storage
-description: Apprenez à créer un compte de stockage avec le portail Azure, Azure PowerShell ou l’interface Azure CLI. Un compte de stockage Azure fournit un espace de noms unique dans Microsoft Azure pour stocker vos données et y accéder.
+description: Découvrez comment créer un compte de stockage pour stocker des objets blob, des fichiers, des files d’attente et des tables. Un compte de stockage Azure fournit un espace de noms unique dans Microsoft Azure destiné à la lecture et à l’écriture de vos données.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333577"
 ---
-# <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
+# <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit pour vos données de stockage Azure un espace de noms unique, accessible de n’importe où dans le monde via HTTP ou HTTPS. Les données dans votre compte de stockage Azure sont durables et hautement disponibles, sécurisées et massivement évolutives.
 
-Dans cet article sur les procédures, vous apprenez à créer un compte de stockage à l’aide du [Portail Azure](https://portal.azure.com/), d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/), de l’[interface Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) ou d’un [modèle Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Dans cet article sur les procédures, vous apprenez à créer un compte de stockage à l’aide du [Portail Azure](https://portal.azure.com/), d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/), de l’[interface Azure CLI](https://docs.microsoft.com/cli/azure) ou d’un [modèle Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Pour les besoins de cet article de procédure, vous devez utiliser Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+Vous pouvez également installer et utiliser Azure CLI localement. Les exemples de cet article nécessitent la version 2.0.4 ou ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Modèle](#tab/template)
 
@@ -104,11 +104,9 @@ N/A
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Vous êtes maintenant prêt à créer un compte de stockage.
-
 Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un groupe de ressources est un conteneur logique servant à grouper vos services Azure. Lorsque vous créez un compte de stockage, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant. Cet article montre comment créer un groupe de ressources.
 
-Un compte de stockage **v2 à usage général** fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Les étapes décrites ici créent un compte de stockage v2 universel, mais les étapes de création d’un autre type de compte de stockage sont similaires.
+Un compte de stockage **v2 à usage général** fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Les étapes décrites ici créent un compte de stockage v2 universel, mais les étapes de création d’un autre type de compte de stockage sont similaires. Pour plus d’informations sur les types de comptes de stockage et d’autres paramètres de compte de stockage, consultez [Vue d’ensemble du compte de stockage Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `--enable-hierarchical-namespace true` dans cette liste de paramètres. 
+> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `--enable-hierarchical-namespace true` dans cette liste de paramètres.
 
 Pour créer un compte de stockage universel v2 avec une option de réplication différente, remplacez la valeur souhaitée pour le paramètre **sku** dans le tableau ci-dessous.
 
@@ -230,8 +228,6 @@ Pour savoir comment modifier ce modèle ou en créer de nouveaux, consultez :
 - [Exemples supplémentaires de modèles de compte de stockage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-Pour plus d’informations sur les options de réplication disponibles, consultez [Options de réplication de stockage](storage-redundancy.md).
 
 ## <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage
 
@@ -287,26 +283,6 @@ Vous pouvez également supprimer le groupe de ressources, ce qui supprime le com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article de procédure, vous avez créé un compte de stockage standard à usage général v2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
-
-# <a name="portal"></a>[Portail](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Utiliser des objets blob avec le portail Azure](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Utiliser des objets blob avec PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Utiliser des objets blob avec l’interface Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Modèle](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Utiliser des objets blob avec le portail Azure](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Vue d’ensemble du compte de stockage](storage-account-overview.md)
+- [Mettre à niveau vers un compte de stockage v2 à usage général](storage-account-upgrade.md)
+- [Déplacer un compte Stockage Azure vers une autre région](storage-account-move.md)

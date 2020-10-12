@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279217"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400041"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
@@ -40,10 +40,10 @@ Les questions/réponses sont organisées en plusieurs catégories :
 
 Pour plus d’informations, consultez [StorSimple série 8000](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>StorSimple utilise-t-il des licences à l’utilisation ou en fonction du nombre d’utilisateurs, comme Office 365 et Enterprise Mobility Suite ?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>StorSimple utilise-t-il des licences à l’utilisation ou en fonction du nombre d’utilisateurs, comme Microsoft 365 et Enterprise Mobility Suite ?
 StorSimple est un service basé sur l’utilisation. Les clients qui s’équipent de StorSimple Virtual Array via le programme des fournisseurs de solutions cloud paient leurs utilisations de Virtual Array et d’Azure, facturées séparément. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>Le modèle d’entreprise StorSimple est-il similaire à celui d’autres services, comme Office 365 et Enterprise Mobility Suite ? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>Le modèle d’entreprise StorSimple est-il similaire à celui d’autres services, comme Microsoft 365 et Enterprise Mobility Suite ? 
 Oui. Le modèle est un programme de remise en gros, à l’instar d’autres services basés sur l’utilisation dans Azure. La remise en gros accordée pour StorSimple est similaire à celle octroyée pour d’autres services Azure. Ce modèle offre à nos partenaires du programme la possibilité d’accroître leurs ventes et de simuler la consommation d’Azure via StorSimple Virtual Array.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>Quelles sont les références StorSimple disponibles au lancement ?

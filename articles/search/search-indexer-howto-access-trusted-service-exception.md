@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320470"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Accès aux données dans les comptes de stockage de manière sécurisée via une exception de service approuvé
 
 Les indexeurs qui accèdent aux données de comptes de stockage peuvent utiliser la capacité d’[exception de service approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) pour accéder aux données de manière sécurisée. Ce mécanisme offre aux clients dans l’impossibilité d’accorder un [accès aux indexeurs via des règles de pare-feu IP](search-indexer-howto-access-ip-restricted.md) une alternative simple, sécurisée et gratuite pour accéder aux données de comptes de stockage.
+
+> [!NOTE]
+> La prise en charge de l’accès aux données dans les comptes de stockage par le biais d’une exception de service approuvé est limitée aux solutions Stockage Blob Azure et Azure Data Lake Storage Gen2. Le stockage Table Azure n’est pas pris en charge.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Étape 1 : Configurer une connexion au compte de stockage via l’identité
 

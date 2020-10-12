@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024381"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705056"
 ---
 # <a name="common-conditional-access-policies"></a>Stratégies d’accès conditionnel courantes
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur les comptes d’accès d’urgence et la raison p
 
 ## <a name="additional-policies"></a>Stratégies supplémentaires
 
-* [Authentification de l’accès conditionnel basé sur les risques (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Accès conditionnel basé sur les risques de connexion (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Accès conditionnel basé sur les risques des utilisateurs (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exiger un emplacement approuvé pour l’inscription MFA](howto-conditional-access-policy-registration.md)
 * [Bloquer l’accès par emplacement](howto-conditional-access-policy-location.md)
