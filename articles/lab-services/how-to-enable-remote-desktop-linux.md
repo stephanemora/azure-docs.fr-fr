@@ -3,12 +3,12 @@ title: Activer un bureau à distance graphique pour Linux dans Azure Lab Service
 description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un lab dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251607"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Activer un bureau à distance graphique pour des machines virtuelles Linux dans Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
@@ -46,7 +46,7 @@ Cette étape n’est nécessaire que pour se connecter à l’aide de RDP.  Si v
 
 1.  Pendant la création du laboratoire, l’enseignant a la possibilité d’**activer une connexion Bureau à distance**.  L’enseignant doit **activer** cette option pour ouvrir sur la machine virtuelle Linux le port nécessaire pour une session Bureau à distance RDP.  Autrement, si cette option est laissée **désactivée**, seul le port pour SSH est ouvert.
   
-    ![Activer la connexion Bureau à distance pour une image Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Capture d’écran de la fenêtre « Nouveau labo » avec l’option « Activer la Connexion Bureau à distance »](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. Dans la zone de message **Activation de la connexion Bureau à distance**, sélectionnez **Continuer avec le Bureau à distance**. 
 

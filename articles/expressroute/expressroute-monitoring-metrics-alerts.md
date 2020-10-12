@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252627"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -60,19 +60,19 @@ Vous pouvez voir les métriques sur l’ensemble des peerings sur un circuit Exp
 
 Vous pouvez afficher des mesures pour le peering privé, public et Microsoft en bits par seconde.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="métriques par peering":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="métriques de circuit":::
 
 ### <a name="bgp-availability---split-by-peer"></a>Disponibilité du protocole BGP : découpage par pair  
 
 Vous pouvez consulter la disponibilité du protocole BGP en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session BGP principale en haut pour le peering privé et la session BGP secondaire en bas pour le peering privé. 
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Disponibilité du protocole BGP par pair":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="métriques de circuit":::
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilité du protocole ARP : découpage par peering  
 
 Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session ARP de peering privé en haut sur les deux pairs, mais la session complète en bas pour le peering Microsoft sur les peerings. L’agrégation par défaut (moyenne) a été utilisée sur les deux pairs.  
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="Disponibilité du protocole ARP par pair":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="métriques de circuit":::
 
 ## <a name="expressroute-direct-metrics"></a>Métriques de ExpressRoute Direct
 
@@ -80,37 +80,37 @@ Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsof
 
 Vous pouvez afficher l’état d’administration pour chaque lien de la paire de ports directs ExpressRoute Direct.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="État de l'administrateur ER Direct":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="métriques de circuit":::
 
 ### <a name="bits-in-per-second---split-by-link"></a>Bits entrants par seconde – Lien Diviser par
 
 Vous pouvez afficher les bits entrants par seconde sur les deux liens de la paire de ports ExpressRoute Direct.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="Bits ER Direct entrants par seconde":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="métriques de circuit":::
 
 ### <a name="bits-out-per-second---split-by-link"></a>Bits sortants par seconde – Lien Diviser par
 
 Vous pouvez également afficher les bits sortants par seconde sur les deux liens de la paire de ports ExpressRoute Direct.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="Bits ER Direct sortants par seconde":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="métriques de circuit":::
 
 ### <a name="line-protocol---split-by-link"></a>Protocole de ligne – Lien Diviser par
 
 Vous pouvez afficher le protocole de ligne sur chaque lien de la paire de ports ExpressRoute Direct.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="Protocole de ligne ER Direct":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="métriques de circuit":::
 
 ### <a name="rx-light-level---split-by-link"></a>Niveau d’éclairage de réception – Lien Diviser par
 
 Vous pouvez afficher le niveau d’éclairage de réception (niveau d’éclairage que le port ExpressRoute Direct **reçoit**) pour chaque port. Les niveaux d’éclairage de réception sains s’inscrivent généralement dans une plage de -10 à 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="Niveau d'éclairage de réception de ligne ER Direct":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="métriques de circuit":::
 
 ### <a name="tx-light-level---split-by-link"></a>Niveau d’éclairage de transmission – Lien Diviser par
 
 Vous pouvez afficher le niveau d’éclairage de transmission (niveau d’éclairage que le port ExpressRoute Direct **transmet**) pour chaque port. Les niveaux d’éclairage de transmission sains s’inscrivent généralement dans une plage de -10 à 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="Niveau d'éclairage de transmission de ligne ER Direct":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="métriques de circuit":::
 
 ## <a name="expressroute-virtual-network-gateway-metrics"></a>Métriques de passerelle de réseau virtuel ExpressRoute
 
@@ -118,42 +118,55 @@ Vous pouvez afficher le niveau d’éclairage de transmission (niveau d’éclai
 
 Vous pouvez consulter l'utilisation du processeur des instances de la passerelle.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Processeur fractionné":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="métriques de circuit":::
 
 ### <a name="packets-per-second---split-by-instance"></a>Paquets par seconde - Fractionner par instance
 
 Vous pouvez consulter les paquets par seconde qui traversent la passerelle.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Paquets par seconde - fractionner":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="métriques de circuit":::
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Connexions de passerelle ExpressRoute en bits/secondes
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="connexions de passerelle":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="métriques de circuit":::
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertes pour les connexions de passerelle ExpressRoute
 
 1. Pour configurer des alertes, accédez à **Azure Monitor**, puis sélectionnez **Alertes**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="métriques de circuit":::
 2. Cliquez sur **+Sélectionner la cible** et sélectionnez la ressource de connexion de passerelle ExpressRoute.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="cible":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="métriques de circuit":::
 3. Définissez les détails de l’alerte.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="groupe d’actions":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="métriques de circuit":::
 4. Définissez et ajoutez le groupe d’actions.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="ajouter un groupe d'actions":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="métriques de circuit":::
 
 ## <a name="alerts-based-on-each-peering"></a>Alertes basées sur chaque peering
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="chaque peering":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="métriques de circuit":::
 
 ## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Configurer des alertes pour les journaux d’activité sur des circuits
 
 Dans les **Critères d’alerte**, vous pouvez sélectionner le Type de signal **Journal d’activité** puis sélectionner le Signal.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="journaux d'activité":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="métriques de circuit":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Métriques supplémentaires dans Log Analytics
+
+Vous pouvez également afficher les métriques ExpressRoute en accédant à votre ressource de circuit ExpressRoute et en sélectionnant l’onglet *Journaux*. Pour toutes les métriques que vous interrogez, la sortie contiendra les colonnes ci-dessous.
+
+|**Colonne**|**Type**|**Description**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (les valeurs de métriques sont envoyées [push] toutes les minutes)|
+|Count|real|Généralement égale à 2 (chaque MSEE envoie [push] une valeur métrique unique toutes les minutes)|
+|Minimum|real|Minimum des deux valeurs de métriques envoyées (push) par les deux MSEE|
+|Maximale|real|Maximum des deux valeurs de métriques envoyées (push) par les deux MSEE|
+|Average|real|Égale à (Minimum + Maximum)/2|
+|Total|real|Somme des deux valeurs de métriques des deux MSEE (principale valeur sur laquelle se concentrer pour la métrique interrogée)|
   
 ## <a name="next-steps"></a>Étapes suivantes
 

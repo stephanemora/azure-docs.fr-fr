@@ -3,12 +3,12 @@ title: Gérer des laboratoires de classe dans Azure Lab Services | Microsoft Doc
 description: Apprenez à créer et configurer un laboratoire de classe, à afficher tous les laboratoires de classe, à partager le lien d'inscription avec un autre utilisateur du laboratoire et à supprimer un laboratoire.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251675"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -32,7 +32,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     1. Vérifiez le **tarif horaire total** affiché sur la page. 
     1. Sélectionnez **Enregistrer**.
 
-        ![Fenêtre Nouveau labo](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Capture d’écran montrant la fenêtre « Nouveau Labo ».](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Vous voyez une option permettant de sélectionner un emplacement pour votre lab si le compte de laboratoire a été configuré pour l’option [Autoriser le créateur du lab à choisir l’emplacement du lab](allow-lab-creator-pick-lab-location.md). 

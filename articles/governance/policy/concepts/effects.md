@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252002"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -24,7 +24,7 @@ Une définition de stratégie prend en charge ces effets :
 - [Désactivé](#disabled)
 - [Modify](#modify)
 
-Les effets suivants sont _dépréciés_ :
+Les effets suivants sont _déconseillés_ :
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -374,8 +374,8 @@ Lorsque **enforcementMode** est _Désactivé_, les ressources sont toujours éva
 
 Cet effet est utilisé avec une définition de stratégie _mode_ de `Microsoft.Kubernetes.Data`. Il est utilisé pour transmettre les règles de contrôle d’admission de Gatekeeper v3 définies avec le [Framework de contraintes d’OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) aux clusters Kubernetes sur Azure.
 
-> [!NOTE]
-> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceOPAConstraint** et la catégorie **Service Kubernetes** associée sont _dépréciées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> Les définitions de stratégies en préversion limitée avec l’effet **EnforceOPAConstraint** et la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Évaluation d’EnforceOPAConstraint
 
@@ -430,8 +430,8 @@ Exemple : Règle de contrôle d’admission de Gatekeeper v3 pour définir les l
 
 Cet effet est utilisé avec une définition de stratégie _mode_ de `Microsoft.ContainerService.Data`. Il sert à transmettre des règles de contrôle d’admission de Gatekeeper v2 définies avec [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy pour Kubernetes](./policy-for-kubernetes.md) est disponible en préversion et prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en préversion avec l’effet **EnforceRegoPolicy** et la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> Les définitions de stratégie limitées en préversion avec l’effet **EnforceRegoPolicy** et la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceregopolicy-evaluation"></a>Évaluation d’EnforceRegoPolicy
 
