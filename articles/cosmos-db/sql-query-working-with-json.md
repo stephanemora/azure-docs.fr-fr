@@ -4,14 +4,14 @@ description: Découvrez l’interrogation et la consultation de propriétés JSO
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270849"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Utilisation de JSON dans Azure Cosmos DB
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Différence entre une valeur Null et non définie
+
+Si une propriété n’est pas définie dans un élément, sa valeur est `undefined`. Une propriété dont la valeur est `null` doit être définie explicitement et se voir attribuer une valeur `null`.
+
+Considérons par exemple cet exemple d’élément :
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+Dans cet exemple, la propriété `isRegistered` a la valeur `undefined`, car elle est omise de l’élément. La propriété `creationDate` a la valeur `null`.
+
+Azure Cosmos DB prend en charge deux fonctions système de contrôle de type utiles pour les propriétés `null` et `undefined` :
+
+* [IS_NULL](sql-query-is-null.md) : vérifie si une valeur de propriété est `null`
+* [IS_DEFINED](sql-query-is-defined.md) : vérifie si une valeur de propriété est définie
+
+Vous pouvez vous renseigner sur les [opérateurs pris en charge](sql-query-operators.md) et leur comportement pour les valeurs `null` et `undefined`.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Mots clés réservés et caractères spéciaux dans JSON
 
