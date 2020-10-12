@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316730"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -105,7 +105,7 @@ Message d’erreur : L’opération de capture instantanée a échoué parce qu
 
 Cette erreur se produit parce que les enregistreurs VSS sont dans un état incorrect. Les extensions Sauvegarde Azure interagissent avec les enregistreurs VSS pour prendre des instantanés des disques. Pour résoudre ce problème, effectuez les étapes suivantes :
 
-Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
+Étape 1 : Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
 - À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```.
 - La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez le service de l’enregistreur VSS correspondant. 
 - Pour redémarrer le service, exécutez les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
@@ -117,12 +117,20 @@ Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
 > Le redémarrage de certains services peut avoir un impact sur votre environnement de production. Assurez-vous que le processus d’approbation est respecté et que le service est redémarré à l’heure d’arrêt prévue.
  
    
-Si le redémarrage des enregistreurs VSS n’a pas résolu le problème et que le problème persiste en raison de l’expiration du délai d’attente, procédez comme suit :
-- Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges (en tant qu’administrateur) pour empêcher la création de threads pour les instantanés-blobs.
+Étape 2 : Si le redémarrage des enregistreurs VSS n’a pas résolu le problème, exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges (en tant qu’administrateur) pour empêcher la création de threads pour les instantanés-blobs.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Étape 3 : Si les étapes 1 et 2 n’ont pas résolu le problème, l’échec peut être dû à un dépassement du délai d’expiration des enregistreurs VSS en raison d’un IOPS limité.<br>
+
+Pour vérifier, accédez à ***Journaux du système et des applications de l’observateur d’événements*** et recherchez le message d’erreur suivant :<br>
+*Le délai d’attente du fournisseur de clichés instantanés a expiré pendant que les écritures en attente dans le volume était copiées en mémoire fantôme. Cela est probablement dû à une activité excessive sur le volume par une application ou un service système. Réessayez plus tard lorsque l’activité sur le volume sera réduite.*<br>
+
+Solution :
+- Vérifiez les possibilités de distribution de la charge sur les disques de machine virtuelle. Cela permet de réduire la charge sur les disques individuels. Vous pouvez [vérifier la limitation d’IOPS en activant les métriques de diagnostic au niveau du stockage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Modifiez la stratégie de sauvegarde pour effectuer des sauvegardes pendant les heures creuses, lorsque la charge sur la machine virtuelle est à son niveau le plus bas.
+- Mettez à niveau les disques Azure pour prendre en charge des IOPS supérieures. [En savoir plus ici](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState : échec de l’opération d’instantané en raison de l’état incorrect du service VSS (cliché instantané de volume)
 
@@ -306,6 +314,13 @@ Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au 
 | Sauvegarde Azure n’a pas annulé le travail : <br>Attendez que le travail se termine. |None |
 
 ## <a name="restore"></a>Restaurer
+
+#### <a name="disks-appear-offline-after-file-restore"></a>Les disques apparaissent hors connexion après la restauration des fichiers
+
+Si, après la restauration, vous remarquez que les disques sont hors connexion, alors : 
+* Vérifiez si l’ordinateur sur lequel le script est exécuté répond à la configuration requise du système d’exploitation. [En savoir plus](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements)  
+* Assurez-vous que vous ne restaurez pas sur la même source. [En savoir plus](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |

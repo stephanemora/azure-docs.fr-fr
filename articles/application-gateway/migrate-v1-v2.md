@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311595"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -36,6 +36,8 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 * La nouvelle passerelle v2 a de nouvelles adresses IP publiques et privées. Il n’est pas possible de déplacer de façon transparente les adresses IP associées à la passerelle v1 existante vers la version 2. Toutefois, vous pouvez allouer une adresse IP publique ou privée existante (non allouée) à la nouvelle passerelle v2.
 * Vous devez fournir un espace d’adressage IP pour un autre sous-réseau au sein de votre réseau virtuel où se trouve votre passerelle v1. Le script ne peut pas créer la passerelle v2 dans les sous-réseaux existants qui ont déjà une passerelle v1. Toutefois, si le sous-réseau existant a déjà une passerelle v2, celle-ci peut encore fonctionner sous réserve d’un espace d’adressage IP suffisant.
+* Si vous avez un groupe de sécurité réseau ou des routes définies par l’utilisateur associés au sous-réseau de passerelle v2, assurez-vous qu’ils respectent les [exigences NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) et les [exigences UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) pour une migration réussie.
+* Les [stratégies de points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoint-policies-overview.md) ne sont actuellement pas prises en charge dans un sous-réseau Application Gateway.
 * Pour migrer une configuration TLS/SSL, vous devez spécifier tous les certificats TLS/SSL utilisés sur votre passerelle v1.
 * Si le mode FIPS est activé pour votre passerelle V1, il ne sera pas migré vers votre nouvelle passerelle v2. Le mode FIPS n’est pas pris en charge dans v2.
 * La version 2 ne prend pas en charge IPv6, si bien que les passerelles v1 compatibles IPv6 ne sont pas migrées. Si vous exécutez le script, il peut ne pas se terminer.
