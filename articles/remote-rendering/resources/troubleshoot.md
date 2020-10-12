@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322187"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -23,11 +23,7 @@ Parfois, lors de la [liaison d’un compte de stockage](../how-tos/create-an-acc
 
 ## <a name="client-cant-connect-to-server"></a>Le client ne peut pas se connecter au serveur
 
-Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloquent pas les ports suivants :
-
-* **50051 (TCP)**  : nécessaire pour la connexion initiale (négociation HTTP)
-* **8266 (TCP+UDP)**  : nécessaire pour le transfert de données
-* **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)**  : nécessaires pour [ArrInspector](tools/arr-inspector.md)
+Assurez-vous que vos pare-feu (sur l’appareil, les routeurs internes, etc.) ne bloquent pas les ports mentionnés dans la [Configuration requise](../overview/system-requirements.md#network-ports).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erreur : `Disconnected: VideoFormatNotAvailable`
 
@@ -152,7 +148,7 @@ Ce cadre englobant peut présenter deux problèmes qui mènent à une géométri
 
 Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la composition du cadre avec la vidéo et effectuer la reprojection. Pour vérifier que ces crochets, ouvrez le menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Activez-le et vérifiez qu’il existe deux entrées pour `HolographicRemotingCallbackPass` dans le pipeline :
 
-![Débogueur de frames Unity](./media/troubleshoot-unity-pipeline.png)
+![Pipeline de rendu Unity](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Le modèle de damier est rendu après le chargement du modèle
 
@@ -184,6 +180,12 @@ Nous avons constaté de faux échecs lors de tentative de compilation d’exempl
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Les builds Arm64 pour les projets Unity échouent car AudioPluginMsHRTF.dll est manquant
 
 `AudioPluginMsHRTF.dll` pour Arm64 a été ajouté au package *Windows Mixed Reality* *(com.unity.xr.windowsmr.metro)* dans la version 3.0.1. Vérifiez que la version 3.0.1 ou ultérieure est installée par le biais de Unity Package Manager. Dans la barre de menus Unity, accédez à *Window > Package Manager* (Fenêtre > Gestionnaire de package) et recherchez le package *Windows Mixed Reality*.
+
+## <a name="native-c-based-application-does-not-compile"></a>L’application basée sur C++ native ne se compile pas
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erreur « bibliothèque introuvable » pour une application ou dll UWP
+
+Le package NuGet C++ contient un fichier `microsoft.azure.remoterendering.Cpp.targets` qui définit la version de fichier binaire à utiliser. Pour identifier `UWP`, les conditions dans le fichier vérifient la présence de `ApplicationType == 'Windows Store'`. Il faut donc vérifier que ce type est défini dans le projet. Cela devrait être le cas lors de la création d’une application ou dll UWP via l’Assistant Projet de Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologrammes instables
 

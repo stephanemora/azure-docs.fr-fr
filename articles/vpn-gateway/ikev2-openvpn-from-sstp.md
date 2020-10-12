@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426280"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442176"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Passer au protocole OpenVPN ou à IKEv2 à partir de SSTP
 
@@ -47,7 +47,7 @@ L’ajout d’IKEv2 à une passerelle VPN SSTP existante n’affecte pas les cli
 
 Pour ajouter IKEv2 à une passerelle existante, accédez simplement à l’onglet « Configuration de point à site » sous la passerelle de réseau virtuel dans le portail et sélectionnez **IKEv2 et SSTP (SSL)** dans la liste déroulante.
 
-![point à site](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Capture d’écran montrant la page « Configuration de point à site » avec la liste déroulante « Type de tunnel », et l’option « IKEv2 et SSTP(SSL) » sélectionnée.](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Option 2 - Supprimer SSTP et activer OpenVPN sur la passerelle

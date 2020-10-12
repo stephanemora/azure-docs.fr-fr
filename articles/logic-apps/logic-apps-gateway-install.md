@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322510"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -41,7 +41,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
   * Lorsque vous installez la passerelle, vous vous connectez avec votre compte Azure, qui relie l’installation de votre passerelle à votre compte Azure et uniquement à celui-ci. Il n’est pas possible de lier la même installation de passerelle à plusieurs comptes Azure ou locataires Azure AD.
 
-  * Plus tard, sur le Portail Azure, vous devrez utiliser le même compte Azure pour créer une ressource de passerelle Azure reliée à votre installation de passerelle. Vous ne pouvez lier qu’une seule installation de passerelle et une seule ressource de passerelle Azure l’une à l’autre. Toutefois, votre compte Azure peut être lié à différentes installations de passerelle, dont chacune est associée à une ressource de passerelle Azure. Vos applications logiques peuvent alors utiliser cette ressource de passerelle dans les déclencheurs et les actions qui ont accès à des sources de données locales.
+  * Plus tard, sur le Portail Azure, vous devrez utiliser le même compte Azure pour créer une ressource de passerelle Azure reliée à votre installation de passerelle. Vous ne pouvez lier qu’une seule installation de passerelle et une seule ressource de passerelle Azure l’une à l’autre. Toutefois, votre compte Azure peut être lié à différentes installations de passerelle qui sont chacune associées à une ressource de passerelle Azure. Vos applications logiques peuvent alors utiliser cette ressource de passerelle dans les déclencheurs et les actions qui ont accès à des sources de données locales.
 
 * Voici la configuration requise pour votre ordinateur local :
 
@@ -114,7 +114,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
    Notez l’option pour **Ajouter à un cluster de passerelle existant**, que vous sélectionnez quand vous installez des passerelles supplémentaires pour des [scénarios de haute disponibilité](#high-availability).
 
-1. Vérifiez la région sélectionnée pour le service cloud de passerelle et pour [Azure Service Bus](https://azure.microsoft.com/services/service-bus/), qui est utilisée par votre installation de passerelle. Par défaut, cette région est le même emplacement que votre locataire Azure AD pour votre compte Azure.
+1. Vérifiez la région du service cloud de passerelle et [l’instance de messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) qui est utilisée par votre installation de passerelle. Par défaut, cette région est le même emplacement que votre locataire Azure AD pour votre compte Azure.
 
    ![Confirmer la région pour le service de passerelle et le service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 ## <a name="check-or-adjust-communication-settings"></a>Vérifier ou ajuster les paramètres de communication
 
-La passerelle de données locale dépend d’[Azure Service bus](../service-bus-messaging/service-bus-messaging-overview.md) pour la connectivité au cloud et établit les connexions sortantes correspondantes à la région Azure associée de la passerelle. Si votre environnement de travail nécessite que le trafic passe par un proxy ou un pare-feu pour accéder à Internet, cette restriction peut empêcher la passerelle de données de se connecter au service cloud de passerelle et à Azure Service Bus. La passerelle a plusieurs paramètres de communication que vous pouvez ajuster. Pour plus d’informations, consultez les rubriques suivantes :
+La passerelle de données locale dépend de la [messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour la connectivité au cloud et établit les connexions sortantes correspondantes à la région Azure associée de la passerelle. Si votre environnement de travail nécessite que le trafic passe par un proxy ou un pare-feu pour accéder à Internet, cette restriction peut empêcher la passerelle de données locale de se connecter au service cloud de passerelle et à la messagerie Azure Service Bus. La passerelle a plusieurs paramètres de communication que vous pouvez ajuster. Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Ajuster les paramètres de communication pour la passerelle de données locale](/data-integration/gateway/service-gateway-communication)
 * [Configurer les paramètres de proxy pour la passerelle de données locale](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Les utilisateurs au sein de votre organisation peuvent accéder aux données loc
 
 La passerelle facilite une communication plus rapides et plus sûre en coulisses. Cette communication circule entre un utilisateur dans le cloud, le service cloud de passerelle et votre source de données locale. Le service cloud de passerelle chiffre et stocke les informations d’identification de votre source de données et les détails de la passerelle. Le service achemine également les requêtes et leurs résultats entre l’utilisateur, la passerelle et votre source de données locale.
 
-La passerelle fonctionne avec les pare-feux et utilise uniquement des connexions sortantes. L’ensemble du trafic est généré sous forme de trafic sortant sécurisé en provenance de l’agent de passerelle. La passerelle relaie les données des sources locales sur des canaux chiffrés via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Ce service bus crée un canal entre la passerelle et le service d’appel, mais ne stocke aucune donnée. Toutes les données qui transitent via la passerelle sont chiffrées.
+La passerelle fonctionne avec les pare-feux et utilise uniquement des connexions sortantes. L’ensemble du trafic est généré sous forme de trafic sortant sécurisé en provenance de l’agent de passerelle. La passerelle envoie les données des sources locales sur des canaux chiffrés via la [messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Ce service bus crée un canal entre la passerelle et le service d’appel, mais ne stocke aucune donnée. Toutes les données qui transitent via la passerelle sont chiffrées.
 
 ![Architecture pour la passerelle de données locale](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Ces étapes décrivent ce qu’il se produit quand vous interagissez avec un él
 
 1. Le service cloud crée une requête, ainsi que les informations d’identification chiffrées pour la source de données. Le service envoie ensuite la requête et les informations d’identification à la file d’attente de passerelle pour traitement.
 
-1. Le service cloud de la passerelle analyse la requête et envoie celle-ci à Azure Service Bus.
+1. Le service cloud de passerelle analyse la requête et envoie (push) celle-ci à la messagerie Azure Service Bus.
 
-1. Azure Service Bus envoie les demandes en attente à la passerelle.
+1. La messagerie Azure Service Bus envoie les requêtes en attente à la passerelle.
 
 1. La passerelle reçoit la requête, déchiffre les informations d’identification et les utilise pour se connecter à une ou plusieurs sources de données.
 
