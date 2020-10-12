@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8039191814243370fec417a3e22fc85f87264790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bf53561e7788b1d4ce9789c3b555cb1e089545b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85805805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267295"
 ---
 Pour plus d’informations sur les services proposés par les partenaires, vous pouvez consulter les liens de cette section. Si le partenaire d’appareil de votre branche n’est pas répertorié dans la section ci-dessous, demandez-lui de nous contacter. Celui-ci peut nous contacter par courrier électronique à azurevirtualwan@microsoft.com.
 
@@ -25,8 +25,10 @@ Pour plus d’informations sur les services proposés par les partenaires, vous 
 | [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)| [Utilisation de Citrix SD-WAN pour se connecter à Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
 | [Cloudgenix](https://www.cloudgenix.com/microsoft-azure/) |[Guide de déploiement de CloudGenix Azure Virtual WAN CloudBlade](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[Guide de déploiement de l’intégration entre FortiGate et Microsoft Azure Virtual WAN](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf), [Blog Scénario de routage](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
+|[HPE Aruba]( https://www.arubanetworks.com/microsoft-vwan/)|[Guide de déploiement d’Aruba SD-WAN et de Microsoft Azure Virtual WAN](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Hub de support de Netfoundry : Azure Virtual WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
 |[Nuage/Nokia (fourni par British Telecom uniquement)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|* |
+|[Open Systems]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Guide de déploiement d’Open Systems et de Microsoft Azure Virtual WAN](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[Guide d’intégration de EdgeConnect et de Microsoft Azure Virtual WAN](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
