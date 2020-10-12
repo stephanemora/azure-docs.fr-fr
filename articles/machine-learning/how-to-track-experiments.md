@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318243"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Activer la journalisation dans les exécutions de formation Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Le kit de développement logiciel (SDK) Python d’Azure Machine Learning vous permet de journaliser des informations en temps réel à l’aide du package de journalisation Python par défaut et des fonctionnalités spécifiques au kit de développement logiciel (SDK). Vous pouvez journaliser en local et envoyer des journaux à votre espace de travail dans le portail.
 
@@ -37,17 +37,17 @@ Les journaux peuvent vous aider à diagnostiquer les erreurs et les avertissemen
 
 ## <a name="data-types"></a>Types de données
 
-Vous pouvez journaliser plusieurs types de données, notamment des valeurs scalaires, des listes, des tableaux, des images, des répertoires, etc. Pour plus d’informations et pour obtenir des exemples de code Python pour différents types de données, consultez la [page Exécuter la référence de classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
+Vous pouvez journaliser plusieurs types de données, notamment des valeurs scalaires, des listes, des tableaux, des images, des répertoires, etc. Pour plus d’informations et pour obtenir des exemples de code Python pour différents types de données, consultez la [page Exécuter la référence de classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).
 
 ## <a name="interactive-logging-session"></a>Session de journalisation interactive
 
-Les sessions de journalisation interactives sont généralement utilisées dans les environnements notebook. La méthode [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) démarre une session de journalisation interactive. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérience. La méthode [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) met fin aux sessions et marque l’exécution comme terminée.
+Les sessions de journalisation interactives sont généralement utilisées dans les environnements notebook. La méthode [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) démarre une session de journalisation interactive. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérience. La méthode [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) met fin aux sessions et marque l’exécution comme terminée.
 
-## <a name="scriptrunconfig-logs"></a>Journaux ScriptRunConfig
+## <a name="scriptrun-logs"></a>Journaux ScriptRun
 
-Dans cette section, vous allez apprendre à ajouter du code de journalisation à l’intérieur des exécutions de ScriptConfig. Vous pouvez utiliser la classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) pour encapsuler des scripts et des environnements pour des exécutions reproductibles. Vous pouvez également utiliser cette option pour afficher un widget Jupyter Notebook visuel pour la surveillance.
+Dans cette section, vous découvrirez comment ajouter un code de journalisation au sein des exécutions créées lorsque la configuration est effectuée avec ScriptRunConfig. Vous pouvez utiliser la classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) pour encapsuler des scripts et des environnements pour des exécutions reproductibles. Vous pouvez également utiliser cette option pour afficher un widget Jupyter Notebook visuel pour la surveillance.
 
-Cet exemple effectue un balayage de paramètre sur des valeurs alpha et capture les résultats à l’aide de la méthode [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----).
+Cet exemple effectue un balayage de paramètre sur des valeurs alpha et capture les résultats à l’aide de la méthode [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----).
 
 1. Créez un script de formation incluant la logique de journalisation, `train.py`.
 
@@ -83,7 +83,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning peut aussi consigner des informations provenant d’autres sources pendant la formation, notamment les exécutions du Machine Learning automatisé ou des conteneurs Docker qui exécutent les travaux. Ces journaux ne sont pas documentés, mais si vous rencontrez des problèmes et contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
-Pour plus d’informations sur la journalisation des métriques dans le concepteur Azure Machine Learning (version préliminaire), consultez [Comment journaliser des métriques dans le concepteur (version préliminaire)](how-to-track-designer-experiments.md)
+Pour plus d’informations sur la journalisation des métriques dans le concepteur Azure Machine Learning, consultez [Comment journaliser des métriques dans le concepteur](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Exemples de notebooks
 
@@ -97,6 +97,6 @@ Les notebooks suivants illustrent les concepts de cet article :
 
 Consultez ces articles pour en savoir plus sur l’utilisation d’Azure Machine Learning :
 
-* Découvrez la procédure de [journalisation des métriques dans le concepteur Azure Machine Learning (version préliminaire)](how-to-track-designer-experiments.md).
+* Découvrez la procédure de [journalisation des métriques dans le concepteur Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Examinez un exemple d’inscription et de déploiement du meilleur modèle dans le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).

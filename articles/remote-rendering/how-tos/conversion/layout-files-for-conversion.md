@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8acd19408c328ef3f534ba7bc41c96e395f768be
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318073"
 ---
 # <a name="laying-out-files-for-conversion"></a>Disposition des fichiers pour la conversion
 
@@ -28,6 +28,10 @@ Si les chemins d’accès sont stockés sous forme de chemins d’accès relatif
 
 > [!Note]
 > Nous vous recommandons de placer les fichiers dans le conteneur d’entrée de façon à ce que les emplacements relatifs des fichiers soient les mêmes que lors de la création de la ressource.
+
+> [!Note]
+> Préférez créer des ressources contenant des chemins d’accès relatifs.
+> Le tutoriel sur la [configuration des ressources pour 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) fournit un exemple 3ds Max illustrant la manière de veiller à ce qu’une ressource utilise des chemins d’accès relatifs.
 
 ## <a name="finding-textures"></a>Recherche de textures
 

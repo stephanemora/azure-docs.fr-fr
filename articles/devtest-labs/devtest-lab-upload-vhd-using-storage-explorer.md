@@ -3,12 +3,12 @@ title: Charger un fichier VHD sur Azure DevTest Labs à l’aide de l’Explorat
 description: Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec l’explorateur de stockage Microsoft Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282525"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec l’explorateur de stockage Microsoft Azure
 
@@ -90,13 +90,13 @@ Les étapes suivantes vous guident lors du téléchargement d’un fichier de di
 
     1. Dans le volet droit de l’Explorateur de stockage, vous devez voir une liste de blobs dans le conteneur de blobs **uploads** du compte de stockage du laboratoire. Dans la barre d’outils de l’éditeur de blobs, sélectionnez **Télécharger** 
         
-        ![Bouton Télécharger][6]
+        ![Capture d’écran montrant le volet droit de l’Explorateur Stockage avec le bouton « Charger » sélectionné.][6]
     
     1. Dans le menu déroulant **Télécharger**, sélectionnez **Télécharger des fichiers...** .
     
     1. Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez les points de suspension.
         
-        ![Sélectionner un fichier][8]  
+        ![Capture d’écran montrant la boîte de dialogue « Charger des fichiers » avec les points de suspension sélectionnés.][8]  
 
     1. Dans la boîte de dialogue **Sélectionner les fichiers à télécharger**, recherchez le fichier de disque dur virtuel souhaité, sélectionnez-le, puis sélectionnez **Ouvrir**.
     

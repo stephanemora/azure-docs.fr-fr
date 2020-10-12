@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900601"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284480"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notes de publication Azure SQL Edge 
 
@@ -23,17 +23,23 @@ Cet article décrit les nouveautés et les modifications apportées à chaque no
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>Numéro de build du moteur SQL – 15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>Numéro de build du moteur SQL – 15.0.2000.1552
 
 ### <a name="whats-new"></a>Nouveautés
 1. Images de conteneur basées sur Ubuntu 18.04. 
 2. Prise en charge pour `IGNORE NULL` et `RESPECT NULL` syntaxe avec `LAST_VALUE()` et les fonctions `FIRST_VALUE()`. 
 3. Améliorations de la fiabilité pour PREDICT avec ONNX.
-4. Prise en charge du nettoyage basé sur la stratégie de conservation des données.      
-   - Prise en charge du nettoyage optimisé pour les index columnstore en cluster.
+4. Prise en charge du nettoyage basé sur la stratégie de conservation des données.
+   - Prise en charge de la mémoire tampon en anneau pour la tâche de nettoyage de la conservation des données à des fins de dépannage.
 5. Prise en charge de nouvelles fonctionnalités 
    - Récupération rapide
    - Réglage automatique des requêtes
+   - Scénarios Activer l’exécution parallèle
+6. Améliorations de l’économie d’énergie pour le mode alimentation basse
+7. Prise en charge en continu de nouvelles fonctionnalités 
+   - [Fenêtres d’instantané](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : nouveau type de fenêtre permettant de regrouper les événements qui arrivent exactement au même moment. 
+   - Activation de [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) et [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) comme fonction analytique. Cela permet de renvoyer les enregistrements classés par colonne de votre choix, sans qu’ils fassent nécessairement partie d’une fenêtre. 
+   - Améliorations apportées à [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Correctifs
 1. Messages d'erreur supplémentaires et détails pour le dépannage des opérations de diffusion en continu TSQL. 
@@ -41,9 +47,13 @@ Cet article décrit les nouveautés et les modifications apportées à chaque no
 3. Correctifs du moteur de diffusion en continu TSQL : 
    - Nettoyage de la tâche de diffusion en continu arrêtée 
    - Correctifs pour les améliorations de la localisation et de la gestion Unicode
+   - Amélioration du débogage pour Edge TSQL-streaming, permettant aux utilisateurs d’interroger les erreurs d’échec du travail à partir de get_streaming_job.
 4. Nettoyage basé sur la stratégie de conservation des données
    - Correctifs pour les scénarios de création et de nettoyage de stratégie de rétention.
 5. Correctifs pour les tâches du minuteur d’arrière-plan pour améliorer les économies d’énergie en mode d’alimentation basse.
+
+### <a name="known-issues"></a>Problèmes connus 
+1. La fonction T-SQL Date_Bucket ne peut pas être utilisée dans une colonne calculée.
 
 
 ## <a name="ctp-23"></a>CTP 2.3

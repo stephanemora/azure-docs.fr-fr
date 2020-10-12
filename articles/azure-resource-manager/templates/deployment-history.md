@@ -3,13 +3,13 @@ title: Historique de déploiement
 description: Décrit comment afficher les opérations de déploiement d’Azure Resource Manager avec le portail, PowerShell, la CLI Azure et l’API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284616"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Afficher l’historique des déploiements avec Azure Resource Manager
 
@@ -21,7 +21,7 @@ Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiq
 
 ## <a name="get-deployments-and-correlation-id"></a>Récupérer des déploiements et l’ID de corrélation
 
-Vous pouvez afficher les détails d’un déploiement via le Portail Azure, PowerShell, Azure CLI ou l’API REST. Chaque déploiement a un ID de corrélation, qui est utilisé pour suivre les événements connexes. Cela peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
+Vous pouvez afficher les détails d’un déploiement via le Portail Azure, PowerShell, Azure CLI ou l’API REST. Chaque déploiement a un ID de corrélation, qui est utilisé pour suivre les événements connexes. Si vous [créez une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md), le support peut vous demander l’ID de corrélation. Le support utilise l’ID de corrélation pour identifier les opérations du déploiement qui a échoué.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Pour obtenir l’ID de corrélation, utilisez :
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour lister le déploiement pour un groupe de ressources, utilisez [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Pour lister le déploiement pour un groupe de ressources, utilisez [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Pour obtenir un déploiement spécifique, utilisez [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Pour obtenir un déploiement spécifique, utilisez [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
