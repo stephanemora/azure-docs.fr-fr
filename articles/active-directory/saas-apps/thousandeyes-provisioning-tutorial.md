@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355820"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutoriel : Configurer ThousandEyes pour l’approvisionnement automatique d’utilisateurs
 
@@ -63,11 +63,11 @@ Cette section va vous guider afin de connecter votre instance Azure AD à l’AP
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Approvisionnement de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![Capture d’écran montrant l’onglet Approvisionnement pour ThousandEyes avec Automatique sélectionné pour le mode d’approvisionnement.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez le **jeton du porteur OAuth** généré par votre compte ThousandEyes (vous pouvez le trouver ou le générer sous la section **Profil** de votre compte ThousandEyes).
 
-    ![Approvisionnement de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![Capture d’écran montrant où trouver le lien des paramètres de compte pour le groupe de comptes actuel.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application ThousandEyes. Si la connexion échoue, vérifiez que votre compte ThousandEyes dispose des autorisations d’administrateur et réessayez l’étape 5.
 

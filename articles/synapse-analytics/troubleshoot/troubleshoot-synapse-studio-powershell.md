@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287710"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnostiquer les problèmes de connectivité Azure Synapse Studio (préversion) à l'aide d'un script PowerShell
 
@@ -27,13 +27,13 @@ Le bon fonctionnement d'Azure Synapse Studio (préversion) s'appuie sur un ensem
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 
-Cliquez avec le bouton droit sur le lien suivant, plus cliquez sur « Enregistrer la cible sous » :
+Cliquez avec le bouton droit sur le lien suivant, puis sélectionnez « Enregistrer la cible sous » :
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Vous pouvez aussi ouvrir le lien directement, puis enregistrer le fichier de script ouvert. N’enregistrez pas l’adresse du lien ci-dessus car celle-ci peut être amenée à changer.
 
-Dans l’Explorateur de fichiers, cliquez avec le bouton droit sur le fichier de script téléchargé, puis cliquez sur « Exécuter avec PowerShell ».
+Dans l’Explorateur de fichiers, cliquez avec le bouton droit sur le fichier de script téléchargé, puis sélectionnez « Exécuter avec PowerShell ».
 
 ![Exécuter le fichier de script téléchargé avec PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 

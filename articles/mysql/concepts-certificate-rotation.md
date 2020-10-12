@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985783"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540691"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MySQL
 
@@ -30,6 +30,7 @@ Le nouveau certificat sera utilisé à partir du 26 octobre 2020 (26/10/2020). S
 Toutes les applications qui utilisent SSL/TLS et vérifient le certificat racine doivent mettre à jour le certificat racine. Vous pouvez déterminer si vos connexions vérifient le certificat racine en examinant votre chaîne de connexion.
 -   Si votre chaîne de connexion inclut `sslmode=verify-ca` ou `sslmode=verify-full`, vous devez mettre à jour le certificat.
 -   Si votre chaîne de connexion inclut `sslmode=disable`, `sslmode=allow`, `sslmode=prefer` ou `sslmode=require`, vous n’avez pas besoin de mettre à jour les certificats. 
+-  Si vous utilisez des connecteurs Java et que votre chaîne de connexion comprend useSSL=false ou requireSSL=false, vous n’avez pas besoin de mettre à jour les certificats.
 -   Si votre chaîne de connexion ne spécifie pas sslmode, vous n’avez pas besoin de mettre à jour les certificats.
 
 Si vous utilisez un client qui abstrait la chaîne de connexion, consultez la documentation du client pour savoir s’il vérifie les certificats.
@@ -119,12 +120,12 @@ Pour les serveurs créés après le 26 octobre 2020 (26/10/2020), vous pouvez 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Quelle est la fréquence à laquelle Microsoft met à jour ses certificats ou quelle est la stratégie d’expiration ?
 Les certificats utilisés par Azure Database for MySQL sont fournis par des autorités de certification approuvées. Par conséquent, la prise en charge de ces certificats sur Azure Database for MySQL est liée à la prise en charge de ces certificats par l’autorité de certification. Toutefois, comme dans le cas présent, il peut y avoir des bogues imprévus dans ces certificats prédéfinis et ceux-ci doivent être corrigés au plus tôt.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur maître ou sur les réplicas de lecture ?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur source ou sur les réplicas de lecture ?
 Étant donné que cette mise à jour est une modification côté client, si le client avait l’habitude de lire les données du serveur de réplica, vous devez également appliquer les modifications pour ces clients.
 
-### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si j’utilise la réplication des données entrantes, dois-je effectuer une action particulière ?
-Si vous utilisez la [réplication des données entrantes](concepts-data-in-replication.md) pour vous connecter à Azure Database pour MySQL, vous devez prendre en compte deux points :
-*   Si la réplication de données s’effectue d’une machine virtuelle (locale ou machine virtuelle Azure) vers Azure Database pour MySQL, vous devez vérifier si SSL est utilisé pour créer le réplica. Exécutez **SHOW SLAVE STATUS** et vérifiez le paramètre suivant.  
+### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si j'utilise la réplication des données entrantes, dois-je effectuer une action particulière ?
+Si vous utilisez la [réplication des données entrantes](concepts-data-in-replication.md) pour vous connecter à Azure Database pour MySQL, deux éléments sont à prendre en compte :
+*   Si la réplication des données s'effectue entre une machine virtuelle (locale ou Azure) et Azure Database pour MySQL, vous devez vérifier si SSL est utilisé pour créer le réplica. Exécutez **SHOW SLAVE STATUS** et vérifiez le paramètre suivant.  
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes
@@ -137,13 +138,13 @@ Si vous utilisez la [réplication des données entrantes](concepts-data-in-repli
 
     Si vous voyez que le certificat est fourni pour CA_file, SSL_Cert et SSL_Key, vous devez mettre à jour le fichier en ajoutant le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-*   Si la réplication de données se fait entre deux instances Azure Database pour MySQL, vous devez réinitialiser le réplica en exécutant **CALL mysql.az_replication_change_master** et en fournissant le nouveau certificat racine double en tant que dernier paramètre [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+*   Si la réplication de données se fait entre deux instances Azure Database pour MySQL, vous devez réinitialiser le réplica en exécutant **CALL mysql.az_replication_change_master** et en fournissant le nouveau certificat racine double en tant que dernier paramètre [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. Existe-t-il une requête côté serveur pour vérifier si SSL est utilisé ?
 Pour vérifier si vous utilisez une connexion SSL pour vous connecter au serveur, consultez [Vérification SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. Une action est-elle nécessaire si j’ai déjà DigiCertGlobalRootG2 dans mon fichier de certificat ?
-Non. Aucune action n’est nécessaire si votre fichier de certificat contient déjà **DigiCertGlobalRootG2**.
+### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. Une action est-elle nécessaire si je dispose déjà de DigiCertGlobalRootG2 dans mon fichier de certificat ?
+Non. Aucune action n'est nécessaire si votre fichier de certificat contient déjà **DigiCertGlobalRootG2**.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. Que se passe-t-il si j’ai d’autres questions ?
-Si vous avez des questions, posez-les aux experts de la communauté dans [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). Si vous avez un plan de support et que vous avez besoin d’une aide technique, [contactez-nous](mailto:AzureDatabaseforMySQL@service.microsoft.com).
+Si vous avez des questions, posez-les aux experts de la communauté dans [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). Si vous disposez d'un plan de support et que vous avez besoin d'une aide technique, [contactez-nous](mailto:AzureDatabaseforMySQL@service.microsoft.com).

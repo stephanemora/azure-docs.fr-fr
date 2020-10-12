@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285794"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
 
@@ -58,11 +58,11 @@ Avant de configurer Snowflake pour l’attribution automatique d’utilisateurs 
 
 2.  Un jeton d’accès SCIM sera généré pour votre locataire Snowflake. Pour le récupérer, cliquez sur le lien en surbrillance ci-dessous.
 
-    ![Ajout SCIM Snowflake](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Capture d’écran d’une feuille de calcul dans l’interface utilisateur de Snowflake avec le jeton d’accès SCIM en évidence.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copiez la valeur du jeton généré, puis cliquez sur **Terminé**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Snowflake dans le portail Azure.
 
-    ![Ajout SCIM Snowflake](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Capture d’écran de la section Détails montrant le jeton copié dans le champ de texte et l’option Terminé en évidence.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Snowflake à partir de la galerie d’applications Azure AD
 
@@ -93,11 +93,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton d’authentification** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Snowflake. Si la connexion échoue, vérifiez que votre compte Snowflake dispose d’autorisations d’administrateur et réessayez.
 

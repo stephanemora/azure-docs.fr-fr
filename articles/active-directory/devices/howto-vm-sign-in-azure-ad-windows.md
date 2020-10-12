@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287098"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -49,7 +49,7 @@ Les distributions Windows suivantes sont actuellement prises en charge pendant l
 - Windows 10 1809 et versions ultérieures
 
 > [!IMPORTANT]
-> La connexion à distance aux machines virtuelles jointes à Azure AD est autorisée uniquement à partir des PC Windows 10 qui sont joints à Azure AD ou hybrides joints à Azure AD au **même** répertoire que la machine virtuelle. 
+> La connexion à distance aux machines virtuelles jointes à Azure AD n’est autorisée qu’à partir des PC Windows 10 qui sont inscrits sur Azure AD (à partir de Windows 10 20H1), joints à Azure AD ou joints à Azure AD par une jointure hybride Azure AD au **même** répertoire que la machine virtuelle. 
 
 Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023854"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405171"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copier et transformer des données dans Snowflake en utilisant Azure Data Factory
 
@@ -357,7 +357,7 @@ Si le magasin de données source et le format remplissent les critères décrits
 
 #### <a name="staged-copy-to-snowflake"></a>Copie intermédiaire vers Snowflake
 
-Lorsque le magasin de données récepteur ou le format n’est pas compatible en mode natif avec la commande COPY de Snowflake, comme indiqué dans la dernière section, activez la copie intermédiaire intégrée à l’aide d’une instance de stockage intermédiaire d’objets blob Azure. La fonctionnalité de copie intermédiaire offre également un meilleur débit. Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de Snowflake. Il appelle ensuite la commande COPY pour charger les données dans Snowflake. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie de données à l’aide de la mise en lots, consultez [Copie intermédiaire](copy-activity-performance-features.md#staged-copy).
+Lorsque le format ou le magasin de données source n’est pas compatible en mode natif avec la commande COPY de Snowflake, comme indiqué dans la dernière section, activez la copie intermédiaire intégrée à l’aide d’une instance de Stockage Blob Azure temporaire. La fonctionnalité de copie intermédiaire offre également un meilleur débit. Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de Snowflake. Il appelle ensuite la commande COPY pour charger les données dans Snowflake. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie de données à l’aide de la mise en lots, consultez [Copie intermédiaire](copy-activity-performance-features.md#staged-copy).
 
 Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) qui fait référence au compte de stockage Azure en tant qu’intermédiaire. Spécifiez ensuite les propriétés `enableStaging` et `stagingSettings` dans l’activité de copie.
 
