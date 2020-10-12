@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/19/2020
+ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269163"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -75,6 +75,8 @@ Chaque URL contient le paramètre de requête `sp`, `sv` et `sig`, comme vous po
 | `sig` | Spécifie la signature à utiliser pour authentifier l’accès au déclencheur. La signature est générée à l’aide de l’algorithme SHA256 avec une clé d’accès secrète pour l’ensemble des chemins et des propriétés de l’URL. Cette clé n’est jamais exposée ni publiée. Elle est chiffrée et stockée avec l’application logique. Votre application logique autorise uniquement les déclencheurs contenant une signature valide créée avec la clé secrète. |
 |||
 
+Les appels entrants à un point de terminaison de demande ne peuvent utiliser qu’un seul schéma d’autorisation : SAS ou [Azure Active Directory Open Authentication](#enable-oauth). Bien que l’utilisation d’un schéma ne désactive pas l’autre, l’utilisation des deux schémas en même temps provoque une erreur, car le service ne sait quel schéma choisir.
+
 Pour plus d’informations sur la sécurisation de l’accès avec la signature d’accès partagé, consultez les sections suivantes de cette rubrique :
 
 * [Régénération des clés d’accès](#access-keys)
@@ -121,62 +123,62 @@ Dans le corps, incluez la propriété `KeyType` en tant que `Primary` ou `Second
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Activer Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Si votre application logique démarre avec un [déclencheur de requête](../active-directory/develop/index.yml), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en définissant ou en ajoutant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de requête.
+Pour les appels entrants à un point de terminaison qui est créé par un déclencheur basé sur une demande, vous pouvez activer [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) en définissant ou en ajoutant une stratégie d’autorisation pour votre application logique. De cette façon, les appels entrants utilisent des jetons d’accès [OAuth](../active-directory/develop/access-tokens.md) pour l’autorisation.
 
-Avant d’activer cette authentification, passez en revue les considérations suivantes :
+Quand votre application logique reçoit une demande entrante incluant un jeton d’accès OAuth, le service Azure Logic Apps compare les revendications du jeton à celles spécifiées par chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
 
-* L’appel entrant au déclencheur de requête ne peut utiliser qu’un seul schéma d’autorisation, soit Azure AD OAuth en utilisant un jeton d’authentification qui n’est pris en charge que pour le déclencheur de requête, soit en utilisant une [URL de signature d’accès partagé (SAP)](#sas). Vous ne pouvez pas utiliser les deux schémas.
+Avant d’activer Azure AD OAuth, passez en revue les considérations suivantes :
 
-  Bien que l’utilisation d’un schéma ne désactive pas l’autre, l’utilisation des deux en même temps provoque une erreur, car le service ne sait quel schéma choisir. De même, seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons d’authentification OAuth, qui ne sont pris en charge que pour le déclencheur de requête. Le jeton d’authentification doit spécifier `Bearer-type` dans l’en-tête d’autorisation.
+* Un appel entrant au point de terminaison de demande ne peut utiliser qu’un seul schéma d’autorisation : Azure AD OAuth ou [SAS (Shared Access Signature)](#sas). Bien que l’utilisation d’un schéma ne désactive pas l’autre, l’utilisation des deux schémas en même temps provoque une erreur, car le service Logic Apps ne sait quel schéma choisir.
+
+* Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons d’accès OAuth Azure AD, ce qui signifie que l’en-tête `Authorization` pour le jeton d’accès doit spécifier le type `Bearer`.
 
 * Votre application logique est limitée à un nombre maximal de stratégies d’autorisation. Chaque stratégie d’autorisation a également un nombre maximal de [revendications](../active-directory/develop/developer-glossary.md#claim). Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Une stratégie d’autorisation doit inclure au moins la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) en tant qu’ID de l’émetteur Azure AD. Pour plus d’informations sur les jetons d’accès, consultez [Jetons d’accès de la Plateforme d’identités Microsoft](../active-directory/develop/access-tokens.md).
+* Une stratégie d’autorisation doit inclure au moins la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) en tant qu’ID de l’émetteur Azure AD.
 
-Lorsque votre application logique reçoit une demande entrante incluant un jeton d’authentification OAuth, Azure Logic Apps compare les revendications du jeton à celles de chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
+  Supposons, par exemple, que votre application logique dispose d’une stratégie d’autorisation qui nécessite deux types de revendication, **Public ciblé** et **Émetteur**. Cet exemple de [section de charge utile](../active-directory/develop/access-tokens.md#payload-claims) pour un jeton d’accès décodé comprend les deux types de revendication, où `aud` est la valeur de **Public ciblé** et `iss` la valeur d’**Émetteur** :
 
-Supposons, par exemple, que votre application logique dispose d’une stratégie d’autorisation qui requiert deux types de revendication, **Émetteur** et **Public ciblé**. Cet exemple de [jeton d’accès](../active-directory/develop/access-tokens.md) décodé comprend ces deux types de revendications :
-
-```json
-{
-   "aud": "https://management.core.windows.net/",
-   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
-   "iat": 1582056988,
-   "nbf": 1582056988,
-   "exp": 1582060888,
-   "_claim_names": {
-      "groups": "src1"
-   },
-   "_claim_sources": {
-      "src1": {
-         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
-    }
-   },
-   "acr": "1",
-   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
-   "amr": [
-      "rsa",
-      "mfa"
-   ],
-   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
-   "appidacr": "2",
-   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
-   "family_name": "Sophia Owen",
-   "given_name": "Sophia Owen (Fabrikam)",
-   "ipaddr": "167.220.2.46",
-   "name": "sophiaowen",
-   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
-   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
-   "puid": "1003000000098FE48CE",
-   "scp": "user_impersonation",
-   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "unique_name": "SophiaOwen@fabrikam.com",
-   "upn": "SophiaOwen@fabrikam.com",
-   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
-   "ver": "1.0"
-}
-```
+  ```json
+  {
+      "aud": "https://management.core.windows.net/",
+      "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+      "iat": 1582056988,
+      "nbf": 1582056988,
+      "exp": 1582060888,
+      "_claim_names": {
+         "groups": "src1"
+      },
+      "_claim_sources": {
+         "src1": {
+            "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+         }
+      },
+      "acr": "1",
+      "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+      "amr": [
+         "rsa",
+         "mfa"
+      ],
+      "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+      "appidacr": "2",
+      "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+      "family_name": "Sophia Owen",
+      "given_name": "Sophia Owen (Fabrikam)",
+      "ipaddr": "167.220.2.46",
+      "name": "sophiaowen",
+      "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+      "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+      "puid": "1003000000098FE48CE",
+      "scp": "user_impersonation",
+      "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "unique_name": "SophiaOwen@fabrikam.com",
+      "upn": "SophiaOwen@fabrikam.com",
+      "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+      "ver": "1.0"
+   }
+   ```
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -190,7 +192,7 @@ Afin d’activer Azure AD OAuth pour votre application logique dans le portail 
 
    ![Sélectionner « Autorisation » > « Ajouter une stratégie »](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Fournissez des informations sur la stratégie d’autorisation en spécifiant les [types de revendication](../active-directory/develop/developer-glossary.md#claim) et les valeurs que votre application logique attend dans le jeton d’authentification présenté par chaque appel entrant au déclencheur de requête :
+1. Fournissez des informations sur la stratégie d’autorisation en spécifiant les [types de revendication](../active-directory/develop/developer-glossary.md#claim) et les valeurs que votre application logique attend dans le jeton d’accès présenté par chaque appel entrant au déclencheur de demande :
 
    ![Fournir des informations pour la stratégie d’autorisation](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
@@ -210,14 +212,27 @@ Afin d’activer Azure AD OAuth pour votre application logique dans le portail 
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
+1. Pour inclure l’en-tête `Authorization` du jeton d’accès dans les sorties du déclencheur basé sur une demande, consultez [Inclure l’en-tête « Authorization » dans les sorties du déclencheur de demande](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Définir la stratégie d’autorisation dans un modèle Resource Manager
 
-Afin d’activer Azure AD OAuth dans le modèle Resource Manager pour le déploiement de votre application logique, dans la section `properties` de la [définition de ressource de votre application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), ajoutez un objet `accessControl`, s’il n’en existe aucun, qui contient un objet `triggers`. Dans l’objet `triggers`, ajoutez un objet `openAuthenticationPolicies` dans lequel vous définissez une ou plusieurs stratégies d’autorisation en suivant cette syntaxe :
+Pour activer Azure AD OAuth dans le modèle Resource Manager en vue du déploiement de votre application logique, suivez les étapes et la syntaxe ci-dessous :
 
-> [!NOTE]
-> Au minimum, le tableau `claims` doit inclure la revendication `iss` dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication.
+1. Dans la section `properties` de la [définition de ressource de votre application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), ajoutez un objet `accessControl` , s’il n’en existe aucun, qui contient un objet `triggers`.
+
+   Pour plus d’informations sur l’objet `accessControl`, consultez [Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager](#restrict-inbound-ip-template) et [Référence du modèle de workflow Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. Dans l’objet `triggers`, ajoutez un objet `openAuthenticationPolicies` qui contient l’objet `policies` dans lequel vous définissez une ou plusieurs stratégies d’autorisation.
+
+1. Fournissez un nom pour la stratégie d’autorisation, définissez le type de stratégie sur `AAD` et incluez un tableau `claims` dans lequel vous spécifiez un ou plusieurs types de revendications.
+
+   Au minimum, le tableau `claims` doit inclure le type de revendication de l’émetteur dans lequel vous définissez la propriété `name` de la revendication sur `iss` et le paramètre `value`, qui doit commencer par `https://sts.windows.net/` ou `https://login.microsoftonline.com/`, en guise d’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication.
+
+1. Pour inclure l’en-tête `Authorization` du jeton d’accès dans les sorties du déclencheur basé sur une demande, consultez [Inclure l’en-tête « Authorization » dans les sorties du déclencheur de demande](#include-auth-header).
+
+Voici la syntaxe à suivre :
 
 ```json
 "resources": [
@@ -256,7 +271,30 @@ Afin d’activer Azure AD OAuth dans le modèle Resource Manager pour le déploi
 ],
 ```
 
-Pour plus d’informations sur la section `accessControl`, consultez [Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager](#restrict-inbound-ip-template) et [Référence du modèle de workflow Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+<a name="include-auth-header"></a>
+
+#### <a name="include-authorization-header-in-request-trigger-outputs"></a>Inclure l’en-tête « Authorization » dans les sorties du déclencheur de demande
+
+Pour les applications logiques qui [activent Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth) pour autoriser les appels entrants à accéder aux déclencheurs basés sur des demandes, vous pouvez autoriser les sorties du déclencheur de demande ou du déclencheur de Webhook HTTP à inclure l’en-tête `Authorization` du jeton d’accès OAuth. Dans la définition JSON sous-jacente du déclencheur, ajoutez et définissez la propriété `operationOptions` sur `IncludeAuthorizationHeadersInOutputs`. Voici un exemple de déclencheur de demande :
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+Pour plus d’informations, consultez les rubriques suivantes :
+
+* [Informations de référence sur le schéma des types d’actions et de déclencheurs - Déclencheur de demande](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Informations de référence sur le schéma des types d’actions et de déclencheurs - Déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Informations de référence sur le schéma des types d’actions et de déclencheurs - Options d’opérations](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
@@ -896,7 +934,7 @@ Sur les déclencheurs de requête, vous pouvez utiliser [Azure Active Directory 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentification** | `type` | Oui | **OAuth Active Directory** <br>or <br>`ActiveDirectoryOAuth` | Type d’authentification à utiliser. Logic Apps suit actuellement le [protocole OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification. Par défaut, cette valeur est définie sur `https://login.windows.net`. |
+| **Authority** | `authority` | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’accès. Par défaut, cette valeur est définie sur `https://login.windows.net`. |
 | **Locataire** | `tenant` | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
 | **Public ciblé** | `audience` | Oui | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation |

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331197"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -91,7 +91,7 @@ Votre infrastructure et vos stratégies existantes vont déterminer la conceptio
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planifier un déploiement pour la création de rapports et la supervision Azure AD
 
-La création de rapports et la supervision permettent de répondre aux exigences de votre entreprise, d’obtenir des insights sur les modèles d’utilisation et d’améliorer la sécurité de votre organisation.
+La création de rapports et la supervision permettent de répondre aux besoins de votre entreprise, d’obtenir des insights sur les modèles d’utilisation et d’améliorer la posture de sécurité de votre organisation.
 
 ### <a name="business-use-cases"></a>Cas d’usage métier
 

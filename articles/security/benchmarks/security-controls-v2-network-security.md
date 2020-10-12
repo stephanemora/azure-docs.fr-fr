@@ -4,17 +4,17 @@ description: Sécurité réseau dans Azure Security Benchmark V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184416794011d259af3568c81e4648d822a2c4a5
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329429"
 ---
-# <a name="security-control-network-security"></a>Contrôle de sécurité : Sécurité réseau
+# <a name="security-control-v2-network-security"></a>Contrôle de sécurité V2 : Sécurité réseau
 
 La sécurité réseau couvre les contrôles permettant de sécuriser et de protéger les réseaux Azure. Cela comprend la sécurisation des réseaux virtuels, l’établissement de connexions privées, la prévention et l’atténuation des attaques externes, ainsi que la sécurisation de DNS.
 
@@ -30,15 +30,19 @@ En fonction de vos applications et de votre stratégie de segmentation d’entre
 
 Utilisez la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center pour recommander des configurations de groupe de sécurité réseau qui limitent les ports et les adresses IP sources en fonction de la référence à des règles de trafic réseau externe.
 
+Utilisez Azure Sentinel pour découvrir l’utilisation de protocoles non sécurisés hérités, tels que SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, liaisons LDAP non signées et chiffrements faibles dans Kerberos.
+
 - [Comment créer un groupe de sécurité réseau avec des règles de sécurité](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [Guide pratique pour déployer et configurer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Renforcement du réseau adaptatif dans Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
+- [Classeur des protocoles non sécurisés Azure Sentinel](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +58,7 @@ Utilisez la fonctionnalité de renforcement du réseau adaptatif d’Azure Secur
 
 Utilisez Azure ExpressRoute ou un réseau privé virtuel (VPN) Azure pour créer des connexions privées entre les centres de données Azure et une infrastructure locale dans un environnement de colocation. Les connexions ExpressRoute ne transitent pas par l’Internet public et offrent davantage de fiabilité, des vitesses supérieures et des latences inférieures par rapport aux connexions Internet classiques. Pour un VPN point à site et un VPN site à site, vous pouvez connecter des appareils ou des réseaux locaux à un réseau virtuel à l’aide de n’importe quelle combinaison de ces options VPN et d’Azure ExpressRoute.
 
-Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez le peering de réseaux virtuels. Le trafic réseau entre les réseaux virtuels appairés est privé et conservé sur le réseau principal Azure. 
+Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez un appairage de réseaux virtuels ou une liaison privée. Le trafic réseau entre les réseaux virtuels appairés est privé et conservé sur le réseau principal Azure. 
 
 - [Quels sont les modèles de connectivité ExpressRoute ?](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -62,9 +66,11 @@ Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez le peeri
 
 - [Peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md)
 
+- [Azure Private Link](../../private-link/private-link-service-overview.md)
+
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -88,7 +94,7 @@ L’accès privé est une mesure de défense renforcée supplémentaire en plus 
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -108,6 +114,7 @@ Protégez les ressources Azure contre les attaques de réseaux externes, notamme
 -   Utilisez les fonctionnalités Web Application Firewall (WAF) dans Azure Application Gateway, Azure Front Door et Azure Content Delivery Network (CDN) pour protéger vos applications, services et API contre les attaques de la couche Application. 
 
 -   Protégez vos ressources contre les attaques DDoS en activant la protection DDoS Standard sur vos réseaux virtuels Azure. 
+-   Utilisez Azure Security Center pour détecter les risques de configuration incorrecte liés à ce qui précède. 
 
 - [Documentation sur le pare-feu Azure](/azure/firewall/)
 
@@ -117,7 +124,7 @@ Protégez les ressources Azure contre les attaques de réseaux externes, notamme
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 None
 
@@ -139,7 +146,7 @@ Remarque : Si vous avez une exigence réglementaire ou autre pour l’utilisati
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -165,7 +172,7 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -191,7 +198,7 @@ Quand Azure DNS est utilisé comme votre service DNS faisant autorité, vérifie
 
 **Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

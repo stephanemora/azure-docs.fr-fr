@@ -3,18 +3,18 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271543"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les données de sauvegarde après la suppression.
 
-Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour vous.
+Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires à l’état « suppression réversible » n’engendre aucun frais pour vous.
 
 La protection Suppression réversible est disponible pour les services suivants :
 
@@ -29,7 +29,7 @@ Cet organigramme montre les différentes étapes et états d’un élément de s
 
 La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité est déconseillée. La seule circonstance où vous devez envisager la désactivation de la suppression réversible est lorsque vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple). Seul le propriétaire du coffre peut désactiver cette fonctionnalité. Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés à venir entraîneront une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde existant à l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état pendant 14 jours. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
 
- Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail, notamment les charges de travail SQL Server et SAP HANA. Par exemple, une fois que la [préversion de SQL Server/SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA, tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
+Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail. Par exemple, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Désactivation de la suppression réversible avec le portail Azure
 

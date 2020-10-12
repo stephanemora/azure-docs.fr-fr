@@ -1,18 +1,18 @@
 ---
 title: Redirection du trafic externe à l’aide de l’interface CLI - Azure Application Gateway
-description: Découvrez comment créer une passerelle d’application qui redirige le trafic web interne vers le pool approprié à l’aide de l’interface CLI d’Azure.
+description: Découvrez comment créer une passerelle d’application qui redirige le trafic web externe vers le pool approprié à l’aide de l’interface Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331044"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection externe à l’aide de l’interface CLI Azure
 
@@ -131,8 +131,4 @@ Le site *bing.com* devrait s’afficher dans votre navigateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-> * Configurer le réseau
-> * Créer un écouteur et une règle de redirection
-> * Créer une passerelle Application Gateway
+- [Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI](redirect-internal-site-cli.md)
