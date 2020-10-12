@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 675d9c76841ba1a4b94b666c7ff4ac4287fc5264
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286112"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutoriel : Configurer SmartFile pour l'approvisionnement automatique d'utilisateurs
 
@@ -58,9 +58,9 @@ Avant de configurer SmartFile pour l'approvisionnement automatique d'utilisateur
 
 2. Pour générer un jeton de porteur, copiez la **Clé du produit** et le **Mot de passe du produit**. Collez-les dans un bloc-notes en entrant deux-points entre eux.
     
-     ![SmartFile - Ajouter SCIM](media/smartfile-provisioning-tutorial/auth.png)
+     ![Capture d’écran de la section Clé du produit avec les zones de texte Clé du produit et Mot de passe du produit en évidence.](media/smartfile-provisioning-tutorial/auth.png)
 
-    ![SmartFile - Ajouter SCIM](media/smartfile-provisioning-tutorial/key.png)
+    ![Capture d’écran d’un texte en clair montrant la clé de produit et le mot de passe du produit séparés par un deux-points.](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>Ajouter SmartFile à partir de la galerie
 
@@ -103,11 +103,11 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5.  Dans la section **Informations d’identification de l’administrateur**, entrez `https://<SmartFile sitename>.smartfile.com/ftp/scim` dans **URL de locataire**. Par exemple, `https://demo1test.smartfile.com/ftp/scim`. Entrez la valeur du **Jeton du porteur** (ProductKey: ProductPassword) précédemment récupérée dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à SmartFile. Si la connexion échoue, vérifiez que votre compte SmartFile dispose d'autorisations d'administrateur et réessayez.
 

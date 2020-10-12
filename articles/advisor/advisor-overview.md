@@ -2,13 +2,13 @@
 title: Présentation d’Azure Advisor
 description: Le conseiller Azure permet d’optimiser vos déploiements Azure.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654019"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405205"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -68,7 +68,9 @@ Pour reporter ou ignorer une recommandation, cliquez sur le lien **Reporter**. V
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 
 * [Prise en main d’Advisor](advisor-get-started.md)
+* [Score Advisor](azure-advisor-score.md)
 * [Recommandations d’Advisor en matière de fiabilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
+* [Recommandations d’Advisor en matière d’excellence opérationnelle](advisor-operational-excellence-recommendations.md)

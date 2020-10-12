@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569002"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776474"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -39,6 +39,16 @@ Lorsque vous terminez la procédure ci-dessous, vous avez utilisé Live Video An
 ## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 
 Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant des méthodes directes. Lisez [Méthodes directes pour Live Video Analytics sur IoT Edge](direct-methods.md) pour comprendre toutes les méthodes directes fournies par le module. 
+
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement":::
 
 ### <a name="invoke-graphtopologylist"></a>Invoquer GraphTopologyList
 Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md#media-graph-topologies-and-instances) du module.
@@ -709,7 +719,7 @@ Dans la topologie, le nœud de processeur de la porte de signal a été configur
 }
 ```
 
-* Ce message est un événement opérationnel. L’événement, RecordingAvailable, indique que suffisamment de données ont été écrites dans la ressource pour permettre aux joueurs/clients de lancer la lecture de la vidéo
+* Ce message est donc un événement opérationnel. L’événement, RecordingAvailable, indique que suffisamment de données ont été écrites dans la ressource pour permettre aux joueurs/clients de lancer la lecture de la vidéo
 * « Subject » dans applicationProperties fait référence au nœud de récepteur de la ressource du graphe qui a généré ce message
 * Le corps contient des informations sur l’emplacement de sortie, qui est dans ce cas le nom de la ressource Azure Media Services dans laquelle la vidéo est enregistrée.
 

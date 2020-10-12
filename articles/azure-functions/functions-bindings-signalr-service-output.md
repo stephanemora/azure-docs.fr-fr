@@ -1,17 +1,17 @@
 ---
 title: Liaisons de sortie SignalR Service Azure Functions
-description: Apprenez à envoyer des messages SignalR Service à partir d’Azure Functions.
+description: Découvrez les liaisons de sortie SignalR Service pour Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323326"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Liaisons de sortie SignalR Service pour Azure Functions
 
