@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513762"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761513"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -35,11 +35,10 @@ Voici un résumé des rôles attribués à l’identité managée de la ressourc
 |Stockage Blob Azure| Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
 |Azure Data Lake Gen1 | Propriétaire | Non pris en charge
 |Azure Data Lake Gen2 | Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
-|Azure SQL Server | Contributeur de base de données SQL | Contributeur de base de données SQL
 |Cluster Azure Data Explorer | Contributeur | Contributeur
 |
 
-Pour le partage basé sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Voici un résumé de l’autorisation requise par l’utilisateur SQL.
+Pour le partage basé sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Une autorisation d’administrateur Azure Active Directory est requise pour créer cet utilisateur. Voici un résumé de l’autorisation requise par l’utilisateur SQL.
 
 |**Type de base de données SQL**|**Autorisation de l’utilisateur SQL fournisseur de données**|**Autorisation de l’utilisateur SQL consommateur de données**|
 |---|---|---|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266137"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -47,7 +47,7 @@ Les organisations doivent effectuer les trois étapes suivantes pour exiger l’
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
-1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 (préversion)** .
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365**.
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
