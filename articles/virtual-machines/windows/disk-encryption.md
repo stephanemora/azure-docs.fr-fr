@@ -2,18 +2,18 @@
 title: Chiffrement côté serveur d’Azure Managed Disks - PowerShell
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez compter sur des clés gérées par Microsoft pour le chiffrement de vos disques managés, ou bien utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815587"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274773"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Chiffrement côté serveur du Stockage sur disque Azure pour PowerShell
 
@@ -47,6 +47,10 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 - Si cette fonctionnalité est activée pour votre disque, vous ne pouvez pas la désactiver.
     Pour contourner le problème, vous devez [copier toutes les données](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) sur un autre disque managé qui n’utilise pas de clés gérées par le client.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Régions prises en charge
+
+Les clés gérées par le client sont disponibles dans toutes les régions où les disques managés le sont également.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Chiffrement à l’hôte : chiffrement de bout en bout pour vos données de machine virtuelle
 

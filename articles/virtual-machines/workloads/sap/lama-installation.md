@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361362"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -260,14 +260,14 @@ Dans les exemples ci-après, nous supposons que vous installez SAP HANA présent
 
 Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l’adresse IP du nom d’hôte virtuel de l’instance ASCS. La méthode recommandée consiste à utiliser sapacext. Si vous montez l’adresse IP à l’aide de sapacext, veillez à remonter l’adresse IP après un redémarrage.
 
-![Linux][Logo_Linux] Linux
+![Logo Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -276,7 +276,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Exécutez SWPM et utilisez *ah1-ascs* pour le champ *ASCS Instance Host Name* (Nom d’hôte d’instance ASCS).
 
-![Linux][Logo_Linux] Linux  
+![Logo Linux][Logo_Linux] Linux  
 Ajoutez le paramètre de profil ci-après au profil d’agent hôte SAP, situé à l’emplacement /usr/sap/hostctrl/exe/host_profile. Pour plus d’informations, consultez la note SAP [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -387,14 +387,14 @@ Exécutez l’installation de l’instance de base de données de SWPM sur la ma
 
 Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l’adresse IP du nom d’hôte virtuel du serveur d’applications. La méthode recommandée consiste à utiliser sapacext. Si vous montez l’adresse IP à l’aide de sapacext, veillez à remonter l’adresse IP après un redémarrage.
 
-![Linux][Logo_Linux] Linux
+![Logo Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
