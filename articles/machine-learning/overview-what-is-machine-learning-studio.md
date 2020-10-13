@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902927"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667433"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -88,7 +88,7 @@ Le tableau suivant récapitule les principales différences entre ML Studio (cla
 | Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 
 | Cibles de calcul de déploiement | Format de service web propriétaire, non personnalisable | Vaste gamme de [cibles de calcul de déploiement](concept-compute-target.md#deploy) personnalisables. Processeurs et processeurs graphiques pris en charge |
 | Pipeline ML | Non pris en charge | Création de [pipelines](concept-ml-pipelines.md) modulaires et flexibles pour automatiser les workflows |
-| MLOps | Gestion et déploiement des modèles de base | Gestion de versions des entités (modèle, données, workflows), automatisation des workflows, intégration aux outils CICD, [etc.](concept-model-management-and-deployment.md) |
+| MLOps | Gestion et déploiement des modèles de base ; déploiement de processeur uniquement | Gestion de versions des entités (modèle, données, workflows), automatisation des workflows, intégration aux outils CI/CD, déploiements de processeur et de GPU, [etc.](concept-model-management-and-deployment.md) |
 | Format de modèle | Format propriétaire, Studio (classique) uniquement | Plusieurs formats pris en charge selon le type de tâche d’entraînement |
 | Entraînement de modèle automatisé et optimisation des hyperparamètres |  Non pris en charge | [Pris en charge](concept-automated-ml.md). Options Code First et sans code. | 
 | Détection de la dérive de données | Non pris en charge | [Pris en charge](how-to-monitor-datasets.md) |

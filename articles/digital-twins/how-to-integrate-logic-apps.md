@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326572"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Intégrer à Logic Apps à l’aide d’un connecteur personnalisé
 
@@ -28,7 +28,7 @@ Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.co
 Si vous ne disposez pas d’abonnement Azure, **créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** avant de commencer.
 Connectez-vous au [portail Azure](https://portal.azure.com) avec ce compte. 
 
-Le reste de cette section vous guidera dans les étapes suivantes :
+Vous devez également accomplir les étapes suivantes dans le cadre de la configuration requise. Le reste de cette section vous guidera dans les étapes suivantes :
 - Configurer une instance Azure Digital Twins
 - Obtenir le secret client d’inscription d’application
 - Ajouter un jumeau numérique
@@ -37,9 +37,9 @@ Le reste de cette section vous guidera dans les étapes suivantes :
 
 Pour connecter une instance Azure Digital Twins à Logic Apps dans cet article, **l’instance Azure Digital Twins** doit déjà être configurée. 
 
-Si vous devez configurer une nouvelle instance maintenant, la façon la plus simple consiste à exécuter un exemple de script de déploiement automatisé. Suivez les instructions fournies dans [*Procédure : Configurer une instance et l’authentification (procédure scriptée)* ](how-to-set-up-instance-scripted.md) pour configurer une nouvelle instance et l’inscription de l’application Azure AD requise. Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
+Tout d’abord, configurez une instance Azure Digital Twins et l’authentification nécessaire à son utilisation. Pour ce faire, suivez les instructions indiquées dans [*Procédure : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). L’article propose trois modes de configuration : avec le [portail Azure](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) ou un [exemple de script de déploiement Cloud Shell automatisé](how-to-set-up-instance-scripted.md). Toutes les versions des instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
 
-Dans ce tutoriel, vous aurez besoin des valeurs suivantes utilisées pour configurer votre instance. S’il vous faut récupérer ces valeurs, utilisez les liens ci-dessous pour accéder aux sections correspondantes de l’article d’installation et les rechercher dans le [portail Azure](https://portal.azure.com).
+Dans ce tutoriel, vous aurez besoin de quelques valeurs utilisées pour configurer votre instance. S’il vous faut récupérer ces valeurs, utilisez les liens ci-dessous pour accéder aux sections correspondantes de l’article d’installation et les rechercher dans le [portail Azure](https://portal.azure.com).
 * **_Nom d’hôte_** de l’instance Azure Digital Twins ([à rechercher dans le portail](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * ID d’application (client) **_d’inscription de l’application Azure AD_** ([à rechercher dans le portail](how-to-set-up-instance-portal.md#collect-important-values))
 * ID de répertoire (locataire) **_d’inscription de l’application Azure AD_** ([à rechercher dans le portail](how-to-set-up-instance-portal.md#collect-important-values))
@@ -160,13 +160,13 @@ Vous avez maintenant terminé la configuration d’un connecteur personnalisé q
 
 Ensuite, vous allez créer une application logique qui utilisera votre nouveau connecteur pour automatiser les mises à jour Azure Digital Twins.
 
-Accédez à la page [Logic Apps (consommation)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Appuyez sur le bouton *Ajouter* pour créer une application logique.
+Dans le [portail Azure](https://portal.azure.com), recherchez *Logic Apps* dans la barre de recherche. La sélection de cette option a pour effet de vous diriger vers la page *Logic Apps*. Appuyez sur le bouton *Créer une application logique* pour créer une application logique.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
-Dans la page *Logic Apps (consommation)* qui suit, entrez votre abonnement, groupe de ressources. Choisissez également un nom pour votre application logique et sélectionnez l’emplacement.
+Dans la page *Application logique* qui suit, entrez votre abonnement et votre groupe de ressources. Choisissez également un nom pour votre application logique, et sélectionnez l’emplacement du déploiement.
 
-Sélectionnez le bouton _Vérifier + créer_.
+Appuyez sur le bouton _Vérifier + créer_.
 
 Cela vous permet d’atteindre l’onglet *Vérifier + créer*, dans lequel vous pouvez vérifier vos détails et appuyer sur *Créer* en bas pour créer votre ressource.
 

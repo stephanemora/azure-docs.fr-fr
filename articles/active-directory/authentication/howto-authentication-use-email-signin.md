@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419527"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650304"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
 
@@ -28,6 +28,8 @@ Certaines organisations n’ont pas adopté l’authentification hybride pour le
 * Pour des raisons commerciales ou de conformité, l’organisation ne souhaite pas utiliser l’UPN local pour se connecter à Azure AD.
 
 Pour faciliter l’adoption de l’authentification hybride, vous pouvez désormais configurer Azure AD de façon à permettre aux utilisateurs de se connecter en utilisant une adresse e-mail de votre domaine vérifié en guise d’ID de connexion alternatif. Par exemple, si *Contoso* a été rebaptisé *Fabrikam*, au lieu de continuer à se connecter avec l’UPN `balas@contoso.com` hérité, il est maintenant possible d’utiliser une adresse e-mail en tant qu’ID de connexion alternatif. Pour accéder à une application ou à des services, les utilisateurs se connectent à Azure AD à l’aide de l’e-mail qui leur est attribué, par exemple, `balas@fabrikam.com`.
+
+Cet article explique comment activer et utiliser une adresse e-mail comme ID de connexion de substitution. Cette fonctionnalité est disponible dans l’édition Azure AD Free et les versions ultérieures.
 
 > [!NOTE]
 > La connexion à Azure AD avec une adresse e-mail en guise d’ID de connexion alternatif est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,6 +47,8 @@ La solution de contournement à ce problème consiste à définir l’UPN Azure 
 Une autre approche consiste à synchroniser les UPN Azure AD et locaux avec la même valeur, puis à configurer Azure AD pour permettre aux utilisateurs de se connecter à Azure AD à l’aide d’une adresse e-mail vérifiée. Pour ce faire, vous définissez une ou plusieurs adresses e-mail dans l’attribut *ProxyAddresses* de l’utilisateur dans le répertoire local. Les valeurs *ProxyAddresses* sont ensuite synchronisées automatiquement avec Azure AD à l’aide d’Azure AD Connect.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
+
+La connexion à Azure AD avec une adresse e-mail en tant qu’ID de connexion de substitution est disponible dans l’édition Azure AD Free et les versions ultérieures.
 
 Pendant la période de la préversion, les limitations suivantes s’appliquent lorsqu’un utilisateur se connecte en utilisant un e-mail non-UPN comme ID de connexion alternatif :
 

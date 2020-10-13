@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663142"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776355"
 ---
 # <a name="composite-bar-renderer"></a>Renderer de barre composite
 
@@ -124,11 +124,11 @@ Pour les visualisations de grilles, le tri des lignes de la colonne avec le rend
 3. Choisissez la visualisation de type *Vignettes*.
 4. Exécutez la requête.
 5. Sélectionnez **Paramètres de la vignette**.
-6. Sélectionnez *Gauche* dans les champs de titre.
+6. Sélectionnez *Gauche* dans les champs de vignette.
 7. Entrez les paramètres ci-dessous sous *Paramètres de champ*.
     1. Utiliser la colonne : « serveur ».
     2. Renderer de colonne : « Texte ».
-8. Sélectionnez *Bas* dans les champs de titre.
+8. Sélectionnez *Bas* dans les champs de vignette.
 9. Entrez les paramètres ci-dessous sous *Paramètres de champ*.
     1. Utiliser la colonne : « total ».
     2. Renderer de colonne : « Barre composite ».
@@ -157,7 +157,7 @@ Afin de créer un renderer de barre composite pour la visualisation des graphiqu
 
 1. Sélectionnez **Ajouter**, puis *Ajouter une requête*.
 2. Changez la source de données en JSON, puis entrez les données de l’[exemple précédent](#adding-composite-bar-renderer).
-3. Choisissez la visualisation de type *Vignettes*.
+3. Choisissez la visualisation de type *Graphiques*.
 4. Exécutez la requête.
 5. Sélectionnez **Paramètres du graphe**.
 6. Sélectionnez *Contenu au centre* dans les paramètres de format de nœud.

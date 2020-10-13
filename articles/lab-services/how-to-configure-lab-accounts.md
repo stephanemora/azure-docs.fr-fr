@@ -3,19 +3,19 @@ title: Configurer l’arrêt automatique des machines virtuelles dans Azure Lab 
 description: Cet article explique comment configurer l’arrêt automatique des machines virtuelles dans le compte lab.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798446"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650032"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurer l’arrêt automatique des machines virtuelles pour un compte lab
 
 Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrêt automatique afin d’éviter de manière proactive les coûts supplémentaires lorsque les machines virtuelles ne sont pas utilisées activement. La combinaison des trois fonctionnalités suivantes d’arrêt et de déconnexion automatiques permet d’intercepter la plupart des cas où les utilisateurs laissent accidentellement leurs machines virtuelles en marche :
  
-- Déconnecter automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives (Windows uniquement).
-- Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent (Windows et Linux).
+- Déconnectez automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives.
+- Arrêt automatique des machines virtuelles quand les utilisateurs se déconnectent.
 - Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
 
 Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).

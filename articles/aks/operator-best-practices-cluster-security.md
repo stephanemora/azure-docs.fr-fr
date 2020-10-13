@@ -5,12 +5,12 @@ description: Découvrir les meilleures pratiques de l’opérateur relatives à 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003058"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776304"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -177,7 +177,7 @@ Pour plus d’informations sur les filtres disponibles, consultez les [Profils d
 
 Kubernetes sort de nouvelles fonctionnalités à un rythme plus effréné que les plateformes d’infrastructure plus traditionnelles. Les mises à jour Kubernetes incluent de nouvelles fonctionnalités et des correctifs de sécurité ou de bogues. En général, les nouvelles fonctionnalités passent d’un état *alpha*, puis *bêta* avant d’atteindre un état *stable* et d’être disponibles et recommandées pour une utilisation en production. Ce cycle devrait vous permettre de mettre à jour Kubernetes sans rencontrer de changements cassants ou ajuster vos déploiements et modèles.
 
-AKS prend en charge quatre versions mineures de Kubernetes. Cela signifie que, quand une nouvelle version de correctif mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. Les mises à jour mineures de Kubernetes se produisent sur une base périodique. Vérifiez que vous disposez d’un processus de gouvernance pour consulter et effectuer les mises à niveau nécessaires, afin de ne pas vous retrouver sans support. Pour plus d’informations, consultez la section [Versions de Kubernetes prises en charge dans AKS][aks-supported-versions]
+AKS prend en charge trois versions mineures de Kubernetes. Cela signifie que, quand une nouvelle version de correctif mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. Les mises à jour mineures de Kubernetes se produisent sur une base périodique. Vérifiez que vous disposez d’un processus de gouvernance pour consulter et effectuer les mises à niveau nécessaires, afin de ne pas vous retrouver sans support. Pour plus d’informations, consultez la section [Versions de Kubernetes prises en charge dans AKS][aks-supported-versions].
 
 Pour consulter les versions disponibles pour votre cluster, utilisez la commande [az aks get-upgrades][az-aks-get-upgrades] comme indiqué dans l’exemple suivant :
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Vous pouvez ensuite mettre à niveau votre cluster AKS à l’aide de la commande [az aks upgrade][az-aks-upgrade]. Le processus de mise à niveau ferme et vide en toute sécurité un nœud à la fois, planifie les pods sur les nœuds restants, puis déploie un nouveau nœud exécutant les dernières versions de Kubernetes et du système d’exploitation.
+
+Il est vivement recommandé de tester les nouvelles versions mineures dans un environnement de développement-test, de sorte que vous puissiez vérifier que votre charge de travail continue de fonctionner normalement avec la nouvelle version de Kubernetes. Il est possible que certaines API soient déconseillées par Kubernetes, comme dans la version 1.16, sur laquelle vos charges de travail pouvaient se baser. Lors de la mise en production de nouvelles versions, envisagez d’utiliser [plusieurs pools de nœuds sur des versions distinctes](use-multiple-node-pools.md) et de mettre à niveau les pools individuels un par un pour déployer progressivement la mise à jour sur l’ensemble du cluster. Si vous exécutez plusieurs clusters, mettez-les à niveau l’un après l’autre de manière à surveiller progressivement l’impact ou les modifications.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

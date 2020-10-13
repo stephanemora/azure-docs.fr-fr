@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605432"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650394"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Afficher et filtrer les informations sur les ressources Azure
 
@@ -55,7 +55,11 @@ Pour supprimer une vue :
 
 ## <a name="summarize-resources-with-visuals"></a>Synthétiser les ressources avec des visuels
 
-Les vues que nous avons étudiées jusqu’à présent sont des _vues de liste_, mais il existe également des _vues de synthèse_ qui incluent des visuels. Vous pouvez enregistrer et utiliser ces vues de la même façon que les vues de liste. Les filtres sont conservés entre les deux types de vues. Pour enregistrer et utiliser une vue de synthèse :
+Les vues que nous avons étudiées jusqu’à présent sont des _vues de liste_, mais il existe également des _vues de synthèse_ qui incluent des visuels. Vous pouvez enregistrer et utiliser ces vues de la même façon que les vues de liste. Les filtres sont conservés entre les deux types de vues. Il existe des vues standard, telles que la vue par **localisation** illustrée ci-dessous, ainsi que des vues qui s’appliquent à des services spécifiques, telles que la vue par **état** pour les machines virtuelles.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Portail Azure  : vue de toutes les ressources":::
+
+Pour enregistrer et utiliser une vue de synthèse :
 
 1. Dans le menu des vues, sélectionnez **Vue Synthèse**.
 

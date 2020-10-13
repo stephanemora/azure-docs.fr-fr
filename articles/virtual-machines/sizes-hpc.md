@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325961"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
 
-Les machines virtuelles Azure de la série H sont conçues pour offrir des performances, une extensibilité MPI et une rentabilité exceptionnelles adaptées à un vaste éventail de charges de travail HPC réelles.
+Les machines virtuelles Azure de la série H sont conçues pour offrir des performances, une extensibilité et une rentabilité exceptionnelles adaptées à un vaste éventail de charges de travail HPC réelles.
 
 Les machines virtuelles de la [série HBv2](hbv2-series.md) sont optimisées pour des applications tributaires de la bande passante mémoire, par exemple la dynamique des fluides, l’analyse par éléments finis et la simulation de réservoir. Les machines virtuelles HBv2 disposent de 120 cœurs de processeur AMD EPYC 7742, de 4 Go de RAM par cœur de processeur, et d’aucun multithreading simultané. Chaque machine virtuelle HBv2 fournit jusqu’à 340 Go/s de bande passante de mémoire et jusqu’à 4 téraflops de calcul FP64.
 
@@ -31,22 +31,23 @@ Les machines virtuelles de la [série HC](hc-series.md) sont optimisées pour le
 Les machines virtuelles de la [série H](h-series.md) sont optimisées pour les applications tributaires de fréquences de processeur élevées ou ayant des besoins en mémoire importants par cœur. Les machines virtuelles de la série H disposent de 8 ou 16 cœurs de processeur Intel Xeon E5 2667 v3, de 7 ou 14 Go de RAM par cœur de processeur, et d’aucun hyperthreading. Les machines virtuelles de la série H disposent d’un Infiniband FDR Mellanox de 56 Go/s dans une configuration de gros arbres non bloquant pour des performances RDMA homogènes. Les machines virtuelles de la série H prennent en charge Intel MPI 5.x et MS-MPI.
 
 > [!NOTE]
-> La mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> La mise hors service des [machines virtuelles A8-A11](./sizes-previous-gen.md#a-series---compute-intensive-instances) est planifiée pour le mois de mars 2021. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Instances prenant en charge RDMA
 
-La plupart des tailles de machines virtuelles HPC (HBv2, HB, HC, H16r, H16mr, A8 et A9) offrent une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Les tailles de la [série N](./nc-series.md) désignées par « r » (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 et NC24r) sont également compatibles RDMA. Cette interface s’ajoute à l’interface réseau Azure standard disponible dans d’autres tailles de machine virtuelle.
+La plupart des tailles de machines virtuelles HPC (HBv2, HB, HC, H16r, H16mr, A8 et A9) offrent une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Les tailles de la [série N](./nc-series.md) désignées par « r » (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 et NC24r) sont également compatibles RDMA. Cette interface s’ajoute à l’interface réseau Ethernet Azure standard disponible dans d’autres tailles de machine virtuelle.
 
 Cette interface permet aux instances compatibles RDMA de communiquer sur un réseau InfiniBand (IB), opérant à des vitesses HDR pour les machines virtuelles HBv2, EDR pour les machines virtuelles HB, HC et NDv2, FDR pour les machines virtuelles H16r et H16mr et autres machines virtuelles de la série N compatibles RDMA, et QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances de certaines applications MPI (Message Passing Interface).
 
 > [!NOTE]
 > Dans Azure HPC, il existe deux classes de machines virtuelles, selon qu’elles sont compatibles SR-IOV pour InfiniBand. Actuellement, les machines virtuelles prenant en charge SR-IOV pour InfiniBand sont les suivantes : HBv2, HB, HC, NCv3 et NDv2. Les autres machines virtuelles prenant en charge InfiniBand ne sont à l’heure actuelle pas compatibles avec SR-IOV.
-> RDMA over IB est pris en charge pour toutes les machines virtuelles compatibles RDMA.
+> RDMA est activé uniquement sur le réseau InfiniBand (IB) et est pris en charge pour toutes les machines virtuelles compatibles RDMA.
 > IP over IB est uniquement pris en charge sur les machines virtuelles compatibles SR-IOV.
+> RDMA n’est pas activé sur le réseau Ethernet.
 
 - **Système d’exploitation** : Linux est très bien pris en charge pour les machines virtuelles HPC ; des distributions comme CentOS, RHEL, Ubuntu et SUSE sont couramment utilisées. En ce qui concerne la prise en charge Windows, Windows Server 2016 et les versions ultérieures sont pris en charge sur toutes les machines virtuelles de la série HPC. Windows Server 2012 R2 et Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (H16r, H16mr, A8 et A9). Notez que [Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Pour obtenir la liste des images de machines virtuelles prises en charge sur la place de marché et savoir comment les configurer de manière appropriée, consultez [Images de machine virtuelle](./workloads/hpc/configure.md).
 
-- **Pilotes InfiniBand et RDMA** : sur les machines virtuelles prenant en charge InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA. Sur Linux, les machines virtuelles SR-IOV et non-SR-IOV, les images de machines virtuelles CentOS-HPC de la Place de marché sont préconfigurées avec les pilotes appropriés. Les images de machine virtuelle Ubuntu peuvent être configurées avec les bons pilotes suivant ces [instructions](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consultez [Configurer et optimiser des machines virtuelles pour le système d’exploitation Linux](./workloads/hpc/configure.md) pour plus d’informations sur les images de système d’exploitation Linux prêtes à l’emploi.
+- **InfiniBand et pilotes** : sur les machines virtuelles prenant en charge InfiniBand, certains pilotes sont requis pour activer la fonctionnalité RDMA. Sur Linux, les machines virtuelles SR-IOV et non-SR-IOV, les images de machines virtuelles CentOS-HPC de la Place de marché sont préconfigurées avec les pilotes appropriés. Les images de machine virtuelle Ubuntu peuvent être configurées avec les bons pilotes suivant ces [instructions](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consultez [Configurer et optimiser des machines virtuelles pour le système d’exploitation Linux](./workloads/hpc/configure.md) pour plus d’informations sur les images de système d’exploitation Linux prêtes à l’emploi.
 
    Sur Linux, pour les machines virtuelles des séries H et N prenant en charge SR-IOV, [l’extension de machine virtuelle InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) peut être utilisée pour installer les pilotes OFED Mellanox et activer InfiniBand. Pour savoir comment activer InfiniBand sur une machine virtuelle compatible RDMA, consultez [Charges de travail HPC](./workloads/hpc/enable-infiniband.md).
 
@@ -102,5 +103,5 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [la configuration de vos machines virtuelles](./workloads/hpc/configure.md), [l’activation d’InfiniBand](./workloads/hpc/enable-infiniband.md), [la configuration de MPI](./workloads/hpc/setup-mpi.md) et l’optimisation des applications HPC pour Azure dans l’article relatif aux [charges de travail HPC](./workloads/hpc/overview.md).
-- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [Blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

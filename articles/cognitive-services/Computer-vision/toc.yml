@@ -111,20 +111,24 @@
       href: concept-detecting-adult-content.md
 - name: Intelligence artificielle responsable
   items:
-    - name: Note de transparence
+    - name: Analyse spatiale
       items:
-        - name: Présentation de l’analyse spatiale
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
-        - name: Caractéristiques et limitations
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
-    - name: 'Conformité, confidentialité et sécurité'
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
-    - name: Utilisation responsable lors du déploiement de l’IA
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
-    - name: Guide de conception de la divulgation
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
-    - name: Rechercher des insights
-      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
+        - name: Note de transparence
+          items:
+            - name: Présentation de l’analyse spatiale
+              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
+            - name: Caractéristiques et limitations
+              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
+        - name: Instructions de déploiement
+          items:
+            - name: Utilisation responsable lors du déploiement de l’IA
+              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
+            - name: Guide de conception de la divulgation
+              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
+            - name: Rechercher des insights
+              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
+        - name: 'Conformité, confidentialité et sécurité'
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
 - name: Conteneurs
   items:
     - name: Conteneur d’API de lecture

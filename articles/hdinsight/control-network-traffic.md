@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631713"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Contrôler le trafic réseau dans Azure HDInsight
 
@@ -58,7 +58,7 @@ Pour voir un exemple de configuration du routage défini par l’utilisateur ave
 
 ## <a name="required-ports"></a>Ports requis
 
-Si vous prévoyez d’utiliser un **pare-feu** et d’accéder au cluster depuis l’extérieur sur certains ports, vous devez autoriser le trafic sur ces ports nécessaires à votre scénario. Par défaut, aucune liste verte spéciale de ports n’est nécessaire tant que le trafic de gestion Azure expliqué dans la section précédente est autorisé à atteindre le cluster sur le port 443.
+Si vous prévoyez d’utiliser un **pare-feu** et d’accéder au cluster depuis l’extérieur sur certains ports, vous devez autoriser le trafic sur ces ports nécessaires à votre scénario. Par défaut, aucun filtrage spécial des ports n’est nécessaire tant que le trafic de gestion Azure expliqué dans la section précédente est autorisé à atteindre le cluster sur le port 443.
 
 Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 

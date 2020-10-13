@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930168"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631735"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Forum Aux Questions sur Metrics Advisor
 
@@ -74,9 +74,26 @@ En fonction de la granularité de vos données, les longueurs des données histo
 
 ### <a name="more-concepts-and-technical-terms"></a>Plus de concepts et de termes techniques
 
-Pour en savoir plus, consultez le [Glossaire](glossary.md).
+Pour plus d’informations, consultez également le [Glossaire](glossary.md).
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Comment détecter de tels types d’anomalies ? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Comment écrire une requête valide pour l’ingestion de mes données ?  
+
+Pour que Metrics Advisor ingère vos données, vous devez créer une requête qui retourne les dimensions de vos données à un horodatage unique. Metrics Advisor exécute cette requête plusieurs fois pour obtenir les données de chaque horodatage. 
+
+Notez que la requête doit retourner au plus un enregistrement pour chaque combinaison de dimensions, à un horodatage donné. Tous les enregistrements retournés doivent avoir le même horodatage. Aucun enregistrement en double ne doit être retourné par la requête.
+
+Par exemple, supposons que vous créez la requête ci-dessous, pour une métrique quotidienne : 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Veillez à utiliser la précision appropriée pour votre série chronologique. Pour une métrique horaire, vous utilisez : 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Notez que ces requêtes retournent uniquement des données à un horodatage unique et contiennent toutes les combinaisons de dimensions à ingérer par Metrics Advisor. 
+
+:::image type="content" source="media/query-result.png" alt-text="Message lorsqu’une ressource F0 existe déjà" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Comment détecter des mines et pixels indépendants du périphérique comme des anomalies ?
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325706"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -255,7 +255,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
         Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.   
 
-        Vous ne pouvez pas utiliser `default` comme nom de volume.
+        Vous ne pouvez pas utiliser `default` ni `bin` comme nom de volume.
 
     * **Pool de capacités**  
         Spécifiez le pool de capacité dans lequel vous souhaitez que le volume soit créé.
@@ -264,6 +264,11 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Spécifiez la quantité de stockage logique allouée au volume.  
 
         Le champ **Quota disponible** indique la quantité d’espace inutilisé dans le pool de capacités choisi, que vous pouvez utiliser pour créer un volume. La taille du nouveau volume ne doit pas dépasser le quota disponible.  
+
+    * **Débit (Mio/s)**    
+        Si le volume est créé dans un pool de capacité avec Qualité de service manuelle, spécifiez le débit souhaité pour le volume.   
+
+        Si le volume est créé dans un pool de capacité avec Qualité de service automatique, la valeur affichée dans ce champ est (quota x débit du niveau de service).   
 
     * **Réseau virtuel**  
         Spécifiez le réseau virtuel Azure (VNet) à partir duquel vous voulez accéder au volume.  

@@ -4,17 +4,17 @@ description: Les étendues de chiffrement permettent de gérer le chiffrement au
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326114"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)
 
@@ -22,7 +22,7 @@ Les étendues de chiffrement permettent de gérer le chiffrement au niveau d’u
 
 Par défaut, un compte de stockage est chiffré avec une clé étendue au compte de stockage entier. Avec une étendue de chiffrement, vous pouvez spécifier qu’un ou plusieurs conteneurs soient chiffrés avec une clé étendue à ces seuls conteneurs.
 
-Vous pouvez choisir d’utiliser des clés gérées par Microsoft ou des clés gérées par le client stockées dans Azure Key Vault ou Key Vault Managed Hardware Security Model (HSM) (préversion) pour protéger et contrôler l’accès à la clé qui chiffre vos données. Différentes étendues de chiffrement sur le même compte de stockage peuvent utiliser des clés gérées par Microsoft ou par le client.
+Vous pouvez choisir d’utiliser des clés gérées par Microsoft ou des clés gérées par le client stockées dans Azure Key Vault pour protéger et contrôler l’accès à la clé qui chiffre vos données. Différentes étendues de chiffrement sur le même compte de stockage peuvent utiliser des clés gérées par Microsoft ou par le client.
 
 Une fois que vous avez créé une étendue de chiffrement, vous pouvez spécifier cette étendue de chiffrement sur une requête de création d’un conteneur ou d’un objet blob. Pour plus d’informations sur la création d’une étendue de chiffrement, consultez [Créer et gérer des étendues de chiffrement (version préliminaire)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Lorsque vous désactivez une étendue de chiffrement, toutes les opérations de 
 
 Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé pour celle-ci. Désactivez les étendues de chiffrement qui ne sont pas nécessaires pour éviter les frais inutiles.
 
-Si votre étendue de chiffrement est protégée par des clés gérées par le client, vous pouvez également supprimer la clé associée dans le coffre de clés ou HSM managé afin de désactiver l’étendue de chiffrement. Gardez à l’esprit que les clés gérées par le client sont protégées par la suppression réversible et la protection de la suppression dans le coffre de clé ou HSM managé, et une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
+Si votre étendue de chiffrement est protégée par des clés gérées par le client, vous pouvez également supprimer la clé associée dans le coffre de clés afin de désactiver l’étendue de chiffrement. Gardez à l’esprit que les clés gérées par le client sont protégées par la suppression réversible et la protection contre le vidage dans le coffre de clés, et qu’une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
 
 - [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/soft-delete-powershell.md)
 - [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/soft-delete-cli.md)

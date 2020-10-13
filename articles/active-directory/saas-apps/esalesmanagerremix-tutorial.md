@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555387"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826744"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -121,7 +121,7 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
 1. Sous **Configuration E Sales Manager Remix**, sélectionnez **Configurer E Sales Manager Remix**.
 
-    ![Configuration d’E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Capture d’écran qui montre la section « Configuration d’E Sales Manager Remix » avec l’option « Configurer E Sales Manager Remix ».](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     La fenêtre **Configurer l’authentification** s’affiche.
 

@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870287"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576623"
 ---
 # <a name="get-information-about-conversions"></a>Obtenir des informations sur les conversions
 
@@ -65,6 +65,10 @@ Voici un exemple de fichier *info* produit par la conversion d’un fichier nomm
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ Cette section enregistre des informations sur le format du fichier source.
 * `sourceAssetFormat`: Description du format du fichier source.
 * `sourceAssetFormatVersion`: Version du format du fichier source.
 * `sourceAssetGenerator`: Nom de l’outil qui a généré le fichier source, s’il est disponible.
+
+### <a name="the-materialoverrides-section"></a>Section *materialOverrides*
+
+Cette section fournit des informations sur le [remplacement matériel](override-materials.md) lorsqu’un fichier de remplacement matériel a été fourni au service de conversion.
+Il contient les informations suivantes :
+* `numOverrides` : Nombre d’entrées de remplacement lues à partir du fichier de remplacement matériel.
+* `numOverriddenMaterials` : Nombre de matériaux qui ont été remplacés.
 
 ### <a name="the-inputstatistics-section"></a>Section *inputStatistics*
 

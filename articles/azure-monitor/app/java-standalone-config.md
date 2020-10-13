@@ -4,12 +4,12 @@ description: Supervision des performances des applications Java sans code s’ex
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056096"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537655"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Options de configuration - Agent autonome Java pour Azure Monitor Application Insights
 
@@ -49,7 +49,18 @@ Cela est nécessaire. Vous pouvez trouver votre chaîne de connexion dans votre 
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Chaîne de connexion Application Insights":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 Vous pouvez également définir la chaîne de connexion à l'aide de la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+
+Si vous ne définissez pas la chaîne de connexion, l’agent Java sera désactivé.
 
 ## <a name="cloud-role-name"></a>Nom du rôle cloud
 
@@ -93,7 +104,7 @@ Vous pouvez également définir l'instance de rôle cloud à l'aide de la variab
 
 La préversion Application Insights Java 3.0 capture automatiquement la journalisation d'application via Log4j, Logback et java.util.logging.
 
-Par défaut, elle capture toute la journalisation effectuée au niveau `WARN` ou supérieur.
+Par défaut, elle capture toute la journalisation effectuée au niveau `INFO` ou supérieur.
 
 Si vous souhaitez modifier ce seuil :
 
@@ -103,13 +114,15 @@ Si vous souhaitez modifier ce seuil :
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+Vous pouvez également définir le seuil de journalisation à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_LOGGING_THRESHOLD`.
 
 Voici les valeurs `threshold` valides que vous pouvez spécifier dans le fichier `ApplicationInsights.json` et leur correspondance avec les niveaux de journalisation dans les différentes infrastructures de journalisation :
 
@@ -136,20 +149,24 @@ Si vous souhaitez capturer certaines métriques JMX :
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
-          "objectName": "java.lang:type=MemoryPool,name=Code Cache",
+          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
           "attribute": "Usage.used",
-          "display": "Code Cache Used"
+          "display": "MetaSpace Used"
         }
       ]
     }
   }
 }
 ```
+
+Vous pouvez également définir les métriques JMX à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_JMX_METRICS`.
+
+Ce contenu de variable d’environnement doit être une donnée JSON correspondant à la structure ci-dessus, par exemple `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`.
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (y compris les métriques de Spring Boot Actuator)
 
@@ -214,6 +231,8 @@ Voici un exemple montrant comment définir l'échantillonnage sur **10 % de tou
   }
 }
 ```
+
+Vous pouvez également définir le pourcentage d’échantillonnage à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 

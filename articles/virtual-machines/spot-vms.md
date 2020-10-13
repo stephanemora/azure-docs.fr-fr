@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817119"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827827"
 ---
 # <a name="use-spot-vms-in-azure"></a>Utiliser des machines virtuelles Spot dans Azure
 
@@ -67,8 +67,22 @@ Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/)
 
 Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+Vous pouvez également interroger les informations de tarification actuelles à l’aide de l’[API des prix de vente au détail d’Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) pour demander plus d’informations sur la tarification Spot. Les `meterName` et `skuName` contiennent tous les deux `Spot`.
 
 En raison de la variabilité des tarifs, vous avez la possibilité de définir un prix maximal en dollars américains (USD) ayant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles.
+
+## <a name="pricing-and-eviction-history"></a>Historique des tarifs et de l’éviction
+
+Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille dans une région du portail. Sélectionnez **Voir l'historique des prix et comparer les prix dans les régions proches** pour afficher une table ou un graphique de tarification pour une taille spécifique.  Les tarifs et les taux d’éviction des images suivantes sont uniquement des exemples. 
+
+**Graphique **:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de graphique.":::
+
+**Table**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de graphique.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Forum aux questions
@@ -98,7 +112,7 @@ En raison de la variabilité des tarifs, vous avez la possibilité de définir u
 **R :** Vous pouvez poster et étiqueter vos questions avec `azure-spot` sur [Questions et réponses](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Utilisez l’[interface CLI](./linux/spot-cli.md), le [portail](./windows/spot-portal.md), le [modèle Resource Manager](./linux/spot-template.md) ou [PowerShell](./windows/spot-powershell.md) pour déployer des machines virtuelles Spot.
+Utilisez l’[interface CLI](./linux/spot-cli.md), le [portail](spot-portal.md), le [modèle Resource Manager](./linux/spot-template.md) ou [PowerShell](./windows/spot-powershell.md) pour déployer des machines virtuelles Spot.
 
 Vous pouvez également déployer un [groupe identique avec des instances de machine virtuelle Spot](../virtual-machine-scale-sets/use-spot.md).
 

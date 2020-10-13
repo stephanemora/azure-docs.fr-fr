@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201788"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776627"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services pour le Big Data
 
@@ -125,12 +125,14 @@ Cognitive Services pour le Big Data est un exemple de la façon dont nous pouvon
 - [En savoir plus sur le fonctionnement de Cognitive Services sur Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Protection des léopards des neiges avec le Deep Learning et Vision par ordinateur sur Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Podcast Microsoft Research : MMLSpark, AI for Good avec Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [Livre blanc universitaire : Large Scale Intelligent Microservices](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>Webinaires et vidéos
 
 - [Azure Cognitive Services sur Spark : Clusters avec services intelligents incorporés](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Discours d’ouverture Spark Summit : AI for Good scalable](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Cognitive Services pour le Big Data dans Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Coup de projecteur sur les microservices intelligents à grande échelle](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
