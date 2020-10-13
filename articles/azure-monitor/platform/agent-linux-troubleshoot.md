@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325370"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531188"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -150,7 +150,7 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
 
 ### <a name="probable-causes"></a>Causes probables
 * Le proxy spécifié pendant l’intégration est incorrect
-* Les points de terminaison des services Azure Monitor et Azure Automation ne figurent pas dans la liste verte de votre centre de données 
+* Les points de terminaison des services Azure Monitor et Azure Automation ne figurent pas dans la liste approuvée de votre centre de données. 
 
 ### <a name="resolution"></a>Résolution
 1. Réintégrez Azure Monitor avec l’agent Log Analytics pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Cela autorise une sortie détaillée de l’agent qui se connecte via le proxy à Azure Monitor. 
@@ -444,4 +444,3 @@ Effectuez les étapes suivantes pour résoudre le problème.
     ```
 
 3. Mettez à niveau les packages en exécutant `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
-

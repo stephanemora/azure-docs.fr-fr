@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327712"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -98,18 +98,34 @@ Par exemple, les requêtes suivantes produisent exactement le même résultat, m
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+Dans certains cas, la colonne évaluée est créée implicitement par le moteur de traitement des requêtes puisque le filtrage ne se fait pas uniquement sur le champ :
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Utilisez des commandes d’agrégation et des dimensions efficaces dans la synthèse et la jointure
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-Lorsque l’option ci-dessus n’autorise pas l’utilisation de sous-requêtes, une autre technique consiste à indiquer au moteur de requête qu’une seule source de données est utilisée dans chacune d’elles à l’aide de la fonction [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Cela est utile lorsque les données sources proviennent d’une fonction qui est utilisée plusieurs fois dans la requête.
+Lorsque l’option ci-dessus n’autorise pas l’utilisation de sous-requêtes, une autre technique consiste à indiquer au moteur de requête qu’une seule source de données est utilisée dans chacune d’elles à l’aide de la fonction [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Cela est utile lorsque les données sources proviennent d’une fonction qui est utilisée plusieurs fois dans la requête. La fonction materialize est efficace lorsque la sortie de la sous-requête est bien plus petite que l’entrée. Le moteur de requête mettra en cache et réutilisera la sortie dans toutes les occurrences.
 
 
 
