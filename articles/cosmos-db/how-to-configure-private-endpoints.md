@@ -4,19 +4,22 @@ description: Découvrez comment configurer Azure Private Link pour accéder à u
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334427"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 
 À l’aide d’Azure Private Link, vous pouvez vous connecter à un compte Azure Cosmos via un point de terminaison privé. Le point de terminaison privé est un ensemble d’adresses IP privées dans un sous-réseau au sein de votre réseau virtuel. Vous pouvez alors limiter l’accès à un compte Azure Cosmos via des adresses IP privées. Lorsque Private Link est combiné à des stratégies NSG limitées, il permet de réduire le risque d’exfiltration de données. Pour plus d’informations sur les points de terminaison privés, consultez l’article [Azure Private Link](../private-link/private-link-overview.md).
+
+> [!NOTE]
+> Azure Private Link n’empêche pas la résolution de vos points de terminaison Azure Cosmos par le DNS public. Le filtrage des requêtes entrantes se produit au niveau de l’application, et non au niveau du transport ou du réseau.
 
 Private Link permet aux utilisateurs d’accéder à un compte Azure Cosmos à partir du réseau virtuel ou de tout réseau virtuel appairé. Les ressources mappées à Private Link sont également accessibles localement via un Peering privé par le biais d’un VPN ou d’Azure ExpressRoute. 
 
@@ -95,7 +98,7 @@ Une fois le point de terminaison privé provisionné, vous pouvez interroger les
 1. Recherchez le point de terminaison privé que vous avez créé précédemment. Dans ce cas, il s’agit de **cdbPrivateEndpoint3**.
 1. Sélectionnez l’onglet **Vue d’ensemble** pour afficher les paramètres DNS et les adresses IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Adresses IP privées dans le Portail Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Sélections pour créer un point de terminaison privé dans le Portail Azure":::
 
 Plusieurs adresses IP sont créées par point de terminaison privé :
 
@@ -408,7 +411,7 @@ Pour ces comptes, vous devez créer un point de terminaison privé pour chaque t
 
 Une fois que le modèle a bien été déployé, vous pouvez voir une sortie similaire à ce que montre l’image suivante. La valeur `provisioningState` est `Succeeded` si les points de terminaison privés sont configurés correctement.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Sortie du déploiement pour le modèle Resource Manager":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Sélections pour créer un point de terminaison privé dans le Portail Azure":::
 
 Une fois le modèle déployé, les adresses IP privées sont réservées dans le sous-réseau. La règle de pare-feu du compte Azure Cosmos est configurée pour accepter uniquement les connexions à partir du point de terminaison privé.
 
@@ -627,7 +630,18 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blocage de l’accès au réseau public pendant la création du compte
 
-Comme décrit dans la section précédente, et à moins que des règles de pare-feu spécifiques n’aient été définies, l’ajout d’un point de terminaison privé rend votre compte Azure Cosmos accessible via des points de terminaison privés uniquement. Cela signifie que le compte Azure Cosmos peut être atteint à partir du trafic public, après sa création et avant l’ajout d’un point de terminaison privé. Pour vous assurer que l’accès au réseau public est désactivé avant même la création de points de terminaison privés, vous pouvez définir l’indicateur `publicNetworkAccess` sur `Disabled` pendant la création du compte. Pour voir un exemple d’utilisation de cet indicateur, consultez [ce modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+Comme décrit dans la section précédente, et à moins que des règles de pare-feu spécifiques n’aient été définies, l’ajout d’un point de terminaison privé rend votre compte Azure Cosmos accessible via des points de terminaison privés uniquement. Cela signifie que le compte Azure Cosmos peut être atteint à partir du trafic public, après sa création et avant l’ajout d’un point de terminaison privé. Pour vous assurer que l’accès au réseau public est désactivé avant même la création de points de terminaison privés, vous pouvez définir l’indicateur `publicNetworkAccess` sur `Disabled` pendant la création du compte. Notez que cet indicateur est prioritaire sur toute règle de réseau virtuel ou d’adresse IP ; tout le trafic public et de réseau virtuel est bloqué lorsque l’indicateur est défini sur `Disabled`, même si l’adresse IP source ou le réseau virtuel est autorisé dans la configuration du pare-feu.
+
+Pour voir un exemple d’utilisation de cet indicateur, consultez [ce modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Ajout de points de terminaison privés à un compte Cosmos existant sans temps d’arrêt
+
+Par défaut, l’ajout d’un point de terminaison privé à un compte existant entraîne un court temps d’arrêt d’environ cinq minutes. Suivez les instructions ci-dessous pour éviter ce temps d’arrêt :
+
+1. Ajoutez des règles de réseau virtuel ou d’adresse IP à votre configuration de pare-feu pour autoriser explicitement vos connexions client.
+1. Attendez dix minutes pour vous assurer que la mise à jour de la configuration est appliquée.
+1. Configurez votre nouveau point de terminaison privé.
+1. Supprimez les règles de pare-feu définies à l’étape 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Plage de ports lors de l’utilisation du mode direct
 
@@ -635,7 +649,7 @@ Lorsque vous utilisez Private Link avec un compte Azure Cosmos via une connexion
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Mettre à jour un point de terminaison privé lors de l’ajout ou de la suppression d’une région
 
-Pour ajouter ou supprimer des régions dans un compte Azure Cosmos, vous devez ajouter ou supprimer des entrées DNS pour ce compte. Après l’ajout ou la suppression des régions, vous pouvez mettre à jour la zone DNS privée du sous-réseau pour refléter les entrées DNS ajoutées ou supprimées et leurs adresses IP privées correspondantes.
+À moins que vous n’utilisiez un groupe de zones DNS privées, l’ajout ou la suppression de régions dans un compte Azure Cosmos vous oblige à ajouter ou supprimer des entrées DNS pour ce compte. Après l’ajout ou la suppression des régions, vous pouvez mettre à jour la zone DNS privée du sous-réseau pour refléter les entrées DNS ajoutées ou supprimées et leurs adresses IP privées correspondantes.
 
 Par exemple, imaginez que vous déployez un compte Azure Cosmos dans trois régions : « USA Ouest », « USA Centre » et « Europe Ouest ». Lorsque vous créez un point de terminaison privé pour votre compte, quatre adresses IP privées sont réservées dans le sous-réseau. Il existe une adresse IP pour chacune des trois régions et une adresse IP pour le point de terminaison global/indépendant de la région.
 
@@ -659,7 +673,7 @@ Les limitations suivantes s’appliquent lorsque vous utilisez Private Link avec
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitations de l’intégration à une zone DNS privée
 
-Les enregistrements DNS dans la zone DNS privée ne sont pas supprimés automatiquement lorsque vous supprimez un point de terminaison privé ou une région du compte Azure Cosmos. Vous devez supprimer manuellement les enregistrements DNS avant d’effectuer les actions suivantes :
+À moins que vous n’utilisiez un groupe de zones DNS privées, les enregistrements DNS dans la zone DNS privée ne sont pas supprimés automatiquement lorsque vous supprimez un point de terminaison privé ou une région du compte Azure Cosmos. Vous devez supprimer manuellement les enregistrements DNS avant d’effectuer les actions suivantes :
 
 * Ajout d’un nouveau point de terminaison privé lié à cette zone DNS privée.
 * Ajout d’une nouvelle région à un compte de base de données qui dispose de points de terminaison privés liés à cette zone DNS privée.

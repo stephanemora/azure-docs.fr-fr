@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314928"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -35,7 +35,7 @@ Pour connaître les prix du stockage de sauvegarde, consultez la [page des tarif
 Dans Azure Database pour PostgreSQL, la restauration d’un cluster Hyperscale (Citus) crée un cluster à partir des sauvegardes des nœuds d’origine. 
 
 > [!IMPORTANT]
->Vous pouvez uniquement restaurer le cluster hyperscale au sein du même abonnement et du même groupe de ressources, et avec un nom de cluster différent.
+>Vous pouvez uniquement restaurer le cluster Hyperscale (Citus) au sein du même abonnement et du même groupe de ressources, et avec un nom de cluster différent.
 
 
 > [!IMPORTANT]

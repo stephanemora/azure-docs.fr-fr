@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361345"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Comment utiliser PerfInsights dans Azure
 
@@ -259,8 +259,8 @@ Le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure
 
 Sélectionnez l’onglet **Conclusions**.
 
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
+![Capture d’écran de l’onglet Vue d’ensemble du rapport PerfInsights.](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Capture d’écran de l’onglet Stockage du rapport PerfInsights.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Les conclusions identifiées comme étant d’importance élevée sont des problèmes connus qui peuvent conduire à des problèmes de performances. Les conclusions identifiées comme étant d’importance moyenne représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances. Les conclusions identifiées comme étant d’importance faible sont des instructions données à titre informatif uniquement.

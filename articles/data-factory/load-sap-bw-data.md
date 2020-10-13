@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360801"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -217,7 +217,7 @@ Si vous avez besoin d’exécuter à la fois une copie historique et incrémenti
 
    Vous pouvez augmenter le nombre de processus de travail SAP exécutés en parallèle pour le transfert de données :
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![La capture d’écran montre la boîte de dialogue Settings for Parallel Processing (Paramètres pour le traitement parallèle) où vous pouvez sélectionner le nombre de processus parallèles pour le processus de transfert des données.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Planifiez le transfert de données dans des chaînes de processus.
 

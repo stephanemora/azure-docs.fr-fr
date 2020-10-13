@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649837"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361855"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -36,7 +36,7 @@ Une ressource « Disque » est utilisée pour monter un fichier *.vhd d’obje
 
 1. Supprimez la machine virtuelle classique.
 2. Si la case « Disques » est cochée, le **bail du disque** (voir la figure ci-dessus) associé au fichier *.vhd d’objet blob de pages est résilié. Le fichier *.vhd réel d’objet blob de pages existe toujours dans le compte de stockage.
-![Capture d’écran du portail, avec le volet d’erreur « Supprimer » de la machine virtuelle (classique) ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![Capture d’écran montrant une boîte de dialogue demandant de confirmer la suppression d’une machine virtuelle](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. Une fois le bail de disque résilié, le ou les objets blob de pages peuvent être supprimés. Un compte de stockage ou un conteneur peut être supprimé une fois que toutes les ressources « Disque » qu’il contient sont supprimées.
 
@@ -52,7 +52,7 @@ L’utilisateur accède au compte de stockage classique dans le [portail Azure](
 
 Avec des disques « attachés » à une machine virtuelle
 
-![Capture d’écran du portail, avec le volet d’erreur « Supprimer » de la machine virtuelle (classique) ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![Capture d’écran montrant un message expliquant pourquoi un compte de stockage ne peut pas être supprimé.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 Avec des disques « non attachés » à une machine virtuelle
@@ -93,12 +93,12 @@ Après avoir supprimé la machine virtuelle Azure, l’utilisateur tente de supp
 Dans le portail, vous avez deux expériences possibles selon la liste d’objets blob sélectionnée pour suppression.
 
 1. Si vous avez sélectionné seulement des objets blob « Alloués », le bouton Supprimer ne s’affiche pas.
-![Capture d’écran du portail, avec le volet « Liste » d’objets blob de conteneur ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![Capture d’écran du portail, avec le volet des objets blob de conteneur ouvert et seuls les objets blob alloués sélectionnés](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. Si une combinaison d’objets blob « Alloués » et « Disponibles » est sélectionnée, le bouton « Supprimer » apparaît. Toutefois, l’opération « Supprimer » ne s’applique pas aux objets blob de pages, car ils ont un bail de disque actif. 
-![Capture d’écran du portail, avec le volet « liste » d’objets blob de conteneur ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![Capture d’écran du portail, avec le volet « supprimer » de l’objet blob sélectionné](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Capture d’écran du portail, avec le volet des objets blob de conteneur ouvert, et à la fois les objets blob alloués et les objets blob disponibles sélectionnés](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+![Capture d’écran du portail, avec le volet de suppression ouvert pour l’objet blob sélectionné](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShell, l’erreur suivante se produit. 
@@ -114,10 +114,10 @@ Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShel
 Suivez ces étapes dans le portail Azure :
 1.  Accédez au [portail Azure](https://portal.azure.com).
 2.  Accédez aux Disques (classiques). 
-3.  Cliquez sur l’onglet Disques. ![Capture d’écran du portail, avec le volet « Liste » d’objets blob de conteneur ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Cliquez sur l’onglet Disques. ![Capture d’écran montrant le portail Azure avec l’option Disques (classiques) sélectionnée, ainsi qu’un nom de disque et un compte de stockage classiques sélectionnés](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Sélectionnez votre disque de données, puis cliquez sur Supprimer le disque.
- ![Capture d’écran du portail, avec le volet « Liste » d’objets blob de conteneur ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![Capture d’écran montrant le portail Azure avec l’option Disques (classiques) sélectionnée, ainsi qu’un disque de données sélectionné et l’option de suppression](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  Recommencez l’opération de suppression qui a échoué précédemment.
 6.  Un compte de stockage ou un conteneur ne peut pas être supprimé tant qu’il a un disque.

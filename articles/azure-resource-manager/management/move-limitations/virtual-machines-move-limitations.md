@@ -2,13 +2,13 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/21/2020
+ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317104"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -50,7 +50,7 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
    1. Recherchez l’emplacement de votre machine virtuelle.
    2. Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<VM location>_1`. Par exemple, le nom est au format *AzureBackupRG_westus2_1*.
    3. Dans le Portail Azure, cochez la case **Afficher les types masqués**.
-   4. Recherchez la ressource de type **Microsoft. Microsoft.Compute/restorePointCollections** dont le modèle de nommage est `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   4. Recherchez la ressource de type **Microsoft. Microsoft.Compute/restorePointCollections** dont le modèle de nommage est `AzureBackup_<VM name>_###########`.
    5. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
    6. Une fois l’opération de suppression terminée, vous pouvez déplacer votre machine virtuelle.
 
@@ -63,16 +63,31 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 
 1. Recherchez un groupe de ressources avec le modèle de nommage – `AzureBackupRG_<VM location>_1`. Par exemple, le nom peut être `AzureBackupRG_westus2_1`.
 
-1. Utilisez la commande suivante pour récupérer la collection de points de restauration.
+1. Si vous ne déplacez qu’une seule machine virtuelle, obtenez la collection de points de restauration pour cette machine virtuelle.
 
-   ```azurepowershell
-   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
    ```
 
-1. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+   Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
 
-   ```azurepowershell
-   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```azurepowershell-interactive
+   Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
+   ```
+
+1. Si vous déplacez toutes les machines virtuelles avec des sauvegardes à cet emplacement, obtenez les collections de points de restauration pour ces machines virtuelles.
+
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+   Supprimez chaque ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+
+   ```azurepowershell-interactive
+   foreach ($restorePoint in $restorePointCollection)
+   {
+     Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
+   }
    ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -81,18 +96,28 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 
 1. Recherchez un groupe de ressources avec le modèle de nommage – `AzureBackupRG_<VM location>_1`. Par exemple, le nom peut être `AzureBackupRG_westus2_1`.
 
-1. Utilisez la commande suivante pour récupérer la collection de points de restauration.
+1. Si vous ne déplacez qu’une seule machine virtuelle, obtenez la collection de points de restauration pour cette machine virtuelle.
 
-   ```azurecli
-   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
    ```
 
-1. Recherchez l’ID de ressource pour la ressource avec le modèle de nommage `AzureBackup_<VM name>_###########`
+   Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
 
-1. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
-   ```azurecli
-   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+1. Si vous déplacez toutes les machines virtuelles avec des sauvegardes à cet emplacement, obtenez les collections de points de restauration pour ces machines virtuelles.
+
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
+   ```
+
+   Supprimez chaque ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
