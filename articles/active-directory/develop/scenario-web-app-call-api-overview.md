@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257127"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scénario : Application web qui appelle des API web
 
@@ -24,12 +24,7 @@ Découvrez comment générer une application web qui connecte des utilisateurs �
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-Ce scénario suppose que vous avez déjà parcouru le scénario suivant :
-
-> [!div class="nextstepaction"]
-> [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md)
+Ce scénario suppose que vous avez déjà suivi le [scénario : application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -51,6 +46,10 @@ Le développement de ce scénario implique ces tâches spécifiques :
 
 - Pendant l’[inscription de l’application](scenario-web-app-call-api-app-registration.md), vous devez fournir un URI de réponse, un secret ou un certificat à partager avec Azure AD. Si vous déployez votre application dans plusieurs emplacements, vous devrez fournir un URI de réponse pour chaque emplacement.
 - La [configuration de l’application](scenario-web-app-call-api-app-configuration.md) doit fournir les informations d’identification du client qui ont été partagées avec Azure AD lors de l’inscription de l’application.
+
+## <a name="recommended-reading"></a>Lectures recommandées
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
