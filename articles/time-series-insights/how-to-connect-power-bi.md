@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 10/01/2020
+ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230974"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653772"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualiser des données à partir d’Azure Time Series Insights dans Power BI
 
@@ -110,13 +110,13 @@ Maintenant que vous avez importé les données dans Power BI, il est temps de cr
 
 1. Sur le côté gauche de la fenêtre, vérifiez que vous avez sélectionné l’affichage **Rapport**.
 
-    [![Sélectionner l’affichage Rapport](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Capture d’écran montrant l’icône d la vue Rapport.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1. Dans la colonne **Visualisations**, sélectionnez le visuel de votre choix. Par exemple, sélectionnez **Graphique en courbes**. Cela permet d’ajouter un graphique en courbes vide à votre canevas.
 
 1. Dans la liste **Champs**, sélectionnez **_Timestamp**, puis faites-le glisser vers le champ **Axe** pour afficher les éléments le long de l’axe X. Veillez à basculer sur **_Timestamp** pour la valeur de l’**axe** (la valeur par défaut est **Hiérarchie de date**).
 
-    [![Sélectionner l’affichage Rapport](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![Capture d’écran montrant le menu Horodateur avec _Horodateur sélectionné.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1. À nouveau, dans la liste **Champs**, sélectionnez **TimeSeriesId**, puis faites-le glisser vers le champ **Valeurs** pour afficher les éléments le long de l’axe Y.
 

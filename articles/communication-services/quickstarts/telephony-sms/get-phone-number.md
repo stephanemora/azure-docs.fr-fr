@@ -1,24 +1,24 @@
 ---
 title: Démarrage rapide - Obtenir un numéro de téléphone à partir d’Azure Communication Services
 description: Découvrez comment acheter un numéro de téléphone Communication Services à l’aide du portail Azure.
-author: ddematheu2
-manager: nimag
+author: prakulka
+manager: nmurav
 services: azure-communication-services
-ms.author: dademath
-ms.date: 07/09/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298114"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756913"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Démarrage rapide : Obtenir un numéro de téléphone à l’aide du portail Azure
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Commencez avec Azure Communication Services en utilisant le portail Azure pour acheter un numéro de téléphone.
 
@@ -41,7 +41,7 @@ Accédez au panneau Numéros de téléphone dans le menu des ressources.
 
 Appuyez sur le bouton `Get` pour lancer l’Assistant. L’Assistant sur le panneau `Phone numbers` vous présente une série de questions qui vous aideront à choisir le numéro de téléphone qui correspond le mieux à votre scénario. 
 
-Vous devez d’abord choisir le pays ou la région (`Country/region`) où vous souhaitez provisionner le numéro de téléphone. Après avoir sélectionné le pays ou la région, vous devrez sélectionner le forfait téléphonique (`phone plan`) qui répond le mieux à vos besoins. 
+Vous devez d’abord choisir le pays ou la région (`Country/region`) où vous souhaitez provisionner le numéro de téléphone. Après avoir sélectionné le pays ou la région, vous devrez sélectionner le forfait téléphonique (`use case`) qui répond le mieux à vos besoins. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
@@ -50,23 +50,13 @@ Vous devez d’abord choisir le pays ou la région (`Country/region`) où vous s
 La sélection d’un forfait téléphonique se décompose en deux étapes : 
 
 1. La sélection du [Type de numéro](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. La sélection du [forfait](../../concepts/telephony-sms/plan-solution.md#plans)
+2. La sélection du [forfait](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 Nous proposons actuellement deux types de numéro : `Geographic` et `Toll-free`. Une fois que vous avez sélectionné un Type de numéro, plusieurs Forfaits parmi lesquels vous pouvez effectuer un choix vous sont proposés.
 
-> [!NOTE]
-> Actuellement, nous ne prenons en charge que la sélection de numéros de téléphone avec appels entrants OU sortants. Toutefois, vous pouvez acheter un numéro de téléphone avec les appels entrants activés, puis configurer l’ID d’appelant sortant pour qu’il corresponde au numéro de téléphone autorisant les appels entrants (ce que les utilisateurs voient quand vous les appelez à partir de votre application Communication Services).
-> Cela s’applique uniquement aux communications bidirectionnelles. Le SMS bidirectionnel est pris en charge en mode natif.
-
-Dans notre exemple, nous avons choisi un type de numéro `Toll-free` avec le forfait `Outbound calling`.
+Dans notre exemple, nous avons choisi un type de numéro `Toll-free` avec les forfaits `Outbound calling` et `Inbound and Outbound SMS`.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
-
-### <a name="declare-purpose"></a>Déclarer un objectif
-
-Ensuite, l’Assistant vous demande l’objectif de l’utilisation du numéro. Nous collectons ces informations pour appliquer les réglementations fiscales et d’appels d’urgence appropriées.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
 À partir de là, cliquez sur le bouton `Next: Numbers` au bas de la page pour personnaliser le ou les numéros de téléphone que vous souhaitez provisionner.
 
@@ -106,12 +96,19 @@ Accédez à votre ressource Azure Communication sur le [portail Azure](https://p
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
-Sélectionnez l’onglet Phone Numbers (Numéros de téléphone) dans le menu pour gérer vos numéros de téléphone.
+Sélectionnez le panneau Phone Numbers (Numéros de téléphone) dans le menu pour gérer vos numéros de téléphone.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
 > [!NOTE]
 > L’affichage des numéros provisionnés sur cette page peut prendre quelques minutes.
+
+### <a name="customizing-phone-number-plans"></a>Personnalisation des forfaits de numéros de téléphone
+Dans la page `Numbers`, cliquez sur le numéro de téléphone dont vous souhaitez personnaliser le forfait.
+
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
+
+Sélectionnez les fonctionnalités dans la liste des fonctionnalités d’appel et de SMS disponibles, puis cliquez sur `Confirm` pour appliquer la sélection.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -119,7 +116,7 @@ Questions et problèmes courantes :
 
 - Seuls les États-Unis prennent en charge l'achat de numéros de téléphone pour le moment. Celui-ci est basé sur l'adresse de facturation de l'abonnement auquel la ressource est associée. Actuellement, vous ne pouvez pas déplacer une ressource vers un autre abonnement.
 
-- Quand un numéro de téléphone est supprimé, il n’est pas libéré ni être racheté avant la fin du cycle de facturation.
+- Quand un numéro de téléphone est libéré, sa libération effective ou son rachat éventuel n’intervient pas avant la fin du cycle de facturation.
 
 - Quand une ressource Communication Services est supprimée, les numéros de téléphone associés à cette ressource sont, dans le même temps, automatiquement libérés.
 

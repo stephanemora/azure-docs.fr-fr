@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601671"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265933"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -89,6 +89,8 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
 
 > [!WARNING]
 > Si vous utilisez la fonctionnalité de [durée de vie de jeton configurable](../develop/active-directory-configurable-token-lifetimes.md) actuellement en préversion publique, veuillez noter que nous ne prenons pas en charge la création de deux stratégies différentes pour la même combinaison d’utilisateur ou d’application : une avec cette fonctionnalité, l’autre avec une fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service la fonctionnalité de durée de vie de jeton configurable le 1e mai 2020, et de la remplacer par la fonctionnalité de gestion de session d’authentification par accès conditionnel.  
+>
+> Avant d’activer la fréquence de connexion, assurez-vous que les autres paramètres de réauthentification sont désactivés dans votre locataire. Si l’option « Se souvenir de l’authentification multifacteur sur les appareils de confiance » est activée, veillez à la désactiver avant d’utiliser la fréquence de connexion, car l’utilisation conjointe de ces deux paramètres peut entraîner des messages d’invite inattendus pour les utilisateurs. Pour en savoir plus sur les invites de réauthentification et la durée de vie d’une session, consultez l’article [Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Stratégie 1 : Contrôle de la fréquence de connexion
 
