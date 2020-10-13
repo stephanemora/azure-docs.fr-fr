@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257821"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767280"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment écrire une ap
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -48,12 +48,12 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+> 1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs en recherchant **Inscriptions d’applications** dans la barre de recherche du portail Azure.
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application.
 > 1. Dans la section **Nom**, entrez un nom d’application pertinent qui sera visible par les utilisateurs de l’application, par exemple `Daemon-console`, puis sélectionnez **Inscrire** pour créer l’application.
 > 1. Après l’inscription, sélectionnez le menu **Certificats et secrets**.
-> 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client**. Donnez-lui un nom et sélectionnez **Ajouter**. Copiez le secret dans un emplacement sûr. Vous en aurez besoin plus tard dans votre code.
+> 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client**. Donnez-lui un nom et sélectionnez **Ajouter**. Copiez le secret dans un emplacement sûr. Vous devrez l’utiliser dans votre code, et il ne sera plus réaffiché dans le portail.
 > 1. À présent, sélectionnez le menu **Autorisations de l’API**, sélectionnez le bouton **+ Ajouter une autorisation** et sélectionnez **Microsoft Graph**.
 > 1. Sélectionnez **Autorisations de l’application**.
 > 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**
@@ -73,6 +73,11 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
 
 > [!div renderon="docs"]
 > [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+> [!div renderon="docs"]
+> > [!NOTE]
+> > Vous pouvez exécuter le projet fourni dans Visual Studio ou Visual Studio pour Mac
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
@@ -115,7 +120,7 @@ Si vous essayez d’exécuter l’application à ce stade, vous recevez l’erre
 ##### <a name="global-tenant-administrator"></a>Administrateur de locataires général
 
 > [!div renderon="docs"]
-> Si vous avez le rôle d’administrateur de locataires général, accédez à la page **Autorisations de l’API** dans Inscriptions d’applications (préversion) sur le portail Azure et sélectionnez **Accorder le consentement de l’administrateur pour {nom du locataire}** (où {nom du locataire} correspond au nom de votre annuaire).
+> Si vous êtes administrateur de locataires général, dans le portail Azure, accédez à **Applications d’entreprise**, cliquez sur votre inscription d’application, puis choisissez **« Autorisations »** dans la section Sécurité du volet de navigation gauche. Cliquez sur le grand bouton intitulé **Accorder un consentement d’administrateur pour {nom du locataire}** (où {nom du locataire} est le nom de votre annuaire).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Si vous êtes administrateur général, accédez à la page **Autorisations de l’API** et sélectionnez **Accorder le consentement de l’administrateur pour Entrer_le_nom_du_locataire_ici**
@@ -144,10 +149,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Étape 5 : Exécution de l'application
 
-Si vous utilisez Visual Studio, appuyez sur **F5** pour exécuter l’application ; sinon, exécutez l’application à partir d’une invite de commandes ou de la console :
+Si vous utilisez Visual Studio ou Visual Studio pour Mac, appuyez sur **F5** pour exécuter l’application ; sinon, exécutez l’application à partir d’une invite de commandes, de la console ou du terminal :
 
 ```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 

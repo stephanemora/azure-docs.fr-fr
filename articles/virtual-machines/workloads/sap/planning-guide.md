@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3050d0c61b6278b32b8e9272f228a863c9a0a244
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361923"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -514,11 +514,11 @@ Les Microsoft Azure Virtual Machines utilisent différents types de stockage. Pe
 Les machines virtuelles Azure proposent des disques non persistants suite au déploiement d’une machine virtuelle. Dans le cas du redémarrage d’une machine virtuelle, tout le contenu de ces lecteurs est effacé. Par conséquent, les fichiers de données et les fichiers journaux/de restauration ne doivent en aucun cas se trouver sur ces lecteurs. Il peut exister des exceptions pour certaines des bases de données, où ces lecteurs non persistants peuvent être appropriés pour les espaces de stockage tempdb et temp. Toutefois, évitez d’utiliser ces lecteurs pour les machines virtuelles de série A dans la mesure où ces lecteurs non persistants sont limités en débit avec cette famille de machines virtuelles. Pour plus d’informations, consultez l’article [Understanding the temporary drive on Windows Azure Virtual Machines](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines) (Comprendre le lecteur temporaire sur les machines virtuelles Microsoft Azure)
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Dans une machine virtuelle Azure, le lecteur D:\ est un lecteur non persistant soutenu par des disques locaux présents sur le nœud de calcul Azure. Comme il est non persistant, cela signifie que toutes les modifications apportées au contenu sur le lecteur D:\ sont perdues lors du redémarrage de la machine virtuelle. Par « modifications », nous entendons les fichiers enregistrés, les répertoires créés, les applications installées, etc.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Les machines virtuelles Azure Linux montent automatiquement un lecteur à l’emplacement /mnt/resource. Il s’agit d’un lecteur non persistant soutenu par des disques locaux présents sur le nœud de calcul Azure. Comme il est non persistant, toutes les modifications apportées au contenu de l’emplacement /mnt/resource seront perdues si vous redémarrez la machine virtuelle. Par « modifications », nous entendons les fichiers enregistrés, les répertoires créés, les applications installées, etc.
 >
@@ -774,12 +774,12 @@ Une autre option que nous n’aborderons pas en détail dans ce guide consiste �
 En raison des exigences spécifiques de correctif par rapport aux versions de votre système d’exploitation ou SGBD, les images fournies provenant de la Place de marché Azure peuvent ne pas répondre à vos besoins. Ainsi, vous devrez peut-être créer une machine virtuelle à l’aide de votre propre image « privée » de machine virtuelle du système d’exploitation/SGBD, qui peut être déployée plusieurs fois par la suite. Pour préparer une image « privée » de ce type à des fins de duplication, les éléments suivants doivent être pris en considération :
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Vous trouverez plus de détails ici : <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Les paramètres de Windows (comme le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep.
 >
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Pour préparer un VHD à un chargement sur Azure, suivez les étapes décrites dans les articles suivants pour [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] ou [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle].
 >
@@ -809,13 +809,13 @@ Les exigences à respecter pour la préparation de votre propre disque de machin
 * Ajoutez d’autres comptes locaux, car ceux-ci peuvent être nécessaires pour le scénario de déploiement spécifique.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Dans ce scénario, aucune généralisation (sysprep) de la machine virtuelle n’est requise pour charger et déployer la machine virtuelle sur Azure.
 > Vérifiez que le lecteur D:\ n’est pas utilisé.
 > Définissez le montage automatique de disque pour les disques attachés comme décrit dans le chapitre [Paramétrage du montage automatique pour les disques attachés][planning-guide-5.5.3] dans ce document.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Dans ce scénario, aucune généralisation (waagent -deprovision) de la machine virtuelle n’est requise pour charger et déployer la machine virtuelle sur Azure.
 > Assurez-vous que/mnt/resource n’est pas utilisée et que TOUS les disques sont montés via uuid. Pour le disque de système d’exploitation, vérifiez que l’entrée du chargeur de démarrage correspond également au montage uuid.
@@ -836,11 +836,11 @@ Les exigences à respecter pour la préparation de votre propre image de machine
 * Si l’image contient une installation de SAP NetWeaver et si le renommage du nom d’hôte au moment du déploiement Azure est probable, il est recommandé de copier les dernières versions du DVD du gestionnaire de déploiement de logiciels SAP dans le modèle. Cela vous permettra d’utiliser la fonction de renommage fournie par SAP pour adapter le nom d’hôte modifié et/ou changer le SID du système SAP dans l’image de machine virtuelle déployée dès qu’une nouvelle copie est démarrée.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Assurez-vous que le lecteur D:\ n’est pas un montage automatique de disque défini pour les disques attachés, comme décrit dans le chapitre [Paramétrage du montage automatique pour les disques attachés][planning-guide-5.5.3] dans ce document.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Assurez-vous que/mnt/resource n’est pas utilisée et que TOUS les disques sont montés via uuid. Pour le disque de système d’exploitation, vérifiez que l’entrée du chargeur de démarrage correspond également au montage uuid.
 >
@@ -854,13 +854,13 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 
 ##### <a name="generalizing-a-vm"></a>Généralisation d’une machine virtuelle
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > La dernière étape consiste à se connecter à une machine virtuelle avec un compte d’administrateur. Ouvrez une fenêtre de commande Windows en tant *qu’administrateur*. Accédez à %windir%\windows\system32\sysprep et exécutez sysprep.exe.
 > Une petite fenêtre s’affiche. N’oubliez pas de cocher l’option **Généraliser** (décochée par défaut) et de remplacer la valeur par défaut de l’option Arrêter (Redémarrer) par « Arrêter ». Cette procédure suppose que le processus sysprep est exécuté localement dans le SE invité d’une machine virtuelle.
 > Si vous souhaitez exécuter la procédure avec une machine virtuelle en cours d’exécution dans Azure, suivez les étapes décrites dans [cet article](../../windows/capture-image-resource.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > [Comment capturer une machine virtuelle Linux à utiliser comme modèle Resource Manager][capture-image-linux-step-2-create-vm-image]
 >
@@ -1123,13 +1123,13 @@ Dans l’idéal, la gestion de la structure d’une machine virtuelle et des dis
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Pour de nombreux clients, nous avons remarqué des configurations où les fichiers binaires SAP et SGBD n’étaient pas installés sur le lecteur c:\ où le système d’exploitation a été installé, par exemple. Plusieurs facteurs pouvaient expliquer cela, mais lorsque nous avons examiné la cause racine, il s’est avéré que les lecteurs étaient petits et les mises à niveau du système d’exploitation nécessitaient un espace supplémentaire il y a de cela 10 à 15 ans. Ces deux conditions s’appliquent bien moins souvent de nos jours. Aujourd’hui, le lecteur c:\ peut être mappé sur des machines virtuelles ou des disques de volume important. Afin de conserver une structure simple des déploiements, il est recommandé de suivre le modèle de déploiement suivant pour les systèmes SAP NetWeaver dans Azure
 >
 > Le fichier d’échange du système d’exploitation Windows doit se trouver sur le lecteur D: (disque non persistant)
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Placez le fichier d’échange Linux dans /mnt/mnt/resource sous Linux, comme décrit dans [cet article][virtual-machines-linux-agent-user-guide]. Le fichier d’échange peut être configuré dans le fichier de configuration de l’agent Linux /etc/waagent.conf. Ajoutez ou modifiez les paramètres suivants :
 >
@@ -1156,11 +1156,11 @@ Les leçons que nous avons tirées de l’expérience des déploiements SAP au c
 * Le trafic d’E/S par seconde vers différents fichiers de données n’est pas toujours le même dans la mesure où les systèmes clients existants peuvent contenir des fichiers de données représentant leur(s) base(s) de données SAP de taille différente. Ainsi, l’utilisation d’une configuration RAID s’est avérée plus efficace que plusieurs disques pour placer des fichiers de données LUN issus de ceux-ci. Dans certaines situations, surtout en ce qui concerne le stockage Azure Standard, la fréquence d’E/S par seconde atteignait le quota d’un seul disque par rapport au journal des transactions SGBD. Dans ce type de scénario, nous vous recommandons d’utiliser le stockage Premium ou d’agréger plusieurs disques de stockage Standard à l’aide d’une frange logicielle.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > * [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure][virtual-machines-sql-server-performance-best-practices]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > * [Configuration d’un RAID logiciel sur Linux][virtual-machines-linux-configure-raid]
 > * [Configurer LVM sur une machine virtuelle Linux dans Azure][virtual-machines-linux-configure-lvm]
@@ -1189,13 +1189,13 @@ Ensuite, vous devez décider si vous souhaitez créer un disque vide ou si vous 
 **IMPORTANT** : Vous **NE DEVEZ PAS** utiliser la mise en cache de l’hôte avec un stockage Standard Azure. Vous devez conserver les préférences de Cache hôte sur Aucun par défaut. Avec le stockage Azure Premium, vous devez activer la Mise en cache en lecture si les caractéristiques d’E/S se lisent principalement comme du trafic d’E/S standard sur des fichiers de données de base de données. En cas de fichier journal des transactions de base de données, la mise en cache n’est pas recommandée.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > [Attachement d’un disque de données dans le portail Azure][virtual-machines-linux-attach-disk-portal]
 >
 > Si les disques sont attachés, vous devez vous connecter à la machine virtuelle pour ouvrir le Gestionnaire de disque Windows. Si le montage automatique n’est pas activé comme le recommande le chapitre [Paramétrage du montage automatique pour les disques attachés][planning-guide-5.5.3], le volume nouvellement attaché doit être mis en ligne et initialisé.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Si les disques sont attachés, vous devez vous connecter à la machine virtuelle et initialiser les disques, comme décrit dans [cet article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
 >
@@ -1212,7 +1212,7 @@ La géo-réplication Azure fonctionne localement sur chaque disque dur virtuel d
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Paramétrage du montage automatique pour les disques attachés
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Pour les machines virtuelles créées à partir de vos propres images ou disques, vous devez vérifier et éventuellement définir le paramètre de montage automatique. Ce paramètre permet à la machine virtuelle de monter les lecteurs attachés/montés de nouveau de manière automatique suite à un redémarrage ou un redéploiement dans Azure .
 > Le paramètre est défini pour les images fournies par Microsoft dans la Place de marché Azure.
@@ -1226,7 +1226,7 @@ La géo-réplication Azure fonctionne localement sur chaque disque dur virtuel d
 >
 > Si les disques sont attachés, vous devez vous connecter à la machine virtuelle pour ouvrir le Gestionnaire de disque Windows. Si le montage automatique n’est pas activé comme le recommande le chapitre [Paramétrage du montage automatique pour les disques attachés][planning-guide-5.5.3], le volume nouvellement attaché doit être mis en ligne et initialisé.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Vous devez initialiser un disque vide nouvellement attaché comme décrit dans [cet article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
 > Vous devez également ajouter de nouveaux disques au /etc/fstab.
@@ -1264,7 +1264,7 @@ Consultez cet article qui décrit en détail ce sujet : .
 Il peut être nécessaire de configurer le pare-feu sur vos machines virtuelles pour autoriser le trafic entrant vers le système SAP.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Par défaut, le Pare-feu Windows au sein d’une machine virtuelle Azure déployée est activé. Vous devez à présent autoriser l’ouverture du port SAP, sinon l’interface utilisateur graphique du SAP ne pourra pas se connecter.
 > Pour ce faire :
@@ -1281,7 +1281,7 @@ Il peut être nécessaire de configurer le pare-feu sur vos machines virtuelles 
 >
 > ![Définition des règles de port][planning-guide-figure-1600]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Les images Linux dans la Place de marché Azure n’activent pas le pare-feu iptables par défaut et la connexion à votre système SAP devrait fonctionner. Si vous avez activé iptables ou un autre pare-feu, consultez la documentation correspondante pour autoriser le trafic TCP entrant sur le port 32xx (où xx est le numéro de votre système SAP).
 >
@@ -1588,7 +1588,7 @@ Lors du déploiement de machines virtuelles dans un tel scénario, les autres me
 La configuration de vos imprimantes réseau locales TCP/IP sur une machine virtuelle Azure est globalement identique à une configuration de même type dans votre réseau d’entreprise, en supposant qu’une connexion ExpressRoute ou « Tunnel » de site à site soit établie.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Pour ce faire :
 >
@@ -1599,7 +1599,7 @@ La configuration de vos imprimantes réseau locales TCP/IP sur une machine virtu
 > * Le port standard de l’imprimante est 9100
 > * Si besoin, installez manuellement le pilote d’imprimante qui convient.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > * Comme pour Windows, il suffit de suivre la procédure standard d’installation d’une imprimante réseau.
 > * Suivez simplement les guides Linux publics pour [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) ou [Red Hat et Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) sur l’ajout d’une imprimante.
@@ -1623,13 +1623,13 @@ Le partage d’imprimante est identifié par le biais d’un nom unique dans le 
 Procédure :
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Partagez votre imprimante locale.
 > Dans la machine virtuelle Azure, ouvrez l’Explorateur Windows et tapez le nom du partage d’imprimante.
 > Un assistant installation d’imprimante vous guidera tout au long du processus d’installation.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Voici quelques exemples de documents relatifs à la configuration des imprimantes réseau sous Linux ou comprenant un chapitre concernant l’impression sous Linux. Le fonctionnement dans une machine virtuelle Azure Linux est identique tant que la machine virtuelle fait partie d’un réseau VPN :
 >
@@ -1644,7 +1644,7 @@ Procédure :
 La capacité des Services Bureau à distance à fournir aux utilisateurs l’accès à leurs périphériques d’imprimante locale dans une session distante n’est pas disponible dans Azure.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Pour plus d’informations sur l’impression avec Windows, consultez : <https://technet.microsoft.com/library/jj590748.aspx>.
 >
@@ -1890,7 +1890,7 @@ Voici deux exemples d’architecture de haute disponibilité SAP NetWeaver compl
 Disques non managés uniquement : De plus, le nombre de machines virtuelles déployées dépasse la limite maximale de comptes de stockage par abonnement. Dans ces cas, les disques durs virtuels doivent être combinés au sein d’un compte de stockage. En général, vous pourriez procéder ainsi en combinant les disques virtuels des machines virtuelles de la couche d’application SAP de différents systèmes SAP.  Nous avons également associé différents disques durs virtuels de plusieurs machines virtuelles de SGBD (système de gestion de base de données) de différents systèmes SAP dans un compte Azure Storage. Tout en gardant à l’esprit les limites d’IOPS des comptes de stockage Azure (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] Haute disponibilité sous Windows
+##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logo Windows.][Logo_Windows] Haute disponibilité sous Windows
 
 ![Architecture de haute disponibilité de l’application SAP NetWeaver avec SQL Server dans Azure IaaS][planning-guide-figure-3200]
 
@@ -1912,7 +1912,7 @@ La figure suivante illustre le même paysage à l’aide de la fonctionnalité D
 
 ![Architecture de haute disponibilité de l’application SAP NetWeaver avec SQL Server dans Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] Haute disponibilité sous Linux
+##### <a name="linux-logologo_linux-ha-on-linux"></a>![Logo Linux.][Logo_Linux] Haute disponibilité sous Linux
 
 L’architecture de haute disponibilité SAP sous Linux sur Azure est principalement la même que pour Windows comme décrit ci-dessus. Consultez la note SAP [1928533] pour obtenir la liste des solutions de haute disponibilité prises en charge.
 
@@ -1963,7 +1963,7 @@ Il est possible de sauvegarder d’autres machines virtuelles dans le système S
 > [!NOTE]
 > Depuis décembre 2015, l’utilisation de la sauvegarde de machine virtuelle NE permet pas de conserver l’ID de machine virtuelle unique utilisé pour la gestion des licences SAP. Cela signifie qu’une restauration à partir d’une sauvegarde de machine virtuelle nécessite l’installation d’une nouvelle clé de licence SAP, dans la mesure où la machine virtuelle restaurée est considérée comme une nouvelle machine virtuelle et non un remplacement de l’ancienne machine sauvegardée.
 >
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > En théorie, les machines virtuelles qui exécutent des bases de données peuvent également être sauvegardées de manière cohérente si les systèmes SGBD prennent en charge Windows VSS (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) comme le fait SQL Server, par exemple.
 > Toutefois, n’oubliez pas qu’une restauration dans le temps des bases de données peut ne pas être possible, selon les sauvegardes de machine virtuelle Azure. Ainsi, il est recommandé d’effectuer des sauvegardes de bases de données avec des systèmes SGBD plutôt que de compter sur la sauvegarde de machines virtuelles Azure.
@@ -1972,7 +1972,7 @@ Il est possible de sauvegarder d’autres machines virtuelles dans le système S
 >
 > Il est également possible de combiner Microsoft Data Protection Manager installé sur une machine virtuelle Azure et la sauvegarde Azure pour sauvegarder/restaurer des bases de données. Des informations supplémentaires sont disponibles ici : <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Il n’existe pas d’équivalent de Windows VSS sous Linux. Par conséquent, seules les sauvegardes cohérentes au niveau des fichiers sont possibles. Les sauvegardes cohérentes au niveau de l’application ne sont pas prises en charge. La sauvegarde du SGBD (système de gestion de base de données) SAP doit être effectuée à l’aide de la fonctionnalité SGBD. Le système de fichiers, qui comprend les données SAP, peut être enregistré, par exemple, à l’aide de tar, comme indiqué ici : <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
@@ -1984,7 +1984,7 @@ Depuis le milieu de l’année 2014, des extensions de divers composants relatif
 
 Un billet de blog détaillant comment déployer cette solution est documenté ici : <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
-## <a name="summary"></a>Résumé
+## <a name="summary-for-high-availability-for-sap-systems"></a>Résumé de la haute disponibilité pour les systèmes SAP
 
 Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299746"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
 
@@ -32,7 +32,7 @@ Vous pouvez activer l’authentification unique pour vos applications avec l’a
 ## <a name="how-single-sign-on-with-kcd-works"></a>Fonctionnement de l’authentification unique avec KCD
 Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise I’authentification Windows intégrée.
 
-![Diagramme de flux de l’authentification Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagramme de flux de l’authentification Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
 2. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
@@ -62,7 +62,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 5. Sélectionnez **Utiliser tout protocole d’authentification**.
 6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
-   ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Le connecteur et le serveur d’application sont dans des domaines différents
 1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.microsoft.com/library/hh831477.aspx).
@@ -97,7 +97,6 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 
    ![Configuration avancée des applications](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>Authentification unique pour les applications non Windows
 
 Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec le répertoire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). 
@@ -106,7 +105,7 @@ Au cours de la phase suivante, une demande est envoyée à l’application princ
 
 Il existe plusieurs mécanismes qui définissent la manière d’envoyer le ticket Kerberos dans de telles demandes. La plupart des serveurs non-Windows s’attendent à le recevoir sous forme de jeton SPNEGO. Ce mécanisme est pris en charge sur le Proxy d’application Azure Active Directory, mais il est désactivé par défaut. Un connecteur peut être configuré pour le jeton SPNEGO ou le jeton Kerberos standard, mais pas pour les deux.
 
-Si vous configurez un ordinateur connecteur pour SPNEGO, assurez-vous que tous les autres connecteurs de ce groupe Connecteur sont également configurés avec SPNEGO. Les applications qui attendent un jeton Kerberos standard doivent être acheminées via des connecteurs autres que ceux configurés pour SPNEGO.
+Si vous configurez un ordinateur connecteur pour SPNEGO, assurez-vous que tous les autres connecteurs de ce groupe Connecteur sont également configurés avec SPNEGO. Les applications qui attendent un jeton Kerberos standard doivent être acheminées via des connecteurs autres que ceux configurés pour SPNEGO. Certaines applications web acceptent les deux formats sans nécessiter de changement de configuration. 
  
 
 Pour activer SPNEGO :
@@ -136,6 +135,8 @@ Avec le proxy d’application, vous pouvez sélectionner l’identité à utilis
 ![Capture d’écran du paramètre Identité de connexion déléguée](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 Si l’identité de connexion déléguée est utilisée, il se peut que la valeur ne soit pas la même pour l’ensemble des domaines ou forêts de votre organisation. Vous pouvez éviter ce problème en publiant ces applications deux fois à l’aide de deux groupes de connecteurs différents. Dans la mesure où chaque application possède sa propre audience utilisateur, vous pouvez joindre ses connecteurs à un autre domaine.
+
+Si **Nom de compte SAM local** est utilisé pour l’identité d’ouverture de session, l’ordinateur qui héberge le connecteur doit être ajouté au domaine dans lequel se trouve le compte d’utilisateur.
 
 ### <a name="configure-sso-for-different-identities"></a>Configuration de l’authentification unique pour différentes identités
 1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ **Nom d’utilisateur principal** dans les paramètres de synchronisation. Ces paramètres déterminent également comment les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités.  

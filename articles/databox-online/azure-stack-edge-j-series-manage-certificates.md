@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890745"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767366"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Utiliser des certificats avec des appareils Azure Stack Edge Pro avec GPU
 
@@ -61,7 +61,7 @@ Ces certificats peuvent être des certificats racines ou des certificats interm�
 - Les certificats racines doivent être des certificats de chaîne de signature.
 - Les certificats racines peuvent être téléchargés sur votre appareil au format suivant : 
     - **DER** : disponibles sous la forme d’une extension de fichier `.cer`.
-    - **Encodé en Base64 ou PEM** : également disponibles en tant qu’extension `.cer`.
+    - **Encodé en Base64** : également disponibles en tant qu’extension de fichier `.cer`.
     - **P7B** : ce format est utilisé uniquement pour les certificats de chaîne de signature qui incluent les certificats racines et intermédiaires.
 - Les certificats de chaîne de signature sont toujours téléchargés avant que vous téléchargiez d’autres certificats.
 
@@ -275,11 +275,11 @@ Les certificats que vous avez créés pour votre appareil résident par défaut 
 
     1. Téléchargez d’abord le certificat racine. Dans l’interface utilisateur web locale, accédez à **Certificats > + Ajouter un certificat**.
 
-        ![Ajouter un certificat de chaîne de signature](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![Ajouter un certificat de chaîne de signature 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. Ensuite, téléchargez les certificats de point de terminaison. 
 
-        ![Ajouter un certificat de chaîne de signature](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![Ajouter un certificat de chaîne de signature 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         Choisissez les fichiers de certificat au format *.pfx* et entrez le mot de passe que vous avez fourni lors de l’exportation du certificat. L’application du certificat Azure Resource Manager peut prendre quelques minutes.
 
@@ -383,20 +383,19 @@ La sauvegarde du fichier .pfx est maintenant enregistrée à l’emplacement que
 
 1. Dans le magasin de certificats personnel, sélectionnez le certificat racine. Cliquez avec le bouton droit, puis sélectionnez **All Tasks (Toutes les tâches) -> Exporter...** .
 
-    ![Exporter le certificat 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Exporter le certificat DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. L’assistant de certificat s’ouvre. Sélectionnez le format **X.509 binaire encodé DER (.cer)** . Sélectionnez **Suivant**.
 
-    ![Exporter le certificat 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Exporter le certificat DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Recherchez et sélectionnez l’emplacement où vous souhaitez exporter le fichier au format .cer.
 
-    ![Exporter le certificat 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
+    ![Exporter le certificat DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 4. Sélectionnez **Terminer**.
 
-    ![Exporter le certificat 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Exporter le certificat DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="supported-certificate-algorithms"></a>Algorithmes de certificat pris en charge
@@ -410,11 +409,11 @@ La sauvegarde du fichier .pfx est maintenant enregistrée à l’emplacement que
 
 Si vous apportez vos propres certificats, les certificats expirent généralement après 1 an ou 6 mois. Pour afficher la date d’expiration de votre certificat, accédez à la page **Certificats** dans l’interface utilisateur web locale de votre appareil. Si vous sélectionnez un certificat spécifique, vous pouvez afficher la date d’expiration de votre certificat.
 
-## <a name="rotate-certificates"></a>Effectuer une rotation des certificats
+<!--## Rotate certificates
 
-La rotation des certificats n’est pas implémentée dans cette version. Vous n’êtes pas non plus informé de la date d’expiration sur votre certificat. 
+Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-Affichez la date d’expiration du certificat sur la page **Certificats** de l’interface utilisateur web locale de votre appareil. Une fois que l’expiration du certificat approche, créez et téléchargez de nouveaux certificats en suivant les instructions détaillées de [Créer et charger des certificats](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

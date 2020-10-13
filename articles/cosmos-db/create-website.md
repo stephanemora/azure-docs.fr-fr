@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362008"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service avec une application web à partir de GitHub à l’aide d’un modèle Azure Resource Manager
 
@@ -40,7 +40,7 @@ Tout d’abord, sélectionnez le bouton **Déployer sur Azure** ci-dessous pour 
 
 Une fois dans le Portail Azure, sélectionnez l’abonnement dans lequel effectuer le déploiement, puis sélectionnez ou créez un nouveau groupe de ressources. Renseignez ensuite les valeurs suivantes.
 
-:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Capture d’écran de l’interface utilisateur du déploiement de modèle":::
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Déployer sur Azure":::
 
 * **Région** : cela est requis par le Resource Manager. Entrez la même région que celle utilisée par le paramètre d’emplacement où se trouvent vos ressources.
 * **Nom de l’application** : ce nom est utilisé par toutes les ressources pour ce déploiement. Veillez à choisir un nom unique pour éviter les conflits avec les comptes Azure Cosmos DB et App Service existants.
@@ -64,31 +64,31 @@ Après avoir renseigné les valeurs, sélectionnez le bouton **Créer** pour dé
 
 Une fois que le modèle a déployé les ressources, vous pouvez voir chacune d’elles dans votre groupe de ressources.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Groupe de ressources":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Déployer sur Azure":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Afficher le point de terminaison et les clés Cosmos DB
 
 Ensuite, ouvrez le compte Azure Cosmos DB dans le portail. La capture d’écran suivante montre le point de terminaison et les clés d’un compte Azure Cosmos.
 
-:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Clés Cosmos":::
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Déployer sur Azure":::
 
 ### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Afficher les clés Azure Cosmos DB dans les paramètres de l’application
 
 Ensuite, naviguez dans Azure App Service, dans le groupe de ressources. Cliquez sur l’onglet Configuration pour afficher les paramètres de configuration de l’App Service. Les paramètres d’application contiennent le compte Cosmos DB et les valeurs de clé primaire nécessaires pour se connecter à Cosmos DB, ainsi que les noms de la base de données et du conteneur qui ont été transmis à partir du déploiement du modèle.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Paramètres de l’application":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Déployer sur Azure":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Afficher l’application web dans le Centre de déploiement
 
 Ensuite, accédez au Centre de déploiement pour l’App Service. Vous verrez ici des points de référentiel vers le référentiel GitHub passés au modèle. En outre, l’état ci-dessous indique Réussi (active), ce qui signifie que l’application a été déployée et démarrée.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centre de déploiement":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Déployer sur Azure":::
 
 ### <a name="run-the-web-application"></a>Exécuter l’application web
 
 Cliquez sur **parcourir** en haut du Centre de déploiement pour ouvrir l’application web. L’application web s’ouvre sur l’écran d’accueil. Cliquez sur **Créer une nouvelle** et entrez des données dans les champs, puis cliquez sur Enregistrer. L’écran qui s’affiche montre les données enregistrées dans Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Écran d'accueil":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Déployer sur Azure":::
 
 ## <a name="step-3-how-does-it-work"></a>Étape 3 : Comment cela fonctionne-t-il
 
@@ -98,19 +98,19 @@ Trois éléments sont nécessaires pour que cela fonctionne.
 
 Tout d’abord, l’application doit demander le point de terminaison et la clé Cosmos DB dans la classe `Startup` de l’application web ASP.NET MVC. L’[échantillon To Do Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) peut s’exécuter localement, où vous pouvez entrer les informations de connexion dans appsettings.json. Toutefois, lors du déploiement, ce fichier est déployé avec l’application. Si ces lignes en rouge ne peuvent pas accéder aux paramètres depuis appsettings.json, elles essaieront à partir des paramètres d’application dans Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Startup":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Déployer sur Azure":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Utilisation de fonctions spéciales Azure Resource Management
 
 Pour que ces valeurs soient disponibles pour l’application lors de son déploiement, le modèle Azure Resource Manager peut demander ces valeurs à partir du compte Cosmos DB à l’aide de fonctions spéciales Azure Resource Management, y compris la [référence](../azure-resource-manager/templates/template-functions-resource.md#reference) et les [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) qui récupèrent les valeurs du compte Cosmos DB et les insèrent dans les valeurs des paramètres de l’application avec des noms de clé qui correspondent à ce qui est utilisé dans l’application ci-dessus dans un format '{section:key}'. Par exemple : `CosmosDb:Account`.
 
-:::image type="content" source="./media/create-website/template-keys.png" alt-text="Clés de modèle":::
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Déployer sur Azure":::
 
 ### <a name="deploying-web-apps-from-github"></a>Déploiement d’applications web à partir de GitHub
 
 Enfin, nous devons déployer l’application web à partir de GitHub dans l’App Service. Cette opération est effectuée avec la JSON ci-dessous. Les deux éléments à prendre en considération sont le type et le nom de cette ressource. Les valeurs de propriété `"type": "sourcecontrols"` et `"name": "web"` sont codées en dur et ne doivent pas être modifiées.
 
-:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Déployer à partir de GitHub":::
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Déployer sur Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

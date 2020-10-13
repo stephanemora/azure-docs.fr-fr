@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362127"
 ---
 # <a name="replication-to-azure-sql-database"></a>Réplication sur Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 ## <a name="replication-architecture"></a>Architecture de réplication  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Diagramme illustrant l’architecture de réplication avec Azure SQL Database, qui contient plusieurs clusters d’abonnés dans différentes régions, et des machines virtuelles Azure locales, qui contiennent un serveur de publication, un exécutable Logread et des exécutables de serveurs de distribution qui se connectent à des clusters distants](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scénarios  
 

@@ -5,16 +5,15 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: b9f406035d32a9af9ba2f5b085bcaca1b51e9d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929851"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567481"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Arrêter/Démarrer un serveur flexible Azure Database pour MySQL (préversion)
-
 
 > [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
@@ -32,6 +31,12 @@ Pour utiliser ce guide pratique, il vous faut :
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à arrêter.
 
 2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Arrêter** dans la barre d’outils.
+    
+    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Arrêtez le serveur flexible."::: 
+
+3.  Cliquez sur **Oui** pour confirmer l’arrêt de votre serveur.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Arrêtez le serveur flexible."::: 
 
 > [!NOTE]
 > Une fois que le serveur est arrêté, les autres opérations de gestion ne sont pas disponibles pour le serveur flexible.
@@ -40,7 +45,9 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à démarrer.
 
-2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Arrêter** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Démarrer** dans la barre d’outils.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Arrêtez le serveur flexible.":::  
 
 > [!NOTE]
 > Une fois que le serveur a démarré, toutes les opérations de gestion sont disponibles pour le serveur flexible.
