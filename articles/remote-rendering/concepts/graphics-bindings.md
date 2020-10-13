@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561871"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802291"
 ---
 # <a name="graphics-binding"></a>Liaison graphique
 
@@ -120,7 +120,10 @@ Où le `ptr` ci-dessus doit être un pointeur vers un objet `ABI::Windows::Perce
 
 #### <a name="render-remote-image"></a>Afficher l’image distante
 
-Au début de chaque image, l’image distante doit être affichée dans la mémoire tampon d’arrière-plan. Pour ce faire, appelez `BlitRemoteFrame`, qui remplit à la fois les informations de couleur et de profondeur dans la cible de rendu actuellement liée. Par conséquent, il est important de le faire après avoir lié la mémoire tampon d’arrière-plan en tant que cible de rendu.
+Au début de chaque image, l’image distante doit être affichée dans la mémoire tampon d’arrière-plan. Pour ce faire, appelez `BlitRemoteFrame`, qui remplit à la fois les informations de couleur et de profondeur des yeux dans la cible de rendu actuellement liée. Par conséquent, il est important de le faire après avoir lié la mémoire tampon d’arrière-plan complète en tant que cible de rendu.
+
+> [!WARNING]
+> Après que l’image distante a été intégrée dans la mémoire tampon d’entrée, le contenu local doit être rendu à l’aide d’une technique de rendu stéréo simple passe, par exemple à l’aide de **SV_RenderTargetArrayIndex**. L’utilisation d’autres techniques de rendu stéréo, telles que le rendu de chaque œil dans une passe distincte, doit être évitée car elle peut entraîner une dégradation importante des performances ou des artefacts graphiques.
 
 ```cs
 AzureSession currentSession = ...;

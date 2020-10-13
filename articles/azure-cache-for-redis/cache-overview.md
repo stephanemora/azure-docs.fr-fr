@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009594"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631375"
 ---
 # <a name="azure-cache-for-redis"></a>Cache Azure pour Redis
 Azure Cache pour Redis fournit un magasin de données en mémoire basé sur le logiciel open source [Redis](https://redis.io/). Redis améliore les performances et l’extensibilité d’une application qui utilise abondamment les magasins de données principaux. Il peut traiter des volumes conséquents de demandes d’applications en conservant les données fréquemment utilisées dans la mémoire du serveur, qui peut être écrite et lue rapidement. Redis constitue une solution de stockage de données à faible latence et à haut débit critique pour les applications modernes.
@@ -31,19 +31,27 @@ Azure Cache pour Redis améliore les performances des applications grâce à la 
 | Mise en file d’attente des travaux et des messages | Les applications ajoutent fréquemment des tâches à une file d’attente quand l’exécution des opérations associées à la requête prend un certain temps. Les opérations dont l’exécution est plus longue sont mises en file d’attente pour être traitées en séquence, souvent par un autre serveur.  Cette méthode est appelée « mise en file d’attente des tâches ». Azure Cache pour Redis fournit une file d’attente distribuée pour activer ce modèle dans votre application.|
 | Transactions distribuées | Les applications nécessitent parfois une série de commandes sur un magasin de données back-end pour s’exécuter comme opération atomique unique. Toutes les commandes doivent réussir, ou elles devront toutes être restaurées à leur état initial. Azure Cache pour Redis prend en charge l’exécution d’un lot de commandes comme [transaction](https://redis.io/topics/transactions) unique. |
 
+## <a name="redis-versions"></a>Versions Redis
+
+Azure Cache pour Redis prend en charge Redis version 4.x et, en tant que préversion, 6.0. Nous avons décidé d’ignorer Redis 5.0 pour vous apporter la version la plus récente. Avant, Azure Cache pour Redis ne gérait qu’une seule version de Redis. Maintenant, il fournit une mise à niveau de version majeure plus récente et au moins une version stable plus ancienne. Vous pouvez [choisir la version](cache-how-to-version.md) qui convient le mieux à votre application.
+
+> [!NOTE]
+> Redis 6.0 est disponible en préversion : [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 ## <a name="service-tiers"></a>Niveaux de service
 Les niveaux suivants sont proposés pour le cache Azure pour Redis :
 
 | Niveau | Description |
 |---|---|
-De base | Cache incluant un seul nœud. Ce niveau prend en charge plusieurs tailles de mémoire (250 Mo-53 Go). Il est idéal pour les charges de travail de développement/test et non critiques. Aucun contrat de niveau de service (SLA) ne couvre le niveau De base. |
+| De base | Cache incluant un seul nœud. Ce niveau prend en charge plusieurs tailles de mémoire (250 Mo-53 Go). Il est idéal pour les charges de travail de développement/test et non critiques. Aucun contrat de niveau de service (SLA) ne couvre le niveau De base. |
 | Standard | Cache répliqué dans une configuration primaire ou un réplica à deux nœuds, managé par Azure et assorti d’un [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) garantissant une haute disponibilité. |
 | Premium | Le niveau Premium est le niveau adapté aux entreprises. Les caches de niveau Premium prennent en charge un plus grand nombre de fonctionnalités et assurent un débit plus élevé avec une latence plus faible. Les caches du niveau Premium sont déployés sur du matériel plus puissant offrant de meilleures performances par rapport au niveau De base ou Standard. Par conséquent, le débit d’un cache de même taille est plus élevé avec le niveau Premium qu’avec le niveau Standard. |
 
 ### <a name="feature-comparison"></a>Comparaison des fonctionnalités
 La page [Tarifs d’Azure Cache pour Redis](https://azure.microsoft.com/pricing/details/cache/) fournit une comparaison détaillée des différents niveaux. Le tableau suivant décrit quelques-unes des fonctionnalités prises en charge par niveau :
 
-| Description de la fonctionnalité | Premium | Standard | De base |
+| Description de la fonctionnalité | Premium | standard | De base |
 | ------------------- | :-----: | :------: | :---: |
 | [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistance des données Redis](cache-how-to-premium-persistence.md) |✔|-|-|

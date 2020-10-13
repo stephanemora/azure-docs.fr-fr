@@ -3,12 +3,12 @@ title: Files d’attente et rubriques Service Bus en tant que gestionnaires d’
 description: Décrit comment vous pouvez utiliser des files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440794"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629503"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus des files d’attente et des rubriques comme gestionnaires d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements et **Azure Service Bus** est l’un d’eux. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Propriétés du message
-Si vous utilisez **une rubrique ou une file d’attente Service Bus** en tant que gestionnaire d’événements pour des événements d’Event Grid, définissez les en-têtes de message suivants : 
+Si vous utilisez **une rubrique ou une file d’attente Service Bus** en tant que gestionnaire d’événements pour des événements d’Event Grid, voici les propriétés que vous recevez dans les en-têtes des messages : 
 
 | Nom de la propriété | Description |
 | ------------- | ----------- | 

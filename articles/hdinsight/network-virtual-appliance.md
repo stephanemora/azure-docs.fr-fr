@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650863"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630931"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurer une appliance virtuelle réseau dans Azure HDInsight
 
@@ -23,7 +23,7 @@ Le pare-feu Azure est automatiquement configuré pour autoriser le trafic dans l
 
 * Les services pouvant prendre en charge les points de terminaison de service peuvent être configurés avec des points de terminaison de service, ce qui entraîne le contournement du NVA, généralement pour des considérations relatives aux coûts ou aux performances.
 * Les dépendances d’adresses IP sont destinées au trafic non HTTP/S (à la fois le trafic TCP et UDP).
-* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être mis sur liste verte dans votre dispositif NVA.
+* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être approuvés dans votre dispositif NVA.
 * Affectez la table de routage créée à votre sous-réseau HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dépendances compatibles avec les points de terminaison de service

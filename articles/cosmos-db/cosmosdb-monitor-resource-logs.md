@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549977"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801416"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Surveillez les données Azure Cosmos DB à l’aide des paramètres de diagnostic dans Azure
 
@@ -99,12 +99,12 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
    | render timechart
    ```
     
-1. Comment obtenir des statistiques de clé de partition afin d’évaluer le décalage entre les 3 premières partitions pour le compte de base de données :
+1. Comment obtenir des statistiques de clé de partition afin d’évaluer le décalage entre les 3 premières partitions pour un compte de base de données :
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Comment obtenir les frais de requête pour les requêtes coûteuses ?
@@ -214,14 +214,6 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Comment obtenir des statistiques de clé de partition pour évaluer le décalage entre les trois partitions principales pour le compte de base de données ?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Comment obtenir des latences de réplication P99 ou P50 pour les opérations, la charge de requête ou la durée de la réponse ?
 
    ```Kusto
@@ -238,7 +230,7 @@ Pour plus d’informations sur la création d’un paramètre de diagnostic à l
  
 1. Comment se procurer les journaux Controlplane ?
  
-   N’oubliez pas d’activer l’indicateur comme décrit dans l’article [Désactiver l’accès en écriture aux métadonnées basé sur les clés](audit-control-plane-logs.md#disable-key-based-metadata-write-access) et exécutez les opérations via Azure PowerShell, l’interface CLI ou ARM.
+   N’oubliez pas d’activer l’indicateur comme décrit dans l’article [Désactiver l’accès en écriture aux métadonnées basé sur les clés](audit-control-plane-logs.md#disable-key-based-metadata-write-access) et exécutez les opérations en utilisant Azure PowerShell, l’interface CLI Azure ou Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

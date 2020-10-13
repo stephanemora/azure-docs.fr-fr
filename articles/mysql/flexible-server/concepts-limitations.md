@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930219"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650287"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitations dans Azure Database pour MySQL – Serveur flexible (préversion)
 
@@ -26,6 +26,8 @@ Cet article décrit les limitations existant dans le service Serveur flexible Az
 > Si vous recherchez des valeurs minimales/maximales pour des paramètres de serveur tels que `max_connections` et `innodb_buffer_pool_size`, ces informations ont été déplacées et se trouvent dans les concepts de paramètres de serveur <!-- **[server parameters](./concepts-server-parameters.md)** --> (article).
 
 Azure Database pour MySQL prend en charge le réglage des valeurs des paramètres de serveur. Les valeurs minimale et maximale de certains paramètres (par exemple, `max_connections`, `join_buffer_size`, `query_cache_size`) sont déterminées par le niveau de calcul et la taille de calcul du serveur. Consultez les concepts de paramètres de serveur <!-- [server parameters](./concepts-server-parameters.md)--> pour plus d’informations sur ces limites.
+
+Les plug-ins de mot de passe tels que « validate_password » et « caching_sha2_password » ne sont pas pris en charge par le service.
 
 ## <a name="storage-engines"></a>Moteurs de stockage
 

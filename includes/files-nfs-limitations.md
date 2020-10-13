@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705212"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91643406"
 ---
 En préversion, NFS présente les limitations suivantes :
 
@@ -22,7 +22,7 @@ En préversion, NFS présente les limitations suivantes :
 - Vous devez créer un nouveau compte de stockage pour pouvoir créer un partage NFS.
 - Seules les API REST du plan de gestion sont prises en charge. Les API REST du plan de données ne sont pas disponibles, ce qui signifie que des outils comme l’Explorateur de stockage ne fonctionneront pas avec les partages NFS. Vous ne pourrez pas non plus parcourir les données de partage NFS dans le Portail Azure.
 - Disponible uniquement pour le niveau Premium.
-- Actuellement disponible uniquement avec le stockage localement redondant.
+- Actuellement disponible uniquement avec le stockage localement redondant (LRS).
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Fonctionnalités de stockage Azure pas encore prises en charge
 

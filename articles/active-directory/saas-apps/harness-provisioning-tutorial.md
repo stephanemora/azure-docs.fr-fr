@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305629"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutoriel : Configurer Harness pour le provisionnement automatique d’utilisateurs
 
@@ -126,7 +126,7 @@ Pour configurer l’attribution automatique d’utilisateurs pour Harness dans A
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. Dans la zone **URL de locataire**, entrez **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. Dans la zone **URL de locataire**, entrez **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Vous pouvez obtenir votre ID de compte Harness à partir de l’URL dans votre navigateur lorsque vous êtes connecté à Harness.
    b. Dans la zone **Jeton secret**, entrez la valeur du jeton d’authentification SCIM que vous avez enregistré à l’étape 6 de la section « Configurer Harness pour le provisionnement ».  
    c. Sélectionnez **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Harness. Si la connexion échoue, vérifiez que votre compte Harness dispose d’autorisations d’*administrateur*, puis réessayez.
 

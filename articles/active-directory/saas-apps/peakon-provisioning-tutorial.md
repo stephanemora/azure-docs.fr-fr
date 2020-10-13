@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304661"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutoriel : Configurer Peakon pour le provisionnement automatique d’utilisateurs
 
@@ -56,11 +56,11 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 
 2.  Sélectionnez **Intégrations**.
     
-    ![Peakon-employee-provision](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![Capture d’écran des options de configuration avec l’option Intégrations en évidence.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.  Activez **Approvisionnement d’employés**.
 
-    ![Peakon-employee-provision](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![Capture d’écran de la section Provisionnement d’employés avec l’option Activer en évidence.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.  Copiez les valeurs pour **URL SCIM 2.0** et **Jeton du porteur OAuth**. Ces valeurs doivent être entrées dans les champs **URL de locataire** et **Jeton secret** dans l’onglet Approvisionnement de votre application Peakon dans le portail Azure.
 
@@ -105,11 +105,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs **d’URL SCIM 2.0** et de **Jeton du porteur OAuth** récupérées précédemment dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Peakon. Si la connexion échoue, vérifiez que votre compte Peakon dispose des autorisations d’administrateur et réessayez.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235721"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801798"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -169,22 +169,42 @@ Les performances varient selon que votre tâche d’approvisionnement exécute u
 Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Les journaux comprennent toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites lors de chaque opération. Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Déprovisionnement
+Le service d’approvisionnement Azure AD effectue la synchronisation des systèmes sources et cibles en déprovisionnant les comptes lorsque l’accès utilisateur est supprimé.
 
-Le service de provisionnement Azure AD effectue la synchronisation des systèmes sources et cibles en déprovisionnant les comptes lorsque les utilisateurs ne doivent plus y avoir accès. 
+Le service d’approvisionnement prend en charge la suppression et la désactivation (parfois appelées « suppressions réversibles ») des utilisateurs. La définition exacte de désactivation et de suppression varie en fonction de l’implémentation de l’application cible, mais en général, une désactivation indique que l’utilisateur ne peut pas se connecter. Une suppression indique que l’utilisateur a été entièrement supprimé de l’application. Pour les applications SCIM, une désactivation correspond une demande de définition de la propriété *active* sur false pour un utilisateur. 
 
-Le service de provisionnement Azure AD supprime de manière réversible un utilisateur d’une application lorsque celle-ci prend en charge la suppression réversible (demande de mise à jour avec active = false) et lorsque l’un des événements suivants se produit :
+**Configurer votre application pour désactiver un utilisateur**
 
-* Le compte d’utilisateur est supprimé d’Azure AD
-*   L’utilisateur est déprovisionné de l’application
-*   L’utilisateur ne répond plus à un filtre d’étendue et n’est plus inclus dans l’étendue
-    * Par défaut, le service de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Si vous souhaitez substituer ce comportement par défaut, vous pouvez définir un indicateur permettant d’[ignorer les suppressions non comprises dans l’étendue](../app-provisioning/skip-out-of-scope-deletions.md).
-*   La propriété AccountEnabled est définie sur false
+Vérifiez que vous avez activé la case à cocher des mises à jour.
 
-Si l’un des quatre événements ci-dessus se produit et si l’application cible ne prend pas en charge les suppressions réversibles, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. 
+Vérifiez que le mappage est *actif* pour votre application. Si vous utilisez une application à partir de la galerie d’applications, le mappage peut être légèrement différent. Veillez à utiliser le mappage par défaut/prêt à l’emploi pour les applications de la galerie.
 
-30 jours après sa suppression d’Azure AD, l’utilisateur est définitivement supprimé du locataire. À ce stade, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. Pendant cette période de 30 jours, vous pouvez à tout moment [supprimer manuellement un utilisateur](../fundamentals/active-directory-users-restore.md), ce qui a pour effet d’envoyer une demande de suppression à l’application.
 
-Si vous voyez un attribut IsSoftDeleted dans vos mappages d’attributs, sachez qu’il sera utilisé pour déterminer l’état de l’utilisateur et s’il faut envoyer une demande de mise à jour avec active = false pour supprimer l’utilisateur de manière réversible. 
+**Configurer votre application pour supprimer un utilisateur**
+
+Les scénarios suivants déclenchent une désactivation ou une suppression : 
+* Un utilisateur est supprimé de manière réversible dans Azure AD (envoyé à la corbeille/ propriété AccountEnabled définie sur false).
+    30 jours après sa suppression d’Azure AD, l’utilisateur est définitivement supprimé du locataire. À ce stade, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. Pendant cette période de 30 jours, vous pouvez à tout moment  [supprimer manuellement un utilisateur](../fundamentals/active-directory-users-restore.md), ce qui a pour effet d’envoyer une demande de suppression à l’application.
+* Un utilisateur est définitivement supprimé / supprimé de la corbeille dans Azure AD.
+* Un utilisateur n’est plus affecté à une application.
+* Un utilisateur dans l’étendue d’application sort de cette étendue (et ne transmet plus de filtre d’étendue).
+    
+Par défaut, le service de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Si vous souhaitez substituer ce comportement par défaut, vous pouvez définir un indicateur permettant d’ [ignorer les suppressions non comprises dans l’étendue.](skip-out-of-scope-deletions.md)
+
+Si l’un des quatre événements ci-dessus se produit et si l’application cible ne prend pas en charge les suppressions réversibles, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application.
+
+Si vous voyez un attribut IsSoftDeleted dans vos mappages d’attributs, sachez qu’il sera utilisé pour déterminer l’état de l’utilisateur et s’il faut envoyer une demande de mise à jour avec active = false pour supprimer l’utilisateur de manière réversible.
+
+**Limitations connues**
+
+* Si un utilisateur précédemment managé par le service d’approvisionnement n’est plus affecté à une application ou à un groupe affecté à une application, nous envoyons une requête de désactivation. À ce stade, l’utilisateur n’est pas managé par le service et nous n’envoyons aucune requête de suppression lorsqu’il est supprimé de l’annuaire.
+* L’approvisionnement d’un utilisateur qui est désactivé dans Azure AD n’est pas pris en charge. Pour pouvoir être approvisionné, l’utilisateur doit être dans Azure AD préalablement.
+* Quand un utilisateur supprimé de façon réversible devient actif, le service d’approvisionnement Azure AD l’active dans l’application cible, mais ne restaure pas automatiquement les appartenances aux groupes. L’application cible doit conserver les appartenances aux groupes de l’utilisateur dans un état inactif. Si l’application cible ne prend pas en charge ce comportement, vous pouvez redémarrer l’approvisionnement pour mettre à jour les appartenances aux groupes. 
+
+**Recommandation**
+
+Lors du développement d’une application, prenez toujours en charge les suppressions réversibles et les suppressions définitives. Cela permet aux clients de récupérer un client qui a été désactivé accidentellement.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
