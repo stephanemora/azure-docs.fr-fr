@@ -1,23 +1,25 @@
 ---
-title: Installer des conteneurs Speech - Service Speech
+title: Installer et exécuter des conteneurs Docker pour les API du service Speech
 titleSuffix: Azure Cognitive Services
-description: Installez et exécutez des conteneurs Speech. La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine.
+description: Utilisez les conteneurs Docker pour le service Speech pour effectuer localement la reconnaissance vocale, la transcription, la génération, etc.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: local, Docker, conteneur
+ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900479"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813268"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
 Les conteneurs vous permettent d’exécuter certaines des API du service Speech dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Speech.
 
@@ -37,14 +39,14 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 >
 > Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous.
 
-| Fonction | Fonctionnalités | Latest |
+| Conteneur | Fonctionnalités | Latest |
 |--|--|--|
-| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.3.1 |
-| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.3.1 |
-| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.5.0 |
-| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.5.0 |
+| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.5.0 |
+| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.5.0 |
+| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.7.0 |
+| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.7.0 |
 | Détection de langue vocale | Permet de détecter la langue parlée en fichiers audio. | 1.0 |
-| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.1.0 |
+| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.2.0 |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
@@ -96,7 +98,7 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 ## <a name="request-approval-to-the-run-the-container"></a>Demande d’approbation pour l’exécution du conteneur
 
-Complétez et envoyez le [formulaire de demande](https://aka.ms/cognitivegate) pour demander l’accès au conteneur. 
+Complétez et envoyez le [formulaire de demande](https://aka.ms/csgate) pour demander l’accès au conteneur. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -136,6 +138,9 @@ Les images conteneur pour Speech sont disponibles dans le service Container Regi
 | Synthèse vocale personnalisée | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
+
+> [!TIP]
+> Pour obtenir les résultats les plus utiles, nous vous recommandons d’utiliser le conteneur de détection de langue vocale avec les conteneurs de reconnaissance vocale ou de reconnaissance vocale personnalisée. 
 
 | Conteneur | Référentiel |
 |-----------|------------|
@@ -245,7 +250,7 @@ Toutes les balises, à l’exception de `latest`, respectent le format suivant e
 La balise suivante illustre le format :
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 Pour tous les paramètres régionaux et les voix correspondantes pris en charge du conteneur de **synthèse vocale neuronale**, consultez les [étiquettes d’images de synthèse vocale neuronale](../containers/container-image-tags.md#neural-text-to-speech).
@@ -468,7 +473,7 @@ Cette commande :
 * Si le modèle personnalisé a été téléchargé auparavant, `ModelId` est ignoré.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="language-detection"></a>[Détection de la langue](#tab/lid)
+# <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
 
 Pour exécuter le conteneur*Détection de langue vocale*, exécutez la commande `docker run` suivante.
 
@@ -482,7 +487,7 @@ ApiKey={API_KEY}
 
 Cette commande : 
 
-* Exécute un conteneur de détection de langue vocale à partir de l’image conteneur.
+* Exécute un conteneur de détection de langue vocale à partir de l’image conteneur. Actuellement, vous n’êtes pas facturé pour l’exécution de cette image.
 * Alloue 1 cœur de processeur et 1 gigaoctet (Go) de mémoire.
 * Expose le port TCP 5003 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
@@ -509,7 +514,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | URL de l’hôte du SDK | Protocol |
 |--|--|--|
 | Reconnaissance vocale standard et reconnaissance vocale personnalisée | `ws://localhost:5000` | WS |
-| Synthèse vocale (standard, personnalisée et neuronale), détection de langue | `http://localhost:5000` | HTTP |
+| Synthèse vocale (standard, personnalisée et neuronale), détection de langue vocale | `http://localhost:5000` | HTTP |
 
 Pour plus d’informations sur l’utilisation des protocoles WSS et HTTPS, consultez [Sécurité des conteneurs](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

@@ -1,5 +1,5 @@
 ---
-title: Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)
+title: Transférer un abonnement Azure vers une autre instance Azure AD Directory
 description: Découvrez comment transférer un abonnement Azure et les ressources associées connues vers un autre annuaire Azure Active Directory (Azure AD).
 services: active-directory
 author: rolyon
@@ -8,28 +8,23 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400542"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819715"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)
-
-> [!IMPORTANT]
-> La procédure à suivre pour transférer un abonnement vers un autre annuaire Azure AD est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
 Les organisations peuvent avoir plusieurs abonnements Azure. Chaque abonnement est associé à un annuaire Azure Active Directory (Azure AD) spécifique. Pour faciliter la gestion, vous souhaiterez peut-être transférer un abonnement vers un autre annuaire Azure AD. Lorsque vous transférez un abonnement à un autre annuaire Azure AD, certaines ressources ne sont pas transférées vers l’annuaire cible. Par exemple, toutes les attributions de rôles et tous les rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure sont **définitivement** supprimés de l’annuaire source et ne sont pas transférés vers l’annuaire cible.
 
 Cet article décrit les étapes de base que vous pouvez suivre pour transférer un abonnement vers un autre annuaire Azure AD et recréer certaines des ressources après le transfert.
 
 > [!NOTE]
-> Pour les abonnements aux fournisseurs de services cloud (CSP) Azure, le changement d’annuaire Azure AD pour l’abonnement n’est pas pris en charge.
+> Pour les abonnements aux fournisseurs de solutions cloud (CSP) Azure, le changement d’annuaire Azure AD pour l’abonnement n’est pas pris en charge.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -79,7 +74,7 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Azure Data Lake Storage Gen1 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Files | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure File Sync | Oui | Oui |  |  |
-| Azure Disques managés | Oui | N/A |  |  |
+| Azure Disques managés | Oui | Oui |  |  Si vous utilisez des jeux de chiffrement de disque pour chiffrer les disques managés avec des clés gérées par le client, vous devez désactiver et réactiver les identités affectées par le système associées aux jeux de chiffrement du disque. De plus, vous devez recréer les attributions de rôles, c’est-à-dire accorder à nouveau les autorisations requises sur les jeux de chiffrement de disque dans les coffres de clés. |
 | Azure Container Service pour Kubernetes | Oui | Oui |  |  |
 | Azure Active Directory Domain Services | Oui | Non |  |  |
 | Inscriptions des applications | Oui | Oui |  |  |
@@ -91,7 +86,7 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 
 Pour effectuer cette procédure, vous avez besoin de :
 
-- [Bash Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Bash Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](/cli/azure)
 - Administrateur de compte de l’abonnement que vous souhaitez transférer dans l’annuaire source
 - Rôle de [Propriétaire](built-in-roles.md#owner) dans l’annuaire cible
 
@@ -101,13 +96,13 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 1. Connectez-vous à Azure en tant qu’administrateur.
 
-1. Obtenez une liste de vos abonnements à l’aide de la commande [az account list](/cli/azure/account#az-account-list).
+1. Obtenez une liste de vos abonnements à l’aide de la commande [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
     ```
 
-1. Utilisez [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) pour définir l’abonnement actif que vous souhaitez transférer.
+1. Utilisez [az account set](/cli/azure/account#az_account_set) pour définir l’abonnement actif que vous souhaitez transférer.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 ### <a name="install-the-resource-graph-extension"></a>Installer l’extension resource-graph
 
- L’extension resource-graph vous permet d’utiliser la commande [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
+ L’extension resource-graph vous permet d’utiliser la commande [az graph](/cli/azure/ext/resource-graph/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
 
-1. Utilisez [az extension list](https://docs.microsoft.com/cli/azure/extension#az-extension-list) pour voir si l’extension *resource-graph* est installée.
+1. Utilisez [az extension list](/cli/azure/extension#az_extension_list) pour voir si l’extension *resource-graph* est installée.
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 ### <a name="save-all-role-assignments"></a>Enregistrer toutes les affectations de rôle
 
-1. Utilisez [az role assignment list](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) pour répertorier toutes les attributions de rôles (y compris les attributions de rôles héritées).
+1. Utilisez [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) pour répertorier toutes les attributions de rôles (y compris les attributions de rôles héritées).
 
     Pour faciliter la consultation de la liste, vous pouvez exporter la sortie au format JSON, TSV ou dans une table. Pour plus d’informations, consultez [Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure CLI](role-assignments-list-cli.md).
 
@@ -149,7 +144,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 ### <a name="save-custom-roles"></a>Enregistrer des rôles personnalisés
 
-1. Utilisez [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) pour répertorier vos rôles personnalisés. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
+1. Utilisez [az role definition list](/cli/azure/role/definition#az_role_definition_list) pour répertorier vos rôles personnalisés. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ Les identités managées ne sont pas mises à jour lorsqu’un abonnement est tr
 
 1. Passez en revue la [liste des services Azure qui prennent en charge les identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) pour noter où vous pouvez utiliser des identités managées.
 
-1. Utilisez [az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) pour répertorier vos identités managées affectées par le système et affectées par l’utilisateur.
+1. Utilisez [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) pour répertorier vos identités managées affectées par le système et affectées par l’utilisateur.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ Les identités managées ne sont pas mises à jour lorsqu’un abonnement est tr
     | La propriété `alternativeNames` n’inclut pas `isExplicit` | Attribué par le système |
     | La propriété `alternativeNames` inclut `isExplicit=True` | Affecté par l’utilisateur |
 
-    Vous pouvez également utiliser [az identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) pour répertorier uniquement les identités managées affectées à l’utilisateur. Pour plus d’informations, consultez [Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    Vous pouvez également utiliser [az identity list](/cli/azure/identity#az_identity_list) pour répertorier uniquement les identités managées affectées à l’utilisateur. Pour plus d’informations, consultez [Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 > [!WARNING]
 > Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est **pas** dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
 
-- Si vous avez un coffre de clés, utilisez [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) pour répertorier les stratégies d’accès. Pour plus d’informations, consultez [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-cli.md).
+- Si vous avez un coffre de clés, utilisez [az keyvault show](/cli/azure/keyvault#az_keyvault_show) pour répertorier les stratégies d’accès. Pour plus d’informations, consultez [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Répertorier les bases de données SQL Azure avec authentification Azure AD
 
-- Utilisez [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) et l’extension [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) pour déterminer si vous utilisez des bases de données Azure AD avec l’intégration de l’authentification Azure AD activée. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../azure-sql/database/authentication-aad-configure.md).
+- Utilisez [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) et l’extension [az graph](/cli/azure/ext/resource-graph/graph) pour déterminer si vous utilisez des bases de données Azure AD avec l’intégration de l’authentification Azure AD activée. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 
 ### <a name="list-other-known-resources"></a>Répertorier les autres ressources connues
 
-1. Utilisez [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show) pour obtenir votre ID d’abonnement.
+1. Utilisez [az account show](/cli/azure/account#az_account_show) pour obtenir votre ID d’abonnement.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Utilisez l'extension [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.
+1. Utilisez l'extension [az graph](/cli/azure/ext/resource-graph/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
 
     Seul l’utilisateur dans le nouveau compte qui accepte la demande de transfert a accès à la gestion des ressources.
 
-1. Obtenez une liste de vos abonnements à l’aide de la commande [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+1. Obtenez une liste de vos abonnements à l’aide de la commande [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
     ```
 
-1. Utilisez [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) pour définir l’abonnement actif que vous souhaitez utiliser.
+1. Utilisez [az account set](/cli/azure/account#az_account_set) pour définir l’abonnement actif que vous souhaitez utiliser.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
 
 ### <a name="create-custom-roles"></a>Créer des rôles personnalisées
         
-- Utilisez [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) pour créer chaque rôle personnalisé à partir des fichiers que vous avez créés précédemment. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
+- Utilisez [az role definition create](/cli/azure/role/definition#az_role_definition_create) pour créer chaque rôle personnalisé à partir des fichiers que vous avez créés précédemment. Pour plus d’informations, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
 
 ### <a name="create-role-assignments"></a>Créer des attributions de rôles
 
-- Utilisez [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) pour créer les attributions de rôle pour les utilisateurs, les groupes et les principaux de service. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôles à l'aide du RBAC Azure et d’Azure CLI](role-assignments-cli.md).
+- Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les utilisateurs, les groupes et les principaux de service. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôles à l'aide du RBAC Azure et d’Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
     | Groupes identiques de machines virtuelles | [Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Autres services | [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Utilisez [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) pour créer les attributions de rôle pour les identités managées affectées par le système. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les identités managées affectées par le système. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
     | Groupes identiques de machines virtuelles | [Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Autres services | [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Utilisez [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) pour créer les attributions de rôle pour les identités managées affectées par l’utilisateur. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les identités managées affectées par l’utilisateur. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

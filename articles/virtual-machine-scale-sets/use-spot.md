@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072738"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729013"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
 
@@ -163,8 +163,7 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 
 **Q :**  La mise à l’échelle automatique fonctionne-t-elle avec les deux stratégies d’éviction (Libérer et Supprimer) ?
 
-**R :** Il est recommandé de choisir la stratégie d’éviction Supprimer avec la mise à l’échelle automatique. En effet, le nombre d’instances libérées est soustrait de la capacité sur le groupe identique. Quand vous utilisez la mise à l’échelle automatique, le nombre d’instances cibles est souvent rapidement atteint en raison des instances libérées et écartées. 
-
+**R :** Oui. Toutefois, il est recommandé de choisir la stratégie d’éviction Supprimer avec la mise à l’échelle automatique. En effet, le nombre d’instances libérées est soustrait de la capacité sur le groupe identique. Quand vous utilisez la mise à l’échelle automatique, le nombre d’instances cibles est souvent rapidement atteint en raison des instances libérées et écartées. En outre, vos opérations de mise à l’échelle peuvent être affectées par les évictions Spot. Par exemple, les instances VMSS peuvent tomber sous le nombre minimal défini en raison de plusieurs évictions Spot au cours des opérations de mise à l’échelle. 
 
 **Q :** Quels sont les canaux qui prennent en charge les machines virtuelles Spot ?
 

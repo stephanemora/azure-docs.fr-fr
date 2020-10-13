@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370910"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
@@ -61,7 +61,7 @@ Le premier onglet du volet de configuration de chaque transformation contient le
 
 L’onglet **Optimiser** contient des paramètres pour configurer des schémas de partitionnement. Pour en savoir plus sur l’optimisation de vos flux de données, consultez le [Guide des performances de flux de données de mappage](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize.png "Optimiser")
+![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
 
 #### <a name="inspect"></a>Inspecter
 

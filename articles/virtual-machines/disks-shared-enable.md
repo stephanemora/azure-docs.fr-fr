@@ -4,16 +4,16 @@ description: Configurer un disque managé Azure avec la fonctionnalité Disques 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 82d482cd0a1b3a5b6028b9249030b7b1a093d22d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752048"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570552"
 ---
 # <a name="enable-shared-disk"></a>Activer la fonctionnalité Disques partagés
 
@@ -147,7 +147,7 @@ Avant d’utiliser le modèle suivant, remplacez `[parameters('dataDiskName')]`,
 Une fois que vous avez déployé un disque partagé avec `maxShares>1`, vous pouvez monter le disque sur une ou plusieurs de vos machines virtuelles.
 
 > [!NOTE]
-> Si vous déployez un ultra-disque, assurez-vous qu’il correspond à la configuration requise. Pour plus d’informations, consultez la section [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) de l’article ultra-disque.
+> Si vous déployez un ultra-disque, assurez-vous qu’il correspond à la configuration requise. Pour plus d’informations, consultez [Utilisation de disques Ultra Azure](disks-enable-ultra-ssd.md).
 
 ```azurepowershell-interactive
 

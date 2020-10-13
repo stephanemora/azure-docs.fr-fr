@@ -1,6 +1,6 @@
 ---
 title: Approvisionnement des journaux dans le portail Azure Active Directory (version préliminaire) | Microsoft Docs
-description: Présentation des rapports d’activité d’approvisionnement dans le portail Azure Active Directory
+description: Présentation des journaux d’activité d’approvisionnement dans le portail Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469862"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812554"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -42,6 +42,7 @@ Cette rubrique présente une vue d’ensemble du rapport d’approvisionnement.
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+* Propriétaires d'applications
 * Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Administrateur d’application et Administrateur d’application cloud
 * Les administrateurs généraux
 
@@ -190,7 +191,7 @@ L’onglet **Étapes** présente les étapes nécessaires pour approvisionner un
 
 
 
-![Étapes](./media/concept-provisioning-logs/steps.png "Filtrer")
+![La capture d’écran montre l’onglet Étapes, qui présente les étapes d’approvisionnement.](./media/concept-provisioning-logs/steps.png "Filtrer")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Résolution des problèmes et recommandations
@@ -210,13 +211,11 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-- Le Portail Azure stocke les données d’approvisionnement signalées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite.
+- Le portail Azure stocke les données d’approvisionnement signalées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux d’activité d’approvisionnement peuvent être publiés dans l’analytique des journaux d'activité pour être conservés au-delà de 30 jours. 
 
 - Vous pouvez utiliser l’attribut Changer l’ID comme identificateur unique. C’est, par exemple, utile lors de l’interaction avec le support technique.
 
 - Il n’existe actuellement aucune option permettant de télécharger les données de configuration en tant que fichier CSV, mais vous pouvez exporter les données à l’aide de [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
-
-- Il n’existe actuellement aucun support pour Log Analytics.
 
 - Vous pouvez voir des événements ignorés pour les utilisateurs qui ne sont pas dans l’étendue. Cela est prévu, en particulier lorsque l’étendue de synchronisation est définie sur tous les utilisateurs et groupes. Notre service évalue tous les objets du locataire, y compris ceux qui sont en dehors de l’étendue. 
 
@@ -252,3 +251,4 @@ Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreu
 
 * [Vérifier l’état de l’approvisionnement d’utilisateurs](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem.md)
+* [Provisionnement de journaux de l’API Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
