@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273198"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurer la sécurité pour votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -156,14 +156,66 @@ Vous pouvez utiliser la méthode Postgres standard pour créer des utilisateurs 
 PostgreSQL Hyperscale avec Azure Arc est fourni avec l’utilisateur administratif Postgres standard, _postgres_, pour lequel vous définissez le mot de passe lors de la création de votre groupe de serveurs.
 Le format général de la commande pour modifier le mot de passe est le suivant :
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-Le mot de passe sera défini sur la valeur de la variable d’environnement de la **session** AZDATA_PASSWORD s’il existe. Si ce n’est pas le cas, l’utilisateur sera invité à entrer une valeur.
-Pour vérifier si la variable d’environnement de la session AZDATA_PASSWORD existe et/ou la valeur sur laquelle elle est définie, exécutez la commande suivante :
-```console
-printenv AZDATA_PASSWORD
-```
-Vous souhaiterez peut-être supprimer sa valeur si vous préférez être invité à entrer un nouveau mot de passe.
+
+Où --admin-password est une valeur booléenne qui a trait à la présence d’une valeur dans la variable d’environnement AZDATA_PASSWORD de la **session**.
+Si la variable d’environnement AZDATA_PASSWORD de la **session** existe et qu’elle a une valeur, l’exécution de la commande ci-dessus définit le mot de passe de l’utilisateur postgres sur la valeur de cette variable d’environnement.
+
+Si la variable d’environnement AZDATA_PASSWORD de la **session** existe mais n’a pas de valeur ou si elle n’existe pas, l’exécution de la commande ci-dessus invite l’utilisateur à entrer un mot de passe de manière interactive.
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Modification du mot de passe de l’utilisateur administratif postgres de manière interactive :
+1. Supprimer la variable d’environnement AZDATA_PASSWORD de la **session** ou supprimer sa valeur
+2. Exécutez la commande suivante :
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Par exemple
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   Vous serez invité à entrer le mot de passe, puis à le confirmer :
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   Le mot de passe étant mis à jour, la sortie de la commande est la suivante :
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Modification du mot de passe de l’utilisateur administratif postgres à l’aide de la variable d’environnement AZDATA_PASSWORD de la **session** :
+1. Définissez la valeur de la variable d’environnement AZDATA_PASSWORD de la **session** sur le mot de passe que vous souhaitez.
+2. Exécutez la commande :
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Par exemple
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   Le mot de passe étant mis à jour, la sortie de la commande est la suivante :
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> Pour vérifier que la variable d’environnement AZDATA_PASSWORD de la session existe, ainsi que sa valeur, exécutez la commande suivante :
+> - Sur un client Linux :
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - Sur un client Windows avec PowerShell :
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

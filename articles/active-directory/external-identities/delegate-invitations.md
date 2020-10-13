@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278785"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -24,7 +24,7 @@ Cet article explique comment activer la collaboration B2B dans Azure Active Dire
 
 Par défaut, tous les utilisateurs et invités de votre annuaire peuvent inviter des invités, même s’ils ne sont pas associés à un rôle d’administrateur. Les paramètres de collaboration externe vous permettent d’activer ou de désactiver les invitations d’invités pour différents types d’utilisateurs dans votre organisation. Vous pouvez également déléguer des invitations aux utilisateurs individuels, en leur attribuant des rôles qui leur permettent d’inviter des invités.
 
-Azure AD offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes dans votre annuaire Azure AD. Par défaut, les utilisateurs invités sont définis sur un niveau d’autorisation limité qui les empêche d’énumérer des utilisateurs, des groupes ou d’autres ressources de l’annuaire, mais leur permet de voir l’appartenance à des groupes non masqués. Un nouveau paramètre d’aperçu vous permet de limiter encore davantage l’accès des invités, afin ces derniers puissent uniquement afficher leurs propres informations de profil. 
+Azure AD offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes dans votre annuaire Azure AD. Par défaut, les utilisateurs invités sont définis sur un niveau d’autorisation limité qui les empêche d’énumérer des utilisateurs, des groupes ou d’autres ressources de l’annuaire, mais leur permet de voir l’appartenance à des groupes non masqués. Un nouveau paramètre d’aperçu vous permet de limiter encore davantage l’accès des invités, afin ces derniers puissent uniquement afficher leurs propres informations de profil. Pour plus d’informations, consultez [Restriction des autorisations d’accès invité (préversion)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurer les paramètres de collaboration B2B externe
 
@@ -44,9 +44,6 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 3. Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
 
 4. Sous **Restrictions d’accès de l’utilisateur invité (préversion)** , choisissez le niveau d’accès que les utilisateurs invités doivent avoir :
-
-   > [!IMPORTANT]
-   > Pendant une brève période, ces nouveaux contrôles du Portail concernant les autorisations des utilisateurs invités ne seront visibles qu’à l’aide de l’URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Pour plus d’informations, consultez [Restriction des autorisations d’accès invité (préversion)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Les utilisateurs invités ont le même accès que les membres (le plus inclusif)**  : Cette option donne aux invités le même accès aux ressources Azure AD et aux données d’annuaire que les utilisateurs membres.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257161"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scénario : Une API web qui appelle des API web
 
@@ -24,7 +24,7 @@ Découvrez tout ce que vous devez savoir pour générer une API web qui appelle 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce scénario, dans lequel une API web protégée appelle des API web, repose sur le scénario « Protéger une API web ». Pour en savoir plus sur ce scénario de base, consultez la section [Scénario : API web protégée](scenario-protected-web-api-overview.md).
+Ce scénario, dans lequel une API web protégée appelle d’autres API web, repose sur le [scénario : API web protégée](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 

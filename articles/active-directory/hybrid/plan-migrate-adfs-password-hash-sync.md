@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273672"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -302,7 +302,7 @@ Changez d’abord la méthode de connexion :
 
 5. Dans la page **Activer l’authentification unique**, entrez les informations d’identification du compte d’administrateur de domaine, puis sélectionnez **Suivant**.
 
-   ![Capture d’écran de la page Activer l’authentification unique](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Capture d’écran de la page Activer l’authentification unique dans laquelle vous pouvez entrer les informations d’identification du compte Administrateur de domaine.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Les informations d’identification du compte d’administrateur de domaine sont nécessaires pour activer l’authentification unique fluide. Le processus effectue les actions suivantes, qui nécessitent ces autorisations élevées. Les informations d’identification du compte d’administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Les informations d’identification du compte d’administrateur de domaine sont utilisées seulement pour activer la fonctionnalité. Les informations d’identification sont supprimées quand le processus se termine avec succès.
@@ -324,7 +324,7 @@ Changez d’abord la méthode de connexion :
    * **Authentification unique fluide** est défini sur **Activé**.
    * **Synchronisation de mot de passe** est défini sur **Activé**.<br /> 
 
-   ![Capture d’écran montrant les paramètres de la section Connexion utilisateur](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Capture d’écran montrant les paramètres de la section Connexion utilisateur du portail Azure AD](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Accédez à [Tests et étapes suivantes](#testing-and-next-steps).
 

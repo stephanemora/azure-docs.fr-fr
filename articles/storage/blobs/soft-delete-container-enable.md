@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280298"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Activer et gérer la suppression réversible pour les conteneurs (préversion)
 
-La suppression réversible de conteneur (préversion) protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible de conteneur est activée pour un compte de stockage, un conteneur et son contenu peuvent être récupérés une fois qu’il a été supprimé, pendant la période de rétention que vous spécifiez.
+La suppression réversible de conteneur (préversion) protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible de conteneur est activée pour un compte de stockage, un conteneur et son contenu peuvent être récupérés après suppression pendant la période de rétention que vous spécifiez.
 
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible de conteneur. Cet article explique comment activer la suppression réversible pour les conteneurs. Pour plus d’informations sur la suppression réversible de conteneur, notamment sur la façon de s’inscrire à la préversion, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
 
@@ -86,16 +86,16 @@ Pour afficher les conteneurs supprimés de manière réversible dans le portail 
 1. Accédez à votre compte de stockage dans le portail Azure et affichez la liste de vos conteneurs.
 1. Activez le bouton bascule Afficher les conteneurs supprimés pour inclure les conteneurs supprimés dans la liste.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Capture d’écran montrant comment afficher les conteneurs supprimés de manière réversible dans le portail Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Capture d’écran représentant l’activation de la suppression réversible de conteneur dans le portail Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurer un conteneur supprimé de manière réversible
 
 Vous pouvez restaurer un conteneur supprimé de manière réversible et son contenu pendant la période de rétention. Pour restaurer un conteneur supprimé de manière réversible dans le portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure et affichez la liste de vos conteneurs.
-1. Affichez le menu contextuel du conteneur que vous souhaitez supprimer, puis choisissez **Annuler la suppression** dans le menu.
+1. Affichez le menu contextuel du conteneur que vous souhaitez restaurer, puis choisissez **Annuler la suppression** dans le menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Capture d’écran montrant comment restaurer un conteneur supprimé de manière réversible dans le portail Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Capture d’écran représentant l’activation de la suppression réversible de conteneur dans le portail Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

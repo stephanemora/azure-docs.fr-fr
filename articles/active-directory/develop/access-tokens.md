@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258519"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -266,9 +266,17 @@ Les jetons d’actualisation peuvent être révoqués par le serveur en raison d
 | L’administrateur révoque tous les jetons d’actualisation d’un utilisateur [via PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Révoqué | Révoqué |Révoqué | Révoqué | Révoqué |
 | Déconnexion unique ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out)) sur le web | Révoqué | Reste actif | Révoqué | Reste actif | Reste actif |
 
+#### <a name="non-password-based"></a>Non basée sur mot de passe
+
+Une connexion *non basée sur mot de passe* est une connexion où l’utilisateur n’a pas saisi un mot de passe. Voici des exemples de connexions non basées sur mot de passe :
+
+- Utilisation de votre visage avec Windows Hello
+- Clé FIDO2
+- SMS
+- Voix
+- PIN 
+
 > [!NOTE]
-> Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe. Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO2 ou un code PIN.
->
 > Les jetons d’actualisation principaux (PRT) sur Windows 10 sont séparés en fonction des informations d’identification. Par exemple, Windows Hello et le mot de passe ont leur PRT respectif, chacun isolé l’un de l’autre. Lorsqu’un utilisateur se connecte avec une information d’identification Hello (code confidentiel ou biométrie), puis modifie le mot de passe, le PRT basé sur le mot de passe obtenu précédemment est révoqué. La reconnexion avec un mot de passe invalide l’ancien PRT et demande un nouveau mot de passe.
 >
 > Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  Toutefois, votre application doit ignorer l’ancien dès qu’il est utilisé et le remplacer par le nouveau, car le nouveau jeton possède une nouvelle heure d’expiration. 

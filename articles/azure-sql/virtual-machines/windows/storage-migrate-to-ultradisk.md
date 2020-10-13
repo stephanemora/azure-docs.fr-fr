@@ -8,18 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271900"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrer le disque du journal vers le disque Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ Pour activer la compatibilité, procédez comme suit :
 
 ### <a name="attach-disk"></a>Attacher un disque
 
-Utilisez le portail Azure pour attacher un disque Ultra à votre machine virtuelle. Pour plus d’informations, consultez [Attacher un disque Ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Utilisez le portail Azure pour attacher un disque Ultra à votre machine virtuelle. Pour plus d’informations, consultez [Attachement d’un Disque Ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Une fois le disque attaché, redémarrez votre machine virtuelle à l’aide du portail Azure. 
 

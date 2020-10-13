@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179536"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405082"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
 
@@ -34,6 +34,7 @@ Le connecteur HDFS est pris en charge pour les activités suivantes :
 
 - [Activité de copie](copy-activity-overview.md) avec [prise en charge de la matrice de source/récepteur](copy-activity-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
+- [Supprimer l’activité](delete-activity.md)
 
 Plus précisément, le connecteur HDFS prend en charge ce qui suit :
 
@@ -65,7 +66,7 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 | authenticationType | Valeurs autorisées : *Anonyme* ou *Windows*. <br><br> Pour configurer votre environnement local, consultez la section [Utiliser l’authentification Kerberos pour le connecteur HDFS](#use-kerberos-authentication-for-the-hdfs-connector). |Oui |
 | userName |Nom d’utilisateur de l’authentification Windows. Pour l’authentification Kerberos, spécifiez **\<username>@\<domain>.com**. |Oui (pour l’authentification Windows) |
 | mot de passe |Mot de passe de l’authentification Windows. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans votre fabrique de données, ou [référencez un secret stocké dans le coffre de clés Azure](store-credentials-in-key-vault.md). |Oui (pour l’authentification Windows) |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). Si ce runtime d'intégration n’est pas spécifié, le service utilise le runtime d’intégration Azure par défaut. |Non |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour en savoir plus, consultez la section [Conditions préalables](#prerequisites). Si le runtime d’intégration n’est pas spécifié, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 **Exemple : utilisation d’une authentification anonyme**
 
@@ -122,8 +123,8 @@ Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de *type* sous `location` dans le jeu de données doit être définie sur *HdfsLocation*. | Oui      |
-| folderPath | Chemin du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez le chemin d'accès dans les paramètres de la source de l’activité. | Non       |
-| fileName   | Nom de fichier dans le chemin d’accès folderPath spécifié. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez le nom de fichier dans les paramètres de la source de l’activité. | Non       |
+| folderPath | Chemin du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez le chemin dans les paramètres de la source de l’activité. | Non       |
+| fileName   | Nom de fichier sous le chemin folderPath spécifié. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez le nom de fichier dans les paramètres de la source de l’activité. | Non       |
 
 **Exemple :**
 
@@ -166,14 +167,16 @@ Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres 
 | type                     | La propriété *type* sous `storeSettings` doit être définie sur **HdfsReadSettings**. | Oui                                           |
 | ***Rechercher les fichiers à copier*** |  |  |
 | OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier ou au fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
-| OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom réel de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Pour d’autres exemples, consultez dans [Exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
+| OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom réel de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Pour d’autres exemples, consultez dans [Exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 2 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath spécifié pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Pour d’autres exemples, consultez dans [Exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 3 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers spécifié. Pointez vers un fichier texte qui contient une liste de fichiers que vous voulez copier (un fichier par ligne étant le chemin d’accès relatif au chemin d’accès configuré dans le jeu de données).<br/>Lorsque vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
 | ***Paramètres supplémentaires*** |  | |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option `recursive` est définie sur *true* et que le récepteur est un magasin basé sur un fichier, aucun dossier ou sous-dossier vide n’est copié ou créé au niveau du récepteur. <br>Les valeurs autorisées sont *true* (par défaut) et *false*.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
+| deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut *Dernière modification*. <br>Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format *2018-12-01T05:00:00Z*. <br> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
+| modifiedDatetimeEnd      | Identique à ce qui précède.  
 | enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
-| partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin racine de la partition est le sous-chemin avant le premier caractère générique.<br/><br/>Par exemple, en supposant que vous configurez le chemin dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
+| partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin d’accès racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin d’accès du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin d’accès configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le premier caractère générique.<br/><br/>Par exemple, en supposant que vous configurez le chemin d’accès dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin d’accès racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin d’accès racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non                                            |
 | ***Paramètres DistCp*** |  | |
 | distcpSettings | Groupe de propriétés à utiliser lorsque vous utilisez DistCp HDFS. | Non |
@@ -276,6 +279,34 @@ Il existe deux options pour configurer l’environnement local afin d’utiliser
 * Option 1 : [Joindre un ordinateur exécutant le runtime d’intégration auto-hébergé dans le domaine Kerberos](#kerberos-join-realm)
 * Option n°2 : [Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos](#kerberos-mutual-trust)
 
+Quelle que soit l’option, veillez à activer webhdfs pour le cluster Hadoop :
+
+1. Créez le principal HTTP et le keytab pour webhdfs.
+
+    > [!IMPORTANT]
+    > Le principal HTTP Kerberos doit commencer par « **HTTP/**  » conformément à la spécification HTTP SPNEGO de Kerberos.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. Options de configuration HDFS : ajoutez les trois propriétés suivantes dans `hdfs-site.xml`.
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Option 1 : Joindre un ordinateur exécutant le runtime d’intégration auto-hébergé dans le domaine Kerberos
 
 #### <a name="requirements"></a>Spécifications
@@ -284,13 +315,24 @@ Il existe deux options pour configurer l’environnement local afin d’utiliser
 
 #### <a name="how-to-configure"></a>Comment configurer
 
+**Sur le serveur du centre de distribution de clés Kerberos :**
+
+Créez un principal pour Azure Data Factory et spécifiez le mot de passe.
+
+> [!IMPORTANT]
+> Le nom d’utilisateur ne doit pas contenir le nom d’hôte.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **Sur un ordinateur exécutant le runtime d’intégration auto-hébergé :**
 
 1.  Exécutez l’utilitaire Ksetup pour configurer le serveur et le domaine du centre de distribution de clés Kerberos.
 
     L’ordinateur doit être configuré en tant que membre d’un groupe de travail, car un domaine Kerberos est différent d’un domaine Windows. Vous pouvez obtenir cette configuration en définissant le domaine Kerberos et en ajoutant un serveur KDC en exécutant les commandes suivantes. Remplacez *REALM.COM* par votre propre nom de domaine.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -299,7 +341,7 @@ Il existe deux options pour configurer l’environnement local afin d’utiliser
 
 2.  Vérifiez la configuration avec la commande `Ksetup`. La sortie doit être semblable à :
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
@@ -430,7 +472,11 @@ Il existe deux options pour configurer l’environnement local afin d’utiliser
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour plus d’informations sur les propriétés des activités Lookup, consultez [Activité Lookup dans Azure Data Factory](control-flow-lookup-activity.md).
+Pour obtenir des informations sur les propriétés de l’activité de recherche (Lookup), consultez [Activité de recherche dans Azure Data Factory](control-flow-lookup-activity.md).
+
+## <a name="delete-activity-properties"></a>Propriétés de l’activité Delete
+
+Pour obtenir des informations sur les propriétés de l’activité Delete, consultez [Activité Delete dans Azure Data Factory](delete-activity.md).
 
 ## <a name="legacy-models"></a>Modèles hérités
 

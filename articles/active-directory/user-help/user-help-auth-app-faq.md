@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278666"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -29,6 +29,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 | Question | Réponse |
 | -------- | ------ |
+| Pourquoi j’ai des problèmes avec Apple Watch sur watchOS 7 ? | Un problème perturbe l’approbation des notifications sur watchOS 7 et nous travaillons avec Apple pour le résoudre. En attendant, toutes les notifications qui nécessitent l’application Microsoft Authenticator watchOS doivent être approuvées sur votre téléphone à la place.  |
 | Le fait d’inscrire un appareil signifie-t-il que l’entreprise ou le service obtiennent l’accès à cet appareil ? | L’inscription d’un appareil permet à celui-ci d’accéder aux services de votre organisation, mais ne permet pas à votre organisation d’accéder à l’appareil. |
 | Qu’est-ce que le verrou d’application et comment puis-je l’utiliser pour mieux sécuriser le stockage ? | Le Verrou d’application sécurise les codes secrets à usage unique, les informations et les paramètres d’application. Si vous activez le Verrou d’application, vous êtes invité à vous authentifier à l’aide du code PIN ou verrou biométrique de votre machine chaque fois que vous ouvrez l’Authenticator. Le Verrou d’application permet également de s’assurer que vous êtes le seul habilité à approuver les notifications en demandant votre code confidentiel ou biométrique à chaque fois que vous approuvez une notification de connexion. Vous pouvez activer ou désactiver le Verrou d’application sur la page Paramètres de l’Authentificateur. Par défaut, le Verrou d’application est activé lorsque vous configurez un code PIN ou biométrique sur votre appareil.<br><br>Malheureusement, il n’est nullement garanti que la fonctionnalité Verrou d’application empêche une personne d’accéder à l’application Authenticator. Cela est dû au fait que l’inscription de l’appareil peut se produire dans d’autres emplacements en dehors de l’application Authenticator, par exemple dans l’application Portail d’entreprise ou dans les paramètres de compte Android. |
 | J’ai un appareil Windows Mobile et l’application Microsoft Authenticator sur Windows Mobile est déconseillée. Puis-je continuer à utiliser l’application pour l’authentification ? | Les authentifications à l’aide de l’application Microsoft Authenticator sur Windows Mobile ne seront plus possibles après le 15 juillet 2020. Nous vous recommandons vivement d’utiliser une autre méthode d’authentification afin d’éviter de ne plus pouvoir accéder à vos comptes.<br>Les autres options pour les utilisateurs en entreprise sont les suivantes :<br><ul><li>Configuration de l’application Microsoft Authenticator pour [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configuration de la réception des codes de vérification [par SMS](multi-factor-authentication-setup-phone-number.md).</li><li>Configuration d’un numéro de téléphone pour recevoir des [appels téléphoniques afin de vérifier l’identité](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Les autres options pour les utilisateurs de compte Microsoft personnel sont les suivantes :<br><ul><li>Configuration de l’application Microsoft Authenticator pour [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configuration d’une autre méthode de connexion (SMS ou e-mail) en mettant à jour vos informations de sécurité via la [page de sécurité du compte Microsoft](https://account.microsoft.com/security/).</li></ul> |

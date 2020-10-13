@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258709"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -115,6 +115,9 @@ Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire �
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
+
+> [!NOTE]
+> Edge 85 ou version ultérieure exige que l’utilisateur soit connecté au navigateur pour transmettre correctement l’identité de l’appareil. Dans le cas contraire, il se comporte comme Chrome sans l’extension Comptes. Cette connexion peut ne pas se produire automatiquement dans un scénario de jonction Azure AD Hybride. 
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi une invite de saisie de certificat s’affiche-t-elle dans mon navigateur ?
 

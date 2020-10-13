@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265785"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
 
@@ -43,11 +43,11 @@ Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur 
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Lier votre locataire Azure AD à un abonnement
 
-Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un locataire Azure AD doit être lié à un abonnement Azure.
+Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un locataire Azure AD doit être lié à un abonnement Azure. Si le répertoire ne dispose pas déjà d’un abonnement auquel vous pouvez le lier, vous avez la possibilité d’en ajouter un au cours de ce processus.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Azure auquel a été attribué au moins le rôle [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) au sein de l’abonnement ou d’un groupe de ressources.
 
-2. Sélectionnez le répertoire qui contient votre abonnement : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement**, puis sélectionnez le répertoire qui contient votre abonnement.
+2. Sélectionnez le répertoire que vous souhaitez lier : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement**, puis sélectionnez le répertoire.
 
     ![Sélectionner l’icône Annuaire et abonnement](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un loca
     ![Sélectionner le locataire et lier un abonnement](media/external-identities-pricing/linked-subscriptions.png)
 
 7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement**, puis un **Groupe de ressources**. Ensuite, sélectionnez **Appliquer**.
+
+   > [!NOTE]
+   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici**.
 
     ![Sélectionner un abonnement et un groupe de ressources](media/external-identities-pricing/link-subscription-resource.png)
 

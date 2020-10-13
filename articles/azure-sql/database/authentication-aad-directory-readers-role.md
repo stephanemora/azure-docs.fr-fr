@@ -1,6 +1,6 @@
 ---
 title: Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL
-description: Les applications Azure AD (principaux de service) prennent en charge la création d’utilisateurs Azure AD dans Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics.
+description: En savoir plus sur le rôle du lecteur de répertoire dans Azure AD pour Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277945"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL
 

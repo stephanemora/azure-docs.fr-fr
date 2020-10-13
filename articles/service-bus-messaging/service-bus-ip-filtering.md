@@ -3,12 +3,12 @@ title: Configurer des règles de pare-feu IP pour Azure Service Bus
 description: Utilisation des règles de pare-feu pour autoriser les connexions à Azure Service Bus à partir d’adresses IP spécifiques.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064636"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300953"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Service Bus sont accessibles à partir d’Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez la limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -51,7 +51,7 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
     
     Si vous sélectionnez l’option **Tous les réseaux**, votre espace de noms Service Bus accepte les connexions à partir de n’importe quelle adresse IP. Ce paramètre par défaut est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
 
-    ![Option Pare-feu - Tous les réseaux sélectionnée](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Capture d’écran de la page Réseaux du Portail Azure Option permettant d’autoriser l’accès provenant de Tous les réseaux sélectionnée dans l’onglet Pare-feu et réseaux virtuels](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Pour autoriser l’accès uniquement à partir d’une adresse IP spécifiée, sélectionnez l’option **Réseaux sélectionnés** si elle n’est pas déjà sélectionnée. Dans la section **Pare-feu**, suivez ces étapes :
     1. Sélectionnez l’option **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms. 
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
@@ -60,7 +60,7 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
         > [!WARNING]
         > Si vous choisissez l’option **Réseaux sélectionnés** et que vous ne spécifiez pas d’adresse IP ni de plage d’adresses, le service autorisera le trafic provenant de tous les réseaux. 
 
-        ![Option Pare-feu – Tous les réseaux sélectionnée](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Capture d’écran de la page Réseaux du Portail Azure Option permettant d’autoriser l’accès provenant des Réseaux sélectionnés sélectionnée et section Pare-feu encadrée](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
 
     > [!NOTE]

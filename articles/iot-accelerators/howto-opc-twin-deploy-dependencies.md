@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282100"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement de dépendances pour un développement local
+
+> [!IMPORTANT]
+> Pendant la mise à jour de cet article, consultez [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) pour obtenir le contenu le plus récent.
 
 Cet article explique comment déployer seulement les services de plateforme Azure nécessaires pour le développement et le débogage local.   À la fin, vous aurez un groupe de ressources déployé qui contient tout ce dont vous avez besoin pour le développement et le débogage local.
 
@@ -42,12 +45,12 @@ Cet article explique comment déployer seulement les services de plateforme Azur
 
 Veillez à utiliser un nom de groupe de ressources court et simple.  Le nom est également utilisé pour nommer les ressources : il doit donc être conforme aux spécifications de nommage des ressources.  
 
-### <a name="azure-active-directory-aad-registration"></a>Inscription dans Azure Active Directory (AAD)
+### <a name="azure-active-directory-ad-registration"></a>Inscription dans Azure Active Directory (AD)
 
-Le script de déploiement essaie d’inscrire les applications AAD dans Azure Active Directory.  En fonction de vos droits sur le locataire AAD sélectionné, cette opération peut échouer.   Vous disposez de trois options :
+Le script de déploiement essaie d’inscrire les applications Azure AD dans Azure AD.  En fonction de vos droits sur le locataire Azure AD sélectionné, cette opération peut échouer. Vous disposez de trois options :
 
-1. Si vous avez choisi un locataire AAD dans une liste de locataires, redémarrez le script et choisissez un autre locataire dans la liste.
-2. Vous pouvez aussi déployer un locataire AAD privé, redémarrer le script et choisir de l’utiliser.
+1. Si vous avez choisi un locataire Azure AD dans une liste de locataires, redémarrez le script et choisissez un autre locataire dans la liste.
+2. Vous pouvez aussi déployer un locataire Azure AD privé, redémarrer le script et choisir de l’utiliser.
 3. Continuer sans authentification.  Comme vous exécutez vos microservices localement, ceci est acceptable, mais ne reproduit pas les environnements de production.  
 
 ## <a name="next-steps"></a>Étapes suivantes

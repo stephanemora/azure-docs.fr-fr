@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273221"
 ---
 # <a name="azure-data-studio-dashboards"></a>Tableaux de bord Azure Data Studio
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-Si vous utilisez un type LoadBalancer, vous allez copier l’adresse IP externe et le numéro de port 300080.  Si vous utilisez NodePort, vous allez utiliser l’adresse IP de votre serveur d’API Kubernetes et le numéro de port qui se trouve sous la colonne PORT(S).
+Si vous utilisez un type LoadBalancer, vous allez copier l’adresse IP externe et le numéro de port. Si vous utilisez NodePort, vous allez utiliser l’adresse IP de votre serveur d’API Kubernetes et le numéro de port qui se trouve sous la colonne PORT(S).
 
 Vous voulez maintenant construire une URL vers votre point de terminaison en combinant ces informations comme suit :
 
