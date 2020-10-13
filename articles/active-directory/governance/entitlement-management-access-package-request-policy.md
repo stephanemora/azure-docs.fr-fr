@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980257"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449966"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -125,8 +125,8 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
     |  |  |
     | --- | --- |
     | **Organisations connectées spécifiques** | Choisissez cette option si vous souhaitez sélectionner parmi une liste d’organisations que votre administrateur a ajoutées précédemment. Tous les utilisateurs des organisations sélectionnées peuvent demander ce package d’accès. |
-    | **Toutes les organisations connectées** | Choisissez cette option si tous les utilisateurs de toutes les organisations connectées peuvent demander ce package d’accès. |
-    | **Tous les utilisateurs (toutes les organisations connectées + tous les nouveaux utilisateurs externes)** | Choisissez cette option si tous les utilisateurs de toutes vos organisations connectées peuvent demander ce package d’accès et que les paramètres de la liste verte ou d’exclusion B2B doivent être prioritaires pour tout nouvel utilisateur externe. |
+    | **Toutes les organisations connectées configurées** | Choisissez cette option si tous les utilisateurs de toutes les organisations connectées configurées peuvent demander ce package d’accès. Seuls les utilisateurs des organisations connectées configurées peuvent demander des packages d’accès affichés aux utilisateurs de toutes les organisations configurées. |
+    | **Tous les utilisateurs (toutes les organisations connectées + tous les nouveaux utilisateurs externes)** | Choisissez cette option si un utilisateur sur Internet doit être en mesure de demander ce package d’accès.  Si l’utilisateur n’appartient pas à une organisation connectée dans votre annuaire, une organisation connectée est automatiquement créée lorsqu’il demande le package. L’organisation connectée créée automatiquement se trouve à l’état **proposé**. Pour plus d’informations sur l’état proposé, consultez [Propriétés d’état des organisations connectées](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     Une organisation connectée est un domaine ou un annuaire Azure AD externe avec lequel vous collaborez.
 

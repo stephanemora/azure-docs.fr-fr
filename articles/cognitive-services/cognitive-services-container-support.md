@@ -1,32 +1,36 @@
 ---
-title: Conteneurs Azure Cognitive Services
+title: Utiliser des Conteneurs Azure Cognitive Services localement
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment les conteneurs Docker peuvent faire bénéficier vos données de Cognitive Services.
+description: Découvrez comment utiliser les conteneurs Docker afin d’utiliser Cognitive Services localement.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: local, Docker, conteneur, Kubernetes
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906984"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665410"
 ---
 # <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
 > [!WARNING]
 > Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis.
 
-La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure, et permet une flexibilité sur l’emplacement de déploiement et de stockage des services fournis avec les [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services, dont des composants de :
+Azure Cognitive Services offre plusieurs [conteneurs Docker](https://www.docker.com/what-container) qui vous permettent d’utiliser localement les mêmes API que celles disponibles dans Azure. Grâce à ces conteneurs, Cognitive Services se trouve au plus près de vos données du point de vue de la conformité, de la sécurité et de l’exploitation. 
+
+La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services, dont des composants de :
 
 > [!div class="checklist"]
 > * [Détecteur d’anomalies][ad-containers]
-> * [Vision par ordinateur][cv-containers]
+> * [Read OCR (reconnaissance optique de caractères)][cv-containers]
+> * [Analyse spatiale][spa-containers]
 > * [Visage][fa-containers]
 > * [Form Recognizer][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
@@ -42,9 +46,9 @@ Les ressources Cognitive Services sont disponibles sur [Microsoft Azure](https:/
 ## <a name="features-and-benefits"></a>Fonctionnalités et avantages
 
 - **Infrastructure immuable** : Permettez aux équipes DevOps de tirer parti d’un ensemble cohérent et fiable de paramètres système connus, tout en étant en mesure de s’adapter aux changements. Les conteneurs offrent la flexibilité nécessaire pour évoluer dans un écosystème prévisible et éviter la dérive de configuration.
-- **Contrôle des données** : permettre aux clients de choisir où ces services Cognitive Services traitent leurs données. Ceci est essentiel pour les clients qui ne peut pas envoyer les données dans le cloud mais ont besoin d’accéder à la technologie de Cognitive Services. Cohérence de la prise en charge dans les environnements hybrides : entre les données, la gestion, l’identité et la sécurité.
-- **Contrôle des mises à jour du modèle** : Fournir aux clients une flexibilité dans le contrôle de version et la mise à jour des modèles déployés dans leurs solutions.
-- **Architecture portable** : Permettre la création d’une architecture d’application portable qui peut être déployée dans le cloud, localement et en périphérie. Les conteneurs peuvent être déployés directement sur [Azure Kubernetes Service](../aks/index.yml), sur [Azure Container Instances](../container-instances/index.yml) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure-stack/operator). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Contrôle des données** : Choisissez l’endroit où vos données sont traitées par Cognitive Services. Cela peut être important si vous ne pouvez pas envoyer de données au cloud, mais que vous avez besoin d’accéder aux API Cognitive Services. Cohérence de la prise en charge dans les environnements hybrides : entre les données, la gestion, l’identité et la sécurité.
+- **Contrôle des mises à jour du modèle** : Flexibilité dans le contrôle de version et la mise à jour des modèles déployés dans leurs solutions.
+- **Architecture portable** : Permet la création d’une architecture d’application portable qui peut être déployée dans le cloud, localement et en périphérie. Les conteneurs peuvent être déployés directement sur [Azure Kubernetes Service](../aks/index.yml), sur [Azure Container Instances](../container-instances/index.yml) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure-stack/operator). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Débit élevé / faible latence** : fournir aux clients la possibilité de mettre à l’échelle pour des exigences de débit élevé et de faible latence en permettant l’exécution de Cognitive Services physiquement proche de leur logique d’application et de leurs données. Les conteneurs ne limitent pas les transactions par seconde (TPS) et peuvent être configurés pour effectuer un scale-up ou un scale-out afin de gérer la demande si vous fournissez les ressources matérielles nécessaires.
 - **Scalabilité** : Avec la popularité croissante des logiciels d’orchestration de conteneur et de conteneurisation, comme Kubernetes, la scalabilité se retrouve au premier plan des avancées technologiques. Fort d’une base de cluster scalable, le développement d’applications satisfait à la haute disponibilité.
 
@@ -55,9 +59,9 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | Service | Niveau tarifaire pris en charge | Conteneur | Description |
 |--|--|--|--|
 | [Détecteur d’anomalies][ad-containers] | F0, S0 | **Détecteur d’anomalies** ([image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès][request-access] |
-| [Vision par ordinateur][cv-containers] | F0, S1 | **Lire** | Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur Lire détecte le *texte manuscrit* dans les images et prend en charge les documents PDF/TIFF/multipage.<br/><br/>**Important :** Le conteneur Lire prend uniquement en charge l’anglais. |
-| [Visage][fa-containers] | F0, S0 | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès][request-access] |
-| [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès][request-access] |
+| [Vision par ordinateur][cv-containers] | F0, S1 | **Read** OCR ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Le conteneur Read OCR vous permet d’extraire du texte imprimé et manuscrit à partir d’images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](./computer-vision/concept-recognizing-text.md).<br>[Demander l’accès][request-access] |
+| [Visage][fa-containers] | F0, S0 | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées. |
+| [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application. |
 | [API Speech Service][sp-containers-stt] | F0, S0 | **Reconnaissance vocale** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Retranscrit une voix en un texte de façon continue et en temps réel. |
 | [API Speech Service][sp-containers-cstt] | F0, S0 | **Reconnaissance vocale personnalisée** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé. |

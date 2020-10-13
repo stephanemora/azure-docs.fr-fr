@@ -4,12 +4,12 @@ description: Cet article explique comment configurer des points de terminaison p
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508836"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324142"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour autoriser l’entrée sécurisée d’événements directement à partir de votre réseau virtuel vers vos rubriques et domaines via une [liaison privée](../private-link/private-link-overview.md), sans passer par le réseau Internet public. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre rubrique ou domaine. Pour plus d’informations conceptuelles, consultez [Sécurité du réseau](network-security.md).
@@ -42,7 +42,7 @@ Cette section vous montre comment utiliser le Portail Azure pour créer un point
         3. Vérifiez que la **Sous-ressource cible** est définie sur **rubrique** ou **domaine** (selon le type de ressource que vous avez sélectionné).    
         4. Sélectionnez **Suivant : Bouton Configuration >** en bas de la page. 
 
-            ![Point de terminaison privé - page des ressources](./media/configure-private-endpoints/resource-page.png)
+            ![Capture d’écran montrant la page « Créer un point de terminaison privé - Ressource »](./media/configure-private-endpoints/resource-page.png)
     2. Si vous sélectionnez **Se connecter à une ressource par alias ou ID de ressource**, suivez ces étapes :
         1. Entrez l’ID de la ressource. Par exemple : `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Pour **Ressource**, entrez **rubrique** ou **domaine**. 
@@ -108,7 +108,7 @@ Vous pouvez rejeter un point de terminaison privé qui se trouve dans l’état 
 
 1. Sélectionnez le **point de terminaison privé** que vous souhaitez rejeter, puis sélectionnez **Rejeter** dans la barre d’outils.
 
-    ![Point de terminaison privé – rejeter](./media/configure-private-endpoints/reject-button.png)
+    ![Capture d’écran montrant « Réseau - Connexions des points de terminaison privés (préversion) » avec l’option « Rejeter » sélectionnée](./media/configure-private-endpoints/reject-button.png)
 1. Dans la boîte de dialogue **Rejeter la connexion**, ajoutez un commentaire (facultatif) et sélectionnez **Oui**. 
 
     ![Point de terminaison privé – rejeter](./media/configure-private-endpoints/reject.png)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392668"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653041"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -50,7 +50,7 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
     L’un des outils les plus simples est WebSitePulse. Entrez l’URL pour voir le temps de résolution DNS, le premier octet, le dernier octet et d’autres statistiques de performances. Vous pouvez choisir entre trois emplacements de test différents. Dans cet exemple, vous voyez que la première exécution montre que la recherche DNS dure 0,204 s.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Capture d’écran montrant l’outil « WebSitePulse » avec le résultat de la recherche « DNS » mis en surbrillance.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Comme les résultats sont mis en cache, la deuxième fois que nous exécutons ce test sur le même point de terminaison Traffic Manager, la recherche DNS prend 0,002 s.
 

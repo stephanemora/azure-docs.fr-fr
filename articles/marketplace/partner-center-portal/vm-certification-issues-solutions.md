@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181440"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296448"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Certification des machines virtuelles : problèmes et solutions 
 
@@ -21,7 +21,7 @@ Lorsque vous publiez l'image d'une machine virtuelle sur la Place de marché Azu
 Cet article présente les messages d'erreur les plus couramment rencontrés lors de la publication d'images de machine virtuelle, ainsi que les solutions associées.
 
 > [!NOTE]
-> Si vous avez des questions ou des commentaires, contactez le [Support de l’Espace partenaires](https://partner.microsoft.com/support/v2/?stage=1).
+> Si vous avez des questions ou des suggestions d’amélioration, contactez le [support d’Espace partenaires](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="approved-base-image"></a>Image de base approuvée
 
@@ -33,6 +33,9 @@ Pour résoudre ce problème, récupérez l'image à partir de la Place de march�
 
 - [Images Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Images Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Si vous utilisez une image de base Linux qui n’est pas extraite de Place de marché, vous pouvez décaler la première partition de 2 048 ko. Cela permet d’utiliser l’espace non formaté pour ajouter de nouvelles informations de facturation et permet à Azure de publier votre machine virtuelle sur Place de marché.  
 
 ## <a name="vm-extension-failure"></a>Échec de l’extension de machine virtuelle
 
@@ -270,9 +273,12 @@ Reportez-vous au tableau suivant pour tout problème survenant lorsque vous tél
 |6|En-tête HTTP conditionnel|L'URL de signature d'accès partagé n'est pas valide.|Récupérez l’URL SAS correcte.|
 |7|Nom de disque dur virtuel non valide|Recherchez la présence de caractères spéciaux, comme un signe de pourcentage (%) ou des guillemets ("), dans le nom du disque dur virtuel.|Renommez le fichier VHD en supprimant les caractères spéciaux.|
 
-## <a name="first-1-mb-partition"></a>Première partition de 1 Mo
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Première partition en Mo (2 048 ko) [uniquement pour Linux]
 
-Lors de l'envoi du disque dur virtuel, vérifiez que la première partition de 1 Mo de celui-ci est vide. Si ce n’est pas le cas, votre demande échouera.
+Lors de l’envoi du disque dur virtuel, vérifiez que les 2 048 premiers ko de celui-ci sont vides. Si ce n’est pas le cas, votre requête échouera*.
+
+>[!NOTE]
+>*Pour certaines images spéciales, telles que celles basées sur les images de base Windows Azure issues de Place de marché Azure, nous vérifions la présence d’une balise de facturation et ignorons la partition en Mo si la balise de facturation est présente et correspond à nos valeurs internes disponibles.
 
 ## <a name="default-credentials"></a>Informations d’identification par défaut
 

@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399750"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449274"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervision des journaux et des métriques dans Azure Front Door
 
 Azure Front Door vous permet de superviser les ressources des manières suivantes :
 
-- **Métriques**. Azure Front Door dispose actuellement de sept métriques pour afficher les compteurs de performances.
+- **Métriques**. Azure Front Door dispose actuellement de huit métriques pour afficher les compteurs de performances.
 - **Journaux**. Les journaux d’activité et de diagnostic permettent d’enregistrer ou de consommer les données de performances, d’accès et autres provenant d’une ressource à des fins de supervision.
 
 ### <a name="metrics"></a>Mesures
@@ -52,7 +52,7 @@ Vous pouvez accéder aux journaux d’activité de votre service Front Door ou �
 1. Sélectionnez votre instance de Front Door.
 2. Sélectionnez **Journal d’activité**.
 
-    ![Journal d’activité](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Journal d’activité":::
 
 3. Choisissez une étendue de filtrage, puis sélectionnez **Appliquer**.
 
@@ -61,7 +61,7 @@ Les journaux de diagnostic offrent des informations détaillées sur les opérat
 
 Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
 
-![Journaux de diagnostic](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Journal d’activité":::
 
 Pour configurer les journaux de diagnostic pour votre service Front Door :
 
@@ -103,7 +103,6 @@ Front Door fournit actuellement des journaux de diagnostic (par lot toutes les h
 | Règle d’acheminement avec mise en cache. Correspondance dans le cache au niveau de la périphérie POP | 1 | Code POP Edge | Vide | False | HIT |
 | Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Vide | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Règle d’acheminement avec mise en cache. Absence dans le cache à la fois dans la périphérie et dans le POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Serveur principal qui permet de remplir le cache | 1. True</br>2. False | 1. MISS</br>2. MISS |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653299"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666821"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?
 
@@ -61,7 +61,7 @@ IPv6 pour les réseaux virtuels Azure inclut les fonctionnalités suivantes :
     - Remarque : La charge d’IPv6 peut être équilibrée uniquement vers l’interface réseau principale (carte réseau) sur les machines virtuelles Azure. 
 - [L'équilibreur de charge interne IPv6 Standard](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) prend en charge la création d'applications multiniveau résilientes dans des réseaux virtuels Azure.   
 - Prise en charge de l'équilibreur de charge public IPv6 De base pour assurer la compatibilité avec des déploiements hérités
-- [Les adresses et plages d’adresses IP publiques IPv6 réservées](ipv6-public-ip-address-prefix.md) fournissent des adresses IPv6 stables et prévisibles qui facilitent la mise en liste verte de vos applications hébergées par Azure pour votre entreprise et vos clients.
+- [Les adresses et plages d’adresses IP publiques IPv6 réservées](ipv6-public-ip-address-prefix.md) fournissent des adresses IPv6 stables et prévisibles qui facilitent le filtrage de vos applications hébergées par Azure pour votre entreprise et vos clients.
 - Une adresse IP publique de niveau d’instance fournit une connectivité Internet IPv6 directement aux machines virtuelles individuelles.
 - [Ajouter IPv6 à des déploiements uniquement IPv4 existants](ipv6-add-to-existing-vnet-powershell.md) : cette fonctionnalité vous permet d’ajouter facilement une connectivité IPv6 à des déploiements uniquement IPv4 existants sans avoir à recréer de déploiements.  Le trafic réseau IPv4 n’étant pas affecté au cours de ce processus, en fonction de votre application et du système d’exploitation, vous pouvez ajouter le protocole IPv6 même à des services en direct.    
 - Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 

@@ -3,12 +3,12 @@ title: Utiliser Azure Service Bus Explorer pour effectuer des opérations de don
 description: Cet article fournit des informations sur l’utilisation de l’Azure Service Bus Explorer basé sur le portail pour accéder à des données Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295598"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utiliser l’Explorateur Service Bus pour effectuer des opérations de données sur Service Bus (préversion)
 
@@ -51,7 +51,7 @@ Après avoir choisi **Files d’attente** ou **Rubriques**, sélectionnez la fil
 
 Sélectionnez **Service Bus Explorer (préversion)** dans le menu de navigation de gauche.
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menu de navigation gauche de Service Bus Explorer":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Sélection d’entité":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Envoi d’un message à une file d’attente ou à une rubrique
 
@@ -66,17 +66,17 @@ Pour composer un message ici :
 
 Une fois le message composé, appuyez sur Envoyer.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Composer un message":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Sélection d’entité":::
 
 Lorsque l’opération d’envoi s’est terminée avec succès, 
 
 * En cas d’envoi à la file d’attente, le compteur de métriques **Messages actifs** est incrémenté.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Sélection d’entité":::
 
 * En cas d’envoi à la Rubrique, le compteur de métriques **Messages actifs** est incrémenté sur l’abonnement vers lequel le message a été acheminé.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Sélection d’entité":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Réception d’un message d’une file d’attente
 
@@ -93,18 +93,18 @@ Pour recevoir un message d’une File d’attente (ou de sa sous-file d’attent
 1. Cliquez sur l’onglet ***Recevoir*** du Service Bus Explorer.
 2. Vérifiez les métriques pour voir s’il existe des **Messages actifs** ou des **Messages de lettres mortes** à recevoir.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Sélection d’entité":::
 
 3. Choisissez entre la ***File d’attente*** ou la sous-file d’attente ***Lettre morte***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Sélection d’entité":::
 
 4. Cliquez sur le bouton ***Recevoir***, puis sur ***Oui*** pour confirmer l’opération de réception et suppression.
 
 
 Lorsque l’opération de réception aboutit, les détails du message s’affichent dans la grille comme ci-dessous. Vous pouvez sélectionner le message dans la grille pour afficher ses détails.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Sélection d’entité":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Affichage d’aperçu d’un message d’une file d’attente
@@ -113,21 +113,21 @@ La fonctionnalité d’aperçu vous permet d’utiliser Service Bus Explorer pou
 
 1. Pour lire le message dans une file d’attente, cliquez sur l’onglet ***Aperçu*** dans le Service Bus Explorer.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Sélection d’entité":::
 
 2. Vérifiez les métriques pour voir s’il existe des **Messages actifs** ou des **Messages de lettres mortes** dont afficher l’aperçu.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Sélection d’entité":::
 
 3. Choisissez ensuite entre la ***File d’attente*** ou la sous-file d’attente ***Lettre morte***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Sélection d’entité":::
 
 4. Cliquez sur le bouton ***Aperçu***. 
 
 Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 messages s’affichent dans la grille comme ci-dessous. Pour afficher les détails d’un message particulier, sélectionnez-le dans la grille. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Sélection d’entité":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 m
 
 1. Cliquez sur l’onglet ***Recevoir*** et sélectionnez l’***Abonnement***  spécifique dans le sélecteur de liste déroulante.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Sélection d’entité":::
 
 2. Choisissez entre l’***Abonnement*** ou la sous-entité ***DeadLetter***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Sélection d’entité":::
 
 3. Cliquez sur le bouton ***Recevoir***, puis sur ***Oui*** pour confirmer l’opération de réception et suppression.
 
 Lorsque l’opération de réception aboutit, le message reçu s’affiche dans la grille comme ci-dessous. Pour afficher les détails du message, cliquez dessus.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Sélection d’entité":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Affichage de l’aperçu d’un message d’un abonnement
 
@@ -164,17 +164,17 @@ Pour simplement parcourir les messages d’un abonnement ou de sa sous-entité d
 
 1. Cliquez sur l’onglet ***Aperçu*** et sélectionnez l’***Abonnement*** spécifique dans le sélecteur de liste déroulante.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Sélection d’entité":::
 
 2. Choisissez entre l’***Abonnement*** ou la sous-entité ***DeadLetter***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Sélection d’entité":::
 
 3. Cliquez sur le bouton ***Aperçu***.
 
 Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 messages s’affichent dans la grille comme ci-dessous. Pour afficher les détails d’un message particulier, sélectionnez-le dans la grille. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Sélection d’entité":::
 
 > [!NOTE]
 >

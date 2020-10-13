@@ -127,6 +127,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure Resource Manager
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: Stratégie intégrée
+              href: nsg-flow-logs-policy-portal.md
         - name: Supprimer les objets blob de stockage du journal de flux NSG
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analyser les journaux de flux NSG

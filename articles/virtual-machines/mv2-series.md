@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651129"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653551"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -20,15 +20,13 @@ La série Mv2 offre une plateforme à haut débit et faible latence sur un proce
 
 Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’Intel®
 
-Premium Storage : Prise en charge
-
-Mise en cache du Stockage Premium : Prise en charge
-
-Migration dynamique : Non pris en charge
-
-Mises à jour avec préservation de la mémoire : Non pris en charge
-
-Accélérateur d’écriture : [Pris en charge](./how-to-enable-write-accelerator.md)
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Accélérateur d’écriture](./how-to-enable-write-accelerator.md) : Pris en charge<br>
+<br>
 
 |Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

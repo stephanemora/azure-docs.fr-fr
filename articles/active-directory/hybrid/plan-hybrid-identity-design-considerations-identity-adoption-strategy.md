@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294861"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -55,7 +55,7 @@ Le tableau ci-après vous aide à déterminer les avantages et inconvénients de
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
 | **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
-| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
+| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent hésiter à synchroniser leurs annuaires avec le cloud en raison de stratégies spécifiques de l’entreprise. |
 | **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO) <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
 ### <a name="client-experience"></a>Expérience client
