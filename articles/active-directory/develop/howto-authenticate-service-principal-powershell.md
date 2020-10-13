@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265831"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procédure : Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 
@@ -225,3 +225,4 @@ Lors de la création d’un principal du service, vous pouvez rencontrer les err
 * Pour configurer un principal du service avec un mot de passe, consultez [Créer un principal du service Azure avec Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](app-objects-and-service-principals.md).
 * Pour plus d’informations sur l’authentification Azure AD, consultez la rubrique [Scénarios d’authentification pour Azure AD](./authentication-vs-authorization.md).
+* Pour plus d’informations sur l’utilisation des inscriptions d’applications à l’aide de **Microsoft Graph**, consultez les informations de référence sur l’API [Applications](/graph/api/resources/application).

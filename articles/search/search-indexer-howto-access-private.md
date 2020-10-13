@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: e9944e95dd452cd00e63280ad8002141591f521e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971435"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534724"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Accéder à des ressources sécurisées par le biais de points de terminaison privés
 
@@ -45,7 +45,7 @@ La liste des ressources Azure pour lesquelles les connexions par point de termin
 Dans le cadre de ce guide, une combinaison d'[ARMClient](https://github.com/projectkudu/ARMClient) et de [Postman](https://www.postman.com/) est utilisée pour illustrer les appels d'API REST.
 
 > [!NOTE]
-> Dans l'exemple de ce guide, le service de recherche s'appelle __contoso-search__ et se trouve dans le groupe de ressources __contoso__ d'un abonnement dont l'ID est __00000000-0000-0000 -0000-000000000000__. L'ID de ressource de ce service de recherche est `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
+> Dans l’exemple de ce guide, le service de recherche s’appelle __contoso-search__ et se trouve dans le groupe de ressources __contoso__ d’un abonnement dont l’ID est __00000000-0000-0000 -0000-000000000000__. L’ID de ressource de ce service de recherche est `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`.
 
 Ce guide explique comment le service __contoso-search__ peut être configuré pour que ses indexeurs aient accès aux données à partir du compte de stockage sécurisé `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
 

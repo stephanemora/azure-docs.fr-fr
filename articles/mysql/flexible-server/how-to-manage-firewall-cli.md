@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4279da10de92bc8bf9cd564eaae02db2fef76a64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307804"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -33,17 +33,17 @@ Cet article se concentre sur la création d’un serveur MySQL avec **accès pub
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également ouvrir Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell et sélectionnez **Entrée** pour les exécuter.
 
-Si vous préférez installer et utiliser l’interface de ligne de commande localement, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous préférez installer et utiliser l’interface de ligne de commande localement, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte avec la commande [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
+Vous devrez vous connecter à votre compte avec la commande [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 
 Vous pouvez utiliser la commande `az mysql flexible-server --public access` pour créer le serveur flexible avec un *accès public (adresses IP autorisées)* et configurer les règles de pare-feu lors de la création d’un serveur flexible. Vous pouvez utiliser le commutateur **--public-access** pour fournir les adresses IP autorisées qui pourront se connecter au serveur. Vous pouvez fournir une adresse IP ou une plage d’adresses IP à inclure dans la liste des adresses IP autorisées. Les adresses IP de la plage doivent être séparées par des tirets et ne doivent pas contenir d’espaces. Il existe différentes options pour créer un serveur flexible à l’aide de l’interface CLI, comme indiqué dans les exemples ci-dessous.
 
-Consultez la documentation de référence sur Azure CLI <!--FIXME --> pour obtenir la liste complète des paramètres d’interface de ligne de commande configurables. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
+Pour obtenir la liste complète des paramètres CLI configurables, consultez la [documentation de référence](/cli/azure/mysql/flexible-server) d’Azure CLI. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
 
 - Créer un serveur flexible avec accès public et ajouter l’adresse IP du client pour avoir accès au serveur
     ```azurecli-interactive
@@ -95,7 +95,7 @@ Commandes :
 - **show** : afficher les détails d’une règle de pare-feu de serveur flexible.
 - **delete** : supprimer une règle de pare-feu de serveur flexible.
 
-Consultez la documentation de référence sur Azure CLI <!--FIXME --> pour obtenir la liste complète des paramètres d’interface de ligne de commande configurables. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
+Pour obtenir la liste complète des paramètres CLI configurables, consultez la [documentation de référence](/cli/azure/mysql/flexible-server) d’Azure CLI. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
 
 ### <a name="create-a-firewall-rule"></a>Créer une règle de pare-feu
 Utilisez la commande `az mysql flexible-server firewall-rule create` pour créer une règle de pare-feu sur le serveur.

@@ -5,21 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 34fcb8d28ae8deda88a6ce91261301ab5d08a743
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104552"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653058"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Créer des utilisateurs dans Azure Database for MariaDB 
 Cet article explique comment vous pouvez créer des utilisateurs dans Azure Database for MariaDB.
 
 > [!NOTE]
-> Communication sans stéréotype
+> Communication sans biais
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article par souci de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 Quand vous avez créé votre serveur Azure Database for MariaDB, vous avez fourni un nom d’utilisateur et un mot de passe pour la connexion d’administrateur du serveur. Pour plus d’informations, vous pouvez suivre le [Guide de démarrage rapide](quickstart-create-mariadb-server-database-using-azure-portal.md). Vous pouvez localiser le nom d’utilisateur pour la connexion en tant qu’administrateur du serveur dans le portail Azure.
@@ -29,7 +29,8 @@ L’utilisateur administrateur de serveur possède les privilèges suivants pour
 Une fois le serveur Azure Database for MariaDB créé, vous pouvez utiliser le premier compte d’utilisateur Admin du serveur pour créer des utilisateurs supplémentaires et leur accorder un accès administrateur. Le compte administrateur du serveur peut être utilisé pour créer des utilisateurs possédant moins de privilèges et ayant accès à des schémas de base de données individuels.
 
 > [!NOTE]
-> Le privilège SUPER et le rôle DBA ne sont pas pris en charge. Pour comprendre ce qui n’est pas pris en charge dans le service, consultez les [privilèges](concepts-limits.md#privilege-support) dans l’article sur les limitations.
+> Le privilège SUPER et le rôle DBA ne sont pas pris en charge. Pour comprendre ce qui n’est pas pris en charge dans le service, consultez les [privilèges](concepts-limits.md#privileges--data-manipulation-support) dans l’article sur les limitations.<br><br>
+> Les plug-ins de mot de passe, tels que « validate_password » et « caching_sha2_password », ne sont pas pris en charge par le service.
 
 ## <a name="create-additional-admin-users"></a>Créer des utilisateurs administrateurs supplémentaires
 1. Obtenez les informations de connexion et le nom d’utilisateur administrateur.
@@ -90,6 +91,10 @@ Une fois le serveur Azure Database for MariaDB créé, vous pouvez utiliser le p
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
    Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation MariaDB relative à la [gestion des comptes d’utilisateurs](https://mariadb.com/kb/en/library/user-account-management/), à la [ syntaxe GRANT](https://mariadb.com/kb/en/library/grant/) et aux [privilèges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+
+## <a name="azure_superuser"></a>azure_superuser
+
+Tous les serveurs Azure Database pour MySQL sont créés avec un utilisateur appelé « azure_superuser ». Il s’agit d’un compte système créé par Microsoft pour gérer le serveur afin d’effectuer la surveillance, les sauvegardes et d’autres opérations de maintenance régulière. Les ingénieurs du support technique peuvent également utiliser ce compte pour accéder au serveur lors d’un incident d’authentification par certificat et il doivent demander l’accès à l’aide de processus juste-à-temps (JIT).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs afin de leur permettre de se connecter : [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure](howto-manage-firewall-portal.md)  

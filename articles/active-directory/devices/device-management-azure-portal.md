@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278854"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
 Le portail Azure AD offre un emplacement central pour la gestion des identités d’appareils.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Appareils**.
-
-[![Vue Tous les appareils dans le portail Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 La page **Tous les appareils** vous permet d’effectuer les opérations suivantes :
 
@@ -38,6 +33,13 @@ La page **Tous les appareils** vous permet d’effectuer les opérations suivant
 - Configurer les paramètres d’identité de votre appareil.
 - Activer ou désactiver Enterprise State Roaming.
 - Examiner les journaux d’audit liés à l’appareil.
+
+[![Vue Tous les appareils dans le portail Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+Vous pouvez accéder au portail des appareils en procédant comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à **Azure Active Directory** > **Appareils**.
 
 ## <a name="manage-devices"></a>Gérer des appareils
 
@@ -146,6 +148,13 @@ Vous avez maintenant la possibilité d’**Ajouter des filtres** à votre vue **
 ## <a name="configure-device-settings"></a>Configurer les paramètres de l’appareil
 
 Pour que vous puissiez gérer les identités d’appareils avec le portail Azure AD, ces appareils doivent être [inscrits ou joints](overview.md) à Azure AD. En tant qu’administrateur, vous pouvez contrôler le processus d’inscription et de jonction d’appareils en configurant les paramètres d’appareil suivants.
+
+Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, vous devez être titulaire de l’un des rôles suivants :
+
+- Administrateur général
+- Administrateur d’appareil cloud
+- Lecteur général
+- Lecteur d’annuaire
 
 ![Paramètres d’appareil associés à Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 

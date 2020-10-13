@@ -3,14 +3,14 @@ title: Interroger les journaux Update Management Azure Automation
 description: Cet article explique comment interroger les journaux pour Update Management dans votre espace de travail Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264301"
 ---
 # <a name="query-update-management-logs"></a>Interroger les journaux Update Management
 
@@ -110,7 +110,7 @@ Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état 
 | Computer | Nom de domaine complet de la machine qui rend compte. |
 | ComputerEnvironment | Environnement. Les valeurs sont Azure ou non-Azure. |
 | CorrelationId | Identificateur unique de la tâche runbook à exécuter pour la mise à jour. |
-| EndTime | Heure de fin du processus de synchronisation. |
+| EndTime | Heure de fin du processus de synchronisation. *Cette propriété n’est pas utilisée actuellement. Consultez TimeGenerated.* |
 | ErrorResult | Code d’erreur Windows Update généré en cas d’échec de l’installation d’une mise à jour. |
 | InstallationStatus | Les états d’installation possibles d’une mise à jour sur l’ordinateur client sont :<br> `NotStarted` : la tâche n’a pas encore été déclenchée.<br> `FailedToStart` : impossible de démarrer la tâche sur l’ordinateur.<br> `Failed` : la tâche a démarré, mais a échoué avec une exception.<br> `InProgress` : tâche en cours.<br> `MaintenanceWindowExceeded` : si l’exécution était encore en cours, mais que l’intervalle de la fenêtre de maintenance a été atteint.<br> `Succeeded` : la tâche a réussi.<br> `InstallFailed` : échec de l’installation de la mise à jour.<br> `NotIncluded`<br> `Excluded` |
 | KBID | ID d’article de la base de connaissances pour la mise à jour Windows. |
@@ -123,8 +123,8 @@ Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état 
 | ResourceType | Type de ressource. |
 | SourceComputerId | Identificateur unique représentant l’ordinateur source. |
 | SourceSystem | Système source de l’enregistrement. La valeur est `OperationsManager`. |
-| StartTime | Heure à laquelle l’installation de la mise à jour est planifiée. |
-| SubscriptionId | Identificateur unique de l’abonnement Azure. | 
+| StartTime | Heure à laquelle l’installation de la mise à jour est planifiée. *Cette propriété n’est pas utilisée actuellement. Consultez TimeGenerated.* |
+| SubscriptionId | Identificateur unique de l’abonnement Azure. |
 | SucceededOnRetry | Valeur indiquant si l’exécution de la mise à jour a échoué lors de la première tentative et si l’opération en cours est une nouvelle tentative. |
 | TimeGenerated | Date et heure de création de l’enregistrement. |
 | Intitulé | Titre de la mise à jour. |

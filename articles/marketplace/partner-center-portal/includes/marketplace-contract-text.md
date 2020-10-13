@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326667"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400982"
 ---
 Microsoft fournit un modèle de contrat Standard pour le marketplace commercial.
 
@@ -46,7 +46,7 @@ Deux types de modifications sont proposées aux éditeurs de la place de marché
 **Conditions d'amendements personnalisées du contrat Standard pour la place de marché commerciale de Microsoft**: Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées**. Vous pouvez fournir jusqu’à 10 termes d’amendement personnalisés par offre.
 
 - **Termes d’amendement personnalisés**: Saisissez vos conditions d’amendement personnalisées dans la zone Conditions d’amendement personnalisées. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Seuls les clients des ID de locataire que vous spécifiez pour ces conditions personnalisées seront présentés avec les termes de l’amendement personnalisé dans le flow d’achat de l’offre dans le Portail Azure.  
-- **ID de locataire** (obligatoire) : Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire. L’ID de locataire identifie votre client dans Azure. Vous pouvez demander à votre client cet ID et il peut le trouver en accédant à portal.azure.com > Azure Active Directory > Propriétés. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également Rechercher l’ID de locataire de l’organisation de votre client à l’aide de son URL de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com).
+- **ID de locataire** (obligatoire) : Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire. L’ID de locataire identifie votre client dans Azure. Vous pouvez demander à votre client cet ID et il peut le trouver en accédant à portal.azure.com > Azure Active Directory > Propriétés. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également rechercher l’ID de locataire de l’organisation de votre client à l’aide de son URL de nom de domaine sur le site [Quel est mon ID de locataire Microsoft Azure et Microsoft 365 ?](https://www.whatismytenantid.com)
 - **Description** (facultatif) : Vous pouvez éventuellement fournir une description claire de l’ID de locataire, qui vous aide à identifier le client que vous ciblez avec cet amendement.
 
 **Conditions générales**

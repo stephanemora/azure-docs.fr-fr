@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
-ms.openlocfilehash: 1affa396407ba9804261c799b559e40928b9b1fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/30/2020
+ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388302"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744200"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -28,7 +27,7 @@ La fonctionnalité de suppression réversible de Key Vault permet la récupérat
 
 ## <a name="supporting-interfaces"></a>Prise en charge des interfaces
 
-La fonctionnalité de suppression réversible est pour l’instant disponible par le biais des interfaces [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) et [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) ainsi que des [modèles ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La fonctionnalité de suppression réversible est disponible par le biais de l’[API REST](/rest/api/keyvault/), d’[Azure CLI](soft-delete-cli.md), d’[Azure PowerShell](soft-delete-powershell.md), des interfaces [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) et des [modèles Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -48,13 +47,13 @@ La durée de rétention par défaut est de 90 jours, mais, lors de la création
 
 Vous ne pouvez pas réutiliser le nom d’un coffre de clés ayant fait l’objet d’une suppression réversible tant que la période de rétention n’est pas écoulée.
 
-### <a name="purge-protection"></a>Protection contre le vidage 
+### <a name="purge-protection"></a>Protection contre le vidage
 
 La protection contre le vidage est un comportement facultatif de Key Vault et **n’est pas activée par défaut**. La protection contre le vidage ne peut être activée qu’une fois que la suppression réversible est activée.  Elle peut être activée via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-Lorsque la protection contre le vidage est activée, il n’est pas possible de purger un coffre ou un objet à l’état supprimé avant la fin de la période de rétention de 90 jours. Après une suppression réversible, les coffres et objets restent récupérables pour garantir le respect de la stratégie de rétention. 
+Lorsque la protection contre le vidage est activée, il n’est pas possible de purger un coffre ou un objet à l’état supprimé avant la fin de la période de rétention de 90 jours. Après une suppression réversible, les coffres et objets restent récupérables pour garantir le respect de la stratégie de rétention.
 
-La durée de rétention par défaut est de 90 jours, mais il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. Une fois l’intervalle de la stratégie de rétention défini et enregistré, il n’est plus possible de le modifier pour ce coffre. 
+La durée de rétention par défaut est de 90 jours, mais il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. Une fois l’intervalle de la stratégie de rétention défini et enregistré, il n’est plus possible de le modifier pour ce coffre.
 
 ### <a name="permitted-purge"></a>Vidage autorisé
 
@@ -63,6 +62,8 @@ Il est possible de supprimer ou vider définitivement un coffre Key Vault en ex
 Les exceptions sont les suivantes :
 - Lorsque l’abonnement Azure a été marqué comme *impossible à supprimer*. Dans ce cas, seul le service peut alors effectuer la suppression, dans le cadre d’un processus planifié. 
 - Lorsque l’indicateur `--enable-purge-protection flag` est activé sur le coffre lui-même. Dans ce cas, Key Vault attend pendant 90 jours à partir du moment où l’objet de secret d’origine a été marqué pour suppression pour le supprimer définitivement.
+
+Pour connaître les étapes à suivre, consultez [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI : Vidage d’un coffre de clés](soft-delete-cli.md#purging-a-key-vault) ou [Utilisation de la suppression réversible Key Vault avec l’interface PowerShell : Vidage d’un coffre de clés](soft-delete-powershell.md#purging-a-key-vault).
 
 ### <a name="key-vault-recovery"></a>Récupération d’un Key Vault
 
@@ -79,10 +80,10 @@ Dans le même temps, Key Vault planifiera la suppression des données sous-jace
 Les ressources ayant fait l’objet d’une suppression réversible sont conservées pendant une durée fixée à 90 jours. Au cours de la période de rétention de la suppression réversible :
 
 - Vous pouvez répertorier tous les coffres Key Vault et les objets Key Vault à l’état de suppression réversible pour votre abonnement, et accéder à des informations concernant leur suppression et leur récupération.
-    - Seuls les utilisateurs disposant d’autorisations spéciales peuvent répertorier des coffres supprimés. Nous recommandons à nos utilisateurs de créer un rôle personnalisé avec ces autorisations spéciales pour le traitement des coffres supprimés.
-- Il est impossible de créer un Key Vault du même nom au même emplacement. En conséquence, un objet Key Vault ne peut pas être créé dans un coffre donné si celui-ci contient un objet portant le même nom et se trouvant à l’état supprimé 
+  - Seuls les utilisateurs disposant d’autorisations spéciales peuvent répertorier des coffres supprimés. Nous recommandons à nos utilisateurs de créer un rôle personnalisé avec ces autorisations spéciales pour le traitement des coffres supprimés.
+- Il est impossible de créer un coffre de clés du même nom au même emplacement. En conséquence, un objet de coffre de clés ne peut pas être créé dans un coffre donné si celui-ci contient un objet portant le même nom et se trouvant à l’état supprimé.
 - Seul un utilisateur disposant de privilèges spécifiques peut restaurer un coffre Key Vault ou un objet Key Vault en exécutant une commande de récupération sur la ressource de proxy correspondante.
-    - L’utilisateur membre du rôle personnalisé qui est autorisé à créer un coffre sous le groupe de ressources peut restaurer le coffre.
+  - L’utilisateur membre du rôle personnalisé qui est autorisé à créer un coffre sous le groupe de ressources peut restaurer le coffre.
 - Seul un utilisateur disposant de privilèges spécifiques peut forcer la suppression d’un coffre Key Vault ou d’un objet Key Vault en exécutant une commande de suppression sur la ressource de proxy correspondante.
 
 Sauf en cas de restauration d’un coffre de clés ou d’un objet de coffre de clés, à la fin de l’intervalle de rétention, le service vide le coffre de clés ou l’objet de coffre de clés qui a fait l’objet d’une suppression réversible, ainsi que son contenu. La suppression de la ressource ne peut pas être replanifiée.
@@ -100,4 +101,3 @@ Les deux guides ci-après présentent les principaux scénarios d’usage de la 
 
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec Azure Power​Shell](soft-delete-powershell.md) 
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](soft-delete-cli.md)
-

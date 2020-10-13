@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078994"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395989"
 ---
 # <a name="security-control-data-protection"></a>Contrôle de sécurité : Protection des données
 
@@ -74,7 +74,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 Si aucune fonctionnalité n’est disponible pour votre service spécifique dans Azure, utilisez un outil de découverte actif tiers pour identifier toutes les informations sensibles stockées, traitées ou transmises par les systèmes technologiques de l’organisation, y compris celles situées sur site ou à un fournisseur de services à distance et mettez à jour l’inventaire des informations sensibles de l’organisation.
 
-Utilisez Azure Information Protection pour identifier les informations sensibles dans les documents Office 365.
+Utilisez Azure Information Protection pour identifier les informations sensibles dans des documents Microsoft 365.
 
 Utilisez Azure SQL Information Protection pour faciliter la classification et l'étiquetage des informations stockées dans Azure SQL Database.
 

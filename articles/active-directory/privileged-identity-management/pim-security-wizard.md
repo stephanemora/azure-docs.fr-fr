@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005918"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534435"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Détection et insights (préversion) pour les rôles Azure AD (anciennement Assistant Sécurité)
 
@@ -29,9 +29,9 @@ Si vous commencez à utiliser Privileged Identity Management (PIM) dans votre or
 
 Avant que votre organisation commence à utiliser Privileged Identity Management, toutes les attributions de rôles sont permanentes. Les utilisateurs se trouvent toujours dans les rôles qui leur sont attribués, même s’ils n’ont pas besoin des privilèges associés. Détection et insights (préversion), qui remplace l’ancien Assistant Sécurité, affiche une liste des rôles privilégiés et le nombre d’utilisateurs actuellement dans ces rôles. Vous pouvez répertorier les attributions d’un rôle pour en savoir plus sur les utilisateurs affectés si un ou plusieurs d’entre eux ne vous sont pas familiers.
 
-:heavy_check_mark: **Microsoft recommande** de conserver deux comptes de secours qui sont attribués de façon permanente au rôle d’administrateur général qui ne nécessite pas l’authentification multifacteur lors de la connexion. Vous pouvez les utiliser dans n’importe quel scénario de secours ou dans le cas où aucun utilisateur n’est en mesure d’accéder à son rôle d’administrateur général.
+:heavy_check_mark: **Microsoft recommande** de conserver deux comptes de secours qui sont attribués de façon permanente au rôle d’administrateur général. Assurez-vous que ces comptes ne nécessitent pas le même mécanisme d’authentification multifacteur que vos comptes d’administration normaux pour se connecter, comme décrit dans la section [ Gérer les comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md).
 
-En outre, conservez les attributions de rôles permanentes si un utilisateur possède un compte Microsoft (en d’autres termes, un compte pour se connecter aux services Microsoft tels que Skype ou Outlook.com). Si vous avez besoin d’activer l’authentification multifacteur dans ce rôle, l’utilisateur n’aura plus accès.
+En outre, conservez les attributions de rôles permanentes si un utilisateur possède un compte Microsoft (en d’autres termes, un compte pour se connecter aux services Microsoft tels que Skype ou Outlook.com). Si vous avez besoin de l’authentification multifacteur pour un utilisateur disposant d’un compte Microsoft afin d’activer une attribution de rôle, l’utilisateur est verrouillé.
 
 ## <a name="open-discovery-and-insights-preview"></a>Ouvrir Détection et insights (préversion)
 
@@ -45,11 +45,11 @@ En outre, conservez les attributions de rôles permanentes si un utilisateur pos
 
 1. Sélectionnez **Réduire les administrateurs généraux**.
 
-    ![Réduire les administrateurs généraux - Volet Rôle présentant tous les membres](./media/pim-security-wizard/new-preview-page.png)
+    ![Capture d’écran représentant « Détection et insights (préversion) » avec l’action « Réduire les administrateurs généraux » sélectionnée.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Passez en revue la liste des attributions du rôle Administrateur général.
 
-    ![Réduire les administrateurs généraux - Volet Rôle présentant tous les membres](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Réduire les administrateurs généraux - Volet Rôle présentant tous les Administrateurs généraux](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Sélectionnez **Suivant** pour sélectionner les utilisateurs ou les groupes que vous souhaitez rendre éligibles, puis sélectionnez **Rendre éligible** ou **Supprimer l’attribution**.
 

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295268"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs à partir d’Azure Stream Analytics
 
@@ -46,7 +46,23 @@ La taille maximale du message est de 256 Ko ou 1 Mo par message. Pour plus d'inf
 
 ## <a name="custom-metadata-properties-for-output"></a>Propriétés de métadonnées personnalisées pour la sortie
 
-Vous pouvez joindre des colonnes de requête en tant que propriétés de l’utilisateur aux messages sortants. Ces colonnes ne font pas partie de la charge utile. Les propriétés sont présentes sous la forme d’un dictionnaire sur le message de sortie. *Clé* est le nom de colonne et *valeur* est la valeur de la colonne dans le dictionnaire de propriétés. Tous les types de données Stream Analytics sont pris en charge à l’exception des enregistrements et des tableaux.  
+Vous pouvez joindre des colonnes de requête en tant que propriétés de l’utilisateur aux messages sortants. Ces colonnes ne font pas partie de la charge utile. Les propriétés sont présentes sous la forme d’un dictionnaire sur le message de sortie. *Clé* est le nom de colonne et *valeur* est la valeur de la colonne dans le dictionnaire de propriétés. Tous les types de données Stream Analytics sont pris en charge à l’exception des enregistrements et des tableaux.
+
+Dans l’exemple suivant, les champs `DeviceId` et `DeviceStatus` sont ajoutés aux métadonnées.
+
+1. Utilisez la requête suivante :
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configurez `DeviceId,DeviceStatus` comme colonnes de propriété dans la sortie.
+
+   :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="Colonnes de propriété":::
+
+L’illustration suivante présente les propriétés de message de sortie attendues qui sont inspectées dans un Event Hub à l’aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Colonnes de propriété":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

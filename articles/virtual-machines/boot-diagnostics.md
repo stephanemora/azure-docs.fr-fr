@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007330"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287081"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -38,6 +38,7 @@ Située dans le panneau de la machine virtuelle, l’option Diagnostics de déma
 - Les diagnostics de démarrage ne prennent pas en charge les comptes de stockage Premium. Si un compte de stockage Premium est utilisé pour les diagnostics de démarrage, les utilisateurs recevront une erreur `StorageAccountTypeNotSupported` lors du démarrage de la machine virtuelle. 
 - Les comptes de stockage managés sont pris en charge dans l’API Resource Manager version « 2020-06-01 » et ultérieures.
 - La console série Azure est actuellement incompatible avec un compte de stockage managé pour les diagnostics de démarrage. Découvrez-en plus sur la [console série Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- Les diagnostics de démarrage utilisant un compte de stockage de gestion ne peuvent être appliqués actuellement que via le portail Azure. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

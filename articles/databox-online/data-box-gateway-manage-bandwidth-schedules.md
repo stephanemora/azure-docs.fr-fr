@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ccc9725ffe5304942b740d460a67129f9c1c5d8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339142"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743843"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 
@@ -46,7 +46,7 @@ Pour ajouter une planification, procédez comme suit dans le Portail Azure.
    4. Si vous ne souhaitez pas limiter le chargement et le téléchargement de données, cochez la case **Bande passante illimitée**. 
    5. Cliquez sur **Add**.
 
-      ![Ajout d’une planification](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Cliquez sur Ajouter l’utilisateur 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Une planification est créée avec les paramètres spécifiés. Le portail affiche alors cette planification dans la liste des planifications de bande passante.
 
@@ -61,11 +61,11 @@ Pour modifier une planification de bande passante, procédez comme suit.
 
 3. Apportez les modifications souhaitées, puis enregistrez les modifications.
 
-    ![Modification d’une planification](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modifier l’utilisateur 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. Une fois la planification modifiée, la liste des planifications est mise à jour pour refléter cette modification.
 
-    ![Modification d’une planification](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modifier l’utilisateur 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Supprimer une planification

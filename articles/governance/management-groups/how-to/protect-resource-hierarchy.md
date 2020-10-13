@@ -3,12 +3,12 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469777"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533977"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -16,9 +16,9 @@ Votre hiérarchie de ressources est un ensemble constitué de vos ressources, gr
 
 Les groupes d’administration ont désormais des paramètres de hiérarchie qui permettent à l’administrateur du locataire de contrôler ces comportements. Cet article décrit chacun des paramètres de hiérarchie disponibles et explique comment les définir.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Autorisations RBAC pour les paramètres de hiérarchie
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Autorisations Azure RBAC pour les paramètres de hiérarchie
 
-La configuration des paramètres de hiérarchie exige l’utilisation des deux opérations RBAC suivantes au niveau du groupe d’administration racine :
+La configuration des paramètres de hiérarchie exige l’utilisation des deux opérations de fournisseur de ressources suivantes au niveau du groupe d’administration racine :
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Ces opérations permettent uniquement à un utilisateur de lire et mettre à jou
 
 ## <a name="setting---default-management-group"></a>Paramètre – Groupe d’administration par défaut
 
-Par défaut, un nouvel abonnement ajouté au sein d’un locataire est ajouté en tant que membre du groupe d’administration racine. Si les affectations de stratégie, le contrôle d’accès en fonction du rôle (RBAC) et d’autres concepts de gouvernance sont affectés au groupe d’administration racine, ils ont un effet immédiat sur ces nouveaux abonnements. C’est pour cette raison que de nombreuses organisations n’appliquent pas ces concepts au niveau du groupe d’administration racine, même s’il s’agit de leur emplacement d’affectation idéal. Dans d’autres cas, un ensemble de contrôles plus restrictif est souhaité pour les nouveaux abonnements, mais il n’est pas recommandé de les affecter à tous les abonnements. Ce paramètre prend en charge les deux cas d’usage.
+Par défaut, un nouvel abonnement ajouté au sein d’un locataire est ajouté en tant que membre du groupe d’administration racine. Si les affectations de stratégie, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et d’autres concepts de gouvernance sont affectés au groupe d’administration racine, ils ont un effet immédiat sur ces nouveaux abonnements. C’est pour cette raison que de nombreuses organisations n’appliquent pas ces concepts au niveau du groupe d’administration racine, même s’il s’agit de leur emplacement d’affectation idéal. Dans d’autres cas, un ensemble de contrôles plus restrictif est souhaité pour les nouveaux abonnements, mais il n’est pas recommandé de les affecter à tous les abonnements. Ce paramètre prend en charge les deux cas d’usage.
 
 En permettant la définition du groupe d’administration par défaut des nouveaux abonnements, les concepts de gouvernance à l’échelle de l’organisation peuvent être appliqués au niveau du groupe d’administration racine, et il est possible de définir un groupe d’administration distinct avec des affectations de stratégie ou des attributions de rôle Azure plus adaptées à un nouvel abonnement.
 

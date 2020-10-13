@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89569977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376711"
 ---
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
 
@@ -47,6 +47,39 @@ Les groupes de placement de proximité offrent une colocalisation dans le même 
 -   Dans le cas de charges de travail élastiques où vous ajoutez et supprimez des instances de machine virtuelle, l’existence d’une contrainte de groupe de placement de proximité sur votre déploiement peut entraîner un échec de satisfaction de la demande générant l’erreur **AllocationFailure**. 
 - L’arrêt (désallocation) et le démarrage de vos machines virtuelles en fonction des besoins sont une autre façon d’obtenir l’élasticité. Étant donné que la capacité n’est pas conservée une fois que vous arrêtez (désallouez) une machine virtuelle, le redémarrage de celle-ci peut générer une erreur **AllocationFailure**.
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Maintenance planifiée et groupes de placement de proximité
+
+Les événements de maintenance planifiée, tels que la désaffectation de matériel dans un centre de ressources Azure, sont susceptibles d’affecter l’alignement des ressources dans des groupes de placement de proximité. Les ressources peuvent être déplacées vers un autre centre de données, ce qui perturbe les attentes en matière de colocation et de latence associées au groupe de placement de proximité.
+
+### <a name="check-the-alignment-status"></a>Vérifier l’état de l’alignement
+
+Vous pouvez procéder comme suit pour vérifier l’état d’alignement de vos groupes de placement de proximité.
+
+
+- L’état de colocation du groupe de placement de proximité peut être affiché à l’aide du portail, de l’interface CLI et de PowerShell.
+
+    -   Lorsque vous utilisez PowerShell, l’état de colocation peut être obtenu à l’aide de l’applet de commande Get-AzProximityPlacementGroup en incluant le paramètre facultatif « -ColocationStatus ».
+
+    -   Lorsque vous utilisez l’interface CLI, l’état de colocation peut être obtenu à l’aide de `az ppg show` en incluant le paramètre facultatif « --include-colocation-status ».
+
+- Pour chaque groupe de placement de proximité, une propriété **état de colocation** fournit le résumé de l’état d’alignement actuel des ressources groupées. 
+
+    - **Aligned** : la ressource se trouve dans la même enveloppe de latence du groupe de placement de proximité.
+
+    - **Unknown** : au moins l’une des ressources de machines virtuelles ont été libérées. Une fois que celles-ci ont été redémarrées, l’état doit revenir à **Aligned**.
+
+    - **Not Aligned** : au moins une ressource n'est pas alignée avec le groupe de placement de proximité. Les ressources spécifiques qui ne sont pas alignées sont également appelées séparément dans la section liée à l’appartenance.
+
+- Pour les groupes à haute disponibilité, vous pouvez voir des informations sur l’alignement des machines virtuelles individuelles sur la page Vue d’ensemble du groupe à haute disponibilité.
+
+- Pour les groupes identiques, vous pouvez consulter les informations relatives à l’alignement des instances individuelles dans l’onglet **Instances** de la page **Vue d’ensemble** du groupe identique. 
+
+
+### <a name="re-align-resources"></a>Réaligner les ressources 
+
+Si un groupe de placement de proximité est `Not Aligned`, vous pouvez arrêter/libérer, puis redémarrer les ressources affectées. Si la machine virtuelle se trouve dans un groupe à haute disponibilité ou un groupe identique, toutes les machines virtuelles dans le groupe à haute disponibilité ou le groupe identique doivent être arrêtées/libérées avant leur redémarrage.
+
+En cas d’échec d’affectation en raison de contraintes de déploiement, il se peut que vous deviez d’abord arrêter/libérer toutes les ressources du groupe de placement de proximité affecté (y compris les ressources alignées), puis les redémarrer pour restaurer l’alignement.
 
 ## <a name="best-practices"></a>Meilleures pratiques 
 - Pour une latence plus faible, utilisez des groupes de placements de proximité avec une mise en réseau accélérée. Pour plus d’informations, consultez les articles [Créer une machine virtuelle Windows avec mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [Créer une machine virtuelle Linux avec mise en réseau accélérée](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
