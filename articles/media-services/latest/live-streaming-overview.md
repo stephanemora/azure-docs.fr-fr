@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328341"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -60,7 +60,7 @@ Les [événements en direct](/rest/api/media/liveevents) sont chargés de la ré
 
 ### <a name="pass-through"></a>Requête directe
 
-![transmission directe](./media/live-streaming/pass-through.svg)
+![Diagramme montrant comment les flux vidéo et audio d’un événement en direct Pass-through sont ingérés et traités.](./media/live-streaming/pass-through.svg)
 
 Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté d’entrée). L’événement en direct envoie ensuite les flux vidéo entrants au packager dynamique (point de terminaison de streaming) sans transcodage supplémentaire. Une transmission LiveEvent est optimisée pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). 
 

@@ -8,30 +8,29 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375225"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653500"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Série NCasT4_v3 (en préversion) 
 
-Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs graphiques NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) et des processeurs AMD EPYC 7V12(Rome). Les machines virtuelles comportent jusqu’à 4 processeurs graphiques NVIDIA T4 avec 16 Go de mémoire chacun, jusqu’à 64 cœurs AMD EPYC 7V12 (Rome) et 440 Gio de mémoire système. Ces machines virtuelles sont idéales pour exécuter des charges de travail de ML et d’IA en utilisant CUDA, TensorFlow, Pytorch, Caffe et d’autres frameworks ou les charges de travail graphiques à l’aide de la technologie GRID de NVIDIA. La série NCasT4_v3 est idéale pour l’exécution de charges de travail d’inférence.
+Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs graphiques NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) et des processeurs AMD EPYC 7V12(Rome). Les machines virtuelles comportent jusqu’à 4 processeurs graphiques NVIDIA T4 avec 16 Go de mémoire chacun, jusqu’à 64 cœurs AMD EPYC 7V12 (Rome) et 440 Gio de mémoire système. Ces machines virtuelles sont parfaites pour le déploiement de services d’intelligence artificielle, tels que l’inférence en temps réel des demandes générées par l’utilisateur, ou pour les charges de travail graphiques et de visualisation interactives à l’aide du pilote de grille NVIDIA et de la technologie GPU virtuelle. Les charges de travail de calcul standard GPU basées sur CUDA, TensorRT, Caffe, ONNX et d’autres infrastructures, ou sur des applications graphiques à accélération GPU basées sur OpenGL et DirectX peuvent être déployées de manière économique, avec une proximité étroite pour les utilisateurs, sur la série NCasT4_v3.
 
-Vous pouvez [soumettre une demande](https://aka.ms/NCT4v3Preview) pour participer au programme de préversion.
+> [!NOTe]
+> [Soumettez une demande](https://aka.ms/NCT4v3Preview) pour participer au programme de préversion.
 
 <br>
 
-ACU : 230-260
-
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Non pris en charge
-
-Mises à jour avec préservation de la mémoire : Non pris en charge
+[ACU](acu.md) : 230-260<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- | --- |

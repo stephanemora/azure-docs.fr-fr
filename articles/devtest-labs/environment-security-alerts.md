@@ -3,12 +3,12 @@ title: Alertes de sécurité concernant les environnements dans Azure DevTest 
 description: Cet article explique comment afficher des alertes de sécurité pour un environnement dans DevTest Labs, et prendre les mesures nécessaires.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9eea06066cfca5f67d920456f16e2eb7893dce39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9f7cf9fe7ab0e3f573470228ee1962aa92ccaef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483973"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308688"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertes de sécurité concernant les environnements dans Azure DevTest Labs
 En tant qu’utilisateur de laboratoire, vous pouvez désormais afficher les alertes Azure Security Center pour vos environnements lab. Le Centre de sécurité collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure, du réseau et des solutions partenaires connectées, telles que les solutions de protection des points de terminaison et des pare-feu, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier. [Apprenez-en davantage sur les alertes de sécurité dans Azure Security Center](../security-center//security-center-alerts-overview.md).  
@@ -24,7 +24,7 @@ Vous pouvez afficher des alertes de sécurité uniquement pour les environnement
     ![Alertes de sécurité - Vue d’ensemble](./media/environment-security-alerts/security-alerts-overview-page.png)
 2. Cliquez avec le bouton droit sur les trois points (...) de la dernière colonne, puis sélectionnez **Voir les alertes de sécurité**. 
 
-    ![Afficher les alertes de sécurité](./media/environment-security-alerts/view-security-alerts-menu.png)
+    ![Capture d’écran montrant la page Alertes de sécurité avec l’option « Afficher les alertes de sécurité » sélectionnée.](./media/environment-security-alerts/view-security-alerts-menu.png)
     
 3. Vous verrez des informations détaillées sur les alertes et les recommandations Advisor. Apprenez-en davantage sur la [gestion et la résolution des alertes de sécurité dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 

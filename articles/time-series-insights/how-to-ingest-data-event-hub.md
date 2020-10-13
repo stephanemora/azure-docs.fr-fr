@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee94a36ea27a15067cbcbab22b10629bc4b37634
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094564"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596244"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
     [![Ouvrez votre espace de noms Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. Dans l’instance de votre hub d’événements, sélectionnez **Entités > Groupes de consommateurs**. Ensuite, sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
+1. Dans l’instance de votre hub d’événements, sélectionnez **Entités > Groupes de consommateurs**. Ensuite, sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs.
 
    [![Event Hub - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -68,11 +68,11 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
 1. Sélectionnez les valeurs appropriées sous **Option d’importation** :
 
-   * Si un Event Hub est déjà présent dans l’un de vos abonnements, sélectionnez **Utiliser un Event Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
+   - Si un Event Hub est déjà présent dans l’un de vos abonnements, sélectionnez **Utiliser un Event Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
 
      [![Sélectionnez une option d’importation de source d’événement](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  Le tableau suivant décrit les propriétés requises pour l’option **Utiliser un Event Hub à partir des abonnements disponibles** :
+   - Le tableau suivant décrit les propriétés requises pour l’option **Utiliser un Event Hub à partir des abonnements disponibles** :
 
        [![Détails sur l’abonnement et Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -84,10 +84,10 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
        | Valeur de stratégie Event Hub | Sélectionnez la stratégie d’accès partagé souhaitée. Vous pouvez créer la stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**. |
        | Clé de stratégie Event Hub | Prérempli à partir de la valeur de stratégie de hub d’événements sélectionnée. |
 
-    * Sélectionnez **Indiquez manuellement les paramètres Event Hub** si l’Event Hub est externe à vos abonnements ou si vous souhaitez choisir des options avancées.
+   - Sélectionnez **Indiquez manuellement les paramètres Event Hub** si l’Event Hub est externe à vos abonnements ou si vous souhaitez choisir des options avancées.
 
        Le tableau suivant décrit les propriétés requises pour l’option **Indiquez manuellement les paramètres Event Hub** :
- 
+
        | Propriété | Description |
        | --- | --- |
        | Identifiant d’abonnement | Abonnement auquel appartiennent l’espace de noms et l’instance Event Hub souhaités. |
@@ -97,7 +97,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
        | Valeur de stratégie Event Hub | Sélectionnez la stratégie d’accès partagé souhaitée. Vous pouvez créer la stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**. |
        | Clé de stratégie Event Hub | Clé d’accès partagé qui permet d’authentifier l’accès à l’espace de noms Service Bus. Entrez la clé primaire ou secondaire ici. |
 
-    * Les deux options partagent les options de configuration suivantes :
+   - Les deux options partagent les options de configuration suivantes :
 
        | Propriété | Description |
        | --- | --- |
@@ -113,8 +113,8 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
+- [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
 
-* [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
+- [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
 
-* Accédez à votre environnement dans [l’Explorateur Time Series Insights](https://insights.timeseries.azure.com).
+- Accédez à votre environnement dans [l’Explorateur Time Series Insights](https://insights.timeseries.azure.com).
