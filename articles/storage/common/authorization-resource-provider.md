@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534938"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714695"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -26,13 +26,13 @@ Vous pouvez utiliser le fournisseur de ressources Stockage Azure pour effectuer 
 
 Microsoft fournit deux API REST pour l’utilisation des ressources Stockage Azure. Ces API constituent la base de toutes les actions que vous pouvez effectuer sur Stockage Azure. L’API REST de Stockage Azure vous permet d’utiliser les données de votre compte de stockage, y compris les données des objets blob, des files d’attente, des fichiers et des tables. L’API REST du fournisseur de ressources Stockage Azure vous permet d’utiliser le compte de stockage et les ressources associées.
 
-Une demande qui lit ou écrit des données d’objet blob nécessite des autorisations différentes d’une demande qui effectue une opération de gestion. RBAC fournit un contrôle précis sur les autorisations pour les deux types de ressources. Quand vous affectez un rôle Azure à un principal de sécurité, veillez à bien comprendre les autorisations qui seront accordées à ce principal. Pour des informations de référence détaillées décrivant les actions associées à chaque rôle Azure intégré, consultez [Rôles Azure intégrés](../../role-based-access-control/built-in-roles.md).
+Une demande qui lit ou écrit des données d’objet blob nécessite des autorisations différentes d’une demande qui effectue une opération de gestion. Azure RBAC fournit un contrôle précis sur les autorisations pour les deux types de ressources. Quand vous affectez un rôle Azure à un principal de sécurité, veillez à bien comprendre les autorisations qui seront accordées à ce principal. Pour des informations de référence détaillées décrivant les actions associées à chaque rôle Azure intégré, consultez [Rôles Azure intégrés](../../role-based-access-control/built-in-roles.md).
 
 Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les demandes sur Stockage Blob et Stockage File d’attente. Pour plus d’informations sur les rôles Azure pour les opérations sur des données d’objet blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory](storage-auth-aad.md).
 
-## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Attribuer des autorisations avec le contrôle d’accès en fonction du rôle (RBAC)
+## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Attribuer des autorisations de gestion avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)
 
-Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui gère les utilisateurs, les groupes et les applications. Un utilisateur, un groupe ou une application est également appelé « principal de sécurité » dans le contexte de la [Plateforme d’identité Microsoft](/azure/active-directory/develop/). Vous pouvez accorder l’accès aux ressources d’un abonnement à un principal de sécurité défini dans l’annuaire Active Directory en utilisant le contrôle d’accès en fonction du rôle (RBAC).
+Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui gère les utilisateurs, les groupes et les applications. Un utilisateur, un groupe ou une application est également appelé « principal de sécurité » dans le contexte de la [Plateforme d’identité Microsoft](/azure/active-directory/develop/). Vous pouvez accorder l’accès aux ressources d’un abonnement à un principal de sécurité défini dans l’annuaire Active Directory en utilisant le contrôle d’accès Azure en fonction du rôle (Azure RBAC).
 
 Quand vous attribuez un rôle Azure à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle Azure à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
 

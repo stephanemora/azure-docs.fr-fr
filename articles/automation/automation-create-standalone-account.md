@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987273"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714647"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -22,7 +22,7 @@ Lorsque vous créez un compte Automation sur le portail Azure, le **compte d'ide
 
 * Création d’un principal du service dans Azure Active Directory (Azure AD).
 * Création d’un certificat.
-* Affectation du rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
+* Attribution du rôle Contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
 
 Grâce à ce compte créé pour vous, vous pouvez rapidement commencer à créer et à déployer des runbooks pour répondre à vos besoins d'automatisation.
 

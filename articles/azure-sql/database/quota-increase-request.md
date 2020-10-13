@@ -4,17 +4,17 @@ description: Cette page explique comment créer une demande de support pour augm
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987283"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448830"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Demander des augmentations de quota pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ Si votre abonnement a besoin d’un accès dans une région particulière, séle
 
 1. Entrez le **Modèle d’achat** et les détails sur la **Consommation prévue**.
 
-   ![Demander l’accès à une région](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Demander l’accès à une région](./media/quota-increase-request/quota-request.png)
 
 ### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Activer l’accès à une région de la série M
 
@@ -118,7 +118,7 @@ Pour activer le matériel de série M sur un abonnement et une région, il est 
 1. Dans la liste **Sélectionner un emplacement**, sélectionnez la région Azure à utiliser. Le quota s’entend par abonnement dans chaque région.
 
 
-   ![Demander l’accès à une région](./media/quota-increase-request/quota-m-series.png)
+   ![Demande d’accès à la région de série M](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Type de quota SQL Managed Instance
 

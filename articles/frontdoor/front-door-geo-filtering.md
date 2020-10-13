@@ -10,21 +10,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399648"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449254"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrage géographique sur un domaine pour Azure Front Door
 
-Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit son emplacement. Toutefois, dans certains cas, vous devrez peut-être limiter l’accès à vos applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés. 
+Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit l’emplacement d’origine de la demande. Dans certains scénarios, vous devrez peut-être limiter l’accès à votre applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés. 
 
-Une stratégie WAF est généralement constituée d’un ensemble de règles personnalisées. Une règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans les conditions de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance.  En ce qui concerne la règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, la valeur correspond à l’indicatif à deux lettres du pays/région d’intérêt. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
+Une stratégie WAF contient un ensemble de règles personnalisées. La règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans une condition de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance. Pour une règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, et la valeur correspond à un indicatif à deux lettres du pays/région d’intérêt. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
 
 Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
@@ -212,5 +212,5 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [sécurité de la couche Application avec Front Door](front-door-application-security.md).
 - Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
+- Apprenez à [configurer une stratégie WAF de géofiltrage](front-door-tutorial-geo-filtering.md).
