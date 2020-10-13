@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891985"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823006"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI à partir d’Azure Stream Analytics
 
@@ -43,6 +43,9 @@ Pour une vue d’ensemble de la configuration d’un tableau de bord et d’une 
 Azure Stream Analytics crée un jeu de données et un schéma de table Power BI pour l’utilisateur s’il n’en existe pas encore. Dans tous les autres cas, la table est mise à jour de façon à inclure les nouvelles valeurs. Actuellement, seule une table peut exister dans un jeu de données. 
 
 Power BI utilise la stratégie de rétention FIFO (premier entré, premier sorti). Les données sont collectées dans une table jusqu’à ce qu’elle atteigne 200 000 lignes.
+
+> [!NOTE]
+> Nous vous déconseillons d’utiliser plusieurs sorties pour écrire dans le même jeu de données, car cela peut entraîner plusieurs problèmes. Chaque sortie tente de créer le jeu de données Power BI indépendamment, ce qui peut entraîner l’affichage de plusieurs jeux de données portant le même nom. En outre, si les sorties n’ont pas de schémas cohérents, le jeu de données modifie le schéma sur chaque écriture, ce qui génère un trop grand nombre de demandes de modification de schéma. Même si ces problèmes sont évités, les sorties multiples seront moins performantes qu’une seule sortie fusionnée.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Convertir un type de données Stream Analytics vers Power BI
 

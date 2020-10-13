@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259371"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutoriel de configuration d’Experian avec Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ Le diagramme d’architecture suivant illustre l’implémentation.
 
 ### <a name="part-1---deploy-the-api"></a>Partie 1 : Déploiement de l’API
 
-Déployez le code d’API fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Vous aurez besoin de l’URL du service déployé pour configurer Azure AD avec les paramètres requis.
@@ -117,7 +117,7 @@ Consultez ce [document](https://docs.microsoft.com/azure/active-directory-b2c/se
 
 ### <a name="part-5---replace-the-configuration-values"></a>Partie 5 : Remplacement des valeurs de configuration
 
-Dans les stratégies personnalisées fournies, recherchez les espaces réservés suivants et remplacez-les par les valeurs correspondantes de votre instance.
+Dans les [stratégies personnalisées](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy) fournies, recherchez les espaces réservés suivants et remplacez-les par les valeurs correspondantes de votre instance.
 
 |                      Espace réservé                       |                                   Remplacer par la valeur                                 |                   Exemple                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

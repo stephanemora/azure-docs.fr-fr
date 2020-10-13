@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959053"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652038"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -264,13 +264,13 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
 
 1. Entrez *file d’attente* comme nom de la file d’attente, puis sélectionnez **OK**.
 
-   ![Créer la file d’attente](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Capture d’écran montrant où vous créez la file d’attente et la nommez « file d’attente ». ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Cliquez avec le bouton droit sur le nœud de la nouvelle file d’attente, puis sélectionnez **Afficher la file d’attente**.
 
 1. Sélectionnez l’icône **Ajouter un message**.
 
-   ![Créer la file d’attente](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Capture d’écran mettant en évidence l’icône Ajouter un message.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. Dans la boîte de dialogue **Ajouter un message**, entrez *Hello World!* en tant que **Texte du message**, puis sélectionnez **OK**. La file d'attente contient maintenant un message.
 

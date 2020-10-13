@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970677"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443887"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Vous pouvez configurer votre base de données de manière à implémenter automa
    ![Paramètres du conseiller](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Sélectionnez les actions à automatiser :
 
-   ![Index recommandés](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Capture d’écran montrant où sélectionner les actions à automatiser.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Notez que l’option **DROP_INDEX** n’est actuellement pas compatible avec les applications utilisant la commutation de partition et les conseils d’index.
@@ -139,7 +139,7 @@ L’application d’une recommandation ne se produit pas toujours instantanémen
 
 Cliquez sur une recommandation in-process dans la liste pour afficher plus d’informations :
 
-![Index recommandés](./media/database-advisor-find-recommendations-portal/operations.png)
+![Capture d’écran montrant la liste des recommandations in-process.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Annulation d'une recommandation
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259634"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -113,6 +113,7 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | Revendication | Description |  Exemple |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Jeton d’accès. | N/A |
+| {oauth2:refresh_token} | Le jeton d’actualisation. | N/A |
 
 
 ### <a name="saml"></a>SAML
