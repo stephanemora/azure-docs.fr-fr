@@ -1,19 +1,20 @@
 ---
 title: Créer un script d’entrée pour les scénarios avancés
 titleSuffix: Azure Machine Learning entry script authoring
+description: Découvrez comment écrire des scripts d’entrée Azure Machine Learning à des fins de pré-traitement et de post-traitement au cours du déploiement.
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: c135d649feb42c8fa735e67ad6f3c3e51551d3e9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0146c6c003e3c22b63b5fde5c8979a9d7c112b69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261389"
 ---
 # <a name="advanced-entry-script-authoring"></a>Création de scripts d’entrée avancés
 
@@ -40,6 +41,49 @@ Pour utiliser la génération de schéma, incluez le package `inference-schema` 
 * Retourner un dictionnaire de type « StandardPythonParameterType », qui peut être imbriqué et contenant PandasDataFrameParameterTypes.
 Définissez les exemples de formats d’entrée et de sortie dans les variables `input_sample` et `output_sample`, qui représentent les formats de requête et de réponse pour le service web. Utilisez ces exemples dans les éléments décoratifs des fonctions d’entrée et de sortie sur la fonction `run()`. L’exemple scikit-learn suivant utilise la génération de schéma.
 
+
+
+```python
+#Example: scikit-learn and Swagger
+import json
+import numpy as np
+import os
+from sklearn.externals import joblib
+from sklearn.linear_model import Ridge
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+
+
+def init():
+    global model
+    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
+    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
+    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
+
+    # If your model were stored in the same directory as your score.py, you could also use the following:
+    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
+
+    # Deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
+output_sample = np.array([3726.995])
+
+
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # You can return any data type, as long as it is JSON serializable.
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 
 ## <a name="power-bi-compatible-endpoint"></a>Point de terminaison compatible Power BI 
 
@@ -266,9 +310,19 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui est utilisé pour gérer le modèle dans le Registre. Vous utilisez ce nom avec la méthode [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin du ou des fichiers de modèle sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire contenant ces fichiers.
+Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui est utilisé pour gérer le modèle dans le Registre. Vous utilisez ce nom avec la méthode [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin du ou des fichiers de modèle sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire contenant ces fichiers.
 
 Quand vous inscrivez un modèle, vous lui donnez un nom. Le nom correspond à l’endroit où le modèle est placé, localement ou durant le déploiement du service.
+
+## <a name="framework-specific-examples"></a>Exemples spécifiques de l’infrastructure
+
+Vous trouverez des exemples de scripts supplémentaires pour des cas d’utilisation spécifiques de l’apprentissage automatique ci-dessous :
+
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
+* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

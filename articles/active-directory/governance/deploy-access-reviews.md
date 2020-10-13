@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306563"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -37,7 +37,7 @@ Les [révisions d’accès Azure Active Directory (Azure AD)](access-reviews-ove
 
 * Automatiser les résultats des révisions, tels que la suppression de l’accès des utilisateurs aux ressources
 
-  ![Planification des révisions d’accès](./media/deploy-access-review/1-planning-review.png)
+  ![Diagramme montrant le flux des révisions d’accès.](./media/deploy-access-review/1-planning-review.png)
 
 Les révisions d’accès sont une capacité d’[Azure AD Identity Governance](identity-governance-overview.md). Les autres fonctionnalités sont la [gestion des droits d’utilisation](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) et les [Conditions d’utilisation](../conditional-access/terms-of-use.md). Ensemble, ils aident les organisations à répondre à ces quatre questions :
 
@@ -300,7 +300,7 @@ Lors de [la création d’un package d’accès](entitlement-management-access-p
 
 Ouvrez l’onglet Cycle de vie et faites défiler jusqu’à Révisions d’accès.
 
- ![Modifier la stratégie](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Capture d’écran montrant l’option « Modifier la stratégie » sous l’onglet « Cycle de vie ».](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planifier des révisions d’accès pour les groupes
 
@@ -446,7 +446,7 @@ Les besoins d’accès aux groupes et aux applications des employés et des invi
 
 Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez régulièrement réviser l’accès aux rôles Azure AD privilégiés.
 
-![Réviser les rôles Azure AD](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Capture d’écran montrant la liste « Réviser l’appartenance » des rôles Azure AD.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Suivez les instructions des liens ci-dessous :
 

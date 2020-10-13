@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 9/29/2020
 ms.author: yohaddad
-ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024296"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531154"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -47,11 +47,9 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Rel 20-09 |  [4569778]  |  Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2 | 2.102 | 8 septembre 2020 |
 |  Rel 20-09 |  [4578013]  |  Mise à jour de sécurité | 2.102 | 8 septembre 2020 |
 |  Rel 20-09 |  [4576750]  |  Mise à jour de la pile de maintenance | 5.47 | 8 septembre 2020 |
-|  Rel 20-09 |  [4576479]  |  Correctifs cumulatifs de sécurité et de qualité de .NET Framework 4.8 | 5.47 | 8 septembre 2020 |
 |  Rel 20-09 |  [4494175]  |  Microcode | 5.47 | 8 septembre 2020 |
 |  Rel 20-09 |  [4570332]  |  Mise à jour de la pile de maintenance | 6.23 | 8 septembre 2020 |
 |  Rel 20-09 |  [4570720]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.23 | 8 septembre 2020 |
-|  Rel 20-09 |  [4576483]  |  Correctifs cumulatifs de sécurité et de qualité de .NET Framework 4.8 | 6.23 | 8 septembre 2020 |
 |  Rel 20-09 |  [4494174]  |  Microcode | 6.23 | 8 septembre 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -72,11 +70,9 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4569778]: https://support.microsoft.com/kb/4569778
 [4578013]: https://support.microsoft.com/kb/4578013
 [4576750]: https://support.microsoft.com/kb/4576750
-[4576479]: https://support.microsoft.com/kb/4576479
 [4494175]: https://support.microsoft.com/kb/4494175
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
-[4576483]: https://support.microsoft.com/kb/4576483
 [4494174]: https://support.microsoft.com/kb/4494174
 
 ## <a name="august-2020-guest-os"></a>Système d’exploitation invité, août 2020
@@ -84,29 +80,26 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 20-08 |  [4571687]  |  Mise à jour cumulative d’IE | 2.101, 3.88, 4.81 | 11 août 2020 |
-|  Version 20-08 |  [4561600]  |  Mise à jour de Flash | 3.88, 4.81, 5.46, 6.22 | 9 juin 2020 |
-|  Version 20-08 |  [4571694]  |  Dernière mise à jour cumulative | 6.22 | 11 août 2020 |
-|  Version 20-08 |  [4565349]  |  Dernière mise à jour cumulative | 5.46 | 11 août 2020 |
-|  Version 20-08 |  [4570673]  |  Mise à jour de la pile de maintenance | 2.101 | 11 août 2020 |
-|  Version 20-08 |  [4571729]  |  Correctif cumulatif mensuel | 2.101 | 11 août 2020 |
-|  Version 20-08 |  [4569767]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5.1 | 2.101 | 11 août 2020 |
-|  Version 20-08 |  [4569780]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.101 | 11 août 2020 |
-|  Version 20-08 |  [4569765]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 3,88 | 11 août 2020 |
-|  Version 20-08 |  [4569779]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 3,88 | 11 août 2020 |
-|  Version 20-08 |  [4566426]  |  Mise à jour de la pile de maintenance | 3,88 | 14 juillet 2020 |
-|  Version 20-08 |  [4571736]  |  Correctif cumulatif mensuel | 3,88 | 11 août 2020 |
-|  Version 20-08 |  [4566425]  |  Mise à jour de la pile de maintenance | 4.81 | 14 juillet 2020 |
-|  Version 20-08 |  [4571703]  |  Correctif cumulatif mensuel | 4.81 | 11 août 2020 |
-|  Version 20-08 |  [4569768]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 4.81 | 11 août 2020 |
-|  Version 20-08 |  [4569778]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 4.81 | 11 août 2020 |
-|  Version 20-08 |  [4494175]  |  Microcode | 5.46 | 25 février 2020 |
-|  Version 20-08 |  [4565912]  |  Mise à jour de la pile de maintenance | 5.46 | 14 juillet 2020 |
-|  Version 20-08 |  [4569746]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.8 | 5.46 | 11 août 2020 |
-|  Version 20-08 |  [4569776]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.22 | 11 août 2020 |
-|  Version 20-08 |  [4569750]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.8 | 6.22 | 11 août 2020 |
-|  Version 20-08 |  [4566424]  |  Mise à jour de la pile de maintenance | 6.22 | 11 août 2020 |
-
+|  Version 20-08 |  [4571687]  |  Mise à jour cumulative d’IE | [2.101], [3.88], [4.81] | 11 août 2020 |
+|  Version 20-08 |  [4561600]  |  Mise à jour de Flash | [3.88], [4.81], [5.46], [6.22] | 9 juin 2020 |
+|  Version 20-08 |  [4571694]  |  Dernière mise à jour cumulative | [6.22] | 11 août 2020 |
+|  Version 20-08 |  [4565349]  |  Dernière mise à jour cumulative | [5.46] | 11 août 2020 |
+|  Version 20-08 |  [4570673]  |  Mise à jour de la pile de maintenance | [2.101] | 11 août 2020 |
+|  Version 20-08 |  [4571729]  |  Correctif cumulatif mensuel | [2.101] | 11 août 2020 |
+|  Version 20-08 |  [4569767]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5.1 | [2.101] | 11 août 2020 |
+|  Version 20-08 |  [4569780]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [2.101] | 11 août 2020 |
+|  Version 20-08 |  [4569765]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [3,88] | 11 août 2020 |
+|  Version 20-08 |  [4569779]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [3,88] | 11 août 2020 |
+|  Version 20-08 |  [4566426]  |  Mise à jour de la pile de maintenance | [3,88] | 14 juillet 2020 |
+|  Version 20-08 |  [4571736]  |  Correctif cumulatif mensuel | [3,88] | 11 août 2020 |
+|  Version 20-08 |  [4566425]  |  Mise à jour de la pile de maintenance | [4.81] | 14 juillet 2020 |
+|  Version 20-08 |  [4571703]  |  Correctif cumulatif mensuel | [4.81] | 11 août 2020 |
+|  Version 20-08 |  [4569768]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [4.81] | 11 août 2020 |
+|  Version 20-08 |  [4569778]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [4.81] | 11 août 2020 |
+|  Version 20-08 |  [4494175]  |  Microcode | [5.46] | 25 février 2020 |
+|  Version 20-08 |  [4565912]  |  Mise à jour de la pile de maintenance | [5.46] | 14 juillet 2020 |
+|  Version 20-08 |  [4569776]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | [6.22] | 11 août 2020 |
+|  Version 20-08 |  [4566424]  |  Mise à jour de la pile de maintenance | [6.22] | 11 août 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -127,10 +120,13 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4569778]: https://support.microsoft.com/kb/4569778
 [4494175]: https://support.microsoft.com/kb/4494175
 [4565912]: https://support.microsoft.com/kb/4565912
-[4569746]: https://support.microsoft.com/kb/4569746
 [4569776]: https://support.microsoft.com/kb/4569776
-[4569750]: https://support.microsoft.com/kb/4569750
 [4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,88]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.46]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.22]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="july-2020-guest-os"></a>Système d’exploitation invité, juillet 2020
@@ -740,8 +736,6 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  N/A  |  [4499151]  |  Non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
 |  N/A  |  [4495608]  |  .NET 3.5 non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
 |  N/A  |  [4495592]  |  .NET 4.5.2 non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
-|  N/A  |  [4495610]  |  .NET 4.8 cumulatif, mai 2019  |  6.8  |  14 mai 2019  |
-|  N/A  |  [4495618]  |  .NET 4.8 cumulatif, mai 2019  |  6.8  |  14 mai 2019  |
 |  N/A  |  [4501226]  |  Mises à jour de l’heure d’été du fuseau horaire pour le Maroc et l’Autorité palestinienne  |  2.87, 3.74, 4.67  |  23 mai 2019  |
 |  N/A  |  [4490128]  |  Mises à jour de l’heure d’été du fuseau horaire pour Sao Tomé-et-Principe et Kyzylorda  |  2.87, 3.74, 4.67  |  17 avril 2019  |
 
@@ -763,8 +757,6 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4499151]: https://support.microsoft.com/kb/KB4499151
 [4495608]: https://support.microsoft.com/kb/KB4495608
 [4495592]: https://support.microsoft.com/kb/KB4495592
-[4495610]: https://support.microsoft.com/kb/KB4495610
-[4495618]: https://support.microsoft.com/kb/KB4495618
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 

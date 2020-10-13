@@ -2,15 +2,17 @@
 title: Comment utiliser les clés de création et de runtime – LUIS
 description: Lorsque vous utilisez Language Understanding (LUIS) pour la première fois, vous n’avez pas besoin de créer de clé de création. Lorsque vous avez l’intention de publier l’application, puis d’utiliser votre point de terminaison de runtime, vous devez créer et attribuer la clé de runtime à l’application.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327219"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 
@@ -27,9 +29,9 @@ LUIS autorise trois types de ressources Azure et une ressource non-Azure :
 
 |Ressource|Objectif|Service cognitif `kind`|Service cognitif `type`|
 |--|--|--|--|
-|Ressource de création|Vous permet de créer, gérer, entraîner, tester et publier vos applications. [Créez une ressource de création LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) si vous envisagez de créer des applications LUIS par programmation ou à partir du portail LUIS. Vous devez d’abord [migrer votre compte LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) pour être en mesure de lier vos ressources de création Azure à votre application. Vous pouvez contrôler les autorisations d’accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs. <br><br> Il existe un seul niveau disponible pour la ressource de création LUIS :<br> * **Ressource de création F0**  qui vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction gratuites par mois. |`LUIS.Authoring`|`Cognitive Services`|
-|Ressource de prédiction| Après avoir publié votre application LUIS, utilisez la ressource/clé de prédiction pour interroger les demandes de point de terminaison de prédiction. Créez une ressource de prédiction LUIS avant que votre application cliente demande des prédictions au-delà des 1 000 demandes fournies par la ressource de création ou de démarrage. <br><br> Il existe deux niveaux disponibles pour la ressource de prédiction :<br> * **Ressource de prédiction F0** qui vous offre 10 000 demandes de point de terminaison de prédiction gratuites par mois<br> * **Ressource de prédiction S0** qui correspond au niveau payant. [En savoir plus sur les détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Ressource de démarrage/d’essai|Vous permet de créer, gérer, entraîner, tester et publier vos applications. Elle est créée par défaut si vous choisissez l’option de ressource de démarrage lors de la première inscription à LUIS. Toutefois, la clé de démarrage finira par être obsolète et tous les utilisateurs de LUIS devront [migrer leurs comptes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) et lier leurs applications LUIS à une ressource de création. Cette ressource ne vous donne pas les autorisations nécessaires pour le contrôle d’accès en fonction du rôle comme la ressource de création. <br><br> Tout comme la ressource de création, la ressource de démarrage vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction gratuites.|-|Pas une ressource Azure|
+|Ressource de création|Vous permet de créer, gérer, entraîner, tester et publier vos applications. [Créez une ressource de création LUIS](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) si vous envisagez de créer des applications LUIS par programmation ou à partir du portail LUIS. Vous devez d’abord [migrer votre compte LUIS](luis-migration-authoring.md#what-is-migration) pour être en mesure de lier vos ressources de création Azure à votre application. Vous pouvez contrôler les autorisations d’accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs. <br><br> Il existe un seul niveau disponible pour la ressource de création LUIS :<br> * **Ressource de création F0 gratuite** qui vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction de test gratuites par mois. |`LUIS.Authoring`|`Cognitive Services`|
+|Ressource de prédiction| Après avoir publié votre application LUIS, utilisez la ressource/clé de prédiction pour interroger les demandes de point de terminaison de prédiction. Créez une ressource de prédiction LUIS avant que votre application cliente demande des prédictions au-delà des 1 000 demandes fournies par la ressource de création ou de démarrage. <br><br> Il existe deux niveaux disponibles pour la ressource de prédiction :<br> * **Ressource de prédiction F0 gratuite** qui vous offre 10 000 demandes de point de terminaison de prédiction gratuites par mois<br> * **Ressource de prédiction S0 standard** qui correspond au niveau payant. [En savoir plus sur les détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Ressource de démarrage/d’essai|Vous permet de créer, gérer, entraîner, tester et publier vos applications. Elle est créée par défaut si vous choisissez l’option de ressource de démarrage lors de la première inscription à LUIS. Toutefois, la clé de démarrage finira par être obsolète et tous les utilisateurs de LUIS devront [migrer leurs comptes](luis-migration-authoring.md#what-is-migration) et lier leurs applications LUIS à une ressource de création. Cette ressource ne vous donne pas les autorisations nécessaires pour le contrôle d’accès en fonction du rôle comme la ressource de création. <br><br> Tout comme la ressource de création, la ressource de démarrage vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction de test gratuites.|-|Pas une ressource Azure|
 |[Clé de ressource multi-service Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Requêtes de point de terminaison de prédiction de requête partagées avec LUIS et d’autres services Cognitive Services pris en charge.|`CognitiveServices`|`Cognitive Services`|
 
 
