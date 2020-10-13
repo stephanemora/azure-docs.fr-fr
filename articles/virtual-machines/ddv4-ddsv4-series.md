@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649905"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652990"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 et Ddsv4
 
@@ -28,15 +28,13 @@ Les tailles de la série Ddv4 s'exécutent sur Intel &reg;​​Xeon&reg; Plati
 
 Les nouvelles tailles de machines virtuelles Ddv4 incluent un stockage SSD local rapide et plus volumineux (2 400 Gio maximum) et sont conçues pour les applications qui bénéficient d'un stockage local à faible latence et à haut débit, comme les applications qui nécessitent des lectures/écritures rapides sur un espace de stockage temporaire ou qui requièrent un espace de stockage temporaire pour les caches ou les fichiers temporaires. Vous pouvez associer les stockages SSD Standard et HDD Standard aux machines virtuelles Ddv4. Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
-ACU : 195-210
-
-Premium Storage :  Non pris en charge
-
-Mise en cache du Stockage Premium :  Non pris en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 195-210<br>
+[Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+<br> 
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ Les nouvelles tailles de machines virtuelles Ddsv4 incluent un stockage SSD loca
  > [!NOTE]
  >Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Ddv4.
 
-ACU : 195-210
-
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 195-210<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+<br> 
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|---|

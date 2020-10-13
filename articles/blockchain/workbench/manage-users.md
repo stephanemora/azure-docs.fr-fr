@@ -4,12 +4,12 @@ description: Guide de gestion des utilisateurs dans Azure Blockchain Workbench
 ms.date: 07/15/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 541d5b2fa3d1a0cd5c4beba65cfe5ff3bdc3124a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: be078e7149ba008ab8b7ad44a016a0d1cf82df0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263009"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gérer les utilisateurs dans Azure Blockchain Workbench
 
@@ -79,7 +79,7 @@ Utilisez l’application Blockchain Workbench pour gérer les utilisateurs et le
 1. Sélectionnez la vignette des membres afin d’afficher une liste des membres actuels.
 1. Sélectionnez **Ajouter des membres**.
 
-    ![Ajouter des membres](./media/manage-users/application-add-members.png)
+    ![La capture d’écran montre la fenêtre d’appartenance à l’application avec le bouton Ajouter un membre mis en évidence.](./media/manage-users/application-add-members.png)
 
 1. Recherchez le nom d’utilisateur.  Seuls les utilisateurs Azure AD existants dans le client Blockchain Workbench sont répertoriés. Si l’utilisateur est introuvable, vous devez [ajouter des utilisateurs Azure AD](#add-azure-ad-users).
 
