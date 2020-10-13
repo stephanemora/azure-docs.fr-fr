@@ -324,19 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Questions fréquentes (FAQ) sur la migration depuis le Portail Cloud Partner
       href: cloud-partner-portal-migration-faq.md
+    - name: Opportunités commerciales - Heures de bureau
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Aspect technique et publication - Heures de bureau
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Options de prise en charge de l’Espace partenaires
       href: partner-center-portal/support.md
+    - name: Espace partenaires - Annonces
+      href: /partner-center/announcements
+    - name: "Communauté des partenaires\_Microsoft"
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Forum sur la communauté des partenaires
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Disponibilité géographique et devises
       href: marketplace-geo-availability-currencies.md
     - name: Rechercher un locataire et des ID d’objet
       href: find-tenant-object-id.md
     - name: Pays et régions pris en charge
       href: sell-from-countries.md
-    - name: Balises HTML prises en charge
-      href: supported-html-tags.md
     - name: Codes pays/région de co-vente
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Codes d'état de co-vente
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Forums, blogs et liens rapides'
-      href: marketplace-roadmap.md
+    - name: Balises HTML prises en charge
+      href: supported-html-tags.md

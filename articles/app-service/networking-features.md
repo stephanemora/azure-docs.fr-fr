@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962092"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743044"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
 Dans Azure App Service, les applications peuvent être déployées de nombreuses façons. Par défaut, les applications hébergées App Service sont directement accessibles via Internet et ne peuvent atteindre que les points de terminaison Internet hébergés. Toutefois, la plupart des applications clientes ont besoin de contrôler le trafic réseau entrant et sortant. Il existe plusieurs fonctionnalités disponibles dans App Service pour répondre à ces besoins. Le défi est de savoir quelle fonctionnalité doit être utilisée pour résoudre un problème donné. Ce document vise à aider les clients à déterminer la fonction à utiliser grâce à différents cas d’usage.
 
-Il existe deux types de déploiement principaux pour Azure App Service. Il y a le service public multilocataire, qui héberge les plans App Service dans les références SKU de tarification Gratuit, De base, Standard, Premium et Premiumv2. Il y a également l’environnement Azure App Service Environment (ASE) de locataire unique, qui héberge les plans App Service de référence SKU Isolé directement dans votre réseau virtuel Microsoft Azure. Les fonctionnalités que vous utilisez varient en fonction du déploiement (service multilocataire ou ASE). 
+Il existe deux types de déploiement principaux pour Azure App Service. Il y a le service public multilocataire, qui héberge les plans App Service dans les niveaux tarifaires Gratuit, Partagé, De base, Standard, Premium, PremiumV2 et PremiumV3. Il y a également l’environnement Azure App Service Environment (ASE) de locataire unique, qui héberge les plans App Service de référence SKU Isolé directement dans votre réseau virtuel Microsoft Azure. Les fonctionnalités que vous utilisez varient en fonction du déploiement (service multilocataire ou ASE). 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service multilocataire 
 
@@ -62,7 +62,7 @@ Les cas d’usage en sortie suivants suggèrent comment utiliser les fonctionnal
 
 ### <a name="default-networking-behavior"></a>Comportement de mise en réseau par défaut
 
-Les unités d’échelle Azure App Service prennent en charge de nombreux clients dans chaque déploiement. Les plans de référence SKU Gratuit et Partagé hébergent des charges de travail clientes sur les rôles de travail multilocataires. Les plans De base, et supérieurs, hébergent les charges de travail clientes dédiées à un seul plan App Service. Si vous aviez un plan App Service Standard, toutes les applications dans ce plan sont exécutées sur le même rôle de travail. Si vous effectuez un scale-out du rôle de travail, toutes les applications dans ce plan App Service seront répliquées sur un nouveau rôle de travail pour chaque instance dans votre plan App Service. Les rôles de travail qui sont utilisés pour Premiumv2 sont différents des rôles de travail utilisés pour les autres plans. Chaque déploiement App Service a une adresse IP qui est utilisée pour tout le trafic entrant vers les applications dans ce déploiement App Service. Toutefois, il existe entre 4 et 11 adresses qui sont utilisées pour effectuer des appels sortants. Ces adresses sont partagées par toutes les applications dans ce déploiement App Service. Les adresses sortantes diffèrent en fonction des divers types de rôles de travail. Cela signifie que les adresses utilisées par les plans App Service Gratuit, Partagé, De base, Standard et Premium sont différentes de celles utilisées pour les appels sortants des plans App Service Premiumv2. Si vous observez les propriétés de votre application, vous pouvez voir les adresses entrantes et sortantes qui sont utilisées par votre application. Si vous avez besoin de verrouiller une dépendance avec une liste de contrôle d’accès d’adresses IP, utilisez possibleOutboundAddresses. 
+Les unités d’échelle Azure App Service prennent en charge de nombreux clients dans chaque déploiement. Les plans de référence SKU Gratuit et Partagé hébergent des charges de travail clientes sur les rôles de travail multilocataires. Les plans De base, et supérieurs, hébergent les charges de travail clientes dédiées à un seul plan App Service. Si vous aviez un plan App Service Standard, toutes les applications dans ce plan sont exécutées sur le même rôle de travail. Si vous effectuez un scale-out du rôle de travail, toutes les applications dans ce plan App Service seront répliquées sur un nouveau rôle de travail pour chaque instance dans votre plan App Service. Les rôles de travail qui sont utilisés pour PremiumV2 et PremiumV3 sont différents des rôles de travail utilisés pour les autres plans. Chaque déploiement App Service a une adresse IP qui est utilisée pour tout le trafic entrant vers les applications dans ce déploiement App Service. Toutefois, il existe entre 4 et 11 adresses qui sont utilisées pour effectuer des appels sortants. Ces adresses sont partagées par toutes les applications dans ce déploiement App Service. Les adresses sortantes diffèrent en fonction des divers types de rôles de travail. Cela signifie que les adresses utilisées par les plans App Service Gratuit, Partagé, De base, Standard et Premium sont différentes de celles utilisées pour les appels sortants des plans App Service PremiumV2 et PremiumV3. Si vous observez les propriétés de votre application, vous pouvez voir les adresses entrantes et sortantes qui sont utilisées par votre application. Si vous avez besoin de verrouiller une dépendance avec une liste de contrôle d’accès d’adresses IP, utilisez possibleOutboundAddresses. 
 
 ![Propriétés de l’application](media/networking-features/app-properties.png)
 

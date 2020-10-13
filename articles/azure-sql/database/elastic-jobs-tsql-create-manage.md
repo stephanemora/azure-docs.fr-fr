@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443344"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803855"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Ajoute une base de données ou un groupe de bases de données à un groupe cible
 Nom du groupe cible auquel le membre sera ajouté. target_group_name est nvarchar(128), sans valeur par défaut.
 
 [ **\@membership_type =** ] 'membership_type'  
-Spécifie si le membre du groupe cible sera inclus ou exclu. target_group_name est nvarchar(128), avec ‘Include’ comme valeur par défaut. Les valeurs valides pour target_group_name sont 'Include' ou 'Exclude'.
+Spécifie si le membre du groupe cible sera inclus ou exclu. target_group_name est nvarchar(128), avec ‘Include’ comme valeur par défaut. Les valeurs valides pour membership_type sont 'Include' ou 'Exclude'.
 
 [ **\@target_type =** ] 'target_type'  
 Type de base de données cible ou de collection de bases de données incluant toutes les bases de données dans un serveur, toutes les bases de données dans un pool élastique, toutes les bases de données dans un mappage de partition, ou une base de données individuelle. target_type est nvarchar(128), sans valeur par défaut. Les valeurs valides pour target_type sont 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
-Le nom du serveur refresh_credential_name est nvarchar(128), sans valeur par défaut.
+Le nom des informations d’identification incluses dans l’étendue de la base de données. refresh_credential_name est nvarchar(128), sans valeur par défaut.
 
 [ **\@server_name =** ] 'server_name'  
 Nom du serveur qui doit être ajouté au groupe cible spécifié. server_name doit être spécifié lorsque target_type est 'SqlServer'. server_name est nvarchar(128), sans valeur par défaut.
@@ -1041,7 +1041,7 @@ Nom de la base de données qui doit être ajoutée au groupe cible spécifié. d
 Nom du pool élastique qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est ‘SqlElasticPool’. elastic_pool_name est nvarchar(128), sans valeur par défaut.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-Nom de l’outil de mappage de partition qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est 'SqlSqlShardMap'. shard_map_name est nvarchar (128), sans valeur par défaut.
+Nom de l’outil de mappage de partition qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est 'SqlShardMap'. shard_map_name est nvarchar (128), sans valeur par défaut.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 Numéro d’identification cible affecté au membre du groupe cible s’il a été créé et ajouté au groupe cible. target_id est une variable de sortie de type uniqueidentifier, avec NULL comme valeur par défaut.

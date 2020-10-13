@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298944"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651750"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 par rapport à Media Services v3
 
@@ -30,18 +30,17 @@ Cet article décrit les changements qui ont été introduits dans Azure Media Se
 
 ## <a name="general-changes-from-v2"></a>Modifications générales par rapport à v2
 
-* Pour les ressources créées avec la version v3, Media Services prend en charge uniquement le [chiffrement du stockage côté serveur de Stockage Azure](../../storage/common/storage-service-encryption.md).
-    * Vous pouvez utiliser des API v3 avec des ressources créées à l’aide d’API v2 qui disposaient d’un [chiffrement de stockage](../previous/media-services-rest-storage-encryption.md) (AES 256) fourni par Media Services.
-    * Vous ne pouvez pas créer de ressources avec le [chiffrement du stockage](../previous/media-services-rest-storage-encryption.md) AES 256 hérité à l’aide d’API v3.
-* Si les propriétés de la [ressource](assets-concept.md) dans v3 sont différentes de celles de v2, voir [comment les propriétés sont mappées](#map-v3-asset-properties-to-v2).
+* Pour les modifications liées aux ressources, consultez la section [Modifications spécifiques aux ressources](#asset-specific-changes) ci-après.
 * Les kits de développement logiciel (SDK) v3 sont dissociés du Storage SDK, ce qui vous offre davantage de contrôle sur la version de SDK Stockage à utiliser, et évite les problèmes de gestion de version. 
 * Dans les API v3, toutes les vitesses d’encodage sont exprimées en bits par seconde. Ceci diffère des préréglages de Media Encoder Standard v2. Par exemple, un débit en bits dans v2 exprimé sous la forme 128 Kbits/s, sera exprimé dans v3 sous la forme 128000 (bits/seconde). 
 * Les entités AssetFiles, AccessPolicies et IngestManifests n’existent pas dans v3.
-* La propriété IAsset.ParentAssets n’existe pas dans la version 3.
 * ContentKeys n’est plus une entité, mais une propriété du localisateur de streaming.
 * La prise en charge de la grille d’événements remplace NotificationEndpoints.
 * Les entités suivantes ont été renommées :
-    * JobOutput remplace Task et fait désormais partie d’un travail.
+
+   * JobOutput v3 remplace Task v2, et fait désormais partie d’un travail. Les entrées et les sorties se situent désormais au niveau du travail. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md). 
+
+       Pour afficher l’historique de la progression du travail, écoutez les événements EventGrid. Pour plus d’informations, consultez [Traitement des événements Event Grid](reacting-to-media-services-events.md).
     * StreamingLocator remplace Locator.
     * LiveEvent remplace Channel.<br/>La facturation des événements en direct est basée sur les compteurs de canal live. Pour plus d’informations, consultez [facturation](live-event-states-billing.md) et [tarifs](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput remplace Program.
@@ -88,6 +87,12 @@ Les API v3 présentent les différences de fonctionnalités suivantes par rappor
 * Reportez-vous à l’exemple de code `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` pour connaître les bonnes pratiques et les tendances relatives à l’utilisation de l’API REST V2 sur le kit SDK .NETCore.
 
 ## <a name="asset-specific-changes"></a>Modifications spécifiques aux ressources
+
+* Pour les ressources créées avec la version v3, Media Services prend en charge uniquement le [chiffrement du stockage côté serveur de Stockage Azure](../../storage/common/storage-service-encryption.md).
+    * Vous pouvez utiliser des API v3 avec des ressources créées à l’aide d’API v2 qui disposaient d’un [chiffrement de stockage](../previous/media-services-rest-storage-encryption.md) (AES 256) fourni par Media Services.
+    * Vous ne pouvez pas créer de ressources avec le [chiffrement du stockage](../previous/media-services-rest-storage-encryption.md) AES 256 hérité à l’aide d’API v3.
+* Si les propriétés de la [ressource](assets-concept.md) dans v3 sont différentes de celles de v2, voir [comment les propriétés sont mappées](#map-v3-asset-properties-to-v2).
+* La propriété IAsset.ParentAssets n’existe pas dans la version 3.
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2
 
