@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317563"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 
@@ -120,7 +120,7 @@ Chaque connecteur Active Directory local a son propre canal de synchronisation d
 
 Si le compte AD DS utilisé par le connecteur Active Directory local pour synchroniser les hachages de mot de passe n’a pas les autorisations appropriées, l’erreur suivante est retournée :
 
-![Informations d’identification incorrectes](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Capture d’écran montrant l’erreur renvoyée quand le compte AD DS a un nom d’utilisateur ou un mot de passe incorrect.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Nom d’utilisateur ou mot de passe du compte AD DS incorrect
 
@@ -338,7 +338,7 @@ Vous pouvez résoudre facilement les problèmes de synchronisation du hachage de
 
     i. Cliquez sur **Propriétés de l’objet métaverse** pour afficher une liste d’attributs de l’utilisateur.  
 
-    ![Informations de métaverse](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Capture d’écran montrant la liste des attributs utilisateur pour les propriétés d’objet métaverse.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Vérifiez qu’aucun attribut **cloudFiltered** n’est présent. Assurez-vous que les attributs de domaine (domainFQDN et domainNetBios) ont les valeurs attendues.
 

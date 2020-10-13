@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278632"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -49,7 +49,9 @@ Consultez [Ressources principales prises en charge](https://docs.microsoft.com/a
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>Dans quelles régions Application Gateway est-il disponible ?
 
-Application Gateway est disponible dans toutes les régions de la version globale d’Azure. Il est également disponible dans [Azure - Chine 21Vianet](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway v1 (Standard et WAF) est disponible dans toutes les régions d’Azure global. Il est également disponible dans [Azure - Chine 21Vianet](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+
+Pour la disponibilité d’Application Gateway v2 (Standard_v2 et WAF_v2), consultez [Régions prises en charge pour Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>S’agit-il d’un déploiement dédié à mon abonnement ou est-il partagé entre les clients ?
 
@@ -182,11 +184,15 @@ Non. Mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de la passerelle d’application ?
 
-Consultez [Groupes de sécurité réseau dans le sous-réseau Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+Consultez [Groupes de sécurité réseau dans le sous-réseau Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Le sous-réseau de la passerelle d'application prend-il en charge les routes définies par l’utilisateur ?
 
 Consultez [Les routes définies par l’utilisateur prises en charge dans le sous-réseau Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>Les stratégies de point de terminaison de service sont-elles prises en charge dans le sous-réseau Application Gateway ?
+
+Non. Les [stratégies de point de terminaison de service](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) pour les comptes de stockage ne sont pas prises en charge dans un sous-réseau Application Gateway sous-réseau, et leur configuration bloque le trafic d’infrastructure Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?
 
@@ -222,7 +228,7 @@ Le champ hôte Spécifie le nom auquel envoyer la sonde lorsque vous avez config
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Puis-je autoriser l’accès d’Application Gateway à quelques adresses IP sources uniquement ?
 
-Oui. Consultez [Restreindre l’accès à des adresses IP sources spécifiques](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Oui. Consultez [Restreindre l’accès à des adresses IP sources spécifiques](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Puis-je utiliser le même port pour les écouteurs publics et privés ?
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029543"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827766"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
@@ -69,7 +69,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
 
     3. Saisissez et confirmez votre nouveau mot de passe, puis sélectionnez **Terminer**.
 
-- **Réinitialiser votre mot de passe par téléphone.** Envoie un SMS au numéro de téléphone précédemment configuré dans les informations de sécurité. Si votre administrateur a activé la fonctionnalité Informations de sécurité, vous trouverez plus d’informations sur la configuration d’un numéro de téléphone dans l’article [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser l’appel téléphonique [préversion]). Si vous n’utilisez pas encore les informations de sécurité, vous trouverez plus d’informations sur la configuration de l’appel téléphonique dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
+- **Réinitialiser votre mot de passe par téléphone.** Passe un appel vocal automatique au numéro de téléphone précédemment configuré dans les informations de sécurité. Si votre administrateur a activé la fonctionnalité Informations de sécurité, vous trouverez plus d’informations sur la configuration d’un numéro de téléphone dans l’article [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser l’appel téléphonique [préversion]). Si vous n’utilisez pas encore les informations de sécurité, vous trouverez plus d’informations sur la configuration de l’appel téléphonique dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
     1. Sélectionnez **Effectuer un appel sur mon téléphone portable**, saisissez votre numéro de téléphone, puis sélectionnez **Appeler**.
 

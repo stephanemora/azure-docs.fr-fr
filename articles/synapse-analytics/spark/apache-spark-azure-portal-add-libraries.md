@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: b7aea6565e8301e2aeb96263b8e7b1d2ea64995d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589538"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826723"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Pour installer une bibliothèque sur un pool Spark (préversion) directement à 
 
  4. Chargez le fichier de configuration de l’environnement à l’aide du sélecteur de fichiers.
 
-![Ajouter des bibliothèques Python](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Ajouter des bibliothèques Python")
+![Capture d’écran qui met en surbrillance le bouton Charger le fichier config de l'environnement.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Ajouter des bibliothèques Python")
 
 ### <a name="verify-installed-libraries"></a>Vérifier les bibliothèques installées
 
@@ -125,7 +125,7 @@ Les packages Wheel personnalisés peuvent être installés sur le pool Apache Sp
 Les fichiers doivent être téléchargés vers le chemin d’accès suivant dans le conteneur par défaut du compte de stockage : 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]

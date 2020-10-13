@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298910"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666617"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -163,7 +163,7 @@ Les tailles A8 à A11 et celles de la série H sont également appelées *inst
 <sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.  
 
 > [!NOTE]
-> La mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> La mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021. Nous vous recommandons vivement de ne pas créer de nouvelles machines virtuelles A8 – A11. Migrez les machines virtuelles A8 – A11 existantes vers des tailles de machines virtuelles hautes performances puissantes et plus récentes telles que H, HB, HC, HBv2, ainsi que des tailles de machines virtuelles de calcul à usage général, telles que D, E et F, pour un meilleur rapport qualité/prix. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
