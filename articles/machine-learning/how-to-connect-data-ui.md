@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992653"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542153"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ Dans cet article, découvrez comment accéder à vos données avec [Azure Machin
 
 Le tableau suivant définit et récapitule les avantages liés aux magasins de données et jeux de données. 
 
-||Description| Avantages|   
+|Object|Description| Avantages|   
 |---|---|---|
-|Magasins de données| Connectez-vous en toute sécurité à votre service de stockage sur Azure, en stockant vos informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [coffre de clés](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail. | Vos données étant stockées de manière sécurisée, vous : <br><br> <li> Ne &nbsp;mettez&nbsp; pas les&nbsp;informations d’identification ou sources de données d’origine en danger. <li> N’avez plus besoin de les coder en dur dans vos scripts.
+|Magasins de données| Connectez-vous en toute sécurité à votre service de stockage sur Azure, en stockant vos informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [coffre de clés](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail. | Vos données étant stockées de manière sécurisée, vous : <br><br> <li> Ne&nbsp;mettez&nbsp;pas les &nbsp;informations d’authentification&nbsp;ou&nbsp;sources de données d’origine&nbsp;en danger. <li> N’avez plus besoin de les coder en dur dans vos scripts.
 |Groupes de données| En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Avec les jeux de données, vous pouvez : <br><br><li> Accéder aux données pendant la formation de modèle.<li> Partager des données et collaborer avec d’autres utilisateurs.<li> Tirer parti des bibliothèques open source, telles que Pandas, pour l’exploration des données. | Étant donné que les jeux de données sont évalués tardivement et que les données restent à leur emplacement existant : <br><br><li>Vous conservez une seule copie des données dans votre stockage.<li> Vous n’engagez aucun coût de stockage supplémentaire. <li> Vous ne risquez pas de modifier involontairement vos sources de données d’origine.<li>Vous améliorez les performances des workflows de ML. 
 
 Pour comprendre où figurent les magasins de données et les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](concept-data.md#data-workflow).
 
-Pour une première expérience de code, consultez les articles suivants pour utiliser le kit de développement logiciel (SDK) [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) pour :
+Pour une première expérience de code, consultez les articles suivants pour utiliser le kit de développement logiciel (SDK) [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) pour :
 * [Vous connecter aux services de stockage Azure avec les magasins de données.](how-to-access-data.md) 
 * [Créer des jeux de données Azure Machine Learning](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ Plus précisément, le profil des données du jeu de données Azure Machine Lear
 >[!NOTE]
 > Les entrées vides apparaissent pour les fonctionnalités avec types non pertinents.
 
-Statistique|Description
-------|------
-Fonctionnalité| Nom de la colonne en cours de synthèse.
-Profil| Visualisation en ligne en fonction du type déduit. Par exemple, les chaînes, valeurs booléennes et dates incluront des nombres de valeurs, et les décimales (valeurs numériques) des histogrammes approximatifs. Cela vous permet de vous faire une idée rapide de la distribution des données.
-Distribution des types| Nombre de valeurs en ligne de types au sein d’une colonne. Les valeurs Null ont un type propre et dès lors, cette visualisation est utile pour détecter les valeurs impaires ou manquantes.
-Type|Type déduit de la colonne. Les valeurs possibles incluent : chaînes, valeurs booléennes, dates et décimales.
-Min| Valeur minimale de la colonne. Les entrées vides apparaissent pour les fonctionnalités dont le type n’a pas d'ordre inhérent (valeurs booléennes, par exemple).
-Max| Valeur maximale de la colonne. 
-Count| Nombre total d’entrées manquantes et non manquantes de la colonne.
-Non manquant| Nombre d’entrées dans la colonne qui ne sont pas manquantes. Les chaînes vides et les erreurs sont traitées en tant que valeurs et donc n’entrent pas dans « Non manquant ».
-Quantiles| Valeurs approximatives à chaque quantile pour donner une idée de la distribution des données.
-Moyenne| Moyenne arithmétique ou moyenne de la colonne.
-Écart standard| Mesure de la dispersion ou de la variation des données de cette colonne.
-Variance| Mesure jusqu’où les données de cette colonne sont déployées par rapport à leur valeur moyenne. 
-Asymétrie| Mesure de la différence entre les données de cette colonne et une distribution normale.
-Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
+|Statistique|Description
+|------|------
+|Fonctionnalité| Nom de la colonne en cours de synthèse.
+|Profil| Visualisation en ligne en fonction du type déduit. Par exemple, les chaînes, valeurs booléennes et dates incluront des nombres de valeurs, et les décimales (valeurs numériques) des histogrammes approximatifs. Cela vous permet de vous faire une idée rapide de la distribution des données.
+|Distribution des types| Nombre de valeurs en ligne de types au sein d’une colonne. Les valeurs Null ont un type propre et dès lors, cette visualisation est utile pour détecter les valeurs impaires ou manquantes.
+|Type|Type déduit de la colonne. Les valeurs possibles incluent : chaînes, valeurs booléennes, dates et décimales.
+|Min| Valeur minimale de la colonne. Les entrées vides apparaissent pour les fonctionnalités dont le type n’a pas d'ordre inhérent (valeurs booléennes, par exemple).
+|Max| Valeur maximale de la colonne. 
+|Count| Nombre total d’entrées manquantes et non manquantes de la colonne.
+|Non manquant| Nombre d’entrées dans la colonne qui ne sont pas manquantes. Les chaînes vides et les erreurs sont traitées en tant que valeurs et donc n’entrent pas dans « Non manquant ».
+|Quantiles| Valeurs approximatives à chaque quantile pour donner une idée de la distribution des données.
+|Moyenne| Moyenne arithmétique ou moyenne de la colonne.
+|Écart standard| Mesure de la dispersion ou de la variation des données de cette colonne.
+|Variance| Mesure jusqu’où les données de cette colonne sont déployées par rapport à leur valeur moyenne. 
+|Asymétrie| Mesure de la différence entre les données de cette colonne et une distribution normale.
+|Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
 
 ## <a name="storage-access-and-permissions"></a>Accès et autorisations pour le stockage
 
@@ -170,6 +170,6 @@ Utilisez vos jeux de données dans vos expériences d’apprentissage automatiqu
 
 * [Exemple pas à pas de formation avec TabularDatasets et Machine Learning automatisé](tutorial-first-experiment-automated-ml.md).
 
-* [Effectuer l’apprentissage d’un modèle](how-to-train-ml-models.md).
+* [Effectuer l’apprentissage d’un modèle](how-to-set-up-training-targets.md).
 
 * Pour obtenir plus d’exemples d’entraînement de jeux de données, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589060"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714584"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI
 
@@ -43,11 +43,11 @@ Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI version 2
 
 Quand vous vous connectez à Azure CLI avec des informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par Azure CLI pour autoriser les opérations de données suivantes sur le Stockage Blob ou File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle (RBAC, role-based access control). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC](storage-auth-aad-rbac.md).
+Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès Azure en fonction du rôle (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Autorisations pour appeler des opérations de données
 
-Les extensions Stockage Azure sont prises en charge pour les opérations sur les données d’objet blob et de file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à Azure CLI. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées à l’aide du contrôle d’accès en fonction du rôle (RBAC). Par exemple, si le rôle **Lecteur des données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si le rôle **Contributeur aux données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent.
+Les extensions Stockage Azure sont prises en charge pour les opérations sur les données d’objet blob et de file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à Azure CLI. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si le rôle **Contributeur aux données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent.
 
 Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les autorisations requises pour chaque opération
 
 L’exemple suivant montre comment créer un conteneur à partir d’Azure CLI à l’aide de vos informations d’identification Azure AD. Pour créer le conteneur, vous devez vous connecter à Azure CLI et aurez besoin d’un groupe de ressources et d’un compte de stockage. Pour savoir comment créer ces ressources, voir [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac.md).
+1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
