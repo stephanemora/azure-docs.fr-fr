@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707915"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715622"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
@@ -37,7 +37,7 @@ Un compte de stockage peut servir de compte source pour un maximum de deux compt
 
 Lorsque vous configurez une réplication d’objet, vous créez une stratégie de réplication sur le compte de destination via le fournisseur de ressources de Stockage Azure. Une fois la stratégie de réplication créée, le service Stockage Azure lui attribue un ID de stratégie. Vous devez ensuite associer cette stratégie de réplication au compte source à l’aide de l’ID de stratégie. Pour que la réplication ait lieu, l’ID de stratégie doit être le même sur les comptes source et de destination.
 
-Pour configurer une stratégie de réplication d’objet pour un compte de stockage, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager, étendu au niveau du compte de stockage ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle (RBAC).
+Pour configurer une stratégie de réplication d’objet pour un compte de stockage, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager, étendu au niveau du compte de stockage ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configurer la réplication d’objets lorsque vous avez accès aux deux comptes de stockage
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Si vous n’avez pas d’autorisation sur le compte de stockage source, vous pouvez configurer la réplication d’objets sur le compte de destination, et fournir un fichier JSON contenant la définition de stratégie à un autre utilisateur pour créer la même stratégie sur le compte source. Par exemple, si le compte source se trouve dans un locataire Azure AD différent de celui du compte de destination, vous pouvez adopter cette approche pour configurer la réplication d’objets.
 
-Gardez à l’esprit que, pour créer la stratégie, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager étendu au niveau du compte de stockage de destination ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle (RBAC).
+Gardez à l’esprit que, pour créer la stratégie, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager étendu au niveau du compte de stockage de destination ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 Le tableau suivant récapitule les valeurs à utiliser pour l’ID de stratégie et les ID de règle dans le fichier JSON de chaque scénario.
 

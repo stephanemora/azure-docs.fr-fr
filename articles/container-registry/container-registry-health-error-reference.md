@@ -1,14 +1,14 @@
 ---
-title: Référence des erreurs pour les contrôles d’intégrité
+title: Référence des erreurs pour les contrôles d’intégrité d’un registre
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978312"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565596"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
@@ -90,7 +90,7 @@ Cette erreur signifie que le serveur de connexion du Registre n’a pas répondu
 
 Cette erreur signifie que le client n’a pas pu établir de connexion sécurisée au registre de conteneurs. Cette erreur se produit généralement si vous exécutez ou utilisez un serveur proxy.
 
-*Solutions potentielles* : Pour plus d’informations sur le travail derrière un proxy, voir [ici](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Solutions potentielles* : Pour plus d’informations sur le travail derrière un proxy, voir [ici](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

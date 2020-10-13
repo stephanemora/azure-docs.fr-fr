@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 90dbc0b888c6d6eeed97a676024abc9cc0dca6fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371182"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -61,7 +61,7 @@ Les fonctionnalités du service Protection DDos Standard sont les suivantes :
 
 Le service Protection DDoS Standard surveille l’utilisation du trafic réelle et la compare en permanence aux seuils définis dans la stratégie DDoS. Si le seuil de trafic est dépassé, l’atténuation DDoS est lancée automatiquement. Quand le trafic repasse sous le seuil, l’atténuation est supprimée.
 
-![Limitation des risques](./media/ddos-protection-overview/mitigation.png)
+![Schéma qui représente un flux commençant par un client sur le Portail Azure s’appuyant la norme de protection DDoS, sur des adresses IP publiques, en passant par la génération de stratégies qui se terminent avec deux adresses IP publiques.](./media/ddos-protection-overview/mitigation.png)
 
 Pendant l’atténuation, le trafic envoyé vers la ressource protégée est redirigé par le service de protection DDoS et plusieurs vérifications sont effectuées, telles que les suivantes :
 
@@ -81,3 +81,4 @@ Microsoft travaille en collaboration avec [BreakingPoint Cloud](https://www.ixia
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configuration le service DDoS Protection Standard](manage-ddos-protection.md)
+- [Tarification Azure DDoS Protection](https://azure.microsoft.com/pricing/details/ddos-protection/)

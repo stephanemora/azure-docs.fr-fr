@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ec9e6bc7daad05284893ce3148f9a80f500c5cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019944"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570690"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Découvrez les concepts Azure Cosmos DB suivants :
 
 - [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
-- [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
+- [Guide pratique pour configurer les écritures multirégion dans vos applications](how-to-multi-master.md)
 - [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
+- [Guide pratique pour configurer les écritures multirégion dans vos applications](how-to-multi-master.md).
 - [Partitionnement et distribution des données](partition-data.md)
 - [Indexation dans Azure Cosmos DB](indexing-policies.md)
