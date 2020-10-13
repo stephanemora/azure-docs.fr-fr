@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954653"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569496"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Contrairement à un service cloud natif de base de données comme Azure Cosmos D
 
 Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devoir surprovisionner l’infrastructure de base de données. Les ressources Azure Cosmos DB sont fournies sans avoir recours à des configurations ni licences spécialisées. Par conséquent, les applications reposant sur Azure Cosmos DB peuvent s’exécuter avec des économies de 70 % du coût total de possession par rapport aux bases de données NoSQL open source. Pour obtenir des exemples en temps réel, consultez les [cas d’utilisation client](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc). Les autres avantages du modèle de tarification Azure Cosmos DB incluent :
 
-* **Rapport qualité/prix optimal :** les partenaires, les clients et les analystes ont confirmé la valeur supérieure de toutes les fonctionnalités offertes par Azure Cosmos DB pour un moindre coût par rapport à ce que les clients peuvent obtenir lorsqu’ils implémentent ces solutions eux-mêmes ou via d’autres fournisseurs. Les fonctionnalités de base de données telles que la distribution mondiale, le multimaître, les modèles de cohérence bien définis et intuitifs et l’indexation automatique sont considérablement simplifiées avec Azure Cosmos DB, sans complexité, surcharge ni temps d’arrêt.
+* **Rapport qualité/prix optimal :** les partenaires, les clients et les analystes ont confirmé la valeur supérieure de toutes les fonctionnalités offertes par Azure Cosmos DB pour un moindre coût par rapport à ce que les clients peuvent obtenir lorsqu’ils implémentent ces solutions eux-mêmes ou via d’autres fournisseurs. Les fonctionnalités de base de données telles que la distribution mondiale, les écritures multirégions, les modèles de cohérence bien définis et intuitifs et l’indexation automatique sont considérablement simplifiées avec Azure Cosmos DB, sans complexité, surcharge ni temps d’arrêt.
 
 * **Aucune administration DevOps NoSQL n’est nécessaire :** Avec Azure Cosmos DB, il n’est pas nécessaire de faire appel aux pratiques DevOps pour gérer les déploiements, effectuer la maintenance, la mise à l’échelle ou appliquer des correctifs. Vous pouvez exécuter toutes les charges de travail de la même manière qu’avec un cluster NoSQL open source hébergé en local ou sur l’infrastructure cloud.
 

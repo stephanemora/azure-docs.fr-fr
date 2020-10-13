@@ -2,15 +2,15 @@
 title: Créer et déployer une spec de modèle
 description: Découvrez comment créer une spec de modèle à partir d’un modèle ARM. Ensuite, déployez la spec de modèle vers un groupe de ressources dans votre abonnement.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369213"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728775"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Démarrage rapide : Créer et déployer une spec de modèle (préversion)
 
@@ -27,7 +27,7 @@ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://a
 
 ## <a name="create-template-spec"></a>Créer une spec de modèle
 
-La spec de modèle est un nouveau type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
+La spec de modèle est un type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
 
 Avec PowerShell et CLI, le modèle ARM est transmis en tant que paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
 

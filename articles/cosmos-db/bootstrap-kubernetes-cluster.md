@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497758"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570117"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Utiliser Azure Kubernetes avec Azure Cosmos DB (préversion)
 
-L'API etcd d'Azure Cosmos DB vous permet d’utiliser Azure Cosmos DB en tant que magasin principal pour Azure Kubernetes. Azure Cosmos DB implémente le protocole filaire etcd pour permettre aux serveurs d’API du nœud principal d'utiliser Azure Cosmos DB comme pour accéder à un etcd installé localement. Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Lorsque vous utilisez l'API etcd Azure Cosmos en tant que magasin de stockage pour Kubernetes, vous bénéficiez des avantages suivants : 
+L'API etcd d'Azure Cosmos DB vous permet d’utiliser Azure Cosmos DB en tant que magasin principal pour Azure Kubernetes. Azure Cosmos DB implémente le protocole filaire etcd pour permettre aux serveurs d’API du nœud principal d’utiliser Azure Cosmos DB comme pour accéder à un etcd installé localement. Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Lorsque vous utilisez l'API etcd Azure Cosmos en tant que magasin de stockage pour Kubernetes, vous bénéficiez des avantages suivants : 
 
 * Configuration manuelle et gestion d'etcd inutiles.
 * Haute disponibilité d’etcd, garantie par Cosmos (99,99 % dans une région, à 99,999 % dans plusieurs régions).
@@ -27,7 +27,7 @@ Pour en savoir plus sur l'API etcd dans Azure Cosmos DB, consultez l’article [
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Installez la dernière version d'[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous pouvez télécharger et installer une version d'Azure CLI spécifique à votre système d’exploitation.
+1. Installez la dernière version d'[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Vous pouvez télécharger et installer une version d'Azure CLI spécifique à votre système d’exploitation.
 
 1. Installez la [version la plus récente](https://github.com/Azure/aks-engine/releases) d’Azure Kubernetes Engine. Les instructions d’installation des différents systèmes d’exploitation sont disponibles dans la page [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Suivez les étapes de la section **Installer AKS Engine** de la documentation correspondante. Une fois téléchargé, extrayez le fichier zip.
 

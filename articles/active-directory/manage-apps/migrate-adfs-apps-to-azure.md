@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600943"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728979"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) propose une plateforme d’identité universelle qui offre à vos employés, partenaires et clients une identité unique pour accéder aux applications et collaborer à partir de n’importe quelle plateforme et de n’importe quel appareil. Azure AD comprend une [suite complète de fonctionnalités de gestion des identités](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). La standardisation de l’authentification et de l’autorisation de votre application avec Azure AD permet d’offrir les avantages de ces fonctionnalités. 
 
-> [!NOTE]
-> Cet article se concentre sur le déplacement de l’authentification d’application à des instances locales d’Active Directory et des services de fédération Active Directory (AD FS) vers Azure AD. Pour une vue d’ensemble de la planification de ce déplacement, consultez le livre blanc [Migration de l’authentification d’application vers Azure AD](https://aka.ms/migrateapps/whitepaper). Ce livre blanc explique comment planifier la migration, les tests et les insights.
+> [!TIP]
+> Cet article est destiné aux développeurs. Les chefs de projet et les administrateurs qui planifient le passage d’une application à Azure AD doivent envisager de lire notre livre blanc [Déplacement de l’authentification d’application vers Azure AD](https://aka.ms/migrateapps/whitepaper) (PDF).
 
 ## <a name="introduction"></a>Introduction
 

@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707609"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715984"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
-Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
+Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales.
 
 > [!IMPORTANT]
 > Le contenu de cet article s’applique uniquement aux partages SMB. Pour plus d’informations sur les partages NFS, consultez [Résoudre les problèmes des partages de fichiers NFS Azure](storage-troubleshooting-files-nfs.md).
@@ -173,7 +173,7 @@ Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées co
 
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
-Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
@@ -343,7 +343,7 @@ L’applet de commande effectue dans l’ordre les vérifications ci-dessous, pu
 1. CheckADObjectPasswordIsCorrect : Vérifier que le mot de passe configuré sur l’identité AD qui représente le compte de stockage correspond à celui de la clé kerb1 ou kerb2 du compte de stockage. Si le mot de passe est incorrect, vous pouvez exécuter [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) pour réinitialiser le mot de passe. 
 2. CheckADObject : Confirmer qu’il existe un objet dans Active Directory qui représente le compte de stockage et qu’il possède le nom de principal du service (SPN) correct. Si le SPN n’est pas correctement configuré, exécutez la cmdlet Set-AD retournée dans la cmdlet debug pour configurer le SPN.
 3. CheckDomainJoined : Vérifier que l’ordinateur client est joint à AD. Si votre ordinateur n’est pas joint à AD, consultez [cet article](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) pour l’instruction de jonction de domaine.
-4. CheckPort445Connectivity : Vérifier que le port 445 est ouvert pour la connexion SMB. Si le port requis n’est pas ouvert, reportez-vous à l’outil de dépannage [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) pour les problèmes de connectivité avec Azure Files.
+4. CheckPort445Connectivity : Vérifier que le port 445 est ouvert pour la connexion SMB. Si le port requis n’est pas ouvert, reportez-vous à l’outil de dépannage [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) pour les problèmes de connectivité avec Azure Files.
 5. CheckSidHasAadUser : Vérifiez que l’utilisateur AD connecté est synchronisé avec Azure AD. Si vous souhaitez rechercher si un utilisateur AD spécifique est synchronisé avec Azure AD, vous pouvez spécifier les paramètres -UserName et -Domain dans les paramètres d’entrée. 
 6. CheckGetKerberosTicket : Tenter d’obtenir un ticket Kerberos pour se connecter au compte de stockage. S’il n’existe pas de jeton Kerberos valide, exécutez la cmdlet get cifs/storage-account-name.file.core.windows.net, puis examinez le code d’erreur pour l’analyse de la cause racine de l’échec de la récupération du ticket.
 7. CheckStorageAccountDomainJoined : Vérifier si l’authentification Active Directory a été activée et si les propriétés AD du compte sont renseignées. Si ce n’est pas le cas, reportez-vous à l’instruction [ici](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) pour activer l’authentification AD DS sur Azure Files. 

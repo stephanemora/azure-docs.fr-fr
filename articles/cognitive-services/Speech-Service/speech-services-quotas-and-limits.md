@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690134"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567160"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
 
@@ -36,6 +36,7 @@ Dans le tableau ci-dessous, les paramètres sans ligne « Réglable » ne sont
 | **Taille maximale de blob d’entrée pour la transcription par lot** | N/A | 2,5 Go |
 | **Taille maximale de conteneur d’objets blob pour la transcription par lot** | N/A | 5 Go |
 | **Nombre maximal de blobs par conteneur pour la transcription par lot** | N/A | 10000 |
+| **Demande Nombre maximal de fichiers par demande de transcription pour la transcription par lots (en cas d’utilisation de plusieurs URL de contenu en entrée)** | N/A | 1 000  |
 | **Nombre maximal de travaux s’exécutant simultanément pour la transcription par lot** | N/A | 2000  |
 
 <sup>1</sup> Pour le niveau tarifaire **gratuit (F0)** , consultez également les allocations mensuelles sur la [page de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -120,7 +121,7 @@ La valeur existante du paramètre Limite de demandes simultanées n’est **pas 
 #### <a name="create-and-submit-support-request"></a>Créer et soumettre une demande de support
 Initiez l’augmentation de la limite de demandes simultanées pour votre ressource ou, si nécessaire, vérifiez la limite du jour en soumettant la demande de support :
 
-- Assurez-vous que vous disposez des [informations requises](#have-the-required-information-ready)
+- Vérifiez que vous disposez des [informations requises](#have-the-required-information-ready).
 - Accédez au [portail Azure](https://portal.azure.com/).
 - Sélectionnez la ressource vocale dont vous souhaitez augmenter (ou vérifier) la limite de demandes simultanées.
 - Sélectionnez *Nouvelle demande de support* (groupe *Support et dépannage*) 

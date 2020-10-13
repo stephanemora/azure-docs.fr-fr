@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335498"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
@@ -54,6 +54,10 @@ Si vous recevez des erreurs durant l’importation de votre document OpenAPI, v�
 -   `Examples` n’est pas pris en charge, contrairement à `example`.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mécanismes d’importation, de mise à jour et d’exportation OpenAPI
+
+### <a name="general"></a><a name="open-import-export-general"> </a>Général
+
+-   Les définitions d’API exportées à partir du service Gestion des API sont principalement destinées aux applications externes à ce service et qui doivent appeler l’API hébergée dans le service Gestion des API. Les définitions d’API exportées ne sont pas destinées à être à nouveau importées dans le même service Gestion des API ou dans un service différent. Pour la gestion de la configuration des définitions d’API dans différents services/environnements, consultez la documentation relative à l’utilisation du service Gestion des API avec Git. 
 
 ### <a name="add-new-api-via-openapi-import"></a>Ajouter une nouvelle API via l’importation OpenAPI
 

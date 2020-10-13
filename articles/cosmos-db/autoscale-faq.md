@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708000"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567585"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Utilisez [Mesures Azure Monitor](how-to-choose-offer.md#measure-and-monitor-your
 Vous êtes facturé toutes les heures pour le débit le plus élevé `T` sur lequel le système est mis à l’échelle dans l’heure. Si votre ressource ne comporte aucune demande pendant l’heure ou n’est mise à l’échelle au-delà de `0.1 * Tmax`, vous serez facturé au minimum `0.1 * Tmax`. Pour plus d’informations, consultez la [page Tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) d’Azure Cosmos DB. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Comment la mise à l’échelle automatique s’affiche-t-elle sur ma facture ?
-Dans les comptes à maître unique, le taux de mise à l’échelle automatique par 100 RU/s est de 1,5 x le taux de débit standard (manuel) approvisionné. Sur votre facture, vous verrez le compteur de débit standard approvisionné existant. La quantité de ce compteur est multipliée par 1,5. Par exemple, si la RU/s la plus élevée sur laquelle le système est mis à l’échelle en une heure est de 6 000 RU/s, vous êtes facturé 60 * 1,5 = 90 unités du compteur pour cette heure.
+Dans les comptes de région d’écriture unique, le taux de mise à l’échelle automatique par 100 RU/s est de 1,5 x le taux de débit standard (manuel) approvisionné. Sur votre facture, vous verrez le compteur de débit standard approvisionné existant. La quantité de ce compteur est multipliée par 1,5. Par exemple, si la RU/s la plus élevée sur laquelle le système est mis à l’échelle en une heure est de 6 000 RU/s, vous êtes facturé 60 * 1,5 = 90 unités du compteur pour cette heure.
 
-Dans les comptes multimaître, le taux de mise à l’échelle automatique par 100 RU/s est le même que le taux de débit standard (manuel) approvisionné multimaître. Sur votre facture, vous verrez le compteur multimaître existant. Étant donné que les taux sont les mêmes, si vous utilisez la mise à l’échelle automatique, vous verrez la même quantité qu’avec le débit standard.
+Dans les comptes couvrant plusieurs régions d’écritures, le taux de mise à l’échelle automatique par 100 RU/s est le même que le taux de débit standard (manuel) approvisionné couvrant plusieurs régions d’écriture. Sur votre facture, vous verrez le compteur d’écriture multirégion. Étant donné que les taux sont les mêmes, si vous utilisez la mise à l’échelle automatique, vous verrez la même quantité qu’avec le débit standard.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>La mise à l’échelle automatique fonctionne-t-elle avec la capacité de réserve ?
-Oui. Lorsque vous achetez une capacité réservée de maître unique, la remise de réservation pour les ressources de mise à l’échelle automatique est appliquée à votre utilisation du compteur à un ratio de 1,5 * le [ratio de la régionspécifique](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Oui. Lorsque vous achetez une capacité réservée pour les comptes couvrant plusieurs régions d’écriture, la remise de réservation pour les ressources de mise à l’échelle automatique est appliquée à votre utilisation du compteur à un ratio de 1,5 * le [ratio de la région spécifique](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-La capacité de réserve multimaître fonctionne de la même façon pour la mise à l’échelle automatique et le débit approvisionné standard (manuel). Consultez la rubrique [Capacité de réserve Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+La capacité de réserve de régions d’écriture fonctionne de la même façon pour la mise à l’échelle automatique et le débit approvisionné standard (manuel). Consultez la rubrique [Capacité de réserve Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>La mise à l’échelle automatique fonctionne-t-elle avec le niveau gratuit ?
 Oui. Dans le niveau gratuit, vous pouvez utiliser le débit de mise à l’échelle automatique sur un conteneur. Le support des bases de données de débit partagé de mise à l’échelle automatique avec une RU/s maximale personnalisée n’est pas encore disponible. Découvrez comment [fonctionne la facturation du niveau gratuit avec la mise à l’échelle automatique](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Oui. Dans le niveau gratuit, vous pouvez utiliser le débit de mise à l’éche
 ### <a name="is-autoscale-supported-for-all-apis"></a>La mise à l’échelle automatique est-elle prise en charge pour toutes les API ?
 Oui, la mise à l’échelle automatique est prise en charge pour toutes les API : Core (SQL), Gremlin, Table, Cassandra et API pour MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>La mise à l’échelle automatique est-elle prise en charge pour les comptes multimaîtres ?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>La mise à l’échelle automatique est-elle prise en charge pour les comptes d’écriture multirégion ?
 Oui. L’unité de requête/s maximale est disponible dans chaque région ajoutée au compte Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Comment faire pour activer la mise à l’échelle automatique sur de nouveaux conteneurs ou bases de données ?
