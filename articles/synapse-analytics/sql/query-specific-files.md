@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288101"
 ---
 # <a name="use-file-metadata-in-queries"></a>Utiliser des métadonnées de fichier dans les requêtes
 
@@ -22,7 +22,7 @@ SQL à la demande peut traiter plusieurs fichiers et dossiers, comme cela est d�
 
 Vous devrez peut-être parfois savoir quelle source de fichier ou de dossier est corrélée à une ligne spécifique dans le jeu de résultats.
 
-Vous pouvez utiliser les fonctions `filepath` et `filename` pour retourner les noms ou le chemin d’accès des fichiers dans le jeu de résultats. Vous pouvez les utiliser pour filtrer des données sur le nom de ou le chemin d’accès du dossier. Ces fonctions sont décrites dans la section syntaxe des fonctions [filename](query-data-storage.md#filename-function) et [filepath](query-data-storage.md#filepath-function). Vous trouverez ci-dessous de brèves descriptions des exemples.
+Vous pouvez utiliser les fonctions `filepath` et `filename` pour retourner les noms ou le chemin d’accès des fichiers dans le jeu de résultats. Vous pouvez les utiliser pour filtrer des données sur le nom de ou le chemin d’accès du dossier. Ces fonctions sont décrites dans la section syntaxe des fonctions [filename](query-data-storage.md#filename-function) et [filepath](query-data-storage.md#filepath-function). Dans les sections suivantes, vous trouverez de courtes descriptions ainsi que des exemples.
 
 ## <a name="prerequisites"></a>Prérequis
 

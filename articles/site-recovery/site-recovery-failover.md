@@ -4,12 +4,12 @@ description: Guide pratique pour basculer des machines virtuelles/serveurs physi
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317886"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Effectuer un basculement depuis le site local vers Azure
 
@@ -46,7 +46,7 @@ Exécutez le basculement du plan de récupération comme suit :
 1. Dans le coffre Site Recovery, sélectionnez **Plans de récupération** > *recoveryplan_name*.
 2. Cliquez sur **Basculement**.
 
-    ![La capture d’écran montre le volet ADRP avec l’option Basculement sélectionnée dans le menu Plus.](./media/site-recovery-failover/Failover.png)
+    ![Capture d’écran d’Azure Site Recovery montrant le volet ADRP avec l’option Basculement sélectionnée dans le menu Plus.](./media/site-recovery-failover/Failover.png)
 
 3. Dans **Basculement** > **Direction du basculement**, conservez la valeur par défaut si vous effectuez une réplication vers Azure.
 4. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel effectuer le basculement.
@@ -81,7 +81,7 @@ Vous pouvez exécuter un basculement planifié pour des machines virtuelles Hype
 
 Un certain nombre de travaux sont associés au basculement.
 
-![Basculement](./media/site-recovery-failover/FailoverJob.png)
+![Capture d’écran de la page Travaux montrant une liste de travaux avec Groupe 1 : Démarrer(1) développé dans la colonne Nom. La ligne du travail SQLServer est mise en surbrillance.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Vérification des prérequis** : Permet de garantir que toutes les conditions requises pour le basculement sont satisfaites.
 - **Basculement** : Traite les données pour permettre la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, un point de récupération est créé à partir des données envoyées au service.

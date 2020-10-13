@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287745"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio (préversion)
 
@@ -31,7 +31,8 @@ L’option « SQL à la demande » est grisée dans la liste déroulante « S
 
 L’exécution de la requête contenant « SQL à la demande » génère le message d’erreur « Échec de l’établissement de la connexion au serveur ».
 
-![La capture d’écran montre un message d’échec de l’établissement d’une connexion au serveur.](media/troubleshooting-synapse-studio/symptom2.png)
+![Symptôme 2](media/troubleshooting-synapse-studio/symptom2.png)
+ 
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 
@@ -54,7 +55,7 @@ Assurez-vous que l’option « Désactiver le cache » dans le panneau « Ré
 
 Réessayez l’opération que vous avez effectuée dans Azure Synapse Studio. Vous pouvez voir les nouveaux éléments affichés dans la liste « Réseau » dans « Outils de développement ». Notez votre heure système actuelle à fournir dans le ticket de support.
 
-![La capture d’écran montre la fenêtre DevTools avec la sélection du réseau et de la désactivation du cache en ligne.](media/troubleshooting-synapse-studio/network-panel.png)
+![panneau-réseau 1](media/troubleshooting-synapse-studio/network-panel.png)
 
 Recherchez l’élément dont la colonne URL correspond au modèle suivant :
 
@@ -64,9 +65,9 @@ Où [*A*] est le nom de votre espace de travail, « -ondemand » pourrait êtr
 
 Si l’un d’eux autre chose que « 20x », et que :
 
-- l’état commence par « (failed) », élargissez la colonne « Status » ou pointez sur le texte de l’état pour le voir en entier. Incluez le texte et/ou la capture d’écran lors de l’ouverture du ticket de support.
+- l’état commence par « (failed) », élargissez la colonne « État » ou pointez sur le texte de l’état pour le voir en entier. Incluez le texte et/ou la capture d’écran lors de l’ouverture du ticket de support.
 
-    ![La capture d’écran montre les résultats, y compris une valeur indiquant l’échec dans la colonne État.](media/troubleshooting-synapse-studio/status-text.png)
+    ![texte d’état](media/troubleshooting-synapse-studio/status-text.png)
 
     - Si vous voyez ERR_NAME_NOT_RESOLVED et avez créé votre espace de travail en 10 minutes, patientez 10 minutes, puis réessayez pour voir si le problème persiste.
     - Si vous voyez ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, cela peut indiquer que la connexion réseau de votre PC rencontre des problèmes. Vérifiez votre connexion réseau, puis retentez l’opération.
@@ -74,7 +75,7 @@ Si l’un d’eux autre chose que « 20x », et que :
     - Si vous voyez ERR_NETWORK_ACCESS_DENIED, vous devrez peut-être vérifier auprès de l’administrateur si la stratégie de votre pare-feu local a bloqué l’accès au domaine *.database.windows.net ou au port distant 1443.
     - Vous pouvez tenter la même opération immédiatement sur un autre ordinateur et/ou un autre environnement réseau pour écarter tout problème de configuration réseau sur votre PC.
 
-- l’état est « 40x », « 50 » ou un autre nombre, sélectionnez sur le ou les éléments pour afficher les détails. Vous devez voir les détails de l’élément à droite. Recherchez la section « Response Header », puis vérifiez s’il existe un élément nommé « access-control-allow-origin ». Si c’est le cas, vérifiez s’il a l’une des valeurs suivantes :
+- l’état est « 40x », « 50 » ou un autre nombre, sélectionnez le ou les éléments pour afficher les détails. Vous devez voir les détails de l’élément à droite. Recherchez la section « Response Header », puis vérifiez s’il existe un élément nommé « access-control-allow-origin ». Si c’est le cas, vérifiez s’il a l’une des valeurs suivantes :
 
     - `*` (astérisque unique)
     - https://web.azuresynapse.net/ (ou autre valeur par laquelle commence le texte dans la barre d’adresse de votre navigateur)
@@ -83,21 +84,22 @@ Si l’en-tête de réponse contient l’une des valeurs ci-dessus, cela signifi
 
 Si vous ne voyez pas l’en-tête ou si l’en-tête n’a pas l’une des valeurs mentionnées ci-dessus, joignez une capture d’écran des détails de l’élément lorsque vous ouvrez le ticket.
 
-![La capture d’écran montre la fenêtre DevTools avec une URL mise en surbrillance dans les en-têtes de réponse.](media/troubleshooting-synapse-studio/item-details.png)
-
+ 
+![détails de l’élément](media/troubleshooting-synapse-studio/item-details.png)
+ 
 Si les étapes ci-dessus ne résolvent pas votre problème, vous devrez peut-être ouvrir un ticket de support. Lorsque vous soumettez votre ticket de support, incluez l’« ID de session » ou les « informations de diagnostic » téléchargés au début de ce guide.
 
 Lorsque vous signalez le problème, vous pouvez éventuellement prendre une capture d’écran de l’onglet « console » dans « Outils de développement » et l’attacher au ticket de support. Faites défiler le contenu et prenez plusieurs captures d’écran si nécessaire pour capturer l’intégralité du message.
 
-![La capture d’écran montre la fenêtre DevTools, dimensionnée de façon à afficher l’intégralité du message pour une capture d’écran possible.](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![console d’outils de développement](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Si vous joignez des captures d’écran, indiquez l’heure (ou un intervalle de temps estimé) à laquelle vous avez pris les captures d’écran. Cela nous aidera à examiner le problème.
 
 Certains navigateurs prennent en charge l’affichage des horodatages sous l’onglet « Console ». Pour Chromium Edge/Chrome, ouvrez la boîte de dialogue « Paramètres » dans « Outils de développement », puis vérifiez « Afficher les horodateurs » sous l’onglet « Préférences ».
 
-![La capture d’écran montre la fenêtre DevTools avec Paramètres sélectionné dans un menu contextuel.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![paramètres de la console d’outils de développement](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![La capture d’écran montre la fenêtre DevTools avec l’option Afficher les horodatages sélectionnée.](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![afficher l’horodatage](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si les étapes précédentes ne permettent pas de résoudre le problème, [créez un ticket de support](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
