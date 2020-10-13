@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289929"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653755"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
 
@@ -43,17 +43,17 @@ Il existe plusieurs raisons pour lesquelles vos données pourraient ne pas appar
 
 - Il manque une autorisation requise pour votre clé de source d’événements.
 
-  * Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
+  - Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
 
     [![Vérifiez les autorisations IoT Hub.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Les stratégies **iothubowner** et **service** fonctionnent toutes les deux car elles disposent de l’autorisation **Connexion de service**.
+    - Les stratégies **iothubowner** et **service** fonctionnent toutes les deux car elles disposent de l’autorisation **Connexion de service**.
 
-  * Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
+  - Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
   
     [![Passez en revue les autorisations du hub d’événements.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Les stratégies **Read** et **Manage** fonctionnent toutes les deux car elles disposent de l’autorisation **Écouter**.
+    - Les stratégies **Read** et **Manage** fonctionnent toutes les deux car elles disposent de l’autorisation **Écouter**.
 
 - Votre groupe de consommateurs fourni n’est pas exclusif à Time Series Insights.
 
@@ -75,30 +75,30 @@ Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problème : Des données étaient affichées, mais la réception s’est arrêtée
 
-- Votre clé de source d’événement a peut-être été regénérée et votre environnement Gen2 a besoin de la nouvelle clé de source d’événement.
+- Votre clé de source d’événement a peut-être été générée à nouveau et votre environnement Gen2 a besoin de la nouvelle clé de source d’événement.
 
-Ce problème se produit lorsque la clé fournie lors de la création de votre source d’événements n’est plus valide. Vous pouvez voir les données de télémétrie dans votre hub, mais aucun message n’a été reçu en entrée dans Time Series Insights. Si vous ne savez pas si la clé a été régénérée, vous pouvez effectuer une recherche dans le journal d’activité de votre Event Hub pour « Création ou mise à jour de règles d’autorisation d’espace de noms » ou rechercher « Création ou mise à jour d’une ressource IoT Hub » pour IoT Hub. 
+Ce problème se produit lorsque la clé fournie lors de la création de votre source d’événements n’est plus valide. Vous pouvez voir les données de télémétrie dans votre hub, mais aucun message n’a été reçu en entrée dans Time Series Insights. Si vous ne savez pas si la clé a été générée à nouveau, vous pouvez rechercher « Création ou mise à jour de règles d’autorisation d’espace de noms » dans le journal d’activité de votre Event Hubs ou « Création ou mise à jour d’une ressource IoT Hub » pour IoT Hub.
 
-Pour mettre à jour votre environnement Gen2 Time Series Insights avec la nouvelle clé, ouvrez votre ressource de hub dans le portail Azure et copiez la nouvelle clé. Accédez à votre ressource TSI, puis cliquez sur Sources d’événements. 
+Pour mettre à jour votre environnement Gen2 Time Series Insights avec la nouvelle clé, ouvrez votre ressource de hub dans le portail Azure et copiez la nouvelle clé. Accédez à votre ressource TSI, puis cliquez sur Sources d’événements.
 
-   [![Mettez à jour la clé.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Capture d’écran montrant la ressource T S I avec l’élément de menu Sources d’événements appelé.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Sélectionnez la ou les sources d’événements à partir desquelles l’ingestion s’est arrêtée, collez la nouvelle clé, puis cliquez sur Enregistrer.
 
-   [![Mettez à jour la clé.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Capture d’écran montrant la ressource T S I avec la clé de stratégie IoT Hub entrée.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problème : le nom de la propriété Timestamp de ma source d’événement ne fonctionne pas
 
 Vérifiez que le nom et la valeur répondent aux critères suivants :
 
-* Le nom de la propriété Timestamp est sensible à la casse.
-* La valeur de la propriété Timestamp provenant de votre source d’événement, telle qu’une chaîne JSON, est au format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Exemple de chaîne : `"2008-04-12T12:53Z"`.
+- Le nom de la propriété Timestamp est sensible à la casse.
+- La valeur de la propriété Timestamp provenant de votre source d’événement, telle qu’une chaîne JSON, est au format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Exemple de chaîne : `"2008-04-12T12:53Z"`.
 
 La méthode la plus simple pour vous assurer que votre nom de propriété Timestamp est capturé et fonctionne correctement consiste à utiliser l’Explorateur Gen2 Time Series Insights. Dans l’Explorateur Gen2 Time Series Insights, utilisez le graphique pour sélectionner une période après avoir indiqué le nom de la propriété Timestamp. Cliquez avec le bouton droit sur la sélection et sélectionnez l’option **Explorer les événements**. Le premier en-tête de colonne correspond au nom de votre propriété Timestamp. Il devrait contenir `($ts)` en regard du mot `Timestamp` plutôt que :
 
-* `(abc)`, ce qui indique que Time Series Insights lit les valeurs de données sous forme de chaînes.
-* L’**icône de calendrier**, qui indique que Time Series Insights lit la valeur de données sous forme de date/heure.
-* `#`, ce qui indique que Time Series Insights lit les valeurs de données sous forme d’entier.
+- `(abc)`, ce qui indique que Time Series Insights lit les valeurs de données sous forme de chaînes.
+- L’**icône de calendrier**, qui indique que Time Series Insights lit la valeur de données sous forme de date/heure.
+- `#`, ce qui indique que Time Series Insights lit les valeurs de données sous forme d’entier.
 
 Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatage par défaut est l’heure de mise en file d’attente du hub IoT ou du hub d’événement.
 
@@ -129,9 +129,9 @@ Ce problème peut se produire si votre environnement n’a pas de hiérarchie de
 
 Ce problème peut se produire si vous n’utilisez pas la dernière version du connecteur Power BI dans Power BI Desktop.
 
-[![Les instances non apparentées affichent un avertissement.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Capture d’écran montrant la boîte de dialogue Connexion impossible.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Vérifiez la version de Power BI Desktop et assurez-vous que vous utilisez la version de juillet 2020. Si ce n’est pas le cas, mettez à jour Power BI Desktop et réexécutez le connecteur. 
+- Vérifiez la version de Power BI Desktop et assurez-vous que vous utilisez la version de juillet 2020. Si ce n’est pas le cas, mettez à jour Power BI Desktop et réexécutez le connecteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

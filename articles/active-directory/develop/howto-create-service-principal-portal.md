@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265899"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
-Cet article explique comment créer une application et un principal du service Azure Active Directory (Azure AD) qui peuvent être utilisés avec le contrôle d’accès basé sur les rôles. Si vous utilisez des applications, des services hébergés ou des outils automatisés qui doivent accéder aux ressources ou les modifier, vous pouvez créer une identité pour l’application. Cette identité est connue en tant que principal de service. L’accès aux ressources est limité par les rôles attribués au principal du service, ce qui vous permet de contrôler quelles ressources sont accessibles et à quel niveau. Pour des raisons de sécurité, il est toujours recommandé d’utiliser les principaux du service avec des outils automatisés, plutôt que de leur permettre de se connecter avec une identité d’utilisateur. 
+Cet article explique comment créer une application et un principal du service Azure Active Directory (Azure AD) qui peuvent être utilisés avec le contrôle d’accès basé sur les rôles. Si vous utilisez des applications, des services hébergés ou des outils automatisés qui doivent accéder aux ressources ou les modifier, vous pouvez créer une identité pour l’application. Cette identité est connue en tant que principal de service. L’accès aux ressources est limité par les rôles attribués au principal du service, ce qui vous permet de contrôler quelles ressources sont accessibles et à quel niveau. Pour des raisons de sécurité, il est toujours recommandé d’utiliser les principaux du service avec des outils automatisés, plutôt que de leur permettre de se connecter avec une identité d’utilisateur.
 
 Cet article explique comment créer le principal de service dans le portail Azure. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.  Vous pouvez également [utiliser Azure PowerShell pour créer un principal de service](howto-authenticate-service-principal-powershell.md).
 
@@ -129,12 +129,13 @@ Quand vous vous connectez par programmation, vous devez transmettre l’ID du lo
 
    ![Copier l’ID d’application (client)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Télécharger un certificat ou créer un secret pour la connexion
-Il existe deux types d’authentification disponibles pour les principaux de service : l’authentification par mot de passe (secret de l’application) et l’authentification par certificat.  Nous vous recommandons d’utiliser un certificat, mais vous pouvez également créer un nouveau secret d’application.
+## <a name="authentication-two-options"></a>Authentification : Deux options
 
-### <a name="upload-a-certificate"></a>Téléchargement d'un certificat
+Il existe deux types d’authentification disponibles pour les principaux de service : l’authentification par mot de passe (secret de l’application) et l’authentification par certificat. *Nous vous recommandons d’utiliser un certificat*, mais vous pouvez également créer un secret d’application.
 
-Vous pouvez utiliser un certificat existant si vous en avez un.  Vous pouvez également utiliser un certificat auto-signé *à des fins de test uniquement*. Pour créer un certificat autosigné dans le magasin de certificats utilisateur sur votre ordinateur, ouvrez PowerShell et exécutez [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) avec les paramètres suivants : 
+### <a name="option-1-upload-a-certificate"></a>Option 1 : Téléchargement d'un certificat
+
+Vous pouvez utiliser un certificat existant si vous en avez un.  Vous pouvez également utiliser un certificat auto-signé *à des fins de test uniquement*. Pour créer un certificat autosigné dans le magasin de certificats utilisateur sur votre ordinateur, ouvrez PowerShell et exécutez [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) avec les paramètres suivants :
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Pour charger le certificat :
 
 Une fois le certificat inscrit avec votre application dans le portail d’inscription des applications, vous devez activer le code de l’application cliente pour utiliser le certificat.
 
-### <a name="create-a-new-application-secret"></a>Créer un secret d’application
+### <a name="option-2-create-a-new-application-secret"></a>Option n°2 : Créer un secret d’application
 
 Si vous choisissez de ne pas utiliser un certificat, vous pouvez créer un nouveau secret d’application.
 
@@ -178,14 +179,15 @@ Si vous choisissez de ne pas utiliser un certificat, vous pouvez créer un nouve
    ![Copiez la valeur du secret, car vous ne pourrez pas la récupérer plus tard.](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurer des stratégies d’accès sur les ressources
-Gardez à l’esprit que vous devrez peut-être configurer des autorisations supplémentaires sur les ressources auxquelles votre application doit accéder. Par exemple, vous devez également [mettre à jour les stratégies d’accès d’un coffre de clés](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) pour permettre à votre application d’accéder aux clés, secrets ou certificats.  
+Gardez à l’esprit que vous devrez peut-être configurer des autorisations supplémentaires sur les ressources auxquelles votre application doit accéder. Par exemple, vous devez également [mettre à jour les stratégies d’accès d’un coffre de clés](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) pour permettre à votre application d’accéder aux clés, secrets ou certificats.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre coffre de clés et sélectionnez **Accès partagé**.  
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre coffre de clés et sélectionnez **Accès partagé**.
 1. Sélectionnez **Ajouter une stratégie d’accès**, puis sélectionnez les autorisations de clé, de secret et de certificat que vous souhaitez accorder à votre application.  Sélectionnez le principal de service que vous avez créé précédemment.
 1. Sélectionnez **Ajouter** pour ajouter la stratégie d’accès, puis **Enregistrer** pour valider vos modifications.
     ![Ajouter une stratégie d’accès](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrir comment [utiliser Azure PowerShell pour créer un principal de service](howto-authenticate-service-principal-powershell.md).
-* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
+* Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Pour une liste des actions disponibles qui peuvent être autorisées ou refusées aux utilisateurs, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).
+* Pour plus d’informations sur l’utilisation des inscriptions d’applications à l’aide de **Microsoft Graph**, consultez les informations de référence sur l’API [Applications](/graph/api/resources/application).
