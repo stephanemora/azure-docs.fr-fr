@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6654b97f914ce4c1e3e55d38f47bd5bde0a4891e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992260"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818020"
 ---
 # <a name="managed-hsm-role-management"></a>Gestion du rôle HSM managé
 
@@ -52,7 +52,7 @@ Pour plus d’informations sur les options de connexion via l’interface CLI, c
 
 ### <a name="assign-roles-for-all-keys"></a>Attribuer des rôles pour toutes les clés
 
-Utilisez la commande `az keyvault role assignment create` pour attribuer un rôle **Responsable du chiffrement du HSM managé** à l’utilisateur identifié par le nom d’utilisateur principal **user2@contoso.com** pour toutes les **clés** (étendue `/keys`) dans ContosoHSM.
+Utilisez la commande `az keyvault role assignment create` pour attribuer un rôle **Responsable du chiffrement du HSM managé** à l’utilisateur identifié par le nom d’utilisateur principal **user2\@contoso.com** pour toutes les **clés** (étendue`/keys`) dans ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Affecter un rôle pour une clé spécifique
 
-Utilisez la commande `az keyvault role assignment create` pour attribuer un rôle **Responsable du chiffrement du HSM managé** à l’utilisateur identifié par le nom d’utilisateur principal **user2@contoso.com** pour une clé spécifique nommée **myrsakey**.
+Utilisez la commande `az keyvault role assignment create` pour attribuer un rôle **Responsable du chiffrement du HSM managé** à l’utilisateur identifié par le nom d’utilisateur principal **user2\@contoso.com** pour une clé spécifique nommée **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Utilisez la commande `az keyvault role assignment delete` pour supprimer un rôle **Responsable du chiffrement du HSM managé** affecté à l’utilisateur **user2@contoso.com** pour la clé **myrsakey2**.
+Utilisez la commande `az keyvault role assignment delete` pour supprimer un rôle **Responsable du chiffrement du HSM managé** attribué à l’utilisateur **user2\@contoso.com** pour la clé **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

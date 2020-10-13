@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de base du framework d’ado
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929606"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950276"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -26,7 +26,7 @@ Cette implémentation intègre plusieurs services Azure utilisés pour fournir u
 
 - Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre déploiement sécurisé dans [Comptes de stockage](../../../../storage/common/storage-introduction.md) pour la journalisation des diagnostics.
-- [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
+- [Azure Security Center](../../../../security-center/security-center-introduction.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - Le blueprint définit et déploie également des définitions [Azure Policy](../../../policy/overview.md) :
   - Définitions de stratégie :
     - Appliquer des balises (CostCenter) aux groupes de ressources

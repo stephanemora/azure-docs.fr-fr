@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897982"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776117"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -156,6 +156,9 @@ Le nombre exact d’images étiquetées nécessaires au démarrage de l’étiqu
 
 Sachant que les étiquettes finales dépendent encore de l’entrée de l’étiqueteur, cette technologie d’étiquetage est parfois appelée *Opérateur humain dans la boucle*.
 
+> [!NOTE]
+> L’étiquetage des données assisté par ML ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un [réseau virtuel](how-to-network-security-overview.md). Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
+
 ### <a name="clustering"></a>Clustering
 
 Après l’envoi d’un certain nombre d’étiquettes, le modèle Machine Learning pour la classification d’images commence à regrouper les images similaires.  Ces images similaires sont présentées aux étiqueteurs dans le même écran pour accélérer le balisage manuel. Le clustering est particulièrement utile quand l’étiqueteur affiche une grille de 4, 6 ou 9 images. 
@@ -186,7 +189,7 @@ Pour mettre en pause ou redémarrer le projet, changez l’état **En cours d’
 
 L’onglet **Tableau de bord** affiche la progression de la tâche d’étiquetage.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Tableau de bord d’étiquetage des données":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Assistant Création de projet d’étiquetage":::
 
 Le graphique de progression indique le nombre d’éléments qui ont été étiquetés et le nombre d’éléments en attente d’étiquetage.  Il se peut que les éléments en attente :
 

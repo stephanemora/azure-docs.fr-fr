@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547781"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714481"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutoriel : Intégrer Appraisd à Azure Active Directory
 
@@ -86,7 +86,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application Appraisd s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Appraisd s’attend à ce que **nameidentifier** soit mappé sur **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant le volet Attributs utilisateur avec l’icône de modification mise en évidence.](common/edit-attribute.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -110,15 +110,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à **Configuration**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![Capture d’écran montrant l’activation du lien Configuration.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. Sur le côté gauche du menu, cliquez sur **SAML single sign-on** (Authentification unique SAML).
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![Capture d’écran montrant les options de configuration avec l’option d’authentification unique SAML mise en évidence.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. Dans la page **SAML 2.0 Single Sign-On configuration** (Configuration de l’authentification unique SAML 2.0), effectuez les étapes suivantes :
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![Capture d’écran montrant la page de configuration de l’authentification unique SAML 2.0, dans laquelle vous pouvez modifier l’état de relais par défaut et l’URL connexion lancée par le service.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Copiez la valeur **Default Relay State** (État de relais par défaut) et collez-la dans la zone de texte **État de relais** dans **Configuration SAML de base** sur le portail Azure.
 
@@ -126,7 +126,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 7. Faites défiler la même page vers le bas jusqu’à **Identifying users** (Identification des utilisateurs), puis effectuez les étapes suivantes :
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![Capture d’écran montrant Identification des utilisateurs, où vous pouvez entrer des valeurs à partir de cette étape.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. Dans la zone de texte **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez l’**URL de connexion** que vous avez copiée sur le portail Azure, puis cliquez sur **Save** (Enregistrer).
 
@@ -174,15 +174,15 @@ Pour se connecter à Appraisd, les utilisateurs Azure AD doivent être attribué
 
 2. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à **Administration centre** (Centre d’administration).
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![Capture d’écran montrant les options Paramètres, où vous pouvez sélectionner Centre d’administration.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. Dans la barre d’outils en haut de la page, cliquez sur **People** (Personnes), puis accédez à **Add a new user** (Ajouter un nouvel utilisateur).
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![Capture d’écran montrant la page Appraisd avec Personnes et Ajouter un nouvel utilisateur sélectionnés.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. Dans la page **Add a new user** (Ajouter un nouvel utilisateur), effectuez les étapes suivantes :
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![Capture d’écran montrant la page Ajouter un nouvel utilisateur.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. Dans la zone de texte **First name** (Prénom), tapez le prénom de l’utilisateur, par exemple **Britta**.
 

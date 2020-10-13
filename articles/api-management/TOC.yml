@@ -19,6 +19,9 @@
       href: powershell-create-service-instance.md
     - name: Créer une instance - Visual Studio Code
       href: vscode-create-service-instance.md
+    - name: Créer une instance - Modèle ARM
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: Tutoriels
   items:
     - name: 1 - Importer votre première API

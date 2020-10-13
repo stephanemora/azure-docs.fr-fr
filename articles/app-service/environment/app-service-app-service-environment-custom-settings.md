@@ -4,15 +4,15 @@ description: Configurez des paramètres qui s’appliquent à l’ensemble de l�
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833500"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713281"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Paramètres de configuration personnalisés pour les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -67,12 +67,12 @@ App Service Environment fonctionne comme un système de boîte noire dans laquel
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```
+Ceci va chiffrer le trafic réseau interne de votre ASE entre les front-ends et les Workers, chiffrer le fichier d’échange et chiffrer les disques des Workers. Une fois le clusterSetting InternalEncryption activé, il peut y avoir un impact sur les performances de votre système. Quand vous apportez la modification pour activer InternalEncryption, votre ASE sera dans un état instable jusqu’à ce que la modification soit entièrement propagée. La propagation complète de la modification peut prendre quelques heures, en fonction du nombre d’instances présentes dans votre ASE. Nous vous recommandons vivement de ne pas procéder à l’activation sur un ASE pendant qu’il est en cours d’utilisation. Si vous avez besoin d’activer le chiffrement sur un ASE activement utilisé, nous vous recommandons vivement de diriger le trafic vers un environnement de sauvegarde jusqu’à ce que l’opération soit terminée. 
 
-Une fois le clusterSetting InternalEncryption activé, il peut y avoir un impact sur les performances de votre système. Quand vous apportez la modification pour activer InternalEncryption, votre ASE sera dans un état instable jusqu’à ce que la modification soit entièrement propagée. La propagation complète de la modification peut prendre quelques heures, en fonction du nombre d’instances présentes dans votre ASE. Nous vous recommandons vivement de ne pas procéder à l’activation sur un ASE pendant qu’il est en cours d’utilisation. Si vous avez besoin d’activer le chiffrement sur un ASE activement utilisé, nous vous recommandons vivement de diriger le trafic vers un environnement de sauvegarde jusqu’à ce que l’opération soit terminée. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Désactiver TLS 1.0 et TLS 1.1
 

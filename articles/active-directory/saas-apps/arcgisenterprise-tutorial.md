@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549606"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité** :
 
-    ![Informations d’authentification unique de domaine et d’URL ArcGIS Enterprise](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique de domaine et d’URL ArcGIS Enterprise](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 1. Sélectionnez **Organization > EDIT SETTINGS** (Organisation > Modifier les paramètres).
 
-    ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Capture d’écran montrant l’onglet ArcGIS Enterprise Organization avec Edit settings sélectionné.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Sélectionnez l’onglet **Sécurité**.
 
-    ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Capture d’écran montrant l’onglet Security sélectionné.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Faites défiler jusqu’à la section **Enterprise Logins via SAML** (Connexions d’entreprise via SAML), puis sélectionnez **SET ENTERPRISE LOGIN** (Définir les connexions d’entreprise).
 
-    ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Capture d’écran montrant Enterprise Logins via SAML, où vous pouvez sélectionner Set Enterprise Login.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. Dans la section **Set Identity Provider** (Configurer le fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Capture d’écran montrant Set Identity Provider, où vous effectuez les étapes décrites ici.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Fournissez un nom tel que **Azure Active Directory Test** dans la zone de texte **Name**.
 
@@ -158,7 +158,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
     c. Cliquez sur **Show advanced settings** (Afficher les paramètres avancés). Copiez la valeur qui se trouve sous **Entity ID** (ID d’entité), puis collez-la dans la zone de texte **Identificateur** de la section **Domaines et URL ArcGIS Enterprise** du portail Azure.
     
-    ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Capture d’écran montrant où se procurer l’ID d’entité et mettre à jour le fournisseur d’identité.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Cliquez sur **UPDATE IDENTITY PROVIDER** (Mettre à jour le fournisseur d’identité).
 

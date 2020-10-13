@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0db43f438eaff3e783b829eabe7152c5f13e943d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 659cca6979a8d8be7d12c49fe01a9d0a5d7ac58e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548287"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713762"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutoriel : Intégrer Amazon Business à Azure Active Directory
 
@@ -101,19 +101,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. La capture d’écran suivante montre la liste des attributs par défaut. Modifiez les attributs en cliquant sur l’icône **Modifier** dans la section **Attributs et revendications de l’utilisateur**.
 
-    ![Attributs](media/amazon-business-tutorial/map-attribute3.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec des valeurs par défaut telles que Givenname user.givenname et Emailaddress user.mail.](media/amazon-business-tutorial/map-attribute3.png)
 
 1. Éditez les attributs et copiez la valeur de **Espace de noms** de ces attributs dans le Bloc-notes.
 
-    ![Attributs](media/amazon-business-tutorial/map-attribute4.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec des colonnes pour le nom et la valeur de la revendication.](media/amazon-business-tutorial/map-attribute4.png)
 
 1. En plus de ce qui précède, l’application Amazon Business s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe** , effectuez les étapes suivantes :
 
     a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
-    ![image](./media/amazon-business-tutorial/config04.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec l’icône Groupes renvoyés dans la revendication sélectionnée.](./media/amazon-business-tutorial/config04.png)
 
-    ![image](./media/amazon-business-tutorial/config05.png)
+    ![Capture d’écran montrant Revendications de groupe avec des valeurs comme décrit dans cette procédure.](./media/amazon-business-tutorial/config05.png)
 
     b. Sélectionnez **Tous les groupes** dans la liste d’options.
 
@@ -145,54 +145,54 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans l’Assistant **Set up SSO** (Configurer l’authentification unique), sélectionnez le fournisseur en fonction des exigences de votre organisation, puis cliquez sur **Next** (Suivant).
 
-    ![Groupe par défaut](media/amazon-business-tutorial/default-group1.png)
+    ![Capture d’écran montrant Set up SSO, avec Microsoft Azure AD et Next sélectionnés.](media/amazon-business-tutorial/default-group1.png)
     
     > [!NOTE]
     > Bien que l’option Microsoft ADFS soit listée, elle ne fonctionnera pas avec l’authentification unique Azure AD.
 
 1. Dans l’Assistant **New user account defaults** (Valeurs par défaut pour les nouveaux comptes d’utilisateur), sélectionnez le **Default Group** (Groupe par défaut), puis sélectionnez **Default Buying Role** (Rôle d’achat par défaut) en fonction du rôle de l’utilisateur dans votre organisation, puis cliquez sur **Next** (Suivant).
 
-    ![Groupe par défaut](media/amazon-business-tutorial/dafault-group2.png)
+    ![Capture d’écran montrant New user account defaults avec Microsoft SSO, Requisitioner, and Next sélectionnés.](media/amazon-business-tutorial/dafault-group2.png)
 
 1. Dans l’Assistant **Upload your metadata file** (Charger votre fichier de métadonnées), cliquez sur **Browse** (Parcourir) pour charger le fichier **Metadata XML** (XML de métadonnées) que vous avez téléchargé à partir du portail Azure, puis cliquez sur **Upload** (Télécharger).
 
-    ![Données de connexion](media/amazon-business-tutorial/connection-data1.png)
+    ![Capture d’écran montrant Upload your metadata file, qui vous permet d’accéder à un fichier XML et de le charger.](media/amazon-business-tutorial/connection-data1.png)
 
 1. Une fois que vous avez chargé le fichier de métadonnées téléchargé, les champs de la section **Connection data** (Données de connexion) sont renseignés automatiquement. Après cela, cliquez sur **Next** (Suivant).
 
-    ![Données de connexion](media/amazon-business-tutorial/connection-data2.png)
+    ![Capture d’écran montrant Connection data, où vous pouvez spécifier un identificateur Azure AD, une URL de connexion et un certificat de signature SAML.](media/amazon-business-tutorial/connection-data2.png)
 
 1. Dans l’Assistant **Upload your Attribute statement** (Charger votre déclaration d’attributs), cliquez sur **Skip** (Ignorer).
 
-    ![Attributs](media/amazon-business-tutorial/map-attribute1.png)
+    ![Capture d’écran montrant Upload your Attribute statement, qui vous permet d’accéder à une instruction d’attribut, mais ici vous sélectionnez Skip.](media/amazon-business-tutorial/map-attribute1.png)
 
 1. Dans l’Assistant **Attribute mapping** (Mappage d’attributs), ajoutez les champs des spécifications en cliquant sur l’option **+ Add a field** (+ Ajouter un champ). Ajoutez les valeurs des attributs en y incluant l’espace de noms que vous avez copié depuis la section **Attributs et revendications de l’utilisateur** du portail Azure dans le champ **SAML AttributeName** (Nom d’attribut SAML), puis cliquez sur **Next** (Suivant).
 
-    ![Attributs](media/amazon-business-tutorial/map-attribute2.png)
+    ![Capture d’écran montrant Attribute mapping, où vous pouvez modifier vos noms d’attributs SAML de données Amazon.](media/amazon-business-tutorial/map-attribute2.png)
 
 1. Dans l’Assistant **Amazon connection data** (Données de connexion Amazon), cliquez sur **Next** (Suivant).
 
-    ![Connexion](media/amazon-business-tutorial/amazon-connect.png)
+    ![Capture d’écran montrant Amazon connection data, où vous pouvez cliquer sur Next pour continuer.](media/amazon-business-tutorial/amazon-connect.png)
 
 1. Vérifiez l’**État** des étapes qui ont été configurées, puis cliquez **Start testing** (Démarrer le test).
 
-    ![Connexion](media/amazon-business-tutorial/sso-connection1.png)
+    ![Capture d’écran montrant les détails de connexion SSO avec l’option permettant de démarrer le test.](media/amazon-business-tutorial/sso-connection1.png)
 
 1. Dans l’Assistant **Test SSO Connection** (Tester la connexion d’authentification unique), cliquez sur **Test** (Tester).
 
-    ![Connexion](media/amazon-business-tutorial/sso-connection2.png)
+    ![Capture d’écran montrant Test SSO Connection avec le bouton Test.](media/amazon-business-tutorial/sso-connection2.png)
 
 1. Dans l’Assistant **IDP initiated URL** (URL lancée par le fournisseur d’identité), avant de cliquer sur **Activate** (Activer), copiez la valeur qui est affectée à **idpid** et collez-la dans le paramètre **idpid** de **URL de réponse** dans la section **Configuration SAML de base** du portail Azure.
 
-    ![Connexion](media/amazon-business-tutorial/sso-connection3.png)
+    ![Capture d’écran montrant IDP initiated URL, où vous pouvez obtenir une URL nécessaire à des fins de test, puis sélectionner Activate.](media/amazon-business-tutorial/sso-connection3.png)
 
 1. Dans l’Assistant **Are you ready to switch to active SSO?** (Êtes-vous prêt à passer à l’authentification unique ?), cochez la case **I have fully tested SSO and am ready to go live** (J’ai entièrement testé l’authentification unique et je suis prêt à l’activer), puis cliquez sur **Switch to active** (Passer à l’activation).
 
-    ![Connexion](media/amazon-business-tutorial/sso-connection4.png)
+    ![Capture d’écran montrant la confirmation Are you ready to switch to active SSO, où vous pouvez sélectionner Switch to active.](media/amazon-business-tutorial/sso-connection4.png)
 
 1. Enfin, dans la section **SSO Connection details** (Détails de la connexion SSO), l’**État** apparaît comme étant **Active** (Actif).
 
-    ![Connexion](media/amazon-business-tutorial/sso-connection5.png)
+    ![Capture d’écran montrant SSO Connection details avec l’état Active.](media/amazon-business-tutorial/sso-connection5.png)
     
     > [!NOTE]
     > Si vous souhaitez configurer l’application en mode lancée par le **fournisseur de services**, effectuez l’étape suivante, et collez l’URL de connexion à partir de la capture d’écran ci-dessus dans la zone de texte **URL de connexion** de la section **Définir des URL supplémentaires** dans le portail Azure. Utilisez le format suivant :
@@ -218,15 +218,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 1. Cliquez sur **Azure Active Directory > Tous les groupes**.
 
-    ![Créer un groupe de sécurité Azure AD](./media/amazon-business-tutorial/all-groups-tab.png)
+    ![Capture d’écran montrant le menu du portail Azure avec Azure Active Directory sélectionné et tous les groupes sélectionnés dans le volet Groupes.](./media/amazon-business-tutorial/all-groups-tab.png)
 
 1. Cliquez sur **Nouveau groupe**.
 
-    ![Créer un groupe de sécurité Azure AD](./media/amazon-business-tutorial/new-group-tab.png)
+    ![Capture d’écran montrant le bouton Nouveau groupe.](./media/amazon-business-tutorial/new-group-tab.png)
 
 1. Complétez les champs **Type de groupe**, **Nom du groupe**, **Description du groupe**, **Type d’appartenance**. Cliquez sur la flèche pour sélectionner des membres, puis recherchez le membre que vous souhaitez ajouter au groupe ou cliquez dessus. Cliquez sur **Sélectionner** pour ajouter les membres sélectionnés, puis cliquez sur **Créer**.
 
-    ![Créer un groupe de sécurité Azure AD](./media/amazon-business-tutorial/group-information.png)
+    ![Capture d’écran montrant le volet Groupe avec des options, notamment la sélection de membres et l’invitation d’utilisateurs externes.](./media/amazon-business-tutorial/group-information.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -240,7 +240,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
+    ![Capture d’écran montrant le bouton Ajouter un utilisateur.](common/add-assign-user.png)
 
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
@@ -249,7 +249,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
     >[!NOTE]
     > Si vous n’affectez pas les utilisateurs dans Azure AD, vous recevez l’erreur suivante.
 
-    ![Lien Ajouter un utilisateur](media/amazon-business-tutorial/assign-user.png)
+    ![Capture d’écran montrant un message d’erreur indiquant que vous ne pouvez pas être connecté.](media/amazon-business-tutorial/assign-user.png)
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Affecter un groupe de sécurité Azure Active Directory dans le portail Azure
 

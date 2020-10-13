@@ -1,5 +1,6 @@
 ---
-title: Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
+title: 'Tutoriel : Créer un démon multilocataire qui accède à des données métier Microsoft Graph | Azure'
+titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous allez voir comment appeler une API web ASP.NET protégée par Azure Active Directory à partir d’une application de bureau Windows (WPF). Le client WPF authentifie un utilisateur, demande un jeton d’accès et appelle l’API web.
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982846"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611093"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft
 
 Ce tutoriel vous montre comment utiliser la plateforme d’identités Microsoft pour accéder aux données de clients professionnels Microsoft dans un processus non interactif de longue durée. L’exemple de démon utilise l’[octroi d’informations d’identification de client OAuth2](v2-oauth2-client-creds-grant-flow.md) pour acquérir un jeton d’accès. Le démon utilise ensuite le jeton pour appeler [Microsoft Graph](https://graph.microsoft.io) et accéder aux données organisationnelles.
 
@@ -30,28 +31,23 @@ Ce tutoriel vous montre comment utiliser la plateforme d’identités Microsoft 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+## <a name="prerequisites"></a>Prérequis
+
+- [Visual Studio 2017 ou 2019](https://visualstudio.microsoft.com/downloads/).
+- Un locataire Azure AD. Pour plus d’informations, consultez [Obtenir un locataire Azure AD](quickstart-create-new-tenant.md).
+- Un ou plusieurs comptes d’utilisateur dans votre locataire Azure AD. Cet exemple ne fonctionne pas avec un compte Microsoft. Si vous vous êtes connecté au [portail Azure](https://portal.azure.com) avec un compte Microsoft et que vous n’avez encore jamais créé de compte d’utilisateur dans votre annuaire, faites-le maintenant.
+
+## <a name="scenario"></a>Scénario
+
 L’application est générée comme une application ASP.NET MVC. Elle utilise le middleware (intergiciel) OWIN OpenID Connect pour connecter les utilisateurs.
 
 Le composant « démon » de cet exemple est un contrôleur d’API : `SyncController.cs`. Lorsque le contrôleur est appelé, il tire (pull) une liste d’utilisateurs du locataire Azure Active Directory (Azure AD) à partir de Microsoft Graph. `SyncController.cs` est déclenché par un appel AJAX dans l’application web. Il utilise la [bibliothèque MSAL pour .NET](msal-overview.md) afin d’acquérir un jeton d’accès pour Microsoft Graph.
-
->[!NOTE]
-> Si vous êtes un nouvel utilisateur de la Plateforme d’identités Microsoft, nous vous recommandons de commencer avec le [guide de démarrage rapide sur le démon .NET Core](quickstart-v2-netcore-daemon.md).
-
-## <a name="scenario"></a>Scénario
 
 L’application est une application multilocataire destinée aux clients professionnels Microsoft. Elle doit donc leur fournir un moyen de s’abonner ou de se connecter aux données de leur entreprise. Durant le processus de connexion, un administrateur d’entreprise accorde d’abord des *autorisations d’application* directement à l’application afin que celle-ci puisse accéder aux données d’entreprise de manière non interactive, sans nécessiter la présence d’un utilisateur connecté. Dans cet exemple, la majeure partie de la logique montre comment réaliser ce processus de connexion à l’aide du point de terminaison de [consentement administrateur](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plateforme d’identités.
 
 ![Le diagramme illustre l’application UserSync avec trois éléments locaux se connectant à Azure : Start dot Auth acquérant un jeton de manière interactive pour se connecter à Azure AD, AccountController obtenant le consentement de l’administrateur pour se connecter à Azure AD et SyncController lisant un utilisateur pour une connexion à Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour le point de terminaison de la plateforme d’identités](v2-oauth2-client-creds-grant-flow.md).
-
-## <a name="prerequisites"></a>Prérequis
-
-Pour exécuter l’exemple dans ce guide de démarrage rapide, vous avez besoin des éléments suivants :
-
-- [Visual Studio 2017 ou 2019](https://visualstudio.microsoft.com/downloads/).
-- Un locataire Azure AD. Pour plus d’informations, consultez [Obtenir un locataire Azure AD](quickstart-create-new-tenant.md).
-- Un ou plusieurs comptes d’utilisateur dans votre locataire Azure AD. Cet exemple ne fonctionne pas avec les comptes Microsoft (anciennement comptes Windows Live). Si vous vous êtes connecté au [portail Azure](https://portal.azure.com) avec un compte Microsoft et que vous n’avez encore jamais créé de compte d’utilisateur dans votre annuaire, vous devez en créer un maintenant.
 
 ## <a name="clone-or-download-this-repository"></a>Cloner ou télécharger ce dépôt
 
@@ -256,17 +252,8 @@ Si vous trouvez un bogue dans MSAL.NET, signalez-le sur [MSAL.NET GitHub Issues]
 Pour faire une suggestion, accédez à la [page User Voice](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez-en plus sur les différents [flux d’authentification et scénarios d’applications](authentication-flows-app-scenarios.md) qui sont pris en charge par la plateforme d’identités Microsoft.
 
-Pour plus d’informations, consultez la documentation conceptuelle suivante :
+Apprenez-en davantage sur la création d’applications démon qui utilisent la plateforme d’identités Microsoft pour accéder à des API web protégées :
 
-- [Locataires dans Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Comprendre les expériences de consentement de l’application Azure AD](application-consent-experience.md)
-- [Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire](howto-convert-app-to-be-multi-tenant.md)
-- [Comprendre le consentement de l’utilisateur et de l’administrateur](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md)
-- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-- [Démarrage rapide : configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
-- [Acquisition d’un jeton pour une application à l’aide des flux d’informations d’identification du client](msal-client-applications.md)
-
-Pour obtenir un exemple d’application de démon de console multilocataire plus simple, consultez le [Guide de démarrage rapide du démon .NET Core](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Scénario : Application démon appelant des API web](scenario-daemon-overview.md)

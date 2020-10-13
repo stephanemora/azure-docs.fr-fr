@@ -5,16 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531642"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758980"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
 Dans ce tutoriel, vous allez créer et déployer votre code sur Azure Functions en tant que conteneur Docker personnalisé en utilisant une image de base Linux. Vous utilisez une image personnalisée généralement quand vos fonctions nécessitent une version d’un langage spécifique, ou quand elles ont une dépendance ou une configuration spécifique qui n’est pas fournie par l’image intégrée.
+
+Le déploiement du code de votre fonction dans un conteneur Linux personnalisé nécessite un hébergement de [plan Premium](functions-premium-plan.md#features) ou de [Plan dédié (App Service)](functions-scale.md#app-service-plan). Effectuer ce tutoriel entraîne des coûts de quelques dollars US dans votre compte Azure, que vous pouvez réduire en [nettoyant les ressources](#clean-up-resources) quand vous avez terminé.
 
 Vous pouvez également utiliser un conteneur Azure App Service par défaut, comme décrit dans [Créer votre première fonction hébergée sur Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Les images de base prises en charge pour Azure Functions se trouvent dans le [référentiel d’images de base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -31,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Activer les connexions SSH au conteneur.
 > * Ajouter une liaison de sortie de Stockage File d’attente. 
 
-Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Windows, macOS ou Linux. Le suivi de ce tutoriel entraîne uun coût de quelques dollars USD dans votre compte Azure.
+Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Windows, macOS ou Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque command
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    L’hébergement Linux pour les conteneurs de fonctions personnalisées est pris en charge sur les [plans dédiés (App Service)](functions-scale.md#app-service-plan) et les [plans Premium](functions-premium-plan.md#features). Nous utilisons ici le plan Premium, qui peut être mis à l’échelle en fonction des besoins. Pour en savoir plus sur l’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Pour calculer les coûts, consultez la [page Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+    Nous utilisons ici le plan Premium, qui peut être mis à l’échelle en fonction des besoins. Pour en savoir plus sur l’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Pour calculer les coûts, consultez la [page Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
     La commande provisionne également une instance Azure Application Insights associée dans le même groupe de ressources, avec laquelle vous pouvez superviser votre application de fonction et visualiser les journaux. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md). L’instance n’entraîne aucun coût tant que vous ne l’activez pas.
 
