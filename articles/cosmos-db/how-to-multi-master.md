@@ -1,29 +1,29 @@
 ---
-title: Guide pratique pour configurer les fonctionnalités multimaîtres dans Azure Cosmos DB
-description: Découvrez comment configurer les fonctionnalités multimaîtres pour vos applications en utilisant différents SDK dans Azure Cosmos DB.
+title: Guide pratique pour configurer les écritures multirégions dans Azure Cosmos DB
+description: Découvrez comment configurer les fonctionnalités multirégions pour vos applications en utilisant différents SDK dans Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 68f3beb0ee1c12aa06b6cce0f9ddd480b0ce5f2f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015243"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570663"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multirégions dans les applications qui utilisent Azure Cosmos DB
 
-Une fois qu’un compte a été créé avec plusieurs régions d’écriture activées, vous devez apporter deux modifications à votre application pour que ConnectionPolicy et DocumentClient activent les fonctionnalités multimaîtres et multihébergement dans Azure Cosmos DB. Dans ConnectionPolicy, définissez UseMultipleWriteLocations sur true et passez le nom de la région où l’application est déployée à SetCurrentLocation. Cela remplira la propriété PreferredLocations en fonction de la géo-proximité à partir de l’emplacement transmis. Si une nouvelle région est ultérieurement ajoutée au compte, l’application n’aura pas à être mise à jour ou redéployée ; elle détectera automatiquement la région la plus proche et se repliera automatiquement dessus en cas d’événement régional.
+Une fois qu’un compte a été créé avec plusieurs régions d’écriture activées, vous devez apporter deux modifications à votre application pour que ConnectionPolicy et DocumentClient activent les écritures multirégions et les fonctionnalités multihébergement dans Azure Cosmos DB. Dans ConnectionPolicy, définissez UseMultipleWriteLocations sur true et passez le nom de la région où l’application est déployée à SetCurrentLocation. Cela remplira la propriété PreferredLocations en fonction de la géo-proximité à partir de l’emplacement transmis. Si une nouvelle région est ultérieurement ajoutée au compte, l’application n’aura pas à être mise à jour ou redéployée ; elle détectera automatiquement la région la plus proche et se repliera automatiquement dessus en cas d’événement régional.
 
 > [!Note]
-> Les comptes Cosmos initialement configurés avec une seule région d’écriture peuvent être configurés pour plusieurs régions d’écriture (c’est-à-dire multimaîtres) avec un temps de non-disponibilité égal à zéro. Pour en savoir plus, consultez [Configurer plusieurs régions d’écriture](how-to-manage-database-account.md#configure-multiple-write-regions)
+> Les comptes Cosmos initialement configurés avec une seule région d’écriture peuvent être configurés pour plusieurs régions d’écriture avec un temps de non-disponibilité égal à zéro. Pour en savoir plus, consultez [Configurer plusieurs régions d’écriture](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>Kit SDK .NET v2
 
-Pour activer la fonctionnalité multimaître dans votre application, définissez `UseMultipleWriteLocations` sur `true`. Définissez également `SetCurrentLocation` en fonction de la région sur laquelle l’application est déployée et où Azure Cosmos DB est répliquée :
+Pour activer les écritures multirégions dans votre application, définissez `UseMultipleWriteLocations` sur `true`. Définissez également `SetCurrentLocation` en fonction de la région sur laquelle l’application est déployée et où Azure Cosmos DB est répliquée :
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +37,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>Kit SDK .NET v3
 
-Pour activer la fonctionnalité multimaître dans votre application, définissez `ApplicationRegion` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
+Pour activer les écritures multirégions dans votre application, définissez `ApplicationRegion` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +56,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> SDK Java V4
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> SDK Java V4
 
-Pour activer la fonctionnalité multimaître dans votre application, appelez les fonctions `.multipleWriteRegionsEnabled(true)` et `.preferredRegions(preferredRegions)` dans le générateur de clients, où `preferredRegions` est une `List` contenant un élément, c’est-à-dire la région dans laquelle l’application est déployée et où Cosmos DB est répliqué :
+Pour activer les écritures multirégions dans votre application, appelez les fonctions `.multipleWriteRegionsEnabled(true)` et `.preferredRegions(preferredRegions)` dans le générateur de clients, où `preferredRegions` est une `List` contenant un élément, c’est-à-dire la région dans laquelle l’application est déployée et où Cosmos DB est répliqué :
 
 # <a name="async"></a>[Async](#tab/api-async)
 
@@ -74,9 +74,9 @@ Pour activer la fonctionnalité multimaître dans votre application, appelez les
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Kit de développement logiciel (SDK) Async Java v2
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> Kit de développement logiciel (SDK) Async Java v2
 
-Le kit de développement logiciel (SDK) Java v2 utilisait l’outil Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Pour activer la fonctionnalité multimaître dans votre application, définissez `policy.setUsingMultipleWriteLocations(true)` et `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
+Le kit de développement logiciel (SDK) Java v2 utilisait l’outil Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Pour activer les écritures multirégions dans votre application, définissez `policy.setUsingMultipleWriteLocations(true)` et `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +93,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Kits SDK Node.js, JavaScript et TypeScript
 
-Pour activer la fonctionnalité multimaître dans votre application, définissez `connectionPolicy.UseMultipleWriteLocations` sur `true`. Définissez également `connectionPolicy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
+Pour activer les écritures multirégions dans votre application, définissez `connectionPolicy.UseMultipleWriteLocations` sur `true`. Définissez également `connectionPolicy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +110,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>Kit SDK Python
 
-Pour activer la fonctionnalité multimaître dans votre application, définissez `connection_policy.UseMultipleWriteLocations` sur `true`. Définissez également `connection_policy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée.
+Pour activer les écritures multirégions dans votre application, définissez `connection_policy.UseMultipleWriteLocations` sur `true`. Définissez également `connection_policy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

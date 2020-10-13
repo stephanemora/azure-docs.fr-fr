@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état, gestion
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448068"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715970"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -64,7 +64,7 @@ Azure Automation se compose d’un ensemble de ressources partagées qui facilit
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Azure Automation prend en charge le contrôle d’accès en fonction du rôle (RBAC) pour réguler l’accès au compte Automation et à ses ressources. Pour en savoir plus sur la configuration du contrôle d’accès en fonction du rôle sur votre compte Automation, les runbooks et les travaux, consultez [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
+Azure Automation prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour réguler l’accès au compte Automation et à ses ressources. Pour en savoir plus sur la configuration du contrôle d’accès en fonction du rôle Azure sur votre compte Automation, les runbooks et les travaux, consultez [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Intégration du contrôle de code source
 
@@ -86,7 +86,7 @@ Azure Automation prend en charge la gestion tout au long du cycle de vie de votr
 * **Rechercher les modifications** - Identifiez les modifications pouvant entraîner une configuration incorrecte et améliorez la conformité opérationnelle.
 * **Superviser** - Isolez les modifications apportées aux machines à l’origine des problèmes et corrigez-les ou faites-les remonter aux systèmes de gestion.
 * **Protéger** - Mettez les machines en quarantaine si des alertes de sécurité sont déclenchées. Définition d’exigences intégrées.
-* **Régir** - Configurez le contrôle d’accès en fonction du rôle pour les équipes. Récupération de ressources qui ne sont pas utilisées.
+* **Régir** - Configurez le contrôle d’accès en fonction du rôle Azure pour les équipes. Récupération de ressources qui ne sont pas utilisées.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002621"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740868"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Comment créer un filtre de facette dans la Recherche cognitive Azure 
 
@@ -29,7 +29,8 @@ La navigation par facettes est utilisée pour le filtrage autonome sur les résu
 
 Les facettes sont dynamiques et renvoyées sur une requête. Les réponses associées à une recherche incluent les catégories de facettes utilisées pour parcourir les résultats. Si vous n’êtes pas familiarisé avec les facettes, l’exemple suivant illustre une structure de navigation par facettes.
 
-  ![Image représentant une boîte de dialogue de recherche avec les résultats de la recherche filtrés et regroupés par titre d’entreprise. Une flèche indique que les résultats sont des facettes qui s’affichent dans une structure de navigation à facettes.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="Résultats de recherche filtrés":::
+« Image représentant une boîte de dialogue de recherche avec les résultats de recherche filtrés et regroupés par intitulé de poste. Une flèche indique que les résultats sont des facettes qui s’affichent dans une structure de navigation à facettes ».:::image-end:::
 
 Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez [Implémentation de la navigation par facettes dans la Recherche cognitive Azure](search-faceted-navigation.md).
 

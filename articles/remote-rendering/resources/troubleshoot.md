@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322187"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803821"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -88,7 +88,7 @@ La qualité de la vidéo peut être compromise par la qualité du réseau ou par
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>La vidéo enregistrée avec la fonction MRC ne reflète pas la qualité de l’expérience en direct
 
-Une vidéo peut être enregistrée sur Hololens par le biais de la fonction [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Toutefois, la vidéo qui en résulte est de moins bonne qualité que l’expérience en direct pour deux raisons :
+Une vidéo peut être enregistrée sur HoloLens par le biais de la fonction [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Toutefois, la vidéo qui en résulte est de moins bonne qualité que l’expérience en direct pour deux raisons :
 * La fréquence d’images vidéo est limitée à 30 Hz au lieu de 60 Hz.
 * Les images vidéo ne passent pas par l’étape de traitement [Reprojection en phase tardive](../overview/features/late-stage-reprojection.md), de sorte que la vidéo semble plus hachée.
 
@@ -193,7 +193,7 @@ Si les objets rendus semblent se déplacer avec les mouvements des têtes, vous 
 
 Les hologrammes instables (hologrammes qui oscillent, déformés, qui vacillent ou qui sautent) peuvent également s’expliquer par une mauvaise connectivité réseau, en particulier une bande passante réseau insuffisante ou une latence trop élevée. La valeur de [statistiques de performances](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` constitue un bon indicateur de la qualité de votre connexion réseau. Les trames réutilisées indiquent les situations où une ancienne trame vidéo devait être réutilisée côté client car aucune nouvelle trame vidéo n’était disponible, par exemple en raison d’une perte de paquets ou de variations de la latence du réseau. Si `ARRServiceStats.VideoFramesReused` est souvent supérieur à zéro, cela indique un problème réseau.
 
-Une autre valeur à examiner est `ARRServiceStats.LatencyPoseToReceiveAvg`. Elle doit toujours être inférieure à 100 ms. Si vous voyez des valeurs plus élevées, cela indique que vous êtes connecté à un centre de données qui est trop éloigné.
+Une autre valeur à examiner est `ARRServiceStats.LatencyPoseToReceiveAvg`. Elle doit toujours être inférieure à 100 ms. Des valeurs plus élevées pourraient indiquer que vous êtes connecté à un centre de données qui est trop éloigné.
 
 Pour obtenir la liste des atténuations potentielles, consultez les [instructions pour la connectivité réseau](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ Les surfaces coplanaires peuvent avoir plusieurs causes :
 
 * Des surfaces sont intentionnellement créées pour se toucher, comme des décalques ou du texte sur des murs.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefacts graphiques utilisant le rendu stéréo à plusieurs passes dans les applications C++ natives
 
+Dans certains cas, les applications C++ natives qui utilisent un mode de rendu stéréo à plusieurs passes pour le contenu local (rendu gauche et droite dans des passes séparées) après l’appel de [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) peuvent déclencher un bogue du pilote. Le bogue entraîne des problèmes de pixellisation non déterministes, provoquant la disparition aléatoire de triangles individuels ou de parties de triangles du contenu local. Pour des raisons de performances, il est de toute manière recommandé de rendre le contenu local avec une technique de rendu stéréo en une seule passe plus moderne, par exemple utilisant **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
