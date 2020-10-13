@@ -1,14 +1,14 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveur activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329072"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -34,7 +34,7 @@ La fonctionnalité d’extension de machine virtuelle n’est disponible que dan
 
 ## <a name="extensions"></a>Extensions
 
-Dans cette préversion, nous prenons en charge les extensions de machine virtuelle suivantes sur les machines Windows et Linux.
+Dans cette version, nous prenons en charge les extensions de machine virtuelle suivantes sur les machines Windows et Linux.
 
 |Extension |Système d’exploitation |Serveur de publication |Informations supplémentaires |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécess
 
 Vérifiez que votre machine correspond aux [versions prises en charge](agent-overview.md#supported-operating-systems) des systèmes d’exploitation Windows et Linux pour l’agent Azure Connected Machine.
 
-La version minimale de l’agent Connected Machine prise en charge avec cette fonctionnalité est la suivante :
-
-* Windows - 0.7.x
-* Linux - 0.8.x
+La version minimale de l’agent Connected Machine prise en charge avec cette fonctionnalité sur Windows et Linux est la version 1.0.
 
 Pour mettre à niveau votre machine vers la version exigée de l’agent, consultez [Mettre à niveau l’agent](manage-agent.md#upgrading-agent).
 
@@ -77,7 +74,7 @@ Pour mettre à niveau votre machine vers la version exigée de l’agent, consul
 
 Les extensions de machine virtuelle peuvent être appliquées pour une machine managée par serveur via le portail Azure.
 
-1. À partir de votre navigateur, accédez au [portail Azure](https://aka.ms/arcserver-preview).
+1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 
 2. Sur le portail, accédez à **Serveurs – Azure Arc**, puis sélectionnez votre machine hybride dans la liste.
 
@@ -719,22 +716,10 @@ La suppression d’une ou plusieurs extensions d’un serveur activé par Arc ne
 
 4. Sélectionnez **Désinstaller**, puis, lorsque vous êtes invité à vérifier, sélectionnez **Oui** pour continuer.
 
-## <a name="troubleshooting"></a>Dépannage
-
-Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure.
-
-La procédure de résolution des problèmes ci-après s’applique à toutes les extensions de machine virtuelle.
-
-1. Pour consulter le journal de l’agent invité, examinez l’activité au moment où votre extension a été provisionnée dans `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` pour Windows, et pour Linux sous `/var/lib/GuestConfig/ext_mgr_logs`.
-
-2. Pour plus de détails, consultez les journaux de l’extension en question dans `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` pour Windows. La sortie d’extension est journalisée dans un fichier pour chaque extension installée sur Linux sous `/var/lib/GuestConfig/extension_logs`.
-
-3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc. Vous trouverez des informations de dépannage supplémentaires pour chaque extension dans la section **Résolution des problèmes et support** de la vue d’ensemble de l’extension. Vous trouverez notamment une description des codes d’erreur écrits dans le journal. Plus haut dans cet article, le [tableau des extensions](#extensions) propose des liens vers les articles sur les différentes extensions.
-
-4. Examinez les journaux d’activité système. Vérifiez si d’autres opérations sont susceptibles d’avoir interféré avec l’extension, par exemple une longue installation d’une autre application nécessitant un accès exclusif au gestionnaire de package.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
+* Des informations de dépannage sont accessibles dans le [guide Résoudre les problèmes liés aux extensions de machine virtuelle](troubleshoot-vm-extensions.md).
 
-- Découvrez-en plus sur l’[[agent Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-intro.md).
+* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
+
+* En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-intro.md).

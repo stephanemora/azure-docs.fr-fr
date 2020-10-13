@@ -1,31 +1,31 @@
 ---
-title: Configurer l’authentification unique SAML pour les applications dans Azure AD
-description: Configurer l’authentification unique SAML pour les applications dans Azure AD
+title: Comprendre l’authentification unique SAML pour les applications dans Azure Active Directory
+description: Comprendre l’authentification unique SAML pour les applications dans Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605139"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597912"
 ---
-# <a name="configure-saml-based-single-sign-on"></a>Configurer l’authentification unique SAML
+# <a name="understand-saml-based-single-sign-on"></a>Comprendre l’authentification unique basée sur SAML
 
 Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Cet article décrit plus en détail l’option basée sur SAML pour l’authentification unique. 
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée pour l’authentification unique SAML, cet article vous concerne.
+L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées en quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée pour l’authentification unique SAML, cet article vous concerne.
 
 La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) inclut un article sur la configuration de l’authentification unique. Il vous explique comment accéder à la page de configuration SAML pour une application. La page de configuration SAML comprend cinq sections, qui sont traitées en détail dans cet article.
 
@@ -42,7 +42,7 @@ La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) 
 Les valeurs doivent vous être communiquées par le fournisseur de l’application. Vous pouvez entrer manuellement les valeurs ou charger un fichier de métadonnées pour extraire la valeur des champs.
 
 > [!TIP]
-> De nombreuses applications ont déjà été préconfigurées pour fonctionner avec Azure AD. Ces applications sont listées dans la galerie d’applications que vous pouvez parcourir quand vous ajoutez une application à votre locataire Azure AD. La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) vous guide tout au long du processus. Vous trouverez des procédures d’installation détaillées pour les applications de la galerie. Pour accéder aux étapes, vous pouvez cliquer sur le lien de la page de configuration SAML pour l’application comme décrit dans la série de guides de démarrage rapide. Vous pouvez également parcourir une liste complète des tutoriels de configuration d’application en consultant les [tutoriels relatifs à la configuration des applications SaaS](../saas-apps/tutorial-list.md).
+> De nombreuses applications ont déjà été préconfigurées pour fonctionner avec Azure AD. Ces applications sont listées dans la galerie d’applications que vous pouvez parcourir quand vous ajoutez une application à votre locataire Azure AD. La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) vous guide tout au long du processus. Vous trouverez des instructions détaillées pour les applications de la galerie. Pour accéder aux étapes, vous pouvez cliquer sur le lien de la page de configuration SAML pour l’application comme décrit dans la série de guides de démarrage rapide. Vous pouvez également parcourir une liste complète des tutoriels de configuration d’application en consultant les [tutoriels relatifs à la configuration des applications SaaS](../saas-apps/tutorial-list.md).
 
 | Paramètre de la configuration SAML de base | Initiée par le fournisseur de service | Initiée par le fournisseur d’identité | Description |
 |:--|:--|:--|:--|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328256"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduction aux benchmarks de sécurité Azure
 
@@ -23,8 +23,8 @@ Microsoft a découvert que l’utilisation de *benchmarks de sécurité* peut vo
 
 Le benchmark de sécurité Azure comprend un ensemble de recommandations de sécurité à fort impact qui peuvent vous permettre de sécuriser les services que vous utilisez dans Azure :
 
-- Contrôles de sécurité : Ces recommandations s’appliquent généralement à votre locataire Azure et à vos services Azure. Chaque recommandation identifie une liste des parties prenantes qui sont généralement impliquées dans la planification, l’approbation ou l’implémentation du benchmark. 
-- Lignes de base de service : Elles appliquent les contrôles à des services Azure individuels pour fournir des recommandations sur la configuration de la sécurité de ces services.
+- **Contrôles de sécurité** : Ces recommandations s’appliquent généralement à votre locataire Azure et à vos services Azure. Chaque recommandation identifie une liste des parties prenantes qui sont généralement impliquées dans la planification, l’approbation ou l’implémentation du benchmark. 
+- **Lignes de base de service** : Elles appliquent les contrôles à des services Azure individuels pour fournir des recommandations sur la configuration de la sécurité de ces services.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implémenter le benchmark de sécurité Azure
 - **Planifiez** votre implémentation de test de sécurité Azure en consultant la [documentation](overview.md) pour les contrôles d’entreprise et les lignes de base spécifiques aux services pour planifier votre infrastructure de contrôle et la façon dont elle est s’applique à des contrôles tels que CIS (Controls v7.1) et le framework NIST (SP800-53).

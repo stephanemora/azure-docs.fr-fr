@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826058"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532151"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrer des travaux Azure Scheduler vers Azure Logic Apps
 
@@ -96,7 +96,7 @@ Vous pouvez exécuter plusieurs travaux ponctuels en créant simplement une appl
 
    Par exemple, vous pouvez ajouter une action HTTP qui envoie une requête à une URL, ou des actions qui interagissent avec les files d’attente de stockage, les files d’attente Service Bus ou les rubriques Service Bus :
 
-   ![Action HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Capture d’écran représentant un délai jusqu’à l’action suivie d’une action HTTP avec une méthode POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Lorsque vous avez terminé, enregistrez votre application logique.
 
@@ -155,7 +155,7 @@ Dans Logic Apps, chaque travail ponctuel s’exécute comme une seule instance d
 
    Par exemple, vous pouvez ajouter une action HTTP qui envoie une requête à une URL, ou des actions qui interagissent avec les files d’attente de stockage, les files d’attente Service Bus ou les rubriques Service Bus :
 
-   ![Action HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Capture d’écran représentant une action HTTP avec une méthode POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Lorsque vous avez terminé, enregistrez votre application logique.
 
