@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320623"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importer des clés protégées par HSM dans un HSM managé (BYOK)
 
- Le HSM géré Azure Key Vault prend en charge l’importation des clés générées dans votre module de sécurité matérielle (HSM) local. Les clés ne sortent jamais des limites de protection du HSM. Il est souvent fait référence à ce scénario sous le terme *BYOK* (Bring Your Own Key, ou apportez votre propre clé). Un HSM managé utilise la famille nShield de HSM (FIPS 140-2 niveau 3 validé) de nCipher pour protéger vos clés.
+ Le HSM géré Azure Key Vault prend en charge l’importation des clés générées dans votre module de sécurité matérielle (HSM) local. Les clés ne sortent jamais des limites de protection du HSM. Il est souvent fait référence à ce scénario sous le terme *BYOK* (Bring Your Own Key, ou apportez votre propre clé). Un HSM managé utilise les adaptateurs HSM Marvell LiquidSecurity (FIPS 140-2 niveau 3 validé) pour protéger vos clés.
 
 Les informations de cet article vous aident à planifier, à générer puis à transférer vos propres clés protégées par HSM à utiliser avec un HSM managé.
 
