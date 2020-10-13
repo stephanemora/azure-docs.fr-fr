@@ -7,31 +7,33 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.custom: devx-track-js
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614002"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767824"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
-Après avoir [configuré une instance et une authentification Azure Digital Twins](how-to-set-up-instance-scripted.md), vous pouvez créer une application cliente que vous allez utiliser pour interagir avec l’instance. Après avoir configuré un projet client de démarrage, cet article vous montre **comment écrire du code dans cette application cliente pour l’authentifier** avec l’instance Azure Digital Twins.
+Après avoir [configuré une instance et une authentification Azure Digital Twins](how-to-set-up-instance-portal.md), vous pouvez créer une application cliente que vous allez utiliser pour interagir avec l’instance. Après avoir configuré un projet client de démarrage, cet article vous montre **comment écrire du code dans cette application cliente pour l’authentifier** avec l’instance Azure Digital Twins.
 
 Il y a deux approches de l’exemple de code dans cet article. Vous pouvez utiliser celui qui vous convient, en fonction du langage choisi :
-* La première section de l’exemple de code utilise le kit de développement logiciel (SDK) Azure Digital Twins .NET (C#). Le kit de développement logiciel (SDK) fait partie du kit de développement logiciel (SDK) Azure pour .NET et se trouve ici : [*Bibliothèque de client Azure IoT Digital Twins pour .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* La deuxième section de l’exemple de code est destinée aux utilisateurs qui n’utilisent pas le kit de développement logiciel (SDK) .NET, mais des kits de développement logiciel (SDK) générés par AutoRest dans d’autres langages. Pour plus d’informations sur cet stratégie, consultez [*Guide pratique : Créer des kits SDK personnalisés pour Azure Digital Twins avec AutoRest*](how-to-create-custom-sdks.md).
+* La première section de l’exemple de code utilise le kit de développement logiciel (SDK) Azure Digital Twins .NET (C#). Le kit de développement logiciel (SDK) fait partie du kit de développement logiciel (SDK) Azure pour .NET et se trouve ici : [*Bibliothèque de client Azure IoT Digital Twins pour .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Les SDK [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) et [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1) peuvent être utilisés de la même façon.
+* La deuxième section de l’exemple de code est destinée aux utilisateurs qui n’utilisent pas un kit de développement logiciel (SDK) fourni, mais des kits de développement logiciel (SDK) générés par AutoRest dans d’autres langages. Pour plus d’informations sur cet stratégie, consultez [*Guide pratique : Créer des kits SDK personnalisés pour Azure Digital Twins avec AutoRest*](how-to-create-custom-sdks.md).
 
 Vous pouvez également en apprendre plus sur les API et les kits de développement logiciel (SDK) pour Azure Digital Twins dans [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Tout d’abord, suivez les étapes de configuration décrites dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-scripted.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins, que votre utilisateur a des autorisations d’accès et que vous avez configuré des autorisations pour les applications clientes. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
+Tout d’abord, suivez les étapes de configuration décrites dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins, que votre utilisateur a des autorisations d’accès et que vous avez configuré des autorisations pour les applications clientes. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
 
 Pour continuer, vous aurez besoin d’un projet d’application cliente dans lequel écrire votre code. Si vous n’avez pas encore configuré de projet d’application cliente, créez un projet de base à utiliser avec ce didacticiel dans le langage de votre choix.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Authentification et création du client : kit de développement logiciel (SDK) .NET (C#)
+
+Cette section propose un exemple C# d’utilisation du kit de développement logiciel (SDK) .NET fourni.
 
 Tout d’abord, incluez les packages suivants dans votre projet afin d’utiliser le kit de développement logiciel (SDK) .NET et les outils d’authentification pour cette procédure :
 * `Azure.DigitalTwins.Core`
@@ -45,13 +47,13 @@ Vous aurez également besoin des instructions using suivantes :
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-Pour vous authentifier avec le kit de développement logiciel .NET, utilisez l’une des méthodes d’obtention d’informations d’identification définies dans la bibliothèque [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). Voici deux des méthodes les plus couramment utilisées (même conjointement dans la même application) :
+Pour vous authentifier avec le kit de développement logiciel .NET, utilisez l’une des méthodes d’obtention d’informations d’identification définies dans la bibliothèque [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). Voici deux des méthodes les plus couramment utilisées (même conjointement dans la même application) :
 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) est destiné aux applications interactives et peut être utilisé pour créer un client de kit de développement logiciel (SDK) authentifié
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fonctionne parfaitement lorsqu’il vous faut des identités managées (MSI) et peut être utilisé avec Azure Functions
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destiné aux applications interactives et peut être utilisé pour créer un client de kit de développement logiciel (SDK) authentifié
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fonctionne parfaitement lorsqu’il vous faut des identités managées (MSI) et peut être utilisé avec Azure Functions
 
 ### <a name="interactivebrowsercredential-method"></a>Méthode InteractiveBrowserCredential
-La méthode [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) est destinée aux applications interactives et affiche un navigateur web pour l’authentification.
+La méthode [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destinée aux applications interactives et affiche un navigateur web pour l’authentification.
 
 Pour utiliser les informations d’identification du navigateur interactif afin de créer un client de kit de développement logiciel authentifié, ajoutez ce code :
 
@@ -81,7 +83,7 @@ try
 > Bien que vous puissiez placer l’ID client, l’ID de locataire et l’URL de l’instance directement dans le code comme indiqué ci-dessus, il peut être judicieux de faire en sorte que votre code récupère ces valeurs à partir d’un fichier de configuration ou d’une variable d’environnement.
 
 ### <a name="managedidentitycredential-method"></a>Méthode ManagedIdentityCredential
- La méthode [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fonctionne parfaitement lorsqu’il vous faut des [identités managées (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), en cas d’utilisation d’Azure Functions, par exemple.
+ La méthode [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fonctionne parfaitement lorsqu’il vous faut des [identités managées (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), en cas d’utilisation d’Azure Functions, par exemple.
 Dans une fonction Azure, vous pouvez utiliser les informations d’identification de l’identité managée comme suit :
 
 ```csharp
@@ -100,7 +102,7 @@ En outre, pour utiliser l’authentification dans une fonction, n’oubliez pas�
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Authentification avec un kit de développement logiciel (SDK) généré par AutoRest
 
-Si vous n’utilisez pas .NET, vous pouvez choisir de créer une bibliothèque SDK dans le langage de votre choix, comme décrit dans [*Guide pratique : Créer des kits SDK personnalisés pour Azure Digital Twins avec AutoRest*](how-to-create-custom-sdks.md).
+Si vous n’utilisez pas l’un des SDK fournis (.NET, Java, JavaScript), vous pouvez choisir de créer une bibliothèque SDK dans le langage de votre choix, comme décrit dans [*Guide pratique : Créer des kits SDK personnalisés pour Azure Digital Twins avec AutoRest*](how-to-create-custom-sdks.md).
 
 Cette section explique comment s’authentifier dans un tel cas.
 

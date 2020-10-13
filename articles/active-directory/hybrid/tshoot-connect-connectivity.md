@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088304"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317510"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Résoudre les problèmes de connectivité liés à Azure AD
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -85,7 +85,7 @@ Pour vérifier si le serveur Azure AD Connect dispose d’une connectivité rée
 
 PowerShell utilise la configuration du fichier machine.config pour contacter le proxy. Les paramètres de winhttp/netsh ne doivent pas affecter ces applets de commande.
 
-Si le proxy est configuré correctement, vous devez obtenir un état de réussite : ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Si le proxy est configuré correctement, vous devez obtenir un état de réussite :  ![Capture d’écran montrant l’état de réussite lorsque le proxy est configuré correctement.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Si vous recevez l’erreur **Impossible de se connecter au serveur distant**, cela signifie que PowerShell tente d’effectuer un appel direct sans utiliser le proxy ou que DNS n’est pas configuré correctement. Vérifiez que le fichier **machine.config** est configuré correctement.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)

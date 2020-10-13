@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056300"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541252"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
@@ -123,19 +123,19 @@ Vous pouvez définir un produit accessible via une inscription en libre-service,
 
 2. Sélectionnez **Licences**, puis **Produits à l’inscription en libre-service**. Vous pouvez afficher tous les produits disponibles à l’inscription en libre-service séparément des abonnements par postes. Choisissez le produit que vous souhaitez supprimer définitivement. Voici un exemple dans Microsoft Power BI :
 
-    ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/licenses-page.png)
+    ![Capture d’écran représentant la page « Licenses - Self-service sign-up products » (« Licences - Produits d’inscription en libre-service »).](./media/directory-delete-howto/licenses-page.png)
 
 3. Sélectionnez **Supprimer** pour supprimer le produit, puis acceptez les termes du contrat stipulant que les données sont supprimées immédiatement et définitivement. Cette action de suppression supprime tous les utilisateurs et supprime l’accès de l’organisation au produit. Cliquez sur Oui pour poursuivre la suppression.  
 
-    ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/delete-product.png)
+    ![Capture d’écran représentant la page « Licenses - Self-service sign-up products » (« Licences - Produits d’inscription en libre-service ») dans laquelle la fenêtre « Delete self-service sign-up product » (« Supprimer le produit d’inscription en libre-service ») est ouverte.](./media/directory-delete-howto/delete-product.png)
 
 4. Lorsque vous sélectionnez **Oui**, la suppression du produit accessible en libre-service sera lancée. Une notification s’affiche, pour vous indiquer que la suppression est en cours d’exécution.  
 
-    ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/progress-message.png)
+    ![Capture d’écran représentant la page « Licenses - Self-service sign-up products » (« Licences - Produits d’inscription en libre-service ») dans laquelle la notification « Deletion in progress » (« Suppression en cours ») est affichée.](./media/directory-delete-howto/progress-message.png)
 
 5. À présent, l’état du produit dont l’inscription est disponible en libre-service est défini sur **Supprimé**. Normalement, lorsque vous actualisez la page **Produits à l’inscription en libre-service**, le produit n’y apparaît plus.  
 
-    ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/product-deleted.png)
+    ![Capture d’écran représentant la page « Licenses - Self-service sign-up products » (« Licences - Produits d’inscription en libre-service ») avec le volet « Self-service sign-up product deleted » (« Produit d’inscription en libre-service supprimé ») à droite.](./media/directory-delete-howto/product-deleted.png)
 
 6. Une fois que vous avez supprimé tous les produits, vous pouvez vous reconnecter au Centre d’administration Azure AD pour vérifier qu’aucune action n’est requise et qu’aucun produit ne bloque la suppression de votre organisation. Vous devriez alors pouvoir supprimer votre organisation Azure AD.
 

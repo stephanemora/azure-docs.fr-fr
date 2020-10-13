@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360529"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -218,8 +218,8 @@ Le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.tar.gz** peut incl
 
 L’onglet **Overview** fournit des détails de base sur l’exécution et des informations sur les machines virtuelles. L’onglet **Findings** affiche un résumé des recommandations de toutes les différentes sections du rapport PerfInsights.
 
-![Capture d’écran du rapport PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Capture d’écran du rapport PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Capture d’écran de l’onglet Vue d’ensemble du rapport PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Capture d’écran de l’onglet Linux du rapport PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Les conclusions identifiées comme étant d’importance élevée sont des problèmes connus qui peuvent conduire à des problèmes de performances. Les conclusions identifiées comme étant d’importance moyenne représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances. Les conclusions identifiées comme étant d’importance faible sont des instructions données à titre informatif uniquement.

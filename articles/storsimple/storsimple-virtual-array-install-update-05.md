@@ -1,6 +1,6 @@
 ---
 title: Installation d’Update 0.5 sur une instance StorSimple Virtual Array | Microsoft Docs
-description: Décrit comment utiliser l’interface utilisateur web de StorSimple Virtual Array pour appliquer des mises à jour à l’aide du portail Azure et de la méthode de correctifs logiciels
+description: Explique comment utiliser l’interface utilisateur web de StorSimple Virtual Array pour appliquer la mise à jour 0.5 à l’aide du Portail Azure et de la méthode des correctifs logiciels.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 9b95593dd7ce7e10300ecef9b3636073a3096a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa5524525aa76279cdcceaf0f5fd2a74753786ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513648"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300597"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installation d’Update 0.5 sur StorSimple Virtual Array
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290302"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767196"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enrichissements de messages pour les messages IoT Hub appareil-à-cloud
 
@@ -86,7 +86,7 @@ Pour essayer les enrichissements de messages, consultez le [tutoriel sur les enr
 
 * La taille totale du message, y compris des enrichissements, ne peut pas dépasser 256 Ko. Si la taille d’un message dépasse 256 Ko, l’IoT Hub supprimera le message. Vous pouvez utiliser les [métriques IoT Hub](iot-hub-metrics.md) pour identifier et déboguer des erreurs lorsque les messages sont supprimés. Par exemple, vous pouvez suivre d2c.telemetry.egress.invalid.
 
-* Les enrichissements de message ne s’appliquent pas aux événements de changement de jumeau numérique (inclus dans la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md)).
+* Les enrichissements de message ne s’appliquent pas aux événements de changement de jumeau numérique.
 
 ## <a name="pricing"></a>Tarifs
 

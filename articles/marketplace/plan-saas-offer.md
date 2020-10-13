@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420436"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708116"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -57,7 +57,7 @@ Les options de référencement _Obtenir maintenant (gratuit)_ ,  _Essai gratuit_
 
 Ces exigences techniques supplémentaires s’appliquent uniquement à l’option de référencement _Vendre via Microsoft_ (pouvant faire l’objet d’une transaction) :
 
-- Azure AD avec la gestion de l’identité et l’authentification unique (SSO) est requis. Pour des instructions détaillées, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la place de marché commerciale](azure-ad-saas.md).
+- Azure AD avec la gestion de l’identité et l’authentification unique (SSO) est requis pour l’utilisateur acheteur qui accède à la page de destination. Pour des instructions détaillées, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la place de marché commerciale](azure-ad-saas.md).
 - Vous devez utiliser les [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) pour l’intégration avec la Place de marché Azure et Microsoft AppSource. Vous devez exposer un service capable d’interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. Des diagrammes et des explications détaillées décrivant l’utilisation des champs collectés sont disponibles dans la documentation des [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Vous devez créer au moins un plan pour votre offre. Votre plan est facturé en fonction du modèle de tarification que vous sélectionnez avant la publication : _forfaitaire_ ou _par utilisateur_. Vous trouverez des détails supplémentaires sur les [plans](#plans) plus loin dans cet article.
 - Le client peut annuler votre offre à tout moment.
@@ -100,7 +100,7 @@ Vous pouvez choisir d’activer une version d’évaluation pour votre applicati
 
 Vous devez connecter votre offre à votre système de gestion des relations avec la clientèle (Customer Relationship Management, CRM) pour collecter des informations sur les clients. Le client devra autoriser le partage de ses informations. Ces détails du client, ainsi que le nom de l’offre, son ID et le magasin en ligne dans lequel il a trouvé votre offre, seront envoyés au système CRM que vous avez configuré. La place de marché commerciale prend en charge un vaste éventail de systèmes CRM, ainsi que la possibilité d’utiliser une table Azure ou de configurer un point de terminaison HTTPS à l’aide de Power Automate.
 
-Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou après la création de l’offre. Pour obtenir des instructions détaillées, consultez [Gestion des prospects pour la place de marché commerciale](lead-management-for-cloud-marketplace.md).
+Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou après la création de l’offre. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
 

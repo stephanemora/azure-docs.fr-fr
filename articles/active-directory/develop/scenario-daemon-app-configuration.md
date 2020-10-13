@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257671"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
@@ -51,16 +51,13 @@ Dans les bibliothèques MSAL, les informations d’identification de client (sec
 
 Le fichier de configuration définit les éléments suivants :
 
-- autorité ou instance cloud et ID du locataire ;
+- L’instance cloud et l’ID de locataire, qui composent ensemble l’*autorité*.
 - ID client que vous avez obtenu à partir de l’inscription de l’application ;
 - secret client ou certificat.
 
-> [!NOTE]
-> Les extraits de code .Net dans le reste de l’article référencent la [configuration](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) de l’exemple [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings. json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) de l’exemple de [démon de console .Net Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
+Voici un exemple de définition de la configuration dans un fichier [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json). Cet exemple provient de l’exemple de code [Console .NET Core (démon)](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sur GitHub.
 
 ```json
 {
@@ -124,9 +121,9 @@ Faites référence au package MSAL dans le code de votre application.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Ajoutez le package NuGet [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) à votre application.
+Ajoutez le package NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) à votre application, puis ajoutez une directive `using` dans votre code pour le référencer.
+
 Dans MSAL.NET, l’application cliente confidentielle est représentée par l’interface `IConfidentialClientApplication`.
-Utilisez l’espace de noms MSAL.NET dans le code source.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+`Authority` est une concaténation de l’instance cloud et de l’ID de locataire, par exemple `https://login.microsoftonline.com/contoso.onmicrosoft.com` ou `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd`. Dans le fichier *appsettings.json* indiqué dans la section [Fichier de configuration](#configuration-file), ces éléments sont représentés respectivement par les valeurs `Instance` et `Tenant`.
+
+Dans l’exemple de code d’où l’extrait de code précédent est tiré, `Authority` est une propriété dans la classe [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) et elle est définie comme suit :
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)
