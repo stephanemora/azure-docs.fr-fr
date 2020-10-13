@@ -1,6 +1,6 @@
 ---
 title: Réglage des performances avec des vues matérialisées
-description: Recommandations et points à prendre en compte quand vous utilisez des vues matérialisées pour améliorer les performances de vos requêtes.
+description: Recommandations et points à prendre en compte concernant les vues matérialisées pour améliorer les performances de vos requêtes.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289036"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -29,7 +29,7 @@ Une vue standard calcule ses données chaque fois que la vue est utilisée.  Auc
 
 Une vue matérialisée précalcule, stocke et conserve ses données dans le pool SQL à l'instar d'une table.  Un recalcul n’est pas nécessaire à chaque utilisation d’une vue matérialisée.  C’est pourquoi des requêtes qui utilisent la totalité ou un sous-ensemble des données dans des vues matérialisées peuvent être plus rapides.  Mieux encore, les requêtes peuvent utiliser une vue matérialisée sans y faire référence directement. Il n’est donc pas nécessaire de modifier le code de l’application.  
 
-La plupart des exigences applicables à une vue standard s’appliquent aussi à une vue matérialisée. Pour plus d’informations sur la syntaxe d’une vue matérialisée et d’autres exigences, consultez [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+La plupart des exigences applicables à une vue standard s’appliquent aussi à une vue matérialisée. Pour plus d’informations sur la syntaxe d’une vue matérialisée et d’autres exigences, consultez [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 | Comparaison                     | Affichage                                         | Vue matérialisée
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Une vue matérialisée correctement conçue offre les avantages suivants :
 En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues matérialisées implémentées dans un pool SQL offrent également les avantages supplémentaires suivants :
 
 - Actualisation automatique et synchrone des données avec les modifications apportées aux données dans les tables de base. Aucune action de l'utilisateur n'est requise.
-- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Scénarios courants  
 
@@ -143,13 +143,17 @@ L’optimiseur de l’entrepôt de données peut utiliser automatiquement des vu
 
 **Superviser les vues matérialisées**
 
-Une vue matérialisée est stockée dans l’entrepôt de données de la même manière qu’une table avec un index columnstore cluster.  La lecture de données à partir d’une vue matérialisée comprend l’analyse de l’index et l’application des modifications à partir du deltastore.  Quand le nombre de lignes dans le deltastore est trop élevé, la résolution d’une requête à partir d’une vue matérialisée peut prendre plus de temps que l’interrogation directe des tables de base.  Pour éviter cette dégradation des performances des requêtes, il est recommandé d’exécuter [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour superviser la valeur overhead_ratio de la vue (total_rows/base_view_row).  Si la valeur overhead_ratio est trop élevée, envisagez de regénérer la vue matérialisée afin que toutes les lignes du deltastore soient déplacées vers l’index columnstore.  
+Une vue matérialisée est stockée dans l’entrepôt de données de la même manière qu’une table avec un index columnstore cluster.  La lecture de données à partir d’une vue matérialisée comprend l’analyse de l’index et l’application des modifications à partir du deltastore.  Quand le nombre de lignes dans le deltastore est trop élevé, la résolution d’une requête à partir d’une vue matérialisée peut prendre plus de temps que l’interrogation directe des tables de base.  
+
+Pour éviter cette dégradation des performances des requêtes, il est recommandé d’exécuter [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour superviser la valeur overhead_ratio de la vue (total_rows/base_view_row).  Si la valeur overhead_ratio est trop élevée, envisagez de regénérer la vue matérialisée afin que toutes les lignes du deltastore soient déplacées vers l’index columnstore.  
 
 **Vue matérialisée et mise en cache du jeu de résultats**
 
 Ces deux fonctionnalités sont introduites dans le pool SQL à peu près en même temps à des fins de réglage des performances des requêtes. La mise en cache du jeu de résultats est utilisée pour obtenir une concurrence élevée et des temps de réponse rapides aux requêtes répétitives sur des données statiques.  
 
-Pour utiliser le résultat mis en cache, la forme de la requête de cache doit correspondre à la requête qui a produit le cache.  De plus, le résultat mis en cache doit s’appliquer à la requête entière.  Les vues matérialisées permettent de modifier les données dans les tables de base.  Les données des vues matérialisées peuvent être appliquées à une partie d’une requête.  Cette prise en charge permet à des requêtes différentes, qui partagent des calculs à des fins d’accélération des performances, d’utiliser les mêmes vues matérialisées.
+Pour utiliser le résultat mis en cache, la forme de la requête de cache doit correspondre à la requête qui a produit le cache.  De plus, le résultat mis en cache doit s’appliquer à la requête entière.  
+
+Les vues matérialisées permettent de modifier les données dans les tables de base.  Les données des vues matérialisées peuvent être appliquées à une partie d’une requête.  Cette prise en charge permet à des requêtes différentes, qui partagent des calculs à des fins d’accélération des performances, d’utiliser les mêmes vues matérialisées.
 
 ## <a name="example"></a>Exemple
 
@@ -352,7 +356,7 @@ GROUP BY c_customer_id
 
 ```
 
-Revérifiez le plan d’exécution de la requête d’origine.  À présent, le nombre de jointures passe de 17 à 5 et il n’y a plus de lecture aléatoire.  Cliquez sur l’icône de l’opération Filtre dans le plan. Sa liste de résultat indique que les données sont lues à partir des vues matérialisées et non des tables de base.  
+Revérifiez le plan d’exécution de la requête d’origine.  À présent, le nombre de jointures passe de 17 à 5 et il n’y a plus de lecture aléatoire.  Sélectionnez l’icône de l’opération Filtre dans le plan. Sa liste de résultat indique que les données sont lues à partir des vues matérialisées et non des tables de base.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

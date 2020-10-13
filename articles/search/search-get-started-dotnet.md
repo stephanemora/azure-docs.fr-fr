@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541541"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759067"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Démarrage rapide : Créer un index de recherche à l’aide de la bibliothèque de client Azure.Search.Documents
 
@@ -36,11 +36,17 @@ Avant de commencer, vous devez disposer des outils et services suivants :
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), toute édition. L’exemple de code a été testé sur l’édition Community gratuite de Visual Studio 2019.
 
++ [Package NuGet Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+## <a name="set-up-your-project"></a>Configuration de votre projet
+
+Rassemblez les informations de connexion du service, puis démarrez Visual Studio pour créer un projet d’application console qui peut s’exécuter sur .NET Core.
+
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-endpoint"></a>Obtenir un clé et un point de terminaison
+### <a name="copy-a-key-and-endpoint"></a>Copier une clé et un point de terminaison
 
-Les appels au service nécessitent un point de terminaison d’URL et une clé d’accès pour chaque requête. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
+Les appels au service nécessitent un point de terminaison d’URL et une clé d’accès pour chaque requête. Dans un premier temps, recherchez la clé et l’URL de l’API à ajouter à votre projet. Vous allez spécifier les deux valeurs lors de la création du client dans une étape ultérieure.
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
@@ -50,10 +56,6 @@ Les appels au service nécessitent un point de terminaison d’URL et une clé d
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-## <a name="set-up-your-project"></a>Configuration de votre projet
-
-Démarrez Visual Studio et créez un projet d’application console pouvant s’exécuter sur .NET Core. 
-
 ### <a name="install-the-nuget-package"></a>Installez le package NuGet
 
 Une fois le projet créé, ajoutez la bibliothèque de client. Le [package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) consiste en une bibliothèque de client qui fournit toutes les API utilisées pour utiliser un service de recherche dans .NET.
@@ -62,7 +64,7 @@ Une fois le projet créé, ajoutez la bibliothèque de client. Le [package Azure
 
 1. Cliquez sur **Parcourir**.
 
-1. Recherchez `Azure.Search.Documents` et sélectionnez la version 11.0.0.
+1. Recherchez `Azure.Search.Documents` et sélectionnez la version 11.0 ou ultérieure.
 
 1. Cliquez sur **Installer** à droite pour ajouter l’assembly à vos projet et solution.
 
@@ -78,7 +80,7 @@ Une fois le projet créé, ajoutez la bibliothèque de client. Le [package Azure
    using Azure.Search.Documents.Models;
    ```
 
-1. Créez deux clients : Le client [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) crée l’index et le client [SearchClient](/dotnet/api/azure.search.documents.searchclient) fonctionne avec un index existant. Tous deux ont besoin du point de terminaison de service et d’une clé API d’administration pour l’authentification avec des droits de création/suppression.
+1. Créez deux clients : [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) crée l’index et [SearchClient](/dotnet/api/azure.search.documents.searchclient) charge et interroge un index existant. Tous deux ont besoin du point de terminaison de service et d’une clé API d’administration pour l’authentification avec des droits de création/suppression.
 
    ```csharp
    static void Main(string[] args)
@@ -93,12 +95,12 @@ Une fois le projet créé, ajoutez la bibliothèque de client. Le [package Azure
        SearchIndexClient idxclient = new SearchIndexClient(serviceEndpoint, credential);
 
        // Create a SearchClient to load and query documents
-       SearchClient qryclient = new SearchClient(serviceEndpoint, indexName, credential);
+       SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
     ```
 
 ## <a name="1---create-an-index"></a>1 – Créer un index
 
-Ce démarrage rapide crée un index Hotels que vous allez charger à l’aide de données d’hôtel et sur lequel vous allez exécuter des requêtes. Dans cette étape, définissez les champs de l’index. Chaque définition de champ comprend un nom, un type de données et des attributs qui déterminent la façon dont le champ est utilisé.
+Ce guide de démarrage rapide crée un index Hotels que vous allez charger avec des données sur des hôtels et sur lequel vous allez effectuer des requêtes. Dans cette étape, définissez les champs de l’index. Chaque définition de champ comprend un nom, un type de données et des attributs qui déterminent la façon dont le champ est utilisé.
 
 Dans cet exemple, des méthodes synchrones de la bibliothèque Azure.Search.Documents sont utilisées à des fins de simplicité et de lisibilité. En revanche, dans des scénarios de production, vous devez utiliser des méthodes asynchrones pour maintenir la scalabilité et la réactivité de votre application. Par exemple, vous pouvez utiliser [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) au lieu de [CreateIndex.](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex)
 
@@ -132,7 +134,7 @@ Dans cet exemple, des méthodes synchrones de la bibliothèque Azure.Search.Docu
     }
     ```
 
-1. Dans **Program.cs**, spécifiez les champs et les attributs. [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) et [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) sont utilisés pour créer un index.
+1. Dans **Program.cs**, créez un objet [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex), puis appelez la méthode [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) pour exprimer l’index dans votre service de recherche.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -155,9 +157,13 @@ Dans cet exemple, des méthodes synchrones de la bibliothèque Azure.Search.Docu
 
 Les attributs du champ déterminent la façon dont il est utilisé dans une application. Par exemple, l’attribut `IsFilterable` doit être assigné à chaque champ qui prend en charge une expression de filtre.
 
-Contrairement aux versions précédentes du kit de développement logiciel (SDK) .NET qui nécessitent la méthode [IsSearchable](/dotnet/api/microsoft.azure.search.models.field.issearchable) sur des champs de chaîne offrant une possibilité de recherche, vous pouvez utiliser [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) et [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) pour simplifier les définitions de champs.
+Dans la bibliothèque de client Azure.Search.Documents, vous pouvez utiliser [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) et [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) pour simplifier les définitions de champs. Les deux sont des dérivés d’un [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) et peuvent potentiellement simplifier votre code :
 
-À l’instar des versions précédentes, d’autres attributs sont toujours requis sur la définition elle-même. Par exemple, les attributs [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable) et [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) doivent être explicitement attribués, comme illustré dans l’exemple ci-dessus. 
++ `SimpleField` peut être n’importe quel type de données, ne peut jamais faire l’objet d’une recherche (il est ignoré pour les requêtes de recherche de texte intégral) et peut être récupéré (il n’est pas masqué). Les autres attributs sont désactivés par défaut, mais peuvent être activés. Vous pouvez utiliser un `SimpleField` pour les ID de document ou les champs utilisés seulement dans des filtres, des facettes ou des profils de scoring. Dans ce cas, veillez à appliquer tous les attributs nécessaires pour le scénario, comme `IsKey = true` pour un ID de document. Pour plus d’informations, consultez [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) dans le code source.
+
++ `SearchableField` doit être une chaîne, et peut toujours faire l’objet d’une recherche et d’une récupération. Les autres attributs sont désactivés par défaut, mais peuvent être activés. Comme ce type de champ peut faire l’objet d’une recherche, il prend en charge les synonymes et l’ensemble complet des propriétés de l’analyseur. Pour plus d’informations, consultez [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) dans le code source.
+
+Que vous utilisiez l’API `SearchField` de base ou un des modèles d’assistance, vous devez activer explicitement les attributs de filtre, de facette et de tri. Par exemple, les attributs [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable) et [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) doivent être explicitement attribués, comme illustré dans l’exemple ci-dessus. 
 
 <a name="load-documents"></a>
 
@@ -165,11 +171,11 @@ Contrairement aux versions précédentes du kit de développement logiciel (SDK)
 
 Le service Recherche cognitive Azure recherche dans le contenu stocké dans le service. Au cours de cette étape, vous allez charger des documents JSON conformes à l’index de l’hôtel que vous venez de créer.
 
-Dans la Recherche cognitive Azure, les documents sont des structures de données qui sont à la fois des entrées pour l’indexation et des sorties de requêtes. Selon une source de données externe, les entrées de documents peuvent être des lignes dans une base de données, des objets blob dans le Stockage Blob ou des documents JSON sur le disque. Dans cet exemple, nous prenons un raccourci et incorporons des documents JSON pour cinq hôtels dans le code lui-même. 
+Dans Recherche cognitive Azure, les documents de recherche sont des structures de données qui sont à la fois des entrées pour l’indexation et des sorties de requêtes. Selon une source de données externe, les entrées de documents peuvent être des lignes dans une base de données, des objets blob dans le Stockage Blob ou des documents JSON sur le disque. Dans cet exemple, nous prenons un raccourci et incorporons des documents JSON pour cinq hôtels dans le code lui-même. 
 
-Lors du chargement de documents, vous devez utiliser un objet [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1). Un objet IndexDocumentsBatch contient une collection d’[Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions) contenant chacune un document et une propriété indiquant au service Recherche cognitive Azure l’action à effectuer [(upload, merge, delete et mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+Lors du chargement de documents, vous devez utiliser un objet [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1). Un objet `IndexDocumentsBatch` contient une collection d’[Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions), chacune contenant un document et une propriété qui indiquent à Recherche cognitive Azure l’action à effectuer ([upload, merge, delete et mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. Dans **Program.cs**, créez un tableau de documents et d’actions d’index, puis transmettez le tableau à `ndexDocumentsBatch`. Les documents ci-dessous sont conformes à l’index hotels-quickstart-v11, tel que défini par la classe Hotel.
+1. Dans **Program.cs**, créez un tableau des documents et des actions d’index, puis passez le tableau à `IndexDocumentsBatch`. Les documents ci-dessous sont conformes à l’index hotels-quickstart-v11, tel que défini par la classe hotel.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -183,7 +189,7 @@ Lors du chargement de documents, vous devez utiliser un objet [IndexDocumentsBat
     IndexDocumentsOptions idxoptions = new IndexDocumentsOptions { ThrowOnAnyError = true };
 
     Console.WriteLine("{0}", "Loading index...\n");
-    qryclient.IndexDocuments(batch, idxoptions);
+    srchclient.IndexDocuments(batch, idxoptions);
     ```
 
     Une fois que vous avez initialisé l’objet [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1), vous pouvez l’envoyer à l’index en appelant [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) sur votre objet [SearchClient](/dotnet/api/azure.search.documents.searchclient).
@@ -225,7 +231,7 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
 1. Créez une méthode RunQueries pour exécuter des requêtes et retourner des résultats. Les résultats sont des objets Hotel.
 
     ```csharp
-    private static void RunQueries(SearchClient qryclient)
+    private static void RunQueries(SearchClient srchclient)
     {
         SearchOptions options;
         SearchResults<Hotel> response;
@@ -238,7 +244,7 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
             OrderBy = { "" }
         };
 
-        response = qryclient.Search<Hotel>("motel", options);
+        response = srchclient.Search<Hotel>("motel", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #2: Find hotels where 'type' equals hotel...\n");
@@ -248,7 +254,7 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
             Filter = "hotelCategory eq 'hotel'",
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #3: Filter on rates less than $200 and sort by when the hotel was last updated...\n");
@@ -259,9 +265,16 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
             OrderBy = { "lastRenovationDate desc" }
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
     }
+    ```
+
+1. Ajoutez RunQueries à `Main()`.
+
+    ```csharp
+    Console.WriteLine("Starting queries...\n");
+    RunQueries(srchclient);
     ```
 
 Cet exemple montre les deux [façons de mettre en correspondance des termes dans une requête](search-query-overview.md#types-of-queries) : la recherche en texte intégral et les filtres.
@@ -278,7 +291,7 @@ Les recherches et les filtres sont effectués à l’aide de la méthode [Search
 
 Appuyez sur F5 pour regénérer l’application et exécuter le programme dans son intégralité. 
 
-La sortie comprend des messages de la méthode [Console.WriteLIne](/dotnet/api/system.console.writeline), avec l’ajout d’informations et de résultats de requête.
+La sortie comprend des messages de la méthode [Console.WriteLine](/dotnet/api/system.console.writeline), avec en plus des informations et des résultats de requête.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -290,7 +303,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide C#, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. À différents stades, nous avons pris des raccourcis afin de simplifier le code pour une meilleure lisibilité et compréhension. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons l’article suivant pour explorer d’autres approches et concepts afin d’approfondir vos connaissances. 
+Dans ce guide de démarrage rapide C#, vous avez effectué un ensemble de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. À différents stades, nous avons pris des raccourcis afin de simplifier le code pour une meilleure lisibilité et compréhension. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons l’article suivant pour explorer d’autres approches et concepts afin d’approfondir vos connaissances. 
 
 > [!div class="nextstepaction"]
 > [Guide pratique pour développer dans .NET](search-howto-dotnet-sdk.md)

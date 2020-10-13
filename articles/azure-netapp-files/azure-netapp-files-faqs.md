@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662451"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653619"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -132,6 +132,12 @@ Azure NetApp Files prend en charge NFSv3 et NFSv4.1. Vous pouvez [créer un volu
 
 Vous pouvez spécifier si le compte racine peut accéder ou non au volume à l’aide de la stratégie d’exportation du volume. Pour plus d’informations, consultez [Configurer une stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md).
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>Puis-je utiliser le même chemin d’accès de fichier (jeton de création de volume) pour plusieurs volumes ?
+
+Oui, vous pouvez. Toutefois, le chemin d’accès du fichier doit être utilisé dans un autre abonnement ou dans une autre région.   
+
+Par exemple, vous créez un volume appelé `vol1`. Puis, vous créez un autre volume également appelé `vol1` dans un autre pool de capacité, mais dans le même abonnement et la même région. Dans ce cas, l’utilisation du même nom de volume `vol1` génère une erreur. Pour utiliser le même chemin d’accès du fichier, l’autre nom doit se trouver dans une région ou un abonnement différent.
+
 ## <a name="smb-faqs"></a>Questions fréquentes sur SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Quelles sont les versions de SMB prises en charge par Azure NetApp Files ?
@@ -163,12 +169,6 @@ Azure NetApp Files prend en charge les versions Windows Server 2008r2SP1-2019 d
 La taille du volume signalée dans le client SMB est la taille maximale que peut atteindre le volume Azure NetApp Files. La taille du volume Azure NetApp Files comme affichée sur le client SMB ne représente pas le quota ou la taille du volume. Vous pouvez obtenir la taille du volume Azure NetApp Files ou son quota par le biais du portail Azure ou de l’API.
 
 <!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
-
-<!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>J’ai essayé d’utiliser la « racine » et des utilisateurs locaux pour accéder à un volume à double protocole avec le style de sécurité NTFS sur un système UNIX. Pourquoi ai-je rencontré une erreur « Autorisation refusée » ?   
 
-Un volume à double protocoles prend en charge les protocoles NFS et SMB.  Lorsque vous tentez d’accéder au volume monté sur le système UNIX, celui-ci tente de mapper l’utilisateur UNIX que vous utilisez à un utilisateur Windows. Si aucun mappage n’est trouvé, l’erreur « Autorisation refusée » se produit.  Cette situation s’applique également lorsque vous utilisez l’utilisateur « racine » pour l’accès.    
-
-Pour éviter l’erreur « Autorisation refusée », assurez-vous que Windows Active Directory inclut `pcuser` avant d’accéder au point de montage. Si vous ajoutez `pcuser` après avoir rencontré l’erreur « Autorisation refusée », patientez 24 heures jusqu’à ce que l’entrée du cache s’efface avant de réessayer d’accéder.
+Voir [Résoudre les problèmes des volumes à deux protocoles](troubleshoot-dual-protocol-volumes.md) pour les résolutions.
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Lorsque j’essaie de créer un volume à deux protocoles, pourquoi le processus de création échoue-t-il en raison de l’erreur « Impossible de valider la configuration LDAP, réessayez après avoir corrigé la configuration LDAP » ?  
 
-L’enregistrement du pointeur (PTR) de l’ordinateur hôte AD est peut-être manquant sur le serveur DNS. Vous devez créer une zone de recherche inversée sur le serveur DNS, puis ajouter un enregistrement PTR de l’ordinateur hôte AD dans cette zone de recherche inversée.
-
-Par exemple, supposons que l’adresse IP de l’ordinateur AD est `1.1.1.1`, le nom d’hôte de l’ordinateur AD (trouvé à l’aide de la commande `hostname`) est `AD1` et le nom de domaine est `myDomain.com`.  L’enregistrement PTR ajouté à la zone de recherche inversée doit être `1.1.1.1` -> `AD1.myDomain.com`.
+Voir [Résoudre les problèmes des volumes à deux protocoles](troubleshoot-dual-protocol-volumes.md) pour les résolutions.
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

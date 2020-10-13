@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396673"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653636"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -34,18 +34,18 @@ Microsoft fournit des API aux fournisseurs de solutions Cloud pour gérer les ab
 Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle « *Connect-Through* » ou le modèle « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
-![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagramme montrant le modèle « Connect-through ».](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Dans le modèle « Connect-through », le fournisseur de solutions Cloud crée une connexion directe entre votre centre de données et l’abonnement Azure de votre client. La connexion directe est établie à l’aide d’ExpressRoute et connecte votre réseau à Azure. Votre client se connecte ensuite à votre réseau. Ce scénario nécessite que le client traverse le réseau du fournisseur de solutions Cloud pour accéder aux services Azure. 
 
 Si vos clients possèdent d’autres abonnements Azure non gérés par vous, ils doivent utiliser le réseau Internet public ou leur propre connexion privée pour se connecter à ces services approvisionnés dans le cadre de l’abonnement non-fournisseur de solutions Cloud. 
 
-Les fournisseurs de solutions Cloud qui gèrent des services Azure doivent disposer d’une banque d’identités client déjà établie qui est ensuite répliquée dans Azure Active Directory pour permettre la gestion de leur abonnement de fournisseur de solutions Cloud par le biais d’AOBO (Administrate-On-Behalf-Of). Les principaux facteurs motivant l’adoption de ce scénario sont les suivants : un partenaire ou un fournisseur de services donné a une relation bien établie avec le client, le client utilise actuellement les services d’un fournisseur ou bien le partenaire souhaite proposer une combinaison de solutions hébergées par le fournisseur et Azure afin d’apporter davantage de flexibilité et de répondre aux défis du client qui ne peuvent pas être résolus uniquement par le fournisseur de solutions Cloud. Ce modèle est présenté dans la **Figure**, ci-dessous.
+Les fournisseurs de solutions Cloud qui gèrent des services Azure doivent disposer d’une banque d’identités client déjà établie qui est ensuite répliquée dans Azure Active Directory pour permettre la gestion de leur abonnement de fournisseur de solutions Cloud par le biais d’AOBO (Administrate-On-Behalf-Of). Les principaux facteurs motivant l’adoption de ce scénario sont les suivants : un partenaire ou un fournisseur de services donné a une relation bien établie avec le client, le client utilise actuellement les services d’un fournisseur ou bien le partenaire souhaite proposer une combinaison de solutions hébergées par le fournisseur et Azure afin d’apporter davantage de flexibilité et de répondre aux défis du client qui ne peuvent pas être résolus uniquement par le fournisseur de solutions Cloud. Ce modèle est présenté dans la **figure** ci-dessous.
 
-![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagramme montrant un scénario détaillé du modèle « Connect-through ».](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modèle « Connect-to »
-![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagramme montrant le modèle « Connect-To ».](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Dans le modèle « Connect-to », le fournisseur de services crée une connexion directe entre le centre de données de ses clients et l’abonnement Azure approvisionné par le fournisseur de solutions Cloud à l’aide d’ExpressRoute sur le réseau des clients.
 
@@ -56,7 +56,7 @@ Dans le modèle « Connect-to », le fournisseur de services crée une connexion
 
 Ce scénario de connectivité nécessite que le client se connecte directement via un réseau client pour accéder à l’abonnement Azure géré par le fournisseur de solutions Cloud, à l’aide d’une connexion réseau directe créée, détenue et gérée entièrement ou en partie par le client. Pour ces clients, cela suppose que le fournisseur ne dispose pas actuellement d’une banque d’identités client établie et que le fournisseur aide le client à répliquer sa banque d’identités en cours dans Azure Active Directory pour la gestion de son abonnement via AOBO. Les principaux facteurs motivant l’adoption de ce scénario sont les suivants : un partenaire ou un fournisseur de services donné a une relation bien établie avec le client, le client utilise actuellement les services d’un fournisseur ou bien le partenaire souhaite proposer des services basés uniquement sur des solutions hébergées par Azure sans avoir besoin de disposer d’un centre de données ou d’une infrastructure fournisseur.
 
-![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagramme montrant un scénario détaillé pour le modèle « Connect-To ».](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Le choix de l’une de ces deux options dépend des besoins de vos clients et de votre besoin actuel de fournir des services Azure. Ces modèles et les modèles associés de conception d’identité, de mise en réseau et de contrôle d’accès basé sur les rôles sont présentés en détail aux liens suivants :
 
@@ -109,7 +109,7 @@ La table de routage par défaut inclut les itinéraires suivants :
 * Réseau virtuel vers réseau virtuel à l’aide de la passerelle VPN
 * Réseau virtuel vers réseau local à l’aide d’une passerelle VPN ou ExpressRoute
 
-![texte de remplacement](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagramme montrant les options de routage par défaut.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
 Les itinéraires définis par l’utilisateur permettent de contrôler le trafic sortant du sous-réseau attribué à d’autres sous-réseaux dans le réseau virtuel ou sur l’une des autres passerelles prédéfinies (ExpressRoute, Internet ou VPN). La table de routage système par défaut peut être remplacée par une table de routage définie par l’utilisateur qui remplace alors la table de routage par défaut par des itinéraires personnalisés. Avec le routage défini par l’utilisateur, les clients peuvent créer des itinéraires vers des appareils tels que des pare-feu ou des dispositifs de détection des intrusions, ou bloquer l’accès à des sous-réseaux depuis le sous-réseau qui héberge l’itinéraire défini par l’utilisateur. Pour avoir une vue d’ensemble des itinéraires définis par l’utilisateur, cliquez [ici](../virtual-network/virtual-networks-udr-overview.md). 

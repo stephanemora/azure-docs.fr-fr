@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265984"
 ---
 # <a name="conditional-access-block-access"></a>Accès conditionnel : Bloquer l’accès
 
@@ -38,7 +38,7 @@ Les stratégies d’accès conditionnel sont des outils puissants. Nous vous rec
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vont permettre de créer des stratégies d’accès conditionnel pour bloquer l’accès à toutes les applications à l’exception d’[Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si les utilisateurs ne sont pas sur un réseau approuvé. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-insights-reporting.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que les stratégies s’appliquent comme prévu, ils peuvent les **activer**.
+Les étapes suivantes vont permettre de créer des stratégies d’accès conditionnel pour bloquer l’accès à toutes les applications à l’exception d’[Office 365](concept-conditional-access-cloud-apps.md#office-365) si les utilisateurs ne sont pas sur un réseau approuvé. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-insights-reporting.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que les stratégies s’appliquent comme prévu, ils peuvent les **activer**.
 
 La première stratégie bloque l’accès à toutes les applications à l’exception des applications Microsoft 365 si l’emplacement n’est pas approuvé.
 
@@ -52,7 +52,7 @@ La première stratégie bloque l’accès à toutes les applications à l’exce
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud**, sélectionnez les options suivantes :
    1. Sous **Inclure**, sélectionnez **Toutes les applications cloud**.
-   1. Sous **Exclure**, sélectionnez **Office 365 (préversion)** , **Sélectionner**, puis **Terminé**.
+   1. Sous **Exclure**, sélectionnez **Office 365**, **Sélectionner**, puis **Terminé**.
 1. Sous **Conditions** :
    1. Sous **Conditions** > **Emplacement**.
       1. Définissez **Configurer** sur **Oui**
@@ -72,7 +72,7 @@ Une deuxième stratégie est créée ci-dessous pour exiger l’authentification
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
-1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Sélectionner les applications**, choisissez **Office 365 (préversion)** , puis **Sélectionner** et **Terminé**.
+1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Sélectionner les applications**, choisissez **Office 365**, puis **Sélectionner** et **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l’accès**.
    1. Sélectionnez **Exiger l’authentification multifacteur** et **Exiger que l’appareil soit marqué comme conforme**, puis **Sélectionner**.
    1. Vérifiez que l’option **Exiger tous les contrôles sélectionnés** est sélectionnée.
