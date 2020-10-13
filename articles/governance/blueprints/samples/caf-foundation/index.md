@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de base du framework d’ado
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531693"
+ms.locfileid: "91929606"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -27,17 +27,18 @@ Cette implémentation intègre plusieurs services Azure utilisés pour fournir u
 - Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre déploiement sécurisé dans [Comptes de stockage](../../../../storage/common/storage-introduction.md) pour la journalisation des diagnostics.
 - [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
-- Le blueprint définit et déploie également des [Stratégies Azure](../../../policy/overview.md) pour effectuer les opérations suivantes : 
-  - Appliquer des balises (CostCenter) aux groupes de ressources
-  - Ajouter des ressources dans un groupe de ressources avec la balise CostCenter
-  - Autoriser une région Azure pour les ressources et groupes de ressources
-  - Autoriser des références SKU de compte de stockage (choisir lors du déploiement)
-  - Autoriser des références SKU de machines virtuelles Azure (choisir lors du déploiement)
-  - Exiger le déploiement de Network Watcher 
-  - Exiger un chiffrement de transfert sécurisé de compte de stockage Azure
-  - Refuser des types de ressources (choisir lors du déploiement)  
-- Initiatives
-  - Activer la supervision dans Azure Security Center (plus de 100 définitions de stratégie)
+- Le blueprint définit et déploie également des définitions [Azure Policy](../../../policy/overview.md) :
+  - Définitions de stratégie :
+    - Appliquer des balises (CostCenter) aux groupes de ressources
+    - Ajouter des ressources dans un groupe de ressources avec la balise CostCenter
+    - Autoriser une région Azure pour les ressources et groupes de ressources
+    - Autoriser des références SKU de compte de stockage (choisir lors du déploiement)
+    - Autoriser des références SKU de machines virtuelles Azure (choisir lors du déploiement)
+    - Exiger le déploiement de Network Watcher 
+    - Exiger un chiffrement de transfert sécurisé de compte de stockage Azure
+    - Refuser des types de ressources (choisir lors du déploiement)  
+  - Initiatives de stratégie :
+    - Activer la supervision dans Azure Security Center (plus de 100 définitions de stratégie)
 
 Tous ces éléments se conforment aux pratiques éprouvées publiés dans [Centre des architectures Azure - Architectures de référence](/azure/architecture/reference-architectures/).
 

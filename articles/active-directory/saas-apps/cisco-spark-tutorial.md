@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528872"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759790"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
@@ -151,13 +151,13 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 4. Sélectionnez **Settings** (Paramètres), puis, dans la section **Authentication** (Authentification), cliquez sur **Modify** (Modifier).
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Capture d’écran montrant Authentication Settings où vous pouvez sélectionner Modify.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Sélectionnez **intégrer un fournisseur d’identité tiers. (Avancé)** et accédez à l’écran suivant.
 
 6. Dans la page **Import Idp Metadata** -(Importer les métadonnées Idp), glissez-déposez le fichier de métadonnées Azure AD sur la page, ou utilisez l’option d’explorateur de fichiers pour localiser et charger le fichier de métadonnées Azure AD. Ensuite, sélectionnez **Require certificate signed by a certificate authority in Metadata (more secure)** (Exiger un certificat signé par une autorité de certification dans les métadonnées (plus sûr)), puis cliquez sur **Next** (Suivant).
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Capture d’écran montant la page Import Idp Metadata.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Sélectionnez **Test SSO Connection** (Tester la connexion SSO), puis, quand un nouvel onglet de navigateur s’ouvre, et authentifiez-vous auprès d’Azure AD en vous connectant.
 
@@ -171,13 +171,13 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Cisco 
 
 2. Cliquez sur **Utilisateurs**, puis sur **Gérer les utilisateurs**.
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Capture d’écran montrant la page Users où vous pouvez gérer les utilisateurs.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Dans la fenêtre **Manage User** (Gérer l’utilisateur), sélectionnez **Manually add or modify users** (Ajouter ou modifier manuellement des utilisateurs), puis cliquez sur **Next** (Suivant).
 
 4. Sélectionnez **Names and Email address** (Noms et adresse de messagerie). Ensuite, complétez la zone de texte comme suit :
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Capture d’écran montrant la boîte de dialogue Manage Users où vous pouvez ajouter ou modifier manuellement des utilisateurs.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 

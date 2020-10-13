@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554958"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutoriel : Intégration d’Azure Active Directory à Flock
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec Flock, effectuez les 
 
 2. Sélectionnez l’onglet **Authentification** dans le volet de navigation de gauche, puis **Authentification SAML**.
 
-    ![Configuration de Flock](./media/flock-tutorial/configure1.png)
+    ![Capture d’écran montrant l’onglet « Authentication » avec « SAML Authentication » sélectionné.](./media/flock-tutorial/configure1.png)
 
 3. Dans la section **SAML Authentication** , procédez comme suit :
 
@@ -203,11 +203,11 @@ Les utilisateurs Azure AD doivent avoir fait l’objet d’une attribution dans 
 
 2. Cliquez sur **Gérer l’équipe** dans le volet de navigation de gauche.
 
-    ![Ajouter un employé](./media/flock-tutorial/user1.png)
+    ![Capture d’écran montrant « Manage Team » sélectionné.](./media/flock-tutorial/user1.png)
 
 3. Cliquez sur l’onglet **Ajouter un membre**, puis sélectionnez **Membres de l’équipe**.
 
-    ![Ajouter un employé](./media/flock-tutorial/user2.png)
+    ![Capture d’écran montrant l’onglet « Add Member » et « Team Members » sélectionnés.](./media/flock-tutorial/user2.png)
 
 4. Entrez l’adresse e-mail de l’utilisateur, par exemple, **Brittasimon\@contoso.com**, puis sélectionnez **Ajouter des utilisateurs**.
 

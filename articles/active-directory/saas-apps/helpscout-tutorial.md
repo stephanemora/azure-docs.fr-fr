@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548138"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
 
@@ -89,7 +89,7 @@ Pour configurer l’authentification unique Azure AD avec Help Scout, effectuez 
 
 1. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Help Scout](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. **Identificateur** correspond à **Audience URI (Service Provider Entity ID)** (URI d’audience (ID d’entité de fournisseur de services)) Help Scout, qui commence par `urn:`
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD avec Help Scout, effectuez 
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Help Scout](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Manage** (Gérer) dans le menu supérieur, puis sélectionnez **Company** dans le menu déroulant.
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png)
+    ![Capture d’écran montrant le menu Manage avec Company sélectionné.](./media/helpscout-tutorial/settings1.png)
 
 1. Sélectionnez **Authentication** à partir du volet de navigation gauche.
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png)
+    ![Capture d’écran montrant Authentication sélectionné.](./media/helpscout-tutorial/settings2.png)
 
 1. Vous accédez ainsi à la section des paramètres SAML où vous effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png)
+    ![Capture d’écran montrant l’onglet Single Sign-On où vous entrez les informations spécifiées.](./media/helpscout-tutorial/settings3.png)
 
     a. Copiez la valeur de **Post-back URL (Assertion Consumer Service URL)** (URL de publication (URL Assertion Consumer Service)) et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** sur le portail Azure.
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Activez **Activer SAML** et effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
+    ![Capture d’écran montrant l’onglet Single Sign-On où vous activez SAML et ajoutez d’autres informations.](./media/helpscout-tutorial/settings4.png)
 
     a. Dans la zone de texte **Single Sign-on URL** (URL d’authentification unique), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 

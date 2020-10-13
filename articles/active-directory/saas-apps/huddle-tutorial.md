@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 77472e27a11614b7b5600f48e020afcceaeb967c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1cbc47820f4a9eeffc4e9fa3cf01290f7c35fd14
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525868"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Didacticiel : Intégration d’Azure Active Directory avec Huddle
 
@@ -102,7 +102,7 @@ Pour configurer l’authentification unique Azure AD avec Huddle, effectuez les
     > [!NOTE]
     > Votre instance Huddle est automatiquement détectée à partir du domaine que vous entrez ci-dessous.
 
-    ![Informations d’authentification unique dans Domaine et URL Huddle](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL :
 
@@ -121,7 +121,7 @@ Pour configurer l’authentification unique Azure AD avec Huddle, effectuez les
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Huddle](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
 

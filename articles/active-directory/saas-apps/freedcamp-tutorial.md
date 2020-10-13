@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551028"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817035"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Tutoriel : Intégrer Freedcamp à Azure Active Directory
 
@@ -108,11 +108,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans le coin supérieur droit de la page, cliquez sur **Profil**, puis accédez à **Mon compte**.
 
-    ![Configuration de Freedcamp](./media/freedcamp-tutorial/config01.png)
+    ![Capture d’écran montrant « Profile » et « My Account » sélectionnés.](./media/freedcamp-tutorial/config01.png)
 
 5. Sur le côté gauche de la barre de menus, cliquez sur **SSO** et dans la page **Vos connexions SSO**, effectuez les étapes suivantes :
 
-    ![Configuration de Freedcamp](./media/freedcamp-tutorial/config02.png)
+    ![Capture d’écran montrant « SSO » sélectionné dans la barre de menus de gauche et la page « Your SSO connections » avec des valeurs entrées et le bouton « Submit » sélectionné.](./media/freedcamp-tutorial/config02.png)
 
     a. Dans la zone de texte **Title** , tapez le titre.
 
@@ -162,13 +162,13 @@ Pour se connecter à Freedcamp, les utilisateurs d’Azure AD doivent être appr
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à Freedcamp en tant qu’administrateur de la sécurité.
 
-2. Dans l’angle supérieur droit de la page, cliquez sur **Profil**, puis accédez à **Gérer le système**.
+2. Dans l’angle supérieur droit de la page, cliquez sur **Profile**, puis accédez à **Manage System**.
 
     ![Configuration de Freedcamp](./media/freedcamp-tutorial/config03.png)
 
 3. Dans la partie droite de la page Gérer le système, procédez comme suit :
 
-    ![Configuration de Freedcamp](./media/freedcamp-tutorial/config04.png)
+    ![Capture d’écran montrant le bouton « Add Or Invite Users » sélectionné, le champ « Email » mis en évidence et le bouton « Add User » sélectionné.](./media/freedcamp-tutorial/config04.png)
 
     a. Cliquez sur **Ajouter ou inviter les utilisateurs**.
 

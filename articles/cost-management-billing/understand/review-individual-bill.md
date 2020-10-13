@@ -1,24 +1,24 @@
 ---
-title: Consulter votre facture Azure
-description: Apprenez à comprendre votre facture et votre utilisation des ressources, et à vérifier les frais pour votre abonnement Azure.
+title: Vérifier votre facture d’abonnement Azure
+description: Apprenez à comprendre votre facture et votre utilisation des ressources, et à vérifier les frais facturés pour votre abonnement Azure, y compris le paiement à l’utilisation.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270523"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653279"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Tutoriel : Consulter votre facture Azure
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutoriel : Vérifier votre facture d’abonnement Azure
 
-Cet article vous aide à comprendre votre facture Azure. Pour chaque période de facturation, vous recevez normalement une facture par e-mail. Cette facture est une représentation de votre facture Azure. Les informations de coût figurant sur la facture sont disponibles dans le portail Azure. Dans ce tutoriel, vous allez comparer votre facture avec le fichier détaillé sur l’utilisation quotidienne et l’analyse des coûts disponible dans le portail Azure.
+Cet article vous aide à comprendre et à vérifier la facture de votre abonnement Azure avec paiement à l’utilisation ou Visual Studio. Pour chaque période de facturation, vous recevez normalement une facture par e-mail. Cette facture est une représentation de votre facture Azure. Les informations de coût figurant sur la facture sont disponibles dans le portail Azure. Dans ce tutoriel, vous allez comparer votre facture avec le fichier détaillé sur l’utilisation quotidienne et l’analyse des coûts disponible dans le portail Azure.
 
 Ce tutoriel s’applique uniquement aux clients Azure disposant d’un abonnement individuel. Les abonnements individuels courants sont ceux avec un paiement à l’utilisation, achetés directement sur le site web Azure.
 
@@ -42,7 +42,7 @@ Vous devez être inscrit à Azure depuis plus de 30 jours. Azure vous facture �
 
 - Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Comparer les frais facturés avec le fichier d’utilisation.
+## <a name="compare-billed-charges-with-your-usage-file"></a>Comparer les frais facturés et ceux dans votre fichier d’utilisation
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ La valeur additionnée de *Cost* doit correspondre précisément au coût de *fr
 
 Pour plus d’informations, consultez [Comprendre votre facture Azure](understand-invoice.md) et [Comprendre votre utilisation détaillée d’Azure](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Comparer les frais et l’utilisation dans l’analyse des coûts.
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparer les frais et l’utilisation facturés dans l’analyse des coûts
 
 L’analyse des coûts dans le portail Azure peut également vous aider à vérifier vos frais. Pour obtenir un aperçu rapide de l’utilisation et des frais facturés, sélectionnez votre abonnement dans la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure. Ensuite, cliquez sur **Analyse des coûts** puis, dans la liste des vues, cliquez sur **Détails de la facture**.
 
@@ -123,13 +123,15 @@ Les coûts indiqués dans l’analyse des coûts doivent correspondre précisém
 
 ![Frais d’utilisation indiqués sur la facture](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>Services externes facturés séparément
+## <a name="external-marketplace-services-are-billed-separately"></a>Les services externes de la Place de marché sont facturés séparément
+
+<a name="external"></a>
 
 Les services externes, ou frais de la Place de marché, concernent les ressources créées par des fournisseurs de logiciels tiers. Ces ressources sont disponibles sur la Place de marché Azure. Par exemple, un pare-feu Barracuda est une ressource de la Place de marché Azure offerte par un tiers. Tous les frais du pare-feu et les compteurs correspondants apparaissent en tant que frais de services externes.
 
 Les frais de services externes sont facturés séparément. Les frais ne s’affichent pas sur votre facture Azure. Pour en savoir plus, consultez [Présentation de vos frais de service externe Azure](understand-azure-marketplace-charges.md).
 
-### <a name="resources-billed-by-usage-meters"></a>Ressources facturées d’après les compteurs d’utilisation
+### <a name="resources-are-billed-by-usage-meters"></a>Les ressources sont facturées d’après les compteurs d’utilisation
 
 Azure ne facture pas directement en fonction du coût de la ressource. Les frais d’une ressource sont calculés à l’aide d’un ou de plusieurs compteurs. Les compteurs permettent de suivre l’utilisation d’une ressource tout au long de sa durée de vie. Ces compteurs sont ensuite utilisés pour calculer la facture.
 
@@ -152,7 +154,9 @@ Une fois la machine virtuelle créée, chaque compteur commence à émettre des 
 
 Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation, comme dans l’exemple précédent.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>Régler votre facture
+## <a name="pay-your-bill"></a>Régler votre facture
+
+<a name="payment"></a>
 
 Si vous avez configuré une carte de crédit comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure**.
 

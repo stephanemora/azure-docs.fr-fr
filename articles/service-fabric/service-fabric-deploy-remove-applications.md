@@ -3,12 +3,12 @@ title: Déploiement d’Azure Service Fabric à l’aide de PowerShell
 description: Découvrez comment supprimer et déployer des applications dans Azure Service Fabric et comment effectuer ces actions dans PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 8bc4557c5d0d59330c7e91a4b3fdce83cfbf334c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611450"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827426"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 Si le package d’application est volumineux ou contient de nombreux fichiers, vous pouvez le [compresser](service-fabric-package-apps.md#compress-a-package). La compression réduit la taille et le nombre de fichiers.
-Cela a pour effet secondaire d’accélérer l’inscription et la désinscription du type d’application. Actuellement, le chargement peut demander plus de temps, notamment si vous incluez le temps nécessaire à la compression du package. 
+Cela permet d’accélérer l’inscription et la désinscription du type d’application. Actuellement, le chargement peut demander plus de temps, notamment si vous incluez le temps nécessaire à la compression du package. 
 
 Pour compresser un package, utilisez la même commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). La compression peut être effectuée indépendamment du chargement, en utilisant l’indicateur `SkipCopy`, ou conjointement avec l’opération de chargement. L’application d’une compression sur un package compressé n’a aucun effet.
 Pour décompresser un package compressé, utilisez la même commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) avec le commutateur `UncompressPackage`.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521873"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Didacticiel : Intégration d’Azure Active Directory à Hosted Graphite
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD avec Hosted Graphite, effec
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Hosted Graphite](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Hosted Graphite, effec
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Hosted Graphite](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Pour configurer l’authentification unique Azure AD avec Hosted Graphite, effec
 
 2. Accédez à la **page de configuration de SAML** dans la barre latérale (**Accéder -> Configuration SAML**).
 
-    ![Configurer l’authentification unique côté application](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Capture d’écran montrant le menu Access avec SAML Setup sélectionné.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Confirmez que ces URL correspondent à votre configuration dans la section **Configuration SAML de base** du portail Azure.
 
-    ![Configurer l’authentification unique côté application](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Capture d’écran montrant Basic SAML Configuration.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. Dans les zones de texte **ID d’entité ou d’émetteur** et **URL de connexion à authentification unique**, collez les valeurs **Identificateur Azure AD** et **URL de connexion**  que vous avez copiées à partir du portail Azure.
 
-    ![Configurer l’authentification unique côté application](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Capture d’écran montrant des entrées pour Identity Provider.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Sélectionnez **Lecture seule** comme **Rôle d’utilisateur par défaut**.
 
-    ![Configurer l’authentification unique côté application](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Capture d’écran montrant Default User Role, qui est Read-only.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509**.
 
-    ![Configurer l’authentification unique côté application](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Capture d’écran montrant un certificat x.509.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Cliquez sur le bouton **Enregistrer** .
 

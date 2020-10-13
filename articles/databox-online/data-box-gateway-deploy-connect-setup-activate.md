@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82561681"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741956"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer
 
@@ -126,7 +126,7 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
     
     3. L’appareil est activé et, si elles sont disponibles, les mises à jour critiques sont automatiquement appliquées. Une notification correspondante s’affiche. Surveillez la progression de la mise à jour via le portail Azure.
 
-        ![Page « Paramètres cloud » de l’interface utilisateur web locale](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Page « Paramètres cloud » de l’interface utilisateur web locale 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **La boîte de dialogue contient également une clé de récupération que vous devriez copier et enregistrer à un emplacement sûr. Cette clé est utilisée pour récupérer vos données si l’appareil ne peut pas démarrer.**
 

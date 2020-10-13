@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396244"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828046"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,6 +106,7 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 #### <a name="remarks"></a>Notes
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
+- Les journaux d’audit sont au format .xel et peuvent être ouverts à l’aide de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 - Pour configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies dans le Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Assurez-vous que vous avez sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage d’objets blob immuables.
 - Vous pouvez écrire des journaux d’audit dans un compte Stockage Azure derrière un réseau virtuel ou un pare-feu. Pour obtenir des instructions spécifiques, consultez [Écrire un audit dans un compte de stockage situé derrière un réseau virtuel ou un pare-feu](audit-write-storage-account-behind-vnet-firewall.md).
 - Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](threat-detection-overview.md).

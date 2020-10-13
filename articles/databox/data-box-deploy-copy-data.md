@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053539"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766310"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 1. La première étape consiste à vous authentifier et à démarrer une session. Accédez à la page **Connect and copy** (Connexion et copie). Sélectionnez **SMB** pour obtenir les informations d’identification nécessaires pour accéder aux partages associés à votre compte de stockage. 
 
-    ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Obtenir les informations d’identification des partages SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Sélectionnez **OK**.
     
-    ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Obtenir le nom d’utilisateur et le mot de passe d’un partage](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Pour accéder aux partages associés à votre compte de stockage (*utsac1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
@@ -97,11 +97,11 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Se connecter au partage à l’aide de l’Explorateur de fichiers](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     À présent, vous devriez voir les partages sous forme de dossiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Partages affichés dans l’Explorateur de fichiers](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Une fois que vous êtes connecté aux partages Data Box, l’étape suivante consiste à copier les données. Avant de commencer la copie des données, passez en revue les considérations suivantes :
 
 * Vérifiez que les données sont copiées vers des partages compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le partage des objets blob de blocs. Copiez les disques durs virtuels dans un objet blob de pages. Si le format des données ne correspond pas au type de partage, les données ne pourront pas être chargées dans Azure.
-* Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box](data-box-limits.md).
+* Quand vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans [Limites de taille des comptes de stockage Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Si les données, qui sont en cours de chargement par Data Box, sont chargées simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec du chargement ou des corruptions de données.
 * Nous vous recommandons :
   * N’utilisez pas SMB et NFS en même temps.
@@ -225,15 +225,15 @@ Pour plus d’informations sur la commande Robocopy, consultez [Robocopy and a f
 
 Pendant le processus de copie, si des erreurs se produisent, une notification s’affiche.
 
-![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-1.png)
+![Notification d’erreur de copie dans Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Sélectionnez **Télécharger la liste des problèmes**.
 
-![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-2.png)
+![Télécharger et voir les erreurs dans Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Ouvrez la liste pour voir les détails de l’erreur, puis sélectionnez l’URL de résolution pour afficher la résolution recommandée.
 
-![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-3.png)
+![Télécharger et voir les erreurs dans Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 

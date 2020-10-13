@@ -8,33 +8,36 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.date: 10/07/2020
+ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707524"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812316"
 ---
-# <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
+# <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
 Dans ce tutoriel, vous allez découvrir comment créer un espace de travail Synapse, un pool SQL et un pool Apache Spark. 
 
-## <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
+## <a name="prerequisites"></a>Prérequis
+
+Pour effectuer toutes les étapes de ce tutoriel, vous devez avoir accès à un groupe de ressources pour lequel vous avez le rôle **Propriétaire**. Créez l’espace de travail Synapse dans ce groupe de ressources.
+
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Créer un espace de travail Synapse dans le portail Azure
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et, en haut, recherchez **Synapse**.
 1. Dans les résultats de la recherche, sous **Services**, sélectionnez **Azure Synapse Analytics (préversion des espaces de travail)** .
 1. Sélectionnez **Ajouter** pour créer un espace de travail.
-1. Dans **Paramètres de base**, choisissez un nom d’espace de travail. Dans ce tutoriel, nous utiliserons **myworkspace**.
+1. Dans **De base**, entrez les champs requis et choisissez un nom d’espace de travail. Dans ce tutoriel, nous utiliserons **myworkspace**.
 1. Un compte ADLS Gen2 est nécessaire pour créer un espace de travail. Le choix le plus simple consiste à en créer un. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
 1. OPTION 1 Création d’un nouveau compte ADLS Gen2 : 
     1. Accédez à **Sélectionner Data Lake Storage Gen2**. 
     1. Cliquez sur **Créer**, puis nommez-le **contosolake**.
-    1. Cliquez sur **Système de fichiers**, puis nommez-le **users**.
+    1. Cliquez sur **Système de fichiers**, puis nommez-le **users**. Cette opération crée un conteneur appelé **users**
 1. OPTION 2 Utilisation d’un compte ADLSGEN2 existant. Consultez les instructions fournies dans **Préparation d’un compte de stockage ADLSGEN2** qui se trouvent à la fin de ce document.
 1. Votre espace de travail Azure Synapse utilisera ce compte de stockage comme compte de stockage « principal » et le conteneur pour stocker les données de l’espace de travail. L’espace de travail stocke les données dans des tables Apache Spark. Il stocke les journaux des applications Spark dans un dossier appelé **/synapse/workspacename**.
 1. Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
-
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio
 
@@ -113,8 +116,8 @@ Configurez l’accès au compte de stockage à partir de votre espace de travail
 1. Attribuez les rôles suivants ou vérifiez qu’ils sont déjà attribués. Nous utilisons le même nom pour l’identité de l’espace de travail et le nom de l’espace de travail.
     * Pour le rôle **Contributeur aux données Blob du stockage** sur le compte de stockage, affectez **myworkspace** comme identité de l’espace de travail.
     * Attribuez le nom **myworkspace** à l’espace de travail.
-
 1. Sélectionnez **Enregistrer**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

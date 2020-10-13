@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 1020dec2069d609cf5f919c5802da906ae172ed2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2b4d3e75f6e2f3e6313541b0b146ff64cc403ce5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550229"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutoriel : Intégration d’Azure Active Directory à AuditBoard
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec AuditBoard, effectuez
 
 4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode **Initié par le fournisseur d’identité**, effectuez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL AuditBoard](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec AuditBoard, effectuez
 
     d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.auditboardapp.com/`.
 
-    ![Informations d’authentification unique dans Domaine et URL AuditBoard](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique AuditBoard](mailto:support@auditboard.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

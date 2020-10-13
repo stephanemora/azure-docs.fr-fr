@@ -3,12 +3,12 @@ title: Enregistrement vidéo en continu et lecture vidéo dans le cloud - Azure
 description: Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336477"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774026"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo en continu et lecture vidéo dans le cloud
 
@@ -160,58 +160,15 @@ Lorsque vous utilisez le module Live Video Analytics sur IoT Edge pour enregistr
 
 ## <a name="run-the-program"></a>Exécuter le programme 
 
-1. Dans Visual Studio Code, accédez à src/cloud-to-device-console-app/operations.json.
-1. Sous le nœud **GraphTopologySet**, modifiez les points suivants :
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Ensuite, sous le nœud **GraphInstanceSet**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de graphe précédente :
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Graphe multimédia":::
+1. Recherchez et activez « Afficher le message détaillé ».
 
-    `"topologyName" : "CVRToAMSAsset"`  
-1. Ouvrez la [topologie](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) dans un navigateur et observez assetNamePattern. Pour vérifier que votre ressource porte un nom unique, vous pouvez modifier le nom de l’instance de graphe dans le fichier operations.json (la valeur par défaut est Sample-Graph-1).
-
-    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
-1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
-1. Le fichier operations.json commence par appeler GraphTopologyList et GraphInstanceList. Si vous avez nettoyé des ressources à l’issue de démarrages rapides ou de tutoriels, cette action renvoie des listes vides et marque des pauses pour vous permettre de sélectionner **Entrée**, comme illustré ci-dessous :
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. Une fois que vous avez sélectionné **Entrée** dans la fenêtre **TERMINAL**, l’ensemble suivant d’appels de méthode directe est effectué :
-   * Un appel à GraphTopologySet à l’aide de la valeur topologyUrl précédente
-   * Un appel à GraphInstanceSet à l’aide du corps suivant
-     
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph-1",
-       "properties": {
-         "topologyName": "CVRToAMSAsset",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Graphe multimédia"
            }
          ]
        }

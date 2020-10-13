@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903170"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743418"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU
 
@@ -61,15 +61,15 @@ Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez cr
     |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
     |Nom     |Entrez un nom pour votre ressource IoT Hub.         |
 
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![Bien démarrer avec le calcul 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend plusieurs minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le calcul** est mise à jour pour afficher la configuration du calcul. 
 
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![Bien démarrer avec le calcul 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Voir le computing** sur la vignette **Configurer le calcul**.
     
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > Si la boîte de dialogue **Configurer le calcul** est fermée avant que l'instance d'IoT Hub soit associée à l'appareil Azure Stack Edge Pro, l'instance d'IoT Hub est créée mais elle n'apparaît pas dans la configuration du calcul. 

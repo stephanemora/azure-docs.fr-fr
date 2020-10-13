@@ -3,12 +3,12 @@ title: Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et 
 description: Apprenez à utiliser Custom Vision pour créer un modèle de conteneurs capable de détecter un camion jouet et d’utiliser la fonctionnalité d’extensibilité de l’IA de Live Video Analytics sur IoT Edge (LVA) pour déployer le modèle en périphérie et détecter des jouets à partir d’un flux vidéo en direct.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0e980ac73d77b6fbbfdb8178f285904d3bf29920
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929309"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804144"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -56,7 +56,6 @@ Les prérequis pour ce tutoriel sont les suivants :
 
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 
-
 Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv/) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez Ctrl+N, puis collez un lien vers [la vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Pendant que vous regardez la vidéo, notez qu’au bout de 36 secondes un camion jouet apparaît dans la vidéo. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de détecter ce type de jouet et de publier des événements d’inférence associés sur IoT Edge Hub.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -81,33 +80,7 @@ Informations complémentaires :
 Une fois que vous avez terminé, si le modèle vous convient, vous pouvez l’exporter vers un conteneur Docker à l’aide du bouton Exporter de l’onglet Performances. Vérifiez que vous avez choisi Linux comme type de plateforme de conteneur. Il s’agit de la plateforme sur laquelle le conteneur s’exécutera. L’ordinateur sur lequel vous téléchargez le conteneur peut fonctionner sous Windows ou sous Linux. Les instructions qui suivent se basent sur le fichier conteneur téléchargé sur un ordinateur Windows.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Dockerfile":::
- 
-1. Vous devez trouver un fichier zip nommé `<projectname>.DockerFile.Linux.zip` sur votre ordinateur local. 
-1. Vérifiez que Docker est bien installé. Si ce n’est pas le cas, installez [Docker](https://docs.docker.com/get-docker/) sur votre ordinateur Windows.
-1. Décompressez le fichier téléchargé à l’emplacement de votre choix. Utilisez la ligne de commande pour accéder au répertoire du dossier décompressé.
-    
-    Exécutez les commandes suivantes 
-    
-    1. `docker build -t cvtruck` 
-    
-        Cette commande télécharge un ensemble de packages et génère l’image Docker et lui ajoute la balise `cvtruck:latest`. 
-    
-        > [!NOTE]
-        > Si la génération réussit, la sortie suivante doit s’afficher `- Successfully built <docker image id> and Successfully tagged cvtruck:latest.`. Si la commande de génération a échoué, réessayez, car les packages de dépendances ne se téléchargent pas la première fois.
-    1. `docker  image ls`
-
-        Cette commande vérifie si la nouvelle image se trouve dans votre registre local.
-    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
-    
-        Cette commande doit publier le port exposé de Docker (80) sur le port de votre ordinateur local (80).
-    1. `docker container ls`
-    
-        Cette commande vérifie les mappages de port et si le conteneur Docker s’exécute correctement sur votre ordinateur. La sortie suivante doit s’afficher :
-
-        ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Présentation de Custom Vision"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -148,7 +121,7 @@ Une fois que vous avez terminé, si le modèle vous convient, vous pouvez l’ex
 1. Cliquez ensuite avec le bouton droit sur le fichier « src/edge/deployment.customvision.json », puis cliquez sur **Générer le manifeste de déploiement IoT Edge**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Générer un manifeste de déploiement IoT Edge":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Présentation de Custom Vision":::
   
     Un fichier manifeste nommé « deployment.amd64.json » devrait être créé dans le dossier src/edge/config.
 1. Ouvrez le fichier « src/Edge/Deployment.customvision.template.json » et recherchez le bloc JSON registryCredentials. Dans ce bloc, vous trouverez l’adresse de votre registre de conteneurs Azure, ainsi que son nom d’utilisateur et son mot de passe.
@@ -170,11 +143,11 @@ Une fois que vous avez terminé, si le modèle vous convient, vous pouvez l’ex
 1. Définissez la chaîne de connexion IoT Hub en cliquant sur l’icône « Autres actions » en regard du volet AZURE IOT HUB dans l’angle inférieur gauche. Vous pouvez copier la chaîne à partir du fichier appsettings.json. (Voici une autre approche recommandée pour vous assurer que l’IoT Hub approprié est configuré dans VSCode via la [commande Sélectionner IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Chaîne de connexion":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Présentation de Custom Vision":::
 1. Ensuite, cliquez avec le bouton droit sur « src/edge/config/ deployment.customvision.amd64.json », puis cliquez sur **Créer un déploiement pour un seul appareil**. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Créer un déploiement pour un seul appareil":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Présentation de Custom Vision":::
 1. Vous êtes ensuite invité à sélectionner un appareil IoT Hub. Sélectionnez lva-sample-device dans la liste déroulante.
 1. Environ 30 secondes plus tard, actualisez Azure IoT Hub dans la section inférieure gauche et vous devriez voir le périphérique avec les modules suivants déployés :
 
@@ -187,43 +160,21 @@ Une fois que vous avez terminé, si le modèle vous convient, vous pouvez l’ex
 Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélectionnez sur **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre SORTIE de Visual Studio Code.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Démarrer la supervision du point de terminaison d'événement intégré":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Présentation de Custom Vision":::
 
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
 Si vous ouvrez la topologie de graphique de ce tutoriel dans un navigateur, vous constaterez que la valeur de la commande inferencingUrl a été définie sur http://cv:80/image, ce qui signifie que le serveur d’inférence retournera les résultats après la détection des camions jouets, le cas échéant, dans la vidéo en direct.
 
-1. Pour démarrer une session de débogage, appuyez sur la touche F5. Des messages s’affichent dans la fenêtre TERMINAL.
-1. Le code operations.json commence par appeler les méthodes directes GraphTopologyList et GraphInstanceList. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
-    
-   La fenêtre TERMINAL affiche le jeu d’appels de méthode directe suivant :
-    
-   * Un appel à GraphTopologySet qui utilise l’élément topologyUrl précédent.
-   * Un appel à GraphInstanceSet qui utilise le corps suivant :
-        
-   ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "CustomVisionWithHttpExtension",
-            "description": "Sample graph description",
-            "parameters": [
-              { 
-                "name": "inferencingUrl",
-                "value": "http://cv:80/image"
-              },
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/t2.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Présentation de Custom Vision":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Présentation de Custom Vision"
               }
             ]
           }

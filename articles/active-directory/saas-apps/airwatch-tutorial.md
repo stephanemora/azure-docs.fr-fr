@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542817"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758131"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutoriel : Intégrer AirWatch à Azure Active Directory
 
@@ -125,7 +125,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Cliquez sur l’onglet **User** (Utilisateur) puis, dans la zone de texte **Base DN** (Nom unique de base), tapez votre nom de domaine et cliquez sur **Save** (Enregistrer).
 
-   ![Utilisateur](./media/airwatch-tutorial/ic791922.png "Utilisateur")
+   ![Capture d’écran mettant en évidence la zone de texte Base DN.](./media/airwatch-tutorial/ic791922.png "Utilisateur")
 
 1. Cliquez sur l’onglet **Server** .
 
@@ -133,7 +133,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **LDAP**, effectuez les étapes suivantes :
 
-    ![Charger](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Capture d’écran montrant les modifications que vous devez apporter à la section LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. Pour **Directory Type**, sélectionnez **None**.
 
@@ -223,7 +223,7 @@ Pour pouvoir se connecter à AirWatch, les utilisateurs d’Azure AD doivent êt
 
 3. Dans le menu **Users**, cliquez sur **List View**, puis sur **Add > Add User**.
   
-   ![Ajouter un utilisateur](./media/airwatch-tutorial/ic791930.png "Ajouter un utilisateur")
+   ![Capture d’écran mettant en évidence les boutons Add et Add User.](./media/airwatch-tutorial/ic791930.png "Ajouter un utilisateur")
 
 4. Dans la boîte de dialogue **Add / Edit User** , procédez comme suit :
 

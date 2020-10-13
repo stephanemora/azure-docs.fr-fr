@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: abd6382a9bf07f198e0344b8730c585cff0f96ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 987a8676fa9f738b788b183a1f3d964c0d0b88ad
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544280"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Didacticiel : Intégration d’Azure Active Directory avec eKincare
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec eKincare, effectuez l
 
 5. L’application eKincare attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « User Attributes » avec le bouton « Edit » sélectionné.](common/edit-attribute.png)
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec eKincare, effectuez l
     
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « User claims » avec les boutons « Add new claim » et « Save » sélectionnés.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

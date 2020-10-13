@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522094"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Didacticiel : Intégration d’Azure Active Directory à Convercent
 
@@ -98,7 +98,7 @@ Pour configurer l’authentification unique Azure AD avec Convercent, effectuez
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Convercent](common/both-identifier.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec le champ « Identificateur (ID d’entité) » et le bouton « Enregistrer » mis en évidence.](common/both-identifier.png)
 
     Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<instancename>.convercent.com/`
 

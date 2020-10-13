@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf7719487d4f03b8d9524234e1a58cf792a4843b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899754"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743258"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro avec GPU 
 
@@ -66,14 +66,16 @@ Voici les prérequis relatifs à la configuration de votre ressource Azure Stack
 
 Avant de commencer, assurez-vous que :
 
-- Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge.
+- Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge. Pour identifier le type d’abonnement Azure dont vous disposez, consultez [Qu'est-ce qu'une offre Azure ?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - Vous disposez d'un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Azure Stack Edge Pro/Data Box Gateway, IoT Hub et Stockage Azure.
 
-    - Pour créer une ressource Azure Stack Edge / Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Pour créer une ressource IoT Hub, vérifiez que le fournisseur Microsoft.Devices est bien inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Pour créer une ressource Azure Stack Edge / Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. 
+    - Vous devez aussi vérifier que les fournisseurs de ressources `Microsoft.DataBoxEdge` et `MicrosoftKeyVault` sont inscrits. Pour créer une ressource IoT Hub, le fournisseur `Microsoft.Devices` doit être inscrit. 
+        - Pour inscrire un fournisseur de ressources, dans le portail Azure, accédez à **Accueil > Abonnements -> votre-abonnement -> Fournisseurs de ressources**. 
+        - Recherchez le fournisseur de ressources spécifique, par exemple, `Microsoft.DataBoxEdge`, puis inscrivez-le. 
     - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
-- Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
+- Vous disposez d’un accès administrateur ou utilisateur à l’API Graph Azure Active Directory pour générer des opérations de clé d’activation ou d’informations d’identification telles que la création d’un partage utilisant un compte de stockage. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Pour l'appareil Azure Stack Edge Pro
 
@@ -150,11 +152,15 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
-    ![Créer une ressource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Créer une ressource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    Vous êtes également informé qu’une identité MSI (Managed Service Identity) est activée pendant la création de la ressource qui vous permet de vous authentifier auprès des services cloud. Cette identité existe aussi longtemps que la ressource existe.
 
 11. Sélectionnez **Create** (Créer).
 
-La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
+La création de la ressource prend quelques minutes. Une identité MSI est également créée pour permettre à l’appareil Azure Stack Edge de communiquer avec le fournisseur de ressources dans Azure.
+
+Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
 ![Accéder à la ressource Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -172,9 +178,16 @@ Une fois que la ressource Azure Stack Edge est active et en cours d’exécution
 
     ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Sur la vignette **Activer**, sélectionnez **Générer une clé** pour créer une clé d’activation. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
+2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
+
+    Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés. 
+
+    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé** pour créer une clé d’activation. 
 
     ![Obtenir une clé d’activation](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
+
 
 > [!IMPORTANT]
 > - La clé d’activation expire 3 jours après sa création.

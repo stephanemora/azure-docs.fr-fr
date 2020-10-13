@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538380"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutoriel : Intégration d’Azure Active Directory à Acadia
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Acadia, effect
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Acadia](common/idp-intiated.png)
+    ![Capture d’écran montrant les éléments nécessaires pour configurer l’application en mode lancé par le fournisseur d’identité.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 

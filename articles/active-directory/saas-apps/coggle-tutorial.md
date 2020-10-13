@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555966"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759524"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Coggle
 
@@ -146,19 +146,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Cliquez sur le compte **Coggle** et sélectionnez **My Settings**.
 
-    ![Configuration de Coggle](./media/Coggle-tutorial/configure1.png)
+    ![Capture d’écran montrant votre site d’entreprise Coggle avec My Settings sélectionné.](./media/Coggle-tutorial/configure1.png)
 
 3. Cliquez sur le **logo** suivant et sélectionnez **Authentication**.
 
-    ![Configuration de Coggle](./media/Coggle-tutorial/configure2.png)
+    ![Capture d’écran montrant une icône de baleine et Authentication sélectionné.](./media/Coggle-tutorial/configure2.png)
 
 4. Cliquez sur **Edit SAML Config** (Modifier la configuration SAML).
 
-    ![Configuration de Coggle](./media/Coggle-tutorial/configure3.png)
+    ![Capture d’écran montrant la page SAML Integration avec l’option Edit SAML Config.](./media/Coggle-tutorial/configure3.png)
 
 5. Dans la page de boîte de dialogue **SAML Integration**, effectuez les étapes suivantes :
 
-    ![Configuration de Coggle](./media/Coggle-tutorial/configure4.png)
+    ![Capture d’écran montrant la page SAML Integration, où vous pouvez entrer les informations à cette étape.](./media/Coggle-tutorial/configure4.png)
 
     a. Dans la zone de texte **Entrypoint (ID Provider SSO URL)** (Point d’entrée (URL d’authentification unique du fournisseur d’identité)), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 

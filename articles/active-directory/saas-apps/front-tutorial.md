@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550977"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Didacticiel : Intégration d’Azure Active Directory avec Front
 
@@ -128,23 +128,23 @@ Pour configurer l’authentification unique Azure AD avec Front, effectuez les 
 
 2. Accédez à **Paramètres (icône représentant une roue dentée en bas de la barre latérale gauche) > Préférences**.
    
-    ![Configurer l’authentification unique côté application](./media/front-tutorial/tutorial_front_000.png)
+    ![Capture d’écran montrant l’option « Settings (icône de roue dentée) » sélectionnée avec « Preferences » mis en évidence.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Cliquez sur le lien **Authentification unique** .
    
-    ![Configurer l’authentification unique côté application](./media/front-tutorial/tutorial_front_001.png)
+    ![Capture d’écran montrant la section « Company preferences » avec le lien « Single Sign On » sélectionné.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Sélectionnez **SAML** dans la liste déroulante **Authentification unique**.
    
-    ![Configurer l’authentification unique côté application](./media/front-tutorial/tutorial_front_002.png)
+    ![Capture d’écran montrant la liste déroulante « Single Sign On » avec l’option « SAML » sélectionnée.](./media/front-tutorial/tutorial_front_002.png)
 
 5. Dans la zone de texte **Point d’entrée**, entrez la valeur de l’**URL de connexion** indiquée dans l’Assistant Configuration de l’application Azure AD.
     
-    ![Configurer l’authentification unique côté application](./media/front-tutorial/tutorial_front_003.png)
+    ![Capture d’écran montrant la zone de texte « Entry Point ».](./media/front-tutorial/tutorial_front_003.png)
 
 6. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de signature**.
     
-    ![Configurer l’authentification unique côté application](./media/front-tutorial/tutorial_front_004.png)
+    ![Capture d’écran montrant « Signing certificate » mis en évidence, avec la zone de texte grisée.](./media/front-tutorial/tutorial_front_004.png)
 
 7. Dans la section **Service provider settings** (Paramètres du fournisseur de services), procédez comme suit :
 

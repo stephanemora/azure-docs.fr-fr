@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520120"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutoriel : Intégration d’Azure Active Directory avec Comeet Recruiting Software
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Comeet Recruiting Sof
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Comeet Recruiting Software](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Basic S A M L Configuration » avec l’action « Save », le champ « Identifier » et le champ « Reply URL » mis en évidence.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec Comeet Recruiting Sof
 
 5. Votre application Comeet Recruiting Software attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la section « User Attributes » avec le bouton « Edit » sélectionné.](common/edit-attribute.png)
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
@@ -127,7 +127,7 @@ Pour configurer l’authentification unique Azure AD avec Comeet Recruiting Sof
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant la section « User claims » avec les actions « Add new claim » et « Save » mis en évidence.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529477"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760646"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Tutoriel : Intégrer Chargebee à Azure Active Directory
 
@@ -132,11 +132,11 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 4. Sur le côté gauche du menu, cliquez sur **Paramètres** > **Sécurité** > **Gérer**.
 
-    ![Configuration de Chargebee](./media/chargebee-tutorial/config01.png)
+    ![Capture d’écran montrant le site d’entreprise Chargebee avec Settings, Security et Manage sélectionnés.](./media/chargebee-tutorial/config01.png)
 
 5. Sur la fenêtre contextuelle **Authentification unique**, effectuez les étapes suivantes :
 
-    ![Configuration de Chargebee](./media/chargebee-tutorial/config02.png)
+    ![Capture d’écran montrant la boîte de dialogue Single Sign-On avec SAML sélectionné et l’option de confirmation.](./media/chargebee-tutorial/config02.png)
 
     a. Sélectionnez **SAML**.
 
@@ -156,11 +156,11 @@ Pour pouvoir se connecter à Chargebee, les utilisateurs d’Azure AD doivent ê
 
 2. Sur le côté gauche du menu, cliquez sur **Clients**, puis accédez à **Créer un client**.
 
-    ![Configuration de Freedcamp](./media/chargebee-tutorial/config03.png)
+    ![Capture d’écran montrant le site Chargebee avec Customers et Create a New Customer sélectionnés.](./media/chargebee-tutorial/config03.png)
 
 3. Sur la page **Nouveau client**, renseignez les champs respectifs indiqués ci-dessous et cliquez sur **Créer un client** pour créer un utilisateur.
 
-    ![Configuration de Freedcamp](./media/chargebee-tutorial/config04.png)
+    ![Capture d’écran montrant la page New Customer où vous pouvez entrer des informations sur le client.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

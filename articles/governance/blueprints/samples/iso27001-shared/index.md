@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Services partagés ISO 2700
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927349"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950548"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
@@ -27,12 +27,12 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 
 - [Rôles Azure](../../../../role-based-access-control/overview.md) utilisés pour la répartition des tâches du point de vue du plan de contrôle. Trois rôles sont définis avant le déploiement d’une infrastructure :
   - Le rôle NetOps dispose des droits nécessaires pour gérer l’environnement réseau, notamment les paramètres du pare-feu, les paramètres du groupe de sécurité réseau, le routage et d’autres fonctionnalités réseau.
-  - Le rôle SecOps dispose des droits nécessaires pour déployer et gérer [Azure Security Center](../../../../security-center/security-center-intro.md), définir des [stratégies Azure](../../../policy/overview.md) et d’autres droits liés à la sécurité.
-  - Le rôle SysOps dispose des droits nécessaires pour définir des [stratégies Azure](../../../policy/overview.md) au sein de l’abonnement, gérer [Log Analytics](../../../../azure-monitor/overview.md) pour tout l’environnement, ainsi que d’autres droits opérationnels.
+  - Le rôle SecOps dispose des droits nécessaires pour déployer et gérer [Azure Security Center](../../../../security-center/security-center-introduction.md), définir des définitions [Azure Policy](../../../policy/overview.md) et d’autres droits liés à la sécurité.
+  - Le rôle SysOps dispose des droits nécessaires pour définir des définitions [Azure Policy](../../../policy/overview.md) au sein de l’abonnement, gérer [Log Analytics](../../../../azure-monitor/overview.md) pour tout l’environnement, ainsi que d’autres droits opérationnels.
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé en tant que premier service Azure pour vérifier que toutes les actions et tous les services journalisent à un emplacement central à partir du moment où vous démarrez votre déploiement sécurisé.
 - Un réseau virtuel prenant en charge des sous-réseaux pour la connectivité à un centre de données local, une pile d’entrée et de sortie pour la connectivité Internet et un sous-réseau de service partagé qui utilise des groupes de sécurité réseau et ASG pour la micro-segmentation complète contenant :
   - Un serveur de rebond ou hôte bastion utilisé à des fins de gestion, uniquement accessible par le biais d’un [pare-feu Azure](../../../../firewall/overview.md) déployé dans le sous-réseau de la pile d’entrée
-  - Deux machines virtuelles exécutant AADS (Active Directory Domain Services) et DNS uniquement accessibles par Jumpbox, pouvant être configurées uniquement pour répliquer AD sur un VPN ou une connexion [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non déployée par le blueprint)
+  - Deux machines virtuelles exécutant Azure Active Directory Domain Services (Azure AD DS) et DNS uniquement accessibles par Jumpbox, pouvant être configurées uniquement pour répliquer AD sur un VPN ou une connexion [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non déployée par le blueprint)
   - Utilisation d’[Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) et d’une protection DDoS standard
 - Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554964"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
 
@@ -121,11 +121,11 @@ Pour configurer l’authentification unique Azure AD avec Flatter Files, effect
 
 2. Cliquez sur **TABLEAU DE BORD**. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Capture d’écran montrant « DASHBOARD » sélectionné dans l’application « Flatter Files ».](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Cliquez sur **Settings**, puis procédez comme suit dans l’onglet **Company** : 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Capture d’écran montrant l’onglet « Company » avec l’option « Use SAML 2.0 for Authentication » activée et le bouton « Configure SAML » sélectionné.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Sélectionnez **Use SAML 2.0 for Authentication**.
     
@@ -207,7 +207,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Dans le volet de navigation situé à gauche, cliquez sur **Paramètres**, puis sur l’onglet **Utilisateurs**.
    
-    ![Créer un utilisateur Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Capture d’écran montrant la page « Settings » avec l’onglet « Users » sélectionné.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Cliquez sur **Add User**. 
 

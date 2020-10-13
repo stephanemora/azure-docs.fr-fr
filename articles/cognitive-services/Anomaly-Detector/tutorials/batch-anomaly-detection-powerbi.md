@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905777"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660953"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
 
@@ -56,7 +56,7 @@ Power BI convertit les horodatages dans la première colonne en type de données
 
 Cliquez sur le ruban **Transformer** dans l’éditeur Power Query. Dans le groupe **N’importe quelle colonne**, ouvrez le menu déroulant **Type de données :** et sélectionnez **Texte**.
 
-![Image de l’écran « Navigateur » de la source de données dans Power BI](../media/tutorials/data-type-drop-down.png)
+![Image de la liste déroulante Type de données](../media/tutorials/data-type-drop-down.png)
 
 Quand vous recevez un avis concernant la modification du type de colonne, cliquez sur **Remplacer l’actuel**. Ensuite, cliquez sur **Fermer & appliquer** ou **Appliquer** dans le ruban **Accueil**.
 
@@ -66,7 +66,7 @@ Pour mettre en forme et envoyer le fichier de données à l’API Détecteur d�
 
 Vérifiez que votre nouvelle requête est sélectionnée, puis cliquez sur **Éditeur avancé**.
 
-![Image du bouton « Éditeur avancé » dans Power BI](../media/tutorials/advanced-editor-screen.png)
+![Image de l’écran « Éditeur avancé »](../media/tutorials/advanced-editor-screen.png)
 
 Dans l’Éditeur avancé, utilisez l’extrait Power Query M suivant pour extraire les colonnes de la table et les envoyer à l’API. Par la suite, la requête créera une table à partir de la réponse JSON et la renverra. Remplacez la variable `apiKey` par votre clé API Détecteur d’anomalies valide, et `endpoint` par votre point de terminaison. Une fois que vous avez entré la requête dans l’Éditeur avancé, cliquez sur **Terminé**.
 
@@ -80,7 +80,7 @@ Dans l’Éditeur avancé, utilisez l’extrait Power Query M suivant pour extra
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,7 +114,7 @@ Dans l’Éditeur avancé, utilisez l’extrait Power Query M suivant pour extra
 
 Appelez la requête sur votre feuille de données en sélectionnant `Sheet1` sous **Entrer un paramètre**, puis cliquez sur **Appeler**.
 
-![Image du bouton « Éditeur avancé »](../media/tutorials/invoke-function-screenshot.png)
+![Image de la fonction Appeler](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Confidentialité de la source de données et authentification
 
@@ -148,11 +148,11 @@ Ajoutez les champs suivants de la **Fonction appelée** au champ **Valeurs** du 
 * LowerMargins
 * ExpectedValues
 
-![Image du nouvel écran de mesure rapide](../media/tutorials/chart-settings.png)
+![Image des paramètres du graphique](../media/tutorials/chart-settings.png)
 
 Après avoir ajouté les champs, cliquez sur le graphique et redimensionnez-le pour afficher tous les points de données. Votre graphique ressemblera à la capture d’écran ci-dessous :
 
-![Image du nouvel écran de mesure rapide](../media/tutorials/chart-visualization.png)
+![Image de la visualisation du graphique](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Afficher les points de données d’anomalie
 
@@ -162,15 +162,15 @@ Sur le côté droit de la fenêtre Power BI, sous le volet **CHAMPS**, cliquez a
 
 Dans l’écran qui s’affiche, sélectionnez **Valeur filtrée** comme calcul. Affectez la valeur `Sum of Value` à **Valeur de base**. Ensuite, faites glisser `IsAnomaly` du champ **Fonction appelée** vers **Filtre**. Sélectionnez `True` dans le menu déroulant **Filtre**.
 
-![Image du nouvel écran de mesure rapide](../media/tutorials/new-quick-measure-2.png)
+![Deuxième image de l’écran Nouvelle mesure rapide](../media/tutorials/new-quick-measure-2.png)
 
 Après avoir cliqué sur **OK**, vous aurez un champ `Value for True` en bas de la liste de vos champs. Cliquez dessus avec le bouton droit et renommez-le **Anomalie**. Ajoutez-le aux **Valeurs** du graphique. Ensuite, sélectionnez l’outil **Format** et affectez **Catégorie** comme type d’axe X.
 
-![Image du nouvel écran de mesure rapide](../media/tutorials/format-x-axis.png)
+![Image de la mise en forme de l’axe des X](../media/tutorials/format-x-axis.png)
 
 Appliquez des couleurs à votre graphique en cliquant sur l’outil **Format** et sur **Couleurs des données**. Votre graphique doit ressembler à ceci :
 
-![Image du nouvel écran de mesure rapide](../media/tutorials/final-chart.png)
+![Image du graphique final](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

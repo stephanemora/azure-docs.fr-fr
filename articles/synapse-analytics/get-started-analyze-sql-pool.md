@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Démarrer l’analyse des données avec un pool SQL'
+title: 'Tutoriel : Démarrer l’analyse des données avec des pools SQL dédiés'
 description: Dans ce tutoriel, vous allez utiliser les exemples de données NYC Taxi pour explorer les fonctionnalités d’analyse d’un pool SQL.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015498"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620033"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Analyser des données avec des pools SQL
+# <a name="analyze-data-with-dedicated-sql-pools"></a>Analyser des données avec des pools SQL dédiés
 
-Azure Synapse Analytics vous offre la possibilité d’analyser les données avec un pool SQL. Dans ce tutoriel, vous allez utiliser les exemples de données NYC Taxi pour explorer les fonctionnalités d’analyse d’un pool SQL.
+Azure Synapse Analytics vous offre la possibilité d’analyser les données avec un pool SQL dédié. Dans ce tutoriel, vous allez utiliser les données NYC Taxi pour explorer les fonctionnalités d’un pool SQL dédié.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Charger les données NYC Taxi dans SQLDB1
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics vous offre la possibilité d’analyser les données ave
     ```
 1. L’exécution de ce script prendra environ 1 minute. Il charge 2 millions lignes de données NYC Taxi dans une table appelée **dbo.Trip**.
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Explorer les données NYC Taxi dans le pool SQL
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorer les données NYC Taxi dans le pool SQL dédié
 
 1. Dans Synapse Studio, accédez au hub **Données**.
 1. Accédez à **SQLDB1** > **Tables**. Vous voyez plusieurs tables chargées.

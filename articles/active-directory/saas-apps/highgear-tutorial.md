@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550603"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutoriel : Intégration d’Azure Active Directory à HighGear
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD auprès de votre système H
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL HighGear](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear.
 
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD auprès de votre système H
 
     c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-     ![Informations d’authentification unique dans Domaine et URL HighGear](common/metadata-upload-additional-signon.png)
+     ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
      Dans la zone de texte **URL de connexion**, collez la valeur du champ **Service Provider Entity ID** (ID d’entité du fournisseur de services) figurant dans la page Single Sign-On Settings (Paramètres d’authentification unique) au sein de votre système HighGear. (Cet ID d’entité est également l’URL de base du système HighGear qui doit être utilisée pour l’authentification démarrée par le fournisseur de services.)
 

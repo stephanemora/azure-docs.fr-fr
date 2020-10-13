@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547573"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740239"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutoriel : Intégrer Bynder à Azure Active Directory
 
@@ -104,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application Bynder attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant User Attributes & Claims avec l’icône Edit sélectionnée.](common/edit-attribute.png)
 
 1. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
@@ -116,7 +116,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     1. Cliquez sur **Enregistrer**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![Capture d’écran montrant la section Group Claims avec Security groups et Group ID sélectionné.](./media/bynder-tutorial/config08.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

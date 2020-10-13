@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 084ba93baa35790da58e7765750bb79de27ed69c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578017"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613660"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Tutoriel : Connecter un exemple d’application d’appareil multicomposant IoT Plug-and-Play à IoT Hub (Python)
 
@@ -57,13 +57,13 @@ Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Pla
 Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Les fichiers de l’exemple de contrôleur de température sont les suivants :
 
 - temp_controller_with_thermostats.py
-- pnp_helper_preview_refresh.py
+- pnp_helper.py
 
 Le contrôleur de température a plusieurs composants et un composant par défaut, en fonction du modèle DTDL du contrôleur de température.
 
 Ouvrez le fichier *temp_controller_with_thermostats.py* dans l’éditeur de votre choix. Le code dans ce fichier effectue les opérations suivantes :
 
-1. Importe `pnp_helper_preview_refresh.py` pour accéder aux méthodes d’assistance.
+1. Importe `pnp_helper.py` pour accéder aux méthodes d’assistance.
 
 1. Définit deux identificateurs de modèle de jumeau numérique (DTMI) qui représentent de manière unique deux interfaces différentes, définies dans le modèle DTDL. Les composants d’un contrôleur de température réel doivent implémenter ces deux interfaces. Ces deux interfaces sont déjà publiées dans un dépôt central. Les DTMI doivent être connus de l’utilisateur et varient en fonction du scénario d’implémentation de l’appareil. Pour l’exemple actuel, ces deux interfaces représentent :
 

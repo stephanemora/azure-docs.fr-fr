@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549328"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Didacticiel : Intégration d’Azure Active Directory à ClickTime
 
@@ -207,7 +207,7 @@ Dans le cas de ClickTime, l’approvisionnement est une tâche manuelle.
 
 1. Dans la barre d’outils située en haut, cliquez sur **Company**, puis sur **People**.
    
-    ![Personnes](./media/clicktime-tutorial/tic777282.png "Personnes")
+    ![Capture d’écran montrant le locataire ClickTime avec Company et People sélectionnés.](./media/clicktime-tutorial/tic777282.png "Personnes")
 
 1. Cliquez sur **Add Person**.
    
@@ -215,7 +215,7 @@ Dans le cas de ClickTime, l’approvisionnement est une tâche manuelle.
 
 1. Dans la section New Person, procédez comme suit :
    
-    ![Personnes](./media/clicktime-tutorial/tic777284.png "Personnes")
+    ![Capture d’écran montrant la section Add Person, où vous pouvez ajouter les informations de cette étape.](./media/clicktime-tutorial/tic777284.png "Personnes")
    
     a.  Dans la zone de texte **Full Name** (Nom complet), tapez le nom complet d’un utilisateur, par exemple, **Britta Simon**. 
   

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1940e65fc5a9fd4aecd0b0cbcf6631e0628bda91
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020106"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653126"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
@@ -191,7 +191,7 @@ Vous pouvez cliquer sur l’une des traces pour afficher plus d’informations l
 
 En outre, vous pouvez cliquer sur *Mise en correspondance d’applications* dans le menu de gauche de la page Vue d’ensemble, ou cliquez sur l’icône **Mise en correspondance d’applications** pour accéder à la cartographie d’application affichant les deux services connectés.
 
-![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Capture d’écran mettant en évidence Mise en correspondance d’applications dans le menu de gauche](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 La mise en correspondance d’applications peut vous aider à mieux comprendre la topologie de votre application, en particulier si vous commencez à ajouter plusieurs services différents qui fonctionnent ensemble. Elle vous fournit également des données de base sur les taux de réussite des demandes et peut vous aider à diagnostiquer les demandes ayant échoué pour comprendre où se situe le problème. Pour en savoir plus sur la mise en correspondance d’applications, consultez [Mise en correspondance d’applications dans Application Insights](../azure-monitor/app/app-map.md).
 

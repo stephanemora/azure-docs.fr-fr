@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550246"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713854"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Didacticiel : Intégration d’Attendance Management Services avec Azure Active Directory
 
@@ -128,11 +128,11 @@ Pour configurer l’authentification unique Azure AD avec Attendance Management
 
 1. Cliquez sur **SAML authentication** sous la **section Security management**.
 
-    ![Configuration d’Attendance Management Services](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Capture d’écran montrant « SAML authentication » sélectionné dans une page qui utilise des caractères non latins.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Procédez comme suit :
 
-    ![Configuration d’Attendance Management Services](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Capture d’écran montrant la fenêtre dans laquelle vous pouvez effectuer les tâches décrites à cette étape.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Sélectionnez **Use SAML authentication**.
 
@@ -206,15 +206,15 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Attendance Mana
 
 1. Cliquez sur **User management** sous la **section Security management**.
 
-    ![Ajouter un employé](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Capture d’écran montrant « User management » sélectionné dans une page qui utilise des caractères non latins.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Cliquez sur **New rules login**.
 
-    ![Ajouter un employé](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Capture d’écran montrant la sélection de l’option Plus.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. Dans la section **OBCiD information**, procédez comme suit :
 
-    ![Ajouter un employé](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Capture d’écran montrant la fenêtre dans laquelle vous pouvez effectuer les tâches décrites.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. Dans la zone de texte **OBCiD**, tapez l’adresse e-mail de l’utilisateur, par exemple, `BrittaSimon\@contoso.com`.
 

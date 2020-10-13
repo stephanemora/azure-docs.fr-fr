@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550105"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775437"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Darwinbox
 
@@ -143,19 +143,19 @@ Le fait de cliquer sur la vignette Darwinbox dans le volet d’accès doit vous 
 
 1. Ouvrez l’application mobile Darwinbox. Cliquez sur **Entrer l’URL de l’organisation**, entrez l’URL de votre organisation dans la zone de texte, puis cliquez sur le bouton fléché.
 
-    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Capture d’écran montrant l’application mobile « Darwinbox » avec l’option « Enter Organization URL » sélectionnée, un exemple d’organisation et le bouton avec une flèche en évidence.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Si vous avez plusieurs domaines, cliquez sur votre domaine.
 
-    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Capture d’écran montrant l’écran « Choose your domain » avec un exemple de domaine sélectionné.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Entrez l’e-mail de votre Azure AD dans l’application Darwinbox, puis cliquez sur **Suivant**.
 
-    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Capture d’écran montrant l’écran « Sign in » avec le bouton « Next » en évidence.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Entrez le mot de passe de votre Azure AD dans l’application Darwinbox, puis cliquez sur **Se connecter**.
 
-    ![Application mobile Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Capture d’écran montrant l’écran « Enter password » avec le bouton « Next » en évidence.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Une fois la connexion réussie, la page d’accueil de l’application s’affiche.
 

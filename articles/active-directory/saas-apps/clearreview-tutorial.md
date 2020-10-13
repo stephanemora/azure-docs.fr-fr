@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544664"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Didacticiel : Intégration d’Azure Active Directory avec Clear Review
 
@@ -102,7 +102,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Clear Review](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Clear Review](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
 6. L’application Clear Review attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Clear Review s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier** et modifier le mappage d’attribut.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant User Attributes avec l’icône Edit sélectionnée.](common/edit-attribute.png)
 
 7. Dans la boîte de dialogue **Attributs et revendications de l’utilisateur** , effectuez les étapes suivantes :
 
     a. Cliquez sur l’**icône de modification** à droite de **Valeur de nom d’identificateur**.
 
-    ![image](./media/clearreview-tutorial/attribute02.png)
+    ![Capture d’écran montrant User Attributes & Claims avec l’icône Edit sélectionnée.](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](./media/clearreview-tutorial/attribute01.png)
+    ![Capture d’écran montrant la boîte de dialogue Manage user claims où vous pouvez entrer les valeurs décrites.](./media/clearreview-tutorial/attribute01.png)
 
     b. Dans la liste **Attribut de la source**, sélectionnez la valeur d’attribut **user.givenname** pour cette ligne.
 
@@ -153,15 +153,15 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
 2. Sélectionnez **Admin** dans le volet de navigation de gauche.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Capture d’écran montrant le site web Clear Review avec Admin sélectionné.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. Dans la section **Intégrations** au bas de la page, cliquez sur le bouton **Change** (Changer) à droite de **Single Sign-On Settings** (Paramètres de l’authentification unique).
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Capture d’écran montrant le bouton Single Sign-On Change.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Dans la page **Single Sign On Settings** (Paramètres de l’authentification unique), effectuez les étapes suivantes :
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Capture d’écran montrant la page Single Sign-on Settings où vous pouvez entrer les informations de cette étape.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. Dans la zone de texte **URL de l’émetteur**, collez la valeur de l’**identifiant Azure AD** que vous avez copiée à partir du portail Azure.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544075"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Hive
 
@@ -147,11 +147,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Profil utilisateur**, puis sélectionnez **Utilisateurs**.
 
-    ![Configuration de Hive](./media/hive-tutorial/configure1.png)
+    ![Capture d’écran montrant le site web Hive avec Your workspace sélectionné dans le menu.](./media/hive-tutorial/configure1.png)
 
 1. Cliquez sur **Authentification**, puis effectuez les étapes suivantes :
 
-    ![Configuration de Hive](./media/hive-tutorial/configure2.png)
+    ![Capture d’écran montrant la page Auth où vous effectuez les tâches décrites.](./media/hive-tutorial/configure2.png)
 
     a. Copiez **votre ID d’espace de travail**, puis ajoutez-le à l’**URL d’authentification** et à l’**URL de réponse** dans la **section Configuration SAML de base** dans le portail Azure.
 

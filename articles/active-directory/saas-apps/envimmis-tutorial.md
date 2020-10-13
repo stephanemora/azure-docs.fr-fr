@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551742"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Didacticiel : intégration d’Azure Active Directory à Envi MMIS
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Envi MMIS, effectuez l
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans la section Domaine et URL Envi MMIS](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base avec les boutons « Identificateur », « URL de réponse » et « Enregistrer » mis en évidence.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Pour configurer l’authentification unique Azure AD avec Envi MMIS, effectuez l
 
 2. Cliquez sur l’onglet **My Domain** (Mon domaine).
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/envimmis-tutorial/configure1.png)
+    ![Capture d’écran montrant le menu « User » avec « My Domain » sélectionné.](./media/envimmis-tutorial/configure1.png)
 
 3. Cliquez sur **Modifier**.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/envimmis-tutorial/configure2.png)
+    ![Capture d’écran montrant le bouton « Edit » sélectionné.](./media/envimmis-tutorial/configure2.png)
 
 4. Cochez la case **Use remote authentication** (Utiliser l’authentification distante), puis sélectionnez **HTTP Redirect** (Redirection HTTP) dans la liste déroulante **Authentication Type** (Type d’authentification).
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/envimmis-tutorial/configure3.png)
+    ![Capture d’écran montrant l’onglet « Details » avec l’option « Use remote authentication » activée et « HTTP Redirect » sélectionné.](./media/envimmis-tutorial/configure3.png)
 
 5. Sélectionnez l’onglet **Resources** (Ressources), puis cliquez sur **Upload Metadata** (Charger les métadonnées).
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/envimmis-tutorial/configure4.png)
+    ![Capture d’écran montrant l’onglet « Resources » avec l’action « Upload Metadata » sélectionnée.](./media/envimmis-tutorial/configure4.png)
 
 6. Dans la section **Upload Metadata** (Charger les métadonnées), procédez comme suit :
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/envimmis-tutorial/configure5.png)
+    ![Capture d’écran montrant la fenêtre contextuelle « Upload Metadata » avec l’option « File » sélectionnée et l’icône de choix de fichier et le bouton « OK » mis en évidence.](./media/envimmis-tutorial/configure5.png)
 
     a. Dans la liste déroulante **Upload From** (Charger à partir de), sélectionnez **File** (Fichier).
 
@@ -223,11 +223,11 @@ Pour se connecter à Envi MMIS, les utilisateurs Azure AD doivent être provisio
 
 2. Cliquez sur l’onglet **User List** (Liste d’utilisateurs).
 
-    ![Ajouter un employé](./media/envimmis-tutorial/user1.png)
+    ![Capture d’écran montrant le menu « User » avec « User List » sélectionné.](./media/envimmis-tutorial/user1.png)
 
 3. Cliquez sur le bouton **Add User** (Ajouter un utilisateur).
 
-    ![Ajouter un employé](./media/envimmis-tutorial/user2.png)
+    ![Capture d’écran montrant la section « Users » avec le bouton « Add User » sélectionné.](./media/envimmis-tutorial/user2.png)
 
 4. Dans la section **Add User** , procédez comme suit :
 

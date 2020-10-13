@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549413"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713804"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AskYourTeam
 
@@ -131,19 +131,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **My Organisation** (Mon organisation).
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Capture d’écran montrant le lien My organization.](./media/askyourteam-tutorial/user1.png)
 
 1. Cliquez sur **Integrations** (Intégrations).
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![Capture d’écran montrant le lien Integrations.](./media/askyourteam-tutorial/configure1.png)
 
 1. Cliquez sur **Edit Settings** (Modifier les paramètres).
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![Capture d’écran montrant le message Single Sign-On avec un bouton Edit Settings.](./media/askyourteam-tutorial/configure2.png)
 
 1. Dans la page **Edit Single Sign-On Integration** (Modifier l’intégration de l’authentification unique), procédez comme suit : 
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![Capture d’écran montrant Edit Single Sign-On Integration où vous pouvez entrer les valeurs pour cette étape.](./media/askyourteam-tutorial/configure3.png)
 
     a. Dans la zone de texte **SAML Single Sign-On Service URL** (URL du service d’authentification unique SAML), collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -168,15 +168,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **My Organisation** (Mon organisation).
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Capture d’écran montrant le lien My Organisation où vous démarrez cette tâche.](./media/askyourteam-tutorial/user1.png)
 
 1. Cliquez sur **Users** (Utilisateurs) et sélectionnez **New User** (Nouvel utilisateur).
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![Capture d’écran montrant le lien Users avec New User.](./media/askyourteam-tutorial/user2.png)
 
 1. Dans la section **New User**, procédez comme suit :
 
-    ![Configuration d’AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![Capture d’écran montrant la section New User, où vous pouvez entrer des informations sur l’utilisateur.](./media/askyourteam-tutorial/user3.png)
 
     1. Dans la zone de texte **First name** (Prénom), entrez le prénom de l’utilisateur.
 

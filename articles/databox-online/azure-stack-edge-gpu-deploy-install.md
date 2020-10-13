@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900010"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743401"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Installer Azure Stack Edge Pro avec GPU
 
@@ -124,7 +124,7 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 3. Fixez les rails droit et gauche aux brides verticales avant du rail à l’aide de deux paires de vis.
 4. Faites glisser les montants arrière gauche et droit vers l’avant jusqu’à ce qu’ils soient placés contre les brides verticales arrière du rail et fixez-les avec deux paires de vis.
 
-    ![Installer et retirer les rails avec outils](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installer et retirer les rails avec outils 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installer le système dans un rack
 
@@ -207,11 +207,11 @@ Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de 
 
     - Appareil avec 3 emplacements PCI et un GPU
 
-        ![Fond de panier d’un appareil câblé](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Fond de panier d’un appareil câblé 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Appareil avec 3 emplacements PCI et deux GPU
 
-        ![Fond de panier d’un appareil câblé](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Fond de panier d’un appareil câblé 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Localisez les emplacements de disque et le bouton d’alimentation à l’avant de l’appareil.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287098"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826655"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -236,7 +236,7 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
 
    > [!NOTE]
    > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous CommandExecution_YYYYMMDDHHMMSSSSS.log. "
-1. Ouvrez une invite de commandes sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
+1. Ouvrez une invite de commandes PowerShell sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
 
    | Commande à exécuter | Sortie attendue |
    | --- | --- |

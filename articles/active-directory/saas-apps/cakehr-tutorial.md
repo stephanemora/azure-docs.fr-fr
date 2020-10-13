@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2884302ae636739243e0277fa49ef6889b077c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547594"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740341"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CakeHR
 
@@ -142,11 +142,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le coin supérieur droit de la page, cliquez sur **Profil**, puis accédez à **Paramètres**.
 
-    ![Configuration de CakeHR](./media/cakehr-tutorial/config01.png)
+    ![Capture d’écran montrant Profile avec Settings sélectionné.](./media/cakehr-tutorial/config01.png)
 
 1. Sur le côté gauche de la barre de menus, cliquez sur **INTEGRATIONS** > **SAML SSO** (Intégrations > Authentification unique SAML), puis effectuez les étapes suivantes :
 
-    ![Configuration de CakeHR](./media/cakehr-tutorial/config02.png)
+    ![Capture d’écran montrant le volet Setting où vous effectuez ces étapes.](./media/cakehr-tutorial/config02.png)
 
     a. Dans la zone de texte **Entity ID** (ID d’entité), tapez `cake.hr`.
 
@@ -168,11 +168,11 @@ Pour se connecter à CakeHR, les utilisateurs Azure AD doivent être provisionn�
 
 2. Sur le côté gauche de la barre de menus, cliquez sur **COMPANY** > **ADD** (Entreprise > Ajouter).
 
-    ![Configuration de CakeHR](./media/cakehr-tutorial/config03.png)
+    ![Capture d’écran montrant CakeHR avec COMPANY et ADD sélectionnés.](./media/cakehr-tutorial/config03.png)
 
 3. Dans la boîte de dialogue **Add new employee** (Ajouter un nouvel employé), effectuez les étapes suivantes :
 
-     ![Configuration de CakeHR](./media/cakehr-tutorial/config04.png)
+     ![Capture d’écran montrant ajouter Add new employee où vous effectuez ces étapes.](./media/cakehr-tutorial/config04.png)
 
     a. Dans la zone de texte **Full name** (Nom complet), entrez le nom d’un utilisateur, par exemple B.Simon.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e1386fdfafdea3112e26ce6480c7d20061236ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549668"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823023"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Litmus
 
@@ -167,7 +167,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Configuration de Litmus](./media/litmus-tutorial/user-profile.png)
 
-    a. Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **B.Simon@contoso.com**
+    a. Dans la zone de texte **Email**, entrez l’adresse e-mail de l’utilisateur, par exemple **B.Simon\@contoso.com**
 
     b. Dans la zone de texte **First Name**, entrez le prénom de l’utilisateur, par exemple **B**.
 

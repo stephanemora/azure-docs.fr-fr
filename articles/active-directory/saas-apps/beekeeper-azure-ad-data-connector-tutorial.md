@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ac881d19ee4ba7efc2dcbab93775f59cfec5effa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 82fced2d504af1823b3e6e1561ee875067a962c5
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549277"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beekeeper-azure-ad-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Beekeeper Azure AD SSO
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
 
-    ![image](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     > [!Note]
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application Beekeeper Azure AD SSO s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application Beekeeper Azure AD SSO s’attend à ce les quelques attributs supplémentaires ci-dessous soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 

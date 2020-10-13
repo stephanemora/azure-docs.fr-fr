@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324057"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819035"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -248,6 +248,10 @@ Concernant les connexions HTTPS vers votre back-end, qu’il s’agisse de sonde
 1. **Incompatibilité du nom d’objet du certificat** : Pour les connexions HTTPS, Front Door s’attend à ce que votre back-end présente le certificat d’une autorité de certification valide avec un ou plusieurs noms d’objet correspondant au nom d’hôte du back-end. Par exemple, si le nom d'hôte de votre back-end est défini sur `myapp-centralus.contosonews.net` et que le certificat que votre back-end présente pendant la négociation TLS ne comporte ni `myapp-centralus.contosonews.net` ni `*myapp-centralus*.contosonews.net` dans le nom de l'objet, Front Door refuse la connexion et génère une erreur. 
     1. **Solution**: Bien que ce ne soit pas recommandé du point de vue de la conformité, vous pouvez contourner cette erreur en désactivant la vérification du nom d’objet du certificat pour votre porte d’entrée. Cette option est présente sous Paramètres dans le portail Azure et sous BackendPoolsSettings dans l’API.
 2. **Certificat d’hébergement back-end issu d’une autorité de certification non valide** : seuls les certificats provenant d’[autorités de certification valides](/azure/frontdoor/front-door-troubleshoot-allowed-ca) peuvent être utilisés sur le back-end avec Front Door. Les certificats provenant d’autorités de certification internes ou les certificats auto-signés ne sont pas autorisés.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Puis-je utiliser l’authentification client/mutuelle avec Azure Front Door ?
+
+Non. Bien qu’Azure Front Door prenne en charge TLS 1.2, qui a introduit l’authentification client/mutuelle dans [RFC 5246](https://tools.ietf.org/html/rfc5246), actuellement, Azure Front Door Service ne prend pas en charge l’authentification client/mutuelle.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 

@@ -8,28 +8,31 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df71f0804b62eb4b17ff8d2f652b076b5c64c959
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84905617"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822793"
 ---
-Vous pouvez accéder aux journaux de la console générés à partir du conteneur. Activez d’abord la journalisation du conteneur en exécutant la commande suivante dans Cloud Shell :
+Vous pouvez accéder aux journaux de la console générés à partir du conteneur.
+
+Activez d’abord la journalisation du conteneur en exécutant la commande suivante :
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
+
+Remplacez `<app-name>` et `<resource-group-name>` par les noms appropriés pour votre application web.
 
 Une fois la journalisation du conteneur activée, exécutez la commande suivante pour voir le flux de journal :
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
 Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
 
-> [!NOTE]
-> Vous pouvez également inspecter les fichiers journaux à partir du navigateur sur `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Pour arrêter le streaming de journaux à tout moment, appuyez sur **Ctrl**+**C**.
 
-Pour arrêter le streaming des journaux à tout moment, appuyez sur `Ctrl`+`C`.
+Vous pouvez également inspecter les fichiers journaux dans un navigateur sur `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.

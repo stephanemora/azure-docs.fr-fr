@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555958"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Didacticiel : Intégration d’Azure Active Directory avec Datahug
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Datahug, effectuez le
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Datahug](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec les boutons « Identificateur », « URL de réponse » et « Enregistrer » mis en évidence.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -206,11 +206,11 @@ Pour Datahug, l’approvisionnement est une tâche manuelle.
 
 2. Passez la souris sur la **roue dentée** dans le coin supérieur droit et cliquez sur **Paramètres**
    
-    ![Ajouter un employé](./media/datahug-tutorial/1.png)
+    ![Capture d’écran montrant la page d’accueil « Datahug » avec l’icône de roue dentée sélectionnée et « Settings » sélectionné dans le menu déroulant.](./media/datahug-tutorial/1.png)
 
 3. Choisissez **People** (Personnes) et cliquez sur l’onglet **Ajouter des utilisateurs**.
 
-    ![Ajouter un employé](./media/datahug-tutorial/2.png)
+    ![Capture d’écran montrant la page « Settings » avec l’onglet « People » et l’option « Add Users » sélectionné.](./media/datahug-tutorial/2.png)
 
 4. Tapez l’adresse électronique de la personne pour laquelle vous souhaitez créer un compte et cliquez sur **Ajouter**.
 

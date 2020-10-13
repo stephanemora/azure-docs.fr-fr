@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006463"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653670"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -76,10 +76,10 @@ Vous devez modifier le fichier `Packages/manifest.json` qui se trouve dans le do
 
 Après avoir modifié et enregistré le manifeste, Unity s’actualise automatiquement. Vérifiez que les packages ont été chargés dans la fenêtre *Project* (Projet) :
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="vérifier les importations de packages":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Nouveau projet Unity":::
 
 Si vos packages ne se chargent pas, vérifiez s’il y a des erreurs dans votre console Unity. Si ce n’est pas le cas mais que les packages ne figurent toujours pas dans le dossier **Packages**, cochez le bouton bascule de visibilité des packages.\
-![Propriétés de la caméra Unity](./media/unity-package-visibility.png)
+![Capture d’écran avec une flèche pointant vers le bouton bascule de visibilité des packages.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Vérifiez que vous avez la version la plus récente du package.
 
@@ -120,7 +120,7 @@ Les étapes suivantes permettent de vérifier que votre projet utilise la versio
 
 1. Sélectionnez **Graphics** (Graphiques) dans le menu de liste de gauche.
 1. Définissez le paramètre **Scriptable Rendering Pipeline** (Pipeline de rendu pouvant contenir des scripts) sur *HybridRenderingPipeline*.\
-    ![Modification des paramètres graphiques du projet](./media/settings-graphics-render-pipeline.png)\
+    ![Capture d’écran qui pointe vers le paramètre Scriptable Rendering Pipeline (Pipeline de rendu scriptable) à définir sur HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Parfois, l’interface utilisateur ne remplit pas la liste des types de pipeline disponibles à partir des packages. Si cela se produit, vous devez faire glisser la ressource *HybridRenderingPipeline* manuellement vers le champ :\
     ![Modification des paramètres graphiques du projet](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Pour passer de **NotAuthorized** à **NoSession**, nous présentons généraleme
 1. Faites glisser le composant jusqu’à son propre événement pour qu’il fasse référence à lui-même.\
 ![Contourner l’authentification](./media/bypass-authorization-add-event.png)\
 1. Dans la liste déroulante, sélectionnez **RemoteRenderingCoordinator -> BypassAuthorization**.\
-![Contourner l’authentification](./media/bypass-authorization-event.png)
+![Capture d’écran montrant l’option RemoteRenderingCoordinator.BypassAuthorization sélectionnée.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Créer ou rejoindre une session à distance
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Dès lors que la fondation nécessaire est en place, vous êtes prêt à charger un modèle dans la session à distance et à commencer à recevoir des frames.
 
-![Pile 4 ARR](./media/remote-render-stack-4.png)
+![Diagramme montrant le flux de processus de préparation du chargement et de l’affichage d’un modèle.](./media/remote-render-stack-4.png)
 
 La méthode **LoadModel** est conçue pour accepter un chemin de modèle, un gestionnaire de progression et une transformation parente. Ces arguments serviront à charger un modèle dans la session à distance, à informer l’utilisateur de la progression du chargement et à orienter le modèle rendu à distance en fonction de la transformation parente.
 

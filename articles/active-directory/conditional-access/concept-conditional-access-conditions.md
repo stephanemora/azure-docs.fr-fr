@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258709"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818342"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -49,6 +49,9 @@ L’accès conditionnel Azure AD prend en charge les plateformes d’appareil su
 - macOS
 
 Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la condition de plateforme de l’appareil.
+
+> [!IMPORTANT]
+> Microsoft vous recommande de disposer d’une stratégie d’accès conditionnel pour les plateformes d’appareil non prises en charge. Par exemple, si vous souhaitez bloquer l’accès à vos ressources d’entreprise à partir de Linux ou d’un autre client non pris en charge, vous devez configurer une stratégie avec une condition de plateformes d’appareil incluant n’importe quel appareil et excluant les plateformes d’appareil prises en charge et définir Accorder le contrôle sur Bloquer l’accès.
 
 ## <a name="locations"></a>Emplacements
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545471"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713567"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amplitude
 
@@ -141,15 +141,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Plan Admin** (Admin de plan) dans la barre de navigation gauche.
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
+    ![Capture d’écran montrant le menu Amplitude avec Plan Admin sélectionné.](./media/amplitude-tutorial/configure1.png)
 
 1. Sélectionnez **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory) dans **SSO Integration** (Intégration SSO).
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
+    ![Capture d’écran montrant le volet Plan Admin avec le lien Microsoft Azure Active Directory Metadata activé.](./media/amplitude-tutorial/configure2.png)
 
 1. Dans la section **Setup Single Sign-On** , procédez comme suit :
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
+    ![Capture d’écran montrant la section Set Up Single Sign-on avec les valeurs décrites à cette étape.](./media/amplitude-tutorial/configure3.png)
 
     a. Ouvrez le fichier **Metadata.Xml** téléchargé à partir du portail Azure dans le Bloc-notes, puis collez son contenu dans la zone de texte **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory).
 

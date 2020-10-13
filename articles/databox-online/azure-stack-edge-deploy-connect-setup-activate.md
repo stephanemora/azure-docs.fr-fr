@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894248"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743333"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutoriel : Connecter, configurer et activer Azure Stack Edge Pro 
 
@@ -146,7 +146,7 @@ Le tableau de bord comprend les différents paramètres nécessaires à la confi
 
     4. Vous devrez peut-être attendre plusieurs minutes après l’exécution de la mise à jour. La page se met à jour pour indiquer que l’appareil a bien été activé.
 
-        ![Page « Paramètres cloud » de l’interface utilisateur web locale mise à jour](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Page « Paramètres cloud » de l’interface utilisateur web locale mise à jour 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 La configuration de l’appareil est terminée. Vous pouvez maintenant ajouter des partages sur votre appareil.
 

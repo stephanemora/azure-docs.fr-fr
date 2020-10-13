@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520309"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Claromentis
 
@@ -138,19 +138,19 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Cliquez sur l’**icône d’applications** et sélectionnez **Admin**.
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config1.png)
+    ![Capture d’écran montrant le site web Claromentis avec Admin sélectionné.](./media/claromentis-tutorial/config1.png)
 
 1. Sélectionnez l’onglet **Custom Login Handler** (Gestionnaire de connexion personnalisée).
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config2.png)
+    ![Capture d’écran montrant la page Administration avec Custom Login Handler sélectionné.](./media/claromentis-tutorial/config2.png)
 
 1. Sélectionnez **SAML Config**.
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config3.png)
+    ![Capture d’écran montrant la page de configuration pour SAML.](./media/claromentis-tutorial/config3.png)
 
 1. Sous l’onglet **SAML Config**, faites défiler l’écran jusqu’à la section **Config** et effectuez les étapes suivantes :
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config4.png)
+    ![Capture d’écran montrant la section Config de la page où vous pouvez entrer les informations décrites dans cette étape.](./media/claromentis-tutorial/config4.png)
 
     a. Dans la zone de texte **Technical Contact Name** (Nom du contact technique), entrez le nom de la personne correspondant au contact technique.
 
@@ -160,7 +160,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Faites défiler l’écran jusqu’à **Auth Sources** (Sources d’authentification) et effectuez les étapes suivantes :
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config5.png)
+    ![Capture d’écran montrant la section Auth Sources où vous pouvez entrer les informations décrites dans cette étape.](./media/claromentis-tutorial/config5.png)
 
     a. Dans la zone de texte **IDP** (Fournisseur d’identité), collez la valeur du champ **Identificateur Azure AD** que vous avez copiée à partir du portail Azure.
 
@@ -172,7 +172,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Vous remarquerez alors que toutes les URL ont été renseignées dans la section **Identity Provider** de la section **SAML Config**.
 
-    ![Configuration de Claromentis](./media/claromentis-tutorial/config6.png)
+    ![Capture d’écran montrant la page Identity Provider contenant des URL.](./media/claromentis-tutorial/config6.png)
 
     a. Copiez la valeur du champ **Identifier (Entity ID)** , puis collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure.
 

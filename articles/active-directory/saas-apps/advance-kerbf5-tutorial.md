@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4c4ee5fa6281b0a137bd46a9d3a82db22adc77ea
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306172"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760765"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory (AD) à F5
 
@@ -146,38 +146,38 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Vous devez importer le certificat de métadonnées dans F5 (Kerberos avancé) qui sera utilisé plus tard lors du processus d’installation. Accédez à **System > Certificate Management > Traffic Certificate Management >> SSL Certificate Lists** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Cliquez sur **Import** en haut à droite.
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure01.png)
+    ![Capture d’écran mettant en évidence le bouton Import pour importer le certificat de métadonnées.](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. Pour configurer le fournisseur d’identité SAML, accédez à **Access > Federation > SAML Service Provider > Create > From Metadata** (Accès > Fédération > Fournisseur de services SAML > Créer > À partir de métadonnées).
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure02.png)
+    ![Capture d’écran qui souligne comment créer le fournisseur d’identité SAML à partir de métadonnées.](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure03.png)
+    ![Capture d’écran montrant l’écran Create New SAML IdP Connector.](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Capture d’écran montrant l’écran Single Sign On Service Settings. ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Spécifiez le certificat chargé à la tâche 3.
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure06.png)
+    ![Capture d’écran montrant l’écran Edit SAML IdP Connector.](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure07.png)
+    ![Capture d’écran montrant l’écran Single Logout Service Settings.](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. Pour configurer le fournisseur de services SAML, accédez à **Access > Federation > SAML Service Federation > Local SP Services > Create** (Accès > Fédération > Fédération de service SAML > Services de fournisseur de services locaux > Créer).
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure08.png)
+    ![Capture d’écran montrant la page où vous créez un service de fournisseur de services local.](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. Cliquez sur **OK**.
 
 1. Sélectionnez la configuration de fournisseur de services, puis cliquez sur **Bind/UnBind IdP Connectors** (Lier/Dissocier les connecteurs IdP).
 
-     ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure09.png)
+     ![Capture d’écran montrant le fournisseur de services SAML.](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. Cliquez sur **Add New Row** (Ajouter une nouvelle ligne) et sélectionnez le connecteur IdP externe (**External IdP connector**) créé à l’étape précédente.
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure10.png)
+    ![Capture d’écran mettant en évidence le bouton Add New Row.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. Pour configurer l’authentification unique Kerberos, accédez à **Access > Single Sign-on > Kerberos** (Accès > Authentification unique > Kerberos).
 
@@ -188,54 +188,54 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     • Source de domaine de l’utilisateur  `session.logon.last.domain`
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure11.png)
+    ![Capture d’écran mettant en évidence Access > Single Sign On.](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. Pour configurer un profil d’accès, accédez à **Access > Profile/Policies > Access Profile (per session policies)** (Accès > Profil/stratégies > Profil d’accès (stratégies par session)).
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure12.png)
+    ![Capture d’écran mettant en évidence l’onglet Properties sous l’option de menu Profiles/Policies.](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure13.png)
+    ![Capture d’écran montrant l’onglet SSO/Auth Domains.](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure14.png)
+    ![Capture d’écran montrant l’onglet Access Policy.](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure15.png)
+    ![Capture d’écran montrant l’onglet Properties de la stratégie d’accès.](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure16.png)
+    ![Capture d’écran montrant les propriétés de l’attribution de variable.](./media/advance-kerbf5-tutorial/configure16.png)
  
     * session.logon.last.usernameUPN   expr {[mcget {session.saml.last.identity}]}
 
     * session.ad.lastactualdomain  TEXT superdemo.live
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure17.png)
+    ![Capture d’écran montrant les propriétés de requête Active Directory.](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName=%{session.logon.last.usernameUPN})
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure18.png)
+    ![Capture d’écran montrant l’onglet Branch Rules et la règle Check Account.](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure19.png)
+    ![Capture d’écran montrant les zones de texte de variable personnalisée et d’expression personnalisée.](./media/advance-kerbf5-tutorial/configure19.png)
 
     * session.logon.last.username  expr { "[mcget {session.ad.last.attr.sAMAccountName}]" }
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure20.png)
+    ![Capture d’écran montrant les valeurs dans les champs SSO Token Name et SSO Token Password.](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {session.logon.last.username}
     * mcget {session.logon.last.password}
 
 1. Pour ajouter un nouveau nœud, accédez à **Local Traffic > Nodes > Node List > +** (Trafic local > Nœuds > Liste de nœuds).
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure21.png)
+    ![Capture d’écran mettant en évidence Local Traffic > Nodes.](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. Pour créer un pool, accédez à **Local Traffic > Pools > Pool List > Create** (Trafic local > Pools > Liste de pools > Créer).
 
-     ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure22.png)
+     ![Capture d’écran mettant en évidence Local Traffic > Pools.](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. Pour créer un serveur virtuel, accédez à **Local Traffic > Virtual Servers > Virtual Server List > +** (Trafic local > Serveurs virtuels > Liste des serveurs virtuels).
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure23.png)
+    ![Capture d’écran mettant en évidence Local Traffic > Virtual Servers.](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. Spécifiez le profil d’accès créé à l’étape précédente.
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![Capture d’écran montrant où vous spécifiez le profil d’accès que vous avez créé.](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### <a name="setting-up-kerberos-delegation"></a>Configuration de la délégation Kerberos 
 
@@ -264,15 +264,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     * Configurez la délégation appropriée pour le compte de délégation F5.
     * Dans l’exemple ci-dessous, le compte de délégation APM est configuré pour KCD pour l’application FRP-App1.superdemo.live.
 
-        ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure25.png)
+        ![Capture d’écran montrant les propriétés du compte de délégation APM > onglet Delegation.](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. Fournissez les informations mentionnées dans [ce document de référence](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html).
 
 1. Annexe : Mappages de variables BIG-IP SAML – F5 illustrés ci-dessous :
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure26.png)
+    ![Capture d’écran montrant l’onglet Overview > Active Sessions.](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![Capture d’écran montrant les variables et les clés de session.](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. Voici la liste complète des attributs SAML par défaut. GivenName est représenté à l’aide de la chaîne suivante.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`

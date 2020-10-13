@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f6c815bf6b8be6d280dcdc60401f7a91e171e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542742"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744285"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Boomi
 
@@ -89,14 +89,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
 
-    ![image](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où apparaissent les valeurs d’identificateur et d’URL de réponse.](common/idp-intiated.png)
+
+    d. Entrez l’**URL de connexion**, telle que `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`.
 
     > [!Note]
     > Vous obtiendrez le **fichier de métadonnées du fournisseur de services** à la section **Configurer l’authentification unique Boomi**, ce qui est expliqué plus loin dans le tutoriel. Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
 1. L’application Boomi s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec des valeurs par défaut telles que Givenname user.givenname et Emailaddress User.mail.](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application Boomi s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -174,13 +176,13 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez le
 
 1. Après connexion, accédez à **Gestion des utilisateurs** et allez dans **Utilisateurs**.
 
-    ![Utilisateurs](./media/boomi-tutorial/tutorial_boomi_001.png "Utilisateurs")
+    ![Capture d’écran montrant la page User Management avec Users sélectionné.](./media/boomi-tutorial/tutorial_boomi_001.png "Utilisateurs")
 
 1. Cliquez sur l’icône **+** , et la boîte de dialogue **Ajouter/gérer les rôles utilisateur** s’ouvre.
 
-    ![Utilisateurs](./media/boomi-tutorial/tutorial_boomi_002.png "Utilisateurs")
+    ![Capture d’écran montrant l’icône + sélectionnée.](./media/boomi-tutorial/tutorial_boomi_002.png "Utilisateurs")
 
-    ![Utilisateurs](./media/boomi-tutorial/tutorial_boomi_003.png "Utilisateurs")
+    ![Capture d’écran montrant la boîte de dialogue Add/Maintain User Roles où vous configurez un utilisateur.](./media/boomi-tutorial/tutorial_boomi_003.png "Utilisateurs")
 
     a. Dans la zone de texte **Adresse e-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple B.Simon@contoso.com.
 

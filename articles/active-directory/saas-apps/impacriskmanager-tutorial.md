@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 28b754a90b20a26d55b3c905f7cddafee4f0aa3d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4f34f8dc7ae042b48e117ebadaee1d7aa2481505
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545189"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec IMPAC Risk Manager, ef
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL d’IMPAC Risk Manager](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une valeur fournie par IMPAC
 
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec IMPAC Risk Manager, ef
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL d’IMPAC Risk Manager](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
 

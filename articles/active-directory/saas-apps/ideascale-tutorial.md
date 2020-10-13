@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547492"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Didacticiel : Intégration d’Azure Active Directory à IdeaScale
 
@@ -137,7 +137,7 @@ Pour configurer l’authentification unique Azure AD avec IdeaScale, effectuez 
 
 3. Accédez à **Security \> Single Signon Settings**.
 
-    ![Paramètres de l’authentification unique](./media/ideascale-tutorial/ic790848.png "Paramètres de l’authentification unique")
+    ![Capture d’écran montrant Single Signon Settings sélectionné dans le menu Security.](./media/ideascale-tutorial/ic790848.png "Paramètres de l’authentification unique")
 
 4. Pour **Single-Signon Type**, sélectionnez **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Pour configurer l’authentification unique Azure AD avec IdeaScale, effectuez 
 
 5. Dans la page de boîte de dialogue **Paramètres de l’authentification unique** , procédez comme suit :
 
-    ![Paramètres de l’authentification unique](./media/ideascale-tutorial/ic790850.png "Paramètres de l’authentification unique")
+    ![Capture d’écran montrant la boîte de dialogue Single Signon Settings.](./media/ideascale-tutorial/ic790850.png "Paramètres de l’authentification unique")
 
     a. Dans la zone de texte **SAML IdP Entity ID** (Identificateur d’entité du fournisseur d’identité SAML), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.
 

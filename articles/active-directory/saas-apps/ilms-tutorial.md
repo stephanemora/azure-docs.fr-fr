@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545203"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826357"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutoriel : Intégrer iLMS à Azure Active Directory
 
@@ -130,29 +130,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 2. Cliquez sur **SSO:SAML** sous l’onglet **Paramètres** pour ouvrir les paramètres SAML et effectuer les opérations suivantes :
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/1.png)
+    ![Capture d’écran montrant l’onglet de paramètres ILMS où vous pouvez sélectionner SSO: SAML.](./media/ilms-tutorial/1.png)
 
 3. Développez la section **Fournisseur de services** et copiez les valeurs **Identificateur** et **URL du point de terminaison**.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
+    ![Capture d’écran montrant les paramètres SAML où vous pouvez obtenir les valeurs.](./media/ilms-tutorial/2.png) 
 
 4. Sous la section **Fournisseur d’identité**, cliquez sur **importer les métadonnées**.
 
 5. Sélectionnez le fichier **Métadonnées de fédération** téléchargé à partir du portail Azure, à partir de la section **Certificat de signature SAML**.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Capture d’écran montrant les paramètres SAML où vous pouvez sélectionner le fichier de métadonnées.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Si vous souhaitez activer JIT pour approvisionner des comptes iLMS pour l’annulation de reconnaissance d’utilisateurs, procédez comme suit :
 
     a. Cochez **Créer un compte utilisateur non reconnu**.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Capture d’écran montrant l’option Create Un-recognized User Account.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mappez les attributs dans Azure AD avec les attributs dans iLMS. Dans la colonne d’attribut, spécifiez le nom des attributs ou la valeur par défaut.
 
     c. Accédez à l’onglet **Règles d’entreprise** et effectuez les opérations suivantes :
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+    ![Capture d’écran montrant les paramètres Business Rules, où vous pouvez entrer les informations à cette étape.](./media/ilms-tutorial/5.png)
 
     d. Cochez **Créer des régions, divisions et départements non reconnus** pour créer des régions, divisions et départements qui n’existent pas encore au moment de l’authentification unique.
 
@@ -164,7 +164,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 7. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/save.png)
+    ![Capture d’écran montrant le bouton Save.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -206,11 +206,11 @@ Si vous avez besoin de créer un utilisateur manuellement, suivez les étapes ci
 
 2. Cliquez sur **Register User** (Inscrire un utilisateur) sous l’onglet **Users** (Utilisateurs) pour ouvrir la page **Register User** (Inscrire un utilisateur).
 
-   ![Ajouter un employé](./media/ilms-tutorial/3.png)
+   ![Capture d’écran montrant l’onglet ILMS settings, où vous pouvez sélectionner Register User.](./media/ilms-tutorial/3.png)
 
 3. Dans la page **Register User** (Inscrire un utilisateur), effectuez les étapes suivantes.
 
-    ![Ajouter un employé](./media/ilms-tutorial/create_testuser_add.png)
+    ![Capture d’écran montrant la page Register User, où vous entrez les informations spécifiées.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom, par exemple Britta.
 

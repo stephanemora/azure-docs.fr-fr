@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574226"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627939"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
 Ce guide explique comment implémenter la connexion à Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel et OpenID Connect.
 
@@ -295,7 +295,7 @@ Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour pro
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -313,7 +313,7 @@ Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour pro
     ```
 
 ### <a name="more-information"></a>Informations complémentaires
-En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur ne peuvent être exécutées que si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et qu’il tente d’accéder au contrôleur, OWIN lance une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code précédent examine la liste des revendications pour des attributs utilisateur spécifiques inclus dans le jeton d’ID de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également le *ID client*, qui représente l’identifiant de l’organisation de l’utilisateur.
+En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur ne peuvent être exécutées que si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et qu’il tente d’accéder au contrôleur, OWIN lance une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code précédent examine la liste des revendications pour des attributs utilisateur spécifiques inclus dans le jeton d’ID de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également l’*ID client*, qui représente l’identifiant de l’organisation de l’utilisateur.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Créer une vue pour afficher les revendications de l’utilisateur
 
@@ -427,7 +427,7 @@ Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tab
 
 |Propriété |Valeur |Description |
 |---|---|---|
-|**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur.
+|**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
 |**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur utilisé pour identifier l’utilisateur|
 |**Subject** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web|
 |**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur|

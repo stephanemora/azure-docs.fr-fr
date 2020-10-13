@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Didacticiel : Intégration d’Azure Active Directory avec FileCloud
 
@@ -130,19 +130,19 @@ Pour configurer l’authentification unique Azure AD avec FileCloud, effectuez 
 
 2. Dans le volet de navigation gauche, cliquez sur **Paramètres**. 
    
-    ![Configurer l’authentification unique côté application](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Capture d’écran montrant « Settings » mis en évidence dans le volet de navigation gauche.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Dans la section Paramètres, cliquez sur l’onglet **SSO**. 
    
-    ![Configurer l’authentification unique côté application](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Capture d’écran montrant la section « Settings » avec l’option « SSO » sélectionnée.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Dans le panneau **Single Sign On (SSO) Settings** (Paramètres d’authentification unique), sélectionnez **SAML** comme **Default SSO Type** (Type d’authentification unique par défaut).
    
-    ![Configurer l’authentification unique côté application](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Capture d’écran montrant le panneau « Single Sign On (SSO) » Settings avec « SAML » sélectionné.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. Dans la zone de texte **IdP End Point URL** (URL du point de terminaison IdP), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du Portail Azure.
 
-    ![Configurer l’authentification unique côté application](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Capture d’écran montrant la section « SAML Settings » avec « IdP End Point URL » mis en évidence.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Ouvrez votre fichier de métadonnées téléchargé dans le bloc-notes, copiez le contenu de celui-ci dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Meta Data** (métadonnées IdP) du panneau **SAML Settings** (Paramètres SAML).
 
