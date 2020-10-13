@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27b6d8ca61ed10b5c7362e089fe94d8d64164878
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893945"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743860"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, l’alimentation et le mode de connectivité de votre appareil Azure Data Box Gateway
 
@@ -53,7 +53,7 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
  
 2. Entrez le nouveau mot de passe, puis confirmez-le. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Cliquez sur **Réinitialiser**.
 
-    ![Réinitialiser le mot de passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Réinitialiser le mot de passe 2](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
 
@@ -119,7 +119,7 @@ Pour modifier le mode de l’appareil, suivez ces étapes :
  
 4. Pour exécuter l’appareil en mode déconnecté, désactivez **Gestion sur le Portail Azure**. L’appareil n’est plus gérable que sur l’interface utilisateur web locale.
 
-    ![Mode de connectivité](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Mode de connectivité 2](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Gérer la puissance
 
