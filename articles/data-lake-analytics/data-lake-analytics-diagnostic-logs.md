@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331928"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
 
@@ -26,7 +26,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
 2. Ouvrez votre compte Data Lake Analytics et sélectionnez **Journaux de diagnostic** dans la section __Surveiller__. Ensuite, sélectionnez __Activer les diagnostics__.
 
-    ![Activer les diagnostics pour collecter des journaux d’activité d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Capture d’écran montrant l’action « Journaux de diagnostic » sélectionnée et « Activer les diagnostics pour collecter les journaux suivants » en évidence.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. Dans __Paramètres de diagnostic__, entrez un __Nom__ pour cette configuration de journalisation, puis sélectionnez les options de journalisation.
 
