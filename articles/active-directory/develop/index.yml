@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: b6dfd02b11c972ae4877e45e7424d3e35f0d0874
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91801883"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91962018"
 landingContent:
 - title: À propos de la plateforme d’identités Microsoft
   linkLists:
@@ -120,23 +120,9 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Nouveautés dans la documentation
+      url: whats-new-docs.md
     - text: Vue d’ensemble de la bibliothèque Microsoft Identity Web
       url: microsoft-identity-web.md
     - text: 'Tutoriel : Blazor Server'
       url: tutorial-blazor-server.md
-    - text: 'Démarrage rapide : Protéger une API web ASP.NET Core'
-      url: quickstart-v2-aspnet-core-web-api.md
-    - text: Informations de référence sur l’API MSAL Python
-      url: /python/api/msal/
-    - text: 'Démarrage rapide : Inscrire une application (réécriture)'
-      url: quickstart-register-app.md
-    - text: 'Démarrage rapide : Exposer une API web (réécriture)'
-      url: quickstart-configure-app-expose-web-apis.md
-    - text: 'Démarrage rapide : Accéder à une API web (réécriture)'
-      url: quickstart-configure-app-access-web-apis.md
-    - text: Migrer une application Xamarin Android répartie vers MSAL.NET
-      url: msal-net-migration-android-broker.md
-    - text: Gérer les erreurs et exceptions - Android
-      url: msal-android-handling-exceptions.md
-    - text: Attributs d’extension de schéma d’annuaire dans les revendications
-      url: active-directory-schema-extensions.md

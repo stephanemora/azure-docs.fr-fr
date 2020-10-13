@@ -241,9 +241,9 @@
 - name: Résoudre les problèmes de galeries d’images partagées
   items:
     - name: Résoudre les problèmes de Shared Image Gallery – Windows
-      href: ../windows/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
     - name: Résoudre les problèmes de Shared Image Gallery – Linux
-      href: ../linux/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
 - name: Problèmes des extensions de machine virtuelle
   items:
     - name: Vue d’ensemble des extensions de machine virtuelle
