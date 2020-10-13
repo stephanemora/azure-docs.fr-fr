@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375583"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654438"
 ---
 Pour créer un projet Visual Studio pour le développement Desktop en C++, vous devez configurer les options de développement de Visual Studio, créer le projet, sélectionner l’architecture cible et installer le SDK Speech.
 
@@ -19,13 +19,13 @@ Pour commencer, vérifiez que Visual Studio est configuré correctement pour le 
 
 1. Ouvrez Visual Studio 2019 pour afficher la fenêtre **Démarrer**.
 
-   ![Fenêtre Démarrer - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Capture d’écran montrant la fenêtre « Démarrer » de Visual Studio 2019.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Sélectionnez **Continuer sans code** pour accéder à l’IDE Visual Studio.
 
 1. Dans la barre de menus de Visual Studio, sélectionnez **Outils** > **Obtenir les outils et fonctionnalités** pour ouvrir Visual Studio Installer et afficher la boîte de dialogue **Modification**.
 
-   ![Onglet Charges de travail, boîte de dialogue Modification, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Capture d’écran montrant l’onglet « Charges de travail » de la boîte de dialogue « Modification » pour « Visual Studio Installer ».](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. Sous l’onglet **Charges de travail**, sous **Windows**, recherchez la charge de travail **Développement Desktop en C++** . Si la case située en regard de cette charge de travail n’est pas déjà cochée, cochez-la.
 

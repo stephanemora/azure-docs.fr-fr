@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 06d9ea895607332c8de25176376d52987ceed7a1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212274"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317223"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Liaisons de sortie de Stockage File d’attente Azure pour Azure Functions
 
@@ -365,7 +365,7 @@ L’élément de la file d’attente en sortie est disponible via `context.bindi
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il existe deux options pour produire en sortie un message Event Hub à partir d’une fonction :
+Il existe deux options pour produire en sortie un message File d’attente à partir d’une fonction :
 
 - **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur de retour de la fonction est conservée sous la forme d’un message de Stockage File d’attente.
 
@@ -373,11 +373,11 @@ Il existe deux options pour produire en sortie un message Event Hub à partir d�
 
 # <a name="java"></a>[Java](#tab/java)
 
-Il existe deux options pour produire en sortie un message Event hub à partir d’une fonction en utilisant l’annotation [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+Il existe deux options pour produire en sortie un message File d’attente à partir d’une fonction en utilisant l’annotation [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
 
-- **Valeur de retour** : En appliquant l’annotation à la fonction elle-même, la valeur de retour de la fonction est conservée sous la forme d’un message Event Hub.
+- **Valeur de retour** : En appliquant l’annotation à la fonction elle-même, la valeur renvoyée de la fonction est conservée sous la forme d’un message File d’attente.
 
-- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), où `T` est un POJO ou n’importe quel type Java natif. Avec cette configuration, le passage d’une valeur à la méthode `setValue` rend la valeur persistante en tant que message Event Hub.
+- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), où `T` est un POJO ou n’importe quel type Java natif. Avec cette configuration, le passage d’une valeur à la méthode `setValue` rend la valeur persistante en tant que message File d’attente.
 
 ---
 

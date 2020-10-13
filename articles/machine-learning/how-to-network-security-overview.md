@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893176"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825512"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -70,7 +70,7 @@ Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les
 
 1. Créez un [espace de travail avec Private Link activé](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) pour activer la communication entre votre réseau virtuel et votre espace de travail.
 1. Ajoutez Azure Key Vault au réseau virtuel avec un [point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md) ou un [point de terminaison privé](../key-vault/general/private-link-service.md). Définissez le Key Vault sur [« Autoriser les services Microsoft approuvés à contourner ce pare-feu »](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Ajoutez votre compte de stockage Azure au réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) ou un [point de terminaison privé](../storage/common/storage-private-endpoints.md).
+1. Ajoutez votre compte de stockage Azure au réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Configurez Azure Container Registry de manière à utiliser un point de terminaison privé](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) et [activez la délégation de sous-réseau dans Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagramme d’architecture représentant la manière dont l’espace de travail et les ressources associées communiquent entre eux par le biais des points de terminaison de service ou privés au sein d’un réseau virtuel](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -80,10 +80,8 @@ Retrouvez les instructions détaillées relatives à cette procédure dans l’a
 ### <a name="limitations"></a>Limites
 
 La sécurisation de votre espace de travail et des ressources associées dans un réseau virtuel présente les limitations suivantes :
-- Workspace Private Link est disponible uniquement dans les régions suivantes : USA Est, USA Ouest 2, USA Centre Sud
-    - Cette limitation ne s’applique pas aux ressources associées. Par exemple, vous pouvez activer le réseau virtuel pour le stockage dans n’importe quelle région Azure Machine Learning.
+- L’utilisation d’un espace de travail Azure Machine Learning avec un lien privé n’est pas disponible dans les régions Azure Government ou Azure China 21Vianet.
 - Toutes les ressources doivent se trouver derrière le même réseau virtuel. Toutefois, des sous-réseaux peuvent être utilisés au sein d’un même réseau virtuel.
-- Certaines fonctionnalités studio telles que le concepteur, AutoML, l’étiquetage et le profilage de données ne peuvent pas être utilisées avec des comptes de stockage configurés pour utiliser un point de terminaison privé. Si vous devez utiliser ces fonctionnalités studio, utilisez des points de terminaison de service.
 
 ## <a name="secure-the-training-environment"></a>Sécuriser l’environnement d’entraînement
 
@@ -143,23 +141,29 @@ Le diagramme de réseau suivant représente un espace de travail Azure Machine L
 
 [Sécuriser l’espace de travail](#secure-the-workspace-and-associated-resources) > [Sécuriser l’environnement d’entraînement](#secure-the-training-environment) > [Sécuriser l’environnement d’inférence](#secure-the-inferencing-environment) > **Activer la fonctionnalité studio** > [Configurer les paramètres du pare-feu](#configure-firewall-settings)
 
-Bien que le studio puisse accéder aux données d’un compte de stockage configuré avec un point de terminaison de service, certaines fonctionnalités sont désactivées par défaut :
+Si votre stockage se trouve dans un réseau virtuel, vous devez d’abord effectuer des étapes de configuration supplémentaires pour activer toutes les fonctionnalités dans [le studio](overview-what-is-machine-learning-studio.md). Par défaut, les fonctionnalités suivantes sont désactivées :
 
 * Aperçu des données dans Studio
 * Visualisation des données dans le concepteur
 * Envoi d’une expérience AutoML
 * Démarrage d’un projet d’étiquetage
 
-Pour activer toutes les fonctionnalités lors de l’utilisation d’un point de terminaison de service de stockage, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Le studio ne prend pas en charge les points de terminaison privés pour le moment.
+Pour activer toute la fonctionnalité studio dans un réseau virtuel, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Le studio prend en charge les comptes de stockage à l’aide de points de terminaison de service ou de points de terminaison privés.
 
 ### <a name="limitations"></a>Limites
-- Le studio ne peut pas accéder aux données des comptes de stockage configurés pour utiliser des points de terminaison privés. Pour bénéficier de l’ensemble des fonctionnalités, vous devez utiliser des points de terminaison de service pour le stockage ainsi qu’une identité gérée.
+- [L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Notez que le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
 
 ## <a name="configure-firewall-settings"></a>Configurer les paramètres de pare-feu
 
 Configurez votre pare-feu pour contrôler l’accès aux ressources de votre espace de travail Azure Machine Learning et à l’Internet public. Bien que le Pare-feu Azure soit recommandé, vous devriez pouvoir utiliser d’autres produits de pare-feu pour sécuriser votre réseau. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
 
 Pour plus d’informations sur les paramètres de pare-feu, consultez [Utiliser un espace de travail derrière un pare-feu](how-to-access-azureml-behind-firewall.md).
+
+## <a name="custom-dns"></a>Système DNS personnalisé
+
+Si vous devez utiliser une solution DNS personnalisée pour votre réseau virtuel, vous devez ajouter des enregistrements d’hôte pour votre espace de travail.
+
+Pour plus d’informations sur les noms de domaine et les adresses IP requis, consultez [Comment utiliser un espace de travail avec un serveur DNS personnalisé](how-to-custom-dns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -168,4 +172,4 @@ Cet article fait partie d’une série en quatre parties sur les réseaux virtue
 * [Partie 2 : Vue d’ensemble des réseaux virtuels](how-to-secure-workspace-vnet.md)
 * [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Partie 5 : Activer la fonctionnalité studio](how-to-enable-studio-virtual-network.md)
+* [Partie 5 : Activer la fonctionnalité Studio](how-to-enable-studio-virtual-network.md)

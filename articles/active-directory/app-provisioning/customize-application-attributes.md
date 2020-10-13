@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266698"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -316,6 +316,7 @@ Cette option entraîne une resynchronisation forcée de tous les utilisateurs pe
 - Le service d’approvisionnement Azure AD ne prend pas en charge l’approvisionnement de valeurs Null.
 - Leur clé primaire, en général « ID », ne doit pas être incluse en tant qu’attribut cible dans vos mappages d’attributs. 
 - L’attribut role doit généralement être mappé à l’aide d’une expression, au lieu d’un mappage direct. Pour plus d’informations sur le mappage de rôle, consultez la section ci-dessus. 
+- Vous pouvez désactiver des groupes de vos mappages, mais la désactivation des utilisateurs n’est pas prise en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
