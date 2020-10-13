@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537735"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760777"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutoriel : Intégrer Adaptive Insights à Azure Active Directory
 
@@ -99,7 +99,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 2. Accédez à **Administration**.
 
-    ![Administrateur](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+    ![Capture d’écran mettant en évidence Administration dans le volet de navigation.](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. Dans la section **Utilisateurs et rôles**, cliquez sur **Gérer les paramètres d’authentification unique SAML**.
 

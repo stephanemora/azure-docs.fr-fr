@@ -2,18 +2,17 @@
 title: 'Tutoriel : Nouvelle affectation de stratégie avec le portail Azure'
 description: Dans ce tutoriel, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321864"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826588"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutoriel : Créer une affectation de stratégie pour identifier les ressources non conformes
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources.
-Ce tutoriel vous guide tout au long du processus de création d’une affectation de stratégie pour identifier vos machines Serveurs avec Azure Arc, puis identifier les machines avec Azure Arc sur lesquelles n’est pas installé l’agent Log Analytics.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Azure Policy prend en charge l’audit de l’état de votre serveur activé pour Arc avec des stratégies de configuration d’invité. Les stratégies de configuration d’invité ne s’appliquent pas aux configurations : elles auditent seulement les paramètres à l’intérieur de la machine. Ce tutoriel vous guide tout au long du processus de création et d’affectation d’une stratégie, en identifiant les serveurs activés pour Arc où l’agent Log Analytics n’est pas installé.
 
 À la fin de ce processus, vous identifierez correctement les machines sur lesquelles l’agent Log Analytics pour Windows ou Linux n’est pas installé. Elles sont _non conformes_ à l’attribution de stratégie.
 
@@ -23,7 +22,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce tutoriel, vous créez une attribution de stratégie et affectez la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+Dans ce tutoriel, vous créez une affectation de stratégie et vous affectez la définition de stratégie _\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux_.
 
 1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 

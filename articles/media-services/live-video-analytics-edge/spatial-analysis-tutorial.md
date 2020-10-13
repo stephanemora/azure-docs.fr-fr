@@ -3,12 +3,12 @@ title: Analyser des flux vidéo en direct avec le service Vision par ordinateur 
 description: Ce didacticiel explique comment utiliser Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 98ee57d4916ac0a8da8b48a9cdd881468b2d75d5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929654"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824130"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
 
@@ -21,7 +21,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > * Examinez le code.
 > * Exécuter l’exemple de code.
 > * Analyser des événements.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée
@@ -64,21 +64,14 @@ Vous devez créer une ressource Azure de type Vision par ordinateur sur le [Port
 
 ### <a name="gathering-required-parameters"></a>Collecte des paramètres requis
 
-Il existe trois paramètres principaux pour tous les conteneurs de Cognitive Services requis, y compris le conteneur d’analyse spatiale. Le contrat de licence utilisateur final (CLUF) doit être présent et avoir été accepté. En outre, une URL de point de terminaison et une clé API sont nécessaires.
+Il existe trois paramètres principaux pour tous les conteneurs de Cognitive Services requis, y compris le conteneur d’analyse spatiale. Le contrat de licence utilisateur final (CLUF) doit être présent et avoir été accepté. Par ailleurs, un URI de point de terminaison et une clé API sont nécessaires.
 
-### <a name="endpoint-uri-endpoint_uri"></a>URI de point de terminaison {ENDPOINT_URI}
+### <a name="keys-and-endpoint-uri"></a>Clés et URI de point de terminaison
 
-La valeur URI de point de terminaison est disponible sur la page Vue d’ensemble du portail Azure de la ressource Cognitive Services. Accédez à la page Vue d’ensemble et recherchez l’URI de point de terminaison. 
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Clés et point de terminaison":::
-
-### <a name="keys-api_key"></a>Clés {API_KEY}
-
-Cette clé est utilisée pour démarrer le conteneur d’analyse spatiale et est disponible sur la page Clés de la ressource Cognitive Services correspondante sur le portail Azure. Accédez à la page Clés, puis recherchez les clés.
+Une clé est utilisée pour démarrer le conteneur d’analyse spatiale ; elle est disponible dans la page `Keys and Endpoint` de la ressource Cognitive Services correspondante sur le portail Azure. Accédez à cette page et recherchez les clés et l’URI de point de terminaison.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/endpoint-uri.png" alt-text="URI de point de terminaison":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
 
 ## <a name="set-up-azure-stack-edge"></a>Configurer Azure Stack Edge
 
@@ -100,7 +93,7 @@ Suivez [ces étapes](https://docs.microsoft.com/azure/databox-online/azure-stack
     
     ```json
     {
-        "IoThubConnectionString" : " HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>”,
+        "IoThubConnectionString" : "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
         "deviceId" : "<your Azure Stack Edge name>",
         "moduleId" : "lvaEdge"
     } 
@@ -125,271 +118,9 @@ Suivez [ces étapes](https://docs.microsoft.com/azure/databox-online/azure-stack
     
 ## <a name="set-up-deployment-template"></a>Configurer un modèle de déploiement  
 
-Ajoutez le module d’analyse spatiale dans le fichier /src/edge/deployment.template.json. Le modèle contient le module lvaEdge, le module rtspsim et notre module d’analyse spatiale.
+Recherchez le fichier de déploiement dans /src/edge/deployment.spatialAnalysis.template.json. Le modèle contient le module lvaEdge, le module rtspsim et notre module d’analyse spatiale.
 
-<p>
-<details>
-<summary>Développez-le et reportez-vous à notre exemple de modèle de déploiement.  
-Copiez le contenu à partir de cet emplacement et collez-le dans votre fichier /src/edge/deployment.template.json.
-</summary>
-<pre><code>
-{
-  "$schema-template": "2.0.0",
-  "modulesContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {
-            }
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
-            "type": "docker",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-              "createOptions": {}
-            }
-          },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": {
-                "HostConfig": {
-                  "PortBindings": {
-                    "5671/tcp": [
-                      {
-                        "HostPort": "5671"
-                      }
-                    ],
-                    "8883/tcp": [
-                      {
-                        "HostPort": "8883"
-                      }
-                    ],
-                    "443/tcp": [
-                      {
-                        "HostPort": "443"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "modules": {
-          "lvaEdge": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/media/live-video-analytics:1",
-              "createOptions": {
-                "HostConfig": {
-                  "LogConfig": {
-                    "Type": "",
-                    "Config": {
-                      "max-size": "10m",
-                      "max-file": "10"
-                    }
-                  },
-                  "Binds": [
-                    "$OUTPUT_VIDEO_FOLDER_ON_DEVICE:/var/media/",
-                    "$APPDATA_FOLDER_ON_DEVICE:/var/lib/azuremediaservices"
-                  ],
-                  "IpcMode": "host",
-                  "ShmSize": 1536870912
-                }
-              }
-            },
-            "env": {
-              "IS_DEVELOPER_ENVIRONMENT": {
-                "value": "true"
-              }
-            }
-          },
-          "rtspsim": {
-              "version": "1.0",
-              "type": "docker",
-              "status": "running",
-              "restartPolicy": "always",
-              "settings": {
-                "image": "mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2",
-                "createOptions": {
-                  "HostConfig": {
-                    "Mounts": [
-                      {
-                        "Target": "/live/mediaServer/media",
-                        "Source": "lvaspatialanalysislocal",
-                        "Type": "volume"
-                      }
-                    ],
-                    "PortBindings": {
-                      "554/tcp": [
-                        {
-                          "HostPort": "554"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-          "spatialAnalysis": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azure-cognitive-services/spatial-analysis:1.0",
-              "createOptions": {
-                "HostConfig": {
-                  "PortBindings": {
-                    "50051/tcp": [
-                      {
-                        "HostPort": "50051"
-                      }
-                    ]
-                  },
-                  "IpcMode": "host",
-                  "Binds": [
-                      "/tmp/.X11-unix:/tmp/.X11-unix"
-                  ],
-                  "Runtime": "nvidia",
-                  "ShmSize": 536870911,
-                  "LogConfig": {
-                      "Type": "json-file",
-                      "Config": {
-                          "max-size": "10m",
-                          "max-file": "200"
-                      }
-                  }
-                }
-              }
-            },
-            "env": {
-              "DISPLAY": {
-                "value": ":0"
-              },
-              "ARCHON_SHARED_BUFFER_LIMIT": {
-                "value": "377487360"
-              },
-              "ARCHON_PERF_MARKER": {
-                "value": "false"
-              },
-              "QT_X11_NO_MITSHM": {
-                "value": "1"
-              },
-              "OMP_WAIT_POLICY": {
-                "value": "PASSIVE"
-              },
-              "EULA": {
-                "value": "accept"
-              },
-              "BILLING_ENDPOINT": {
-                "value": "<Use one key from Archon azure resource (keys page)>"
-              },
-              "API_KEY": {
-                "value": "<Use endpoint from Archon azure resource (overview page)>"
-              }
-            }
-          }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {
-          "LVAToHub": "FROM /messages/modules/lvaEdge/outputs/* INTO $upstream"
-        },
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
-        }
-      }
-    },
-    "lvaEdge": {
-      "properties.desired": {
-        "applicationDataDirectory": "/var/lib/azuremediaservices",
-        "azureMediaServicesArmId": "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/microsoft.media/mediaservices/$AMS_ACCOUNT",
-        "aadTenantId": "$AAD_TENANT_ID",
-        "aadServicePrincipalAppId": "$AAD_SERVICE_PRINCIPAL_ID",
-        "aadServicePrincipalSecret": "$AAD_SERVICE_PRINCIPAL_SECRET",
-        "aadEndpoint": "https://login.microsoftonline.com",
-        "aadResourceId": "https://management.core.windows.net/",
-        "armEndpoint": "https://management.azure.com/",
-        "diagnosticsEventsOutputName": "AmsDiagnostics",
-        "operationalEventsOutputName": "AmsOperational",        
-        "logLevel": "Info",
-        "logCategories": "Application,Events,MediaPipeline",
-        "allowUnsecuredEndpoints": true,
-        "telemetryOptOut": false
-      }
-    },
-    "spatialAnalysis": {
-      "properties.desired": {
-        "globalSettings": {
-          "PlatformTelemetryEnabled": true,
-          "CustomerTelemetryEnabled": true
-        },
-        "graphs": {
-            "polygonCross": {
-              "version": 2,
-              "enabled": true,
-              "platformloglevel": "info",
-              "operationId": "cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics",
-              "parameters": {
-                  "BINDING_ADDRESS": "0.0.0.0:50051",
-                  "DETECTOR_NODE_CONFIG": "{ \"show_debug_video\": false, \"gpu_index\": 0 }",
-                  "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"polygon0\",\"polygon\":[[0,0],[0.6,0],[0.6,0.9],[0,0.9],[0,0]],\"threshold\":50,\"events\":[{\"type\":\"enter/exit\",\"config\":{\"trigger\":\"event\"}}]}]}"
-              },
-              "nodesloglevel": "info"
-            },
-            "personCount": {
-              "version": 2,
-              "enabled": false,
-              "platformloglevel": "info",
-              "operationId": "cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics",
-              "parameters": {
-                  "BINDING_ADDRESS": "0.0.0.0:50051",
-                  "DETECTOR_NODE_CONFIG": "{ \"show_debug_video\": false, \"gpu_index\": 0 }",
-                  "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"polygon0\",\"polygon\":[[0.8,0],[1,0],[1,1],[0.8,1],[0.8,0]],\"threshold\":50,\"events\":[{\"type\":\"count\",\"config\":{\"trigger\":\"event\"}}]}]}"
-              },
-              "nodesloglevel": "info"
-            },
-            "personDistance": {
-              "version": 2,
-              "enabled": false,
-              "platformloglevel": "info",
-              "operationId": "cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics",
-              "parameters": {
-                  "BINDING_ADDRESS": "0.0.0.0:50051",
-                  "DETECTOR_NODE_CONFIG": "{ \"show_debug_video\": false, \"gpu_index\": 0,\"gpu_index\": 0,\"do_calibration\": true}",
-                  "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\": \"distance_zone\", \"polygon\": [[0,0],[0,1],[1,1],[1,0],[0,0]],\"threshold\": 35.00,\"events\":[{\"type\": \"people_distance\",\"config\":{\"trigger\": \"event\",\"output_frequency\":1,\"minimum_distance_threshold\":6.0,\"maximum_distance_threshold\":35.0}}]}]}"
-              },
-              "nodesloglevel": "info"
-            }
-        }
-      }
-    }
-  }
-}
-</code>
-</pre>
-</details>
-</p>
-
-Tenez bien compte des conditions suivantes :
+Il y a plusieurs éléments auxquels vous devez faire attention dans le fichier de modèle de déploiement :
 
 1. Définissez la liaison de ports.
     
@@ -402,12 +133,11 @@ Tenez bien compte des conditions suivantes :
         ]
     },
     ```
-1. Le paramètre IpcMode dans le module lvaEdge et le paramètre createOptions dans le module d’analyse spatiale doivent être identiques et être définis sur l’hôte.
-1. Votre fichier de modèle de déploiement doit contenir le terme « deployment » dans le nom de fichier ; dans le cas contraire, il ne sera pas reconnu et ne pourra pas générer le manifeste nécessaire au déploiement.
+1. Le paramètre `IpcMode` dans le module lvaEdge et le paramètre createOptions dans le module d’analyse spatiale doivent être identiques et être définis sur l’hôte.
 1. Pour que le simulateur RTSP fonctionne, assurez-vous que vous avez configuré le paramètre Volume Bounds. Pour plus d’informations, consultez la page [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts) (Configurer les montages de volumes Docker).
 
-    1. [Connectez-vous au partage SMB](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) et copiez le [fichier vidéo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.
-    1. Vérifiez que le module rtspsim contient les éléments suivants :
+    1. [Connectez-vous au partage SMB](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.
+    1. Vérifiez que le module rtspsim présente la configuration suivante :
         
         ```json
         "createOptions": {
@@ -439,17 +169,17 @@ Effectuez les étapes suivantes pour générer le manifeste à partir du fichier
 1. En regard du volet AZURE IOT HUB, sélectionnez l’icône Autres actions pour définir la chaîne de connexion IoT Hub. Vous pouvez copier la chaîne à partir du fichier src/cloud-to-device-console-app/appsettings.json.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Analyse spatiale : chaîne de connexion":::
-1. Cliquez avec le bouton droit sur src/edge/deployment.template.json, puis sélectionnez Générez un manifeste de déploiement IoT Edge.
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+1. Cliquez avec le bouton droit sur `src/edge/deployment.spatialAnalysis.template.json` et sélectionnez Générer le manifeste de déploiement IoT Edge.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Analyse spatiale : fichier json amd64 de déploiement":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
     
     Cette action doit créer un fichier manifeste nommé deployment.amd64.json dans le dossier src/edge/config.
-1. Cliquez avec le bouton droit sur src/edge/config/deployment.amd64.json, sélectionnez Créer un déploiement pour un seul appareil, puis sélectionnez le nom de votre appareil de périphérie.
+1. Cliquez avec le bouton droit sur `src/edge/config/deployment.spatialAnalysis.amd64.json`, sélectionnez Créer un déploiement pour un seul appareil, puis sélectionnez le nom de votre périphérique.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Analyse spatiale : fichier json du modèle de déploiement":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Vue d’ensemble de l’analyse spatiale":::   
 1. Quand vous êtes invité à sélectionner un appareil IoT Hub, choisissez le nom de votre instance Azure Stack Edge dans le menu déroulant.
 1. Après environ 30 secondes, dans l’angle en bas à gauche de la fenêtre, actualisez Azure IoT Hub. L’appareil de périphérie affiche maintenant les modules déployés suivants :
     
@@ -470,30 +200,40 @@ Vous pouvez ensuite rechercher les modules `lvaEdge`, `rtspsim`, `spatialAnalysi
 
 Pour voir ces événements, effectuez les étapes suivantes :
 
-1. Ouvrez le volet Explorateur dans Visual Studio Code, puis recherchez Azure IoT Hub dans l’angle inférieur gauche.
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+1. Ouvrez le volet Explorateur, puis recherchez Azure IoT Hub dans l’angle inférieur gauche.
 1. Développez le nœud Appareils.
 1. Cliquez avec le bouton droit sur votre instance Azure Stack Edge et sélectionnez Start Monitoring Built-in Event Endpoint (Démarrer la surveillance du point de terminaison d’événements intégré).
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Analyse spatiale : démarrer l’analyse":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
      
 ## <a name="run-the-program"></a>Exécuter le programme
 
-Il existe un fichier program.cs qui permet d’appeler les méthodes directes dans src/cloud-to-device-console-app/operations.json. Nous devons configurer operations.json et fournir une topologie pour l’utilisation de Media Graph.
+Il existe un fichier program.cs qui permet d’appeler les méthodes directes dans src/cloud-to-device-console-app/operations.json. Nous devons configurer operations.json et fournir une topologie pour l’utilisation de Media Graph.  
+
 Dans operations.json :
 
-Définissez la topologie comme suit (topologyFile pour la topologie locale, topologyUrl pour la topologie en ligne) :
+* Définissez la topologie comme suit (topologyFile pour la topologie locale, topologyUrl pour la topologie en ligne) :
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysistopology.json"
+        "topologyFile": "../edge/spatialAnalysisTopology.json"
     }
 },
 ```
 
-Créer une instance Graph comme suit, en définissant ici les paramètres de la topologie :
+* Créer une instance Graph comme suit, en définissant ici les paramètres de la topologie :
 
 ```json
 {
@@ -521,167 +261,20 @@ Créer une instance Graph comme suit, en définissant ici les paramètres de la 
     }
 },
 ```
+* Changez le lien vers la topologie de graphe :
 
-<p>
-<details>
-<summary>Développez pour voir l’exemple de fichier de topologie obtenu pour le module spatialAnalysis :
-</summary>
-<pre><code>
-{
-    "@apiVersion": "1.0",
-    "name": "InferencingWithCVExtension",
-    "properties": {
-      "description": "Analyzing live video using spatialAnalysis Extension to send images to an external inference engine",
-      "parameters": [
-        {
-          "name": "rtspUserName",
-          "type": "String",
-          "description": "rtsp source user name.",
-          "default": "dummyUserName"
-        },
-        {
-          "name": "rtspPassword",
-          "type": "String",
-          "description": "rtsp source password.",
-          "default": "dummyPassword"
-        },
-        {
-          "name": "rtspUrl",
-          "type": "String",
-          "description": "rtsp Url"
-        },
-        {
-          "name": "grpcUrl",
-          "type": "String",
-          "description": "inferencing Url",
-          "default": "tcp://spatialAnalysis:50051"
-        },
-        {
-          "name": "frameRate",
-          "type": "String",
-          "description": "Rate of the frames per second to be received from LVA.",
-          "default": "2"
-        },
-        {
-          "name": "spatialanalysisusername",
-          "type": "String",
-          "description": "spatialanalysis endpoint username",
-          "default": "not-in-use"
-        },
-        {
-          "name": "spatialanalysispassword",
-          "type": "String",
-          "description": "spatialanalysis endpoint password",
-          "default": "not-in-use"  
-        }
-      ],
-      "sources": [
-        {
-          "@type": "#Microsoft.Media.MediaGraphRtspSource",
-          "name": "rtspSource",
-          "transport": "tcp",
-          "endpoint": {
-            "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-            "url": "${rtspUrl}",
-            "credentials": {
-              "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${rtspUserName}",
-              "password": "${rtspPassword}"
-            }
-          }
-        }
-      ],
-      "processors": [
-        {
-          "@type": "#Microsoft.Media.MediaGraphFrameRateFilterProcessor",
-          "name": "frameRateFilter",
-          "inputs": [
-            {
-              "nodeName": "rtspSource"
-            }
-          ],
-          "maximumFps": "${frameRate}"
-        },
-        {
-          "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
-          "name": "computerVisionExtension",
-          "endpoint": {
-            "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-            "url": "${grpcUrl}",
-            "credentials": {
-              "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${spatialanalysisusername}",
-              "password": "${spatialanalysispassword}"
-            }
-          },
-          "image": {
-            "scale": {
-              "mode": "pad",
-              "width": "1408",
-              "height": "786"
-            },
-            "format": {
-              "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-              "pixelFormat": "bgr24"
-            }
-          },
-          "inputs": [
-            {
-              "nodeName": "frameRateFilter"
-            }
-          ]
-        },
-        {
-            "@type": "#Microsoft.Media.MediaGraphSignalGateProcessor",
-            "name": "signalGateProcessor",
-            "inputs": [
-              {
-                "nodeName": "computerVisionExtension"
-              },
-              {
-                "nodeName": "rtspSource"
-              }
-            ],
-            "activationEvaluationWindow": "PT1S",
-            "activationSignalOffset": "PT0S",
-            "minimumActivationTime": "PT30S",
-            "maximumActivationTime": "PT30S"
-          }
-      ],
-      "sinks": [
-        {
-            "@type": "#Microsoft.Media.MediaGraphAssetSink",
-            "name": "assetSink",
-            "assetNamePattern": "sampleAssetFromEVR-CV-LVAEdge-${System.DateTime}",
-            "segmentLength": "PT30S",
-            "LocalMediaCacheMaximumSizeMiB": "200",
-            "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
-            "inputs": [
-                {
-                    "nodeName": "signalGateProcessor"
-                }
-            ]
-        },
-        {
-          "@type": "#Microsoft.Media.MediaGraphIoTHubMessageSink",
-          "name": "hubSink",
-          "hubOutputName": "inferenceOutput",
-          "inputs": [
-            {
-              "nodeName": "computerVisionExtension"
-            }
-          ]
-        }
-      ]
-    }
-  }
-</code>
-</pre>
-</details>
-</p>
+`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
 
+Sous **GraphInstanceSet**, modifiez le nom de la topologie de graphe pour qu’il corresponde à la valeur du lien précédent :
 
-Utilisez MediaGraphRealTimeComputerVisionExtension pour vous connecter au module d’analyse spatiale. Définissez le paramètre ${grpcUrl} dans tcp://spatialAnalysis:<PORT_NUMBER>, c’est-à-dire tcp://spatialAnalysis:50051
+`topologyName` : InferencingWithCVExtension
+
+Sous **GraphTopologyDelete**, modifiez le nom :
+
+`name` : InferencingWithCVExtension
+
+>[!Note]
+Renseignez-vous sur l’utilisation de MediaGraphRealTimeComputerVisionExtension pour vous connecter avec le module d’analyse spatiale. Définissez le paramètre ${grpcUrl} sur **tcp://spatialAnalysis:<NUMÉRO_PORT>** , c’est-à-dire tcp://spatialAnalysis:50051
 
 ```json
 {
@@ -786,7 +379,7 @@ Exemple de sortie pour personZoneEvent (à partir de l’opération cognitiveser
 
 Essayez les différentes opérations qu’offre le module `spatialAnalysis`, par exemple **personCount** et **personDistance** en basculant l’indicateur « enabled » dans le nœud graphique de votre fichier manifeste de déploiement.
 >[!Tip]
-> Utilisez un [fichier vidéo](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv) qui présente plusieurs personnes dans une image.
+> Utilisez un [exemple de fichier vidéo](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv) qui présente plusieurs personnes dans l’image.
 
 > [!NOTE]
 > Vous ne pouvez exécuter qu’une seule opération à la fois. Veillez donc à ce qu’un seul indicateur soit défini sur **true** et que les autres soient définis sur **false**.

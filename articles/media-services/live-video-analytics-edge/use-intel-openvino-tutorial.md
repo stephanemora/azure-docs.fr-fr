@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fou
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906606"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776338"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
 
@@ -141,33 +141,15 @@ Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélect
 ### <a name="run-the-sample-program-to-detect-vehicles"></a>Exécuter l’exemple de programme pour détecter les véhicules
 Si vous ouvrez la [topologie de graphe](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json) de ce tutoriel dans un navigateur, vous constaterez que la valeur de `inferencingUrl` a été définie sur `http://openvino:4000/vehicleDetection`, ce qui signifie que le serveur d’inférence retournera les résultats après la détection des véhicules, le cas échéant, dans la vidéo en direct.
 
-1. Pour démarrer une session de débogage, appuyez sur la touche F5. Des messages s’affichent dans la fenêtre **TERMINAL**.
-1. Le code *operations.json* commence par appeler les méthodes directes `GraphTopologyList` et `GraphInstanceList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
-    La fenêtre **TERMINAL** affiche le jeu d’appels de méthode directe suivant :
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Vue d'ensemble":::
+1. Recherchez et activez « Afficher le message détaillé ».
 
-     * Un appel à `GraphTopologySet` qui utilise le `topologyUrl` précédent
-     * Un appel à `GraphInstanceSet` qui utilise le corps suivant :
-
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph-1",
-           "properties": {
-             "topologyName": "InferencingWithOpenVINO",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Vue d'ensemble"
                }
              ]
            }

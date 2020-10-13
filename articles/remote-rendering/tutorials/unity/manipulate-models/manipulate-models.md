@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018856"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653160"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 
@@ -161,7 +161,7 @@ Désormais, quand le script **RemoteBounds** est ajouté au même objet de jeu q
 
 1. Exécutez de nouveau l'application. Peu de temps après le chargement du modèle, les limites de l’objet distant s’affichent. Vous obtenez quelque chose de semblable aux valeurs ci-dessous :
 
-     ![Limites mises à jour](./media/updated-bounds.png)
+     ![Capture d’écran montrant l’exemple de limites de l’objet distant.](./media/updated-bounds.png)
 
 Nous disposons à présent d’un **BoxCollider** local configuré avec des limites précises au niveau de l’objet Unity. Les limites autorisent la visualisation et l’interaction avec les mêmes stratégies que nous utiliserions pour un objet rendu localement. Tel est le cas, par exemple, des scripts qui modifient la transformation, la physique, etc.
 

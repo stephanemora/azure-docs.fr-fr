@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531055"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Didacticiel : Intégration de Azure Active Directory à BitaBIZ
 
@@ -132,15 +132,15 @@ Pour configurer l’authentification unique Azure AD avec BitaBIZ, effectuez le
 
 2. Cliquez sur **CONFIGURATION ADMINISTRATEUR**.
 
-    ![Configuration BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Capture d’écran montrant une partie d’une fenêtre de navigateur avec Setup Admin sélectionné.](./media/bitabiz-tutorial/settings1.png)
 
 3. Cliquez sur **Intégrations Microsoft** sous la section **Ajouter une valeur**.
 
-    ![Configuration BitaBIZ](./media/bitabiz-tutorial/settings2.png)
+    ![Capture d’écran montrant Add value avec Microsoft integrations sélectionné.](./media/bitabiz-tutorial/settings2.png)
 
 4. Faites défiler jusqu’à la section **Microsoft Azure AD (activer l’authentification unique)** et procédez comme suit :
 
-    ![Configuration BitaBIZ](./media/bitabiz-tutorial/settings3.png)
+    ![Capture d’écran montrant la section Microsoft Azure AD, où vous entrez les informations décrites dans cette étape.](./media/bitabiz-tutorial/settings3.png)
 
     a. Copiez la valeur de la zone de texte **Entity ID** (« Identificateur » dans Azure AD) et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** dans le portail Azure. 
 
@@ -218,19 +218,19 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
 
 2. Cliquez sur **CONFIGURATION ADMINISTRATEUR**.
 
-    ![Ajouter un utilisateur BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Capture d’écran montrant une partie de votre fenêtre de navigateur avec Setup Admin sélectionné.](./media/bitabiz-tutorial/settings1.png)
 
 3. Cliquez sur **Ajouter des utilisateurs** sous la section **Organisation**.
 
-    ![Ajouter un utilisateur BitaBIZ](./media/bitabiz-tutorial/user1.png)
+    ![Capture d’écran montrant la section Organization avec Add users sélectionné.](./media/bitabiz-tutorial/user1.png)
 
 4. Cliquez sur **Ajouter un nouvel employé**.
 
-    ![Ajouter un utilisateur BitaBIZ](./media/bitabiz-tutorial/user2.png)
+    ![Capture d’écran montrant Add users avec Add new employee sélectionné.](./media/bitabiz-tutorial/user2.png)
 
 5. Dans la boîte de dialogue **Ajouter un nouvel employé**, effectuez les étapes suivantes :
 
-    ![Ajouter un utilisateur BitaBIZ](./media/bitabiz-tutorial/user3.png)
+    ![Capture d’écran montrant la page où vous entrez les informations décrites dans cette étape.](./media/bitabiz-tutorial/user3.png)
 
     a. Dans la zone de texte **Prénom**, tapez le prénom de l’utilisateur, par exemple Britta.
 

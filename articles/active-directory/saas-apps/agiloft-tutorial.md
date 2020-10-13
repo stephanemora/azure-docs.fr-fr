@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542953"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Didacticiel : Intégration d’Azure Active Directory avec Agiloft
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD avec Agiloft, effectuez les
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans les domaines et URL Agiloft](common/idp-intiated.png)
+    ![Capture d’écran mettant en évidence les zones de texte Identifier et Reply URL.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
@@ -150,11 +150,11 @@ Pour configurer l’authentification unique Azure AD avec Agiloft, effectuez les
 
 2. Cliquez sur **Setup** (Configurer) dans le volet gauche, puis sur **Access** (Accès).
 
-    ![Configuration d’Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Capture d’écran mettant en évidence la section Access.](./media/agiloft-tutorial/setup1.png)
 
 3. Cliquez sur le bouton permettant de **configurer l’authentification unique SAML 2.0**.
 
-    ![Configuration d’Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Capture d’écran mettant en évidence le bouton Configure SAML 2.0 Single Sign-On.](./media/agiloft-tutorial/setup2.png)
 
 4. Une boîte de dialogue d’assistant s’affiche. Dans la boîte de dialogue, cliquez sur **Identity Provider Details** (Détails du fournisseur d’identité) et renseignez les champs suivants :  
 

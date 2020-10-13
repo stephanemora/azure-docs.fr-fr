@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714695"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822276"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -47,7 +47,7 @@ Les rôles intégrés qui accordent des autorisations pour appeler des opératio
 |    Rôle Azure    |    Description    |    Inclut l’accès aux clés de compte ?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Propriétaire** | Peut gérer toutes les ressources de stockage et accéder aux ressources.  | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
-| **Contributeur**  | Peut gérer toutes les ressources de stockage, mais ne peut pas gérer l’attribution aux ressources. | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
+| **Contributeur**  | Peut gérer toutes les ressources de stockage, mais ne peut pas gérer l’accès aux ressources. | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
 | **Lecteur** | Peut voir des informations sur le compte de stockage, mais ne peut pas voir les clés de compte. | Non. |
 | **Contributeur de compte de stockage** | Peut gérer le compte de stockage, obtenir des informations sur les ressources et les groupes de ressources de l’abonnement, et créer et gérer les déploiements des groupes de ressources de l’abonnement. | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
 | **Administrateur de l'accès utilisateur** | Peut gérer l’accès au compte de stockage.   | Oui, permet à un principal de sécurité d’attribuer des autorisations à lui-même et à d’autres. |

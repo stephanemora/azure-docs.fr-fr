@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555108"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Didacticiel : Intégration d’Azure Active Directory à FilesAnywhere
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec FilesAnywhere, effect
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL FilesAnywhere](common/both-replyurl.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec le champ « URL de réponse » mis en évidence et le bouton « Enregistrer » sélectionné.](common/both-replyurl.png)
 
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec FilesAnywhere, effect
 
 6. L’application FilesAnywhere s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône Modifier pour ajouter les attributs.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la section « Attributs utilisateur » avec le bouton « Modifier » sélectionné.](common/edit-attribute.png)
 
     Lorsque les utilisateurs s’inscrivent avec FilesAnywhere, ils obtiennent la valeur d’attribut **clientid** auprès de [l’équipe FilesAnywhere](mailto:support@FilesAnywhere.com). Vous devez ajouter l’attribut « ID Client » avec la valeur unique fournie par FilesAnywhere.
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec FilesAnywhere, effect
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Revendications utilisateur » avec « Ajouter une nouvelle revendication » et « Enregistrer » sélectionnés.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

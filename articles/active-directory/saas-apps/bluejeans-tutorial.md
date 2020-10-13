@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 94b8a26a398ad8604a469486185d805fcbb6a8b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43189d40c57ce6c300904207edc35011b0581ecc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545401"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740445"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-    ![Administrateur](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![Capture d’écran montrant une partie d’une fenêtre de navigateur avec l’onglet Admin sélectionné, avec Group Setting et Security sélectionnés.](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. Dans la section **SECURITY**, procédez comme suit :
 
@@ -192,14 +192,14 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 2. Accédez à **ADMIN \> MANAGE USERS \> ADD USER**.
 
-    ![Administrateur](./media/bluejeans-tutorial/ic785877.png "Admin")
+    ![Capture d’écran montrant une partie d’une fenêtre de navigateur avec l’onglet Admin sélectionné, avec Manage Users et Add Users sélectionnés.](./media/bluejeans-tutorial/ic785877.png "Admin")
 
     > [!IMPORTANT]
     > L’onglet **ADD USER** est disponible seulement si, sous l’onglet **SECURITY**, l’option **Enable automatic provisioning** (Activer l’approvisionnement automatique) est décochée.
 
 3. Dans la section **ADD USER** (Ajouter un utilisateur), procédez comme suit :
 
-    ![Ajouter un utilisateur](./media/bluejeans-tutorial/ic785886.png "Ajouter un utilisateur")
+    ![Capture d’écran montrant la section Add user, où vous entrez les informations décrites dans cette étape.](./media/bluejeans-tutorial/ic785886.png "Ajouter un utilisateur")
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 
@@ -219,7 +219,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
     i. Cliquez sur **CONTINUE** (Continuer).
 
-    ![Ajouter un utilisateur](./media/bluejeans-tutorial/ic785887.png "Ajouter un utilisateur")
+    ![Capture d’écran montrant la section Add user où vous pouvez voir des paramètres et des fonctionnalités, avec le bouton Add User sélectionné.](./media/bluejeans-tutorial/ic785887.png "Ajouter un utilisateur")
 
     J. Cliquez sur**ADD USER** (Ajouter un utilisateur).
 

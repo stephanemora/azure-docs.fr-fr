@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544738"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez configurer l’authentification unique pour Answe
 
 4. Sous l’onglet **IDP Config** (Configurer le fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Onglet Users & Groups](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Capture d’écran montrant la page AnswerHub avec l’onglet Users & Groups sélectionné.](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
     a. Dans la zone **IDP Login URL** (URL de connexion du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
   
@@ -231,7 +231,7 @@ Pour autoriser les utilisateurs Azure AD à se connecter à AnswerHub, vous deve
 
 4. Dans le volet de gauche, dans la section **Manage Users** (Gérer les utilisateurs), sélectionnez **Create or import users** (Créer ou importer des utilisateurs), puis sélectionnez **Users & Groups** (Utilisateurs et groupes).
 
-   ![Onglet Users & Groups](./media/answerhub-tutorial/ic785175.png "Utilisateurs et groupes")
+   ![Capture d’écran montrant la page AnswerHub avec l’onglet Users & Groups sélectionné et le lien Create or import users activé.](./media/answerhub-tutorial/ic785175.png "Utilisateurs et groupes")
 
 5. Dans les zones appropriées, entrez les valeurs **Email address** (Adresse e-mail), **Username** (Nom d’utilisateur) et **Password** (Mot de passe) d’un compte Azure AD valide que vous souhaitez ajouter, puis sélectionnez **Save** (Enregistrer).
 

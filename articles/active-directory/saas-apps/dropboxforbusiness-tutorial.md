@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555735"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775137"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutoriel : Intégrer Dropbox Business à Azure Active Directory
 
@@ -145,27 +145,27 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Si vous voulez configurer Dropbox Business manuellement, ouvrez une nouvelle fenêtre de navigateur web, puis accédez et connectez-vous à votre locataire Dropbox Business. Effectuez les étapes suivantes :
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/ic769509.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant la page « Dropbox Business Sign in ».](./media/dropboxforbusiness-tutorial/ic769509.png "Configurer l’authentification unique")
 
 4. Cliquez sur l’**Icône Utilisateur** et sélectionnez l’onglet **Paramètres**.
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/configure1.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant l’action « USER ICON » et « Settings » sélectionnés.](./media/dropboxforbusiness-tutorial/configure1.png "Configurer l’authentification unique")
 
 5. Dans le volet de navigation gauche, cliquez sur **Console d’administration**.
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/configure2.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant « Admin console » sélectionné.](./media/dropboxforbusiness-tutorial/configure2.png "Configurer l’authentification unique")
 
 6. Dans la **Console d’administration**, cliquez sur **Paramètres** dans le volet de navigation gauche.
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/configure3.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant « Paramètres » sélectionné.](./media/dropboxforbusiness-tutorial/configure3.png "Configurer l’authentification unique")
 
 7. Sélectionnez **Authentification unique** sous la section **Authentification**.
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/configure4.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant la section « Authentication » avec l’option « Single sign-on » sélectionnée.](./media/dropboxforbusiness-tutorial/configure4.png "Configurer l’authentification unique")
 
 8. Dans la section **Authentification unique**, procédez comme suit :  
 
-    ![Configurer l’authentification unique](./media/dropboxforbusiness-tutorial/configure5.png "Configurer l’authentification unique")
+    ![Capture d’écran montrant les paramètres de configuration de « Single sign-on »](./media/dropboxforbusiness-tutorial/configure5.png "Configurer l’authentification unique").
 
     a. Sélectionnez **Requis** en tant qu’option dans la liste déroulante de l’**Authentification unique**.
 

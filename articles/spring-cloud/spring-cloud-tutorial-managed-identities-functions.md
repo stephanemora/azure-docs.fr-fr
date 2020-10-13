@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 6538022e7ada748f828f6d57dde73b5e12da84c9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108314"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664985"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutoriel : Utiliser une identité managée pour appeler Azure Functions à partir d’une application Azure Spring Cloud
 
@@ -91,7 +91,7 @@ Par défaut, les fonctions utilisent l’authentification basée sur les clés p
 }
 ```
 
-L’application peut maintenant être publiée dans l’instance d’application de fonction créée à l’étape précédente.
+L’application peut maintenant être publiée dans l’instance d’[application de fonction](#create-a-function-app) créée à l’étape précédente.
 
 ```console
 func azure functionapp publish <your-functionapp-name>

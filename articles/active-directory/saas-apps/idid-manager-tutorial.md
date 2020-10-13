@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e656eb0062cafcf7a34008e0034ec0111242807d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ddc4e040824a7239aecbb24fc90123a88dc4e263
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545312"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutoriel : Intégration d’Azure Active Directory à iDiD Manager
 
@@ -99,11 +99,11 @@ Pour configurer l’authentification unique Azure AD avec iDiD Manager, effectue
 
 4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
-    ![Informations d’authentification unique dans Domaine et URL iDiD Manager](common/preintegrated.png)
+    ![Capture d’écran montrant Basic SAML Configuration.](common/preintegrated.png)
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL iDiD Manager](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://idid2.fi/saml/login/<domain>`
 

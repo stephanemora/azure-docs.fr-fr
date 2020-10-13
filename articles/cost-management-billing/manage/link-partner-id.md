@@ -4,16 +4,16 @@ description: Suivez les engagements avec les clients Azure en liant les ID parte
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487349"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772717"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -43,7 +43,7 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 2. Connectez-vous au portail Azure.
 
-3. Entrez l’ID partenaire Microsoft. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation.
+3. Entrez l’ID partenaire Microsoft. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation. Vous devez utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.
 
    ![Capture d’écran qui montre l’option Lien vers un ID partenaire](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Définissez le lien vers le nouvel ID partenaire. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation.
+3. Définissez le lien vers le nouvel ID partenaire. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation. Vous devez utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifie
 
 **Quel ID MPN utiliser si ma société en possède plusieurs ?**
 
-Les comptes associés aux emplacements partenaire et les ID MPN associés doivent être utilisés pour la liaison de l’ID du partenaire.  En savoir plus sur les [comptes de partenaires](https://docs.microsoft.com/partner-center/account-structure)
+Vous devez utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.
 
 **Où trouver un rapport sur le chiffre d’affaires influencé pour l’ID de partenaire lié ?**
 
@@ -151,9 +152,9 @@ Les partenaires peuvent accéder aux rapports sur les performances des produits 
 
 Vous ne voyez pas le client dans les rapports pour les raisons suivantes
 
-1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) à un abonnement ou à une ressource Azure du client.
+1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) à un abonnement ou à une ressource Azure de client.
 
-2. L’abonnement Azure auquel l’utilisateur a [accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) n’est d’aucune utilité.
+2. L’abonnement Azure pour lequel l’utilisateur dispose de l’[accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) n’est d’aucune utilité.
 
 **L’option Lier un ID partenaire fonctionne-t-elle avec Azure Stack ?**
 

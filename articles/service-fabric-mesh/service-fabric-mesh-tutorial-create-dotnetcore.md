@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011207"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653109"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
 
@@ -59,7 +59,7 @@ Dans le champ **Nom**, saisissez `todolistapp` et dans le champ **Emplacement**,
 
 Assurez-vous que l’option **Créer un répertoire pour la solution** est activée, puis cliquez sur **OK** pour créer le projet Service Fabric mesh.
 
-![Boîte de dialogue Nouveau projet Service Fabric mesh dans Visual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Capture d’écran montrant comment créer un projet Service Fabric Mesh](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Ensuite, la boîte de dialogue **Nouveau service Service Fabric** s’affiche.
 
@@ -73,7 +73,7 @@ Définissez le champ **Nom du service** sur **WebFrontEnd**. Appuyez sur **OK** 
 
 Ensuite, vous verrez la boîte de dialogue Application web ASP.NET Core. Sélectionnez **Application web**, puis cliquez sur **OK**.
 
-![Nouvelle application de ASP.NET Core dans Visual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Capture d’écran mettant en évidence le modèle Application web](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Vous disposez désormais d’une application de maillage Service Fabric. Créez ensuite le modèle pour les informations de tâche.
 

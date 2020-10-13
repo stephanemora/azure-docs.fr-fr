@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999569"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651443"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
 
@@ -409,7 +409,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Durée de maintien 1**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 1**.
     * Sélectionnez le champ **Durée de maintien 2**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 2**.
-    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de durée de maintien** ressemble à la capture d’écran suivante : ![Action d’occupation](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de durée de maintien** ressemble à la capture d’écran suivante : ![Capture d’écran illustrant l’action « Interface de durée de maintien ».](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Sélectionnez l’action **Interface du nombre de personnes**, puis sélectionnez **Ajouter une action**.
 1. Dans **Rechercher parmi les actions et les connecteurs**, entrez **Power BI**, puis appuyez sur **Entrer**.
 1. Sélectionnez l’action **Ajouter des lignes à un jeu de données (préversion)** .
@@ -484,7 +484,7 @@ Ajoutez quatre vignettes de carte pour afficher la longueur de la file d’atten
 
 Redimensionnez et réorganisez les vignettes de votre tableau de bord pour qu’elles ressemblent à la capture d’écran suivante :
 
-![Tableau de bord Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Capture d’écran montrant le tableau de bord Power BI avec des vignettes redimensionnées et réorganisées.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Vous pouvez ajouter des ressources graphiques supplémentaires pour personnaliser davantage le tableau de bord :
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548321"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Didacticiel : Intégration d’Azure Active Directory dans BorrowBox
 
@@ -100,11 +100,11 @@ Pour configurer l’authentification unique Azure AD auprès de BorrowBox, effec
 
 4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
 
-    ![Informations d’authentification unique dans Domaine et URL [Nom de l’application]](common/preintegrated.png)
+    ![[Capture d’écran montrant Configuration SAML de base.] Informations d’authentification unique dans Domaine et URL](common/preintegrated.png)
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL [Nom de l’application]](common/metadata-upload-additional-signon.png)
+    ![[Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.] Informations d’authentification unique dans Domaine et URL](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6881681eef553dd2e21ba68a2bf722c7af1fc4a7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550841"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Didacticiel : Intégration d’Azure Active Directory à Getabstract
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Getabstract, effectuez
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Getabstract](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Basic S A M L Configuration » avec les champs « Identifier » et« Reply URL » mis en évidence, et le bouton « Save » sélectionné.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL : 
 

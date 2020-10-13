@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536425"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774122"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Deskradar
 
@@ -162,7 +162,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 1. Sous l’onglet **SAML 2.0**, effectuez les étapes suivantes :
 
-    ![Configuration de Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Capture d’écran montrant l’onglet « SAML 2.0 » avec des flèches pointant vers les champs « SAML SSD URL » et « Identifier Provider Issuer ».](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. Activez la méthode d’authentification **SAML**.
 

@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a2388a01544d2158e7ca6f1692df07b14ec03a93
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568560"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773550"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -82,23 +82,7 @@ Comme le montre le diagramme, vous allez utiliser un nœud de [source RTSP](medi
 Avant de commencer, vérifiez que vous avez bien exécuté le troisième point de la section [Prérequis](#prerequisites). Une fois le script d’installation des ressources terminé, sélectionnez les accolades pour exposer la structure du dossier. Vous verrez quelques fichiers créés sous le répertoire ~/clouddrive/lva-sample.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Paramètres de l’application":::
-
-Les fichiers qui nous intéressent dans le cadre de ce tutoriel sont les suivants :
-
-* **~/clouddrive/lva-sample/edge-deployment/.env** : Contient les propriétés que Visual Studio Code utilise pour déployer des modules sur un périphérique.
-* **~/clouddrive/lva-sample/appsettings.json** : Utilisé par Visual Studio Code pour exécuter l’exemple de code.
-
-Vous aurez besoin de ces fichiers pour ces étapes.
-
-1. Clonez le dépôt à partir du lien GitHub https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
-1. Démarrez Visual Studio Code et ouvrez le dossier dans lequel vous avez téléchargé le dépôt.
-1. Dans Visual Studio Code, accédez au dossier src/cloud-to-device-console-app et créez un fichier nommé **appsettings.json**. Ce fichier contient les paramètres nécessaires à l’exécution du programme.
-1. Copiez le contenu du fichier ~/clouddrive/lva-sample/appsettings.json. Le texte doit ressembler à l’exemple suivant :
-
-    ```
-    {  
-        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Graphe multimédia" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
         "deviceId" : "lva-sample-device",  
         "moduleId" : "lvaEdge"  
     }
@@ -155,7 +139,7 @@ Le manifeste de déploiement définit les modules qui sont déployés sur un pé
 À l’aide de Visual Studio Code, suivez [ces instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) pour vous connecter à Docker. Sélectionnez ensuite **Créer et envoyer (push) la solution IoT Edge**. Utilisez src/edge/deployment.objectCounter.template.json pour cette étape.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Créer et envoyer (push) la solution IoT Edge":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Graphe multimédia":::
 
 Cette action permet de créer le module objectCounter pour le comptage des objets et d’envoyer (push) l’image à Azure Container Registry.
 
@@ -164,7 +148,7 @@ Cette action permet de créer le module objectCounter pour le comptage des objet
 Cette étape permet de créer le manifeste de déploiement IoT Edge dans src/edge/config/deployment.objectCounter.amd64.json. Cliquez avec le bouton droit sur ce fichier, puis sélectionnez **Créer un déploiement pour un seul appareil**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Créer un déploiement pour un seul appareil":::
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Graphe multimédia":::
 
 S’il s’agit de votre premier tutoriel avec Live Video Analytics sur IoT Edge, Visual Studio Code vous invite à entrer la chaîne de connexion IoT Hub. Vous pouvez copier la chaîne à partir du fichier appsettings.json.
 
@@ -174,7 +158,7 @@ Visual Studio Code vous demande ensuite de sélectionner un appareil IoT Hub. S
 Après environ 30 secondes, actualisez Azure IoT Hub dans la section inférieure gauche de Visual Studio Code. Vous devez y voir quatre modules déployés nommés lvaEdge, rtspsim, yolov3 et objectCounter.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Quatre modules déployés":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Graphe multimédia":::
 
 ## <a name="prepare-for-monitoring-events"></a>Préparez-vous à des événements de supervision
 
@@ -185,62 +169,19 @@ Pour voir les événements du module objectCounter et du module Live Video Analy
 1. Cliquez avec le bouton droit sur le fichier lva-sample-device, puis sélectionnez **Démarrer la supervision du point de terminaison d’événement intégré**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Démarrer la supervision du point de terminaison d’événement intégré":::
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Graphe multimédia":::
     
-    ## <a name="run-the-program"></a>Exécuter le programme
+## <a name="run-the-program"></a>Exécuter le programme
 
-1. Dans Visual Studio Code, accédez à src/cloud-to-device-console-app/operations.json.
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
-1. Sous le nœud **GraphTopologySet**, modifiez les points suivants :
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Graphe multimédia":::
+1. Recherchez et activez « Afficher le message détaillé ».
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
-    
-1. Ensuite, sous les nœuds **GraphInstanceSet** et **GraphTopologyDelete**, modifiez :
-
-    `"topologyName" : "EVRtoAssetsOnObjDetect"`
-1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
-
-1. Le fichier operations.json commence par appeler GraphTopologyList et GraphInstanceList. Si vous avez nettoyé des ressources à l’issue de démarrages rapides ou de tutoriels, cette action renvoie des listes vides et marque des pauses pour vous permettre de sélectionner **Entrée**, comme illustré ci-dessous :
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. Une fois que vous avez sélectionné **Entrée** dans la fenêtre **TERMINAL**, l’ensemble suivant d’appels de méthode directe est effectué :
-   * Un appel à GraphTopologySet à l’aide de la valeur topologyUrl précédente
-   * Un appel à GraphInstanceSet à l’aide du corps suivant
-     
-        ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "EVRtoAssetsOnObjDetect",
-            "description": "Sample graph description",
-            "parameters": [
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Graphe multimédia"
               }
             ]
           }
@@ -251,11 +192,9 @@ Pour voir les événements du module objectCounter et du module Live Video Analy
    * Un deuxième appel à GraphInstanceList pour indiquer que l’instance de graphe est en cours d’exécution
      
 1. La sortie de la fenêtre **TERMINAL** s’interrompt maintenant à l’invite **Appuyez sur Entrée pour continuer**. Ne sélectionnez pas **Entrée** pour l’instant. Faites défiler vers le haut pour voir les charges utiles de réponse JSON des méthodes directes que vous avez appelées.
-
 1. Si vous basculez maintenant vers la fenêtre **SORTIE** de Visual Studio Code, vous allez voir les messages envoyés à IoT Hub par le module Live Video Analytics sur IoT Edge.
 
    Ces messages sont abordés dans la section qui suit.
-     
 1. L’instance de graphe continue à s’exécuter et à enregistrer la vidéo. Le simulateur RTSP continue de boucler la vidéo source. Passez en revue les messages comme expliqué dans la section suivante. Ensuite, pour arrêter l’instance, revenez à la fenêtre **TERMINAL** et sélectionnez **Entrée**. La série d’appels suivante permet de nettoyer les ressources en utilisant :
 
    * Un appel à GraphInstanceDeactivate pour désactiver l’instance de graphe.
@@ -397,13 +336,13 @@ Vous pouvez examiner l’actif multimédia Media Services qui a été créé par
 1. Sélectionnez **Ressources** dans la liste **Media Services**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Enregistrement vidéo en continu":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Graphe multimédia":::
 1. Vous trouverez un élément multimédia listé portant le nom sampleAssetFromEVR-LVAEdge-{DateHeure}. Il s’agit du nom fourni dans la propriété outputLocation de l’événement RecordingStarted. Dans la topologie, assetNamePattern détermine la façon dont ce nom a été généré.
 1. Sélectionnez l’élément multimédia.
 1. Dans la page de détails de l’élément multimédia, sélectionnez **Créer** sous la zone de texte **URL de streaming**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Nouvel actif":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Graphe multimédia":::
 1. Dans l’Assistant qui s’ouvre, acceptez les options par défaut et sélectionnez **Ajouter**. Pour plus d’informations, consultez [Lecture vidéo](video-playback-concept.md).
 
     > [!TIP]

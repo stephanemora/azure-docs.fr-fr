@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925649"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759902"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez
     
 8. Une fois le disque déverrouillé, vous pouvez accéder au point de montage et visualiser le contenu du disque. Vous voici prêt à copier les données dans les dossiers *BlockBlob* ou *PageBlob*. 
 
-    ![Contenu du disque Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Contenu de Data Box Disk 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez le guide de [Résolution des problèmes de déverrouillage](data-box-disk-troubleshoot-unlock.md). 

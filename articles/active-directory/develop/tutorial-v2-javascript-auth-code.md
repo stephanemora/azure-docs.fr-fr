@@ -1,7 +1,7 @@
 ---
-title: Tutoriel sur les applications monopages JavaScript - Flux de code d’authentification | Azure
+title: 'Tutoriel : Créer une application monopage JavaScript qui utilise le flux de code d’authentification | Azure'
 titleSuffix: Microsoft identity platform
-description: Découvrez comment les applications monopages (SPA, single page application) JavaScript peuvent utiliser le flux du code d’autorisation pour appeler une API qui doit obtenir des jetons d’accès d’un point de terminaison Azure Active Directory v2.0
+description: Dans ce tutoriel, vous allez créer une application monopage JavaScript qui peut connecter des utilisateurs et utiliser le flux de code d’authentification pour obtenir un jeton d’accès à partir de la plateforme d’identités Microsoft et appeler l’API Microsoft Graph.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256804"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665869"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
@@ -32,6 +32,11 @@ Ce tutoriel montre comment créer une application monopage JavaScript qui utilis
 MSAL.js 2.0 offre une amélioration par rapport à MSAL.js 1.0 en prenant en charge le flux de code d’autorisation dans le navigateur au lieu du flux d’octroi implicite. MSAL.js 2.0 ne prend **PAS** en charge le flux implicite.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Prérequis
+
+* [Node.js](https://nodejs.org/en/download/) pour l’exécution d’un serveur web local
+* [Visual Studio Code](https://code.visualstudio.com/download) ou un autre éditeur de code
 
 ## <a name="how-the-tutorial-app-works"></a>Fonctionnement de l’application du tutoriel
 
@@ -52,11 +57,6 @@ Vous préférez plutôt télécharger l’exemple de projet complet de ce tutori
 Ensuite, pour configurer l’exemple de code avant de l’exécuter, passez à l’[étape de configuration](#register-your-application).
 
 Pour poursuivre le tutoriel et générer vous-même l’application, passez à la section suivante, [Prérequis](#prerequisites).
-
-## <a name="prerequisites"></a>Prérequis
-
-* [Node.js](https://nodejs.org/en/download/) pour l’exécution d’un serveur web local
-* [Visual Studio Code](https://code.visualstudio.com/download) ou un autre éditeur de code
 
 ## <a name="create-your-project"></a>Créer votre projet
 
@@ -551,7 +551,9 @@ Quand un utilisateur sélectionne le bouton **Sign In** pour la première fois, 
 
 Un code d’autorisation protégé par PKCE est alors envoyé au point de terminaison de jeton protégé par CORS en vue de l’échange de jetons. Un jeton d’ID, un jeton d’accès et un jeton d’actualisation sont reçus par votre application et traités par *msal.js*, et les informations contenues dans le jeton sont mises en cache.
 
-Le jeton d’ID contient des informations générales sur l’utilisateur, comme son nom d’affichage. Si vous envisagez d’utiliser les données fournies par le jeton d’ID, votre serveur back-end *doit* le valider afin de garantir qu’il a été émis pour un utilisateur autorisé de votre application. Le jeton d’actualisation a une durée de vie limitée et expire au bout de 24 heures. Le jeton d’actualisation peut être utilisé pour acquérir de nouveaux jetons d’accès en mode silencieux.
+Le jeton d’ID contient des informations générales sur l’utilisateur, comme son nom d’affichage. Si vous envisagez d’utiliser les données fournies par le jeton d’ID, votre serveur back-end *doit* le valider afin de garantir qu’il a été émis pour un utilisateur autorisé de votre application.
+
+Le jeton d’accès a une durée de vie limitée et expire au bout de 24 heures. Le jeton d’actualisation peut être utilisé pour acquérir de nouveaux jetons d’accès en mode silencieux.
 
 L’application monopage que vous avez créée dans ce tutoriel appelle `acquireTokenSilent` et/ou `acquireTokenPopup` pour acquérir un *jeton d’accès* utilisé pour demander les informations de profil utilisateur à l’API Microsoft Graph. Pour obtenir un exemple de validation du jeton d’ID, consultez l’exemple d’application [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sur GitHub. Cet exemple utilise une API web ASP.NET pour la validation du jeton.
 
@@ -649,14 +651,7 @@ Si une API back-end ne nécessite pas d’étendue (ce qui n’est pas recommand
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé une application monopage JavaScript qui utilise la bibliothèque d’authentification Microsoft (MSAL) pour JavaScript v2.0 pour :
+Si vous souhaitez approfondir le développement d’applications monopages JavaScript sur la plateforme d’identités Microsoft, consultez notre série de scénarios en plusieurs parties :
 
-> [!div class="checklist"]
-> * Effectuer le flux de code d’autorisation OAuth 2.0 avec PKCE.
-> * Connecter des comptes personnels Microsoft, ainsi que des comptes professionnels et scolaires.
-> * Obtenir un jeton d’accès
-> * Appeler l’API Microsoft Graph ou votre propre API qui exige des jetons d’accès obtenus à partir du point de terminaison de la plateforme d’identités Microsoft.
-
-Pour en savoir plus sur le flux de code d’autorisation, notamment les différences entre les flux de code implicite et d’authentification, consultez [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
-
-Si vous souhaitez approfondir le développement d’applications monopages JavaScript sur la plateforme d’identités Microsoft, la série en plusieurs parties [Scénario : Application monopage](scenario-spa-overview.md) peut vous aider à commencer.
+> [!div class="nextstepaction"]
+> [Scénario : Application monopage](scenario-spa-overview.md)

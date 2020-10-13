@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108213"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741667"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Migrer un service web à partir de Bing Cartes
 
@@ -249,7 +249,7 @@ L’API d’itinéraire d’Azure Maps offre de nombreuses fonctionnalités supp
 
 Il existe plusieurs façons d’ancrer des coordonnées sur les routes dans Azure Maps.
 
--   Utilisez l’API Obtenir des directions pour ancrer les coordonnées et former un itinéraire logique le long du réseau routier.
+-   Utilisez l’API Itinéraires pour ancrer les coordonnées sur un itinéraire logique dans le réseau routier.
 -   Utilisez le kit SDK web Azure Maps pour ancrer des coordonnées individuelles sur la route la plus proche dans les mosaïques vectorielles.
 -   Utilisez les mosaïques vectorielles Azure Maps directement pour ancrer des coordonnées individuelles.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc2aba6241ef498cd6802c7490e46552e7737ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538822"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708810"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Tutoriel : Intégrer 23 Video à Azure Active Directory
 
@@ -138,11 +138,11 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 3. Dans la section **Users**, cliquez sur **Configure**.
 
-    ![Affecter des utilisateurs](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Capture d’écran mettant en évidence la section Users.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Cliquez sur **Add a new user**.
 
-    ![Affecter des utilisateurs](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Capture d’écran mettant en évidence le bouton Add a new user.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. Dans la section **Invite someone to join this site** , procédez comme suit :
 

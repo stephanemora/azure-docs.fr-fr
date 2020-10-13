@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0fe0dd43a59b0fb23a3a74509841402880b6fd69
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a6150093bd6735fe3ba6b2ff20aea89a3802bf21
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548153"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743469"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Creatio
 
@@ -93,11 +93,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Capture d’écran montrant la page Certificat de signature SAML avec un lien de téléchargement pour un certificat en base64.](common/certificatebase64.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+    ![Capture d’écran montrant la page Certificat de signature SAML, où vous pouvez copier l’URL des métadonnées de fédération d’application.](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

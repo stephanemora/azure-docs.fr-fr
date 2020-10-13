@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 43f7cddfa6fb887fd421d1f90a41145c6182654d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517102"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Didacticiel : Intégration d’Azure Active Directory à Silverback
 
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -213,7 +213,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Silverback, vous dev
 
     c. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-    d. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com** .
+    d. Dans la zone de texte **E-mail Address**, entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon\@contoso.com**.
 
     e. Dans la zone de texte **Mot de passe**, entrez votre mot de passe.
 

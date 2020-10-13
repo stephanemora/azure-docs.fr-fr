@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259130"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742381"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutoriel : Copier des données depuis Azure Data Box via SMB (préversion)
 
@@ -50,7 +50,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 1. La première étape consiste à vous authentifier et à démarrer une session. Accédez à la page **Connect and copy** (Connexion et copie). Sélectionnez **Obtenir les informations d’identification** pour obtenir les informations d’identification qui sont nécessaires pour accéder aux partages associés à votre compte de stockage. 
 
-    ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Obtenir les informations d’identification de partage](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Sélectionnez **OK**.
     
@@ -75,7 +75,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
 4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Se connecter au partage à l’aide de l’Explorateur de fichiers](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     À présent, vous devriez voir les partages sous forme de dossiers.
     

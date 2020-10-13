@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: d49a1120ddda98430f4f9b3c488819829a9fd7b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320691"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766260"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
@@ -58,7 +58,7 @@ Si vous utilisez un ordinateur hôte Linux, procédez comme suit afin de configu
 
 1. Indiquez les adresses IP des clients autorisés pouvant accéder au partage. Dans l’interface utilisateur web locale, accédez à la page **Connect and copy** (Connexion et copie). Sous **Paramètres NFS**, cliquez sur **Accès au client NFS**. 
 
-    ![Configurer l’accès au client NFS 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Configurer l’accès du client NFS](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Indiquez l’adresse IP du client NFS, puis cliquez sur **Ajouter**. Vous pouvez configurer un accès à plusieurs clients NFS en répétant cette étape. Cliquez sur **OK**.
 
@@ -85,7 +85,7 @@ Si vous utilisez un ordinateur hôte Linux, procédez comme suit afin de configu
 Une fois que vous êtes connecté aux partages Data Box, l’étape suivante consiste à copier les données. Avant de commencer la copie des données, passez en revue les considérations suivantes :
 
 * Assurez-vous que les données sont copiées vers des partages compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le partage des objets blob de blocs. Copiez les disques durs virtuels dans des objets blob de pages. Si le format des données ne correspond pas au type de partage, les données ne pourront pas être chargées dans Azure.
-*  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box limits](data-box-limits.md) (Limitations relatives au Stockage Azure et à Data Box).
+*  Quand vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans [Limites de taille des comptes de stockage Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Si les données, qui sont en cours de chargement par Data Box, sont chargées simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec du chargement ou des corruptions de données.
 * Nous vous recommandons de ne pas utiliser SMB et NFS simultanément et de ne pas copier les mêmes données vers la même destination finale sur Azure. En effet, le résultat final ne pourrait être déterminé.
 * **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
@@ -145,11 +145,11 @@ Pendant le processus de copie, si des erreurs se produisent, une notification s�
 
 Sélectionnez **Télécharger la liste des problèmes**.
 
-![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-2.png)
+![Télécharger la liste des problèmes pour une erreur de copie](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Ouvrez la liste pour voir les détails de l’erreur, puis sélectionnez l’URL de résolution pour afficher la résolution recommandée.
 
-![Télécharger et voir les erreurs dans Connexion et copie](media/data-box-deploy-copy-data/view-errors-3.png)
+![Problèmes dans une liste de problèmes d’erreur de copie](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536173"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774111"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Discovery Benefits SSO
 
@@ -86,7 +86,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Identificateur d’utilisateur unique (ID nom)** .
 
-    ![Configuration de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Capture d’écran montrant la section « Attributs utilisateur et revendications » avec les ellipses « Revendication requise » sur le côté droit sélectionnées.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Configuration de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     f. Nous avons rempli automatiquement les revendications supplémentaires requises pour la configuration de l’authentification unique (`SSOInstance` et `SSOID`). Utilisez l’icône **Modifier** pour mapper les valeurs en fonction de votre organisation.
 
-    ![Configuration de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Capture d’écran montrant « Attributs utilisateur et revendications » avec les valeurs « SSO Instance » et « SSOID » mises en évidence.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

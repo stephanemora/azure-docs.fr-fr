@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550961"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821250"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshworks
 
@@ -95,7 +95,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
      ![image](common/edit-certificate.png)
 
-     ![Configuration de Freshworks](./media/freshworks-tutorial/response.png)
+     ![Capture d’écran montrant la boîte de dialogue « Certificat de signature SAML » avec le bouton « Modifier » sélectionné.](./media/freshworks-tutorial/response.png)
 
     a. Sélectionnez **Signer la réponse SAML** comme **Option de signature**.
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans la partie gauche du menu, cliquez sur l’icône  **Security** puis activez l’option **Single sign-on** (Authentification unique) et sélectionnez **SAML SSO** (SSO SAML) sous **Authentication Methods** (Méthodes d’authentification).
 
-    ![Configuration de Freshworks](./media/freshworks-tutorial/configure01.png)
+    ![Capture d’écran montrant la section « Security - Authentication Methods » avec l’option « Single sign-on » activée et « SAML SSO » sélectionné.](./media/freshworks-tutorial/configure01.png)
 
 3. Dans la section **Single sign-on**, effectuez les étapes suivantes :
 

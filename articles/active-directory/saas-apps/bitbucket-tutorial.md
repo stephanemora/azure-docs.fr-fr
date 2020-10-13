@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35b1d0dd080164b015c8210e12fd404bf0a5b3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4aec6f266d7559656bca848801df54c83949e925
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547279"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Didacticiel : intégration d’Azure Active Directory avec SSO SAML pour Bitbucket de resolution GmbH
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Bitbucke
 
 4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode démarré par **IDP** :
 
-    ![informations d’authentification unique pour le domaine et les URL de SSO SAML pour Bitbucket de resolution GmbH](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Bitbucke
 
     c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![informations d’authentification unique pour le domaine et les URL de SSO SAML pour Bitbucket de resolution GmbH](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/samlsso`
 

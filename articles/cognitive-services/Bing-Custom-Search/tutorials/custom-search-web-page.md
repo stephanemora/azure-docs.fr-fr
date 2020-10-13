@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921936"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742500"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
@@ -118,7 +118,7 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
   
 5. Dans les listes déroulantes, sélectionnez vos clés d’abonnement. Vous pouvez aussi entrer la clé d’abonnement manuellement.
   
-   ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Capture d’écran de la clé d’abonnement de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code JavaScript**.
   
 4. Dans la fenêtre **Nouvelle application ASP.NET Core**, sélectionnez **Application web** et cliquez sur **OK**.  
   
-   ![Capture d’écran de la fenêtre Nouveau projet](./media/custom-search-new-webapp.png)  
+   ![Capture d’écran de la fenêtre Nouvelle application web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Éditer index.cshtml
 

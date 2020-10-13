@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: abeb52155b933c223ee0621e8ab203ac035e5f36
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ce6e4dc44a19f4aaee35cc4477761010d76a96b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519703"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Comm100 Live Chat
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le menu, à gauche, cliquez sur **Security** (Sécurité), puis sur **Agent Single Sign-On** (Authentification unique des agents).
 
-   ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Capture d’écran montrant le menu de compte de gauche avec « Security » et « Agent Single Sign-On » mis en évidence.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. Dans la page **Agent Single Sign-On** (Authentification unique des agents), effectuez les opérations suivantes :
 

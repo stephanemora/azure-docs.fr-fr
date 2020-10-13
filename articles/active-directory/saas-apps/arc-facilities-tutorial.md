@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540578"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ARC Facilities
 
@@ -84,15 +84,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Votre application ARC Facilities s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue Attributs utilisateur avec l’icône Modifier mise en évidence.](common/edit-attribute.png)
 
 1. Outre ceux mentionnés ci-dessus, l’application ARC Facilities s’attend également à ce que quelques attributs de plus soient transmis dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe (préversion)** , effectuez les étapes suivantes :
 
     a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
-    ![image](./media/arc-facilities-tutorial/config01.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec l’icône Groupes renvoyés dans la revendication mise en évidence.](./media/arc-facilities-tutorial/config01.png)
 
-    ![image](./media/arc-facilities-tutorial/config02.png)
+    ![Capture d’écran montrant Revendications de groupe avec Tous les groupes et ID de groupe sélectionnés, et le bouton Enregistrer mis en évidence.](./media/arc-facilities-tutorial/config02.png)
 
     b. Sélectionnez **Tous les groupes** dans la liste d’options.
 

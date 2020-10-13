@@ -1,19 +1,19 @@
 ---
 title: Qu’est-ce qu’une réservation Azure ?
-description: Découvrez les réservations et tarifs Azure pour économiser sur vos machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
+description: Découvrez les réservations et tarifs Azure pour économiser sur vos instances réservées de machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682584"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652361"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -50,9 +50,9 @@ Pour plus d’informations, consultez [Déterminer la réservation à acheter]
 
 Vous pouvez acheter des réservations à partir du portail Azure, d’API, de PowerShell et de l’interface CLI. 
 
-Accédez au portail Azure pour faire votre achat (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs). 
+Accédez au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) pour effectuer des achats.
 
-Pour plus d’informations, consultez [Acheter une réservation](prepare-buy-reservation.md). 
+Pour plus d’informations, consultez [Acheter une réservation](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ? 
 
@@ -106,7 +106,7 @@ Abonnements logiciels :
 
 - **SUSE Linux** : une réservation couvre les coûts de l’abonnement logiciel. Les remises s’appliquent uniquement aux compteurs SUSE et non à l’utilisation de la machine virtuelle.
 - **Offres Red Hat** : une réservation couvre les coûts de l’abonnement logiciel. Les remises s’appliquent uniquement aux compteurs RedHat et non à l’utilisation de la machine virtuelle.
-- **Azure VMware Solution by CloudSimple** : une réservation couvre les nœuds VMWare CloudSimple. Des coûts logiciels supplémentaires sont toujours facturés.
+- **Azure VMware Solution by CloudSimple** : une réservation couvre les nœuds VMware CloudSimple. Des coûts logiciels supplémentaires sont toujours facturés.
 - **Azure Red Hat OpenShift** : une réservation s’applique aux coûts OpenShift, et non aux coûts d’infrastructure Azure.
 
 Pour les machines virtuelles Windows et SQL Database, la remise sur réservation ne s’applique pas aux coûts logiciels. Vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).

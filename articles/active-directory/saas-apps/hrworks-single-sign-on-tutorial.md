@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549146"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820494"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec HRworks Single Sign-On
 
@@ -156,15 +156,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à HRworks Single Sign-
 
 1. Cliquez sur **Administrator** > **Persons** > **Persons** > **New person** (Nouvelle personne) sur le côté gauche de la barre de menus.
 
-     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Capture d’écran montrant la page HRworks avec les Persons et New person sélectionnés.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. Dans le menu contextuel, cliquez sur **Next** (Suivant).
 
-    ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Capture d’écran montrant une liste de pays que vous pouvez sélectionner pour la personne.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. Dans la fenêtre contextuelle **Create new person with country for legal terms** (Créer une personne avec un pays pour les conditions juridiques), remplissez les détails respectifs, tels que **First name**(Prénom) et **Last name** (Nom), puis cliquez sur **Create**.
 
-    ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Capture d’écran montrant les zones de texte où vous pouvez entrer le prénom et le nom de la personne.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

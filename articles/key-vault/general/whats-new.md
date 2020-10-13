@@ -1,5 +1,5 @@
 ---
-title: Nouveautés d’Azure Key Vault | Microsoft Docs
+title: Nouveautés d’Azure Key Vault
 description: Mises à jour récemment apportées à Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -7,39 +7,42 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78d0f483bb18213fa7d6718f15dd77733a10049c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069354"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826921"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Nouveautés d’Azure Key Vault
 
-> [!WARNING]
-> **Juillet 2020** : deux mises à jour apportées à Key Vault sont susceptibles d’impacter les implémentations du service : la [suppression réversible du coffre de clés activée par défaut](#soft-delete-on-by-default) et la [modification des certificats Azure TLS](#azure-tls-certificate-changes). Voir les détails ci-dessous.
-
 Voici les nouveautés d’Azure Key Vault. Les nouvelles fonctionnalités et améliorations sont également annoncées sur le [canal des mises à jour d’Azure Key Vault](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
-## <a name="soft-delete-on-by-default"></a>Suppression réversible activée par défaut
+## <a name="july-2020"></a>Juillet 2020
+
+> [!WARNING]
+> Ces deux mises à jour sont susceptibles d’avoir un impact sur les implémentations d’Azure Key Vault.
+
+### <a name="soft-delete-on-by-default"></a>Suppression réversible activée par défaut
 
 D’ici la fin de l’année 2020, la **suppression réversible sera activée par défaut pour tous les coffres de clés** (nouveaux et préexistants). Pour plus d’informations sur ce changement potentiellement cassant et pour connaître les étapes permettant de trouver les coffres de clés affectés et de les mettre à jour au préalable, consultez l’article [La suppression réversible sera activée sur tous les coffres de clés](soft-delete-change.md). 
 
-## <a name="azure-tls-certificate-changes"></a>Modification des certificats Azure TLS  
+### <a name="azure-tls-certificate-changes"></a>Changements des certificats Azure TLS  
 
-Microsoft met à jour les services Azure pour qu’ils utilisent des certificats TLS issus d’un autre ensemble d’autorités de certification racines. Cette modification est effectuée, car les certificats d’autorité de certification actuels ne sont pas conformes à l’une des exigences de base du CA/Browser Forum.
+Microsoft met à jour les services Azure pour qu’ils utilisent des certificats TLS issus d’un autre ensemble d’autorités de certification racines. Ce changement est dû au fait que les certificats d’autorité de certification actuels [ne sont pas conformes à l’une des exigences de base du CA/Browser Forum](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### <a name="when-will-this-change-happen"></a>Quand cette modification aura-t-elle lieu ?
 
-- Les services Azure AD (Azure Active Directory) ont commencé cette transition le 7 juillet 2020.
-- Tous les points de terminaison Azure TLS/SSL nouvellement créés contiennent des certificats mis à jour, liés aux nouvelles autorités de certification racines. 
+- Les services [Azure Active Directory](/azure/active-directory) (Azure AD) ont commencé cette transition le 7 juillet 2020.
+- Tous les points de terminaison Azure TLS/SSL nouvellement créés contiennent des certificats mis à jour, liés aux nouvelles autorités de certification racines.
 - Les points de terminaison Azure existants feront l’objet d’une transition par phases qui commencera le 13 août 2020 et s’achèvera le 26 octobre 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](/azure/iot-dps/) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](/azure/iot-dps/) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. Pour plus d’informations, consultez le billet de blog [Azure IoT TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Stockage Azure](/azure/storage) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. Pour plus d’informations, consultez le billet de blog [Azure Storage TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
 > [!IMPORTANT]
-> Les clients devront peut-être mettre à jour leurs applications après cette modification pour éviter les échecs de connectivité quand ils tentent de se connecter aux services Azure. 
+> Les clients devront peut-être mettre à jour leurs applications après cette modification pour éviter les échecs de connectivité quand ils tentent de se connecter aux services Azure.
 
 ### <a name="what-is-changing"></a>Qu’est-ce qui change ?
 
@@ -62,26 +65,26 @@ Les certificats TLS utilisés par les services Azure seront liés à l’une des
 
 ### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>Quand pourrai-je supprimer l’ancienne empreinte intermédiaire ?
 
-Les certificats d’autorité de certification actuels ne seront *pas* révoqués avant le 15 février 2021. Après cette date, vous pourrez supprimer les anciennes empreintes de votre code.
+Les certificats d’autorité de certification actuels ne seront *pas* révoqués avant le 15 février 2021. Après cette date, vous pourrez supprimer les anciennes empreintes de votre code.
 
 Si cette date change, vous serez informé de la nouvelle date de révocation.
 
-### <a name="will-this-affect-me"></a>Serai-je affecté ?
+### <a name="will-this-change-affect-me"></a>Ce changement m’affecte-t-il ? 
 
 Nous pensons que **la plupart des clients Azure ne seront pas impactés**.  Toutefois, votre application peut être impactée si elle spécifie explicitement une liste d’autorités de certification acceptables. Cette pratique est appelée « épinglage de certificat ».
 
 Voici quelques méthodes permettant de déterminer si votre application est impactée :
 
-- Recherchez dans votre code source l’empreinte, le nom commun et les autres propriétés de certificat de toutes les autorités de certification Microsoft IT TLS mentionnées [ici](https://www.microsoft.com/pki/mscorp/cps/default.htm). S’il existe une correspondance, votre application sera impactée. Pour résoudre ce problème, mettez à jour le code source en incluant les nouvelles autorités de certification. Une bonne pratique consiste à vous assurer que les autorités de certification peuvent être ajoutées ou modifiées dans un court délai. Les réglementations du secteur exigent que les certificats d’autorité de certification soient remplacés sous 7 jours. Les clients qui s’appuient sur l’épinglage doivent donc réagir rapidement.
+- Recherchez dans votre code source l’empreinte, le nom commun et les autres propriétés de certificat de toutes les autorités de certification Microsoft IT TLS mentionnées [ici](https://www.microsoft.com/pki/mscorp/cps/default.htm). S’il existe une correspondance, votre application sera impactée. Pour résoudre ce problème, mettez à jour le code source en incluant les nouvelles autorités de certification. Une bonne pratique consiste à vous assurer que les autorités de certification peuvent être ajoutées ou changées dans un court délai. Les réglementations du secteur exigent que les certificats d’autorité de certification soient remplacés sous sept jours. Les clients qui s’appuient sur l’épinglage de certificats doivent donc réagir rapidement.
 
 - Si vous disposez d’une application qui s’intègre à des API Azure ou d’autres services Azure et que vous ne savez pas si elle utilise l’épinglage de certificat, contactez le fournisseur de l’application.
 
-- Les différents systèmes d’exploitation et runtimes de langage qui communiquent avec les services Azure peuvent nécessiter des étapes supplémentaires pour générer correctement la chaîne de certificats avec ces nouvelles racines : 
-    - **Linux** : de nombreuses distributions vous obligent à ajouter des autorités de certification parmi celles listées ci-dessus à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
+- Les différents systèmes d’exploitation et runtimes de langage qui communiquent avec les services Azure peuvent nécessiter des étapes supplémentaires pour générer correctement la chaîne de certificats avec ces nouvelles racines :
+    - **Linux** : de nombreuses distributions vous obligent à ajouter des autorités de certification à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
     - **Java** : assurez-vous que le magasin de clés Java contient les autorités de certification listées ci-dessus.
-    - **Windows exécuté dans des environnements déconnectés** : pour les systèmes qui s’exécutent dans des environnements déconnectés, les racines listées ci-dessus doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
+    - **Windows exécuté dans des environnements déconnectés** : pour les systèmes qui s’exécutent dans des environnements déconnectés, de nouvelles racines doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
     - **Android** : consultez la documentation de votre appareil et de votre version d’Android.
-    - **Autres appareils, en particulier IoT** : contactez le fabricant de l’appareil. 
+    - **Autres appareils, en particulier IoT** : contactez le fabricant de l’appareil.
 
 - Si vous disposez d’un environnement dans lequel les règles de pare-feu sont configurées pour autoriser les appels sortants uniquement vers des emplacements de téléchargement de liste de révocation de certificats et/ou de vérification de protocole OCSP (Online Certificate Status Protocol) spécifiques, vous devez autoriser les URL correspondantes suivantes :
 

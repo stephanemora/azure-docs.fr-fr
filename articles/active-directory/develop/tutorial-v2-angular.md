@@ -1,7 +1,7 @@
 ---
-title: Tutoriel sur les applications monopages Angular - Azure
+title: 'Tutoriel : Créer une application Angular qui utilise la plateforme d’identités Microsoft pour l’authentification | Azure'
 titleSuffix: Microsoft identity platform
-description: Découvrez comment les applications monopages Angular peuvent appeler une API qui exige des jetons d’accès en provenance du point de terminaison de la plateforme d’identités Microsoft.
+description: Dans ce tutoriel, vous allez créer une application monopage Angular qui utilise la plateforme d’identités Microsoft pour connecter les utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph en leur nom.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -12,30 +12,36 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256923"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611246"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage Angular
 
-Ce guide montre comment une application monopage Angular peut :
-- Se connecter à des comptes personnels, professionnels ou scolaires.
-- Obtenez un jeton d’accès.
-- Appeler l’API Microsoft Graph ou d’autres API qui exigent des jetons d’accès provenant du *point de terminaison de la plateforme d’identités Microsoft*.
+Ce tutoriel vous guide dans la création d’une application monopage Angular qui peut connecter des utilisateurs avec des comptes Microsoft personnels et des comptes professionnels ou scolaires, et appeler l’API Microsoft Graph en leur nom.
 
->[!NOTE]
->Ce tutoriel vous explique pas à pas comment créer une application monopage Angular en utilisant la bibliothèque d’authentification Microsoft (MSAL). Si vous souhaitez télécharger un exemple d’application, consultez le [démarrage rapide](quickstart-v2-angular.md).
+Dans ce tutoriel, vous allez :
+
+> [!div class="checklist"]
+> * Créer un projet angulaire avec `npm`.
+> * Inscrire l’application dans le Portail Azure
+> * Ajouter du code pour prendre en charge la connexion et la déconnexion des utilisateurs
+> * Ajouter du code pour appeler l’API Microsoft Graph
+> * Test de l'application
+
+## <a name="prerequisites"></a>Prérequis
+
+* [Node.js](https://nodejs.org/en/download/) pour l’exécution d’un serveur web local
+* [Visual Studio Code](https://code.visualstudio.com/download) ou un autre éditeur pour la modification des fichiers projet
 
 ## <a name="how-the-sample-app-works"></a>Fonctionnement de l’exemple d’application
 
 ![Schéma illustrant le fonctionnement de l’exemple d’application généré dans ce tutoriel](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>Informations complémentaires
-
-L’exemple d’application créé dans ce tutoriel permet à une application monopage Angular d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons en provenance du point de terminaison de la plateforme d’identités Microsoft. La bibliothèque MSAL pour Angular est un wrapper de la bibliothèque MSAL.js de base. Il permet aux applications Angular (6+) d’authentifier les utilisateurs d’entreprise à l’aide de Microsoft Azure Active Directory, de comptes d’utilisateurs Microsoft et d’identités d’utilisateurs de réseaux sociaux (comme Facebook, Google et LinkedIn). La bibliothèque permet aussi aux applications d’accéder aux services de cloud computing Microsoft ou à Microsoft Graph.
+L’exemple d’application créé dans ce tutoriel permet à une application monopage Angular d’interroger l’API Microsoft Graph ou une API web qui accepte des jetons émis par la plateforme d’identités Microsoft. Elle utilise la bibliothèque d’authentification Microsoft (MSAL) pour Angular, wrapper de la bibliothèque MSAL.js principale. MSAL Angular permet aux applications Angular 6+ d’authentifier les utilisateurs en entreprise avec Azure Active Directory (Azure AD) ainsi que les utilisateurs qui ont des comptes d’utilisateur Microsoft et des identités de réseaux sociaux tels que Facebook, Google et LinkedIn. La bibliothèque permet aussi aux applications d’accéder aux services cloud Microsoft et à Microsoft Graph.
 
 Dans ce scénario, une fois qu’un utilisateur s’est connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP par le biais de l’en-tête d’autorisation. Les opérations d’acquisition et de renouvellement de jetons sont gérées par MSAL.
 
@@ -48,13 +54,6 @@ Ce tutoriel utilise la bibliothèque suivante :
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Wrapper de la bibliothèque d’authentification Microsoft pour JavaScript Angular|
 
 Vous trouverez le code source de la bibliothèque MSAL.js dans le dépôt [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) sur GitHub.
-
-## <a name="prerequisites"></a>Prérequis
-
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
-
-* Un serveur web local, tel que [Node.js](https://nodejs.org/en/download/). Les instructions de ce tutoriel sont basées sur Node.js.
-* Un environnement de développement intégré (IDE), comme [Visual Studio Code](https://code.visualstudio.com/download), pour modifier les fichiers projet.
 
 ## <a name="create-your-project"></a>Créer votre projet
 
@@ -343,6 +342,7 @@ Si une API back-end ne nécessite pas d’étendue (non recommandé), vous pouv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous découvrez la gestion des identités et de l’accès, nous proposons plusieurs articles pour vous aider à apprendre les concepts d’authentification modernes, en commençant par [Authentification ou autorisation](authentication-vs-authorization.md).
+Approfondissez le développement d’applications monopages sur la plateforme d’identités Microsoft grâce à notre série d’articles.
 
-Si vous souhaitez approfondir le développement d’applications monopages sur la plateforme d’identité Microsoft, la série en plusieurs parties [Scénario : Application monopage](scenario-spa-overview.md) peut vous aider à commencer.
+> [!div class="nextstepaction"]
+> [Scénario : Application monopage](scenario-spa-overview.md)

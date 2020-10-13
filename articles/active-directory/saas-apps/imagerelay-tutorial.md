@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545248"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à ImageRelay
 
@@ -128,27 +128,27 @@ Pour configurer l’authentification unique Azure AD auprès d’Image Relay, ef
 
 2. Dans la barre d’outils du haut, cliquez sur la charge de travail **Utilisateurs et autorisations**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Capture d’écran montrant Users & Permissions sélectionné à partir de la barre d’outils.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Cliquez sur **Créer une nouvelle autorisation**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Capture d’écran montrant une zone de texte pour entrer le titre de l’autorisation et une option pour choisir le type d’autorisation.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. Dans la charge de travail **Paramètres d’authentification unique**, sélectionnez la case à cocher **Ce groupe peut se connecter uniquement via l’authentification unique**, puis cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Capture d’écran montrant Single Sign On Settings, où vous pouvez sélectionner l’option.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Accédez à **Paramètres du compte**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Capture d’écran montrant l’option de la barre d’outils Account Settings.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Accédez à la charge de travail **Paramètres d’authentification unique** .
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Capture d’écran montrant l’option de menu Single Sign On Settings.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Capture d’écran montrant la boîte de dialogue SAML Settings où vous pouvez entrer les informations.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le Portail Azure.
 
@@ -160,19 +160,19 @@ Pour configurer l’authentification unique Azure AD auprès d’Image Relay, ef
 
     e. Sous **Certificat x.509**, cliquez sur **Mettre à jour le certificat**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Capture d’écran montrant l’option de mise à jour du certificat.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat x.509**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Capture d’écran montrant le certificat x.509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. Dans la section **Approvisionnement juste à temps des utilisateurs**, sélectionnez la case à cocher **Activer l’approvisionnement juste à temps des utilisateurs**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Capture d’écran montrant la section Just-In-Time User Provisioning avec Enable control sélectionné.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Sélectionnez le groupe d’autorisations (par exemple, **SSO de base**) qui sera autorisé à se connecter uniquement via l’authentification unique.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Capture d’écran montrant la section Just-In-Time User Provisioning avec SSO Basic sélectionné.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Cliquez sur **Enregistrer**.
 
@@ -237,11 +237,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Accédez à **Utilisateurs et autorisations** et sélectionnez **Créer un utilisateur SSO**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Capture d’écran montrant Create SSO User sélectionné dans le menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Renseignez les champs **E-mail**, **Prénom**, **Nom** et **Société** de l’utilisateur que vous souhaitez configurer, puis sélectionnez le groupe d’autorisations (par exemple authentification unique de base), qui peut se connecter uniquement via l’authentification unique.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Capture d’écran montrant la page Create a SSO User où vous pouvez entrer les informations requises.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Cliquez sur **Créer**.
 

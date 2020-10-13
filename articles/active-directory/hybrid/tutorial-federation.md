@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287030"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826535"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutoriel : Fédérer un environnement de forêt AD unique dans le cloud
 
@@ -87,7 +87,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 4. Sur l’écran de démarrage Windows Server, sélectionnez votre langue et cliquez sur **Suivant**.
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
-7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
+7. Cliquez sur **J’accepte les termes du contrat de licence**, puis sur **Suivant**.
 8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
 9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.

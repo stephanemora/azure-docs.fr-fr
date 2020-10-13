@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536255"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775162"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutoriel : Intégrer Displayr à Azure Active Directory
 
@@ -88,15 +88,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L'application Displayr s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la section « Attributs utilisateur » avec l’icône « Modifier » mise en évidence.](common/edit-attribute.png)
 
 1. En plus de ce qui précède, l’application Displayr s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe (préversion)** , effectuez les étapes suivantes :
 
     a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
-    ![image](./media/displayr-tutorial/config04.png)
+    ![Capture d’écran montrant la section « Attributs et revendications de l’utilisateur » avec l’icône « Stylo » en regard de « Groupes renvoyés dans la revendication » sélectionnée.](./media/displayr-tutorial/config04.png)
 
-    ![image](./media/displayr-tutorial/config05.png)
+    ![Capture d’écran montrant la fenêtre Revendications de groupe (Préversion) avec des paramètres sélectionnés.](./media/displayr-tutorial/config05.png)
 
     b. Sélectionnez **Tous les groupes** dans la liste d’options.
 
@@ -126,11 +126,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Cliquez sur **Settings** (Paramètres), puis accédez à **Account** (Compte).
 
-    ![Configuration](./media/displayr-tutorial/config01.png)
+    ![Capture d’écran montrant l’icône « Paramètres » et l’option « Compte » sélectionnés.](./media/displayr-tutorial/config01.png)
 
 5. Passez à **Settings** (Paramètres) à partir du menu supérieur et faites défiler la page pour cliquer sur **Configure Single Sign On (SAML)** (Configurer l’authentification unique (SAML)).
 
-    ![Configuration](./media/displayr-tutorial/config02.png)
+    ![Capture d’écran montrant l’onglet « Paramètres » et l’action « Configurer l’authentification unique (SAML) » sélectionnés.](./media/displayr-tutorial/config02.png)
 
 6. Sur la page **Single sign-on (SAML)** (Authentification unique (SAML)), procédez comme suit :
 
@@ -190,11 +190,11 @@ Pour se connecter à Displayr, les utilisateurs Azure AD doivent être attribué
 
 2. Cliquez sur **Settings** (Paramètres), puis accédez à **Account** (Compte).
 
-    ![Configuration de Displayr](./media/displayr-tutorial/config01.png)
+    ![Capture d’écran montrant l’icône « Paramètres (roue dentée) » avec l’option « Compte » sélectionnée.](./media/displayr-tutorial/config01.png)
 
 3. Passez à **Settings** (Paramètres) à partir du menu supérieur et faites défiler la page vers le bas jusqu'à la section **Users** (Utilisateurs), puis cliquez sur **New user** (Nouvel utilisateur).
 
-    ![Configuration de Displayr](./media/displayr-tutorial/config07.png)
+    ![Capture d’écran montrant l’onglet « Paramètres » avec « Utilisateurs » mis en évidence et le bouton « Nouvel utilisateur » sélectionné.](./media/displayr-tutorial/config07.png)
 
 4. Sur la page **New user** (Nouvel utilisateur), effectuez les opérations suivantes :
 

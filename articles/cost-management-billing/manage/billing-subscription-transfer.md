@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ef497439d77fef63f4b0c902aee06428a30c5ff5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276728"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666107"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -56,7 +56,7 @@ Un locataire Azure Active Directory (AD) est créé pour vous quand vous vous in
 
 Quand vous créez un abonnement, il est hébergé dans le locataire Azure AD de votre compte. Si vous voulez donner à d’autres utilisateurs l’accès à votre abonnement ou à ses ressources, vous devez les inviter à rejoindre votre locataire. Ceci vous aide à contrôler l’accès à vos abonnements et à vos ressources.
 
-Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, vous pouvez déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, l’ensemble des utilisateurs, groupes ou principaux de service qui disposaient d’[attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) pour gérer des abonnements et leurs ressources perdent leur accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Le nouveau propriétaire doit ajouter manuellement ces utilisateurs à l’abonnement pour fournir l’accès à l’utilisateur l’a perdu. Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
+Quand vous transférez la propriété de facturation de votre abonnement à un compte dans un autre locataire Azure AD, vous pouvez déplacer l’abonnement vers le locataire du nouveau compte. Dans ce cas, l’ensemble des utilisateurs, groupes ou principaux de service qui disposaient d’[attributions de rôles Azure](../../role-based-access-control/role-assignments-portal.md) pour gérer des abonnements et leurs ressources perdent leur accès. Seul l’utilisateur dans le nouveau compte qui accepte votre demande de transfert a accès à la gestion des ressources. Le nouveau propriétaire doit ajouter manuellement ces utilisateurs à l’abonnement pour fournir l’accès à l’utilisateur l’a perdu. Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transférer des abonnements Visual Studio et Partner Network
 

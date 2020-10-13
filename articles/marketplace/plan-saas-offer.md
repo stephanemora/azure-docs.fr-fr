@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708116"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819937"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -158,11 +158,11 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
     Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML compris. Pour obtenir plus d’astuces, consultez [Rédiger une bonne description d’application](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
 - **Instructions de prise en main** : si vous choisissez de vendre votre offre par via Microsoft (offre pouvant faire l’objet d’une transaction), ce champ est obligatoire. Ces instructions sont destinées à aider les clients à se connecter à votre offre SaaS. Vous pouvez ajouter jusqu’à 3 000 caractères de texte et des liens vers une documentation en ligne plus détaillée.
-- **Mots clés de recherche** (facultatif) : entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les places de marché. Vous n’avez pas besoin d’inclure le **Nom** et la **Description** l’offre : ce texte est inclus automatiquement dans la recherche.
+- **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les magasins en ligne. Vous n’avez pas besoin d’inclure le **Nom** et la **Description** l’offre : ce texte est inclus automatiquement dans la recherche.
 - **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
 - **Informations de contact** : vous devez désigner les contacts suivants de votre organisation :
   - **Contact de support** : indiquez le nom, le numéro de téléphone et l’adresse e-mail des partenaires Microsoft à utiliser quand vos clients ouvrent des tickets. Vous devez également inclure l’URL de votre site web de support.
-  - **Contact d’ingénierie** : indiquez le nom, le numéro de téléphone et l’adresse e-mail de Microsoft à utiliser directement en cas de problème avec votre offre. Ces informations de contact ne sont pas répertoriées dans la place de marché.
+  - **Contact d’ingénierie** : indiquez le nom, le numéro de téléphone et l’adresse e-mail de Microsoft à utiliser directement en cas de problème avec votre offre. Ces informations de contact ne sont pas répertoriées dans la place de marché commerciale.
   - **Contact du programme du fournisseur de solutions cloud** (facultatif) : indiquez le nom, le numéro de téléphone et l’adresse e-mail si vous optez pour le programme CSP, afin que ces partenaires puissent vous contacter pour toute question. Vous pouvez également inclure une URL pour vos documents marketing.
 - **Liens utiles** (facultatif) : vous pouvez fournir des liens vers diverses ressources destinées aux utilisateurs de votre offre. Par exemple, forums, FAQ et notes de publication.
 - **Documents associés** : vous pouvez fournir jusqu’à trois documents destinés aux clients, tels que des livres blancs, des brochures, des listes de contrôle ou des présentations PowerPoint.
@@ -174,9 +174,9 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 
   Ces logos sont utilisés à différents emplacements dans les magasins en ligne :
 
-  -  Le petit logo s’affiche dans les résultats de recherche de la Place de marché Azure, ainsi que dans la page principale de Microsoft AppSource et la page des résultats de recherche.
-  -  Le logo moyen s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
-  -  Le grand logo s’affiche sur la page de référencement de votre offre dans la Place de marché Azure et Microsoft AppSource.
+  - Le petit logo s’affiche dans les résultats de recherche de la Place de marché Azure, ainsi que dans la page principale de Microsoft AppSource et la page des résultats de recherche.
+  - Le logo moyen s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
+  - Le grand logo s’affiche sur la page de référencement de votre offre dans la Place de marché Azure et Microsoft AppSource.
 
 - **Média – Captures d’écran** : vous devez ajouter au moins une et cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
   - 1280 x 720 pixels

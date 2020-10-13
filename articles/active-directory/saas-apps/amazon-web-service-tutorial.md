@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548351"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713639"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amazon Web Services (AWS)
 
@@ -304,7 +304,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 18. Créez une stratégie pour cet utilisateur.
 
-    ![Capture d’écran de l’élément Add user](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Capture d’écran montrant la page Ajouter un utilisateur, où vous pouvez créer une stratégie pour l’utilisateur.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Sélectionnez **Attach existing policies directly** (Attacher directement les stratégies existantes).
 
@@ -322,7 +322,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 20. Téléchargez les informations d’identification d’un utilisateur.
 
-    ![Capture d’écran de l’élément Add user](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Capture d’écran montrant la page Add user avec un bouton Download csv pour obtenir les informations d’identification de l’utilisateur.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copiez les **Access key ID** (ID de la clé d’accès) et **Secret access key** (Clé d’accès secrète) de l’utilisateur.
 

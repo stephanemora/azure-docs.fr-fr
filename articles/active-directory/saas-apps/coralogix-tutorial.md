@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555900"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Coralogix
 
@@ -95,13 +95,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
  1. L’application Coralogix attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Attributs utilisateur » avec le bouton « Modifier » mis en évidence.](common/edit-attribute.png)
 
 1. Dans la section **Revendications utilisateur** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications à l’aide de l’icône **Modifier**. Vous pouvez également ajouter les revendications à l’aide de l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme illustré dans l’image précédente. Ensuite, effectuez les étapes suivantes :
     
     a. Sélectionnez **l’icône Modifier** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](./media/coralogix-tutorial/tutorial_usermail.png) ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Capture d’écran montrant la boîte de dialogue « Attributs utilisateur et revendications » avec le bouton « Modifier » mis en évidence.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. À partir de la liste **Choisir le format du nom de l’identificateur**, sélectionnez **Adresse e-mail**.
 

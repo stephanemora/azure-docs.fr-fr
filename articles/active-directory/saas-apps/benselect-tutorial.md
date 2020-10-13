@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537105"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741208"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BenSelect
 
@@ -89,15 +89,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application BenSelect attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant User Attributes avec des attributs par défaut, comme givenname user.givenname et emailaddress user.mail.](common/edit-attribute.png)
 
 1. Cliquez sur l’icône **Modifier** pour changer la **Valeur de nom d’identificateur**.
 
-    ![image](media/benselect-tutorial/mail-prefix1.png)
+    ![Capture d’écran montrant le volet User Attributes & Claims avec l’icône Edit mise en évidence.](media/benselect-tutorial/mail-prefix1.png)
 
 1. Dans la section **Gérer les revendications des utilisateurs** , effectuez les étapes suivantes :
 
-    ![image](media/benselect-tutorial/mail-prefix2.png)
+    ![Capture d’écran montrant Manage user claims, où vous pouvez entrer les valeurs décrites dans cette étape.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Sélectionnez **Transformation** dans le champ **Source**.
 

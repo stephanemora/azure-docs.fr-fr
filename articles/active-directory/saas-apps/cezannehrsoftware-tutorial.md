@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530073"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
@@ -130,19 +130,19 @@ Pour configurer l’authentification unique Azure AD avec Cezanne HR Software, 
 
 2. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez aux **Paramètres de sécurité**. Accédez ensuite à **Configuration de l’authentification unique**.
 
-    ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![Capture d’écran montrant le locataire Cezanne HR avec Security Settings et Single Sign-On Configuration sélectionnés.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. Dans le panneau **Autoriser les utilisateurs à se connecter à l’aide de l’authentification unique**, cochez la case **SAML 2.0** et sélectionnez l’option **Configuration avancée**.
 
-    ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![Capture d’écran montrant le volet Allow users avec SAML 2.0 et Advanced Configuration sélectionnés.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Cliquez sur le bouton **Ajouter nouveau** .
 
-    ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![Capture d’écran montrant le bouton Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Dans la section **SAML 2.0 IDENTITY PROVIDERS** , procédez comme suit.
 
-    ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![Capture d’écran montrant un volet dans lequel vous pouvez entrer les valeurs décrites à cette étape.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. Entrez le nom de votre fournisseur d’identité en tant que **Nom d’affichage**.
 
@@ -160,7 +160,7 @@ Pour configurer l’authentification unique Azure AD avec Cezanne HR Software, 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Capture d’écran montrant le bouton Save pour Single Sign-on Configuration.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -223,11 +223,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
 2. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez à **Gérer les utilisateurs**. Accédez ensuite à **Ajouter un nouvel utilisateur**.
 
-    ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nouvel utilisateur")
+    ![Capture d’écran montrant le locataire Cezanne HR Software avec Manage Users et Add New User sélectionnés.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nouvel utilisateur")
 
 3. Dans la section **DÉTAILS DE LA PERSONNE**, effectuez les étapes suivantes :
 
-    ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nouvel utilisateur")
+    ![Capture d’écran montrant la section PERSON DETAILS, dans laquelle vous pouvez entrer les valeurs décrites à cette étape.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nouvel utilisateur")
 
     a. Désactivez l’option **Utilisateur interne** .
 
@@ -239,7 +239,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
 4. À la section **Informations sur le compte** , procédez comme suit :
 
-    ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nouvel utilisateur")
+    ![Capture d’écran montrant ACCOUNT INFORMATION, où vous pouvez entrer les valeurs décrites à cette étape.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nouvel utilisateur")
 
     a. Dans la zone de texte **Username** (Nom d’utilisateur), tapez l’e-mail d’un utilisateur, par exemple, Brittasimon@contoso.com.
 
@@ -251,15 +251,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
 5. Accédez à l’onglet **Authentification unique** et sélectionnez **Ajouter nouveau** dans la zone **Identificateurs SAML 2.0**.
 
-    ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilisateur")
+    ![Capture d’écran montrant l’onglet Single Sign-On, où vous pouvez sélectionner Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilisateur")
 
 6. Choisissez votre **fournisseur d’identité** et dans la zone de texte **Identificateur d’utilisateur**, entrez l’adresse de messagerie du compte de Britta Simon.
 
-    ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilisateur")
+    ![Capture d’écran montrant les identificateurs SAML 2.0, où vous pouvez sélectionner votre fournisseur d’identité et votre identificateur d’utilisateur.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilisateur")
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilisateur")
+    ![Capture d’écran montrant le bouton Save pour User Settings.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilisateur")
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

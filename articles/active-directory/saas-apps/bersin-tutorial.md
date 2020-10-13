@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540722"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Didacticiel : Intégration d’Azure Active Directory à Bersin
 
@@ -98,7 +98,7 @@ Pour configurer l’authentification unique Azure AD auprès de Bersin, effectue
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
-    ![Informations d’authentification unique dans Domaine et URL Bersin](common/idp-identifier-relay.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-identifier-relay.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès de Bersin, effectue
 
 5. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
 
-    ![Informations d’authentification unique dans Domaine et URL Bersin](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.bersin.com/Login.aspx`
 

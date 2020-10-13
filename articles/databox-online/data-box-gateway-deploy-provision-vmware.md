@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371284"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743945"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware
 
@@ -145,11 +145,11 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
     Dans la même page, cliquez sur **Ajouter le disque dur**, puis sélectionnez **Disque dur existant**. Sélectionnez le fichier VMDK dans le magasin de données. Cette opération ajoute un disque de système d’exploitation. 
 
-     ![Page Personnaliser les paramètres](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Page Personnaliser les paramètres 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Défilez vers le bas jusqu'à voir le **Nouveau disque dur** et développez-le pour afficher les paramètres. Définissez le **Nœud d’appareil virtuel** sur **contrôleur IDE 0**.
 
-     ![Page Personnaliser les paramètres](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Page Personnaliser les paramètres 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Facultatif) *Effectuez cette étape uniquement si vous exécutez VMware ESXi Server 6.7*. Dans la page **Customize settings** (Personnaliser les paramètres), cliquez sur **VM options** (Options de machine virtuelle). Accédez à **Boot options > Firmware**  (Options de démarrage > Microprogramme), puis remplacez la valeur existante par **BIOS**. Par défaut, la valeur est EFI. Cliquez sur **Suivant**.
 
@@ -157,8 +157,8 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 18. Sur la page **Prêt à finaliser** , passez en revue tous les paramètres associés à la nouvelle machine virtuelle. Vérifiez que le processeur est configuré sur 4, la mémoire sur 8192 Mo, l’interface réseau sur 1 et que le disque dur 2 possède un contrôleur IDE 0. Cliquez sur **Terminer**.
    
-    ![Page Prêt à finaliser](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![Page Prêt à finaliser](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Page Prêt pour l’exécution](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![Page Prêt pour l’exécution 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Votre machine virtuelle est désormais configurée. Vous voyez une notification et la machine virtuelle est ajoutée à la liste des machines virtuelles.
 

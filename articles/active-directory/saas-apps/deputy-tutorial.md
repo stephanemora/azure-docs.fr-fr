@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536867"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutoriel : Intégration d'Azure Active Directory à Deputy
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Deputy, effectuez les
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Deputy](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec les boutons « Identificateur », « URL de réponse » et « Enregistrer » mis en évidence.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
@@ -171,7 +171,7 @@ Pour configurer l’authentification unique Azure AD avec Deputy, effectuez les
 
 1. Accédez à l'URL suivante :`https://(your-subdomain).deputy.com/exec/config/system_config`. Accédez aux **Paramètres de sécurité** et cliquez sur **Modifier**.
    
-    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Capture d’écran montrant la page « Configuration système » avec le bouton « Paramètres de sécurité - Modifiier » sélectionné.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. Sur cette page **Paramètres de sécurité** , procédez comme suit.
 
