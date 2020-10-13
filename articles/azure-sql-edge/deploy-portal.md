@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886780"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445717"
 ---
 # <a name="deploy-azure-sql-edge"></a>Déployer Azure SQL Edge 
 
@@ -62,7 +62,6 @@ La Place de marché Azure est un marché d’applications et de services en lign
 
    |**Paramètre**  |**Description**|
    |---------|---------|
-   | Nom | Nom du module. |
    | MSSQL_SA_PASSWORD  | Modifiez la valeur par défaut pour spécifier un mot de passe fort pour le compte d’administrateur SQL Edge. |
    | MSSQL_LCID   | Modifiez la valeur par défaut en définissant l’ID de langue souhaitée à utiliser pour SQL Edge. Par exemple, 1036 correspond au français. |
    | MSSQL_COLLATION | Modifiez la valeur par défaut en définissant le classement par défaut pour SQL Edge. Ce paramètre remplace le mappage par défaut de l’ID de langue (LCID) par le classement. |
@@ -110,7 +109,7 @@ La Place de marché Azure est un marché d’applications et de services en lign
    
 8. Dans le volet **Mettre à jour le module IoT Edge**, cliquez sur **Mettre à jour**.
 9. Dans la page **Définir des modules sur l’appareil**, cliquez sur **Suivant : Itinéraires >** si vous devez définir des itinéraires pour votre déploiement. Sinon, cliquez sur **Vérifier + créer**. Pour plus d’informations sur la configuration d’itinéraires, consultez [Déployer des modules et établir des routes dans IoT Edge](../iot-edge/module-composition.md).
-11. Dans le volet **Mettre à jour le module IoT Edge**, cliquez sur **Créer**.
+11. Dans la page **Définir des modules sur l’appareil**, cliquez sur **Créer**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Se connecter à Azure SQL Edge
 
