@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285989"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutoriel : Configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
@@ -69,15 +69,15 @@ Avant de configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
 5. Générez le **jeton secret** requis pour configurer l’attribution automatique d’utilisateurs avec Azure AD en accédant à **Apps and Integrations (Applications et intégrations)** .
 
-    ![Installation de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![Capture d’écran de la page d’administration de Smartsheet avec l’avatar de l’utilisateur et l’option Apps and Integrations (Applications et intégrations) en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Choisissez **Accès d’API**. Cliquez sur **Generate new access token (Générer un nouveau jeton d'accès)** .
 
-    ![Installation de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![Capture d’écran de la boîte de dialogue Personal Settings (Paramètres personnels) avec les options API Access (Accès à l’API) et Generate new access token (Générer un nouveau jeton d’accès) en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Définissez le nom du jeton d’accès d’API. Cliquez sur **OK**.
 
-    ![Installation de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![Capture d’écran de Step 1 of 2: Generate new access token (Étape 1 sur 2 : Générer un nouveau jeton d’accès) avec l’option OK en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copiez le jeton d’accès d’API et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Il est requis dans le champ **Jeton secret**, dans Azure AD.
 
@@ -117,11 +117,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** récupérées précédemment sur Smartsheet dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Smartsheet. Si la connexion échoue, vérifiez que votre compte Smartsheet dispose d’autorisations d’administrateur système et réessayez.
 
