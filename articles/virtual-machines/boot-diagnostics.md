@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287081"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813234"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -25,6 +25,8 @@ Avec les diagnostics de démarrage, il est également possible d’utiliser un c
 
 > [!IMPORTANT]
 > Les clients Azure qui utilisent un compte de stockage managé pour les diagnostics de démarrage ne seront pas facturés pour les coûts de stockage associés jusqu’en octobre 2020.
+>
+> Les objets bloc de données de diagnostics de démarrage (journaux et images d’instantané) sont stockés dans un compte de stockage managé. Seuls les Gio utilisés par les objets blob seront facturés aux clients et pas la taille de disque configurée. Les compteurs d’instantané seront utilisés pour la facturation du compte de stockage managé. Les comptes managés étant créés sur des LRS ou des ZRS standard, les clients se verront facturés 0,05 USD/Go par mois pour la taille de leurs objets blob de données de diagnostic uniquement. Pour plus d’informations sur cette tarification, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). Les clients verront ces frais liés à l’URI de ressource de leur machine virtuelle. 
 
 ## <a name="boot-diagnostics-view"></a>Affichage des diagnostics de démarrage
 Située dans le panneau de la machine virtuelle, l’option Diagnostics de démarrage se trouve sous la section *Support et résolution des problèmes* du portail Azure. Sélectionnez Diagnostics de démarrage pour afficher une capture d’écran et des informations de journal série. Le journal série contient la messagerie du noyau, et la capture d’écran est un instantané de l’état actuel de vos machines virtuelles. Le fait que la machine virtuelle fonctionne sous Windows ou Linux détermine à quoi ressemblera la capture d’écran attendue. Pour Windows, les utilisateurs voient un arrière-plan du bureau et, pour Linux, une invite de connexion.

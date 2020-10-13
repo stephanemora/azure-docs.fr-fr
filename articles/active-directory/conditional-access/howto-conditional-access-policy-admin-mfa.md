@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049347"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818333"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -24,11 +24,12 @@ Les comptes auxquels sont affectés les droits d’administration sont ciblés p
 
 Microsoft vous recommande d’exiger une authentification MFA sur les rôles suivants au minimum :
 
+* Administrateur d’authentification
 * Administrateur de facturation
 * Administrateur de l’accès conditionnel
 * Administrateur Exchange
 * Administrateur général
-* Administrateur du support (mot de passe)
+* Administrateur du support technique
 * Administrateur de mots de passe
 * Administrateur de sécurité
 * Administrateur SharePoint
@@ -42,7 +43,7 @@ Les stratégies d’accès conditionnel sont des outils puissants. Nous vous rec
 
 * Comptes **d’accès d’urgence** ou **de secours** pour empêcher le verrouillage du compte sur l’ensemble du locataire. Dans le scénario improbable où tous les administrateurs seraient verrouillés hors de votre locataire, votre compte administratif d’accès d’urgence peut être utilisé pour vous connecter au locataire et prendre les mesures nécessaires pour récupérer l’accès.
    * Pour plus d’informations, consultez l’article [Gérer des comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md).
-* Les **comptes de service** et les **principaux de service**, comme le compte de synchronisation Azure AD Connect. Les comptes de service sont des comptes non interactifs qui ne sont pas liés à un utilisateur particulier. Ils sont généralement utilisés par les services principaux autorisant l’accès par programme aux applications, mais ils sont également utilisés pour se connecter aux systèmes à des fins administratives. Les comptes de service comme ceux-ci doivent être exclus, car l’authentification multifacteur ne peut pas être effectuée par programme. Les appels effectués par les principaux de service ne sont pas bloqués par l’accès conditionnel.
+* Les **comptes de service** et les **principaux de service**, comme le compte de synchronisation Azure AD Connect. Les comptes de service sont des comptes non interactifs qui ne sont pas liés à un utilisateur particulier. Ils sont généralement utilisés par les services principaux autorisant l’accès par programme aux applications, mais ils sont également utilisés pour se connecter aux systèmes à des fins administratives. Les comptes de service comme ceux-ci doivent être exclus, car l’authentification MFA ne peut pas être effectuée par programme. Les appels effectués par les principaux de service ne sont pas bloqués par l’accès conditionnel.
    * Si votre organisation utilise ces comptes dans des scripts ou du code, envisagez de les remplacer par des [identités managées](../managed-identities-azure-resources/overview.md). Pour contourner provisoirement le problème, vous pouvez exclure ces comptes spécifiques de la stratégie de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
@@ -72,7 +73,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud** et sélectionnez **Terminé**.
-1. Sous **Conditions** > **Applications clientes (préversion)** > **Sélectionnez les applications clientes auxquelles cette stratégie s’applique**, laissez toutes les valeurs par défaut sélectionnées et sélectionnez **Terminé**.
+1. Sous **Conditions** > **Applications clientes**, basculez **Configurer** vers **Oui** et sous **Sélectionnez les applications clientes auxquelles cette stratégie s’applique sur** , laissez toutes les valeurs par défaut sélectionnées, puis sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

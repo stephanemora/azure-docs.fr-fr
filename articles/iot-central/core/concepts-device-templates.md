@@ -1,6 +1,6 @@
 ---
 title: Présentation des modèles d’appareils dans Azure IoT Central | Microsoft Docs
-description: Les modèles d’appareils Azure IoT Central vous permettent de spécifier le comportement des appareils connectés à votre application.
+description: Les modèles d’appareils Azure IoT Central vous permettent de spécifier le comportement des appareils connectés à votre application. Un modèle d’appareil spécifie les données de télémétrie, les propriétés et les commandes que l’appareil doit implémenter. Un modèle d’appareil définit également l’interface utilisateur pour l’appareil dans IoT Central tels que les formulaires et les tableaux de bord utilisés par un opérateur.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015090"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813166"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -26,12 +26,10 @@ Un générateur de solutions ajoute des modèles d’appareils à une applicatio
 Un modèle d’appareil comprend les sections suivantes :
 
 - _Un modèle de fonctionnalité d’appareil (DCM)_ Cette partie du modèle d’appareil définit la manière dont l’appareil interagit avec votre application. Un développeur d’appareils implémente les comportements définis dans le DCM.
+    - _Interfaces_. Un DCM contient une ou plusieurs interfaces qui définissent les données de télémétrie, les propriétés et les commandes que l’appareil doit implémenter.
 - _Propriétés Cloud_. Cette partie du modèle d’appareil permet au développeur de solutions de spécifier toutes les métadonnées de l’appareil à stocker. Les propriétés Cloud ne sont jamais synchronisées avec les appareils et n’existent que dans l’application. Les propriétés Cloud n’affectent pas le code écrit par un développeur d’appareils pour implémenter le DCM.
 - _Personnalisations_. Cette partie du modèle d’appareil permet au développeur de solutions de remplacer certaines définitions dans le DCM. Des personnalisations sont utiles si le développeur de solutions souhaite affiner la façon dont l’application gère une valeur, par exemple, en modifiant le nom d’affichage d’une propriété ou de la couleur utilisée pour afficher une valeur de télémétrie. Les personnalisations n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le DCM.
 - _Affichages_. Cette partie du modèle d’appareil permet au développeur de solutions de définir des visualisations pour afficher les données de l’appareil, ainsi que des formulaires pour gérer et contrôler un appareil. Les affichages utilisent le DCM, les propriétés Cloud et les personnalisations. Les vues n’affectent pas le code qu’un développeur d’appareils a écrit pour implémenter le DCM.
-
-> [!NOTE]
-> La [version d’actualisation de la préversion publique d’IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) cible des développeurs d’appareils et des OEM pour commencer à construire des appareils pouvant être certifiés pour IoT Plug and Play avant le lancement de disponibilité générale.
 
 ## <a name="device-capability-models"></a>Modèles de capacité d’appareil
 
@@ -108,11 +106,11 @@ Une interface contient certains champs obligatoires :
 
 Il existe des champs facultatifs que vous pouvez utiliser pour ajouter des détails au modèle de capacité, tels que le nom d’affichage et la description.
 
-### <a name="interface"></a>Interface
+## <a name="interfaces"></a>Interfaces
 
 Le DTDL vous permet de décrire les fonctionnalités de votre appareil. Les fonctionnalités associées sont regroupées dans des interfaces. Les interfaces décrivent les propriétés, la télémétrie et les commandes qu’une partie de votre appareil implémente :
 
-- `Properties`. Les propriétés sont des champs de données qui représentent l’état de votre appareil. Utilisez les propriétés pour représenter l’état durable de l’appareil, par exemple l’état marche/arrêt d’une pompe de refroidissement. Les propriétés peuvent également représenter des propriétés d’appareil de base, telles que la version du microprogramme de l’appareil. Vous pouvez déclarer des propriétés comme étant accessibles en lecture seule ou en écriture.
+- `Properties`. Les propriétés sont des champs de données qui représentent l’état de votre appareil. Utilisez les propriétés pour représenter l’état durable de l’appareil, par exemple l’état marche/arrêt d’une pompe de refroidissement. Les propriétés peuvent également représenter des propriétés d’appareil de base, telles que la version du microprogramme de l’appareil. Vous pouvez déclarer des propriétés comme étant accessibles en lecture seule ou en écriture. Seuls les appareils peuvent mettre à jour la valeur d’une propriété en lecture seule. Un opérateur peut définir la valeur d’une propriété accessible en écriture à envoyer à un appareil.
 - `Telemetry`. Les champs de télémétrie représentent les mesures des capteurs. Chaque fois que votre appareil prend une mesure de capteur, il doit envoyer un événement de télémétrie contenant les données de capteur.
 - `Commands`. Les commandes représentent les méthodes que les utilisateurs de votre appareil peuvent exécuter sur l’appareil. Par exemple, une commande de réinitialisation ou une commande pour allumer ou éteindre un ventilateur.
 
@@ -159,7 +157,7 @@ L’exemple suivant illustre la définition d’interface de capteur d’environ
 }
 ```
 
-Cet exemple montre deux propriétés, un type de télémétrie et deux commandes. Une description de champ minimale comprend :
+Cet exemple montre deux propriétés (une en lecture seule et une autre accessible en écriture), un type de télémétrie et deux commandes. Une description de champ minimale comprend :
 
 - `@type` pour spécifier le type de fonctionnalité : `Telemetry`, `Property` ou `Command`.  Dans certains cas, le type comprend un type sémantique pour permettre à IoT Central de faire des hypothèses sur la façon de gérer la valeur.
 - `name` pour la valeur de télémétrie.
@@ -168,7 +166,7 @@ Cet exemple montre deux propriétés, un type de télémétrie et deux commandes
 
 Des champs facultatifs, tels que le nom d’affichage et la description, vous permettent d’ajouter des détails à l’interface et aux fonctionnalités.
 
-### <a name="properties"></a>Propriétés
+## <a name="properties"></a>Propriétés
 
 Par défaut, les propriétés sont en lecture seule. Les propriétés en lecture seule signifient que l’appareil signale des mises à jour de valeurs de propriété à votre application IoT Central. Votre application IoT Central ne peut pas définir la valeur d’une propriété en lecture seule.
 
@@ -180,13 +178,13 @@ N’utilisez pas de propriétés pour envoyer des données de télémétrie à p
 
 Pour les propriétés accessibles en écriture, l’application d’appareil retourne un code d’état, une version et une description de l’état souhaité pour indiquer si elle a reçu et appliqué la valeur de la propriété.
 
-### <a name="telemetry"></a>Télémétrie
+## <a name="telemetry"></a>Télémétrie
 
 IoT Central vous permet d’afficher une télémétrie sur des tableaux de bord et des graphiques, ainsi que d’utiliser des règles pour déclencher des actions lorsque certains seuils sont atteints. IoT Central utilise les informations du DCM, telles que les types de données, les unités et les noms d’affichage, pour déterminer la manière d’afficher les valeurs de télémétrie.
 
 La fonctionnalité d’exportation de données d’IoT Central permet de diffuser en continu la télémétrie vers d’autres destinations, telles que le stockage ou Event Hubs.
 
-### <a name="commands"></a>Commandes
+## <a name="commands"></a>Commandes
 
 Les commandes sont synchrones ou asynchrones. Une commande synchrone doit être exécutée dans un délai de 30 secondes par défaut, et l’appareil doit être connecté quand la commande arrive. Si l’appareil ne répond pas à temps ou qu’il n’est pas connecté, la commande échoue.
 

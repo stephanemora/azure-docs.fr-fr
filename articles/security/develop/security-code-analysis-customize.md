@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031396"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816789"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -131,7 +131,7 @@ Les options disponibles sont les suivantes :
 
 > [!NOTE]
 >
-> - Les analyseurs Roslyn sont intégrés au compilateur et peuvent être exécutés seulement dans le cadre de la compilation csc.exe. Par conséquent, cette tâche nécessite la relecture/réexécution de la commande du compilateur exécutée précédemment dans la build. Cette relecture ou exécution s’effectue en interrogeant Visual Studio Team Services (VSTS) pour les journaux des tâches de build MSBuild.
+> - Les analyseurs Roslyn sont intégrés au compilateur et peuvent être exécutés seulement dans le cadre de la compilation csc.exe. Par conséquent, cette tâche nécessite la relecture/réexécution de la commande du compilateur exécutée précédemment dans la build. Cette relecture ou exécution s’effectue en interrogeant Azure DevOps (anciennement Visual Studio Team Services) pour les journaux des tâches de build MSBuild.
 >
 >   Il n’existe aucun autre moyen pour la tâche d’obtenir de façon fiable la ligne de commande de compilation MSBuild à partir de la définition de build. Nous avons envisagé d’ajouter une zone de texte de forme libre pour permettre aux utilisateurs d’entrer leurs lignes de commande. Mais il serait difficile de les maintenir à jour et de les synchroniser avec la build principale.
 >

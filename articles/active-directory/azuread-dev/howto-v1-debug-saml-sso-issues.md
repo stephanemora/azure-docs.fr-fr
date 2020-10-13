@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116136"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819312"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -86,7 +86,7 @@ Si aucune résolution n’est proposée pour l’erreur de connexion, nous vous 
 
 Il peut arriver que la connexion réussisse, puis qu’une erreur s’affiche sur la page de l’application. Cela se produit lorsque Azure AD a envoyé un jeton à l’application, mais que celle-ci n’accepte pas la réponse.
 
-Pour résoudre cette erreur, effectuez les étapes suivantes :
+Pour résoudre l’erreur, suivez ces étapes ou regardez cette [brève vidéo sur l’utilisation d’Azure AD pour résoudre les problèmes liés à l’authentification unique SAML](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8) :
 
 1. Si l’application se trouve dans la galerie Azure AD, vérifiez que vous avez suivi toutes les étapes d’intégration de l’application avec Azure AD. Pour trouver les instructions d’intégration relatives à votre application, voir la [liste des tutoriels d’intégration d’applications SaaS](../saas-apps/tutorial-list.md).
 1. Récupérez la réponse SAML.

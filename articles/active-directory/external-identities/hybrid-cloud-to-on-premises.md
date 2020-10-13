@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907193"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819391"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -41,6 +41,9 @@ Pour fournir aux utilisateurs B2B l’accès aux applications locales sécurisé
 
 - **Authentification via le Proxy d’application Azure AD**. Les utilisateurs B2B doivent être en mesure de s’authentifier sur l’application locale. Pour ce faire, vous devez publier l’application locale via le proxy d’application Azure AD. Pour plus d’informations, consultez [Bien démarrer avec le proxy d’application et l’installation du connecteur](../manage-apps/application-proxy-enable.md) et [Publier des applications avec le Proxy d’application Azure AD](../manage-apps/application-proxy-publish-azure-portal.md).
 - **Autorisation via un objet utilisateur B2B dans le répertoire local**. L’application doit être en mesure d’effectuer des contrôles d’accès utilisateur et d’accorder l’accès aux ressources appropriées. Pour finaliser cette autorisation, IWA et KCD exigent un objet utilisateur dans l’annuaire Windows Server Active Directory. Comme décrit dans [Fonctionnement de l’authentification unique avec KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), le Proxy d’application a besoin de cet objet utilisateur pour emprunter l’identité de l’utilisateur et obtenir un jeton Kerberos pour l’application. 
+
+   > [!NOTE]
+   > Lorsque vous configurez le proxy d’application Azure AD, assurez-vous que l’option **Identité de connexion déléguée** est définie sur **Nom d’utilisateur principal** (valeur par défaut) pour l’authentification unique IWA.
 
    Dans le scénario de l’utilisateur B2B, il existe deux méthodes que vous pouvez utiliser pour créer les objets utilisateur invité requis pour l’autorisation dans le répertoire local :
 

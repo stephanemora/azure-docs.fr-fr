@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716569"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813064"
 ---
 # <a name="what-are-application-templates"></a>Présentation des modèles d’application
 
@@ -30,12 +30,7 @@ Vous choisissez le modèle d’application lorsque vous créez votre application
 
 ## <a name="custom-templates"></a>Modèles personnalisés
 
-Si vous souhaitez créer votre application à partir de zéro, choisissez l’un des deux modèles d’application personnalisés suivants :
-
-- Application personnalisée
-- Application personnalisée (hérité)
-
-Choisissez le modèle **Application personnalisée**, sauf si vous avez une raison particulière d’utiliser le modèle hérité.
+Si vous souhaitez créer votre application à partir de zéro, choisissez l’un des modèles d’**application personnalisée**.
 
 ## <a name="industry-focused-templates"></a>Modèles sectoriels
 
