@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085142"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652004"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
@@ -73,7 +73,7 @@ when making changes in one don't forget the other two.
 
 3. Utilisez les paramètres **Ajouter une tâche web**, comme spécifié dans le tableau.
 
-   ![Ajouter une page WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Capture d’écran montrant les paramètres Ajouter une tâche web que vous devez configurer.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -111,7 +111,7 @@ when making changes in one don't forget the other two.
 
 3. Utilisez les paramètres **Ajouter une tâche web**, comme spécifié dans le tableau.
 
-   ![Ajouter une page WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Capture d’écran montrant les paramètres qui doivent être définis pour créer un tâche web déclenchée manuellement.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |

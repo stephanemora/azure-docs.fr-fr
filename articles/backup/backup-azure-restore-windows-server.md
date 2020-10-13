@@ -3,12 +3,12 @@ title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178555"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813251"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -107,7 +107,7 @@ Ces étapes incluent la terminologie suivante :
 
 5. Fournissez le fichier d’informations d’identification correspondant à l’exemple de coffre, puis cliquez sur **Suivant**.
 
-    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre dans le Portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
+    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), [téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) dans le portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
 
 6. Dans la page **Sélectionner un serveur de sauvegarde**, sélectionnez l’ordinateur source dans la liste des ordinateurs affichés et fournissez la phrase secrète. Sélectionnez ensuite **Suivant**.
 

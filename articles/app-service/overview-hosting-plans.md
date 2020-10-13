@@ -4,14 +4,14 @@ description: Découvrez le fonctionnement des plans App Service dans Azure App S
 keywords: app service, azure app service, mise à l’échelle, évolutif, scalabilité, plan app service, coût d’app service
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958510"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742971"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 
@@ -22,32 +22,32 @@ Quand vous créez un plan App Service dans une région (par exemple, Europe Oues
 - Région (USA Ouest, USA Est, etc.)
 - Nombre d’instances de machine virtuelle
 - Taille des instances de machine virtuelle (petite, moyenne ou grande)
-- Niveau tarifaire (Gratuit, Partagé, De base, Standard, Premium, PremiumV2, Isolé)
+- Niveau tarifaire (Gratuit, Partagé, De base, Standard, Premium, PremiumV2, PremiumV3, Isolé)
 
 Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités App Service que vous obtenez et combien vous payez pour le plan. Il existe plusieurs catégories de niveaux tarifaires :
 
 - **Calcul partagé** : Les deux niveaux de base, **Gratuit** et **Partagé**, exécutent une application sur la même machine virtuelle Azure que les autres applications App Service, y compris les applications d’autres clients. Ces niveaux allouent des quotas d’UC à chaque application qui s’exécute sur les ressources partagées, et les ressources ne peuvent pas effectuer un scale-out.
-- **Calcul dédié** : Les niveaux **De base**, **Standard**, **Premium** et **PremiumV2** exécutent les applications sur des machines virtuelles Azure dédiées. Seules les applications qui se trouvent dans un même plan App Service partagent les mêmes ressources de calcul. Plus le niveau est élevé, plus vous disposez d’instances de machine virtuelle pour une mises à l’échelle.
+- **Calcul dédié** : Les niveaux **De base**, **Standard**, **Premium**, **PremiumV2** et **PremiumV3** exécutent les applications sur des machines virtuelles Azure dédiées. Seules les applications qui se trouvent dans un même plan App Service partagent les mêmes ressources de calcul. Plus le niveau est élevé, plus vous disposez d’instances de machine virtuelle pour une mises à l’échelle.
 - **Isolé** : Ce niveau exécute des machines virtuelles Azure dédiées sur des réseaux virtuels Azure dédiés. Il fournit à vos applications l’isolement réseau au-dessus de l’isolation du calcul. Il fournit les fonctionnalités de mises à l’échelle maximales.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 En outre, chaque niveau fournit un sous-ensemble spécifique de fonctionnalités App Service. Ces fonctionnalités comprennent, entre autres, les domaines personnalisés et les certificats TLS/SSL, la mise à l’échelle automatique, les emplacements de déploiement, les sauvegardes et l’intégration de Traffic Manager. Plus le niveau est élevé, plus de fonctionnalités sont disponibles. Pour savoir quelles fonctionnalités sont prises en charge dans chaque niveau tarifaire, consultez les [détails des plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-<a name="new-pricing-tier-premiumv2"></a>
+<a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Le nouveau niveau tarifaire **PremiumV2** fournit des [machines virtuelles Dv2](../virtual-machines/dv2-dsv2-series.md) dotées de processeurs plus rapides, d’un stockage SSD et d’un ratio mémoire-cœur deux fois plus élevé que celui du niveau **Standard**. **PremiumV2** offre également une évolutivité supérieure grâce à un plus grand nombre d’instances tout en fournissant toutes les fonctionnalités avancées du plan Standard. Toutes les fonctionnalités disponibles dans le niveau **Premium** existant sont incluses dans **PremiumV2**.
+> Le nouveau niveau tarifaire **PremiumV3** garantit des [machines virtuelles Dv3](../virtual-machines/dv3-dsv3-series.md) dotées de processeurs plus rapides, d’un stockage SSD et d’un ratio mémoire/cœur quatre fois plus élevé que celui du niveau **Standard**. **PremiumV3** offre également une échelle supérieure avec un plus grand nombre d’instances tout en fournissant toutes les fonctionnalités avancées du niveau **Standard**. Toutes les fonctionnalités disponibles dans le niveau **PremiumV2** existant sont comprises dans **PremiumV3**.
 >
 > Comme pour les autres niveaux dédiés, trois tailles de machine virtuelle sont disponibles pour ce niveau :
 >
-> - Petite (un seul cœur d’UC, 3,5 Gio de mémoire) 
-> - Moyenne (deux cœurs d’UC, 7 Gio de mémoire) 
-> - Grande (quatre cœurs d’UC, 14 Gio de mémoire)  
+> - Petite (processeur à 2 cœurs, 8 Gio de mémoire) 
+> - Moyenne (processeur à 4 cœurs, 16 Gio de mémoire) 
+> - Grande (processeur à 8 cœurs, 32 Gio de mémoire)  
 >
-> Pour obtenir les informations tarifaires concernant **PremiumV2**, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
+> Pour obtenir les informations tarifaires concernant **PremiumV3**, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Pour démarrer avec le nouveau niveau tarifaire **PremiumV2**, consultez [Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md).
+> Pour démarrer avec le nouveau niveau tarifaire **PremiumV3**, consultez [Configurer le niveau PremiumV3 pour App Service](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>Comment mon application s’exécute-t-elle et se met-elle à l’échelle ?
 
@@ -68,7 +68,7 @@ Cette section décrit la façon dont les applications App Service sont facturée
 À l’exception du niveau **Gratuit**, un plan App Service comporte une facturation des ressources de calcul qu’il utilise.
 
 - Dans le niveau **Partagé**, chaque application reçoit un quota de minutes de processeur ; ainsi, _chaque application_ est facturée pour le quota de processeur.
-- Dans les niveaux de calcul dédié (**De base**, **Standard**, **Premium**, **PremiumV2**), le plan App Service définit le nombre d’instances de machines virtuelles auquel les applications sont mises à l’échelle ; ainsi, _chaque instance de machine virtuelle_ dans le plan App Service est facturée. Ces instances de machine virtuelle sont facturées dans les mêmes proportions, quel que soit le nombre d’applications en cours d’exécution sur ces instances. Pour éviter des frais inattendus, consultez [Nettoyer un plan App Service](app-service-plan-manage.md#delete).
+- Dans les niveaux de calcul dédié (**De base**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**), le plan App Service définit le nombre d’instances de machines virtuelles auquel les applications sont mises à l’échelle. Ainsi, _chaque instance de machine virtuelle_ dans le plan App Service est facturée. Ces instances de machine virtuelle sont facturées dans les mêmes proportions, quel que soit le nombre d’applications en cours d’exécution sur ces instances. Pour éviter des frais inattendus, consultez [Nettoyer un plan App Service](app-service-plan-manage.md#delete).
 - Dans le niveau **Isolé**, App Service Environment définit le nombre de Workers isolés qui exécutent vos applications, et _chaque Worker_ est facturé. En outre, l’exécution d’App Service Environment donne lieu à des frais de timbre.
 
 Vous ne payez pas pour l’utilisation des fonctionnalités App Service dont vous disposez (configuration de domaines personnalisés, certificats TLS/SSL, emplacements de déploiement, sauvegardes, etc.). Les exceptions sont les suivantes :

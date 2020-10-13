@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184667"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650440"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Ouvrir un ticket de support pour Azure FXT Edge Filer
 
@@ -23,7 +23,7 @@ Utilisez le portail Azure pour ouvrir un ticket de support auprès du service cl
 1. Dans le volet gauche, faites défiler l’écran vers le bas et cliquez sur **Aide + support**.
 1. Cliquez sur **Nouvelle demande de support**. 
 
-   ![Capture d’écran du formulaire de demande de support vide](media/fxt-support-blank.png)
+   ![Capture d’écran représentant la page « Aide + support » avec l’option « Nouvelle demande de support » sélectionnée.](media/fxt-support-blank.png)
 
 1. Remplissez le formulaire de demande.  
     1. Sous l’onglet **De base**, sélectionnez le **Type de problème** ``Technical``. 

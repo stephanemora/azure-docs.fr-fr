@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667450"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91856991"
 highlightedContent:
   items:
   - title: Qu’est-ce que le service de reconnaissance vocale ?
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: En savoir plus
       url: index-intent-recognition.yml
-  - title: Scénarios de conversation
-    links:
-    - itemType: overview
-      text: À propos de la transcription de conversation (réunions)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: À propos des conversations multi-appareils (réunions)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: Transcription de centre d’appel
-      url: call-center-transcription.md
-    footerLink:
-      text: En savoir plus
-      url: index-conversation-scenarios.yml
-  - title: Assistants vocaux
-    links:
-    - itemType: overview
-      text: À propos des assistants vocaux
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: Créer un assistant vocal à l’aide de commandes personnalisées
-      url: custom-commands.md
-    - itemType: get-started
-      text: Créer un assistant vocal à l’aide du Bot Framework
-      url: direct-line-speech.md
-    footerLink:
-      text: En savoir plus
-      url: index-voice-assistants.yml
   - title: Reconnaissance de l’orateur
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: Bien démarrer avec Mot clé personnalisé
       url: custom-keyword-basics.md
+  - title: Immersions dans des scénarios
+    links:
+    - itemType: overview
+      text: À propos de la transcription de conversation (réunions)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: À propos des conversations multi-appareils (réunions)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: À propos des assistants vocaux
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Créer un assistant vocal à l’aide de commandes personnalisées
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Créer un assistant vocal à l’aide du Bot Framework
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: Activer la transcription de centre d’appel
+      url: call-center-transcription.md
   - title: Outils
     links:
     - itemType: overview

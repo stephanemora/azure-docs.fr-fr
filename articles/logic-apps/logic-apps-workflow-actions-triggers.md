@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd95e3ed6b4c31072d7e754c731e748f12db3329
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322391"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821952"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2416,8 +2416,6 @@ Voici quelques considérations liées à l’activation de la concurrence sur un
 * Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 
 * Vous ne pouvez pas désactiver la concurrence après avoir activé le contrôle de la concurrence.
-
-* Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 
 * Quand la concurrence est activée, une instance d’application logique de longue durée peut amener de nouvelles instances d’application logique à entrer dans un état d’attente. Cet état empêche Azure Logic Apps de créer des instances et se produit même quand le nombre d’exécutions simultanées est inférieur au nombre maximal spécifié d’exécutions simultanées.
 
