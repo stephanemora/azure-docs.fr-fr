@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801520"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570132"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -136,7 +136,7 @@ Vous pouvez également voir l’historique des réexécutions d’une exécution
 
 Vous pouvez voir les ressources qu’une exécution de pipeline utilise en cliquant sur l’icône de consommation en regard de l’exécution. 
 
-![Surveiller la consommation](media/monitor-visually/monitor-consumption-1.png)
+![Capture d’écran montrant où vous pouvez voir les ressources consommées par un pipeline.](media/monitor-visually/monitor-consumption-1.png)
 
 Un clic sur l’icône ouvre un rapport consommation des ressources utilisées pour l’exécution de ce pipeline. 
 
@@ -190,7 +190,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
     ![Zone pour les critères cibles](media/monitor-visually/add-criteria-1.png)
 
-    ![Liste des critères](media/monitor-visually/add-criteria-2.png)
+    ![Capture d’écran montrant où vous sélectionnez une métrique pour configurer la condition d’alerte.](media/monitor-visually/add-criteria-2.png)
 
     ![Liste des critères](media/monitor-visually/add-criteria-3.png)
 

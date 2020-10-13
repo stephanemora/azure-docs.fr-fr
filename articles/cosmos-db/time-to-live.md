@@ -7,18 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397030"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802928"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB
 
 Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprimer automatiquement des éléments d’un conteneur après une période déterminée. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Lorsque vous définissez la durée de vie, le système supprime automatiquement les éléments arrivés à expiration en fonction de la valeur de durée de vie, sans avoir besoin d’une opération de suppression explicitement émise par l’application cliente. La valeur maximale pour la durée de vie est 2147483647.
 
 La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Même après l’expiration de la durée de vie, si le conteneur est surchargé avec les demandes et si le nombre d’unités réservées est insuffisant, la suppression des données est retardée. Les données sont supprimées une fois que le nombre d’unités de requête disponibles est suffisant pour effectuer l’opération de suppression. Bien que la suppression des données soit différée, les données ne sont renvoyées par aucune requête (quelle que soit l’API) après l’expiration de la durée de vie.
+
+> Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), cliquez [ici](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments
 

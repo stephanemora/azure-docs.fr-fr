@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330952"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803804"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor pour réseaux (préversion)
 Azure Monitor pour réseau fournit une vue complète de l’[intégrité](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) et des [métriques](../platform/metrics-supported.md) pour toutes les ressources réseau déployées sans aucune configuration.  Il permet également d’accéder à toutes les fonctionnalités de surveillance du réseau, comme le [Moniteur de connexion](../../network-watcher/connection-monitor-preview.md), la [journalisation des flux pour les groupes de sécurité réseau](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Traffic Analytics](../../network-watcher/traffic-analytics.md) et d’autres fonctionnalités de [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) du réseau.
@@ -108,6 +108,43 @@ La boîte à outils de diagnostic fournit un accès à toutes les fonctionnalit�
 
 ![Onglet Boîte à outils de diagnostic](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Dépannage 
+
+Pour obtenir des conseils généraux sur la résolution des problèmes, reportez-vous à [l’article de résolution des problèmes](troubleshoot-workbooks.md) pour les insights basés sur les workbooks.
+
+Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que vous êtes susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour réseaux. La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
+
+### <a name="resolving-performance-issues-or-failures"></a>Résolution des problèmes de performances ou des échecs
+
+Pour vous aider à résoudre les problèmes liés à la mise en réseau que vous identifiez avec Azure Monitor pour réseaux, consultez la documentation sur la résolution des problèmes de la ressource défectueuse. Les liens de dépannage pour les services les plus utilisés sont répertoriés ci-dessous.
+* Réseau virtuel (VNet)
+* Application Gateway
+* Passerelle VPN
+* ExpressRoute 
+* Load Balancer 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Pourquoi ne puis-je pas voir les ressources de tous les abonnements que j’ai sélectionnés
+
+Insights réseau ne peut afficher que les ressources de 5 abonnements à la fois. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Je souhaite apporter des modifications ou ajouter des visualisations supplémentaires aux insights réseau, comment faire ?
+
+Pour apporter des modifications, sélectionnez « Mode d’édition » pour modifier le classeur. Vous pouvez ensuite enregistrer votre travail sous un nouveau classeur lié à un abonnement et à un groupe de ressources désignés.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Quel est le fragment de temps après avoir épinglé une partie des classeurs ?
+
+Nous utilisons le fragment de temps « Auto » ; par conséquent, il dépend de l’intervalle de temps sélectionné.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Quel est l’intervalle de temps quand une partie du classeur est épinglée ?
+
+L’intervalle de temps dépendra des paramètres du tableau de bord.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>Que se passe-t-il si je souhaite voir d’autres données ou créer mes propres visualisations ? Comment puis-je apporter des modifications aux insights réseau ?
+
+Vous pouvez modifier le classeur que vous voyez dans les affichages de volet latéral et de métriques détaillées, en utilisant le mode d’édition, puis enregistrer votre travail sous un nouveau classeur qui contiendra toutes vos nouvelles modifications.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez la supervision réseau dans l’article [Présentation d’Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
+- Découvrez les scénarios que les classeurs sont conçus pour prendre en charge, comment créer et personnaliser des rapports existants, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md).
