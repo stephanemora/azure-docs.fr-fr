@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612110"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627948"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -92,9 +92,12 @@ France | France Centre
 Inde | Inde Centre ou Inde Sud
 Japon |  Japon Est ou Japon Ouest
 Corée du Sud | Corée Centre ou Corée Sud
+Suisse | Suisse Nord
 Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
 États-Unis | USA Centre ou USA Ouest 2
 
+> [!NOTE]
+> Pour la géographie de la Suisse, Suisse Ouest n’est disponible que pour les utilisateurs de l’API REST et nécessite un abonnement approuvé.
 
 ## <a name="supported-geographies-azure-government"></a>Zones géographiques prises en charge (Azure Government)
 
