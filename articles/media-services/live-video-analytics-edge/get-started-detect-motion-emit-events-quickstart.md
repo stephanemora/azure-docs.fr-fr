@@ -3,12 +3,12 @@ title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
 description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884929"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773390"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
@@ -43,12 +43,8 @@ Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [scri
 1. Si vous utilisez Cloud Shell pour la première fois, vous serez invité à sélectionner un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files. Sélectionnez **Créer un stockage** pour créer un compte de stockage pour vos informations de session Cloud Shell. Ce compte de stockage est distinct du compte que le script créera pour être utilisé avec votre compte Azure Media Services.
 1. Dans le menu déroulant situé sur le côté gauche de la fenêtre Cloud Shell, sélectionnez **Bash** comme environnement.
 
-    ![Sélecteur d’environnement](./media/quickstarts/env-selector.png)
-
-1. Exécutez la commande suivante :
-
-    ```
-    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Live Video Analytics basé sur la détection de mouvement"
     ```
     
 Si le script se termine correctement, vous devez voir toutes les ressources nécessaires dans votre abonnement. Dans la sortie du script, un tableau de ressources indique le nom du hub IoT. Recherchez le type de ressource `Microsoft.Devices/IotHubs`, puis notez le nom. Vous en aurez besoin à la prochaine étape. 
@@ -76,7 +72,16 @@ Les modules sont maintenant déployés, mais aucun graphe multimédia n’est ac
 
 Suivez ces instructions pour vous connecter à votre hub IoT à l’aide de l’extension Azure IoT Tools.
 
-1. Dans Visual Studio Code, sélectionnez **Afficher** > **Explorateur**. Vous pouvez aussi sélectionner Ctrl+Maj+E.
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Live Video Analytics basé sur la détection de mouvement":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Live Video Analytics basé sur la détection de mouvement":::
+1. <!--In Visual Studio Code-->Sélectionnez **Affichage** > **Explorateur**. Vous pouvez aussi sélectionner Ctrl+Maj+E.
 1. Dans l’angle en bas à gauche de l’onglet **Explorateur**, sélectionnez **Azure IoT Hub**.
 1. Sélectionnez l’icône **Plus d’options** pour voir le menu contextuel. Sélectionnez ensuite **Définir la chaîne de connexion IoT Hub**.
 1. Quand une zone d’entrée s’affiche, entrez votre chaîne de connexion IoT Hub. Dans Cloud Shell, vous pouvez obtenir la chaîne de connexion dans *~/clouddrive/lva-sample/appsettings.json*.

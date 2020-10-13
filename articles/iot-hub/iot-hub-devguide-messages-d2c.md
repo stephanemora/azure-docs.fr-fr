@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021236"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766937"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -126,7 +126,7 @@ Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Pan
 
 ## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
 
-En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils et des événements de modification du jumeau numérique (en préversion publique). Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Enfin, dans le cadre de la [préversion publique d’IOT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des itinéraires avec une source de données définie sur les **événements de modification du jumeau numérique** et IOT Hub envoie des messages chaque fois qu’une [propriété](../iot-pnp/iot-plug-and-play-glossary.md) de jumeau numérique est définie ou modifiée, qu’un [jumeau numérique](../iot-pnp/iot-plug-and-play-glossary.md) est remplacé ou lorsqu’un événement de modification se produit pour le jumeau d'appareil sous-jacent.
+En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils et des événements de modification du jumeau numérique. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Enfin, dans le cadre d’[IOT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des itinéraires avec une source de données définie sur les **événements de modification du jumeau numérique** et IOT Hub envoie des messages chaque fois qu’une [propriété](../iot-pnp/iot-plug-and-play-glossary.md) de jumeau numérique est définie ou modifiée, qu’un [jumeau numérique](../iot-pnp/iot-plug-and-play-glossary.md) est remplacé ou lorsqu’un événement de modification se produit pour le jumeau d'appareil sous-jacent.
 
 [IoT Hub s’intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d’appareils et prendre en charge les intégrations en temps réel ainsi que l’automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
 

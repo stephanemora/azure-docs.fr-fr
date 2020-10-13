@@ -6,20 +6,29 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.date: 09/22/2020
+ms.openlocfilehash: d5db91a8864d6090466b40197187c9386e053d12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325536"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Monter ou démonter un volume pour des machines virtuelles Windows ou Linux 
 
 Vous pouvez monter ou démonter un volume pour des machines virtuelles Windows ou Linux selon les besoins.  Les instructions de montage pour les machines virtuelles Linux sont disponibles sur Azure NetApp Files.  
 
-> [!IMPORTANT] 
-> Pour pouvoir accéder à un volume NFS, vous devez disposer d’au moins une stratégie d’exportation.
+## <a name="requirements"></a>Spécifications 
+
+* Pour pouvoir accéder à un volume NFS, vous devez disposer d’au moins une stratégie d’exportation.
+* Pour monter correctement un volume NFS, assurez-vous que les ports NFS suivants sont ouverts entre le client et les volumes NFS :
+    * 111 = `RPCBIND/Portmapper`
+    * 635 = `mountd`
+    * 2049 = `nfs`
+    * 4045 = `nlockmgr` (NFSv3 uniquement)
+    * 4046 = `status` (NFSv3 uniquement)
+
+## <a name="steps"></a>Étapes
 
 1. Cliquez sur le panneau **Volumes** et sélectionnez le volume pour lequel vous souhaitez effectuer un montage. 
 2. Cliquez sur **Instructions de montage** à partir du volume sélectionné, puis suivez les instructions pour monter le volume. 

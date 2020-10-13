@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325604"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
-Une bonne compréhension du modèle de coût d’Azure NetApp Files vous aidera à gérer vos dépenses liées à ce service.
+Une bonne compréhension du modèle de coût d’Azure NetApp Files vous aidera à gérer vos dépenses liées à ce service. 
+
+Pour connaître le modèle de coût spécifique à la réplication interrégion, consultez la section [Modèle de coût pour la réplication interrégion](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## <a name="calculation-of-capacity-consumption"></a>Calcul de la consommation de capacité
 
@@ -61,6 +63,7 @@ Vous pouvez augmenter ou diminuer manuellement la taille d’un pool. Toutefois,
 * Incrément de 1 Tio après l’achat initial de 4 Tio minimum
 * Incrément de facturation d’une heure minimum
 * Impossibilité d’abaisser la taille de pool approvisionnée à une valeur inférieure à la capacité totale utilisée dans le pool
+* Pour les pools de capacité avec Qualité de service manuelle, la taille du pool ne peut être réduite que si la taille et le niveau de service fournissent plus de débit que le débit réellement attribué à tous les volumes.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>Comportement en cas de dépassement de la taille maximale d’un pool   
 
@@ -94,3 +97,4 @@ La consommation de capacité des captures instantanées dans Azure NetApp Files 
 * [Tarification Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Modèle de coût pour la réplication inter-région](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

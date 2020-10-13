@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871459"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398995"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Inscrire une connexion Peering Service à l’aide d’Azure CLI.
 
-Azure Peering Service est un service réseau qui améliore la connectivité entre le client et les services cloud de Microsoft tels qu’Office 365, Dynamics 365, les services SaaS, Azure ou les services Microsoft accessibles via le réseau Internet public. Cet article explique comment inscrire une connexion Peering Service en utilisant Azure CLI.
+Azure Peering Service est un service réseau qui améliore la connectivité entre le client et les services cloud Microsoft, comme Microsoft 365, Dynamics 365, les services SaaS, Azure ou les services Microsoft accessibles via l’Internet public. Cet article explique comment inscrire une connexion Peering Service en utilisant Azure CLI.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 

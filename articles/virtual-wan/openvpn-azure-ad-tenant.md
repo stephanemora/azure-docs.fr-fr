@@ -3,17 +3,17 @@ title: 'Locataire Azure AD pour les connexions VPN utilisateur : Authentificati
 description: Vous pouvez utiliser un VPN utilisateur Azure Virtual WAN (point-to-site) pour vous connecter à votre réseau virtuel à l’aide de l'authentification Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367850"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Préparer un locataire Azure Active Directory pour les connexions de VPN utilisateur de protocole OpenVPN
 
@@ -76,7 +76,7 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
 
 4. Lorsque vous y êtes invité, sélectionnez **Accepter**.
 
-    ![Acceptation](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Capture d’écran montrant une boîte de dialogue avec le message Autorisations demandées – Accepter pour votre organisation et des informations supplémentaires.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. Sous votre instance Azure AD, dans **Applications d’entreprise**, vous devriez maintenant voir **VPN Azure** dans la liste.
 

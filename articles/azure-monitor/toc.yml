@@ -362,7 +362,7 @@
               href: app/automate-with-logic-apps.md
     - name: Agents
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/agents-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#agents
@@ -658,6 +658,8 @@
                       href: app/javascript-react-plugin.md
                     - name: Plug-in React Native
                       href: app/javascript-react-native-plugin.md
+                    - name: Plug-in Angular
+                      href: app/javascript-angular-plugin.md
                 - name: Dépanner
                   items:
                     - name: Échec de chargement de kit SDK
@@ -1124,7 +1126,7 @@
               href: insights/wire-data.md
     - name: Workbooks
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualisations

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325587"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -62,7 +62,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
         Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.   
 
-        Vous ne pouvez pas utiliser `default` comme nom de volume.
+        Vous ne pouvez pas utiliser `default` ni `bin` comme nom de volume.
 
     * **Pool de capacités**  
         Spécifiez le pool de capacité dans lequel vous souhaitez que le volume soit créé.
@@ -71,6 +71,11 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
         Spécifiez la quantité de stockage logique allouée au volume.  
 
         Le champ **Quota disponible** indique la quantité d’espace inutilisé dans le pool de capacités choisi, que vous pouvez utiliser pour créer un volume. La taille du nouveau volume ne doit pas dépasser le quota disponible.  
+
+    * **Débit (Mio/s)**    
+        Si le volume est créé dans un pool de capacité avec Qualité de service manuelle, spécifiez le débit souhaité pour le volume.   
+
+        Si le volume est créé dans un pool de capacité avec Qualité de service automatique, la valeur affichée dans ce champ est (quota x débit du niveau de service).   
 
     * **Réseau virtuel**  
         Spécifiez le réseau virtuel Azure (VNet) à partir duquel vous voulez accéder au volume.  
