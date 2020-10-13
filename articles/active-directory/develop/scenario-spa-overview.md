@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257314"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
 Découvrez tout ce que vous devez savoir pour créer une application monopage.
 
-## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Prise en main
 
-Vous pouvez créer votre première application en suivant le démarrage rapide sur les applications monopages JavaScript :
+Si vous ne l’avez pas déjà fait, créez votre première application en suivant le guide de démarrage rapide SPA JavaScript :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : application monopage](./quickstart-v2-javascript.md)
+[Démarrage rapide : application monopage](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Vue d’ensemble
 
-De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework d’application monopage, comme Angular, Vue et React. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur. 
+De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework d’application monopage, comme Angular, Vue et React. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur.
 
 La plateforme d’identités Microsoft offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
 
@@ -56,6 +51,10 @@ Afin d’activer ce scénario pour votre application, vous avez besoin des élé
 * Inscription de l’application auprès d’Azure Active Directory (Azure AD). Les étapes d’inscription diffèrent entre le flux d’octroi implicite et le flux de code d’autorisation.
 * Configuration de l’application avec les propriétés de l’application inscrite, comme l’ID d’application.
 * Utilisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) pour permettre au flux d’authentification de se connecter et d’acquérir des jetons.
+
+## <a name="recommended-reading"></a>Lectures recommandées
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

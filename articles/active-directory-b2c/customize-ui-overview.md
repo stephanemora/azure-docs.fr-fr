@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259541"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Si vous utilisez des [flux utilisateur](user-flow-overview.md), vous pouvez modi
 Vous utilisez le [portail Azure](tutorial-customize-ui.md) pour configurer la personnalisation de l’interface utilisateur pour les flux utilisateur.
 
 > [!TIP]
-> Si vous souhaitez modifier uniquement le logo de la bannière, l’image d’arrière-plan et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Marque de la société (préversion)](#company-branding-preview) décrite plus loin dans cet article.
+> Si vous souhaitez modifier uniquement le logo de la bannière, l’image d’arrière-plan et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Marque de la société](#company-branding) décrite plus loin dans cet article.
 
 ### <a name="custom-policies"></a>Stratégies personnalisées
 
@@ -158,13 +158,11 @@ Le tableau suivant répertorie les fragments HTML qu’Azure AD B2C fusionne dan
 | Authentification multifacteur | Les clients peuvent vérifier leur numéro de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
 | Error | Fournit des informations d’erreur au client. |
 
-## <a name="company-branding-preview"></a>Marque de la société (préversion)
+## <a name="company-branding"></a>Marque de société
 
 Vous pouvez personnaliser vos pages de flux utilisateur avec un logo de bannière, une image d’arrière-plan et une couleur d’arrière-plan à l’aide de la fonctionnalité [Marque de la société](../active-directory/fundamentals/customize-branding.md) d’Azure Active Directory.
 
 Pour personnaliser vos pages de flux utilisateur, vous devez commencer par configurer la marque de la société dans Azure Active Directory, puis l’activer dans les mises en page de vos flux utilisateur dans Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Configurer la marque de la société
 

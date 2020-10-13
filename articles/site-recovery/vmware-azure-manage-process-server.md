@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361384"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -41,11 +41,11 @@ Lorsque vous déployez un serveur de processus en local ou en tant que machine v
 2. Cliquez sur le serveur de configuration avec lequel les serveurs de processus sont inscrits.
 3. Cliquez sur le serveur de processus dont vous souhaitez équilibrer la charge du trafic.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Capture d’écran montrant un serveur de traitement dont vous pouvez équilibrer la charge du trafic.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Cliquez sur **Équilibrer la charge**, puis sélectionnez le serveur de processus cible vers lequel vous souhaitez déplacer des machines. Cliquez ensuite sur **OK**.
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Capture d’écran montrant le volet Équilibrer la charge avec l’option Sélectionner un serveur de traitement cible sélectionnée.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Cliquez sur **Sélectionner des machines**, puis choisissez les machines que vous souhaitez déplacer du serveur de processus actuel vers le serveur de processus cible. Des détails de la moyenne de modification des données sont affichés sur chaque machine virtuelle. Cliquez ensuite sur **OK**. 
 3. Dans le coffre, suivez la progression du travail sous **Surveillance** > **Travaux Site Recovery**.
@@ -61,7 +61,7 @@ Déplacez la charge de travail entière gérée par un serveur de processus vers
 3. Cliquez sur le serveur de processus à partir duquel vous souhaitez basculer la charge de travail.
 4. Cliquez sur **Basculer**, puis sélectionnez le serveur de processus cible vers lequel vous souhaitez déplacer la charge de travail. Cliquez ensuite sur **OK**.
 
-    ![Commutateur](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Capture d’écran montrant le volet Sélectionner un serveur de traitement cible.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. Dans le coffre, suivez la progression du travail sous **Surveillance** > **Travaux Site Recovery**.
 

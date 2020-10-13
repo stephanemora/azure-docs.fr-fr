@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358659"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utiliser l’outil de migration volontaire pour migrer vos règles d’alerte classiques
 
@@ -49,7 +49,7 @@ Pour déclencher la migration de vos règles d’alerte classiques dans le porta
 
 1. Sélectionnez **Migrer vers les nouvelles règles** pour accéder à la page d’accueil de migration. Cette page affiche une liste de tous vos abonnements et leur état de migration :
 
-    ![migration-landing](media/alerts-migration/migration-landing.png "Migrer les règles")
+    ![Capture d’écran montrant la page Migrer les règles d’alerte.](media/alerts-migration/migration-landing.png "Migrer les règles")
 
     Tous les abonnements qui peuvent être migrés à l’aide de l’outil sont marqués comme **Prêts pour la migration**.
 
@@ -60,7 +60,7 @@ Pour déclencher la migration de vos règles d’alerte classiques dans le porta
 
     La page résultante affiche les détails des règles d’alerte classiques qui seront migrées pour un abonnement à la fois. Vous pouvez également sélectionner **Télécharger les détails de la migration pour cet abonnement** pour obtenir les détails au format CSV.
 
-    ![migration-preview](media/alerts-migration/migration-preview.png "Prévisualiser la migration")
+    ![Capture d’écran montrant la page Migrer les règles d’alerte avec un lien Télécharger les détails de la migration pour cet abonnement, où vous pouvez spécifier une adresse e-mail pour la notification de migration.](media/alerts-migration/migration-preview.png "Prévisualiser la migration")
 
 1. Spécifiez une ou plusieurs adresses e-mail pour être informé de l’état de la migration. Vous recevrez un e-mail lorsque de la migration sera terminée ou si une action est nécessaire de votre part.
 
@@ -69,7 +69,7 @@ Pour déclencher la migration de vos règles d’alerte classiques dans le porta
     > [!IMPORTANT]
     > Une fois que vous initiez la migration pour un abonnement, vous ne pourrez pas modifier ou créer des règles d’alerte classiques pour cet abonnement. Cette restriction garantit qu’aucune modification de vos règles d’alerte classiques n’est perdue pendant la migration vers les nouvelles règles. Bien que vous ne pourrez pas modifier vos règles d’alerte classiques, elles continueront à exécuter et à fournir des alertes jusqu'à leur migration. Une fois la migration terminée pour votre abonnement, vous ne pourrez plus utiliser les règles d’alerte classiques.
 
-    ![migration-confirm](media/alerts-migration/migration-confirm.png "Confirmer le démarrage de la migration")
+    ![Capture d’écran montrant une invite de confirmation pour votre migration, comprenant des informations importantes avec des liens pour en savoir plus avant de continuer.](media/alerts-migration/migration-confirm.png "Confirmer le démarrage de la migration")
 
 1. Lorsque la migration est terminée, ou si une action est nécessaire de votre part, vous recevrez un e-mail aux adresses que vous avez fournies précédemment. Vous pouvez également régulièrement vérifier l’état sur la page d’accueil de migration dans le portail.
 

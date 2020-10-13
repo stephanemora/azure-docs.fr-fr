@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360546"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Vous assurer de manière proactive que vous avez accès à GRUB et sysrq peut vous faire gagner beaucoup de temps
 
@@ -210,11 +210,11 @@ Interrompre le processus BOOT et accéder au menu GRUB
 
 Sélectionnez Options avancées pour Ubuntu, puis appuyez sur Entrée
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![La capture d’écran représente la Serial console dans laquelle les options avancées pour Ubuntu sont sélectionnées.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Sélectionnez la ligne qui affiche *(mode de récupération)* . N’appuyez pas sur Entrée mais bien sur « e »
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![La capture d’écran représente la Serial console dans laquelle la version du mode récupération est sélectionnée.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Localisez la ligne qui chargera le noyau et remplacez le dernier paramètre **nomodeset** par la destination en tant que **console=ttyS0**
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Capture d’écran représentant la Serial console avec la valeur modifiée.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Appuyez sur **Ctrl-x** pour démarrer et charger le noyau.
 Si tout se passe bien, vous verrez ces options supplémentaires, qui peuvent vous aider à effectuer d’autres options de récupération
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Capture d’écran représentant la Serial console dans le menu Récupération, qui offre des options de récupération supplémentaires.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Configuration de Red Hat GRUB
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 La dernière ligne *terminal –-timeout = 5 serial console* augmente davantage le délai d’expiration de **GRUB** en ajoutant une invite de 5 secondes pour afficher **Appuyez sur une touche pour continuer.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Capture d’écran représentant une console avec la sortie.](./media/virtual-machines-serial-console/rh6-1.png)
 
 Le menu GRUB doit s’afficher à l’écran pour le délai d’expiration configuré timeout=15 sans avoir besoin d’appuyer sur Échap. Veillez à cliquer dans la console du navigateur pour activer le menu et sélectionner le noyau requis
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Capture d’écran représentant une console avec deux options Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ Vous pouvez accéder à un interpréteur de commandes sans avoir à entrer un mo
 L’accès à GRUB vous permet d’interrompre le processus d’initialisation. Cette interaction est utile pour de nombreuses procédures de récupération.
 Si vous n’avez pas de mot de passe racine et que le mode mono-utilisateur requiert que vous ayez un mot de passe racine, vous pouvez démarrer le noyau en remplaçant le programme init par une invite bash. Cette interruption peut être obtenue en ajoutant init=/bin/bash à la ligne de démarrage du noyau
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Capture d’écran représentant une console avec la ligne de démarrage mise à jour.](./media/virtual-machines-serial-console/bash1.png)
 
 Remontez votre système de fichiers / (racine) RW à l’aide de la commande
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Capture d’écran représentant une console avec une action de remontage.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Vous pouvez maintenant effectuer une modification du mot de passe racine ou de nombreuses autres modifications de configuration Linux
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Capture d’écran représentant une console dans laquelle vous pouvez modifier le mot de passe racine et d’autres configurations.](./media/virtual-machines-serial-console/bash3.png)
 
 Redémarrez la machine virtuelle avec 
 

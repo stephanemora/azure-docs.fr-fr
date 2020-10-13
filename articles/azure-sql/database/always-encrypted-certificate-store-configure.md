@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954239"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444779"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurer Always Encrypted à l’aide du magasin de certificats Windows
 
@@ -127,7 +127,7 @@ Vous pouvez chiffrer les colonnes maintenant ou enregistrer un script PowerShell
 
 Vérifiez que les paramètres sont corrects, puis cliquez sur **Terminer** afin d’achever la configuration du Chiffrement intégral.
 
-![Résumé](./media/always-encrypted-certificate-store-configure/summary.png)
+![Capture d’écran montrant la page de résultats avec des tâches marquées comme ayant réussi.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Vérifier les actions de l’Assistant
 

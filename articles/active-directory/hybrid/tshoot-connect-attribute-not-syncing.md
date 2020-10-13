@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317485"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Résoudre les problèmes d’un attribut ne synchronisant pas dans Azure AD Connect
 
@@ -67,7 +67,7 @@ Avant d’examiner les problèmes de synchronisation des attributs, essayons de 
 
 * Double-cliquez sur le **connecteur Active Directory** pour afficher les attributs du **Connector Space** (Espace connecteur). Cliquez sur le bouton **Aperçu**, puis, dans la boîte de dialogue suivante, sur le bouton **Générer l’aperçu**.
 
-  ![Attributs d’espace connecteur](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Capture d’écran montrant l’écran Propriétés de l’objet d’espace connecteur avec le bouton Aperçu en évidence.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * Cliquez à présent sur **Import Attribute Flow** (Importer le flux d’attributs). Cela a pour effet de présenter le flux d’attributs de l’**espace connecteur Active Directory** au **métaverse**. La colonne **Sync Rule** (Règle de synchronisation) indique la **règle de synchronisation** qui a contribué à cet attribut. La colonne **Data Source** (Source de données) indique les attributs de l’**espace connecteur**. La colonne **Metaverse Attribute** (Attribut du métaverse) indique les attributs dans le **métaverse**. Vous pouvez rechercher l’attribut qui ne se synchronise pas ici. Si vous ne trouvez pas l’attribut ici, cela signifie qu’il n’est pas mappé et que vous devez créer une **règle de synchronisation** personnalisée pour mapper l’attribut.
 
@@ -75,7 +75,7 @@ Avant d’examiner les problèmes de synchronisation des attributs, essayons de 
 
 * Cliquez sur **Export Attribute Flow** (Exporter le flux d’attributs) dans le volet gauche pour présenter le flux d’attributs de **métaverse** à l’**espace connecteur Active Directory** en utilisant des **Règles de synchronisation sortante**.
 
-  ![Attributs d’espace connecteur](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Capture d’écran montrant le flux d’attributs du métaverse à l’espace connecteur Active Directory utilisant des règles de synchronisation sortante.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * De même, vous pouvez afficher l’objet **Azure Active Directory Connector Space** (Espace connecteur Azure Active Directory) et générer l’**aperçu** pour présenter le flux d’attributs du **métaverse** à l’**espace connecteur** et vice versa, de façon à pouvoir examiner pourquoi un attribut n’est pas synchronisé.
 

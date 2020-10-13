@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289070"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Utiliser des étiquettes de requête dans SQL Synapse
 Cet article contient des conseils essentiels pour l’utilisation d’étiquettes de requête dans SQL Synapse.
@@ -34,9 +34,9 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-La dernière ligne balise la chaîne « Mon étiquette de requête » dans la requête. Cette balise est particulièrement utile, car cette étiquette peut être interrogée via des DMV. L’interrogation d’étiquettes fournit un mécanisme de localisation des requêtes problématiques, qui permet d’identifier la progression via un processus ELT exécuté.
+La dernière ligne balise la chaîne « Mon étiquette de requête » dans la requête. Cette étiquette est utile, car le libellé peut être interrogé via des DMV. L’interrogation d’étiquettes fournit un mécanisme de localisation des requêtes problématiques, qui permet d’identifier la progression via un processus ELT exécuté.
 
-Une bonne convention d’affectation de noms est très utile. Par exemple, démarrer l’étiquette par PROJET, PROCÉDURE, INSTRUCTION ou COMMENTAIRE identifie une requête de manière unique dans l’ensemble du code lors du contrôle de la source.
+Les conventions de nommage sont très utiles. Par exemple, démarrer l’étiquette par PROJET, PROCÉDURE, INSTRUCTION ou COMMENTAIRE identifie une requête de manière unique dans l’ensemble du code lors du contrôle de la source.
 
 La requête suivante utilise une vue de gestion dynamique pour rechercher par étiquette :
 

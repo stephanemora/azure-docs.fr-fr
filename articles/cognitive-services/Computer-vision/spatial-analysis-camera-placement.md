@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304290"
 ---
 # <a name="camera-placement-guide"></a>Guide de positionnement de la caméra
 
@@ -56,7 +56,7 @@ En règle générale, les caméras doivent être installées à environ 12-14 pi
 
 ## <a name="camera-to-focal-point-distance"></a>Distance entre le point focal et la caméra
 
-La _distance entre le point focal et la caméra_ représente la distance linéaire entre le point focal (ou le point focal central du point d’intérêt) et la caméra.
+La _distance entre le point focal et la caméra_ représente la distance linéaire entre le point focal (ou le centre de l’image de la caméra) et la caméra mesurée au sol.
 
 ![Distance entre le point focal et la caméra](./media/spatial-analysis/camera-focal-point.png)
 
