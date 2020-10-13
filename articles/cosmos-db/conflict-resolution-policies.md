@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82182750"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570098"
 ---
-# <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
+# <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Types de conflits et stratégies de résolution lors de l’utilisation de plusieurs régions d’écriture
 
 Les conflits et les stratégies de résolution de conflits sont applicables si votre compte Azure Cosmos DB est configuré avec plusieurs régions d’écriture.
 
@@ -50,6 +50,6 @@ Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour r�
 
 Découvrez comment configurer des stratégies de résolution de conflits :
 
-* [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
+* [Guide pratique de configuration de plusieurs régions d’écriture pour vos applications](how-to-multi-master.md)
 * [How to manage conflict resolution policies (Comment gérer des stratégies de résolution de conflits)](how-to-manage-conflicts.md)
 * [How to read from the conflicts feed (Comment lire à partir du flux de conflits)](how-to-manage-conflicts.md#read-from-conflict-feed)

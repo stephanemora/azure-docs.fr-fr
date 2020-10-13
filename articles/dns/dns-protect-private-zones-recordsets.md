@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363220"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protéger les zones DNS privées et les enregistrements
 
@@ -102,9 +102,9 @@ Les autorisations sont appliquées au niveau du jeu d’enregistrements.  L’ut
 
 Vous pouvez configurer les autorisations RBAC au niveau du jeu d’enregistrements via le portail Azure à l’aide du bouton **Contrôle d’accès (IAM)** situé dans la page du jeu d’enregistrements :
 
-![RBAC au niveau jeu d’enregistrements via le portail Azure](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Capture d’écran montrant le bouton Access Control (IAM).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![RBAC au niveau jeu d’enregistrements via le portail Azure](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Capture d’écran montrant Access Control avec l’option Ajouter une attribution de rôle sélectionnée.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Vous pouvez également accorder les autorisations RBAC au niveau jeu d’enregistrements en utilisant [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) :
 

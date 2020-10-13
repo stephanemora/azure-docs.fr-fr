@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001534"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570769"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages EDIFACT dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -247,7 +247,7 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le menu de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
 
-    ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Capture d’écran montrant la vignette Contrats.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

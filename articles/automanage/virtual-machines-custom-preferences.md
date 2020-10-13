@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929910"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715039"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Créer une préférence personnalisée dans Azure Automanage pour machines virtuelles
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 > Les comptes associés à un essai gratuit n’ont pas accès aux machines virtuelles utilisées dans ce tutoriel. Veuillez passer à un abonnement avec paiement à l’utilisation.
 
 > [!IMPORTANT]
-> L’autorisation RBAC suivante est nécessaire pour activer Automanage : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+> L’autorisation Azure RBAC suivante est nécessaire pour activer Automanage : Rôle de **Propriétaire**, ou rôle de **Contributeur** associé au rôle d’**Administrateur de l’accès utilisateur**.
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -57,11 +57,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 4. Sous **Profil de configuration**, cliquez sur **Browse and change profiles and preferences** (Parcourir et modifier les profils et préférences).
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Parcourez et modifiez les profils et préférences.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
 5. Dans le panneau **Sélectionnez le profil et les préférences de configuration**, sélectionnez un profil à gauche : *Dev/Test* à des fins de test, *Prod* à des fins de production.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Parcourez le profil de configuration de la production.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
 6. Dans le profil choisi, sous **Préférences de configuration**, il existe une liste déroulante dans laquelle vous pouvez ajuster certains services.
     1. Cliquez sur **Créer des préférences**.
@@ -71,7 +71,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
         1. Nom de la préférence
         1. Région
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Entrez les préférences de configuration.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
 7. Accédez à l’onglet Préférences, puis ajustez les préférences de configuration comme vous le souhaitez.
         
@@ -88,7 +88,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Cessez rapidement d’utiliser Azure Automanage pour machines virtuelles en désactivant la gestion automatique.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Désactivation d’Automanage sur une machine virtuelle.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
 1. Accédez à la page **Automanage – Meilleures pratiques pour les machines virtuelles** qui répertorie toutes vos machines virtuelles gérées automatiquement.
 1. Activez la case à cocher en regard des machines virtuelles que vous souhaitez désactiver.

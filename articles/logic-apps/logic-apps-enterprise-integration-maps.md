@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072650"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570791"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformer des données XML à l’aide de mappages dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -69,7 +69,7 @@ Vous n’avez pas besoin d’une application logique pour créer et ajouter des 
 
 1. Une fois la page **Assemblys** ouverte, choisissez **Ajouter**.
 
-   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Capture d’écran qui met en surbrillance le bouton Ajouter sur la page Assemblys.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 En fonction de la taille de votre assembly, suivez les étapes de chargement pour les assemblys de taille [inférieure ou égale à 2 Mo](#smaller-assembly) ou pour les assemblys dont la taille est comprise entre [2 Mo et 8 Mo](#larger-assembly).
 Pour connaître le nombre limite d’assemblys que peut comprendre un compte d’intégration, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).

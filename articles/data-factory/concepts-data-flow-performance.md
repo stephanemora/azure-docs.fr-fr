@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370876"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -53,7 +53,7 @@ Une fois que vous avez identifié le goulot d’étranglement de votre flux de d
 
 L’onglet **Optimiser** contient des paramètres pour configurer le schéma de partitionnement du cluster Spark. Cet onglet présent dans chaque transformation de flux de données spécifie si vous souhaitez repartitionner les données **après** la transformation. L’ajustement du partitionnement permet de contrôler la répartition de vos données entre les nœuds de calcul et les optimisations de la localisation des données qui peuvent avoir des effets tant positifs que négatifs sur les performances globales de vos flux de données.
 
-![Optimize](media/data-flow/optimize.png "Optimiser")
+![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
 
 Par défaut, l’option *Utiliser le partitionnement actuel* est sélectionnée, qui indique à Azure Data Factory de conserver le partitionnement de sortie actuel de la transformation. Le repartitionnement des données prenant du temps, est recommandé d’*utiliser le partitionnement actuel* dans la plupart des scénarios. Les scénarios dans lesquels il peut être souhaitable de repartitionner vos données incluent des agrégats et des jointures qui entraînent une asymétrie considérable de vos données, ou l’utilisation d’un partitionnement de source sur une base de données SQL.
 

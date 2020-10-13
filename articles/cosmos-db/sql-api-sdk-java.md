@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 406690eb1303a25002d3d787e746bd091dd83fc6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586126"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569929"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -49,12 +49,12 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 |**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Prise en main**|[Bien démarrer avec le Kit de développement logiciel (SDK) Java](sql-api-java-get-started.md)|
 |**Didacticiel d’application web**|[Développement d’applications web avec Azure Cosmos DB](sql-api-java-application.md)|
-|**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* Corrige le problème de cache de partition maître sur la requête documentCollection.
+* Corrige le problème de cache de partition principale sur la requête documentCollection.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
 * Ajout de la prise en charge de la configuration personnalisée de nouvelle tentative 449.

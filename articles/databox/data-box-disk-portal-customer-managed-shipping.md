@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055567"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575161"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box Disk dans le portail Azure
 
@@ -37,13 +37,13 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
 1. Dans votre commande Azure Data Box Disk, sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
 
-   ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Capture d’écran de l’Assistant Commande montrant l’étape Coordonnées avec l’option Ajouter une adresse d’expédition mise en évidence.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Lorsque vous choisissez le type de livraison, sélectionnez l’option **expédition autogérée**. Cette option est disponible uniquement si vous êtes dans une des régions prises en charge, comme cela est décrit dans les prérequis.
 
 3. Une fois que vous avez fourni votre adresse de livraison, vous devez la valider et terminer votre commande.
 
-   ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Capture d’écran de la boîte de dialogue Ajouter une adresse de livraison avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Une fois que l’appareil a été préparé et que vous avez reçu une notification par e-mail, vous pouvez planifier un prélèvement. Dans votre commande Azure Data Box Disk, accédez à **Vue d’ensemble** puis sélectionnez **Planifier l’enlèvement**.
 
@@ -55,7 +55,7 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
 6. Une fois que vous avez planifié l’enlèvement de votre appareil, vous pouvez afficher votre code d’autorisation dans **Planifier l’enlèvement pour Azure**.
 
-   ![Affichage de votre code d’autorisation](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Capture d’écran de la boîte de dialogue Panifier la récupération pour Azure avec la zone de texte Code d’autorisation pour la récupération mise en évidence.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Notez ce **code d’autorisation**.
 
@@ -78,7 +78,7 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
 9. Si vous avez reçu une date de rendez-vous pour le dépôt, l’état de la commande doit maintenant être passé à **Prête à être reçue au centre de données Azure** sur le portail Azure.
 
-   ![Affichage de votre code d’autorisation](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Capture d’écran de la boîte de dialogue Ajouter une adresse d’expédition avec les options Expédier avec et le bouton Ajouter l’adresse d’expédition mis en évidence.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. Une fois que votre pièce d’identité et votre code d’autorisation ont été vérifiés et que vous avez déposé l’appareil dans le centre de données, l’état de la commande passe à **Reçue**.
 
