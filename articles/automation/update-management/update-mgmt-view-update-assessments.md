@@ -3,18 +3,18 @@ title: Afficher les évaluations de mise à jour d’Azure Automation
 description: Cet article explique comment voir les évaluations des déploiements d’Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264457"
 ---
-# <a name="view-update-assessments"></a>Voir les évaluations des mises à jour
+# <a name="view-update-assessments-in-update-management"></a>Afficher les évaluations de mise à jour dans Update Management
 
-Dans Update Management, vous pouvez voir des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
+Dans Update Management, vous pouvez voir des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés. Vous pouvez afficher les informations d’évaluation relatives à la machine virtuelle Azure sélectionnée, au serveur Arc sélectionné ou au compte Automation pour l’ensemble des ordinateurs et serveurs configurés.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -22,27 +22,33 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
-Dans Update Management, vous pouvez voir des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
+Pour afficher l’évaluation des mises à jour à partir d’une machine virtuelle Azure, accédez à **Machines virtuelles** et sélectionnez votre machine virtuelle dans la liste. Dans le menu de gauche, sélectionnez **Mises à jour de l’hôte et de l’invité**, puis sélectionnez **Accéder à Update Management** sur la page **Mises à jour de l’hôte et de l’invité**.
+
+Dans Update Management, vous pouvez voir des informations sur votre ordinateur, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
+
+[ ![Update Management assessment view for Azure VM](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Pour afficher l’évaluation des mises à jour à partir d’un serveur Arc, accédez à **Serveurs – Azure Arc** et sélectionnez votre serveur dans la liste. Dans le menu de gauche, sélectionnez **Mises à jour de l’hôte et de l’invité**. Sur la page **Mises à jour de l’hôte et de l’invité**, sélectionnez **Accéder à Update Management**.
+
+Dans Update Management, vous pouvez voir des informations sur votre ordinateur Arc, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
+
+[ ![Update Management assessment view for Arc enabled servers](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Pour afficher l’évaluation des mises à jour sur tous les ordinateurs, notamment les serveurs Arc à partir de votre compte Automation, accédez à **Comptes Automation** et sélectionnez dans la liste le compte Automation pour lequel Update Management est activé. Dans votre compte Automation, sélectionnez **Update Management** dans le menu de gauche.
+
+Les mises à jour pour votre environnement sont listées dans la page **Gestion des mises à jour**. Si des mises à jour sont identifiées comme manquantes, une liste de celles-ci s’affiche sous l’onglet **Mises à jour manquantes**.
 
 [ ![Vue par défaut de Update Management](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Pour afficher une évaluation des mises à jour, procédez comme suit.
+Sous la colonne **CONFORMITÉ**, vous pouvez voir quand l’ordinateur a été évalué pour la dernière fois. Sous la colonne **METTRE À JOUR LA DISPONIBILITÉ DE L’AGENT**, vous pouvez voir l’intégrité de l’agent de mise à jour. En cas de problème, sélectionnez le lien pour accéder à la documentation de résolution des problèmes, qui peut vous aider à remédier au problème.
 
-1. Dans le portail Azure, accédez à **Comptes Automation** et sélectionnez votre compte Automation avec Update Management activé dans la liste.
+Sous **Lien d’information**, sélectionnez le lien d’une mise à jour pour ouvrir l’article de support qui vous donne des informations importantes sur la mise à jour.
 
-2. Dans votre compte Automation, sélectionnez **Update Management** dans le volet de gauche.
+[ ![Afficher l’état des mises à jour](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. Les mises à jour pour votre environnement sont listées dans la page **Gestion des mises à jour**. Si des mises à jour sont identifiées comme manquantes, leur liste s’affiche sous l’onglet **Mises à jour manquantes**.
+Cliquez n’importe où ailleurs sur la mise à jour pour ouvrir le volet Recherche dans les journaux. La requête pour la recherche dans les journaux est prédéfinie pour cette mise à jour spécifique. Vous pouvez modifier cette requête ou créer votre propre requête pour afficher des informations détaillées.
 
-   Sous la colonne **CONFORMITÉ**, vous pouvez voir quand l’ordinateur a été évalué pour la dernière fois. Sous la colonne **METTRE À JOUR LA DISPONIBILITÉ DE L’AGENT**, vous pouvez voir l’intégrité de l’agent de mise à jour. En cas de problème, sélectionnez le lien pour accéder à la documentation de résolution des problèmes, qui peut vous aider à remédier au problème.
-
-4. Sous **Lien d’information**, sélectionnez le lien d’une mise à jour pour ouvrir l’article de support qui vous donne des informations importantes sur la mise à jour.
-
-     [ ![Afficher l’état des mises à jour](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Cliquez n’importe où ailleurs sur la mise à jour pour ouvrir le volet Recherche dans les journaux. La requête pour la recherche dans les journaux est prédéfinie pour cette mise à jour spécifique. Vous pouvez modifier cette requête ou créer votre propre requête pour afficher des informations détaillées.
-
-    [ ![Afficher les résultats d’une requête de journal](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![Afficher les résultats d’une requête de journal](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Afficher les mises à jour manquantes
 

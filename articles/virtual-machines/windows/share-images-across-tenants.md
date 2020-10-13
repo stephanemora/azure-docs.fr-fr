@@ -1,6 +1,6 @@
 ---
 title: Partager des images de la bibliothèque entre tenants dans Azure
-description: Découvrez comment partager des images de machine virtuelle entre des locataires Azure à l’aide des galeries d’images partagées.
+description: Par le biais d’exemples Windows, découvrez comment utiliser Shared Image Gallery pour partager des images de machines virtuelles entre des locataires Azure.
 author: axayjo
 ms.service: virtual-machines-windows
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c09bf6ddef88999394ea0575d11a0fbad05f87d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4fb4589d072b57113e1f40675786d012ec699d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331435"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataires Azure
 

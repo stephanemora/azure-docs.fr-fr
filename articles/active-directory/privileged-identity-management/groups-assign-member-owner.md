@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869639"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534418"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Attribuer l’éligibilité à l’appartenance ou la propriété d’un groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -48,7 +48,7 @@ Effectuez les étapes suivantes pour rendre un utilisateur éligible à l’appa
 
 1. Sélectionnez les membres ou propriétaires que vous souhaitez rendre éligibles vis-à-vis du groupe d’accès privilégié.
 
-    ![Volet Sélectionner un membre ou un groupe](./media/groups-assign-member-owner/add-assignments.png)
+    ![Capture d’écran représentant la page « Add assignments » (« Ajouter des affectations ») dans laquelle le volet « Select a member or group » (« Sélectionner un membre ou un groupe ») est ouvert et le bouton « Select » (« Sélectionner ») est mis en surbrillance.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Sélectionnez **Suivant** pour définir la durée de l’appartenance ou de la propriété.
 
