@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945102"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631362"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Démarrage rapide : Surveiller votre première métrique à l’aide du portail web
 
@@ -38,6 +38,13 @@ Lorsque vous provisionnez une instance Metrics Advisor, vous pouvez utiliser les
 > * Si vous souhaitez utiliser l’API REST pour interagir avec le service, vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez. Vous pouvez les trouver sous l’onglet **Clés et points de terminaison**, dans la ressource créée.
 
 Ce document utilise une base de données SQL comme exemple pour la création de votre premier moniteur.
+
+## <a name="sign-in-to-your-workspace"></a>Vous connecter à votre espace de travail
+
+Après avoir créé votre ressource, connectez-vous au [portail Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Sélectionnez votre espace de travail pour commencer à superviser vos métriques. 
+ 
+Vous pouvez créer une ressource Metrics Advisor à chaque région disponible. Vous pouvez changer d’espace de travail dans le portail Metrics Advisor à tout moment.
+
 
 ## <a name="onboard-time-series-data"></a>Intégrer des données de série chronologique
 
@@ -90,7 +97,7 @@ Une fois le schéma de données chargé et affiché comme ci-dessous, sélection
 |**Ignorer**     | Ignorez la colonne sélectionnée.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configuration du schéma" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Paramètres de connexion" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Paramètres de regroupement automatique
 
@@ -110,7 +117,7 @@ Lorsque la détection est appliquée, cliquez sur l’une des métriques listée
 - Mettre à jour la configuration de la détection afin de répondre aux résultats attendus
 - Configurer une notification pour les anomalies détectées
 
-:::image type="content" source="../media/metric-details.png" alt-text="Détails de la métrique" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Paramètres de connexion" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Afficher les insights de diagnostic
 
@@ -118,13 +125,13 @@ Après l’ajustement de la configuration de la détection, les anomalies détec
 
 Pour afficher les insights de diagnostic, cliquez sur les points rouges dans les visualisations de série chronologique, qui représentent les anomalies détectées. Une fenêtre s’affiche avec un lien vers la page d’analyse des incidents. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Lien d’incident" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Paramètres de connexion" lightbox="../media/incident-link.png":::
 
 Après avoir cliqué sur le lien, vous serez orienté vers la page d’analyse des incidents qui se rapporte à l’anomalie correspondante, avec toute une palette d’insights de diagnostic. Dans la partie supérieure, des statistiques sont données sur l’incident, telles que la **gravité**, les **anomalies impliquées**, ainsi que l’**heure de début** et l’**heure de fin** affectées. 
 
 Ensuite, vous verrez l’anomalie ancêtre de l’incident et les conseils de cause racine automatisés. Ces conseils de cause racine automatisés sont générés en analysant l’arborescence d’incidents de toutes les anomalies associées, y compris l’écart, la distribution et la contribution aux anomalies parentes. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostics d’incident" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Paramètres de connexion" lightbox="../media/incident-diagnostic.png":::
 
 En fonction de ces informations, vous pouvez déjà obtenir une vue directe de ce qui se passe et de l’impact de l’incident, ainsi que de la cause racine la plus probable. De cette façon, il est possible de prendre une mesure immédiate pour résoudre l’incident dès que possible. 
 

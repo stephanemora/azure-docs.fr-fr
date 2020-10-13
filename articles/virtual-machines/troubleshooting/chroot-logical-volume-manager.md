@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361464"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Résolution des problèmes d’une machine virtuelle Linux quand il n’y a aucun accès à la console série Azure et que la disposition du disque utilise LVM (Logical Volume Manager)
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Les commandes peuvent être utilisées pour installer, supprimer et mettre à jour des logiciels. Détectez un problème sur les machines virtuelles afin de corriger les erreurs.
 
 
-Exécutez la commande lsblk et /rescue est désormais / et /rescue/boot est /boot ![Chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Exécutez la commande lsblk : /rescue devient /, et /rescue/boot devient /boot. ![Capture d’écran d’une fenêtre de console avec la commande lsblk et son arborescence de sortie](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Effectuer des corrections
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *walkthrough*
 
 La commande **grep** répertorie les noyaux dont **grub.cfg** a connaissance.
-![Noyaux](./media/chroot-logical-volume-manager/kernels.png)
+![Capture d’écran d’une fenêtre de console affichant le résultat d’une recherche grep de noyaux](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2-editenv list** affiche le noyau qui sera chargé au prochain démarrage ![Noyau par défaut](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Exécutez la commande **lvs** pour vérifier quels **volumes logiques** sont dis
 
 Quittez l’environnement **chroot** et montez le **volume logique** requis
 
-![Avancé](./media/chroot-logical-volume-manager/advanced.png)
+![Capture d’écran d’une fenêtre de console avec une commande lvs, puis le montage d’un volume logique](./media/chroot-logical-volume-manager/advanced.png)
 
 À présent, accédez de nouveau à l’environnement **chroot** en exécutant
 

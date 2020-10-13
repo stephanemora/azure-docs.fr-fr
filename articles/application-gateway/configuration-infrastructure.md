@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319790"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuration de l’infrastructure Application Gateway
 
@@ -20,10 +20,10 @@ L’infrastructure Application Gateway comprend le réseau virtuel, les sous-ré
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Réseau virtuel et sous-réseau dédié
 
-Une passerelle d’application est un déploiement dédié dans votre réseau virtuel. Au sein de votre réseau virtuel, un sous-réseau dédié est nécessaire pour la passerelle d’application. Vous pouvez avoir plusieurs instances d’un déploiement de passerelle d’application donné dans un sous-réseau. Vous pouvez aussi déployer d’autres passerelles d’application dans le sous-réseau. Mais vous ne pouvez pas déployer une autre ressource dans le sous-réseau de la passerelle d’application.
+Une passerelle d’application est un déploiement dédié dans votre réseau virtuel. Au sein de votre réseau virtuel, un sous-réseau dédié est nécessaire pour la passerelle d’application. Vous pouvez avoir plusieurs instances d’un déploiement de passerelle d’application donné dans un sous-réseau. Vous pouvez aussi déployer d’autres passerelles d’application dans le sous-réseau. Mais vous ne pouvez pas déployer une autre ressource dans le sous-réseau de la passerelle d’application. Vous ne pouvez pas mélanger Azure Application Gateway Standard_v2 et Standard sur le même sous-réseau.
 
 > [!NOTE]
-> Vous ne pouvez pas mélanger Azure Application Gateway Standard_v2 et Standard sur le même sous-réseau.
+> Les [stratégies de points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoint-policies-overview.md) ne sont pas prises en charge dans un sous-réseau Application Gateway.
 
 ### <a name="size-of-the-subnet"></a>Taille du sous-réseau
 
