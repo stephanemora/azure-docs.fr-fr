@@ -3,12 +3,12 @@ title: Gérer les formules dans Azure DevTest Labs pour créer des machines virt
 description: Cet article explique comment créer une formule à partir d’une base (une image personnalisée, une image Place de marché ou une autre formule) ou d’une machine virtuelle existante.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308892"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -60,7 +60,7 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
     - **Date et heure d’expiration** : vous ne pouvez pas modifier ce champ. 
     - **Make this machine claimable** (Rendre cette machine exigible) - Lorsqu’une machine est « exigible », cela signifie qu’aucune propriété ne lui sera affectée au moment de la création. En revanche, les utilisateurs du laboratoire seront en mesure de prendre possession de la machine (de la « revendiquer ») dans la page du laboratoire.  
 
-        ![Page Paramètres avancés](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Capture d’écran des Paramètres avancés de la page « Créer une formule (base réutilisable) »](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Si vous avez sélectionné une image de la galerie Shared Image Gallery comme base, vous voyez également le champ **version de l’image** qui vous permet de sélectionner la version de l’image à partir de la galerie que vous souhaitez utiliser comme base. 
 
         ![Page Paramètres avancés](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
@@ -98,7 +98,7 @@ Pour modifier une formule, procédez comme suit :
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)** .
    
-    ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Capture d’écran de la page du labo avec « Formules (bases réutilisables) » sélectionné](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Dans la page des **formules de laboratoire**, sélectionnez la formule à modifier.
 6. Dans la page **Mettre à jour la formule**, effectuez les modifications souhaitées, puis sélectionnez **Mettre à jour**.
 
@@ -113,7 +113,7 @@ Pour supprimer une formule, procédez comme suit :
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Dans la page des **formules de laboratoire**, sélectionnez les points de suspension à droite de la formule à supprimer.
    
-    ![Menu de formule](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+    ![Capture d’écran de la page « Formules du labo » avec les points de suspension des options de formule encadrés](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. Dans le menu contextuel de la formule, sélectionnez **Supprimer**.
    
     ![Menu contextuel de la formule](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)

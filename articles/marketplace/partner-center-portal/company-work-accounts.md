@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119750"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400262"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Comptes professionnels d’entreprise et Espace partenaires
 
@@ -20,7 +20,7 @@ L’Espace partenaires utilise des comptes professionnels d’entreprise, égale
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Vérifier si votre entreprise possède déjà un compte professionnel
 
-Si votre entreprise s’est abonnée à un service de cloud Microsoft comme Azure, Microsoft Intune ou Office 365, vous disposez déjà d’un domaine de compte de messagerie (également appelé locataire Azure Active Directory) qui peut être utilisé avec l’Espace partenaires.
+Si votre entreprise s’est abonnée à un service cloud Microsoft comme Azure, Microsoft Intune ou Microsoft 365, vous disposez déjà d’un domaine de compte de messagerie (également appelé locataire Azure Active Directory) qui peut être utilisé avec l’Espace partenaires.
 
 Pour vérifier, procédez comme suit :
 1. Connectez-vous au portail d’administration Azure sur https://portal.azure.com.

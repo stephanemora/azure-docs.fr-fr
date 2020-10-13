@@ -3,12 +3,12 @@ title: Activer une image sous licence dans votre laboratoire Azure DevTest Labs 
 description: Découvrez comment activer une image sous licence dans Azure DevTest Labs à l’aide du portail Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276354"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
 
 1. Identifiez une image sous licence à laquelle vous souhaitez que les utilisateurs aient accès, mais dont les conditions générales n’ont pas été acceptées. Par exemple, vous pouvez voir une Data Science Virtual Machine dont l’état est **Conditions acceptées** ou **Revue nécessaire des conditions**.
 
-    ![Fenêtre Configurer le déploiement par programmation](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Capture d’écran montrant les images Data Science Virtual Machine avec l’état de l’offre « Conditions acceptées » et « Revue nécessaire des conditions »](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Les machines virtuelles Data Science sont des images de machines virtuelles Azure pré-installées, configurées et testées avec plusieurs outils populaires fréquemment utilisés pour l’analytique des données, l’apprentissage automatique et la formation de l’intelligence artificielle. [Présentation d’Azure Data Science Virtual Machine pour Linux et Windows](../machine-learning/data-science-virtual-machine/overview.md) fournit une grande quantité d’informations sur les machines virtuelles DSVM.

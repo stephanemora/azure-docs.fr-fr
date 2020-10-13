@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983294"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398508"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault est un service cloud permettant de stocker les secrets et d’y 
 
 Voici d’autres termes importants :
 
-- **Tenant** : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Ce terme est souvent utilisé pour faire référence à l’ensemble des services Azure et Office 365 d’une organisation.
+- **Tenant** : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Ce terme est souvent utilisé pour faire référence à l’ensemble des services Azure et Microsoft 365 d’une organisation.
 
 - **Propriétaire de coffre** : un propriétaire de coffre peut créer un coffre de clés, et bénéficier d’un accès et d’un contrôle complets à celui-ci. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accède aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, et effectuer les tâches associées.
 

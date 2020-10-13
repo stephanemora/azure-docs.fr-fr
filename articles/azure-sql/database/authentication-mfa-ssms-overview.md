@@ -11,25 +11,28 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281138"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596118"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilisation de l’authentification multifacteur Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics prennent en charge les connexions à partir de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) utilisant *Azure Active Directory - Authentification universelle avec MFA*. Cet article décrit les différences entre les diverses options d’authentification ainsi que les limitations associées à l’utilisation de l’authentification universelle dans Azure Active Directory (Azure AD) pour Azure SQL.
 
-**Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 Pour toutes les fonctionnalités abordées dans cet article, utilisez au minimum la version 17.2 (juillet 2017). La boîte de dialogue de connexion la plus récente doit ressembler à l’image suivante :
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Configure la zone Nom de l’utilisateur.")  
+  ![Capture d’écran de la boîte de dialogue Connexion au serveur dans SQL Server Management Studio, montrant les paramètres pour le type de serveur, le nom du serveur et l’authentification.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
 
 ## <a name="authentication-options"></a>Options d’authentification
 
@@ -57,11 +60,11 @@ Tous les utilisateurs invités qui souhaitent être authentifiés à l’aide de
 1. Ouvrez une connexion dans SSMS. Entrez votre nom de serveur, puis sélectionnez **Azure Active Directory - Authentification universelle avec MFA**. Ajoutez le **nom d’utilisateur** avec lequel vous souhaitez vous connecter.
 1. Cochez la case **Options**, puis accédez à l’onglet **Propriétés de connexion**. Dans la boîte de dialogue **Connexion à une base de données**, complétez la boîte de dialogue pour votre base de données. Cochez la case **Nom du domaine AD ou ID de locataire** et fournissez l’autorité d’authentification, telle que le nom de domaine (**contosotest.onmicrosoft.com**) ou le GUID de l’ID de locataire. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Capture d’écran de l’onglet Propriétés de connexion mettant en évidence les paramètres pour « Connexion à une base de données » et « Nom du domaine AD ou ID de locataire ».](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Si vous exécutez SSMS 18.x ou une version ultérieure, le nom de domaine AD ou l’ID de locataire n’est plus nécessaire pour les utilisateurs invités, car la version 18.x ou ultérieure le reconnaît automatiquement.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Capture d’écran de l’onglet Propriétés de connexion dans la boîte de dialogue Connexion au serveur dans SSMS. « MyDatabase » est sélectionné dans le champ Connexion à une base de données.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Prise en charge d’Azure AD B2B
 

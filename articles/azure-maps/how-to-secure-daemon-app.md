@@ -5,16 +5,16 @@ description: Utilisez le portail Azure pour gérer l’authentification afin de 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006636"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355854"
 ---
 # <a name="secure-a-daemon-application"></a>Sécuriser une application démon
 
@@ -120,14 +120,14 @@ Pour accorder le *contrôle d’accès en fonction du rôle Azure (Azure RBAC)* 
     > ![Accorder l’accès à l’aide d’Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Sous l’onglet **Attributions de rôles**, **ajoutez** une attribution de rôle. 
-    
+
     > [!div class="mx-imgBorder"]
-    > ![Ajouter une attribution de rôle](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Sélectionnez une définition de rôle Azure Maps intégrée, comme **Lecteur de données Azure Maps** ou **Contributeur aux données Azure Maps**. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal de service Azure AD** ou Managed Identity avec **Identité managée affectée par l’utilisateur** / **Identité managée affectée par le système**. Sélectionnez le principal. Ensuite, sélectionnez **Enregistrer**.
 
     > [!div class="mx-imgBorder"]
-    > ![Ajouter une attribution de rôle](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![How to add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. Vous pouvez vérifier que l’attribution de rôle a été appliquée sous l’onglet Attribution de rôle.
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883547"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743877"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les partages de votre service Azure Data Box Gateway 
 
@@ -94,7 +94,7 @@ Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
 1. Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
 
-   ![Sélectionner un partage](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Sélectionner un partage 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Cliquez sur **Actualiser**. 
 
@@ -124,11 +124,11 @@ Procédez comme suit dans le Portail Azure pour synchroniser votre clé d’acc�
 1. Accédez à **Vue d’ensemble** dans votre ressource. 
 2. Dans la liste des partages, choisissez un partage associé au compte de stockage que vous devez synchroniser et cliquez dessus. Cliquez sur **Sync storage key** (Synchroniser une clé de stockage). 
 
-     ![Synchroniser clé de stockage 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Synchroniser une clé de stockage](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Fermez la boîte de dialogue une fois la synchronisation terminée.
 
-     ![Synchroniser clé de stockage 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Synchroniser une clé de stockage 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > Cette opération est à faire une seule fois pour un compte de stockage donné. Vous n’avez pas besoin de répéter cette action pour tous les partages associés au même compte de stockage.
