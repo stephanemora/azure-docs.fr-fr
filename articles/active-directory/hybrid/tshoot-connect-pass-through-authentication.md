@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275921"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741191"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -96,6 +96,7 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80007 | L’Agent d’authentification ne peut pas se connecter à Active Directory. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
 | 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel. 
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
+| 80014 | La demande de validation a répondu après dépassement du temps maximal. | L’agent d’authentification a expiré. Ouvrez un ticket de support avec le code d’erreur, l’ID de corrélation et l’horodatage pour obtenir plus de détails sur cette erreur.
 
 >[!IMPORTANT]
 >Les Agents d'authentification directe authentifient les utilisateurs Azure AD en vérifiant leur nom d'utilisateur et leur mot de passe par rapport à Active Directory et en appelant l'API [Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Par conséquent, si vous avez configuré le paramètre « Connexion à » d'Active Directory de manière à limiter l'accès des stations de travail, vous devez également ajouter les serveurs qui hébergent les Agents d'authentification directe à la liste des serveurs « Connexion à ». Si vous ne le faites pas, vos utilisateurs ne pourront pas se connecter à Azure AD.
