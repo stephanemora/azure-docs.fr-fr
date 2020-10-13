@@ -2,13 +2,13 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605207"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652480"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
@@ -16,14 +16,14 @@ Chaque fois que vous déployez un modèle, les informations concernant le déplo
 
 Azure Resource Manager supprime automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur. Cette modification a été implémentée le 6 août 2020.
 
-**Les suppressions automatiques sont prises en charge pour les déploiements de groupes de ressources. À l’heure actuelle, les déploiements dans l’historique de déploiement pour [abonnement](deploy-to-subscription.md), [groupe d’administration](deploy-to-management-group.md) et [locataire](deploy-to-tenant.md) ne sont pas supprimés**.
+**Les suppressions automatiques sont prises en charge pour les déploiements de groupes de ressources. À l’heure actuelle, les déploiements dans l’historique de déploiement pour [abonnement](deploy-to-subscription.md), [groupe d’administration](deploy-to-management-group.md) et [locataire](deploy-to-tenant.md) ne sont pas automatiquement supprimés.**
 
 > [!NOTE]
 > La suppression d'un déploiement de l'historique n'a aucun impact sur les ressources déployées.
 
 ## <a name="when-deployments-are-deleted"></a>Lors de la suppression des déploiements
 
-Les déploiements sont supprimés de votre historique lorsque vous approchez la limite des 775 déploiements ou plus. Azure Resource Manager supprime les déploiements jusqu’à ce que l’historique soit à 750. Les déploiements les plus anciens sont toujours supprimés en premier.
+Les déploiements sont supprimés de votre historique lorsque vous dépassez 775 déploiements. Azure Resource Manager supprime les déploiements jusqu’à ce que l’historique soit à 750. Les déploiements les plus anciens sont toujours supprimés en premier.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Suppressions de l’historique de déploiement":::
 

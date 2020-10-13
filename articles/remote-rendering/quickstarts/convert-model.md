@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557176"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91652446"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Démarrage rapide : Convertir un modèle pour le rendu
 
@@ -189,7 +189,7 @@ Le script de conversion génère un URI de *signature d’accès partagé (SAS)*
 L’URI SAS créé par le script de conversion sera valide pendant 24 heures uniquement. Toutefois, après son expiration, vous n’avez pas besoin de reconvertir votre modèle. En fait, vous pouvez créer une nouvelle SAS dans le portail comme décrit dans les étapes suivantes :
 
 1. Accédez au [Portail Azure](https://www.portal.azure.com).
-1. Cliquez sur votre ressource **Compte de stockage** : ![Accès avec signature](./media/portal-storage-accounts.png)
+1. Cliquez sur votre ressource **Compte de stockage** : ![Capture d’écran avec mise en évidence de la ressource de compte de stockage sélectionnée.](./media/portal-storage-accounts.png)
 1. Dans l’écran suivant, cliquez sur **Explorateur de stockage** dans le panneau de gauche et recherchez votre modèle de sortie (fichier *.arrAsset*) dans le conteneur de stockage Blob *arroutput*. Cliquez sur le fichier avec le bouton droit, puis sélectionnez **Obtenir la signature d’accès partagé** dans le menu contextuel : ![Accès avec signature](./media/portal-storage-explorer.png)
 1. Un nouvel écran s’ouvre. Vous pouvez y sélectionner une date d’expiration. Sélectionnez **Créer**, puis copiez l’URI affiché dans la boîte de dialogue suivante. Ce nouvel URI remplace l’URI temporaire créé par le script.
 
