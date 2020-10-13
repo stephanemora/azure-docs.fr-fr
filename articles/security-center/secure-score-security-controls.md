@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268262"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -179,7 +179,7 @@ Le tableau ci-dessous liste les contrôles de sécurité d’Azure Security Cent
     <td class="tg-lboi"; width=55%>- L’audit sur le serveur SQL doit être activé<br>- Les journaux de diagnostic dans App Services doivent être activés<br>- Les journaux de diagnostic dans Azure Data Lake Store doivent être activés<br>- Les journaux de diagnostic dans Azure Stream Analytics doivent être activés<br>- Les journaux de diagnostic dans les comptes Batch doivent être activés<br>- Les journaux de diagnostic dans Data Lake Analytics doivent être activés<br>- Les journaux de diagnostic dans Event Hub doivent être activés<br>- Les journaux de diagnostic dans IoT Hub doivent être activés<br>- Les journaux de diagnostic dans Key Vault doivent être activés<br>- Les journaux de diagnostic dans Logic Apps doivent être activés<br>- Les journaux de diagnostic dans les services Search doivent être activés<br>- Les journaux de diagnostic dans Service Bus doivent être activés<br>- Les journaux de diagnostic dans les groupes identiques de machines virtuelles doivent être activés<br>- Les règles d'alerte de métriques doivent être configurées sur des comptes Batch<br>- Les paramètres d’audit SQL doivent avoir des groupes d’actions configurés pour capturer les activités critiques<br>- Les serveurs SQL doivent être configurés avec une période de rétention d’audit supérieure à 90 jours.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Activer la protection avancée contre les menaces (score maximal 0)</p></strong>La protection contre les menaces d’Azure Security Center offre des défenses complètes pour votre environnement. Quand Security Center détecte une menace dans un domaines de votre environnement, il génère une alerte. Ces alertes décrivent les détails des ressources affectées, les étapes de correction suggérées et, dans certains cas, l’option permettant de déclencher une application logique en réponse.<br>Chaque offre groupée de protection contre les menaces est une offre distincte et facultative que vous pouvez activer à l’aide de la recommandation correspondante dans ce contrôle de sécurité.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">En savoir davantage sur la protection contre les menaces de Security Center</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Activer la protection avancée contre les menaces (score maximal 0)</p></strong>Les plans facultatifs de protection contre les menaces Azure Defender d’Azure Security Center fournissent des défenses complètes pour votre environnement. Quand Security Center détecte une menace dans un domaines de votre environnement, il génère une alerte. Ces alertes décrivent les détails des ressources affectées, les étapes de correction suggérées et, dans certains cas, l’option permettant de déclencher une application logique en réponse.<br>Chaque plan Azure Defender est une offre distincte et facultative que vous pouvez activer à l’aide de la recommandation correspondante dans ce contrôle de sécurité.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">En savoir davantage sur la protection contre les menaces de Security Center</a>.</td>
     <td class="tg-lboi"; width=55%>- Advanced Data Security doit être activé sur les serveurs Azure SQL Database<br>- Advanced Data Security doit être activé sur les serveurs SQL sur les machines<br>- Advanced Threat Protection doit être activé sur les machines virtuelles<br>- Advanced Threat Protection doit être activé sur les plans Azure App Service<br>- Advanced Threat Protection doit être activé sur les comptes Stockage Azure<br>- Advanced Threat Protection doit être activé sur les clusters Azure Kubernetes Service<br>- Advanced Threat Protection doit être activé sur les registres Azure Container Registry<br>- Advanced Threat Protection doit être activé sur les coffres Azure Key Vault</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ Le tableau ci-dessous liste les contrôles de sécurité d’Azure Security Cent
 
 ## <a name="secure-score-faq"></a>Questions fréquentes (FAQ) sur le degré de sécurisation
 
-### <a name="why-has-my-secure-score-gone-down"></a>Pourquoi mon degré de sécurisation a-t-il baissé ?
-Security Center a basculé vers un degré de sécurisation amélioré, ce qui inclut les changements de la façon dont le degré est calculé. À présent, vous devez appliquer toutes les recommandations concernant une ressource pour gagner des points. Les scores sont désormais calculés sur une échelle de 0 à 10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Si je n’applique que trois recommandations sur quatre dans un contrôle de sécurité, mon degré de sécurisation changera-t-il ?
 Non. Il ne changera pas tant que vous n’aurez pas appliqué toutes les recommandations fournies pour une même ressource. Pour obtenir le score maximal d’un contrôle, vous devez appliquer toutes les recommandations de l’ensemble des ressources.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>L’expérience précédente du degré de sécurisation est-elle toujours disponible ? 
-Non. Elles se sont exécutées côte à côte pendant un temps afin de faciliter la transition. Le modèle précédent est maintenant déconseillé. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Si je désactive une recommandation dans ma stratégie car elle ne s’applique pas à mon cas, mon contrôle de sécurité sera-t-il respecté et mon degré de sécurisation sera-t-il mis à jour ?
 Oui. Nous vous recommandons de désactiver les recommandations qui ne s’appliquent pas à votre environnement. Pour obtenir des instructions sur la désactivation d’une recommandation, consultez [Désactiver des stratégies de sécurité](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

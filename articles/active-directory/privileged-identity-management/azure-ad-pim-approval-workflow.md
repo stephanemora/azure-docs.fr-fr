@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24471ff5a085be905f9316f1af3c95c3a7912bf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7e0f74f98adcc8a4e8aabc96f7f35c9c55ae277f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421533"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536356"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approuver ou rejeter des demandes de rôles Azure AD dans Privileged Identity Management
 
@@ -58,7 +58,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Recherchez et sélectionnez la demande que vous souhaitez approuver. Une page Approuver ou rejeter s’affiche.
 
-    ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Capture d’écran montrant la page « Approuver les demandes – Rôles Azure AD ».](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. Dans la zone**Justification**, entrez la justification professionnelle.
 

@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316152"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory
 
@@ -116,7 +116,7 @@ Si vous exécutez le flux de données dans une exécution de test de débogage �
 
 - **Message** : Il existe un nombre élevé de valeurs Null ou manquantes qui peuvent être dues à l’échantillonnage d’un trop petit nombre de lignes. Essayez de mettre à jour la limite de lignes de débogage et d’actualiser les données.
 - **Causes** : La condition de jointure ne correspond à aucune ligne ou a généré un nombre élevé de valeurs NULL lors de l’aperçu des données.
-- **Recommandation** : Accédez aux paramètres de débogage et augmentez le nombre de lignes dans la limite de lignes sources. Assurez-vous d’avoir sélectionné Azure IR avec un cluster de flux de données suffisamment important pour traiter plus de données.
+- **Recommandation** : Accédez aux paramètres de débogage et augmentez le nombre de lignes dans la limite de lignes sources. Assurez-vous d’avoir sélectionné un runtime d’intégration Azure avec un cluster de flux de données suffisamment important pour traiter plus de données.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Instructions générales pour la résolution des problèmes

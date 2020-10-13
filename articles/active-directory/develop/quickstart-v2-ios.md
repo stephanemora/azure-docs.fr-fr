@@ -1,6 +1,7 @@
 ---
-title: Démarrage rapide iOS et macOS pour la plateforme d’identités Microsoft | Azure
-description: Apprenez à connecter des utilisateurs et à interroger Microsoft Graph dans une application iOS ou macOS.
+title: 'Démarrage rapide : Ajouter la connexion Microsoft à une application iOS ou macOS | Azure'
+titleSuffix: Microsoft identity platform
+description: Dans ce guide de démarrage rapide, découvrez comment une application iOS ou macOS peut connecter des utilisateurs, obtenir un jeton d’accès auprès de la plateforme d’identités Microsoft et appeler l’API Microsoft Graph.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115252"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613456"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -25,13 +26,16 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 
 Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certaines étapes sont nécessaires uniquement pour les applications iOS. Ces étapes indiquent qu’elles sont uniquement destinées à iOS.
 
-![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>Prérequis
 
-> [!NOTE]
-> **Composants requis**
-> * XCode 10+
-> * iOS 10+
-> * macOS 10.12+
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* XCode 10+
+* iOS 10+
+* macOS 10.12+
+
+## <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
+
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -70,16 +74,16 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-ios/green-check.png) Votre application est configurée avec ces attributs
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>Étape 2 : Téléchargement de l’exemple de projet
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Télécharger l’exemple de code pour iOS]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Télécharger l’exemple de code pour macOS]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>Étape 2 : Téléchargement de l’exemple de projet
-> 
+>
 > - [Télécharger l’exemple de code pour iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Télécharger l’exemple de code pour macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -262,13 +266,11 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > | `scopes` | Contient les étendues demandées (c’est-à-dire `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (`api://<Application ID>/access_as_user`) |
 > | `account` | Compte pour lequel un jeton est demandé. Ce guide de démarrage rapide concerne une application monocompte. Si vous souhaitez créer une application multicompte, vous devez définir une logique permettant d’identifier le compte à utiliser pour les demandes de jetons à l’aide de `accountsFromDeviceForParameters:completionBlock:` et de transmettre le `accountIdentifier` correct. |
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez le tutoriel pour iOS et macOS afin de bénéficier d’un guide pas à pas complet sur la création d’applications ainsi que d’une description détaillée de ce guide de démarrage rapide.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Découvrir comment créer l’application utilisée dans ce guide de démarrage rapide
+Passez au tutoriel pas à pas dans lequel vous créez une application iOS ou macOS qui obtient un jeton d’accès auprès de la plateforme d’identités Microsoft et l’utilise pour appeler l’API Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Tutoriel sur l’appel de l’API Graph pour iOS et macOS](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS](tutorial-v2-ios.md)

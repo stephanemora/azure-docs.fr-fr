@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356194"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -227,11 +227,11 @@ Dans votre workflow d’application logique, les conditions contribuent à exéc
 
 5. Sélectionnez **Ajouter un nouveau paramètre**. Dans la liste déroulante qui s’affiche, cochez les cases en regard de **Clé de partition** et **Paramètres pour la procédure stockée**, puis cliquez sur n’importe où dans l’écran ; cela ajoute un champ pour la valeur de la clé de partition et un champ pour les paramètres de la procédure stockée.
 
-   ![remplir une action d’application logique](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Capture d’écran montrant un élément Exécuter la procédure stockée avec l’option Ajouter un nouveau paramètre sélectionnée](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Maintenant, entrez la valeur et les paramètres de clé de partition comme indiqué ci-dessous. Veillez à entrer les crochets et les guillemets doubles comme indiqué. Vous devrez peut-être cliquer sur **Ajouter du contenu dynamique** pour obtenir les valeurs valides à utiliser ici.
 
-   ![remplir une action d’application logique](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Capture d’écran montrant un élément Exécuter la procédure stockée avec des paramètres entrés](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. En haut du volet où l’énoncé **Pour chaque** s’affiche, sous **Sélectionner une sortie des étapes précédentes**, vérifiez que **Corps** est sélectionné.
 

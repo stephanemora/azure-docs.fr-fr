@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485717"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827527"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -69,7 +69,7 @@ Le runtime d’intégration Azure fournit le calcul natif pour déplacer des don
 
 La répartition des activités est une opération légère pour acheminer l’activité vers le service de calcul cible. Par conséquent, vous n’avez pas besoin de mettre la taille de calcul à l’échelle pour ce scénario.
 
-Pour en savoir plus sur la création et la configuration d'un runtime d'intégration Azure IR, consultez la rubrique Créer et configurer Azure IR sous Guides pratiques. 
+Pour en savoir plus sur la création et la configuration d’un runtime d’intégration Azure, consultez la rubrique [Guide pratique pour créer et configurer Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Le runtime d’intégration Azure possède des propriétés liées au runtime Data Flow, définissant l’infrastructure de calcul sous-jacente qui sera utilisée pour exécuter les flux de données. 

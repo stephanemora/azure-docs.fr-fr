@@ -7,23 +7,27 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533799"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761258"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire plusieurs machines virtuelles SQL dans Azure avec le fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article explique comment inscrire en bloc vos machines virtuelles SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL à l’aide de l’applet de commande PowerShell `Register-SqlVMs`.
+
+Cet article vous apprend à inscrire des machines virtuelles SQL Server en bloc. Vous pouvez également inscrire [toutes les machines virtuelles SQL Server automatiquement](sql-vm-resource-provider-automatic-registration.md) ou [des machines virtuelles SQL Server individuelles](sql-vm-resource-provider-register.md). 
+
+## <a name="overview"></a>Vue d’ensemble
 
 L’applet de commande `Register-SqlVMs` peut être utilisée pour inscrire toutes les machines virtuelles d’une liste donnée d’abonnements, de groupes de ressources ou d’une liste de machines virtuelles spécifiques. L’applet de commande inscrira les machines virtuelles en mode de gestion _léger_, puis générera un [rapport et un fichier journal](#output-description). 
 

@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: bf221797926b1776852e7474071f5dcca3249bc7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084513"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761292"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Prise en charge de TLS dans le service Azure IoT Hub Device Provisioning (DPS)
 
@@ -73,12 +73,14 @@ La ressource DPS créée à l’aide de cette configuration refusera les apparei
 Les instances de DPS configurées pour accepter uniquement le protocole TLS 1.2 imposent également l’utilisation des suites de chiffrement suivantes :
 
 
-| Suites de chiffrement TLS 1.2 |
+| Suites de chiffrement TLS 1.2 recommandées |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
 
 ### <a name="legacy-cipher-suites"></a>Suites de chiffrement héritées 
+
+Ces suites de chiffrement sont actuellement encore prises en charge par DPS, mais seront bientôt déconseillées. Utilisez les suites de chiffrement recommandées ci-dessus dans la mesure du possible.
 
 | Option n° 1 (meilleure sécurité) |
 | :--- |
@@ -87,18 +89,6 @@ Les instances de DPS configurées pour accepter uniquement le protocole TLS 1.2
 | Option n° 2 (meilleur niveau de performance) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
-
-
-### <a name="device-authentication"></a>Authentification des appareils
-
-| DPS prend en charge les certificats ECC pour l’authentification du client à l’aide des chiffrements suivants : |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` |
-
-| Chiffrements hérités : |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384 (uses SHA-1)`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256 (uses SHA-1)` |
-
 
 
 ## <a name="use-tls-12-in-the-iot-sdks"></a>Utiliser TLS 1.2 dans les kits de développement logiciel (SDK) IoT

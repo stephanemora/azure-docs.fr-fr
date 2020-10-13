@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 4fa31a5be41e89c8fdc821ae77ff151b184316df
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 282b8e1292bf1fe24655691fbbeb876d871bc31e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518014"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761343"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Démarrage rapide : Extraire les données de ticket de caisse à l’aide de l’API REST Form Recognizer avec cURL
 
@@ -34,43 +34,43 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 
 ## <a name="analyze-a-receipt"></a>Analyser un ticket de caisse
 
-Pour commencer à analyser un ticket de caisse, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Pour commencer à analyser un ticket de caisse, vous appelez l’API **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de ticket de caisse.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
 ```
 
 Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location**. La valeur de cet en-tête contient un ID d’opération que vous pouvez utiliser pour interroger l’état de l’opération asynchrone et obtenir les résultats. Dans l’exemple suivant, la chaîne après `operations/` est l’ID d’opération.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-receipt-results"></a>Obtenir les résultats du ticket de caisse
 
-Après avoir appelé l’API **Analyze Receipt**, vous appelez l’API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
+Après avoir appelé l’API **Analyze Receipt**, vous appelez l’API **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<operationId>` par l’ID d’opération obtenu à l’étape précédente.
 1. Remplacez `<subscription key>` par votre clé d’abonnement.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 
-Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ, `"status"`, indique l’état de l’opération. Si l’opération est terminée, le champ `"recognitionResults"` contient chaque ligne de texte extraite de l’accusé de réception, et le champ `"understandingResults"` contient des informations de clé/valeur pour les parties les plus pertinents de l’accusé de réception. Si l’opération n’est pas terminée, la valeur de `"status"` sera `"running"` ou `"notStarted"`, et vous devez rappeler l’API, manuellement ou via un script. Nous vous recommandons d’attendre une seconde ou plus entre chaque appel.
+Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ, `"status"`, indique l’état de l’opération. Si l’opération est terminée, le champ `"readResults"` contient chaque ligne de texte extraite de l’accusé de réception, et le champ `"documentResults"` contient des informations de clé/valeur pour les parties les plus pertinents de l’accusé de réception. Si l’opération n’est pas terminée, la valeur de `"status"` sera `"running"` ou `"notStarted"`, et vous devez rappeler l’API, manuellement ou via un script. Nous vous recommandons d’attendre une seconde ou plus entre chaque appel.
 
 Regardez l’image de ticket suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
 
 ![Ticket de caisse du magasin Contoso](../media/contoso-allinone.jpg)
 
-Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du ticket découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
+Le nœud `"readResults"` contient tout le texte reconnu (si vous définissez le paramètre facultatif *includeTextDetails* sur `true`). Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"documentResults"` contient les valeurs spécifiques du ticket découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
 
 ```json
 {
@@ -78,7 +78,7 @@ Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est org
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
   "analyzeResult":{
-    "version":"2.0.0",
+    "version":"2.1.0",
     "readResults":[
       {
         "page":1,
@@ -402,4 +402,4 @@ Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est org
 Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec cURL pour extraire le contenu d’un ticket de caisse. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
 
 > [!div class="nextstepaction"]
-> [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)
+> [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)

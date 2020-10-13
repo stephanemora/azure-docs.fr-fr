@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460932"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761224"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -59,7 +59,7 @@ Avec Communication Services, vous pouvez améliorer votre application en ajoutan
 
 ### <a name="price"></a>Price
 
-- Il vous est facturé 0,0008 USD pour chaque message de conversation envoyé.
+Il vous est facturé 0,0008 USD pour chaque message de conversation envoyé.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Exemple de tarif : Conversation entre deux utilisateurs 
 
@@ -77,3 +77,46 @@ Rose consulte les messages et s’engage dans la conversation. Entre-temps, Case
 **Calculs des coûts** 
 
 - Nombre de messages envoyés (20 + 30 + 18 + 30 + 25 + 35) x 0,0008 USD = 0,1264 USD
+
+
+## <a name="telephony-and-sms"></a>Téléphonie et SMS
+
+## <a name="price"></a>Price 
+
+Les services de téléphonie sont facturés à la minute, tandis que les SMS sont facturés à l’unité. Les tarifs sont déterminés par le type et le lieu du numéro que vous utilisez ainsi que par la destination de vos appels et SMS.
+
+### <a name="telephone-calling"></a>Appels téléphoniques
+
+Les appels téléphoniques traditionnels (appels pris en charge par le réseau téléphonique commuté public) sont disponibles au tarif de paiement à l’utilisation pour les numéros de téléphone basés aux États-Unis. Le prix est facturé par minute en fonction du type de numéro utilisé et de la destination de l’appel. Le tableau ci-dessous indique les tarifs pour les principales destinations des appels. Pour obtenir la liste complète des destinations, reportez-vous à la [liste détaillée des tarifs](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
+
+
+#### <a name="united-states-calling-prices"></a>Prix d’appel aux États-Unis
+
+Les tarifs suivants incluent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+
+|Type de nombre   |Passer des appels   |Recevoir des appels|
+|--------------|-----------|------------|
+|Local     |À partir de 0,013 USD/min       |0,0085 USD/min        |
+|Numéro gratuit |0,013 USD/min   |0,0220 USD/min |
+
+#### <a name="other-calling-destinations"></a>Autres destinations d’appels
+
+Les tarifs suivants comprennent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+
+|Destinations des appels   |Prix par minute|
+|-----------|------------|
+|Canada     |À partir de 0,013 USD/min   |
+|Royaume-Uni     |À partir de 0,015 USD/min   |
+|Allemagne     |À partir de 0,015 USD/min   |
+|France     |À partir de 0,016 USD/min   |
+
+
+### <a name="sms"></a>sms
+
+Les SMS sont facturés à l’utilisation. Le prix est fixé à l’unité, en fonction de la destination du message. Les messages peuvent être envoyés depuis des numéros gratuits vers des numéros de téléphone situés aux États-Unis. Notez que les numéros de téléphone locaux (géographiques) ne peuvent pas être utilisés pour envoyer des SMS.
+
+Les tarifs suivants comprennent les taxes et frais de communication obligatoires jusqu’au 30 juin 2021 :
+
+|Pays ou région   |Envoyer des messages|Recevoir des messages|
+|-----------|------------|------------|
+|États-Unis (numéro gratuit)    |0,0075 USD/SMS   | 0,0075 USD/SMS |

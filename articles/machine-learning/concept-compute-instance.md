@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
-ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.date: 10/02/2020
+ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031022"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826894"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -24,7 +24,7 @@ Les instances de calcul facilitent le démarrage du développement avec Azure Ma
 
 Utilisez une instance de calcul comme environnement de développement complètement configuré et managé dans le cloud pour l’apprentissage automatique. Elle peut également être utilisée comme cible de calcul pour l’apprentissage et l’inférence à des fins de développement et de test.  
 
-Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) avec des fonctionnalités de mise à l’échelle multinœud. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md) avec des fonctionnalités de mise à l’échelle multinœud. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?
 
@@ -32,10 +32,12 @@ Une instance de calcul est une station de travail cloud complètement managée q
 
 |Principaux avantages|Description|
 |----|----|
-|Productivité|Vous pouvez créer et déployer des modèles à l’aide des blocs-notes intégrés et des outils suivants dans Azure Machine Learning Studio :<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (préversion)<br/>L’instance de calcul est entièrement intégrée avec l’espace de travail et le studio Azure Machine Learning. Vous pouvez partager des blocs-notes et des données avec d’autres scientifiques des données dans l’espace de travail. Vous pouvez également configurer le développement à distance VS Code à l’aide du protocole [SSH](how-to-set-up-vs-code-remote.md) |
+|Productivité|Vous pouvez créer et déployer des modèles à l’aide des blocs-notes intégrés et des outils suivants dans Azure Machine Learning Studio :<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (préversion)<br/>L’instance de calcul est entièrement intégrée avec l’espace de travail et le studio Azure Machine Learning. Vous pouvez partager des blocs-notes et des données avec d’autres scientifiques des données dans l’espace de travail.<br/> Vous pouvez également utiliser [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) avec des instances de calcul.
 |Managée et sécurisée|Réduisez votre empreinte de sécurité et ajoutez la conformité aux exigences de sécurité de l’entreprise. Les instances de calcul fournissent des stratégies de gestion robustes et des configurations de mise en réseau sécurisées telles que :<br/><br/>- Provisionnement automatique par les modèles Resource Manager ou le SDK Azure Machine Learning<br/>- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Prise en charge des réseaux virtuels](how-to-enable-virtual-network.md#compute-instance)<br/>- Stratégie SSH pour activer/désactiver l’accès SSH<br/>TLS 1.2 activé |
 |Préconfiguré&nbsp;pour&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
+
+Vous pouvez [créer une instance de calcul](how-to-create-manage-compute-instance.md?tabs=python#create) vous-même ou un administrateur peut [créer une instance de calcul pour vous](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Outils et environnements
 
@@ -45,7 +47,11 @@ Une instance de calcul est une station de travail cloud complètement managée q
 
 L’instance de calcul Azure Machine Learning vous permet de créer, d’effectuer l’apprentissage et de déployer des modèles dans une expérience de notebook entièrement intégrée dans votre espace de travail.
 
-Ces outils et environnements sont installés sur l’instance de calcul : 
+Vous pouvez exécuter des blocs-notes Jupyter dans [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) à l’aide de l’instance de calcul en tant que serveur distant sans avoir besoin de SSH. Vous pouvez également activer l’intégration de VS Code via l’[extension SSH à distance](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
+Vous pouvez [installer des packages](how-to-create-manage-compute-instance.md#install-packages) et [ajouter des noyaux](how-to-create-manage-compute-instance.md#add-new-kernels) à votre instance de calcul.  
+
+Les outils et environnements suivants sont déjà installés sur l’instance de calcul : 
 
 |Outils et environnements généraux|Détails|
 |----|:----:|
@@ -69,7 +75,7 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Anaconda Python||
 |Jupyter et extensions||
 |Jupyterlab et extensions||
-[SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
+[SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
 |Autres packages PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -77,20 +83,6 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Exemples de SDK Azure Machine Learning pour Python et R||
 
 Les packages Python sont tous installés dans l’environnement **Python 3.6 – AzureML**.  
-
-### <a name="installing-packages"></a>Installation des packages
-
-Vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio :
-
-* RStudio utilise l’onglet **Packages** en bas à droite, ou l’onglet **Console** en haut à gauche.  
-* Python : Ajoutez le code d’installation et exécutez-le dans une cellule Jupyter Notebook.
-
-Ou vous pouvez accéder à une fenêtre de terminal de l’une des manières suivantes :
-
-* RStudio : Sélectionnez l’onglet **Terminal** en haut à gauche.
-* Lab Jupyter :  Sélectionnez la vignette **Terminal** sous le titre **Autre** de l’onglet Lanceur.
-* Jupyter :  Sélectionnez **Nouveau > Terminal** en haut à droite dans l’onglet Fichiers.
-* SSH sur la machine.  Installez ensuite les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
 
 ## <a name="accessing-files"></a>Accès aux fichiers
 
@@ -144,7 +136,7 @@ Vous pouvez également créer une instance
 * Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-1st-experiment-sdk-setup.md#azure)
 * Dans le portail Azure
 * À partir d’un modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle d’instance de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * À partir de l’[extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
@@ -153,7 +145,7 @@ Le quota de cœurs dédiés par région par famille de machine virtuelle et le q
 ### <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
 
 En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d’un scientifique des données et lui affecter l’instance avec :
-* [Modèle Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
+* [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
 * API REST
 
 Le scientifique des données pour lequel vous créez l’instance de calcul doit disposer des autorisations RBAC suivantes : 
@@ -192,4 +184,5 @@ Impossible de créer des machines virtuelles de notebooks. Toutefois, vous pouve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- * [Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](tutorial-1st-experiment-sdk-train.md) montre comment utiliser une instance de calcul avec un notebook intégré.
+* [Créer et gérer une instance de calcul](how-to-create-manage-compute-instance.md)
+* [Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](tutorial-1st-experiment-sdk-train.md) montre comment utiliser une instance de calcul avec un notebook intégré.
