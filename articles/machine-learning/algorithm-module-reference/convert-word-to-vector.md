@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898604"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536730"
 ---
 # <a name="convert-word-to-vector-module"></a>Module Vectoriser des mots
 
@@ -27,9 +27,9 @@ Ce module utilise la bibliothèque Gensim. Pour plus d’informations sur Gensim
 
 ### <a name="more-about-converting-words-to-vectors"></a>En savoir plus sur la vectorisation de mots
 
-D’une manière générale, la conversion de mots en vecteurs, ou vectorisation de mots, est un processus de traitement du langage naturel. Le processus utilise des techniques ou des modèles de langage pour mapper des mots à un espace vectoriel, c’est-à-dire pour représenter chaque mot par un vecteur de nombres réels. Il permet aussi à des mots avec des significations similaires d’avoir des représentations similaires.
+La conversion de mots en vecteurs, ou vectorisation de mots, est un processus de traitement du langage naturel. Ce processus utilise des modèles de langage pour mapper des mots à un espace vectoriel. Un espace vectoriel représente chaque mot par un vecteur de nombres réels. Il permet aussi à des mots avec des significations similaires d’avoir des représentations similaires.
 
-Vous pouvez utiliser des plongements lexicaux comme entrées initiales pour accomplir en aval des tâches de traitement du langage naturel, comme la classification de texte et l’analyse des sentiments.
+Utilisez des plongements lexicaux comme entrées initiales pour accomplir en aval des tâches de traitement du langage naturel, comme la classification de texte et l’analyse des sentiments.
 
 Il existe plusieurs technologies de plongement lexical. Dans ce module, nous avons implémenté trois méthodes largement utilisées : les deux premières, Word2Vec et FastText, sont des modèles d’entraînement en ligne ; la troisième, glove-wiki-gigaword-100, est un modèle préentraîné. 
 
@@ -37,9 +37,9 @@ Les modèles d’entraînement en ligne sont entraînés sur vos données d’en
 
 Voici quelques informations sur les méthodes :
 
-+ Word2Vec est l’une des techniques les plus populaires pour apprendre les plongements lexicaux à l’aide d’un réseau neuronal superficiel. La théorie est abordée dans ce document, téléchargeable au format PDF : [Efficient Estimation of Word Representations in Vector Space, par Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). L’implémentation décrite dans ce module est basée sur la [bibliothèque Gensim pour Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
++ Word2Vec est l’une des techniques les plus populaires pour apprendre les plongements lexicaux à l’aide d’un réseau neuronal superficiel. La théorie est abordée dans ce document, téléchargeable au format PDF : [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781.pdf). L’implémentation décrite dans ce module est basée sur la [bibliothèque Gensim pour Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
 
-+ La théorie de FastText est exposée dans un document disponible en téléchargement au format PDF : [Enriching Word Vectors with Subword Information, par Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). L’implémentation décrite dans ce module est basée sur la [bibliothèque Gensim pour FastText](https://radimrehurek.com/gensim/models/fasttext.html).
++ La théorie de FastText est exposée dans un document disponible en téléchargement au format PDF : [Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1607.04606.pdf). L’implémentation décrite dans ce module est basée sur la [bibliothèque Gensim pour FastText](https://radimrehurek.com/gensim/models/fasttext.html).
 
 + Le modèle préentraîné GloVe est glove-wiki-gigaword-100. Il s’agit d’une collection de vecteurs préentraînés basés sur un corpus de texte Wikipédia qui contient 5,6 milliards de jetons et 400 000 mots de vocabulaire sans casse. Un téléchargement au format PDF est disponible : [GloVe : Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf).
 
@@ -77,7 +77,7 @@ Ce module nécessite un jeu de données contenant une colonne de texte. Il est p
 
 6. Pour **Taille maximale du vocabulaire**, spécifiez le nombre maximal de mots dans le vocabulaire généré.
 
-    S’il y a plus de mots uniques que cela, élaguez les mots peu fréquents.
+    S’il y a plus de mots uniques que la taille maximale, élaguez les mots peu fréquents.
 
     La taille du vocabulaire par défaut est 10 000.
 
@@ -93,11 +93,11 @@ Le module a une sortie :
 
 + **Vocabulaire avec imbrications** : contient le vocabulaire généré, ainsi que le plongement lexical de chaque mot. Une dimension occupe une colonne.
 
-L’exemple suivant illustre le fonctionnement du module Vectoriser des mots. Il applique ce module avec les paramètres par défaut au jeu de données Wikipédia SP 500 prétraité fourni dans Azure Machine Learning.
+L’exemple suivant montre le fonctionnement du module Vectoriser des mots. Il utilise le module Vectoriser des mots avec les paramètres par défaut sur le jeu de données Wikipédia SP 500 prétraité.
 
 ### <a name="source-dataset"></a>Jeu de données source
 
-Le jeu de données contient une colonne de catégorie ainsi que le texte intégral extrait de Wikipédia. Ce tableau n’affiche que quelques exemples représentatifs.
+Le jeu de données contient une colonne de catégorie ainsi que le texte intégral extrait de Wikipédia. Le tableau suivant montre quelques exemples représentatifs.
 
 |Texte|
 |----------|
@@ -136,13 +136,13 @@ Cette section contient des détails, des conseils et des réponses à des questi
 
     Dans ce module Vectoriser des mots, nous avons fourni trois stratégies différentes : deux modèles d’entraînement en ligne et un modèle préentraîné. Les modèles d’entraînement en ligne utilisent votre jeu de données d’entrée comme données d’entraînement, et génèrent du vocabulaire et des vecteurs de mots pendant l’entraînement. Le modèle préentraîné est déjà entraîné par un corpus de texte bien plus volumineux, comme du texte sur Wikipédia ou Twitter. Le modèle préentraîné est en fait une collection de paires mot/plongement lexical.  
 
-    Si le modèle préentraîné GloVe est choisi comme stratégie de vectorisation de mots, il résume un vocabulaire à partir du jeu de données d’entrée et génère un vecteur de plongement lexical pour chaque mot à partir du modèle préentraîné. Sans entraînement en ligne, l’utilisation d’un modèle préentraîné peut réduire la durée de l’entraînement. Il offre de meilleures performances, en particulier quand le jeu de données d’entrée est relativement petit.
+    Le modèle préentraîné GloVe résume un vocabulaire à partir du jeu de données d’entrée et génère un vecteur de plongement lexical pour chaque mot à partir du modèle préentraîné. Sans entraînement en ligne, l’utilisation d’un modèle préentraîné peut réduire la durée de l’entraînement. Il offre de meilleures performances, en particulier quand le jeu de données d’entrée est relativement petit.
 
 + Taille du plongement lexical :
 
-    En général, la longueur du plongement lexical d’un mot est de quelques centaines (par exemple, 100, 200, 300) pour obtenir de bonnes performances. En fait, un petit plongement lexical signifie un petit espace vectoriel, ce qui peut entraîner des collisions de plongements lexicaux.  
+    En général, la longueur du plongement lexical d’un mot est de quelques centaines. Par exemple, 100, 200, 300. Un petit plongement lexical signifie un petit espace vectoriel, ce qui pourrait entraîner des collisions de plongements lexicaux.  
 
-    Pour les modèles préentraînés, la longueur des plongements lexicaux est fixe. Dans cette implémentation, la taille du plongement lexical de gants-wiki-gigaword-100 est 100.
+    La longueur des plongements lexicaux est fixe pour les modèles préentraînés. Dans cet exemple, la taille du plongement lexical de glove-wiki-gigaword-100 est 100.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

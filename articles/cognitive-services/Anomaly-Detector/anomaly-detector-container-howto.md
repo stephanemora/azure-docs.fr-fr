@@ -1,33 +1,38 @@
 ---
-title: Guide pratique pour installer et exécuter des conteneurs pour l’utilisation de l’API Détecteur d’anomalies
+title: Installer et exécuter des conteneurs Docker pour l’API Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment installer et utiliser un conteneur pour utiliser les algorithmes avancés de l’API Détecteur d’anomalies.
+description: Utilisez les algorithmes de l’API Détecteur d’anomalies pour identifier les anomalies dans vos données, localement à l’aide d’un conteneur Docker.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: local, Docker, conteneur, diffusion en continu, algorithmes
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903560"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459998"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs Détecteur d’anomalies 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Installer et exécuter des conteneurs Docker pour l’API Détecteur d’anomalies 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Le Détecteur d’anomalies présente la caractéristique de conteneur suivante :
+Les conteneurs vous permettent d’utiliser l’API Détecteur d’anomalies dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Détecteur d'anomalies.
 
-| Fonction | Fonctionnalités |
-|--|--|
-| Détecteur d’anomalies | <li> Détecte les anomalies en temps réel. <li> Détecte les anomalies tout au long de votre jeu de données par lots. <li> Détecte les points de changement de tendance dans votre jeu de données par lots.<li> Déduit la plage normale attendue de vos données. <li> Prend en charge l’ajustement de la sensibilité de détection des anomalies pour mieux ajuster vos données. |
+Détecteur d’anomalies offre un conteneur Docker pour l’utilisation locale de l’API. Utilisez le conteneur pour :
+* Utiliser les algorithmes de Détecteur d’anomalies sur vos données
+* Surveiller les données de diffusion en continu et détecter les anomalies en temps réel.
+* Détecter les anomalies tout au long de votre jeu de données par lots. 
+* Détecter les points de changement de tendance dans votre jeu de données par lots.
+* Ajuster la sensibilité de l’algorithme de détection des anomalies pour mieux ajuster vos données.
 
-Pour plus d’informations sur les API, consultez :
+Pour plus d’informations sur l’API, consultez :
 * [En savoir plus sur le service API Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
