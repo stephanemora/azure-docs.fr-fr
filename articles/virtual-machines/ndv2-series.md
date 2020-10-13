@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286204"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653440"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 mise à jour
 
@@ -24,6 +24,7 @@ Les instances NDv2 offrent d’excellentes performances pour les charges de trav
 
 Il est essentiel que NDv2 soit conçu pour répondre à la fois à des charges de travail de scale-up (8 GPU par machine virtuelle) et de scale-out (plusieurs machines virtuelles travaillant ensemble) qui sont gourmandes en calcul. La série NDv2 prend désormais en charge le réseau back-end EDR InfiniBand 100 Gigabits, similaire à celui disponible dans la série HB de HPC VM, afin de permettre un clustering haute performance pour les scénarios parallèles, notamment l’entraînement distribué pour l’IA et le ML. Ce réseau principal prend en charge tous les principaux protocoles InfiniBand, y compris ceux utilisés par les bibliothèques NCCL2 de NVIDIA, ce qui permet une mise en grappe transparente des GPU.
 
+> [!IMPORTANT]
 > Lors de l’[activation d’InfiniBand](./workloads/hpc/enable-infiniband.md) sur la machine virtuelle ND40rs_v2, utilisez le pilote OFED 4.7-1.0.0.1.
 >
 > En raison de l’augmentation de la mémoire GPU, la nouvelle machine virtuelle ND40rs_v2 nécessite l’utilisation de [deux machines virtuelles Generation](./windows/generation-2.md) et d’images marketplace. 
@@ -32,15 +33,13 @@ Il est essentiel que NDv2 soit conçu pour répondre à la fois à des charges d
 
 <br>
 
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Non pris en charge
-
-Mises à jour avec préservation de la mémoire : Non pris en charge
-
-Infiniband Prise en charge
+[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+Infiniband Prise en charge<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Bande passante réseau maximale | Nombre max de cartes réseau |
 |---|---|---|---|---|---|---|---|---|---|

@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443847"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824150"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité d’Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443847"
 Cet article présente les paramètres qui contrôlent la connectivité au serveur pour Azure SQL Database et Azure Synapse Analytics. Ces paramètres s’appliquent à **toutes** les bases de données SQL Database et Azure Synapse associées au serveur.
 
 > [!IMPORTANT]
-> Cet article ne s’applique *pas* à **Azure SQL Managed Instance**
+> Cet article ne s’applique *pas* à **Azure SQL Managed Instance**.
 
 Les paramètres de connectivité sont accessibles à partir de l’écran **Pare-feu et réseaux virtuels**, comme illustré dans la capture d’écran suivante :
 
@@ -38,6 +38,9 @@ Lorsque le paramètre **Refuser l’accès au réseau public** est défini sur *
  ![Capture d’écran de la connectivité avec l’accès refusé au réseau public][2]
 
 Toute tentative de définition du paramètre **Refuser l’accès au réseau public** sur **Oui** sans aucun point de terminaison privé existant au niveau du serveur logique échouera avec un message d’erreur semblable à celui-ci :  
+
+> [!NOTE]
+> Pour définir des règles de pare-feu de réseau virtuel sur un serveur logique qui est déjà configuré avec des points de terminaison privés, définissez **Deny public network access** (Refuser l’accès au réseau public) sur **No** (Non).
 
 ```output
 Error 42102

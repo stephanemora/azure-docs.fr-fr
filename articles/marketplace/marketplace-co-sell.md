@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268721"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -36,7 +36,7 @@ Les offres qui atteignent le statut de **Co-vente Azure IP avec incentives** bé
 * Les frais de service de la place de marché passent de 20 % à 10 %. Cette remise s'applique à votre offre IaaS ou SaaS vendue par le biais de la place de marché commerciale. Pour plus d’informations, consultez [Réduction des frais de service](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee).
 * Les partenaires fournisseurs de solutions cloud (CSP) reçoivent une prime de 10 % pour vendre votre offre SaaS ou IaaS. Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](cloud-solution-providers.md).
 * Les ventes de votre offre via la place de marché commerciale contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients éligibles, l'offre s'accompagnera de la mention **« Éligible à Azure Benefit »** sur le portail Azure. Pour plus d’informations, consultez [Avantage d’Azure Consumption Commitment](azure-consumption-commitment-benefit.md).
-* Un badge **« Solutions recommandées »** sera attribué à votre offre dans les vitrines. Ce badge démontre la qualité, les performances et la capacité des offres à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis. Pour en savoir plus, consultez [Solutions préférées dans Microsoft AppSource et la Place de marché Azure](preferred-solutions.md).
+* Les offres qui atteignent le statut **Co-vente Azure IP avec incentives** ou **Co-vente d’applications métier avec incentives** reçoivent un badge **« Solutions préférées »** dans les vitrines. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis. Pour en savoir plus, consultez [Solutions préférées dans Microsoft AppSource et la Place de marché Azure](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Étapes de publication et exigences relatives à la co-vente
 

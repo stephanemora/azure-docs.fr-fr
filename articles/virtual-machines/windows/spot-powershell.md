@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816539"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825128"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Déployer des machines virtuelles Spot à l’aide d’Azure PowerShell
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>Simuler une éviction
+
+Vous pouvez [simuler l’éviction](/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle spot, afin de tester l’efficacité de la réponse de votre application en vue d’une éviction soudaine. 
+
+Remplacez les éléments suivants avec vos informations : 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure CLI](../linux/spot-cli.md), du [portail](spot-portal.md) ou d’un [modèle](../linux/spot-template.md).
+Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure CLI](../linux/spot-cli.md), du [portail](../spot-portal.md) ou d’un [modèle](../linux/spot-template.md).
+
+Interroger les informations de tarification actuelles à l’aide de l’[API des prix de vente au détail d’Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) pour plus d’informations sur la tarification Spot. Les `meterName` et `skuName` contiennent tous les deux `Spot`.
 
 Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

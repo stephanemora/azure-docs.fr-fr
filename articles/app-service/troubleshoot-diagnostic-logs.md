@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264369"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -185,16 +185,16 @@ Grâce à la nouvelle [intégration d’Azure Monitor](https://aka.ms/appsvcblog
 
 Le tableau suivant renseigne sur les types et la descriptions des journaux pris en charge : 
 
-| Type de journal | Prise en charge de Windows | Prise en charge de Linux (Docker) | Description |
-|-|-|-|
-| AppServiceConsoleLogs | À confirmer | Oui | Sortie standard et erreur standard |
-| AppServiceHTTPLogs | Oui | Oui | Journaux d’activité des serveurs Web |
-| AppServiceEnvironmentPlatformLogs | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
-| AppServiceAuditLogs | Oui | Oui | Activité de connexion via FTP et Kudu |
-| AppServiceFileAuditLogs | Oui | TBD | Modifications de fichier apportées au contenu du site ; disponible uniquement pour le niveau Premium et supérieur |
-| AppServiceAppLogs | À confirmer | Java SE et Tomcat | Journaux d’activité d’application |
-| AppServiceIPSecAuditLogs  | Oui | Oui | Demandes à partir de règles IP |
-| AppServicePlatformLogs  | À confirmer | Oui | Journaux de conteneur |
+| Type de journal | Windows | Conteneur Windows | Linux | Conteneur Linux | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | À confirmer | À confirmer | Oui | Oui | Sortie standard et erreur standard |
+| AppServiceHTTPLogs | Oui | À confirmer | Oui | Oui | Journaux d’activité des serveurs Web |
+| AppServiceEnvironmentPlatformLogs | Oui | N/A | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
+| AppServiceAuditLogs | Oui | À confirmer | Oui | Oui | Activité de connexion via FTP et Kudu |
+| AppServiceFileAuditLogs | Oui | À confirmer | À confirmer | À confirmer | Modifications de fichier apportées au contenu du site ; disponible uniquement pour le niveau Premium et supérieur |
+| AppServiceAppLogs | ASP .NET | À confirmer | Java SE et Tomcat | Java SE et Tomcat | Journaux d’activité d’application |
+| AppServiceIPSecAuditLogs  | Oui | À confirmer | Oui | Oui | Demandes à partir de règles IP |
+| AppServicePlatformLogs  | À confirmer | À confirmer | Oui | Oui | journaux des opérations du conteneur |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

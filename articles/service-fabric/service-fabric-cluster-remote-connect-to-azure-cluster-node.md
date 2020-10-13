@@ -3,12 +3,12 @@ title: Connexion à distance à un nœud de cluster Azure Service Fabric
 description: Découvrez comment vous connecter à distance à une instance de groupe identique (un nœud de cluster Service Fabric).
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268092"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster
 Dans un cluster Service Fabric s’exécutant dans Azure, chaque type de nœud de cluster que vous définissez [définit une échelle mise à l’échelle séparée des machines virtuelles](service-fabric-cluster-nodetypes.md).  Vous pouvez vous connecter à distance à des instances de groupes identiques (nœuds de cluster) spécifiques.  Contrairement aux machines virtuelles à une seule instance, les instances de groupe identique ne possèdent pas leurs propres adresses IP virtuelles. Cela peut poser des problèmes quand il s’agit de rechercher une adresse IP et un port permettant de se connecter à distance à une instance spécifique.
@@ -21,11 +21,11 @@ Pour rechercher une adresse IP et un port permettant de se connecter à distance
     
     Dans la page de votre équilibreur de charge dans le portail Azure, sélectionnez **Paramètres** > **Règles NAT de trafic entrant** : 
 
-    ![Règles NAT de trafic entrant de l’équilibreur de charge](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Capture d’écran de la page d’un équilibreur de charge dans le portail Azure. Dans le menu de gauche, sous PARAMÈTRES, l’option Règles NAT de trafic entrant est sélectionnée.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     La capture d’écran suivante montre les règles NAT de trafic entrant pour un type de nœud nommé FrontEnd : 
 
-    ![Règles NAT de trafic entrant de l’équilibreur de charge](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Capture d’écran montrant les règles NAT de trafic entrant pour un équilibreur de charge. Le nom, la version du protocole Internet, la destination, la cible et le service sont répertoriés pour chaque règle.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     Pour chaque nœud, l’adresse IP s’affiche dans la colonne **DESTINATION**, la colonne **TARGET** donne l’instance de groupe identique et la colonne **SERVICE** fournit le numéro de port. Pour une connexion à distance, les ports sont alloués à chaque nœud dans l’ordre croissant, en commençant par le port 3389.
 

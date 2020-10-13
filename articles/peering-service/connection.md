@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0540fa9c7a29456aaf343adce83509b2d0e390e4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871319"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398918"
 ---
 # <a name="peering-service-connection"></a>Connexion Peering Service
 
@@ -29,7 +29,7 @@ Une connexion fait généralement référence à un ensemble d’informations lo
 Le client peut établir une ou plusieurs connexions en fonction des besoins. Une connexion est également utilisée en tant qu’unité de collecte de télémétrie. Par exemple, pour choisir des alertes de télémétrie, le client doit définir la connexion à superviser.
 
 > [!Note]
-> Lorsque vous vous inscrivez au Peering Service, nous analysons vos données de télémétrie Windows et Office 365 afin de vous fournir des mesures de latence pour vos préfixes sélectionnés.
+> Lorsque vous vous inscrivez à Peering Service, nous analysons votre télémétrie Windows et Microsoft 365 afin de vous fournir des mesures de latence pour vos préfixes sélectionnés.
 >Pour plus d’informations sur la télémétrie des connexions, reportez-vous à [Télémétrie des connexions Peering Service](connection-telemetry.md).
 >
 

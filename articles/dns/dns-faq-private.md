@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308433"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
@@ -43,6 +43,14 @@ Oui. Vous devez disposer d'une autorisation d'écriture sur les réseaux virtuel
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Les enregistrements DNS de machines virtuelles inscrits automatiquement dans une zone privée sont-ils supprimés automatiquement quand vous supprimez la machine virtuelle ?
 
 Oui. Si vous supprimez une machine virtuelle dans un réseau virtuel lié alors que l’inscription automatique est activé, les enregistrements inscrits sont automatiquement supprimés.
+
+## <a name="ive-reconfigured-the-os-in-my-virtual-machine-to-have-a-new-host-name-or-static-ip-address-why-dont-i-see-that-change-reflected-in-the-private-zone"></a>J’ai reconfiguré le système d’exploitation sur ma machine virtuelle de façon à lui attribuer un nouveau nom d’hôte ou une nouvelle adresse IP statique. Pourquoi cette modification ne se reflète-t-elle pas dans la zone privée ?
+
+Les enregistrements de la zone privée sont remplis par le service Azure DHCP ; les messages d’inscription du client sont ignorés. Si vous avez désactivé la prise en charge des clients DHCP sur la machine virtuelle en configurant une adresse IP statique, les modifications apportées au nom d’hôte ou à l’adresse IP statique de la machine virtuelle ne se reflètent pas dans la zone.
+
+## <a name="i-have-configured-a-preferred-dns-suffix-in-my-windows-virtual-machine-why-are-my-records-still-registered-in-the-zone-linked-to-the-virtual-network"></a>J’ai configuré un suffixe DNS par défaut sur ma machine virtuelle Windows. Pourquoi mes enregistrements sont-ils toujours inscrits dans la zone liée au réseau virtuel ?
+
+Le service Azure DHCP ignore tous les suffixes DNS lorsqu’il inscrit la zone DNS privée. Par exemple, si votre machine virtuelle est configurée pour `contoso.com` comme suffixe DNS principal, mais que le réseau virtuel est lié à la zone DNS privée `fabrikam.com`, l’inscription de la machine virtuelle apparaît dans la zone DNS privée `fabrikam.com`.
 
 ## <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-linked-virtual-network-be-deleted-manually"></a>Un enregistrement de machine virtuelle inscrit automatiquement dans une zone privée à partir d’un réseau virtuel lié peut-il être supprimé manuellement ?
 

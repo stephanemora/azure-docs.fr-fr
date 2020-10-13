@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265679"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Réviser l'accès aux groupes et aux applications dans les révisions d'accès Azure AD
 
@@ -37,7 +37,7 @@ Vous pouvez démarrer le processus de révision d’accès à partir de l’e-ma
 
 1. Recherchez un e-mail de Microsoft vous invitant à réviser les accès. Voici un exemple d’e-mail vous invitant à réviser l’accès d’un groupe.
 
-    ![Exemple d’e-mail de Microsoft pour la révision d’accès d’un groupe](./media/perform-access-review/access-review-email.png)
+    ![Capture d’écran représentant un exemple d’e-mail de Microsoft pour la révision d’accès à un groupe](./media/perform-access-review/access-review-email.png)
 
 1. Cliquez sur le lien **Commencer une révision d'accès** pour ouvrir la révision d’accès.
 
@@ -54,7 +54,7 @@ Vous pouvez démarrer le processus de révision d’accès à partir de l’e-ma
         > [!NOTE]
         > Si la vignette **Révisions d’accès** n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
 
-        ![Liste de révisions d’accès en attente pour les applications et les groupes](./media/perform-access-review/access-reviews-list.png)
+        ![Capture d’écran représentant la liste de révisions d’accès en attente pour les applications et les groupes.](./media/perform-access-review/access-reviews-list.png)
 
     1. Cliquez sur le lien **Commencer la révision** associé à la révision d’accès que vous souhaitez effectuer.
 
@@ -99,7 +99,7 @@ Pour rendre les révisions d’accès plus faciles et plus rapides pour vous, no
 
 1. Dans la barre bleue en bas de la page, cliquez sur **Accepter les recommandations**.
 
-    ![Liste de révision d’accès ouverte montrant le bouton Accepter les recommandations](./media/perform-access-review/accept-recommendations.png)
+    ![Capture d’écran représentant la liste de révision d’accès ouverte dans laquelle le bouton « Accepter les recommandations » est sélectionné.](./media/perform-access-review/accept-recommendations.png)
 
     Vous obtenez un résumé des actions recommandées.
 

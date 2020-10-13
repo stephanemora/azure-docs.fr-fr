@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2548f002b2006b5d241c323ae880704bbe95301e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6ab532e3d824aa857a35bf2898aea2efba28df71
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649922"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653024"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 et Dasv4
 
@@ -20,15 +20,13 @@ Les séries Dav4 et Dasv4 sont de nouvelles tailles qui utilisent le processeur 
 
 ## <a name="dav4-series"></a>Série Dav4
 
-ACU : 230-260
-
-Premium Storage : Non pris en charge
-
-Mise en cache du Stockage Premium : Non pris en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 230-260<br>
+[Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+<br>
 
 Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, optez pour les tailles Dasv4. Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Dav4.
 
@@ -45,15 +43,13 @@ Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</s
 
 ## <a name="dasv4-series"></a>Série Dasv4
 
-ACU :  230-260
-
-Premium Storage : Prise en charge
-
-Mise en cache du Stockage Premium : Prise en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 230-260<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+<br>
 
 Les tailles de la série Dasv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production.
 

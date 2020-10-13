@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 09/29/2020
+ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448533"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598090"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 Utilisez ce code dans votre script de flux de données pour créer une colonne dérivée nommée ```DWhash``` qui produit un hachage ```sha1``` de trois colonnes.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 Vous pouvez également utiliser le script ci-dessous pour générer un hachage de ligne à l’aide de toutes les colonnes présentes dans votre flux, sans avoir à nommer chacune d’elles :
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>Équivalent String_agg
@@ -191,7 +191,7 @@ Ce code agit comme la fonction ```string_agg()``` T-SQL et regroupe les valeurs 
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Nombre de mises à jour, upserts, insertions, suppressions
@@ -210,6 +210,14 @@ Cet extrait de code ajoute une nouvelle transformation d’agrégation à votre 
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>Rechercher les valeurs NULL dans toutes les colonnes
+Il s’agit d’un extrait de code que vous pouvez coller dans votre flux de données pour rechercher de manière générique les valeurs NULL dans toutes vos colonnes. Cette technique s’appuie sur la dérive de schéma pour parcourir toutes les colonnes de toutes les lignes et utilise une opération de fractionnement conditionnel pour séparer les lignes contenant des valeurs NULL des lignes sans valeurs NULL. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

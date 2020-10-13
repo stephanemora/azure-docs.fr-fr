@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654784"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653653"
 ---
 # <a name="m-series"></a>Série M
 
@@ -20,17 +20,14 @@ La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 pr
 
 Les machines virtuelles de la série M sont dotées de la technologie Hyper-Threading d’Intel&reg;.
 
-ACU : 160-180
-
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Non pris en charge
-
-Mises à jour avec préservation de la mémoire : Non pris en charge
-
-Accélérateur d’écriture :  [Pris en charge](./how-to-enable-write-accelerator.md)
+[ACU](acu.md) : 160-180<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Accélérateur d’écriture](./how-to-enable-write-accelerator.md) : Pris(e) en charge<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

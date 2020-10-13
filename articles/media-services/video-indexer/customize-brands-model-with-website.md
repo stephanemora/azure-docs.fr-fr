@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361232"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personnaliser un modèle de marques avec le site web Video Indexer
 
@@ -42,7 +42,7 @@ Vous pouvez déterminer si vous souhaitez ou non que les marques de la base de d
 
 3. Pour modifier des marques, sélectionnez l'onglet **Marques**.
 
-    ![Personnaliser un modèle de marques dans Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Capture d’écran représentant l’onglet Marques de la boîte de dialogue Personnalisation du modèle de contenu.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Activez la case à cocher **Afficher les marques suggérées par Bing** si vous souhaitez que Video Indexer détecte les marques suggérées par Bing : laissez l’option désactivée dans le cas contraire.
 
@@ -54,7 +54,7 @@ La section **Inclure des marques** représente les marques personnalisées que v
 
 1. Sélectionnez **+ Ajouter une marque**.
 
-    ![Personnaliser un modèle de marques dans Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Capture d’écran représentant la boîte de dialogue Include brands (Inclure des marques), dans laquelle vous pouvez ajouter des marques.](./media/customize-brand-model/add-brand.png)
 
     Indiquez un nom (obligatoire), une catégorie (facultatif), une description (facultatif) et une URL de référence (facultatif).
     Le champ Catégorie a pour but de vous aider à étiqueter vos marques. Ce champ apparaît sous la forme d'*étiquettes* de la marque lors de l'utilisation des API Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bb408c762c33e4d146a2f0ef36f32e525b3859bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563401"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758266"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
@@ -24,7 +24,7 @@ Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de 
 
 - Les identités AD DS utilisées pour l’authentification AD DS en local Azure Files doivent être synchronisées avec Azure AD. La synchronisation de hachage de mot de passe est facultative. 
 - Prend en charge les partages de fichiers Azure gérés par Azure File Sync.
-- Prend en charge l’authentification Kerberos avec AD et le chiffrement RC4-HMAC et AES 256. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
+- Prend en charge l’authentification Kerberos avec AD, ainsi qu’avec le [chiffrement AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
 - Prend en charge l’authentification unique.
 - Pris en charge uniquement sur les clients exécutant des systèmes d’exploitation ultérieurs à Windows 7 ou Windows Server 2008 R2.
 - Pris en charge uniquement sur la forêt AD auprès de laquelle le compte de stockage est inscrit. Vous pouvez uniquement accéder aux partages de fichiers Azure avec les informations d’identification AD DS à partir d’une forêt unique par défaut. Si vous avez besoin d’accéder à votre partage de fichiers Azure à partir d’une autre forêt, vérifiez que l’approbation de forêt appropriée est configurée. Pour plus d’informations, consultez le [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
@@ -54,7 +54,9 @@ Avant d’activer l’authentification AD DS pour des partages de fichiers Azur
 
     Assurez-vous que le compte de stockage contenant vos partages de fichiers n’est pas déjà configuré pour l’authentification Azure AD DS. Si l’authentification Azure AD DS pour Azure Files est activée sur le compte de stockage, elle doit être désactivée avant de changer pour AD DS en local. Cela implique que les ACL existantes configurées dans l’environnement Azure AD DS devront être reconfigurées pour l’application adéquate des autorisations.
 
-    Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
+
+    Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
+
 
 - Effectuez toute configuration du réseau appropriée avant d’activer et de configurer l’authentification AD DS pour vos partages de fichiers Azure. Pour plus d’informations, consultez [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md).
 

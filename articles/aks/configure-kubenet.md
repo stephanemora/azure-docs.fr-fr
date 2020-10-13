@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462137"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264607"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -162,7 +162,7 @@ Vous venez de créer un réseau virtuel et un sous-réseau. Vous avez également
 
 Les plages d’adresses IP suivantes sont également définies dans le cadre du processus de création du cluster :
 
-* *--service-cidr* est utilisée pour affecter des services internes dans l’adresse IP d’un cluster AKS. Cette plage d’adresses IP doit être un espace d’adressage qui n’est pas utilisé ailleurs dans votre environnement réseau. Cette plage inclut les plages de réseau local si vous connectez ou envisagez de connecter vos réseaux virtuels Azure à l’aide d’Express Route ou d’une connexion VPN de site à site.
+* *--service-cidr* est utilisée pour affecter des services internes dans l’adresse IP d’un cluster AKS. Cette plage d’adresses IP doit être un espace d’adressage qui n’est pas utilisé ailleurs dans votre environnement réseau, y compris dans des plages réseau locales, si vous connectez, ou envisagez de connecter, vos réseaux virtuels Azure à l’aide d’ExpressRoute ou d’une connexion VPN site à site.
 
 * L’adresse *--dns-service-ip* doit être l’adresse  *.10* de la plage d’adresses IP de votre service.
 
