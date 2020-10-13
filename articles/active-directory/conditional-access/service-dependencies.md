@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258606"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Que sont les dépendances de service dans l’accès conditionnel Azure Active Directory ? 
 
@@ -25,7 +25,7 @@ Avec les stratégies d’accès conditionnel, vous pouvez spécifier des conditi
 Lorsque vous accédez directement à un site ou un service, l’impact d’une stratégie associée est généralement facile à évaluer. Par exemple, si vous avez configuré une stratégie qui exige une authentification multifacteur (MFA) pour SharePoint Online, chaque connexion au portail web SharePoint nécessitera une authentification multifacteur. Toutefois, il n’est pas toujours simple d’évaluer l’impact d’une stratégie, car certaines applications cloud sont dépendantes d’autres applications cloud. Par exemple, Microsoft Teams peut accorder un accès aux ressources dans SharePoint Online. Par conséquent, lorsque vous accédez à Microsoft Teams dans notre scénario actuel, vous êtes également soumis à la stratégie MFA de SharePoint. 
 
 > [!TIP]
-> L’application [Office 365 (version préliminaire)](concept-conditional-access-cloud-apps.md#office-365-preview) ciblera toutes les applications Office pour éviter des problèmes avec les dépendances de service dans la pile Office.
+> L’application [Office 365](concept-conditional-access-cloud-apps.md#office-365) ciblera toutes les applications Office pour éviter des problèmes avec les dépendances de service dans la pile Office.
 
 ## <a name="policy-enforcement"></a>Application de stratégies 
 
@@ -40,7 +40,7 @@ Le diagramme ci-dessous illustre les dépendances du service MS Teams. Les flèc
 
 Une bonne pratique consiste à définir des stratégies communes sur l’ensemble des applications et services associés lorsque c’est possible. Une posture de sécurité cohérente vous offre la meilleure expérience utilisateur. Par exemple, en définissant une stratégie commune sur Exchange Online, SharePoint Online, Microsoft Teams et Skype Entreprise, vous pouvez considérablement réduire le nombre d’invites inattendues pouvant être générées par les différentes stratégies appliquées aux services en aval. 
 
-Un bon moyen d’y parvenir avec les applications de la pile Office consiste à utiliser [Office 365 (préversion)](concept-conditional-access-cloud-apps.md#office-365-preview) au lieu de cibler des applications une par une.
+Un bon moyen d’y parvenir avec les applications de la pile Office consiste à utiliser l’[application Office 365](concept-conditional-access-cloud-apps.md#office-365) au lieu de cibler des applications individuelles.
 
 Le tableau ci-dessous répertorie les dépendances de service supplémentaires et où les applications clientes doivent satisfaire les exigences  
 

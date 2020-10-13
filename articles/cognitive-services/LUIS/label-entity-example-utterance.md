@@ -1,14 +1,16 @@
 ---
 title: Étiqueter une entité dans un exemple d’énoncé
 description: Découvrez comment étiqueter une entité issue du Machine Learning avec des sous-entités dans un exemple d’énoncé, dans une page de détails d’intention du portail LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610487"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303724"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Étiqueter une entité issue du Machine Learning dans un exemple d’énoncé
 
@@ -53,7 +55,7 @@ La palette des entités offre une alternative à l’expérience d’étiquetage
 3. Dans l’exemple d’énoncé, _peignez_ l’entité avec le curseur.
 
     > [!div class="mx-imgBorder"]
-    > ![Palette des entités pour l’entité issue du Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Capture d’écran montrant l’entité peinte avec le curseur.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Ajout d’une entité en tant que fonctionnalité à partir de la palette des entités
 

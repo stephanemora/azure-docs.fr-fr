@@ -3,12 +3,12 @@ title: Créer une planification pour des labos de classe dans Azure Lab Services
 description: Découvrez comment créer des planifications pour des labos de classe dans Azure Lab Services de sorte que les machines virtuelles utilisées dans les labos démarrent et s’arrêtent à une heure précise.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326437"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour des labos de classe dans Azure Lab Services 
 Les planifications vous permettent de configurer un labo de classe de sorte que les machines virtuelles utilisées dans le labo démarrent et s’arrêtent automatiquement à une heure précise. Vous pouvez définir une planification ponctuelle ou périodique. Les procédures suivantes décrivent comment créer et gérer des planifications pour un labo de classe : 
@@ -27,7 +27,7 @@ Créez un événement planifié pour le labo de sorte que les machines virtuelle
 
 1. Basculez vers la page **Planifications**, puis, dans la barre d’outils, sélectionnez **Ajouter un événement planifié**. 
 
-    ![Bouton Ajouter une planification dans la page Planifications](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Capture d’écran montrant la page « Planification » d’Azure Lab Services, avec le bouton Ajouter un événement planifié sélectionné.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Vérifiez que **Standard** est sélectionné pour **Type d’événement**. Pour spécifier uniquement l’heure de démarrage des machines virtuelles, sélectionnez **Démarrage uniquement**. Pour spécifier uniquement l’heure d’arrêt des machines virtuelles, sélectionnez **Arrêt uniquement**. 
 7. Dans la section **Répéter**, sélectionnez la planification actuelle. 
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324346"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
@@ -60,7 +60,7 @@ Si la dérive de schéma est autorisée, assurez-vous que le curseur **Mappage a
 Quand votre flux de données contient des colonnes dérivées, vous pouvez y accéder dans vos transformations à l’aide des méthodes suivantes :
 
 * Utilisez les expressions `byPosition` et `byName` pour référencer explicitement une colonne par nom ou numéro de position.
-* Ajoutez un modèle de colonne dans une colonne dérivée ou une transformation d’agrégation pour mettre en correspondance n’importe quelle combinaison de nom, de flux, de position ou de type.
+* Ajoutez un modèle de colonne dans une colonne dérivée ou une transformation d’agrégation pour mettre en correspondance n’importe quelle combinaison de nom, de flux, de position, d’origine ou de type.
 * Ajoutez un mappage basé sur des règles dans une transformation de sélection ou de récepteur pour faire correspondre les colonnes dérivées aux alias de colonnes par le biais d’un modèle.
 
 Pour plus d’informations sur la façon d’implémenter des modèles de colonne, consultez [Modèles de colonne de flux de données de mappage](concepts-data-flow-column-pattern.md).

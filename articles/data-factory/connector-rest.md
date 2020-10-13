@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852291"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360767"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -404,7 +404,7 @@ Le modèle définit deux paramètres :
 3. Sélectionnez **Utiliser ce modèle**.
     ![Utiliser ce modèle](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Vous pouvez voir le pipeline créé comme indiqué dans l’exemple suivant :  ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Vous pouvez voir le pipeline créé comme indiqué dans l’exemple suivant :  ![La capture d’écran montre le pipeline créé à partir du modèle.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Sélectionnez l’activité **Web**. Dans **Paramètres**, spécifiez l’**URL**, la **méthode**, les **en-têtes** et le **corps** correspondants pour récupérer le jeton du porteur OAuth à partir de l’API de connexion du service à partir duquel vous souhaitez copier des données. L’espace réservé dans le modèle illustre un exemple de norme OAuth Azure Active Directory (AAD). Remarque : l’authentification AAD est prise en charge en mode natif par le connecteur REST, qui ici n’est qu’un exemple de flux OAuth. 
 

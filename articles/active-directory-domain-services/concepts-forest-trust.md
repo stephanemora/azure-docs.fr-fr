@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258777"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Fonctionnement des relations d’approbation pour les forêts de ressources dans Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Par exemple, lorsqu’une approbation de forêt unidirectionnelle est créée en
 Avant de pouvoir créer une approbation de forêt, vous devez vérifier que vous disposez de l’infrastructure DNS (Domain Name System) appropriée. Les approbations de forêt ne peuvent être créées que si l’une des configurations DNS suivantes est disponible :
 
 * Un serveur DNS racine unique est le serveur DNS racine pour les deux espaces de noms DNS de forêt : la zone racine contient les délégations de chaque espace de noms DNS, et les indications de racine de tous les serveurs DNS incluent le serveur DNS racine.
-* En l’absence de serveur DNS racine partagé, les serveurs DNS racines de chaque espace de noms DNS de forêt utilisent des redirecteurs conditionnels DNS, afin que chaque espace de noms DNS achemine les requêtes de noms dans l’autre espace de noms.
+* En l’absence de serveur DNS racine partagé, les serveurs DNS racines de chaque espace de noms DNS de forêt utilisent des redirecteurs conditionnels DNS, afin que chaque espace de noms DNS route les requêtes de noms dans l’autre espace de noms.
 
     > [!IMPORTANT]
     > La forêt de ressources Azure AD Domain Services doit utiliser cette configuration DNS. L’hébergement d’un espace de noms DNS autre que l’espace de noms DNS de la forêt de ressources n’est pas une fonctionnalité d’Azure AD Domain Services. L’utilisation de redirecteurs conditionnels constitue la configuration appropriée.
 
-* En l’absence de serveur DNS racine partagé, les serveurs DNS racines de chaque espace de noms DNS de forêt utilise des zones secondaires DNS, configurées dans chaque espace de noms DNS pour acheminer les requêtes de noms dans l’autre espace de noms.
+* En l’absence de serveur DNS racine partagé, les serveurs DNS racines de chaque espace de noms DNS de forêt utilisent des zones secondaires DNS, configurées dans chaque espace de noms DNS pour router les requêtes de noms dans l’autre espace de noms.
 
 Pour créer une approbation de forêt, vous devez être membre du groupe Admins du domaine (dans le domaine racine de la forêt), ou du groupe Administrateurs de l’entreprise dans Active Directory. Chaque approbation se voit attribuer un mot de passe que les administrateurs des deux forêts doivent connaître. Les membres administrateurs de l’entreprise dans les deux forêts peuvent créer les approbations dans les deux forêts à la fois et, dans ce scénario, un mot de passe aléatoire par chiffrement est généré et écrit automatiquement pour les deux forêts.
 

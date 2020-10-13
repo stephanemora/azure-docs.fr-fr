@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297944"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -38,7 +38,8 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 
 La version **v2.0** inclut la mise à jour suivante :
--   Les [bibliothèques clientes](quickstarts/client-library.md) pour NET, Python, Java et JavaScript sont en disponibilité générale. 
+
+- Les [bibliothèques clientes](quickstarts/client-library.md) pour NET, Python, Java et JavaScript sont en disponibilité générale. 
 
 
 De **nouveaux exemples** sont disponibles sur GitHub. 
@@ -176,4 +177,8 @@ Les réponses JSON pour tous les appels d’API ont de nouveaux formats. Certain
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez un guide de [démarrage rapide](quickstarts/curl-train-extract.md) pour commencer à utiliser les [API Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Suivez un [guide de démarrage rapide sur les bibliothèques de client](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.
+
+## <a name="see-also"></a>Voir aussi
+
+* [Qu’est-ce que Form Recognizer ?](./overview.md)

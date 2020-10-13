@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258057"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considérations relatives à l’utilisation de Xamarin iOS avec MSAL.NET
 
@@ -81,7 +81,7 @@ Pour plus d’informations, voir la [documentation sur les droits d’utilisatio
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Activer le partage du cache de jeton entre des applications iOS
 
-Depuis MSAL 2.x, vous pouvez spécifier un groupe d’accès au trousseau pour conserver le cache de jeton dans plusieurs applications. Ce paramètre vous permet de partager le cache de jeton entre plusieurs applications qui ont le même groupe d’accès au trousseau. Vous pouvez partager le cache de jeton des applications [ADAL.NET](https://aka.ms/adal-net), des applications MSAL.NET Xamarin.iOS et des applications iOS natives développées dans [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+Depuis MSAL 2.x, vous pouvez spécifier un groupe d’accès au trousseau pour conserver le cache de jeton dans plusieurs applications. Ce paramètre vous permet de partager le cache de jeton entre plusieurs applications qui ont le même groupe d’accès au trousseau. Vous pouvez partager le cache de jeton entre les applications [ADAL.NET](https://aka.ms/adal-net), les applications MSAL.NET Xamarin.iOS et les applications iOS natives qui ont été développées dans [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 Le partage du cache de jeton permet une authentification unique entre toutes les applications qui utilisent le même groupe d’accès au trousseau.
 

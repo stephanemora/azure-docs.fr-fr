@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336001"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
 
@@ -30,7 +30,7 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 - Migrer un ordinateur physique ou une machine virtuelle à partir d’un emplacement local avec un lecteur de système d’exploitation plus volumineux.
 
 > [!IMPORTANT]
-> Le redimensionnement du disque du système d'exploitation d'une machine virtuelle Azure exige la libération de la machine virtuelle.
+> Le redimensionnement d’un disque de système d’exploitation ou de données d’une machine virtuelle Azure exige une désallocation (ou libération) de la machine virtuelle.
 >
 > Après avoir étendu les disques, vous devez [étendre le volume dans le système d’exploitation](#expand-the-volume-within-the-os) pour tirer parti du disque plus volumineux.
 > 
