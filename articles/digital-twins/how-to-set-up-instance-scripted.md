@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328635"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -26,15 +26,19 @@ Cette version de cet article effectue ces étapes en exécutant un [exemple de *
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Configuration requise : Télécharger le script
+
+L’exemple de script est écrit dans PowerShell. Il fait partie des [**exemples Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que vous pouvez télécharger sur votre ordinateur en suivant ce lien et en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
+
+L’exemple de projet sera téléchargé sur votre ordinateur sous le nom _**Azure_Digital_Twins_samples.zip**_. Accédez au dossier sur votre ordinateur et décompressez-le pour extraire les fichiers.
+
+Dans le dossier décompressé, le script de déploiement se trouve à l’emplacement suivant : _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>Exécuter le script de déploiement
 
 Cet article utilise un exemple de code Azure Digital Twins pour déployer de façon semi-automatique une instance Azure Digital Twins et l’authentification requise. Il peut également être utilisé comme point de départ pour écrire vos propres interactions scriptées.
-
-L’exemple de script est écrit dans PowerShell. Il fait partie des [exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que vous pouvez télécharger sur votre machine en accédant à cet exemple de lien et en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
-
-Dans l’exemple de dossier téléchargé, le script de déploiement se trouve dans _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1**_.
 
 Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud Shell.
 1. Accédez à une fenêtre [Azure Cloud Shell](https://shell.azure.com/) dans votre navigateur. Connectez-vous à l’aide de cette commande :
@@ -43,13 +47,23 @@ Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud 
     ```
     Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fait et charge une page de connexion Azure par la même occasion. Sinon, ouvrez une page de navigateur à l’adresse *https://aka.ms/devicelogin* et entrez le code d’autorisation affiché dans votre terminal.
  
-2. Une fois connecté, examinez la barre d’icône de la fenêtre Cloud Shell. Sélectionnez l’icône « Charger/Télécharger des fichiers » et choisissez « Charger ».
+2. Dans la barre d’icônes Cloud Shell, vérifiez que Cloud Shell est configuré pour exécuter la version PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fenêtre Cloud Shell présentant la sélection de l’option de chargement":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell":::
 
-    Accédez au fichier _**deploy.ps1**_ sur votre machine et sélectionnez « Ouvrir ». Cette opération charge le fichier dans Cloud Shell pour que vous puissiez l’exécuter dans la fenêtre Cloud Shell.
+1. Sélectionnez l’icône « Charger/Télécharger des fichiers » et choisissez « Charger ».
 
-3. Exécutez le script en envoyant la commande `./deploy.ps1` dans la fenêtre Cloud Shell. Lorsque le script exécute les étapes de configuration automatisée, vous êtes invité à transmettre les valeurs suivantes :
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell":::
+
+    Accédez au fichier _**deploy.ps1**_ sur votre ordinateur (à l’emplacement suivant : _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_) et appuyez sur « Ouvrir ». Cette opération charge le fichier dans Cloud Shell pour que vous puissiez l’exécuter dans la fenêtre Cloud Shell.
+
+4. Exécutez le script en envoyant la commande `./deploy.ps1` dans la fenêtre Cloud Shell. (Pour rappel, vous pouvez utiliser **Ctrl+Maj+V** sur Windows et Linux ou **Cmd+Maj+V** sur macOS pour coller dans Cloud Shell. Vous avez également la possibilité de vous servir du menu contextuel.)
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    Lorsque le script exécute les étapes de configuration automatisée, vous êtes invité à transmettre les valeurs suivantes :
     * Pour l’instance : l’*ID d’abonnement* de votre abonnement Azure à utiliser
     * Pour l’instance : un *emplacement* où vous souhaitez déployer l’instance. Pour voir quelles régions prennent en charge Azure Digital Twins, visitez [*Disponibilité des produits Azure par région*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Pour l’instance : un nom de *groupe de ressources*. Vous pouvez utiliser un groupe de ressources existant ou entrer un nouveau nom pour en créer un.
@@ -68,7 +82,7 @@ Le script créera une instance Azure Digital Twins, attribuera à votre utilisat
 
 Voici un extrait du journal de sortie du script :
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Fenêtre Cloud Shell présentant le journal d’entrée et de sortie par le biais de l’exécution du script de déploiement" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Si le script s’exécute correctement, l’affichage final indique `Deployment completed successfully`. Sinon, traitez le message d’erreur et réexécutez le script. Cela permet de contourner les étapes que vous avez déjà effectuées et de demander une nouvelle entrée au stade où vous vous étiez arrêté.
 
@@ -89,7 +103,7 @@ Dans le [portail Azure](https://portal.azure.com), recherchez votre instance Azu
 
 Si vous sélectionnez cette instance, sa page de *présentation* apparaît. Notez son *nom*, son *groupe de ressources* et son *nom d’hôte*. Vous en aurez peut-être besoin plus tard pour identifier votre instance et vous y connecter.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Mise en surbrillance des valeurs importantes de la page de présentation de l’instance":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell":::
 
 ### <a name="collect-app-registration-values"></a>Collecter les valeurs d’inscription de l’application 
 
@@ -99,7 +113,7 @@ Pour les trouver, suivez [ce lien](https://portal.azure.com/#blade/Microsoft_AAD
 
 Vous devez voir apparaître l’inscription d’application que vous venez de créer dans cette liste. Sélectionnez-la pour afficher ses détails :
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Vue du portail des valeurs importantes pour l’inscription de l’application":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Fenêtre Cloud Shell présentant la sélection de la version PowerShell":::
 
 Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (locataire)* affichés sur **votre** page. Si vous n’êtes pas la personne chargée d’écrire du code pour les applications clientes, vous devez partager ces valeurs avec la personne qui en sera chargée.
 
@@ -107,9 +121,15 @@ Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (l
 
 Si vous souhaitez vérifier la création de vos ressources et autorisations configurées par le script, vous pouvez les consulter dans le [portail Azure](https://portal.azure.com).
 
+Si vous ne parvenez pas à vérifier la réussite d’une étape, recommencez l’opération. Pour appliquer les étapes individuellement, suivez les instructions du [Portail Azure](how-to-set-up-instance-portal.md) ou de [l’interface CLI](how-to-set-up-instance-cli.md) .
+
 ### <a name="verify-instance"></a>Vérifier l’instance
 
-Pour vérifier que votre instance a été créée, accédez à la [page Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) dans le portail Azure. Cette page liste toutes vos instances Azure Digital Twins. Recherchez le nom de votre instance nouvellement créée dans la liste.
+Pour vérifier que votre instance a été créée, accédez à la [page Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) dans le portail Azure. Vous pouvez accéder à cette page vous-même en recherchant *Azure Digital Twins* dans la barre de recherche du portail.
+
+Cette page liste toutes vos instances Azure Digital Twins. Recherchez le nom de votre instance nouvellement créée dans la liste.
+
+Si la vérification a échoué, vous pouvez réessayer de créer une instance à l’aide du [Portail](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) ou de [l’interface CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### <a name="verify-user-role-assignment"></a>Vérifier l’attribution du rôle utilisateur
 
@@ -117,16 +137,18 @@ Pour vérifier que votre instance a été créée, accédez à la [page Azure Di
 
 > [!NOTE]
 > Rappelez-vous que le script affecte actuellement ce rôle nécessaire au même utilisateur qui exécute le script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire via le portail Azure ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou l’interface CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> Vous pouvez également utiliser le portail ou l’interface de ligne de commande pour rétablir votre propre attribution de rôle en cas de problèmes d’installation par script.
+
+Si la vérification a échoué, vous pouvez également refaire votre propre attribution de rôle à l’aide du [Portail](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou de [l’interface CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### <a name="verify-app-registration"></a>Vérifier l’inscription de l’application
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Tout d’abord, vérifiez que les paramètres des autorisations Azure Digital Twins ont été correctement définis sur l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code vers le bas et recherchez ces champs sous `requiredResourceAccess`. Les valeurs doivent correspondre à celles de la capture d’écran ci-dessous :
+Vérifiez maintenant que les paramètres d’autorisation Azure Digital Twins ont été définis correctement lors de l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code vers le bas et recherchez ces champs sous `requiredResourceAccess`. Les valeurs doivent correspondre à celles de la capture d’écran ci-dessous :
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Si l’une de ces étapes de vérification (ou les deux) a échoué, réessayez de créer l’inscription d’application suivant les instructions du [Portail](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) ou de [l’interface CLI](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications).
 
 ## <a name="other-possible-steps-for-your-organization"></a>Autres étapes possibles pour votre organisation
 
@@ -135,7 +157,7 @@ Tout d’abord, vérifiez que les paramètres des autorisations Azure Digital Tw
 ## <a name="next-steps"></a>Étapes suivantes
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
 
 Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :

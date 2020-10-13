@@ -1,14 +1,14 @@
 ---
 title: Sécurité réseau pour Azure Relay
-description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
+description: Cet article explique comment utiliser des règles de pare-feu IP et des points de terminaison privés avec Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263723"
 ---
 # <a name="network-security-for-azure-relay"></a>Sécurité réseau pour Azure Relay 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Relay : 
