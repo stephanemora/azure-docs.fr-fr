@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045246"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403413"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Résolution des problèmes relatifs aux alertes Azure Monitor
 
@@ -61,7 +61,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail Azure, mais que vous
     Vérifiez aussi :
 
    - les paramètres de courrier indésirable de votre client de messagerie (comme Outlook ou Gmail)
-      - les limites sur l’expéditeur/paramètres de courrier indésirable/paramètres de mise en quarantaine de votre serveur de messagerie (comme Exchange, Office 365 ou G-suite)
+      - les limites sur l’expéditeur/paramètres de courrier indésirable/paramètres de mise en quarantaine de votre serveur de messagerie (comme Exchange, Microsoft 365 ou G-suite)
       - les paramètres de votre appliance de sécurité de messagerie, le cas échéant (par exemple, Barracuda ou Cisco).
 
 1. **Avez-vous été désabonné par erreur du groupe d’actions ?**

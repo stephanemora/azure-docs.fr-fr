@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187198"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400415"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -234,11 +234,11 @@ Les journaux d’activité sont stockés localement sur chaque Worker hybride à
 
 Les Workers hybrides envoient une [sortie et des messages de runbook](../automation-runbook-output-and-messages.md) à Azure Automation de la même façon que les travaux Runbook qui s’exécutent dans le cloud envoient une sortie et des messages. Vous pouvez activer les flux détaillés et de progression de la même façon que pour les runbooks.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scénario : Orchestrator.Sandbox.exe ne peut pas se connecter à Office 365 via un proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scénario : Orchestrator.Sandbox.exe ne peut pas se connecter à Microsoft 365 via un proxy
 
 #### <a name="issue"></a>Problème
 
-Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Office 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) pour la connexion. 
+Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Microsoft 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) pour la connexion. 
 
 Le bac à sable ne se connecte toujours pas correctement si vous modifiez le fichier **Orchestrator.Sandbox.exe.config** de manière à définir le proxy et la liste de contournement. Un fichier **Powershell_ise.exe.config** comportant les mêmes paramètres de proxy et de liste de contournement semble fonctionner comme prévu. Les journaux SMA (Service Management Automation) et PowerShell ne fournissent aucune information concernant le proxy.
 
