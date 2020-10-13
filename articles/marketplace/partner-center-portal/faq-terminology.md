@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317550"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665139"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologie et questions fréquentes sur l’analytique de la Place de marché commerciale
 
@@ -45,6 +45,7 @@ Si vous recevez ce message, cela signifie que vous avez des données d’analyti
 | Type de licence Azure : Entreprise | Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais d'un contrat Entreprise, signé directement auprès de Microsoft.|
 | Type de licence Azure : entreprise, via un revendeur  | Client, Commande | Le client final se procure Azure et votre offre de Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.|
 | Type de licence Azure : paiement à l’utilisation| Client, Commande | Le client final se procure Azure et votre offre de la Place de marché dans le cadre d’un contrat « Paiement à l’utilisation », signé directement avec Microsoft.|
+| ID de compte de facturation| Client, Commande, Utilisation| L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation.|
 | Nom de l’instance cloud| JSON| Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées.|
 | Nom de l’instance cloud : Azure Global| JSON| Cloud public global de Microsoft.|
 | Nom de l’instance cloud : Azure Government | JSON| Clouds de Microsoft réservés aux gouvernements suivants : Chine, Allemagne ou États-Unis d’Amérique.| |

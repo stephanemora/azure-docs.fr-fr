@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279599"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317589"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
 
@@ -54,7 +54,7 @@ Un ID de connexion de substitution permet de configurer une expérience de conne
 
 Aucune configuration supplémentaire n’est nécessaire pour activer l’ID de connexion de remplacement avec Azure AD dès lors qu’Azure AD Connect est utilisé. L’Assistant permet de configurer directement l’ID de remplacement. Consultez la configuration de connexion Azure AD de vos utilisateurs sous la section Synchronisation. Sous la liste déroulante **Nom d’utilisateur principal**, sélectionnez l’attribut ID de connexion de remplacement.
 
-![Domaines non vérifiés](./media/plan-connect-userprincipalname/altloginid.png)  
+![Capture d’écran mettant en évidence la liste Nom d’utilisateur principal où vous sélectionnez l’attribut ID de connexion de substitution.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 Pour plus d’informations, consultez les sections [Configurer un ID de connexion de remplacement](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) et [Configuration de connexion Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration).
 

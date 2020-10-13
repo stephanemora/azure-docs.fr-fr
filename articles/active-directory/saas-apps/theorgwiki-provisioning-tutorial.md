@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255818"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutoriel : Configurer TheOrgWiki pour l’approvisionnement automatique d’utilisateurs
 
@@ -55,23 +55,23 @@ Avant de configurer TheOrgWiki pour l’approvisionnement automatique d’utilis
 
 1. Connectez-vous à votre [console d’administration TheOrgWiki](https://www.theorgwiki.com/login/). Cliquez sur **Console d’administration**.
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Capture d’écran du site d’OrgWiki avec l’avatar de l’utilisateur et la console d’administration en évidence.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. Dans la console d’administration, cliquez sur **l’onglet Paramètres**. 
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Capture d’écran de la console d’administration d’OrgWiki avec l’onglet Paramètres en évidence.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Accédez à **Comptes de service**.
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Capture d’écran de la page Comptes de service dans la console d’administration d’OrgWiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Cliquez sur **+ Compte de service**. Sous **Type de compte de service**, sélectionnez **Basé sur un jeton**. Cliquez sur **Enregistrer**.
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Capture d’écran de la boîte de dialogue Nouveau compte de service avec les options Type de compte de service, Basé sur un jeton et Enregistrer en évidence.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Copiez les **Jetons actifs**. Vous devrez entrer cette valeur dans le champ Jeton secret dans l’onglet Approvisionnement de votre application TheOrgWiki dans le portail Microsoft Azure.
      
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Capture d’écran de la boîte de dialogue Gérer les jetons pour l’approvisionnement SCIM.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Ajouter TheOrgWiki à partir de la galerie
 
@@ -95,15 +95,15 @@ Avant de configurer TheOrgWiki pour l’approvisionnement automatique d’utilis
 
 5. Sélectionnez le bouton **S’inscrire à TheOrgWiki** qui vous redirigera vers la page de connexion de TheOrgWiki. 
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Capture d’écran de la page de connexion d’OrgWiki avec l’URL en évidence.](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  Dans le coin supérieur droit, sélectionnez **Connexion**.
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Capture d’écran de l’angle supérieur droit de la page de connexion avec l’option Connexion en évidence.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Comme TheOrgWiki est une application OpenIDConnect, choisissez de vous connecter à OrgWiki à l’aide de votre compte professionnel Microsoft.
 
-    ![Ajouter SCIM TheOrgWiki](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Capture d’écran de la page de connexion d’OrgWiki avec l’option Se connecter avec Microsoft en évidence.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Après une authentification réussie, l’application est automatiquement ajoutée à votre locataire et vous êtes redirigé vers votre compte TheOrgWiki.
 
@@ -126,11 +126,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` dans **URL de locataire**. 
 

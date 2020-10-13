@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: eaada1981929cec890ce3c8ca89fe47393730b05
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250329"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Fonctions de l’API SQL d’Hyperscale (Citus)
 
@@ -20,7 +20,7 @@ Cette section contient des informations de référence pour les fonctions défin
 
 > [!NOTE]
 >
-> Les groupes de serveurs Hyperscale exécutant des versions antérieures du CItus Engine peuvent ne pas proposer toutes les fonctions listées ci-dessous.
+> Les groupes de serveurs Hyperscale (Citus) exécutant des versions antérieures de Citus Engine peuvent ne pas proposer toutes les fonctions listées ci-dessous.
 
 ## <a name="table-and-shard-ddl"></a>Table et DDL de partition
 

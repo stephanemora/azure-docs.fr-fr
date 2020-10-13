@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983752"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441026"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -83,7 +83,7 @@ Dans cette section, vous téléchargez le fichier de configuration VPN pour chac
 
 1. En haut de la page des **sites VPN** de Virtual WAN, sélectionnez le **site**, puis sélectionnez **Télécharger la configuration du VPN de site à site**. Azure crée un fichier de configuration avec les paramètres.
 
-   ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/download.png "télécharger")
+   ![Capture d’écran représentant la page « Sites VPN » dans laquelle l’action « Download Site-to-Site VPN configuration » (« Télécharger la configuration VPN de site à site ») est sélectionnée.](./media/connect-virtual-network-gateway-vwan/download.png "télécharger")
 2. Téléchargez et ouvrez le fichier de configuration.
 3. Répétez ces étapes pour le second site. Une fois que les deux fichiers de configuration sont ouverts, vous pouvez passer à la section suivante.
 
@@ -98,7 +98,7 @@ Dans cette section, vous créez deux passerelles de réseau local de passerelle 
    * **Abonnement, Groupe de ressources et Emplacement** sont les mêmes que pour le hub Virtual WAN.
 2. Vérifiez et créez la passerelle de réseau local. Votre passerelle de réseau local doit ressembler à cet exemple.
 
-   ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Capture d’écran représentant la page « Configuration » dans laquelle une adresse IP est mise en surbrillance et l’option « Configure BGP settings » (« Configurer les paramètres BGP ») est sélectionnée.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Répétez ces étapes pour créer une autre passerelle de réseau local, mais cette fois-ci, utilisez les valeurs « Instance1 » à la place des valeurs « Instance0 » du fichier de configuration.
 
    ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257229"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Une API web qui appelle des API web : Acquérir un jeton pour l’application
 
@@ -27,7 +27,10 @@ Après avoir généré un objet d’application cliente, utilisez-le pour acqué
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Voici un exemple de code qui utilise Microsoft.Identity.Web. Il est appelé dans les actions des contrôleurs de l’API. Il appelle une API en aval nommée *todolist*. Pour obtenir un jeton permettant d’appeler l’API en aval, injectez le service `ITokenAcquisition` par injection de dépendance dans le constructeur de votre contrôleur (ou votre constructeur de page, si vous utilisez Blazor), puis utilisez-le dans vos actions de contrôleur, en obtenant un jeton pour l’utilisateur (`GetAccessTokenForUserAsync`) ou pour l’application elle-même (`GetAccessTokenForAppAsync`) dans le cas d’un scénario basé sur un démon.
+*Microsoft.Identity.Web* ajoute des méthodes d’extension qui fournissent des services pratiques pour appeler Microsoft Graph ou une API web en aval. Ces méthodes sont expliquées en détail dans [Une API web qui appelle des API web : Appeler une API](scenario-web-api-call-api-call-api.md). Avec ces méthodes d’assistance, vous n’avez pas besoin d’acquérir manuellement un jeton.
+
+Toutefois, si vous souhaitez acquérir manuellement un jeton, le code suivant montre un exemple d’utilisation de *Microsoft.Identity.Web* pour le faire dans un contrôleur d’API. Il appelle une API en aval nommée *todolist*.
+Pour obtenir un jeton permettant d’appeler l’API en aval, injectez le service `ITokenAcquisition` par injection de dépendance dans le constructeur de votre contrôleur (ou votre constructeur de page, si vous utilisez Blazor), puis utilisez-le dans vos actions de contrôleur, en obtenant un jeton pour l’utilisateur (`GetAccessTokenForUserAsync`) ou pour l’application elle-même (`GetAccessTokenForAppAsync`) dans le cas d’un scénario basé sur un démon.
 
 ```csharp
 [Authorize]
@@ -83,7 +86,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Une API web Python doit utiliser un intergiciel pour valider le jeton du porteur reçu du client. L'API web peut ensuite obtenir le jeton d'accès de l'API située en aval à l'aide de la bibliothèque MSAL Python en appelant la méthode [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aucun exemple illustrant ce flux avec MSAL Python n'est encore disponible.
+Une API web Python doit utiliser un middleware pour valider le jeton du porteur reçu du client. L’API web peut alors obtenir le jeton d’accès de l’API située en aval à l’aide de la bibliothèque MSAL Python en appelant la méthode [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
 
 ---
 

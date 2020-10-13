@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358779"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 
@@ -76,7 +76,7 @@ Si vous utilisez des applications logiques avec les alertes classiques, vous dev
 
 1. Utilisez le modèle « Azure Monitor - Metrics Alert Handler ». Ce modèle comporte un déclencheur de **requête HTTP** avec le schéma approprié défini.
 
-    ![logic-app-template](media/alerts-migration/logic-app-template.png "Modèle d’alerte de métrique")
+    ![Capture d’écran montrant deux boutons, Application logique vide et Azure Monitor – Metrics Alert Handler.](media/alerts-migration/logic-app-template.png "Modèle d’alerte de métrique")
 
 1. Ajoutez une action pour héberger votre logique de traitement.
 

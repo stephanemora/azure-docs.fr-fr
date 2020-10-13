@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969149"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665291"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -88,13 +88,13 @@ Non. Les identités managées ne prennent actuellement pas en charge les scénar
 
 ## <a name="known-issues"></a>Problèmes connus
 
-### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Échec du « Script d’automatisation » lors de la tentative d’exportation de schéma pour l’extension des entités managées pour les ressources Azure
+### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Le « Script d’automatisation » échoue lors de la tentative d’exportation de schéma pour l’extension des entités managées pour ressources Azure
 
 Lorsque des identités managées pour les ressources Azure sont activées sur une machine virtuelle, l’erreur suivante s’affiche en cas de tentative d’utilisation de la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
 
-![Erreur d’exportation du script d’automatisation d’identités managées pour les ressources Azure](./media/msi-known-issues/automation-script-export-error.png)
+![Erreur d’exportation de script d’automatisation d’identités managées pour ressources Azure](./media/msi-known-issues/automation-script-export-error.png)
 
-L’extension de machines virtuelles des identités managées pour les ressources Azure (dont la dépréciation est prévue en janvier 2019) ne prend pas en charge actuellement la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer des identités managées pour les ressources Azure sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples fournis dans [Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant un modèle](qs-configure-template-windows-vm.md).
+L’extension de machines virtuelles des identités managées pour les ressources Azure (dont la dépréciation est prévue en janvier 2019) ne prend pas en charge actuellement la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer des identités managées pour ressources Azure sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples fournis dans [Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant un modèle](qs-configure-template-windows-vm.md).
 
 Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’extension de machine virtuelle des identités managées pour les ressources Azure (dont la dépréciation est prévue en janvier 2019), elle sera répertoriée dans [Exportation de groupes de ressources contenant des extensions de machines virtuelles](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
@@ -129,7 +129,7 @@ Solution de contournement pour les identités managées dans un abonnement dépl
  - Pour les identités managées affectées par le système : désactivez et réactivez-les. 
  - Pour les identités managées affectées par l’utilisateur : supprimez, recréez et joignez-les à nouveau aux ressources nécessaires (par exemple, des machines virtuelles)
 
-Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
+Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources/abonnement
 

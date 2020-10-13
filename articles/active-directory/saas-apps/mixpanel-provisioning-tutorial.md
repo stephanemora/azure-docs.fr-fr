@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: c17d0d927fab86774f25a3ada1fbb3e675957af8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360478"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutoriel : Configurer Mixpanel pour l'approvisionnement automatique d'utilisateurs
 
@@ -80,15 +80,15 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez l’**URL du locataire** et le **Jeton secret** de Mixpanel. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Mixpanel. Si la connexion échoue, vérifiez que votre compte Mixpanel dispose d'autorisations d'administrateur et réessayez.
 
-    ![approvisionnement](./media/mixpanel-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

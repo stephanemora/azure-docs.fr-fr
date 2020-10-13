@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: dc83ea424aca1166d2b9c45b45255fbca865a7d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069660"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278751"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutoriel : Configurer RingCentral pour le provisionnement automatique d’utilisateurs
 
@@ -88,15 +88,15 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://platform.ringcentral.com/scim/v2` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à RingCentral. Si la connexion échoue, vérifiez que votre compte RingCentral dispose des autorisations d’administrateur et réessayez.
 
-    ![Onglet Approvisionnement](./media/ringcentral-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran des champs de texte URL du locataire et Jeton secret avec l’option Tester la connexion en évidence.](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

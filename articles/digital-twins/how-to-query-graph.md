@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282304"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -25,6 +25,15 @@ Le reste de cet article fournit des exemples d’utilisation de ces opérations.
 ## <a name="query-syntax"></a>Syntaxe de requête
 
 Cette section contient quelques exemples de requêtes illustrant la structure du langage de requête et exécutant les opérations de requête possibles sur des [jumeaux numériques](concepts-twins-graph.md).
+
+### <a name="show-all-existing-digital-twins"></a>Afficher tous les jumeaux numériques existants
+
+Voici la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Sélectionner les meilleurs éléments
 
@@ -208,8 +217,8 @@ Les fonctions de chaîne suivantes sont prises en charge :
 
 | Fonction | Description |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne commence par la seconde. |
-| ENDS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
+| STARTSWITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne commence par la seconde. |
+| ENDSWITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
 
 ## <a name="run-queries-with-an-api-call"></a>Exécuter des requêtes avec un appel d’API
 

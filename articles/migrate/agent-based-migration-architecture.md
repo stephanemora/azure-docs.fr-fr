@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357163"
 ---
 # <a name="agent-based-migration-architecture"></a>Architecture de la migration basée sur agent
 
@@ -34,7 +34,7 @@ La migration basée sur agent est utilisée pour migrer des machines virtuelles 
 
 Le diagramme illustre les composants impliqués dans la migration basée sur agent.
 
-![Architecture](./media/agent-based-replication-architecture/architecture.png)
+![Diagramme illustrant les composants de la migration par agent, expliqués dans un tableau](./media/agent-based-replication-architecture/architecture.png)
 
 Le tableau résume les composants utilisés pour la migration basée sur agent.
 
