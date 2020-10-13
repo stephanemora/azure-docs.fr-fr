@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361821"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutoriel : Configurer Genesys PureCloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -80,15 +80,15 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez votre URL d’API et votre jeton OAuth Genesys PureCloud respectivement dans les champs **URL du locataire** et **Jeton secret**. L’URL de l’API sera structurée comme suit : `{{API Url}}/api/v2/scim/v2`, en utilisant l’URL de l’API pour votre région PureCloud fournie par le [centre de développement PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Genesys PureCloud. Si la connexion échoue, vérifiez que votre compte Genesys PureCloud dispose des autorisations Administrateur, puis réessayez.
 
-    ![approvisionnement](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

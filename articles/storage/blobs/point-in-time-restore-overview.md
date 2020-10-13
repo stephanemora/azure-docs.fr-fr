@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326097"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -36,13 +36,6 @@ Stockage Azure analyse toutes les modifications apportées aux objets blob spéc
 Une seule opération de restauration à la fois peut être exécutée sur un compte de stockage. Une opération de restauration ne peut pas être annulée une fois qu’elle est en cours, mais une deuxième opération de restauration peut être effectuée pour annuler la première opération.
 
 L’opération **Restaurer les plages d'objets blob** retourne un ID de restauration qui identifie de façon unique l’opération. Pour vérifier l’état d’une restauration dans le temps, appelez l’opération **Obtenir l’état de la restauration** avec l’ID de restauration renvoyé par l’opération **Restaurer les plages d'objets blob**.
-
-Gardez à l’esprit les limitations suivantes sur les opérations de restauration :
-
-- Un bloc qui a été chargé via [Put Block](/rest/api/storageservices/put-block) ou [Put Block à partir d’une URL](/rest/api/storageservices/put-block-from-url), mais n’est pas validé via [Put Block List](/rest/api/storageservices/put-block-list), ne fait pas partie d’un objet blob et n’est donc pas restauré dans le cadre d’une opération de restauration.
-- Un objet blob avec un bail actif ne peut pas être restauré. Si un objet blob avec un bail actif est inclus dans la plage d’objets blob à restaurer, l’opération de restauration échoue de façon atomique.
-- Les instantanés ne sont pas créés ou supprimés dans le cadre d’une opération de restauration. Seul l’objet blob de base est restauré à son état précédent.
-- Si un objet blob a été déplacé entre les niveaux chaud et froid pendant la période comprise entre le moment présent et le point de restauration, l’objet blob est restauré à son niveau précédent. Toutefois, un objet blob qui a été déplacé vers le niveau archive n’est pas restauré.
 
 > [!IMPORTANT]
 > Lorsque vous effectuez une opération de restauration, Stockage Azure bloque les opérations de données sur les objets blob de la plage en cours de restauration pendant toute la durée de l’opération. Les opérations de lecture, d’écriture et de suppression sont bloquées dans l’emplacement principal. C’est la raison pour laquelle les opérations telles que l’énumération des conteneurs sur le portail Azure peuvent ne pas se dérouler comme prévu pendant que l’opération de restauration est en cours.
@@ -76,9 +69,12 @@ Pour lancer une opération de restauration, un client doit disposer d’autorisa
 
 La restauration jusqu’à une date et heure pour les objets blob de blocs présente les limitations et les problèmes connus suivants :
 
-- Seuls les objets blob de blocs d’un compte de stockage v2 standard à usage général peuvent être restaurés dans le cadre d’une opération de restauration jusqu’à une date et heure. Les objets blob d’ajout, les objets blob de pages et les objets blob de blocs Premium ne sont pas restaurés. Si vous avez supprimé un conteneur au cours de la période de rétention, ce conteneur ne sera pas restauré lors de l’opération de restauration jusqu’à une date et heure. Pour en savoir plus sur la protection des conteneurs contre la suppression, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
-- Seuls les objets blob de blocs des niveaux chaud ou froid peuvent être restaurés lors d’une opération de restauration jusqu’à une date et heure. La restauration d’objets blob de blocs du niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud. Pour restaurer un objet blob archivé, commencez par le déplacer en dehors du niveau archive.
-- Si un objet blob de blocs présent dans l’étendue à restaurer dispose d’un bail actif, l’opération de restauration jusqu’à une date et heure échoue. Arrêtez tout bail actif avant de lancer l’opération de restauration.
+- Seuls les objets blob de blocs d’un compte de stockage v2 standard à usage général peuvent être restaurés dans le cadre d’une opération de restauration jusqu’à une date et heure. Les objets blob d’ajout, les objets blob de pages et les objets blob de blocs Premium ne sont pas restaurés. 
+- Si vous avez supprimé un conteneur au cours de la période de rétention, ce conteneur ne sera pas restauré lors de l’opération de restauration jusqu’à une date et heure. Si vous tentez de restaurer une plage d’objets blob incluant des objets blob dont le conteneur a été supprimé, l’opération de récupération jusqu’à une date et heure échouera. Pour en savoir plus sur la protection des conteneurs contre la suppression, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
+- Si un objet blob a été déplacé entre les niveaux chaud et froid pendant la période comprise entre le moment présent et le point de restauration, l’objet blob est restauré à son niveau précédent. La restauration d’objets blob de blocs du niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud. Pour restaurer un objet blob archivé, commencez par le déplacer en dehors du niveau archive. Pour plus d’informations, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
+- Un bloc qui a été chargé via [Put Block](/rest/api/storageservices/put-block) ou [Put Block à partir d’une URL](/rest/api/storageservices/put-block-from-url), mais n’est pas validé via [Put Block List](/rest/api/storageservices/put-block-list), ne fait pas partie d’un objet blob et n’est donc pas restauré dans le cadre d’une opération de restauration.
+- Un objet blob avec un bail actif ne peut pas être restauré. Si un objet blob avec un bail actif est inclus dans la plage d’objets blob à restaurer, l’opération de restauration échoue de façon atomique. Arrêtez tout bail actif avant de lancer l’opération de restauration.
+- Les instantanés ne sont pas créés ou supprimés dans le cadre d’une opération de restauration. Seul l’objet blob de base est restauré à son état précédent.
 - La restauration d’espaces de noms plats et hiérarchiques Azure Data Lake Storage Gen2 n’est pas prise en charge.
 
 > [!IMPORTANT]

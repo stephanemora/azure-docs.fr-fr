@@ -4,12 +4,12 @@ description: Décrit les files d’attente de lettres mortes dans Azure Service 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301021"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -62,7 +62,7 @@ Les messages ayant expiré sont uniquement purgés et transférés vers la file 
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erreurs pendant le traitement des règles d’abonnement
 
-Quand la propriété [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) est activée pour un abonnement, les erreurs qui surviennent pendant l’exécution des règles de filtre SQL d’un abonnement sont capturées dans la file d’attente de lettres mortes avec le message incriminé.
+Quand la propriété [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) est activée pour un abonnement, les erreurs qui surviennent pendant l’exécution des règles de filtre SQL d’un abonnement sont capturées dans la file d’attente de lettres mortes avec le message incriminé. N’utilisez pas cette option dans un environnement de production dans lequel certains types de messages n’ont pas d’abonnés.
 
 ## <a name="application-level-dead-lettering"></a>Mise en file d’attente de lettres mortes au niveau de l’application
 

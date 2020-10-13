@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 82462af3f1fc939cb30730360f75303cb1be9432
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cf90065ad40ca46068700473ad71b598619764ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301463"
 ---
 # <a name="billing-questions"></a>Questions sur la facturation
 
@@ -27,7 +27,7 @@ Security Center est proposé avec et sans Azure Defender :
 
 - **Sans Azure Defender**, Security Center offre une visibilité sur l'état de sécurité de vos ressources Azure, une stratégie de sécurité de base, des recommandations de sécurité ainsi qu'une intégration avec les produits et services de sécurité des partenaires.
 
-- **Azure Defender** ajoute des fonctionnalités de protection contre les menaces, avec notamment des alertes de sécurité, des informations sur les menaces, une analyse comportementale, une détection des anomalies et des rapports sur l'attribution des menaces. Vous pouvez démarrer une version d’évaluation gratuite de 30 jours d’Azure Defender. Pour effectuer la mise à niveau, sélectionnez [Niveau tarifaire](https://docs.microsoft.com/azure/security-center/security-center-pricing) dans la stratégie de sécurité. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
+- **Azure Defender** ajoute des fonctionnalités de protection contre les menaces, avec notamment des alertes de sécurité, des informations sur les menaces, une analyse comportementale, une détection des anomalies et des rapports sur l'attribution des menaces. Vous pouvez démarrer une version d’évaluation gratuite de 30 jours d’Azure Defender. [En savoir plus sur la mise à niveau](security-center-pricing.md).
 
 ## <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Azure Security Center dans mon organisation
 Des abonnements Azure peuvent avoir plusieurs administrateurs autorisés à modifier les paramètres de tarification. Pour savoir quel utilisateur a effectué une modification, utilisez le Journal d’activité Azure. 

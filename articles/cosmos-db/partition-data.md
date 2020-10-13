@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112776"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826849"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Le nombre de partitions physiques dans votre conteneur Cosmos dépend des élém
 
 Il n’existe aucune limite au nombre total de partitions physiques dans votre conteneur. À mesure qu’augmente la taille des données ou du débit provisionné, Azure Cosmos DB crée automatiquement des partitions physiques en divisant celles qui existent déjà. Les divisions des partitions physiques n’impactent pas la disponibilité de votre application. Après la division des partitions physiques, toutes les données d’une seule partition logique sont toujours stockées sur la même partition physique. La division d’une partition physique crée simplement un mappage de partitions logiques sur des partitions physiques.
 
-Le débit approvisionné pour un conteneur est uniformément réparti entre les partitions physiques. Une conception de clé de partition qui ne distribue pas les requêtes de débit de manière uniforme peut créer des partitions « à chaud ». Les partitions à chaud peuvent entraîner une limitation du débit, une utilisation inefficace du débit approvisionné et des coûts plus élevés.
+Le débit approvisionné pour un conteneur est uniformément réparti entre les partitions physiques. Une conception de clé de partition qui ne distribue pas les requêtes équitablement peut entraîner la direction d’un trop grand nombre de requêtes vers un petit sous-ensemble de partitions dont le niveau d’accès devient « chaud ». Les partitions « chaudes » peuvent entraîner une utilisation inefficace du débit approvisionné et, par conséquent, une limitation du débit et une augmentation des coûts.
 
 Vous pouvez voir les partitions physiques de votre conteneur dans la section **Stockage** du **panneau Métriques** du portail Azure :
 
@@ -54,7 +54,7 @@ La plupart des petits conteneurs Cosmos nécessitent uniquement une seule partit
 
 L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Image illustrant le partitionnement dans Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Affichage du nombre de partitions physiques" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

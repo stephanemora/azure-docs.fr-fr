@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569665"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759643"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -54,7 +54,9 @@ Pour plus d’informations, consultez [Concepts de haute disponibilité](concept
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Mise à jour corrective automatisée avec fenêtre de maintenance gérée
 
-Le service effectue une mise à jour corrective automatisée du matériel, du système d’exploitation et du moteur de base de données sous-jacents. Le correctif comprend les mises à jour de sécurité et de logiciel. Pour le moteur MySQL, les mises à niveau de version mineure sont également incluses dans le cadre de la publication de maintenance planifiée. Les utilisateurs peuvent configurer la planification de la mise à jour corrective pour qu’elle soit gérée par le système, ou définir leur planification personnalisés. Pendant la planification de la maintenance, le correctif est appliqué et le serveur peut nécessiter un redémarrage dans le cadre du processus de mise à jour corrective pour achever la mise à jour. Avec la planification personnalisée, les utilisateurs peuvent rendre leur cycle de mise à jour prévisible, et choisir une fenêtre de maintenance avec un impact minimal sur l’activité. En général, le service suit un calendrier de publication mensuel dans le cadre de l’intégration et de la publication continues. 
+Le service effectue une mise à jour corrective automatisée du matériel, du système d’exploitation et du moteur de base de données sous-jacents. Le correctif comprend les mises à jour de sécurité et de logiciel. Pour le moteur MySQL, les mises à niveau de version mineure sont également incluses dans le cadre de la publication de maintenance planifiée. Les utilisateurs peuvent configurer la planification de la mise à jour corrective pour qu’elle soit gérée par le système, ou définir leur planification personnalisés. Pendant la planification de la maintenance, le correctif est appliqué et le serveur peut nécessiter un redémarrage dans le cadre du processus de mise à jour corrective pour achever la mise à jour. Avec la planification personnalisée, les utilisateurs peuvent rendre leur cycle de mise à jour prévisible, et choisir une fenêtre de maintenance avec un impact minimal sur l’activité. En général, le service suit un calendrier de publication mensuel dans le cadre de l’intégration et de la publication continues.
+
+Pour plus d’informations, consultez [Maintenance planifiée](concepts-maintenance.md). 
 
 ## <a name="automatic-backups"></a>Sauvegardes automatiques
 
@@ -87,13 +89,15 @@ Pour plus d’informations, consultez [Concepts de calcul et de stockage](concep
 
 Le service de serveur flexible vous permet d’arrêter et de démarrer le serveur à la demande pour optimiser les coûts. La facturation du niveau de calcul est immédiatement arrêtée lorsque le serveur est arrêté. Cela peut vous permettre de réaliser des économies significatives en termes de développement, de test et de charges de travail de production prévisibles liées au temps. Le serveur reste à l’état arrêté pendant sept jours, sauf si le redémarrage intervient plus tôt. 
 
+Pour plus d’informations, consultez [Concepts liés aux serveurs](concept-servers.md). 
+
 ## <a name="enterprise-grade-security-and-privacy"></a>Sécurité de qualité professionnelle et confidentialité
 
 Le service à serveur flexible utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. Toutes les données sont chiffrées, y compris les sauvegardes et les fichiers temporaires créés lors de l'exécution des requêtes. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés peuvent être gérées par le système (par défaut). 
 
 Le service chiffre les données en mouvement avec le protocole TLS appliqué par défaut. Le serveur flexible prend uniquement en charge les connexions chiffrées à l’aide du protocole TLS (Transport Layer Security) 1.2 et toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées. 
 
-Pour plus d’informations, consultez [Utiliser les connexions chiffrées sur des serveurs flexibles](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md).
+Pour plus d’informations, consultez [Utiliser les connexions chiffrées sur des serveurs flexibles](https://docs.mongodb.com/manual/tutorial/configure-ssl).
 
 Les serveurs flexibles permettent un accès privé complet aux serveurs à l’aide du [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (intégration au réseau virtuel). Les serveurs du réseau virtuel Azure sont uniquement accessibles et connectés via des adresses IP privées. Avec l’intégration au réseau virtuel, l’accès public est refusé et les serveurs ne sont pas accessibles à l’aide de points de terminaison publics. 
 

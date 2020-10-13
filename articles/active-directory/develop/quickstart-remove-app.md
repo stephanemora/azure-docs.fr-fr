@@ -1,6 +1,7 @@
 ---
-title: Supprimer une application inscrite auprès de la plateforme d’identités Microsoft | Azure
-description: Découvrez comment supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft.
+title: 'Démarrage rapide : Supprimer une application inscrite de la plateforme d’identités Microsoft | Azure'
+titleSuffix: Microsoft identity platform
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment supprimer une application inscrite de la plateforme d’identités Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115320"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612385"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Démarrage rapide : Supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft
 
@@ -30,22 +31,19 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un locataire auprès duquel des applications sont inscrites. Pour savoir comment ajouter et inscrire des applications, consultez [Inscrire une application avec la plateforme d’identités Microsoft](quickstart-register-app.md).
+* Exécution du [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Supprimer une application créée par vous ou votre organisation
 
 Les applications que vous ou votre organisation avez enregistrées sont représentées par un objet d’application et un objet de principal de service au sein de votre locataire. Pour plus d’informations, voir [Objets principal du service et application](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Supprimer une application
+Pour supprimer une application, vous devez être répertorié en tant que propriétaire de l’application ou disposer des privilèges d’administrateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-2. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-3. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
-4. À partir de la page **Vue d’ensemble**, sélectionnez **Supprimer**.
-5. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application.
-
-   > [!NOTE]
-   > Pour supprimer une application, vous devez être répertorié en tant que propriétaire de l’application ou disposer des privilèges d’administrateur.
+1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
+1. À partir de la page **Vue d’ensemble**, sélectionnez **Supprimer**.
+1. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Supprimer une application créée par une autre organisation
 
@@ -55,9 +53,7 @@ Afin de pouvoir supprimer l’accès d’une application à votre répertoire (a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les autres démarrages rapides relatifs à la gestion des applications :
+Découvrez-en plus sur les objets d’application et de principal de service dans la plateforme d’identités Microsoft :
 
-* [Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-* [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
-* [Configurer une application pour exposer les API web](quickstart-configure-app-expose-web-apis.md)
-* [Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md)

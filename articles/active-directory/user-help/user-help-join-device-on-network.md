@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799483"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536968"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -48,13 +48,13 @@ Si votre appareil est tout nouveau et n’a pas encore été configuré, vous po
 
 4. Sur votre appareil mobile, approuvez ce dernier afin qu’il puisse accéder à votre compte. 
 
-    ![Écran de notification par appareil mobile](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Capture d’écran représentant l’écran de notification « Entrez votre mot de passe ».](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Terminez le processus OOBE, notamment en définissant vos paramètres de confidentialité et en configurant Windows Hello (si nécessaire).
 
     Votre appareil est maintenant joint au réseau de votre organisation.
 
-## <a name="to-make-sure-youre-joined"></a>Pour vérifier que vous êtes joint
+## <a name="to-make-sure-youre-joined-new-device"></a>Pour vérifier que vous êtes joint (nouvel appareil)
 Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
 1. Ouvrez **Paramètres**, puis sélectionnez **Comptes**.
@@ -63,7 +63,7 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
 2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez un texte similaire à **Connecté à *\<your_organization>* Azure AD**.
 
-    ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Capture d’écran représentant la fenêtre « Accès Professionnel ou Scolaire » dans laquelle le compte « Connecté à (votre organisation) Azure AD » est sélectionné.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Pour joindre un appareil Windows 10 déjà configuré

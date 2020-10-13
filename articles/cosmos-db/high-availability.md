@@ -4,17 +4,17 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9d1c8c6271d689b022a069de8e3392c0662dd6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706808"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826881"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
+# <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB offre-t-elle une haute disponibilité ? 
 
 Azure Cosmos DB réplique en toute transparence vos données vers toutes les régions Azure associées votre compte Azure Cosmos. Azure Cosmos DB emploie plusieurs couches de redondance pour vos données, comme le montre l’image suivante :
 
@@ -30,7 +30,7 @@ Si votre compte Azure Cosmos est distribué entre *N* régions Azure, il y aura 
 
 ## <a name="slas-for-availability"></a>Contrats SLA pour la disponibilité
 
-En tant que base de données mondialement distribuée, Azure Cosmos DB fournit des contrats SLA complets qui englobent le débit, la latence au 99e centile, la cohérence et une haute disponibilité. Le tableau suivant comporte les garanties de haute disponibilité fournie par Azure Cosmos DB pour les comptes à région unique et multirégion. Pour bénéficier de la haute disponibilité, configurez systématiquement vos comptes Azure Cosmos afin d’avoir plusieurs régions d’écriture (ces comptes ont également appelés « multimaître »).
+En tant que base de données mondialement distribuée, Azure Cosmos DB fournit des contrats SLA complets qui englobent le débit, la latence au 99e centile, la cohérence et une haute disponibilité. Le tableau suivant comporte les garanties de haute disponibilité fournie par Azure Cosmos DB pour les comptes à région unique et multirégion. Pour bénéficier de la haute disponibilité, configurez systématiquement vos comptes Azure Cosmos afin d’avoir plusieurs régions d’écriture.
 
 |Type d'opération  | Région unique |Multirégion (écritures dans une seule région)|Multirégion (écritures dans une plusieurs régions) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 
 - Avant la reconnaissance d’une opération d’écriture auprès du client alors qu’Azure Cosmos DB est utilisé, les données sont validées durablement par un quorum de réplicas se trouvant la région qui accepte les opérations d’écriture.
 
-- Les comptes multirégion configurés avec plusieurs régions d’écriture/multimaître sont hautement disponibles pour les écritures et les lectures. Les basculements régionaux sont instantanés et ne nécessitent aucune modification à partir de l’application.
+- Les comptes multirégion configurés avec plusieurs régions d’écriture sont hautement disponibles pour les écritures et les lectures. Les basculements régionaux sont instantanés et ne nécessitent aucune modification à partir de l’application.
 
 - Les comptes dans une seule région peuvent perdre leur disponibilité en raison d’une panne régionale. Il est toujours recommandé de configurer **au moins deux régions** (de préférence, au moins deux régions d’écriture) avec votre compte Azure Cosmos pour garantir une haute disponibilité en permanence.
 
@@ -79,10 +79,7 @@ La redondance de zone *complète* la fonctionnalité de [réplication dans des �
 
 Lorsque vous configurez des écritures multirégions pour votre compte Azure Cosmos, vous pouvez opter pour la redondance de zone, sans frais supplémentaires. Sinon, consultez la note ci-dessous relative à la tarification de la redondance de zone. Vous pouvez activer la redondance de zone dans une région existante de votre compte Azure Cosmos en supprimant la région, puis en l'ajoutant à nouveau avec la redondance de zone activée.
 
-Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Australie Est, Japon Est, Europe Nord, France Centre*.
-
-> [!NOTE]
-> L’activation des zones de disponibilité pour un compte à Azure Cosmos avec une seule région entraîne des frais équivalents à l’ajout d’une région supplémentaire à votre compte. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) et les articles relatifs au [coût multirégion dans Azure Cosmos DB](optimize-cost-regions.md).
+Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Australie Est, Japon Est, Europe Nord, France Centre, USA Est 2 EUAP*.
 
 Le tableau suivant récapitule la fonctionnalité de haute disponibilité des différentes configurations de compte :
 
@@ -97,7 +94,7 @@ Le tableau suivant récapitule la fonctionnalité de haute disponibilité des di
 |Latence d’écriture | Inter-région | Inter-région | Faible |
 |Panne régionale - Perte de données | Perte de données |  Perte de données | Perte de données <br/><br/> Quand vous utilisez la cohérence d’obsolescence limitée avec plusieurs régions d’écriture et plus d’une région, la perte de données est limitée à l’obsolescence configurée sur votre compte <br /><br />Vous pouvez éviter une perte de données en cas de panne régionale en configurant une cohérence forte avec plusieurs régions. Cette option n’est pas sans incidence en termes de disponibilité et de performances. Elle peut être configurée seulement sur des comptes configurés pour des écritures sur une seule région. |
 |Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité |
-|Débit | X RU/s de débit approvisionné | X RU/s de débit approvisionné | 2X RU/s de débit approvisionné <br/><br/> Ce mode de configuration requiert deux fois plus de débit par rapport à une région unique avec zones de disponibilité car il existe deux régions. |
+|Débit | X RU/s de débit approvisionné | X RU/s de débit approvisionné x 1,25 | 2X RU/s de débit approvisionné <br/><br/> Ce mode de configuration requiert deux fois plus de débit par rapport à une région unique avec zones de disponibilité car il existe deux régions. |
 
 > [!NOTE]
 > Pour activer la prise en charge des zones de disponibilité pour un compte Azure Cosmos multirégion, les écritures multirégions doivent être activées sur le compte.
@@ -129,6 +126,8 @@ Vous pouvez activer des zones de disponibilité à l'aide du portail Azure lorsq
 
 ## <a name="building-highly-available-applications"></a>Génération d’applications hautement disponibles
 
+- Examinez le [comportement attendu des kits de développement logiciel (SDK) Azure Cosmos](troubleshoot-sdk-availability.md) au cours de ces événements et les configurations qui l’affectent.
+
 - Pour garantir une disponibilité élevée en écriture et en lecture, configurez votre compte Azure Cosmos de façon à ce qu’il s’étendre sur au moins deux régions, avec plusieurs régions d’écriture. Cette configuration offre la plus haute disponibilité, la plus faible latence et la meilleure évolutivité pour les lectures et les écritures soutenues par les contrats SLA. Pour en savoir plus, découvrez comment [configurer votre compte Azure Cosmos avec plusieurs régions d’écriture](tutorial-global-distribution-sql-api.md).
 
 - Pour les comptes Azure Cosmos multirégions qui sont configurés avec une seule région d’écriture, [activez le basculement automatique à l’aide d’Azure CLI ou du portail Azure](how-to-manage-database-account.md#automatic-failover). Une fois le basculement automatique activé, Cosmos DB bascule automatiquement votre compte en cas de sinistre régional.  
@@ -146,3 +145,4 @@ Vous pouvez ensuite lire les articles suivants :
 - [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
 - [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
 - [Configurer votre compte Cosmos avec plusieurs régions d’écriture](how-to-multi-master.md)
+- [Comportement du kit de développement logiciel (SDK) dans les environnements multirégions](troubleshoot-sdk-availability.md)

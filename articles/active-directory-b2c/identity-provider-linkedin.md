@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f1099a3564a5891a69429d78bda8177094538e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c460775bcb63028f03d0e8d0b1f7ed1507cdb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259456"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
 
@@ -26,10 +26,13 @@ Pour utiliser un compte LinkedIn en tant que [fournisseur d’identité](authori
 
 1. Connectez-vous au [site web Développeurs LinkedIn](https://www.developer.linkedin.com/) à l’aide des informations d’identification de votre compte LinkedIn.
 1. Sélectionnez **Mes applications**, puis cliquez sur **Créer une application**.
-1. Entrez les informations suivantes : **Nom de l’entreprise**, **Nom de l’application**, **Description de l’application**, **Logo de l’application**, **Utilisation de l’application**, **URL du site web**, **E-mail professionnel** et **Téléphone professionnel**.
-1. Acceptez les **conditions d’utilisation de l’API LinkedIn**, puis cliquez sur **Envoyer**.
-1. Copiez les valeurs de **ID client** et **Clé secrète client**. Vous les trouverez sous **Clés d’authentification**. Vous aurez besoin de ces deux valeurs pour configurer LinkedIn en tant que fournisseur d’identité dans votre client. **Client Secret** est une information d’identification de sécurité importante.
-1. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans **URL de redirection autorisées**. Remplacez `your-tenant-name` par le nom de votre locataire. Vous devez utiliser uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C. Sélectionnez **Ajouter**, puis cliquez sur **Mettre à jour**.
+1. Renseignez **Nom de l’application**, **Page LinkedIn**, **URL de la politique de confidentialité**et **Logo de l’application**.
+1. Acceptez les **conditions d’utilisation de l’API** LinkedIn et cliquez sur **Créer une application**.
+1. Sélectionnez l’onglet **Auth**. Sous **Clés d’authentification**, copiez les valeurs pour **ID client** et **Clé secrète client**. Vous aurez besoin de ces deux valeurs pour configurer LinkedIn en tant que fournisseur d’identité dans votre locataire. **Client Secret** est une information d’identification de sécurité importante.
+1. Sélectionnez l’icône Crayon de modification en regard du champ **URL de redirection autorisées pour votre application**, puis sélectionnez **Ajouter une URL de redirection**. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`, en remplaçant `your-tenant-name` par le nom de votre locataire. Vous devez utiliser uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C. Sélectionnez **Update**.
+2. Par défaut, votre application LinkedIn n’est pas approuvée pour les étendues liées à la connexion. Pour demander une révision, sélectionnez l’onglet **Produits**, puis sélectionnez **Se connecter avec LinkedIn**. Une fois la révision terminée, les étendues requises sont ajoutées à votre application.
+   > [!NOTE]
+   > Vous pouvez afficher les étendues actuellement autorisées pour votre application sous l’onglet **Auth** dans la section **Étendues OAuth 2.0**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configuration d’un compte LinkedIn en tant que fournisseur d’identité
 

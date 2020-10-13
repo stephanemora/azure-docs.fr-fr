@@ -3,12 +3,12 @@ title: Azure Event Grid – Activer les journaux de diagnostic pour des rubrique
 description: Cet article fournit des instructions pas à pas sur l’activation des journaux de diagnostic pour une rubrique Azure Event Grid.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297519"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Activer les journaux de diagnostic pour des rubriques ou domaines Azure Event Grid
 Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capturer et d’afficher les journaux d’**échec de publication et de remise** dans un compte de stockage, un Event Hub ou espace de travail Log Analytics. Cet article fournit des instructions pas à pas pour activer ces journaux de diagnostic sur une rubrique Event Grid.
@@ -37,19 +37,19 @@ Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capt
     
     ![Bouton Ajouter un paramètre de diagnostic](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Donnez un **nom** au paramètre de diagnostic. 
-7. Sélectionnez les options **DeliveryFailures** et **PublishFailures** dans la section **Journal**. 
+6. Sélectionnez les options **DeliveryFailures** et **PublishFailures** dans la section **Journal**. 
     ![Sélectionner les défaillances](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Activez une ou plusieurs destinations de capture pour les journaux, puis configurez-les en sélectionnant une ressource de capture créée précédemment. 
+7. Activez une ou plusieurs destinations de capture pour les journaux, puis configurez-les en sélectionnant une ressource de capture créée précédemment. 
     - Si vous sélectionnez **Archiver dans un compte de stockage**, sélectionnez **Compte de stockage - Configurer**, puis le compte de stockage dans votre abonnement Azure. 
 
-        ![Archiver dans un compte de stockage Azure](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Capture d’écran montrant la page « Paramètres de diagnostic » avec l’option « Archiver dans un compte de stockage Azure » activée et un compte de stockage sélectionné.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Si vous sélectionnez **Diffuser vers un hub d'événements**, sélectionnez **Hub d'événements - Configurer**, puis l’espace de noms Event Hubs, le hub d'événements et la stratégie d’accès. 
-        ![Diffuser vers un hub d’événements](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Si vous sélectionnez **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics.
-        ![Envoyer à Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Send to Log Analytics" checked.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Sélectionnez **Enregistrer**. Ensuite, sélectionnez **X** dans l’angle droit pour fermer la page. 
 9. À présent, dans la page **Paramètres de diagnostic**, vérifiez la présence d'une nouvelle entrée dans la table **Paramètres de diagnostic**. 
-    ![Paramètre de diagnostic dans la liste](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Screenshot that shows the "Diagnostic settings" page with a new entry highlighted in the "Diagnostics settings" table.](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      Vous pouvez également activer la collecte de toutes les métriques de la rubrique. 
 

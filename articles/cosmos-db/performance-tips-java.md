@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d6aad3107acbeaa76f1cf7e5d9c631a2a5aa8b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327818"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361745"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB
 
@@ -65,14 +65,14 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Schéma représentant la stratégie de connexion Azure Cosmos DB." border="false":::
 
    <a id="same-region"></a>
 2. **Colocalisation des clients dans la même région Azure pour les performances**
 
     Dans la mesure du possible, placez toutes les applications appelant Azure Cosmos DB dans la même région que la base de données Azure Cosmos. Pour une comparaison approximative, les appels à Azure Cosmos DB dans la même région s’effectuent en 1 à 2 ms, mais la latence entre les côtes Ouest et Est des États-Unis est supérieure à 50 ms. Cette latence peut probablement varier d’une requête à l’autre, en fonction de l’itinéraire utilisé par la requête lorsqu’elle passe du client à la limite du centre de données Azure. Pour obtenir la latence la plus faible possible, l’application appelante doit être située dans la même région Azure que le point de terminaison Azure Cosmos DB configuré. Pour obtenir la liste des régions disponibles, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Schéma représentant la stratégie de connexion Azure Cosmos DB." border="false":::
    
 ## <a name="sdk-usage"></a>Utilisation du kit de développement logiciel (SDK)
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
