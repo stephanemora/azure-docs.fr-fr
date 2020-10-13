@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306937"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 
@@ -66,6 +66,33 @@ Vous pouvez rechercher les configurations de maintenance disponibles à l’aide
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Créer une configuration de maintenance avec une fenêtre planifiée (en préversion)
+
+
+> [!IMPORTANT]
+> La fonctionnalité de fenêtre planifiée est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Utilisez New-AzMaintenanceConfiguration pour créer une configuration de maintenance avec une fenêtre planifiée quand Azure applique les mises à jour à vos ressources. Cet exemple crée une configuration de maintenance nommée myConfig avec une fenêtre planifiée de 5 heures, le quatrième lundi de chaque mois. Une fois que vous aurez créé une fenêtre planifiée, vous n’aurez plus besoin d’appliquer les mises à jour manuellement.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> La **durée** de maintenance doit être de *2 heures* ou plus. La **récurrence** minimale de la maintenance doit être d’une fois tous les 35 jours.
+
+La **récurrence** de la maintenance peut être exprimée sous la forme de planifications quotidiennes, hebdomadaires ou mensuelles. Voici des exemples de planifications quotidiennes recurEvery: Day, recurEvery: 3Days. Voici des exemples de planifications hebdomadaires recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Voici des exemples de planifications mensuelles recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
+
 
 ## <a name="assign-the-configuration"></a>Affecter la configuration
 

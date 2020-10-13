@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306121"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect Sync : exécuter l’Assistant Installation une deuxième fois
 La première fois que vous exécutez l’Assistant Installation d’Azure AD Connect, il vous guide dans la procédure de configuration de votre installation. Si vous réexécutez l’Assistant Installation, il vous propose des options de maintenance.
@@ -79,7 +79,7 @@ Lorsque vous sélectionnez cette option, tous les annuaires de votre configurati
 Cette option permet d’activer et de désactiver le mode de préproduction sur le serveur. Vous trouverez plus d’informations sur le mode de préproduction et son utilisation dans [Opérations](how-to-connect-sync-staging-server.md).
 
 L’option s’affiche si la préproduction est actuellement activée ou désactivée :  
-![Option qui affiche également l’état actuel du mode de préproduction](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Capture d’écran montrant le mode intermédiaire désactivé.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Pour modifier l’état, sélectionnez cette option et cochez ou décochez la case.  
 ![Option qui affiche également l’état actuel du mode de préproduction](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

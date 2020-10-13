@@ -2,15 +2,15 @@
 title: Forum aux questions sur le Modèle Resource Manager
 description: Forum aux questions (FAQ) sur le Modèle Resource Manager Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333118"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Forum aux questions sur les modèles Resource Manager
 
@@ -88,7 +88,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **J’ai entendu dire que vous travaillez sur un nouveau langage de modèle. Où puis-je en savoir plus ?**
 
-  Pour en savoir plus sur le nouveau langage de modèle, [inscrivez-vous aux notifications](https://aka.ms/armLangUpdates).
+  Pour afficher un aperçu du nouveau langage, consultez le [dépôt du projet Bicep](https://github.com/Azure/bicep). Pour rester informé au sujet du nouveau langage, [inscrivez-vous aux notifications](https://aka.ms/armLangUpdates).
 
 * **Existe-t-il un plan de prise en charge de la création de modèles dans YAML ?**
 

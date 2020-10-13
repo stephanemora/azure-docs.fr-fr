@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78274545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306665"
 ---
 # <a name="application-security-groups"></a>Groupes de sécurité d’application
 
@@ -26,7 +26,7 @@ Les groupes de sécurité d’application permettent de configurer la sécurité
 
 ![Groupes de sécurité d’application](./media/security-groups/application-security-groups.png)
 
-Dans l’image précédente, *NIC1* et *NIC2* sont membres du groupe de sécurité d’application *AsgWeb*. *NIC3* est un membre du groupe de sécurité d’application *AsgLogic*. *NIC4* est un membre du groupe de sécurité d’application *AsgDb*. Bien que chaque interface réseau dans cet exemple soit membre d’un seul groupe de sécurité d’application, une interface réseau peut être membre de plusieurs groupes de sécurité d’application, jusqu'aux [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Aucune de ces interfaces réseau ne dispose d’un groupe de sécurité réseau associé. *NSG1* est associé aux deux sous-réseaux et contient les règles suivantes :
+Dans l’image précédente, *NIC1* et *NIC2* sont membres du groupe de sécurité d’application *AsgWeb*. *NIC3* est un membre du groupe de sécurité d’application *AsgLogic*. *NIC4* est un membre du groupe de sécurité d’application *AsgDb*. Bien que chaque interface réseau dans cet exemple soit membre d’un seul groupe de sécurité réseau, une interface réseau peut être membre de plusieurs groupes de sécurité d’application, jusqu’aux [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Aucune de ces interfaces réseau ne dispose d’un groupe de sécurité réseau associé. *NSG1* est associé aux deux sous-réseaux et contient les règles suivantes :
 
 ## <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 

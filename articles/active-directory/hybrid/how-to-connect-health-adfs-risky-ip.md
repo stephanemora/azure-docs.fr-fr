@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306393"
 ---
 # <a name="risky-ip-report-public-preview"></a>Rapport sur les adresses IP à risque (préversion publique)
 Les clients AD FS peuvent exposer des points de terminaison d’authentification par mot de passe à Internet pour fournir des services d’authentification permettant aux utilisateurs finaux d’accéder aux applications SaaS telles que Microsoft 365. Dans ce cas, il est possible pour un mauvais acteur de tenter de se connecter à votre système AD FS pour deviner le mot de passe d’un utilisateur final et accéder aux ressources de l’application. AD FS fournit la fonctionnalité de verrouillage de compte extranet pour éviter ce type d’attaques depuis AD FS dans Windows Server 2012 R2. Si vous utilisez une version antérieure, nous vous recommandons vivement de mettre à niveau votre système AD FS vers Windows Server 2016. <br />
@@ -39,7 +39,7 @@ En outre, il est possible qu’une seule adresse IP tente de se connecter plusie
 > 
 
 ## <a name="what-is-in-the-report"></a>Contenu du rapport
-Les adresses IP clientes des activités de connexion ayant échoué sont agrégées via des serveurs proxy d’application web. Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Il fournit les informations suivantes : ![Portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Les adresses IP clientes des activités de connexion ayant échoué sont agrégées via des serveurs proxy d’application web. Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Il fournit les informations suivantes : ![Screenshot that shows a Risky IP report with column headers highlighted.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Élément de rapport | Description |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Les adresses IP clientes des activités de connexion ayant échoué sont agrég�
 
 Par exemple, l’élément de rapport ci-dessous indique que dans la fenêtre de 18h00 à 19h00, le 28/02/2018, l’adresse IP <i>104.2XX.2XX.9</i> n’affichait aucune erreur de mot de passe incorrect et présentait 284 erreurs de verrouillage extranet. 14 utilisateurs uniques ont été affectés. L’événement d’activité a dépassé le seuil par heure défini pour le rapport. 
 
-![portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Capture d’écran montrant un exemple d’entrée du rapport sur les adresses IP à risque.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Seules les activités dépassant le seuil désigné s’affichent dans la liste des rapports. 
@@ -60,7 +60,7 @@ Par exemple, l’élément de rapport ci-dessous indique que dans la fenêtre de
 > - Ce rapport d’alerte n’affiche pas les adresses IP Exchange ou les adresses IP privées. Elles sont tout de même incluses dans la liste d’exportation. 
 >
 
-![portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Capture d’écran montrant le rapport sur les adresses IP à risque avec les options « Téléchargement », « Paramètres de notification » et « Paramètres de seuil » en évidence.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Adresses IP de l’équilibreur de charge dans la liste
 L’équilibreur de charge agrège les activités de connexion qui ont échoué et atteint le seuil d’alerte. Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 

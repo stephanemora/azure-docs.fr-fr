@@ -2,15 +2,15 @@
 title: Activer Azure Automation Update Management à partir d’une machine virtuelle Azure
 description: Cet article explique comment activer Update Management à partir d’une machine virtuelle Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327790"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Activer Update Management à partir d’une machine virtuelle Azure
 
@@ -35,13 +35,15 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Update Management. Les machines virtuelles peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. Vous
 
-3. Sur la page de la machine virtuelle, sous **Opérations**, sélectionnez **Update Management**.
+3. Sur la page de la machine virtuelle, sous **Opérations**, sélectionnez **Mises à jour de l’hôte et de l’invité**.
+
+    ![Sélectionner Mises à jour de l’hôte et de l’invité dans le volet de gauche](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Vous devez disposer de l’autorisation `Microsoft.OperationalInsights/workspaces/read` pour déterminer si la machine virtuelle est activée pour un espace de travail. Pour en savoir plus sur les autorisations supplémentaires nécessaires, consultez les [autorisations nécessaires pour activer des machines](../automation-role-based-access-control.md#feature-setup-permissions). Pour savoir comment activer plusieurs machines en même temps, consultez [Activer Update Management à partir d’un compte Automation](update-mgmt-enable-automation-account.md).
 
-5. Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer Update Management. Après l’activation d’Update Management, l’affichage de l’évaluation des mises à jour à partir de la machine virtuelle peut prendre environ 15 minutes.
+5. Sur la page Activer Update Management, choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer Update Management. Après l’activation d’Update Management, l’affichage de l’évaluation des mises à jour à partir de la machine virtuelle peut prendre environ 15 minutes.
 
-    ![Activer Update Management](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Activer Update Management](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

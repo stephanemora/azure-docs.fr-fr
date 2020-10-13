@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261377"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -268,39 +268,7 @@ Quand vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’insta
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Deux canaux de support sont disponibles selon les problèmes que vous rencontrez.
-
-Si vous rencontrez des problèmes dans l’Espace partenaires, notamment concernant la connexion ou l’affichage du rapport relatif à l’attribution de l’utilisation de client, créez ici une demande de support avec l’équipe du support technique de l’Espace partenaires : [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Capture d’écran de la page Obtenir une assistance](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-Si vous avez besoin d’aide pour l’intégration à la Place de marché et/ou l’attribution de l’utilisation de client en général, notamment pour la configuration de cette dernière, suivez les étapes ci-dessous :
-
-1. Accédez à la [page de support](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. Sous **Type de problème**, sélectionnez **Intégration sur la place de marché**.
-
-1. Choisissez la **catégorie** de votre problème :
-
-   - Pour les problèmes d’association d’utilisation, sélectionnez **Autres**.
-   - Pour tout problème d’accès avec la Place de marché Azure, sélectionnez **Problème d’accès**.
-
-     ![Choisir la catégorie de problème](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Sélectionnez **Envoyer une demande**.
-
-1. Sur la page suivante, entrez les valeurs requises. Sélectionnez **Continuer**.
-
-1. Sur la page suivante, entrez les valeurs requises.
-
-   > [!IMPORTANT]
-   > Dans le champ **Titre de l’incident**, entrez **Suivi de l’utilisation ISV**. Détaillez votre problème.
-
-   ![Entrez Suivi de l’utilisation ISV comme titre de l’incident](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Remplissez le formulaire, puis sélectionnez **Envoyer**.
-
-Un consultant technique partenaire Microsoft peut également vous fournir des conseils techniques sur les préventes, les déploiements et les scénarios de développement d’application techniques. Vous pourrez ainsi mieux comprendre et incorporer l’attribution de l’utilisation de client.
+Découvrez les options de support disponibles via la place de marché commerciale dans [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Comment envoyer une demande de consultation technique
 

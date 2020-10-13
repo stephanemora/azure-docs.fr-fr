@@ -7,23 +7,26 @@ author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26fd71d829c4d844b20d0848ac1f0cd9040d0cbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d2b0e1256e50619b52a482cfe20a822ddb02de0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332999"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Définitions intégrées d’Azure Policy pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Cette page est un index des définitions de stratégie intégrées [Azure Policy](../../governance/policy/overview.md) pour Azure SQL Database et and SQL Managed Instance. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-sql-database--sql-managed-instance"></a>Azure SQL Database et SQL Managed Instance 
 
 [!INCLUDE [azure-policy-reference-service-sqldatabase](../../../includes/policy/reference/byrp/microsoft.sql.md)]
+
+## <a name="limitations"></a>Limites
+- La création d’une stratégie Azure applicable à une base de données Azure SQL n’est pas appliquée lors de l’utilisation de T-SQL ou de SSMS. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
