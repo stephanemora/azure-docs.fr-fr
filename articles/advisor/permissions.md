@@ -3,12 +3,12 @@ title: Autorisations dans Azure Advisor
 description: Présentation des autorisations Advisor et de la façon dont elles peuvent bloquer votre capacité à configurer vos abonnements ou à reporter ou rejeter des recommandations.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927383"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712933"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorisations dans Azure Advisor
 
@@ -47,7 +47,7 @@ Si vous recevez une erreur lorsque vous tentez de reporter ou ignorer une recomm
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a présenté la façon dont Advisor utilise le contrôle d’accès en fonction du rôle pour contrôler les autorisations des utilisateurs. Il vous a aussi expliqué comment résoudre certains problèmes courants. Pour en savoir plus sur Advisor, consultez les ressources suivantes :
+Cet article vous a présenté la façon dont Advisor utilise Azure RBAC pour contrôler les autorisations des utilisateurs. Il vous a aussi expliqué comment résoudre certains problèmes courants. Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 
 - [Présentation d’Azure Advisor](./advisor-overview.md)
 - [Prise en main d’Azure Advisor](./advisor-get-started.md)

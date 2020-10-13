@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362535"
 ---
 # <a name="configure-rules"></a>Configurer des règles
 
@@ -33,7 +33,7 @@ Les conditions déterminent ce qui entraîne le déclenchement des règles. Actu
 
 Dans la capture d’écran suivante, les conditions vérifient que la température est supérieure à 70 &deg;F et que l’humidité est inférieure à 10. Quand ces deux instructions sont vraies (true), la règle prend la valeur true et déclenche une action.
 
-![Conditions](media/howto-configure-rules/conditions.png)
+![La capture d’écran représente un moniteur de réfrigérateur avec des conditions spécifiées pour la température et l’humidité.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Utiliser une propriété Cloud dans un champ de valeur
 

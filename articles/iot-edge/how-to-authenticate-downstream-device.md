@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ccb8d29d0ec52c31913a43358c7daa1c0693df7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308844"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447844"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -69,7 +69,7 @@ Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://githu
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
 
@@ -126,7 +126,7 @@ Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://githu
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils, de générer des certificats et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils, de générer des certificats et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
 
@@ -172,7 +172,7 @@ Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://githu
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Pour plus d’informations, consultez le contenu de référence Azure CLI relatif au commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations, consultez le contenu de référence Azure CLI relatif au commandes [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
 
@@ -184,13 +184,21 @@ Pour les appareils en aval, les chaînes de connexion ont besoin des composants 
 
 * Le hub IoT auquel l’appareil se connecte : `Hostname={iothub name}.azure-devices.net`
 * L’ID d’appareil qui est inscrit auprès du hub : `DeviceID={device ID}`
-* La clé primaire ou la clé secondaire : `SharedAccessKey={key}`
+* La méthode d’authentification, qu’il s’agisse d’une clé symétrique ou de certificats X.509
+  * Si l’utilisation de l’authentification par clé symétrique fournit la clé primaire ou secondaire : `SharedAccessKey={key}`
+  * Si vous utilisez l’authentification par certificat X.509, fournissez un indicateur : `x509=true`
 * L’appareil de passerelle via lequel l’appareil se connecte. Fournissez la valeur **hostname** qui figure dans le fichier config.yaml de l’appareil de passerelle IoT Edge : `GatewayHostName={gateway hostname}`
 
 Dans son intégralité, une chaîne de connexion ressemble à ceci :
 
 ```
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+Ou :
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Si vous avez établi une relation parent/enfant pour l’appareil en aval, vous pouvez simplifier la chaîne de connexion en appelant la passerelle directement en tant qu’hôte de connexion. Les relations parent/enfant sont obligatoires pour l’authentification X.509, mais facultatives pour l’authentification par clé symétrique. Par exemple :

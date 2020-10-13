@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298961"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569505"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Développer avec les API Media Services v3
 
@@ -41,7 +41,7 @@ Au lieu de créer un principal de service, envisagez d’utiliser des identités
 
 ### <a name="azure-ad-service-principal"></a>Principal du service Azure AD
 
-Si vous créez une application Azure AD et un principal de service, l’application doit se trouver dans son propre client. Après avoir créé l’application, attribuez à l'application le rôle **Contributeur** ou **Propriétaire** pour accéder au compte Media Services.
+L’application Azure AD et le principal du service doivent se trouver dans le même locataire. Après avoir créé l’application, attribuez à l'application le rôle **Contributeur** ou **Propriétaire** pour accéder au compte Media Services.
 
 Si vous ne savez pas si vous disposez des autorisations pour créer une application Azure AD, consultez [Autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

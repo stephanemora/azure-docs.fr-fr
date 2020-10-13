@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891483"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567993"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 
@@ -56,7 +56,7 @@ Avec Azure Synapse Link, vous pouvez obtenir une solution complètement managée
 Le magasin analytique Azure Cosmos DB s’appuie sur un modèle de tarification basé sur la consommation, qui est basé sur le stockage de données et les opérations et requêtes de lecture/écriture analytiques exécutées. Vous n’avez pas besoin d’approvisionner un débit comme vous le faites aujourd’hui pour les charges de travail transactionnelles. L’accès à vos données avec des moteurs de calcul hautement élastiques à partir d’Azure Synapse Analytics optimisent l’efficacité du stockage et du calcul.
 
 
-### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>Analytique pour les données multimaîtres disponibles localement et distribuées globalement
+### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>Analytique pour les écritures multirégions disponibles localement et distribuées globalement
 
 Vous pouvez effectuer des recherches analytiques efficaces sur la copie régionale la plus proche des données dans Azure Cosmos DB. Azure Cosmos DB offre l’avantage d’exécuter les charges de travail analytiques distribuées dans le monde entier, ainsi que des charges de travail transactionnelles en mode actif/actif.
 
@@ -116,7 +116,7 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 
 ## <a name="limitations"></a>Limites
 
-* Azure Synapse Link est pris en charge pour l’API Azure Cosmos DB SQL (Core) et l’API Azure Cosmos DB pour MongoDB. La prise en charge de l’API Cassandra est actuellement en préversion contrôlée. Pour demander l’accès à cette préversion contrôlée, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Azure Synapse Link est pris en charge pour l’API Azure Cosmos DB SQL (Core) et l’API Azure Cosmos DB pour MongoDB.
 
 * Actuellement, le magasin analytique ne peut être activé que pour les nouveaux conteneurs. Pour utiliser le magasin analytique pour les conteneurs existants, migrez les conteneurs existants vers de nouveaux conteneurs à l’aide des [outils de migration Azure Cosmos DB](cosmosdb-migrationchoices.md). Vous pouvez activer Synapse Link sur les comptes Azure Cosmos DB, nouveaux comme existants.
 
