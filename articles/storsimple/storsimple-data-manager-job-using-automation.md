@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514930"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743605"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Utiliser Azure Automation pour déclencher un travail
 
@@ -41,7 +41,7 @@ Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
 2. Pour ajouter un nouveau compte Automation, cliquez sur **+ Ajouter**.
 
-    ![Créer un compte d’identification Automation](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Créer un compte d’identification Automation 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. Dans **Ajouter Automation**:
 
@@ -52,7 +52,7 @@ Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
    5. Laissez l’option par défaut **Créer un compte d’identification** activée.
    6. Pour obtenir un lien d’accès rapide sur le tableau de bord, consultez **Épingler au tableau de bord**. Cliquez sur **Créer**.
 
-      ![Créer un compte d’identification Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Créer un compte d’identification Automation 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Une fois le compte Automation créé, vous êtes averti.
     

@@ -5,17 +5,37 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2020
-ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 09/23/2020
+ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045346"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812860"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protection des données dans Azure Stream Analytics 
 
 Azure Stream Analytics est une plateforme en tant que service entièrement gérée, qui vous permet de générer des pipelines d’analyse en temps réel. Le gros du travail, par exemple, l’approvisionnement du cluster, la mise à l’échelle des nœuds pour prendre en charge votre utilisation et la gestion des points de contrôle internes sont gérés en coulisses.
+
+## <a name="private-data-assets-that-are-stored"></a>Ressources de données privées stockées
+
+Azure Stream Analytics conserve les métadonnées et les données suivantes pour exécuter : 
+
+* Définition des requêtes et leur configuration associée  
+
+* Fonctions ou agrégats définis par l’utilisateur  
+
+* Points de contrôle nécessaires au runtime Stream Analytics
+
+* Captures instantanées de données de référence 
+
+* Détails de connexion des ressources utilisées par votre tâche Stream Analytics
+
+Pour vous aider à répondre à vos obligations de conformité dans n’importe quel secteur ou environnement réglementé, apprenez-en davantage sur les [offres de conformité de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="in-region-data-residency"></a>Résidence des données dans la région
+Azure Stream Analytics stocke les données client et les autres métadonnées décrites ci-dessus. Les données client sont stockées par Azure Stream Analytics dans une seule région par défaut, si bien que ce service répond automatiquement aux exigences en matière de résidence des données de la région, y compris celles spécifiées dans le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
+En outre, vous pouvez choisir de stocker toutes les ressources de données (données client et autres métadonnées) relatives à votre tâche Stream Analytics dans une région unique en les chiffrant dans un compte de stockage de votre choix.
 
 ## <a name="encrypt-your-data"></a>Chiffrer vos données
 
@@ -28,7 +48,14 @@ Vous devez configurer ce paramètre au moment de la création de la tâche Strea
 Une mise à jour ou une rotation de clés sur votre compte de stockage n’est pas possible à l’aide du portail Stream Analytics. Vous pouvez mettre à jour les clés à l’aide des API REST.
 
 
-## <a name="configure-storage-account-for-private-data"></a>Configurer un compte de stockage pour des données privées 
+### <a name="configure-storage-account-for-private-data"></a>Configurer un compte de stockage pour des données privées 
+
+
+Chiffrez votre compte de stockage pour sécuriser toutes vos données et choisissez explicitement l’emplacement de vos données privées. 
+
+Pour vous aider à répondre à vos obligations de conformité dans n’importe quel secteur ou environnement réglementé, apprenez-en davantage sur les [offres de conformité de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+
 
 Utilisez les étapes suivantes pour configurer votre compte de stockage pour des ressources de données privées. Cette configuration s’effectue à partir de votre tâche Stream Analytics, non à partir de votre compte de stockage.
 
@@ -46,24 +73,10 @@ Utilisez les étapes suivantes pour configurer votre compte de stockage pour des
 
    ![Paramètres du compte de stockage de données privées](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Ressources de données privées stockées
 
-Toutes les données privées requises que Stream Analytics doit conserver son stockées dans votre compte de stockage. Voici quelques exemples de ressources de données privées : 
 
-* Requêtes que vous avez créées et configurations associées  
-
-* Fonctions définies par l’utilisateur 
-
-* Points de contrôle nécessaires au runtime Stream Analytics
-
-* Captures instantanées de données de référence 
-
-Les détails de connexion de vos ressources, que votre tâche Stream Analytics utilise, sont également stockés. Chiffrez votre compte de stockage pour sécuriser toutes vos données. 
-
-Pour vous aider à répondre à vos obligations de conformité dans n’importe quel secteur ou environnement réglementé, apprenez-en davantage sur les [offres de conformité de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-## <a name="known-issues"></a>Problèmes connus
-Il existe un problème connu où un travail qui utilise une clé gérée par le client connaît des échecs lors de l’utilisation d’une identité managée pour s’authentifier auprès de toutes les entrées ou sorties. Un correctif pour ce problème est en cours d’élaboration et sera bientôt disponible prochainement. 
+### <a name="known-issues"></a>Problèmes connus
+Actuellement, il existe une limitation connue où une tâche qui utilise une clé gérée par le client connaît des échecs lors de l’utilisation d’une identité managée pour s’authentifier auprès de toutes les entrées ou sorties.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

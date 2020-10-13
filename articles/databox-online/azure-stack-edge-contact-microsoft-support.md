@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904528"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743299"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Stack Edge Pro et Azure Data Box Gateway
 
@@ -59,7 +59,7 @@ Procédez comme suit pour créer une demande de support.
 
 4. Dans l'onglet **Vérifier + créer**, vérifiez les informations de votre ticket de support. Sélectionnez **Create** (Créer). 
 
-    ![Problème](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
+    ![Problème 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
     Une fois votre ticket de support créé, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
 

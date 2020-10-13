@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707643"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715999"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Résoudre les problèmes liés à Azure Files dans Linux (SMB)
 
@@ -49,7 +49,7 @@ Causes courantes de ce problème :
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de montage Azure Files sur Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Cet outil offre les possibilités suivantes :
+Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de montage Azure Files sur Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). Cet outil offre les possibilités suivantes :
 
 * Il vous permet de valider l’environnement d’exécution du client.
 * Il détecte la configuration client incompatible qui provoquerait l’échec de l’accès d’Azure Files.
@@ -150,7 +150,7 @@ Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées co
 
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
-Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
@@ -298,6 +298,32 @@ Cette erreur est consignée, car Azure Files [ne prend actuellement pas en charg
 
 ### <a name="solution"></a>Solution
 Cette erreur peut être ignorée.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Impossible d’accéder aux dossiers ou aux fichiers dont le nom contient un espace ou un point à la fin
+
+Vous ne pouvez pas accéder à des dossiers ou des fichiers à partir du partage de fichiers Azure monté sur Linux. Les commandes telles que du et ls et/ou les applications tierces peuvent échouer avec une erreur « Aucun fichier ou répertoire de ce type » lors de l’accès au partage. Toutefois, vous pouvez charger des fichiers vers ces dossiers via le portail.
+
+### <a name="cause"></a>Cause :
+
+Les dossiers ou fichiers ont été chargés à partir d’un système qui code les caractères à la fin du nom en un caractère différent. Les fichiers chargés à partir d’un ordinateur Macintosh peuvent avoir un caractère « 0xF028 » ou « 0xF029 » au lieu de 0x20 (Space) ou 0X2E (point).
+
+### <a name="solution"></a>Solution
+
+Utilisez l’option mapchars sur le partage lors du montage du partage sur Linux : 
+
+au lieu de :
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+utiliser :
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

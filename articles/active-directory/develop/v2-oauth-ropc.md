@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118618"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812537"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -112,5 +112,4 @@ Si l’utilisateur n’a pas fourni le nom d’utilisateur ou le mot de passe co
 
 ## <a name="learn-more"></a>En savoir plus
 
-* Essayez ROPC par vous-même en utilisant l’[exemple d’application de console](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de la plateforme d’identité Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
+Pour obtenir un exemple d’utilisation de ROPC, consultez l’exemple de code [application console .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) sur GitHub.

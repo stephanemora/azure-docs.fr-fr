@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265141"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812843"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -56,12 +56,12 @@ La mise à l’échelle côté réception (RSS) est toujours activée par défau
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu pour les nouveaux déploiements
 
-Le noyau Ubuntu Azure fournit les meilleures performances réseau sur Azure et est le noyau par défaut depuis le 21 septembre 2017. Pour utiliser ce noyau, installez d’abord la version la plus récente de 16.04-LTS, comme ci-dessous :
+Le noyau Ubuntu Azure est le plus optimisé pour les performances réseau sur Azure. Pour obtenir les dernières optimisations, installez d’abord la version la plus récente de 18.04-LTS, comme suit :
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Mise à niveau du noyau Ubuntu Azure pour les machines virtuelles existantes
 
-Des performances significatives en termes de débit peuvent être atteintes en mettant à jour vers le noyau Azure Linux proposé. Pour vérifier si vous avez ce noyau, vérifiez la version de votre noyau.
+Des performances significatives en termes de débit peuvent être atteintes en mettant à jour vers le noyau Azure Linux proposé. Pour vérifier si vous avez ce noyau, vérifiez la version de votre noyau. Elle doit être identique ou ultérieure à l’exemple.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -117,7 +117,7 @@ Pour bénéficier des dernières optimisations, il est préférable de créer un
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -152,6 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Apprenez-en plus sur les Services d’intégration Linux version 4.2 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Déployez des machines virtuelles proches les unes des autres pour une faible latence avec un [groupe de placement de proximité](../virtual-machines/windows/co-location.md)
 * Découvrez le résultat optimisé avec le [Test de bande passante/débit de machine virtuelle Azure](virtual-network-bandwidth-testing.md) pour votre scénario.
 * Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles](virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)

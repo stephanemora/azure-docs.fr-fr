@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017464"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743141"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec .NET Core et Azure Cosmos DB
 
@@ -156,6 +156,12 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. Revenez au portail et copiez la valeur POINT DE CONTACT. Collez la valeur POINT DE CONTACT à partir du portail sur `<PROVIDE>` à la ligne 16.
+
+    La ligne 16 du fichier Program.cs doit maintenant être similaire à ceci 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
 1. Enregistrez le fichier Program.cs.
     
 ## <a name="run-the-net-core-app"></a>Exécuter l’application .NET Core
@@ -169,13 +175,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     ```
 3. Appuyez sur Ctrl + F5 pour exécuter l’application. Votre application s’affiche dans la fenêtre de votre console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Afficher et vérifier la sortie":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Afficher et copier une clé d’accès dans la page Chaîne de connexion du portail Azure":::
 
     Appuyez sur CTRL + C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
     
 4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Afficher les données dans l’Explorateur de données":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Afficher et copier une clé d’accès dans la page Chaîne de connexion du portail Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611613"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740375"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -252,6 +252,9 @@ Votre fichier de stratégie de partie de confiance final doit ressembler à ce q
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+> [!NOTE]
+> Lors de l’implémentation d’autres types de flux d’utilisateurs (par exemple, la connexion, la réinitialisation du mot de passe ou la modification de profil), le processus est essentiellement le même que celui décrit dans cette section. À l’étape 4 ci-dessus, vous allez modifier la dernière étape du parcours utilisateur de `JWTIssuer` en `Saml2AssertionIssuer`. Et à l’étape 6 ci-dessus, dans la section Partie de confiance, vous allez modifier le **protocole** de `OpenIdConnect` en `SAML2`.
 
 ### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 Charger et tester vos métadonnées de stratégie
 

@@ -6,17 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e24f1e546de1ce01896e271dbc9155c47f6c2bb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41254accbfff8f1d68a8bbef4d74ed01c64891b9
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101042"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803889"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Démarrage rapide : Créer un coffre de clés à l’aide de PowerShell
 
@@ -49,17 +48,17 @@ Créez un coffre de clés dans le groupe de ressources créé à l’étape pré
   > [!Important]
   > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
 
-- Nom du groupe de ressources : **myResourceGroup**.
+- Groupe de ressources nommé : **myResourceGroup**.
 - Localisation : **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name <your-unique-key-vault-name> -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous venez de créer. Notez les deux propriétés ci-dessous :
 
-- **Nom du coffre** : Nom que vous avez fourni au paramètre --name ci-dessus.
-- **URI du coffre** : Dans l’exemple, il s’agit de https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+- **Nom du coffre** : Nom que vous avez fourni au paramètre--name ci-dessus.
+- **URI du coffre** : Dans l’exemple, il s’agit de https://<nom_unique_de_votre_coffre_de_clés>.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
@@ -78,5 +77,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](overview.md)
-- Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](best-practices.md)
