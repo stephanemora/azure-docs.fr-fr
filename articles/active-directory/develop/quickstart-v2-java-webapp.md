@@ -1,6 +1,7 @@
 ---
-title: Démarrage rapide pour les applications web Java de la plateforme d’identités Microsoft | Azure
-description: Découvrez comment implémenter la connexion Microsoft sur une application web Java avec OpenID Connect
+title: 'Démarrage rapide : Ajouter la connexion Microsoft sur une application web Java | Azure'
+titleSuffix: Microsoft identity platform
+description: Dans ce guide de démarrage rapide, apprenez à implémenter la connexion Microsoft dans une application web Java avec OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258096"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743486"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java
 
@@ -257,4 +258,4 @@ import com.microsoft.aad.msal4j.*;
 Pour obtenir une présentation plus approfondie de la génération d’applications web qui connectent des utilisateurs à la plateforme d’identités Microsoft, passez à notre série de scénarios en plusieurs parties :
 
 > [!div class="nextstepaction"]
-[Scénario : application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Scénario : application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md?tabs=java)
