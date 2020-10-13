@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 18463c4350895401c9bf73dc249ce93218a44f7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264641"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816424"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -83,6 +83,32 @@ Les paramètres de l'application affichent le format JSON suivant :
   ...
 ]
 ```
+
+### <a name="automate-app-settings-with-the-azure-cli"></a>Automatiser les paramètres d’application avec Azure CLI
+
+Vous pouvez utiliser Azure CLI pour créer et gérer des paramètres à partir de la ligne de commande.
+
+- Affectez une valeur à un paramètre avec [az webapp config app Settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) :
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    Remplacez `<setting-name>` par le nom du paramètre, et `<value>` par la valeur à assigner à celui-ci. Cette commande crée le paramètre s’il n’existe pas déjà.
+    
+- Affichez tous les paramètres et leurs valeurs avec [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list) :
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Supprimez un ou plusieurs paramètres avec [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete) :
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Remplacez `<names>` par une liste de noms de paramètres séparés par des espaces.
 
 ## <a name="configure-connection-strings"></a>Configuration des chaînes de connexion
 
@@ -164,7 +190,12 @@ Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sél
 
 Ici, vous pouvez configurer quelques paramètres communs pour l'application. Certains paramètres vous obligent à [monter en puissance vers des niveaux de tarification supérieurs](manage-scale-up.md).
 
-- **Paramètres de la pile** : La pile logicielle pour exécuter l'application, y compris le langage et les versions SDK. Pour les applications Linux et les applications de conteneur personnalisées, vous pouvez également définir une commande ou un fichier de démarrage facultatif.
+- **Paramètres de la pile** : La pile logicielle pour exécuter l'application, y compris le langage et les versions SDK.
+
+    Pour les applications Linux et les applications de conteneur personnalisées, vous pouvez sélectionner la version du runtime de langage et définir une **commande de démarrage** facultative ou un fichier de commandes de démarrage.
+
+    ![Paramètres généraux pour les conteneurs Linux](./media/configure-common/open-general-linux.png)
+
 - **Paramètres de la plateforme** : Vous permet de configurer les paramètres de la plateforme d'hébergement, notamment :
     - **Nombre de bits** : 32 bits ou 64 bits.
     - **Protocole WebSocket** : Pour [ASP.NET SignalR] ou [socket.io](https://socket.io/), par exemple.

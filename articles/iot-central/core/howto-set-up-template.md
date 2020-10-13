@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019238"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803787"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -171,6 +171,21 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | Description | Description de la fonctionnalité de commande. |
 | Requête | Si cette option est activée, il s’agit d’une définition du paramètre de requête, notamment le nom, le nom d’affichage, le schéma, l’unité et l’unité d’affichage. |
 | response | Si cette option est activée, il s’agit d’une définition de la réponse de commande, notamment le nom, le nom d’affichage, le schéma, l’unité et l’unité d’affichage. |
+
+#### <a name="offline-commands"></a>Commandes hors connexion
+
+Vous pouvez choisir des commandes de mise en file d’attente si un appareil est actuellement hors connexion en activant l’option **Mettre en file d’attente si hors connexion** pour une commande dans le modèle d’appareil.
+
+Cette option utilise des messages IoT Hub cloud-à-appareil pour envoyer les notifications aux appareils. Pour plus d’informations, consultez l’article IoT Hub [Envoyer des messages cloud-à-appareil](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Messages cloud-à-appareil :
+
+- Notifications unidirectionnelles de votre solution vers l’appareil.
+- Remise des messages au moins une fois. IoT Hub conserve les messages cloud-à-appareil dans des files d’attente par appareil, garantissant ainsi la résilience face aux défaillances de connectivité et des appareils.
+- Exiger que l’appareil implémente un gestionnaire de messages pour traiter le message cloud-à-appareil.
+
+> [!NOTE]
+> Cette option est disponible uniquement dans l’interface utilisateur web d’IoT Central. Ce paramètre n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil.
 
 ## <a name="manage-an-interface"></a>Gérer une interface
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281257"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822977"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -176,7 +176,7 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
     | **Action** | **Autoriser** ou **Refuser** | Ce paramètre spécifie si cette règle autorise ou refuse l’accès pour la configuration source et de destination fournie. |
     | **Priorité** | Entrez une valeur comprise entre 100 et 4096 qui est unique pour toutes les règles de sécurité au sein du groupe de sécurité réseau. | Azure traite les règles de sécurité par ordre de priorité. Plus le numéro est faible, plus la priorité est élevée. Nous vous recommandons de laisser un écart entre les numéros de priorité quand vous créez des règles, par exemple, 100, 200, 300. Cela permet par la suite d’intercaler de nouvelles règles et de leur donner une priorité plus ou moins élevée que les règles existantes. |
     | **Nom** | Nom unique de la règle au sein du groupe de sécurité réseau | Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement. Le nom peut contenir uniquement des lettres, des chiffres, des traits d’union, des traits de soulignement et des points. |
-    | **Description** | Description texte | Vous pouvez éventuellement spécifier une description texte de la règle de sécurité. |
+    | **Description** | Description texte | Vous pouvez éventuellement spécifier une description texte de la règle de sécurité. La description ne doit pas avoir plus de 140 caractères. |
 
 #### <a name="commands"></a>Commandes
 

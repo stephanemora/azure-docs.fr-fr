@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 165a2c6221c8d3c14f71134deef962d0859bb438
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9a06dea64ffb348477308979fa07c0e2ce822b0c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816709"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825398"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Déployer des machines virtuelles Spot avec Azure CLI
 
@@ -64,8 +64,25 @@ az vm list \
    --output table
 ```
 
+## <a name="simulate-an-eviction"></a>Simuler une éviction
+
+Vous pouvez [simuler l’éviction](/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle spot, afin de tester l’efficacité de la réponse de votre application en vue d’une éviction soudaine. 
+
+Remplacez les éléments suivants par vos informations : 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 **Étapes suivantes**
 
-Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure PowerShell](../windows/spot-powershell.md), du [portail](../windows/spot-portal.md) ou d’un [modèle](spot-template.md).
+Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure PowerShell](../windows/spot-powershell.md), du [portail](../spot-portal.md) ou d’un [modèle](spot-template.md).
+
+Interroger les informations de tarification actuelles à l’aide de l’[API des prix de vente au détail d’Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) pour plus d’informations sur la tarification Spot. Les `meterName` et `skuName` contiennent tous les deux `Spot`.
 
 Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

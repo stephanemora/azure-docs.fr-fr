@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930787"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816818"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -43,12 +43,12 @@ Il existe plusieurs conditions préalables à prendre en compte avant d’essaye
 
 - Les machines virtuelles concernées doivent être exclusivement Windows Server.
 - Les machines virtuelles doivent être en cours d’exécution.
-- Les machines virtuelles ne peuvent pas faire partie d’un groupe identique.
 - Les machines virtuelles doivent se trouver dans une région prise en charge.
 - L’utilisateur doit disposer des autorisations appropriées.
 - Les machines virtuelles ne doivent pas être liées à un espace de travail d’analytique des journaux d’activité dans un autre abonnement.
+- Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
-L’autorisation RBAC suivante est nécessaire pour activer le service Automanage : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+Vous devez disposer du rôle de **Contributeur** pour activer Automanage à l'aide d'un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
 
 Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest.
 
@@ -105,14 +105,14 @@ Le Compte Automanage est le contexte de sécurité ou l’identité sous laquell
 Dans l’interface du portail Azure, lorsque vous activez le service Automanage sur vos machines virtuelles, le panneau **Activer la meilleure pratique de machine virtuelle Azure** contient une liste déroulante Avancées, qui vous permet d’attribuer ou de créer manuellement le Compte Automanage.
 
 > [!NOTE]
-> L’autorisation RBAC suivante est nécessaire pour activer le service Automanage : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+> Vous devez disposer du rôle de **Contributeur** pour activer Automanage à l'aide d'un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
 
 
 ## <a name="status-of-vms"></a>État des machines virtuelles
 
 Dans le portail Azure, accédez à la page **Automanage – Meilleurs pratiques pour les machines virtuelles Azure**, qui répertorie toutes vos machines virtuelles gérées automatiquement. Vous verrez ici l’état global de chaque machine virtuelle.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Liste des machines virtuelles configurées.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Services intégrés de manière intelligente.":::
 
 Pour chaque machine virtuelle répertoriée, les informations suivantes s’affichent : Nom, Profil de configuration, Préférence de configuration, État, Compte, Abonnement et Groupe de ressources.
 
@@ -130,17 +130,17 @@ Vous pouvez décider un jour de désactiver le service Automanage sur certaines 
 
 Pour ce faire, dans le portail Azure, accédez à la page **Automanage – Meilleures pratiques pour les machines virtuelles Azure** qui répertorie toutes vos machines virtuelles gérées automatiquement. Activez la case à cocher en regard de la machine virtuelle que vous souhaitez désactiver dans le service Automanage, puis cliquez sur le bouton **Désactiver la gestion automatique**.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Désactivation du service Automanage sur une machine virtuelle.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Services intégrés de manière intelligente.":::
 
 Lisez attentivement le message dans la fenêtre contextuelle qui s’affiche avant d’accepter de **Désactiver**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> La désactivation de l’autogestion dans une machine virtuelle entraîne le comportement suivant :
+>
+> - La configuration de la machine virtuelle et des services qu’elle contient ne change pas.
+> - Tous les frais associés à ces services resteront facturables et seront accumulés.
+> - Tous les comportements du service Automanage s’arrêtent immédiatement.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l’un des services auxquels nous l’avons intégrée et sur lesquels nous l’avons configurée. Par conséquent, les frais associés à ces services resteront facturables. Vous devez donc annuler l’intégration si nécessaire. Dans ce cas, tout comportement du service Automanage s’arrête immédiatement. Par exemple, nous cessons surveiller la dérive de la machine virtuelle.
 

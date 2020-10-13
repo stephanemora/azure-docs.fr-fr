@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518994"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803736"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -150,7 +150,7 @@ Pour activer une zone sur un groupe de machines virtuelles identiques, vous deve
 
 * La première valeur est la propriété **zones**, qui spécifie la zone de disponibilité sur laquelle le groupe de machines virtuelles identiques sera déployé.
 * La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai).
-* La troisième valeur est la propriété « faultDomainOverride » dans l’extension de groupe de machines virtuelles identiques Service Fabric. La valeur de cette propriété doit inclure la région et la zone dans lesquelles ce groupe de machines virtuelles identiques sera placé. Exemple : « faultDomainOverride » : « eastus/az1 ». Toutes les ressources de groupe de machines virtuelles identiques doivent être placées dans la même région car les clusters Azure Service Fabric ne prennent pas en charge entre régions.
+* La troisième valeur est la propriété « faultDomainOverride » dans l’extension de groupe de machines virtuelles identiques Service Fabric. La valeur de cette propriété doit uniquement inclure la zone dans lesquelles ce groupe de machines virtuelles identiques sera placé. Exemple : « faultDomainOverride » : « az1 ». Toutes les ressources de groupe de machines virtuelles identiques doivent être placées dans la même région car les clusters Azure Service Fabric ne prennent pas en charge entre régions.
 
 ```json
 {
@@ -183,7 +183,7 @@ Pour activer une zone sur un groupe de machines virtuelles identiques, vous deve
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

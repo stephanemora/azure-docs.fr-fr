@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f096993645aca6999667af88c91d3f55f79d914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983051"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818977"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -104,7 +104,7 @@ Après avoir créé votre réseau virtuel, vous pouvez ajouter l’adresse IP d�
 
 Le site local fait généralement référence à votre emplacement local. Il contient l’adresse IP du périphérique VPN avec lequel vous allez créer une connexion et les plages d’adresses IP qui seront acheminées via la passerelle VPN vers le périphérique VPN.
 
-1. Dans la page de votre réseau virtuel, sous **Paramètres**, cliquez sur **Diagramme**.
+1. Dans la page de votre réseau virtuel, sous **Supervision**, cliquez sur **Diagramme**.
 1. Dans la page **Connexions VPN**, cliquez sur **Vous n’avez aucune connexion VPN existante. Cliquez ici pour démarrer**.
 1. Pour **Type de connexion**, laissez **Site à site** sélectionné.
 4. Cliquez sur **Site local- Configurer les paramètres requis** pour ouvrir la page **Site local**. Configurez les paramètres, puis cliquez sur **OK** pour les enregistrer.
@@ -112,7 +112,7 @@ Le site local fait généralement référence à votre emplacement local. Il con
    - **Adresse IP de la passerelle VPN :** Adresse IP publique du périphérique VPN pour votre réseau local. Le périphérique VPN requiert une adresse IP IPv4 publique. Spécifiez une adresse IP publique valide pour le périphérique VPN auquel vous souhaitez vous connecter. Il doit être accessible par Azure. Si vous ne connaissez pas l’adresse IP de votre périphérique VPN, vous pouvez toujours placer une valeur d’espace réservé (à condition qu’elle soit au format d’une adresse IP publique valide) et la modifier ultérieurement.
    - **Espace d’adressage du client :** Listez les plages d’adresses IP que vous voulez router vers le réseau local par le biais de cette passerelle. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec des plages d’adresses d’autres réseaux auxquels votre réseau virtuel se connecte, ou avec les propres plages d’adresses du réseau virtuel.
 
-   ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurer le site local")
+   ![Capture d’écran montrant les fenêtres Nouvelle connexion VPN et Site local.](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png)
 
 Cliquez sur **OK** pour fermer la page Site local. **Ne cliquez pas sur OK pour fermer la page Nouvelle connexion VPN**.
 

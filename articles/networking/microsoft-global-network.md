@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280900"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819900"
 ---
 # <a name="microsoft-global-network"></a>Réseau Microsoft mondial
 
-Microsoft possède et gère l’un des plus grands réseaux principaux du monde. Cette architecture mondiale et sophistiquée, couvrant plus de 160 000 km, connecte nos centres de données et nos clients. 
+Microsoft possède et gère l’un des plus grands réseaux principaux du monde. Cette architecture mondiale et sophistiquée, couvrant plus de 165 000 km, connecte nos centres de données et nos clients. 
  
-Tous les jours, des clients du monde entier se connectent et transfèrent des billions de demandes à Microsoft Azure, Bing, Dynamics 365, Office 365, XBox et bien d’autres. Quel que soit leur type, les clients attendent de nos services une fiabilité et une réactivité instantanée. 
+Tous les jours, des clients du monde entier se connectent et transfèrent des billions de demandes à Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox et bien d’autres. Quel que soit leur type, les clients attendent de nos services une fiabilité et une réactivité instantanée. 
  
-Le [réseau mondial Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) est l’une des parties essentielles d’une très bonne expérience cloud. En connectant notre [centres de données](https://azure.microsoft.com/global-infrastructure/) Microsoft à 54 régions Azure et un grand maillage de nœuds de périphérie placés de manière stratégique dans le monde entier, notre réseau mondial offre à la fois la disponibilité, la capacité et la flexibilité permettant de répondre à toute demande.
+Le [réseau mondial Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) est l’une des parties essentielles d’une très bonne expérience cloud. En connectant notre [centres de données](https://azure.microsoft.com/global-infrastructure/) Microsoft à 61 régions Azure et un grand maillage de nœuds de périphérie placés de manière stratégique dans le monde entier, notre réseau mondial offre à la fois la disponibilité, la capacité et la flexibilité permettant de répondre à toute demande.
 
 ![Réseau Microsoft mondial](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Obtenir le réseau cloud Premium
  
-Il est facile de choisir la [meilleure expérience possible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) quand vous utilisez le cloud Microsoft. À partir du moment où le trafic client entre sur notre réseau mondial par le biais de nos nœuds de périphérie disposés de façon stratégique, vos données transitent via des routes optimisées presque à la vitesse de la lumière. Cela garantit une latence optimale pour de meilleures performances. Ces nœuds de périphérie, tous interconnectés à plus de 3 500 partenaires Internet uniques (pairs) par le biais des milliers de connexions dans plus de 165 endroits, servent de base à notre stratégie d’interconnexion. 
+Il est facile de choisir la [meilleure expérience possible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) quand vous utilisez le cloud Microsoft. À partir du moment où le trafic client entre sur notre réseau mondial par le biais de nos nœuds de périphérie disposés de façon stratégique, vos données transitent via des routes optimisées presque à la vitesse de la lumière. Cela garantit une latence optimale pour de meilleures performances. Ces nœuds de périphérie, tous interconnectés à plus de 4000 partenaires Internet uniques (pairs) par le biais des milliers de connexions dans plus de 175 endroits, servent de base à notre stratégie d’interconnexion. 
  
 Si vous vous connectez de Londres à Tokyo, ou de Washington DC à Los Angeles, les performances réseau sont quantifiées et affectées par des éléments tels que la latence, l’instabilité, la perte de paquets et le débit.  Chez Microsoft, nous préférons utiliser des interconnexions directes plutôt que des liaisons de transit. Cela maintient le trafic des réponses symétrique et permet de garder les tronçons, les parties d’un appairage (peering) et les chemins aussi courts et aussi simples possible. 
 

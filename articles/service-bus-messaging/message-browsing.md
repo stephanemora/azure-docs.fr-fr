@@ -3,12 +3,12 @@ title: Azure Service Bus – Exploration des messages
 description: Le parcours et aperçu des messages Service Bus permet à un client Azure Service Bus d’énumérer tous les messages qui résident dans une file d’attente ou un abonnement.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341233"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827441"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
@@ -30,7 +30,7 @@ Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous l
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) récupère plusieurs messages et les retourne sous la forme d’une énumération. Si aucun message n’est disponible, l’objet d’énumération est vide (non Null).
 
-Vous pouvez également amorcer une surcharge de la méthode en définissant un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) de démarrage, puis appeler la surcharge de la méthode sans paramètre pour continuer l’énumération. **PeekBatch** fonctionne de façon équivalente, mais récupère tout un ensemble de messages à la fois.
+Vous pouvez également utiliser une surcharge de la méthode en définissant un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) de démarrage, puis appeler la surcharge de la méthode sans paramètre pour continuer l’énumération. **PeekBatch** fonctionne de façon équivalente, mais récupère tout un ensemble de messages à la fois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

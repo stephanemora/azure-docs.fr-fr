@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003704"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825319"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
@@ -111,6 +111,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 - [Pourquoi ma tentative de suppression de mon cache lié a-t-elle échoué ?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Quelle région dois-je utiliser pour mon cache lié secondaire ?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Comment fonctionne le basculement vers le cache lié secondaire ?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Puis-je configurer un pare-feu avec la géoréplication ?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Puis-je utiliser la géoréplication avec un cache de niveau Standard ou De base ?
 
@@ -145,8 +146,8 @@ Oui, la géoréplication de caches dans des réseaux virtuels est prise en charg
 - La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge.
 - La géoréplication entre caches figurant dans des réseaux virtuels différents est également prise en charge.
   - Si les réseaux virtuels se trouvent dans la même région, vous pouvez les connecter via un [peering de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou une [connexion de passerelle VPN de réseau virtuel à réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Si les réseaux virtuels se trouvent dans des régions différentes, la géoréplication via un peering de réseaux virtuels n'est pas prise en charge en raison d'une contrainte liée aux équilibreurs de charge internes de base. Pour plus d'informations sur les contraintes liées au peering de réseaux virtuels, consultez [Réseau virtuel - Peering - Exigences et contraintes](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solution recommandée est d'utiliser une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
-
+  - Si les réseaux virtuels se trouvent dans des régions différentes, la géoréplication à l’aide du peering de réseau virtuel est prise en charge, mais une machine virtuelle cliente dans VNET 1 (région 1) ne pourra pas accéder au cache dans VNET 2 (région 2) via son nom DNS en raison d’une contrainte liée aux équilibreurs de charge internes de base. Pour plus d'informations sur les contraintes liées au peering de réseaux virtuels, consultez [Réseau virtuel - Peering - Exigences et contraintes](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solution recommandée est d'utiliser une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
+  
 [Ce modèle Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) vous permet de déployer rapidement deux caches géorépliqués dans un réseau virtuel connecté avec une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Quelle est la planification de réplication pour la géoréplication Redis ?
@@ -185,7 +186,12 @@ Le basculement automatique entre régions Azure n'est pas pris en charge pour le
 
 Pour lancer un basculement initié par le client, commencez par dissocier les caches. Puis modifiez votre client Redis pour qu'il utilise le point de terminaison de connexion du cache secondaire (précédemment lié). Une fois les deux caches dissociés, le cache secondaire redevient un cache en lecture-écriture normal, et accepte directement les demandes des clients Redis.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Puis-je configurer un pare-feu avec la géoréplication ?
+
+Oui, vous pouvez configurer un [pare-feu](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) avec la géoréplication. Pour que la géoréplication fonctionne avec le pare-feu, assurez-vous que l’adresse IP du cache secondaire est ajoutée aux règles de pare-feu du cache principal.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.
 
 * [Niveaux de service Azure Cache pour Redis](cache-overview.md#service-tiers)
