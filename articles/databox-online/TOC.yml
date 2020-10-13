@@ -57,6 +57,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Charges de travail Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: Afficher l’intégration de Key Vault
+          href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Procédures
       items:
         - name: Déployer des exemples IoT Edge
