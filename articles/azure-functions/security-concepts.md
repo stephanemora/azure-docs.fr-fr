@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850710"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761411"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -24,7 +24,7 @@ Cette section vous guide dans la configuration et l’exécution de votre applic
 
 ### <a name="security-center"></a>Security Center
 
-Security Center s’intègre à votre application de fonction dans le portail. Il évalue rapidement et gratuitement les vulnérabilités potentielles de sécurité liées à la configuration. Les applications de fonction qui s’exécutent dans un plan dédié peuvent également utiliser les fonctionnalités de sécurité en temps réel de Security Center, pour un coût supplémentaire. Pour en savoir plus, consultez [Protéger vos applications Web et API Azure App Service](../security-center/security-center-app-services.md). 
+Security Center s’intègre à votre application de fonction dans le portail. Il évalue rapidement et gratuitement les vulnérabilités potentielles de sécurité liées à la configuration. Les applications de fonction qui s’exécutent dans un plan dédié peuvent également utiliser les fonctionnalités de sécurité en temps réel de Security Center, pour un coût supplémentaire. Pour en savoir plus, consultez [Protéger vos applications Web et API Azure App Service](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
 
 ### <a name="log-and-monitor"></a>Journal et surveillance
 
@@ -128,6 +128,8 @@ Par défaut, vous stockez les chaînes de connexion et les secrets utilisés par
 Par exemple, chaque application de fonction nécessite un compte de stockage associé, qui est utilisé par le runtime. Par défaut, la connexion à ce compte de stockage est stockée dans un paramètre d’application nommé `AzureWebJobsStorage`.
 
 Les paramètres de l’application et les chaînes de connexion sont stockés dans Azure. Ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées. Si vous préférez gérer le stockage sécurisé de vos secrets, le paramètre d’application doit plutôt faire référence à Azure Key Vault. 
+
+Vous pouvez également chiffrer les paramètres par défaut dans le fichier local.settings.json lors du développement de fonctions sur votre ordinateur local. Pour plus d’informations, consultez la propriété `IsEncrypted` dans le [fichier de paramètres locaux](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Références Key Vault
 

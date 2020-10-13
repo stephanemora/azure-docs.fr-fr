@@ -1,6 +1,6 @@
 ---
-title: Journaux bruts HTTP Azure CDN
-description: Cet article décrit les journaux bruts HTTP Azure CDN.
+title: Métriques de suivi et journaux bruts pour Azure CDN de Microsoft
+description: Cet article décrit les métriques de suivi et journaux bruts d’Azure CDN de Microsoft.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -8,17 +8,22 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 3b36e528a013403a2ed664d3011338d92f37a3db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321147"
 ---
-# <a name="azure-cdn-http-raw-logs"></a>Journaux bruts HTTP Azure CDN
-Les journaux bruts offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et la résolution des problèmes. Les journaux bruts diffèrent des journaux d’activité. Les journaux d’activité apportent une visibilité dans les opérations effectuées sur des ressources Azure. Les journaux bruts fournissent un enregistrement des opérations de votre ressource. Le journal brut fournit des informations détaillées sur chaque requête reçue par CDN. 
+# <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Métriques de suivi et journaux bruts pour Azure CDN de Microsoft
+Grâce à Azure CDN de Microsoft, vous pouvez surveiller les ressources des manières suivantes pour vous aider à résoudre, suivre et déboguer les problèmes : 
+
+* Les journaux bruts, qui fournissent des informations détaillées sur chaque requête reçue par CDN. Les journaux bruts diffèrent des journaux d’activité. Les journaux d’activité apportent une visibilité dans les opérations effectuées sur des ressources Azure.
+* Les métriques, qui affichent quatre métriques clés relatives à CDN, notamment le taux d’accès par octet, le nombre de requêtes, la taille de la réponse et la latence totale. Différentes dimensions sont également fournies pour décomposer les métriques.
+* Les alertes, qui permettent au client de configurer une alerte pour les métriques clés.
+* Des métriques supplémentaires, qui permettent aux clients d’utiliser Azure Log Analytics pour activer des métriques supplémentaires de valeur. Nous fournissons également des exemples de requêtes pour quelques autres métriques sous Azure Log Analytics.
 
 > [!IMPORTANT]
 > La fonctionnalité des journaux bruts HTTP est disponible pour Azure CDN à partir de Microsoft.
@@ -39,14 +44,14 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
 
 3. Sélectionnez **+ Ajouter le paramètre de diagnostic**.
 
-    ![Paramètre de diagnostic CDN](./media/cdn-raw-logs/raw-logs-01.png)
-
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+    
     > [!IMPORTANT]
     > Les journaux bruts sont disponibles uniquement au niveau du profil, tandis que les journaux agrégés des codes d’état http sont disponibles au niveau du point de terminaison.
 
 4. Sous **Paramètres de diagnostic**, entrez un nom pour le paramètre de diagnostic sous **Nom des paramètres de diagnostic**.
 
-5. Sélectionnez le **journal** et définissez la rétention en jours.
+5. Sélectionnez le journal **AzureCdnAccessLog** et définissez la rétention en jours.
 
 6. Sélectionnez les **Détails de la destination**. Les options de destination sont les suivantes :
     * **Envoyer à Log Analytics**
@@ -56,13 +61,13 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
     * **Diffuser vers un hub d’événements**
         * Sélectionnez l’**Abonnement**, l’**Espace de noms du hub d’événements**, le **Nom du hub d’événements (facultatif)** et le **Nom de la stratégie du hub d’événements**.
 
-    ![Paramètre de diagnostic CDN](./media/cdn-raw-logs/raw-logs-02.png)
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
 
 7. Sélectionnez **Enregistrer**.
 
 ## <a name="configuration---azure-powershell"></a>Configuration – Azure PowerShell
 
-Utilisez [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) pour configurer le paramètre de diagnostic des journaux bruts.
+Utilisez [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) pour configurer le paramètre de diagnostic des journaux bruts.
 
 Les données conservées sont définies par l’option **-RetentionInDays** dans la commande.
 
@@ -167,8 +172,10 @@ Azure CDN du service Microsoft fournit actuellement des journaux bruts. Les jour
 | Pop                   | Pop de périphérie, qui a répondu à la demande de l’utilisateur. Les abréviations des POP sont les codes aéroport de leurs Metros respectifs.                                                                                   |
 | Cache Status          | Indique si l’objet a été retourné à partir du cache ou s’il est issu de l’origine.                                                                                                             |
 > [!NOTE]
-> Vous pouvez voir les journaux sous votre profil Log Analytics en exécutant une requête. Voici un exemple de requête : AzureDiagnostics | where Category == "AzureCdnAccessLog"
-
+> Vous pouvez voir les journaux sous votre profil Log Analytics en exécutant une requête. Voici un exemple de requête :
+    ```
+    AzureDiagnostics | where Category == "AzureCdnAccessLog"
+    ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Dépréciation de Sent to origin shield
 La propriété de journal brut **isSentToOriginShield** est déconseillée et remplacée par un nouveau champ **isReceivedFromClient**. Utilisez le nouveau champ si vous utilisez déjà le champ déconseillé. 
@@ -180,7 +187,7 @@ Pour chaque requête qui accède à la protection d’origine, il y a deux entr�
 * une pour les nœud de périphérie
 * l’autre pour la protection d’origine 
 
-Pour différencier la sortie ou les réponses des nœuds de périphérie par rapport à la protection d’origine, vous pouvez utiliser le champ isReceivedFromClient pour récupérer les données correctes. 
+Pour différencier la sortie ou les réponses des nœuds de périphérie par rapport à la protection d’origine, vous pouvez utiliser le champ **isReceivedFromClient** pour récupérer les données correctes. 
 
 Si la valeur est false, cela signifie que la requête reçoit une réponse de la protection d’origine jusqu’aux nœuds de périphérie. Cette approche est efficace pour comparer les journaux bruts aux données de facturation. Les frais ne sont pas facturés pour la sortie de la protection d’origine jusqu’aux nœuds de périphérie. Des frais sont facturés pour la sortie des nœuds de périphérie jusqu’aux clients. 
 
@@ -194,7 +201,90 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> La fonctionnalité des journaux bruts HTTP est disponible automatiquement pour tous les profils créés ou mis à jour après le **25 février 2020**. Pour les profils CDN créés précédemment, vous devez mettre à jour le point de terminaison CDN après la configuration de la journalisation. Par exemple, vous pouvez accéder au filtrage géographique sous les points de terminaison CDN et bloquer tous les pays/régions qui ne sont pas pertinents pour votre charge de travail, puis cliquer sur Enregistrer. 
+> La fonctionnalité des journaux bruts HTTP est disponible automatiquement pour tous les profils créés ou mis à jour après le **25 février 2020**. Pour les profils CDN créés précédemment, vous devez mettre à jour le point de terminaison CDN après la configuration de la journalisation. Par exemple, vous pouvez accéder au filtrage géographique sous les points de terminaison CDN et bloquer tous les pays/régions qui ne sont pas pertinents pour votre charge de travail, puis cliquer sur Enregistrer.
+
+
+## <a name="metrics"></a>Mesures
+Azure CDN de Microsoft est intégré à Azure Monitor et publie quatre métriques CDN pour faciliter le suivi, la résolution et le débogage des problèmes. 
+
+Les métriques sont affichées dans des graphiques et sont accessibles via PowerShell, l’interface CLI et l’API. Les métriques CDN sont gratuites.
+
+Azure CDN de Microsoft mesure et envoie ses métriques par intervalles de 60 secondes. Les métriques peuvent prendre jusqu’à 3 minutes pour s’afficher dans le portail. 
+
+Pour plus d’informations, voir [Mesures Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+**Métriques prises en charge par Azure CDN de Microsoft**
+
+| Mesures         | Description                                                                                                      | Dimension                                                                                   |
+|-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Taux d’accès par octet* | Pourcentage de sortie du cache CDN, calculé par rapport à la sortie totale.                                      | Point de terminaison                                                                                    |
+| RequestCount    | Nombre de requêtes de clients prises en charge par CDN.                                                                     | Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP. |
+| ResponseSize    | Nombre d’octets envoyés en tant que réponses de la périphérie de CDN aux clients.                                                  |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP.                                                                                          |
+| TotalLatency    | Durée totale de la requête du client reçue par CDN **jusqu’au dernier octet de réponse envoyé de CDN au client**. |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP.                                                                                             |
+
+***Taux d’accès par octet = (sortie de la périphérie - la sortie de l’origine)/sortie de la périphérie**
+
+Scénarios exclus du calcul du taux d’accès par octet :
+
+* Vous ne configurez explicitement aucun cache par le biais du comportement de mise en cache des chaînes de requête ou du moteur de règles.
+* Vous configurez explicitement une directive de contrôle du cache avec un cache privé ou sans magasin.
+
+### <a name="metrics-configuration"></a>Configuration des métriques
+
+1. Dans le menu du portail Azure, sélectionnez **Toutes les ressources** >>  **\<your-CDN-profile>** .
+
+2. Sous **Supervision**, sélectionnez **Métriques** :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+3. Sélectionnez **Ajouter une métrique**, puis sélectionnez la métrique à ajouter :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+4. Sélectionnez **Ajouter un filtre** pour ajouter un filtre :
+    
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+5. Sélectionnez **Appliquer le fractionnement** pour afficher la tendance selon différentes dimensions :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+6. Sélectionnez **Nouveau graphique** pour ajouter un nouveau graphique :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+### <a name="alerts"></a>Alertes
+
+Vous pouvez configurer des alertes sur Microsoft CDN en sélectionnant **Supervision** >> **Alertes**.
+
+Sélectionnez **Nouvelle règle d’alerte** pour les métriques répertoriées dans la section Métriques :
+
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::
+
+L’alerte sera facturée conformément à Azure Monitor. Pour plus d’informations sur les alertes, consultez [Alertes Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+### <a name="additional-metrics"></a>Métriques supplémentaires
+Vous pouvez activer des métriques supplémentaires à l’aide d’Azure Log Analytics et des journaux bruts pour un coût supplémentaire.
+
+1. Suivez les étapes ci-dessus pour permettre aux diagnostics d’envoyer un journal brut à Log Analytics.
+
+2. Sélectionnez l’espace de travail Log Analytics que vous avez créé :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+
+3. Sous **Général** dans l’espace de travail Log Analytics, sélectionnez **Journaux**.  Sélectionnez ensuite **Prise en main**.
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+ 
+4. Sélectionnez **Profils CDN**.  Sélectionnez un exemple de requête à exécuter ou fermez l’écran d’exemple pour entrer une requête personnalisée :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true":::   
+
+4. Pour afficher les données par graphique, sélectionnez **Graphique**.  Sélectionnez **Épingler au tableau de bord** pour épingler le graphique au tableau de bord Azure :
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Ajouter un paramètre de diagnostic pour le profil CDN." border="true"::: 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez activé les journaux bruts HTTP pour le service CDN Microsoft.

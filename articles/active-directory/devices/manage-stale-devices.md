@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705535"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825974"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -163,9 +163,9 @@ Lorsque vous configurez des clés BitLocker pour des appareils Windows 10, elles
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Pourquoi dois-je surveiller de près l’utilisation des appareils Windows AutoPilot ?
 
 Quand vous supprimez un appareil Azure AD associé à un objet Windows AutoPilot, les trois scénarios suivants peuvent se produire en cas de réaffectation de l’appareil :
-- Dans le cadre d’un déploiement de Windows AutoPilot piloté par l’utilisateur sans service sur mesure, un appareil Azure AD est créé, sans que ce dernier soit identifié par un ZTDID.
+- Dans le cadre d’un déploiement de Windows AutoPilot piloté par l’utilisateur sans pré-provisionnement, un appareil Azure AD est créé, sans que ce dernier soit identifié par un ZTDID.
 - Dans le cadre d’un déploiement en mode automatique de Windows AutoPilot, la réaffectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé.  Il s’agit d’un mécanisme de sécurité qui permet de se prémunir contre les tentatives d’infiltrations d’appareils « frauduleux » dans Azure AD, sans informations d’identification. L’échec entraîne l’affichage d’un message d’erreur indiquant une incompatibilité ZTDID.
-- Dans le cadre d’un déploiement Windows Autopilot sur mesure, l’affectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé. En arrière-plan, les déploiements sur mesure utilisent le même processus en mode de déploiement automatique, de sorte qu’ils appliquent les mêmes mécanismes de sécurité.
+- Dans le cadre d’un déploiement de pré-approvisionnement Windows Autopilot, l’affectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé. (En arrière-plan, les déploiements de pré-provisionnement utilisent le même processus en mode de déploiement automatique, de sorte qu’ils appliquent les mêmes mécanismes de sécurité.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Comment faire pour connaître tous les types d’appareils joints ?
 

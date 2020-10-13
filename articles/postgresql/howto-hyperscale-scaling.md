@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
-ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295712"
 ---
 # <a name="server-group-size"></a>Taille de groupe de serveurs
 
@@ -26,13 +26,13 @@ La taille d’un groupe de serveurs, en termes de nombre de nœuds et leur capac
 
 Pour les utilisateurs qui migrent vers Hyperscale (Citus) à partir d’une instance de base de données PostgreSQL à nœud unique existante, nous vous recommandons de choisir un cluster dans lequel le total du nombre de vCores Worker et de la mémoire RAM est égal à celui de l’instance d’origine. Dans de tels scénarios, nous avons constaté que les performances ont doublé, voire triplé, car le partitionnement améliore l’utilisation des ressources, ce qui permet des index plus petits, etc.
 
-Le nombre de vCores requis pour le nœud coordinateur dépend de votre charge de travail existante (débit en écriture/lecture). Le nœud coordinateur ne requiert pas autant de RAM que les nœuds Worker, mais l’allocation de mémoire RAM est déterminée en fonction du nombre de vCores (comme décrit dans les [options de configuration Hyperscale](concepts-hyperscale-configuration-options.md)), de sorte que le nombre de vCores constitue la vraie décision.
+Le nombre de vCores requis pour le nœud coordinateur dépend de votre charge de travail existante (débit en écriture/lecture). Le nœud coordinateur ne requiert pas autant de RAM que les nœuds Worker, mais l’allocation de mémoire RAM est déterminée en fonction du nombre de vCores (comme décrit dans les [options de configuration Hyperscale (Citus)](concepts-hyperscale-configuration-options.md)), de sorte que le nombre de vCores constitue la vraie décision.
 
 ### <a name="real-time-analytics-use-case"></a>Cas d’utilisation d’analytique en temps réel
 
 Nombre total de vCores : quand les données de travail tiennent dans la mémoire RAM, vous pouvez vous attendre à une amélioration linéaire des performances proportionnelle au nombre de cœurs Worker sur Hyperscale (Citus). Pour déterminer le nombre de vCores adapté à vos besoins, tenez compte de la latence actuelle des requêtes dans votre base de données à nœud unique et de la latence nécessaire dans Hyperscale (Citus). Divisez la latence actuelle par la latence souhaitée, puis arrondissez le résultat.
 
-Mémoire RAM worker : la meilleure des situations serait de fournir suffisamment de mémoire pour que la majorité de la plage de travail tienne dans la mémoire. Le type de requêtes que votre application utilise affecte les besoins en mémoire. Vous pouvez exécuter EXPLAIN ANALYZE sur une requête pour déterminer la quantité de mémoire nécessaire. N’oubliez pas que les vCores et la RAM sont mis à l’échelle ensemble, comme décrit dans l’article sur les [options de configuration Hyperscale](concepts-hyperscale-configuration-options.md).
+Mémoire RAM worker : la meilleure des situations serait de fournir suffisamment de mémoire pour que la majorité de la plage de travail tienne dans la mémoire. Le type de requêtes que votre application utilise affecte les besoins en mémoire. Vous pouvez exécuter EXPLAIN ANALYZE sur une requête pour déterminer la quantité de mémoire nécessaire. N’oubliez pas que les vCores et la RAM sont mis à l’échelle ensemble, comme décrit dans l’article sur les [options de configuration Hyperscale (Citus)](concepts-hyperscale-configuration-options.md).
 
 ## <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 

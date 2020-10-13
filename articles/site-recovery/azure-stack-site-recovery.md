@@ -3,12 +3,12 @@ title: Répliquer des machines virtuelles Azure Stack à Azure en utilisant Azur
 description: Découvrez comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack avec le service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564307"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448968"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -164,13 +164,13 @@ Configurez la machine serveur de configuration, inscrivez-la dans le coffre, pui
 1. Cliquez sur **Préparer l’infrastructure** > **Source**.
 2. Dans **Préparer la source**, cliquez sur **+ Serveur de configuration**.
 
-    ![Configurer la source](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Capture d’écran de la boîte de dialogue +Serveur de configuration avec le message « Cliquez sur +Serveur de configuration dans la barre de commandes ci-dessus pour configurer un... ».](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
 5. Téléchargez le fichier d’installation unifiée de Site Recovery.
 6. Téléchargez la clé d’inscription du coffre. Vous avez besoin de la clé d’inscription lorsque vous exécutez le programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
-    ![Configurer la source](./media/azure-stack-site-recovery/set-source2.png)
+    ![Capture d’écran de la boîte de dialogue Ajouter un serveur, avec le type de serveur défini sur Serveur de configuration, et le bouton Télécharger la clé d’inscription du coffre mis en évidence.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Exécuter le programme d’installation unifiée Azure Site Recovery
@@ -314,26 +314,7 @@ Ensuite, exécutez un basculement comme suit :
 
 ### <a name="fail-back-to-azure-stack"></a>Restaurer automatiquement sur Azure Stack
 
-Lorsque votre site principal est à nouveau opérationnel, vous pouvez opérer une restauration automatique d’Azure vers Azure Stack. Pour ce faire, vous devez télécharger le disque dur virtuel de la machine virtuelle Azure, puis le charger sur Azure Stack.
-
-1. Arrêtez la machine virtuelle Azure pour permettre le téléchargement du disque dur virtuel.
-2. Pour commencer à télécharger le disque dur virtuel, installez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
-3. Accédez à la machine virtuelle dans le portail Azure (en utilisant le nom de la machine virtuelle).
-4. Dans **Disques**, cliquez sur le nom du disque, puis recueillez les paramètres.
-
-    - Par exemple, l’URI de disque dur virtuel utilisé dans notre test, `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`, peut être décomposé pour obtenir les paramètres d’entrée suivants qui sont utilisés pour télécharger le disque dur virtuel.
-        - Compte de stockage : 502055westcentralus
-        - Conteneur : wahv9b8d2ceb284fb59287
-        - Nom du disque dur virtuel : copied-3676553984.vhd
-
-5. À présent, utilisez l’Explorateur Stockage Azure pour télécharger le disque dur virtuel.
-6. Chargez le disque dur virtuel sur Azure Stack en procédant de la manière décrite [ici](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. Dans la machine virtuelle existante ou une nouvelle machine virtuelle, attachez les disques durs virtuels chargés.
-8. Vérifiez que le disque du système d’exploitation est correct, puis démarrez la machine virtuelle.
-
-
-À ce stade, la restauration automatique est terminée.
-
+Lorsque votre site principal est à nouveau opérationnel, vous pouvez opérer une restauration automatique d’Azure vers Azure Stack. Pour ce faire, effectuez les étapes [listées ici](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusion
 
