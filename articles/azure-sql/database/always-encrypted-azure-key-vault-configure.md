@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087958"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444844"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurer Always Encrypted à l’aide d’Azure Key Vault 
 
@@ -183,7 +183,7 @@ Vous pouvez chiffrer les colonnes maintenant ou enregistrer un script PowerShell
 
 Vérifiez que les paramètres sont corrects, puis cliquez sur **Terminer** afin d’achever la configuration du Chiffrement intégral.
 
-![Résumé](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Capture d’écran montrant la page de résultats avec des tâches marquées comme ayant réussi.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Vérifier les actions de l’Assistant
 

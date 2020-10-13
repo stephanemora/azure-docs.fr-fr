@@ -1,6 +1,6 @@
 ---
 title: Extensions et fonctionnalités des machines virtuelles Azure pour Linux
-description: Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent.
+description: Découvrez les extensions disponibles pour les machines virtuelles sous Linux, regroupées par ce qu’elles fournissent ou améliorent.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336120"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 

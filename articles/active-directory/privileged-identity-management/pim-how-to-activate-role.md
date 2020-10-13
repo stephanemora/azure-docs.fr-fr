@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317535"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
@@ -40,7 +40,7 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 
 # <a name="new-version"></a>[Nouvelle version](#tab/new)
 
-## <a name="activate-a-role"></a>Activer un rôle
+## <a name="activate-a-role-for-new-version"></a>Activer un rôle pour la nouvelle version
 
 Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activation en ouvrant **Mes rôles** dans Privileged Identity Management.
 
@@ -80,7 +80,7 @@ Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activatio
 
     ![La requête d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Afficher l’état de vos demandes
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Afficher l’état de vos requêtes pour la nouvelle version
 
 Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
@@ -92,7 +92,7 @@ Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
 1. Faites défiler vers la droite pour afficher la colonne **État de la demande**.
 
-## <a name="cancel-a-pending-request"></a>Annuler une demande en attente
+## <a name="cancel-a-pending-request-for-new-version"></a>Annuler une demande en attente pour la nouvelle version
 
 Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une approbation, vous pouvez annuler une demande en attente à tout moment.
 
@@ -106,7 +106,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
    ![Ma liste de demandes dans laquelle l’action d’annulation est mise en surbrillance](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Dépanner
+## <a name="troubleshoot-for-new-version"></a>Résoudre les problèmes pour la nouvelle version
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
 

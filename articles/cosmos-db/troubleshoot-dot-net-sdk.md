@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330449"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802411"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Si votre application est déployée sur des [Machines virtuelles Azure sans adre
 * Assignez une [adresse IP publique à votre machine virtuelle Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latence réseau élevée
-Une latence réseau élevée peut être identifiée à l’aide de la [chaîne de diagnostic](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) dans le Kit de développement logiciel (SDK) V2 ou des [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) dans le SDK V3.
+Une latence réseau élevée peut être identifiée à l’aide de la [chaîne de diagnostic](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) dans le Kit de développement logiciel (SDK) V2 ou des [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) dans le SDK V3.
 
 Si aucun [délai d’expiration](troubleshoot-dot-net-sdk-request-timeout.md) n’est présent et que les diagnostics affichent des requêtes uniques pour lesquelles la latence élevée est évidente sur la différence entre `ResponseTime` et `RequestStartTime`, comme ceci (> à 300 millisecondes dans cet exemple) :
 

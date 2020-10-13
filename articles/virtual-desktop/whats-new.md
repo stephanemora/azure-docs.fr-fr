@@ -3,17 +3,17 @@ title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319812"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630012"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -25,6 +25,29 @@ Windows Virtual Desktop est mis à jour régulièrement. Vous trouverez dans cet
 - Résolution des bogues
 
 Cet article est mis à jour tous les mois. Pensez à consulter cette page régulièrement pour être tenu informé des nouvelles mises à jour.
+
+## <a name="september-2020"></a>Septembre 2020
+
+Voici ce qui a changé en septembre 2020 :
+
+- Nous avons optimisé les performances en réduisant la latence des connexions dans les zones géographiques Azure suivantes :
+    - Allemagne
+    - Afrique du Sud (pour les environnements de validation uniquement)
+
+Vous pouvez maintenant utiliser l’[Outil d’estimation de l’expérience](https://azure.microsoft.com/services/virtual-desktop/assessment/) pour estimer la qualité de l’expérience utilisateur dans ces zones.
+
+- Nous avons publié la version 1.2.1364 du client Windows Desktop pour Windows Virtual Desktop. Dans cette mise à jour, nous avons apporté les modifications suivantes :
+    - Correction d’un problème empêchant le bon fonctionnement de l’authentification unique (SSO) sur Windows 7.
+    - Correction d’un problème qui provoquait la déconnexion du client quand un utilisateur ayant activé l’optimisation des médias pour Teams tentait d’appeler ou de rejoindre une réunion Teams alors qu’une autre application avait un flux audio ouvert en mode exclusif.
+    - Résolution d’un problème où Teams ne listait pas les périphériques audio ou vidéo quand l’optimisation des médias pour Teams était activée.
+    - Ajout d’un lien « Besoin d’aide avec les paramètres ? » à la page des paramètres de bureau.
+    - Correction d’un problème lié au bouton « S’abonner » lors de l’utilisation de thèmes sombres à contraste élevé.
+    
+- Grâce à l’aide exceptionnelle de nos utilisateurs, nous avons résolu deux problèmes critiques pour le client Microsoft Store Bureau à distance. Nous continuerons à consulter les commentaires et à résoudre les problèmes au fur et à mesure que nous ouvrons notre publication progressive du client à d’autres utilisateurs dans le monde entier.
+    
+- Nous avons ajouté une nouvelle fonctionnalité qui vous permet de changer l’emplacement, l’image, le groupe de ressources, le nom du préfixe et la configuration réseau d’une machine virtuelle dans le cadre du workflow pour ajouter une machine virtuelle à votre déploiement dans le portail Azure.
+
+- Les professionnels de l’informatique peuvent désormais gérer des machines virtuelles Windows 10 Entreprise hybrides jointes à Azure Active Directory en utilisant Microsoft Endpoint Manager. Pour plus d’informations, consultez [notre billet de blog](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -144,4 +167,3 @@ Consultez ces articles pour en savoir plus sur les mises à jour de nos clients 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur ce qui est prévu à l’avenir en consultant la [feuille de route Microsoft 365 Windows Virtual Desktop](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-

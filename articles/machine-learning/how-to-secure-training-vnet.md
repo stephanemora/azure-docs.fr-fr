@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: cf2c19297fdd56fb376a54b231bbb021c53b25bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882989"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629724"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -60,7 +60,7 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. Si vous souhaitez sécuriser le réseau virtuel en limitant le trafic, laissez certains ports ouverts pour le service Capacité de calcul. Pour plus d’informations, voir la section [Ports requis](#mlcports).
 > * Si vous vous apprêtez à placer plusieurs instances ou clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
 > * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. 
-> * Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée.
+> * Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms.
 
 > [!TIP]
 > La capacité de calcul ou le cluster Machine Learning alloue automatiquement des ressources réseau supplémentaires au __groupe de ressources qui contient le réseau virtuel__. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
@@ -163,7 +163,7 @@ Pour ce faire, il y a deux manières de procéder :
 
     * Téléchargez les [plages d’adresses IP Azure et les balises de service](https://www.microsoft.com/download/details.aspx?id=56519), et recherchez `BatchNodeManagement.<region>` et `AzureMachineLearning.<region>` dans le fichier, où `<region>` est votre région Azure.
 
-    * Utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 :
+    * Utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) pour télécharger les informations. L’exemple suivant télécharge les informations d’adresse IP et filtre les informations pour la région USA Est 2 :
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -316,4 +316,4 @@ Cet article est le troisième d’une série en quatre parties sur les réseaux 
 * [Partie 1 : Vue d’ensemble des réseaux virtuels](how-to-network-security-overview.md)
 * [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Partie 5 : Activer la fonctionnalité de studio](how-to-enable-studio-virtual-network.md)
+* [Partie 5 : Activer la fonctionnalité Studio](how-to-enable-studio-virtual-network.md)

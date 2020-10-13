@@ -1,5 +1,5 @@
 ---
-title: Créer vos ressources techniques Machines virtuelles Azure
+title: Créer des ressources techniques pour une offre de machine virtuelle de la Place de marché Microsoft Azure
 description: Découvrez comment créer et configurer des ressources techniques pour une offre de machine virtuelle pour la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646802"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803515"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Créer vos ressources techniques Machines virtuelles Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle de la Place de marché Microsoft Azure
 
 Lors de la publication de vos images de machine virtuelle sur Place de marché Azure, l’équipe Azure valide l’image de machine virtuelle pour garantir sa capacité de démarrage, sa sécurité et sa compatibilité avec Azure. Si l’un des tests de haute qualité échoue, la publication échouera avec un message contenant l’erreur et les [étapes de correction](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions) possibles.
 
 Cet article explique comment créer et configurer des ressources techniques pour une offre de machine virtuelle pour la Place de marché Azure. Une machine virtuelle héberge deux composants, le disque dur virtuel du système d’exploitation et les éventuels disques durs virtuels de données associés :
 
-1. **Disque dur virtuel du système d’exploitation** : contient le système d’exploitation et la solution déployée avec votre offre. Le processus de préparation du disque dur virtuel est différent en fonction du type de machine virtuelle (Linux, Windows ou personnalisée).
+- **Disque dur virtuel du système d’exploitation** : contient le système d’exploitation et la solution déployée avec votre offre. Le processus de préparation du disque dur virtuel est différent en fonction du type de machine virtuelle (Linux, Windows ou personnalisée).
 
-2. **Disques durs virtuels de données** : stockage persistant dédié à une machine virtuelle. N’utilisez pas le disque dur virtuel du système d’exploitation (par exemple le lecteur C:) pour stocker des informations persistantes.
+- **Disques durs virtuels du disque de données** : stockage persistant dédié à une machine virtuelle. N’utilisez pas le disque dur virtuel du système d’exploitation (par exemple le lecteur C:) pour stocker des informations persistantes.
 
 Une image de machine virtuelle contient un disque de système d’exploitation et jusqu’à 16 disques de données. Utilisez un disque dur virtuel par disque de données, même si le disque est vide.
 
@@ -98,17 +98,17 @@ Effectuez les étapes suivantes pour créer l’image de machine virtuelle de ba
 4. Sélectionnez **+ Ajouter** pour ouvrir l’**expérience de création de machine virtuelle**.
 5. Sélectionnez l’image dans la liste déroulante ou sélectionnez **Parcourir toutes les images publiques et privées** pour rechercher ou parcourir toutes les images de machines virtuelles disponibles. Exemple :
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Montre un exemple d’image de machine virtuelle.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Montre le début de la création d’un groupe de ressources.":::
 
 6. Sélectionnez la taille de la machine virtuelle à déployer à l’aide des suggestions suivantes :
     1. Si vous envisagez de développer le disque dur virtuel localement, la taille n’a pas d’importance. Vous pouvez utiliser une des machines virtuelles plus petites.
     2. Si vous envisagez de développer l’image dans Azure, vous pouvez utiliser les tailles de machine virtuelle recommandées pour l’image sélectionnée.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Montre la sélection de la taille de machine virtuelle.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Montre le début de la création d’un groupe de ressources.":::
 
 7. Dans la section **Disques**, développez la section **Avancé** et affectez la valeur **Non** à l’option **Utiliser des disques managés**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Montre l’option permettant d’utiliser des disques managés.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Montre le début de la création d’un groupe de ressources.":::
 
 8. Fournissez les autres informations requises pour créer la machine virtuelle.
 9. Sélectionnez **Vérifier + créer** pour passer en revue vos choix. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
@@ -129,7 +129,7 @@ Créez une machine virtuelle de 2e génération (Gen2) dans le portail Azure.
 8. Sélectionnez une taille recommandée de [machine virtuelle de 2e génération prise en charge](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes).
 9. Pour terminer la création de la machine virtuelle, parcourez le [flux de création du portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Montre l’option permettant de sélectionner la génération d’une machine virtuelle.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Montre le début de la création d’un groupe de ressources.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Se connecter à votre machine virtuelle Azure
 
@@ -157,7 +157,7 @@ Pour vous connecter à une machine virtuelle Linux, vous devez disposer d’un c
 7. Ouvrez l’application PuTTY.
 8. Dans la boîte de dialogue de configuration PuTTY, entrez l’adresse IP ou le nom DNS de votre machine virtuelle.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Illustre les paramètres du terminal PuTTY, en mettant en surbrillance les champs Nom d’hôte et Port.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Montre le début de la création d’un groupe de ressources.":::
 
 9. Sélectionnez **Ouvrir** pour ouvrir un terminal PuTTY.
 10. À l’invite, entrez le nom du compte et le mot de passe de votre compte de machine virtuelle Linux.

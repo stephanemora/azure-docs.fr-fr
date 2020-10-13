@@ -4,17 +4,17 @@ description: Découvrez comment effectuer la transition des métriques Storage A
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708575"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802835"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transition vers les métriques dans Azure Monitor
 
@@ -46,6 +46,8 @@ Pour effectuer la transition vers les métriques dans Azure Monitor, nous vous r
 Cette section décrit quelques-unes des principales différences entre ces deux plateformes de métriques.
 
 La principale différence réside dans la façon dont les métriques sont gérées. Les métriques classiques sont gérées par le Stockage Azure, tandis que les métriques dans Azure Monitor sont gérées par Azure Monitor. Avec les métriques classiques, le Stockage Azure collecte des valeurs de métriques, les agrège, puis les stocke dans des tables qui se trouvent dans le compte de stockage. Avec les métriques dans Azure Monitor, le Stockage Azure envoie les données de métriques au back-end Azure Monitor. Azure Monitor offre une expérience de supervision unifiée, comprenant à la fois les données du portail Azure et celles qui sont ingérées. 
+
+Les métriques classiques sont envoyées et stockées dans un compte de stockage Azure. Les métriques Azure Monitor peuvent être envoyées à plusieurs emplacements. Un compte de stockage peut être l’un de ces emplacements, mais ce n’est pas obligatoire.  
 
 En ce qui concerne la prise en charge des métriques, les métriques classiques fournissent des métriques de **capacité** uniquement pour le stockage Blob Azure. Les métriques dans Azure Monitor fournissent des métriques de capacité pour le stockage d’objets blob, de tables, de fichiers, de files d’attente et Premium. Les métriques classiques fournissent des métriques de **transaction** sur le stockage d’objets blob, de tables, de fichiers Azure et de files d’attente. Les métriques dans Azure Monitor ajoutent le stockage Premium à cette liste.
 

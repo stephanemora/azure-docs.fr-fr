@@ -4,20 +4,16 @@ description: Utiliser Azure Private Link pour connecter en toute sécurité des 
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077187"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802223"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
-
-> [!IMPORTANT]
-> À ce stade, vous devez **demander l’accès** pour utiliser cette capacité. Vous pouvez demander l’accès à l’aide du [formulaire d’inscription](https://aka.ms/AzMonPrivateLinkSignup).
-
 
 [Azure Private Link](../../private-link/private-link-overview.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés. Pour de nombreux services, il vous suffit de configurer un point de terminaison par ressource. Toutefois, Azure Monitor est une constellation de différents services interconnectés qui fonctionnent ensemble pour surveiller vos charges de travail. Par conséquent, nous avons créé une ressource appelée Étendue de liaison privée Azure Monitor (AMPLS) qui vous permet de définir les limites de votre réseau de surveillance et de vous connecter à votre réseau virtuel. Cet article explique quand utiliser et comment configurer une étendue de liaison privée Azure Monitor.
 
@@ -76,13 +72,13 @@ Il existe un certain nombre de limites à prendre en compte lorsque vous planifi
 
 * Un réseau virtuel ne peut se connecter qu’à un seul objet AMPLS. Cela signifie que l’objet AMPLS doit fournir l’accès à toutes les ressources Azure Monitor auxquelles le réseau virtuel doit avoir accès.
 * Une ressource Azure Monitor (un espace de travail ou un composant Application Insights) peut être connectée à cinq objets AMPLS au maximum.
-* Un objet AMPLS peut se connecter à 20 ressources Azure Monitor au maximum.
+* Un objet AMPLS peut se connecter à 50 ressources Azure Monitor au maximum.
 * Un objet AMPLS peut se connecter à 10 points de terminaison privés au maximum.
 
 Dans la topologie ci-dessous :
 * Chaque réseau virtuel se connecte à un objet AMPLS, de sorte qu’il ne peut pas se connecter à d’autres AMPLS.
 * AMPLS B se connecte à deux réseaux virtuels : il utilise deux de ses dix connexions possibles à des points de terminaison privés.
-* AMPLS A se connecte à 2 espaces de travail et à 1 composant Application Insights : il utilise 3 de ses 20 ressources Azure Monitor possibles.
+* AMPLS A se connecte à 2 espaces de travail et à 1 composant Application Insights : il utilise 3 de ses 50 ressources Azure Monitor possibles.
 * L’espace de travail 2 se connecte à AMPLS A et AMPLS B : il utilise 2 de ses 5 connexions AMPLS possibles.
 
 ![Diagramme des limites d’AMPLS](./media/private-link-security/ampls-limits.png)
@@ -162,10 +158,23 @@ Tout d’abord, vous pouvez connecter cette ressource Log Analytics à toutes le
 
 Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail. Ces données incluent l’accès aux classeurs, aux tableaux de bord, aux expériences client basées sur l’API de requête, aux informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
 
-Cette restriction d’accès ne s’applique qu’aux données de l’espace de travail. Les modifications de configuration, notamment l’activation ou la désactivation de ces paramètres d’accès, sont gérées par Azure Resource Manager. Limitez l’accès à Resource Manager à l’aide des rôles, autorisations, contrôles réseau et audits appropriés. Pour plus d’informations, consultez [Rôles, autorisations et sécurité Azure Monitor](roles-permissions-security.md).
+La restriction de l’accès de cette manière ne s’applique pas à Azure Resource Manager et présente donc les limitations suivantes :
+* Accès aux données : si des requêtes de blocage à partir de réseaux publics s’appliquent à la plupart des expériences Log Analytics, certaines expériences interrogent les données via Azure Resource Manager et ne peuvent donc pas interroger les données, sauf si les paramètres de liaison privée sont également appliqués au gestionnaire des ressources (fonctionnalité disponible prochainement). Cela comprend, par exemple, les solutions Azure Monitor, les classeurs et les Insights, ainsi que le connecteur LogicApp.
+* Gestion de l’espace de travail : les modifications de paramètre et de configuration, (notamment l’activation ou la désactivation de ces paramètres d’accès), sont gérées par Azure Resource Manager. Limitez l’accès à la gestion de l’espace de travail à l’aide des rôles, autorisations, contrôles réseau et audits appropriés. Pour plus d’informations, consultez [Rôles, autorisations et sécurité Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]
 > Les journaux et les métriques chargés sur un espace de travail par le biais des [paramètres de diagnostic](diagnostic-settings.md) passent par un canal privé sécurisé de Microsoft et ne sont pas contrôlés par ces paramètres.
+
+### <a name="log-analytics-solution-packs-download"></a>Télécharger des packs de solutions Log Analytics
+
+Pour permettre à l’agent Log Analytics de télécharger des packs de solutions, ajoutez les noms de domaine complets appropriés à la liste d’autorisation de votre pare-feu. 
+
+
+| Environnement cloud | Ressource de l'agent | Ports | Sens |
+|:--|:--|:--|:--|
+|Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
+|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
 
 ## <a name="configure-application-insights"></a>Configurer Application Insights
 
@@ -234,17 +243,6 @@ L’ajout de ces balises vous permet d’effectuer des actions telles que l’in
 ### <a name="application-insights-sdk-downloads-from-a-content-delivery-network"></a>Téléchargement du Kit de développement logiciel (SDK) Application Insights à partir d’un réseau de distribution de contenu
 
 Regroupez le code JavaScript dans votre script afin que le navigateur ne tente pas de télécharger le code à partir d’un réseau de distribution de contenu. Un exemple est disponible sur le site de [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup).
-
-### <a name="log-analytics-solution-download"></a>Téléchargement de la solution Log Analytics
-
-Pour permettre à l’agent Log Analytics de télécharger des packs de solutions, ajoutez les noms de domaine complets appropriés à la liste d’autorisation de votre pare-feu. 
-
-
-| Environnement cloud | Ressource de l'agent | Ports | Sens |
-|:--|:--|:--|:--|
-|Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
-|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
 
 ### <a name="browser-dns-settings"></a>Paramètres DNS du navigateur
 

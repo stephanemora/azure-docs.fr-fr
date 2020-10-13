@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 1d778b4330389d23b0fe7179a005abfbd7d66d5c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871103"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802394"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
 Le code d’état HTTP 404 indique que la ressource n’existe plus.
@@ -37,7 +37,7 @@ La combinaison de la clé de partition et de l’ID n’est pas valide.
 Corrigez la logique d’application qui provoque la combinaison incorrecte. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Caractère non valide dans un ID d’élément
-Un élément est inséré dans Azure Cosmos DB avec un [caractère non valide](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) dans l’ID d’élément.
+Un élément est inséré dans Azure Cosmos DB avec un [caractère non valide](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) dans l’ID d’élément.
 
 #### <a name="solution"></a>Solution :
 Remplacez l’ID par une valeur différente qui ne contient pas les caractères spéciaux. S’il n’est pas possible de modifier l’ID, vous pouvez l’encoder au format Base64 pour placer les caractères spéciaux dans une séquence d’échappement.
@@ -52,7 +52,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -97,6 +97,12 @@ La base de données ou le conteneur dans lequel se trouve l’élément a été 
 1. [Restaurez](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) la ressource parente ou recréez les ressources.
 1. Créez une ressource pour remplacer la ressource supprimée.
 
+### <a name="7-containercollection-names-are-case-sensitive"></a>7. Les noms de conteneur/collection sont sensibles à la casse
+Les noms de conteneur/collection sont sensibles à la casse dans Cosmos DB.
+
+#### <a name="solution"></a>Solution :
+Veillez à utiliser le nom exact lors de la connexion à Cosmos DB.
+
 ## <a name="next-steps"></a>Étapes suivantes
-* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l'utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
-* Découvrez les recommandations relatives aux performances pour [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET v2](performance-tips.md)
+* [Diagnostiquer et résoudre](troubleshoot-dot-net-sdk.md) des problèmes lors de l’utilisation du kit de développement logiciel (SDK) .NET Azure Cosmos DB.
+* Découvrez les recommandations relatives aux performances pour [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) et [.NET V2](performance-tips.md).
