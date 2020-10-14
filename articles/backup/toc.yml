@@ -284,6 +284,8 @@
           href: backup-azure-alternate-dpm-server.md
         - name: Restaurer des machines virtuelles VMware avec le serveur de sauvegarde Azure
           href: restore-azure-backup-server-vmware.md
+        - name: Sauvegarder le serveur MABS
+          href: backup-the-mabs-server.md
     - name: Serveur de sauvegarde Azure sur Azure Stack
       items:
         - name: Installer un serveur de sauvegarde Azure

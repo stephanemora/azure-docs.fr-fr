@@ -38,15 +38,17 @@
 - name: Tutoriels
   items:
     - name: 1 - Provisionner des jeux d’appareils avec des groupes d’inscriptions
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: Provisionner des appareils avec des clés symétriques
+          href: how-to-legacy-device-symm-key.md
+        - name: Utiliser des stratégies d’allocation personnalisées
+          href: tutorial-custom-allocation-policies.md
     - name: 2 - Provisionner les appareils sur plusieurs hubs
       items:
         - name: Lier plusieurs hubs à DPS
           href: tutorial-provision-multiple-hubs.md
         - name: Approvisionner pour multilocation
           href: how-to-provision-multitenant.md
-        - name: Utiliser des stratégies d’allocation personnalisées
-          href: tutorial-custom-allocation-policies.md
 - name: Exemples
   items:
     - name: Exemple d’attestation d’appareil TPM simulé
