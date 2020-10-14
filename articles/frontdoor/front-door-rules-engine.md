@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 9/29/2020
 ms.author: duau
 ms.openlocfilehash: 8e478cebcf8c5c9365100ade23c3d610c24930ba
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569743"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Qu’est-ce que le moteur de règles pour Azure Front Door ? 

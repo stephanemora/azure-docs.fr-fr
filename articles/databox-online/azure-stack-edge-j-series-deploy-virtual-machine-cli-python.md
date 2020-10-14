@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
 ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890712"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et Python
