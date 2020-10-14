@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête Python'
 description: Dans ce démarrage rapide, vous suivez les étapes pour activer la bibliothèque Resource Graph pour Python et vous exécutez votre première requête.
-ms.date: 07/15/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873668"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057397"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de Python
 

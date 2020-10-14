@@ -7,16 +7,16 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/07/2020
 ms.author: banders
-ms.openlocfilehash: a579dd22aa814340b4b72d74907739c942570c23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 15d6c7731b541de638ceaf7828a7ce962cbf154a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270679"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827552"
 ---
-# <a name="delete-an-azure-billing-payment-method-preview"></a>Supprimer un mode de paiement pour la facturation Azure (préversion)
+# <a name="delete-an-azure-billing-payment-method"></a>Supprimer un mode de paiement pour la facturation Azure
 
 Ce document fournit des instructions pour supprimer un mode de paiement, comme une carte de crédit, de différents types d’abonnements Azure. Vous pouvez supprimer un mode de paiement pour l’un des abonnements suivants :
 

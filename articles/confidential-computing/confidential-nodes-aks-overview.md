@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998462"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940767"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nœuds d’informatique confidentielle sur Azure Kubernetes Service (préversion publique)
 
@@ -40,7 +40,7 @@ Azure Kubernetes Service (AKS) prend en charge l’ajout de [nœuds d’informat
 
 #### <a name="sgx-device-plugin"></a>SGX Device Plugin <a id="sgx-plugin"></a>
 
-SGX Device Plugin implémente l’interface du plug-in d’appareil Kubernetes pour la mémoire EPC. Concrètement, ce plug-in fait de la mémoire EPC un type de ressource supplémentaire dans Kubernetes. Les utilisateurs peuvent spécifier des limites sur cette ressource de la même façon que sur les autres ressources. Outre la fonction de planification, le plug-in d’appareil facilite l’attribution d’autorisations de pilote d’appareil SGX aux conteneurs de charges de travail confidentiels. Un exemple d’implémentation d’un déploiement basé sur la mémoire EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) est disponible [ici](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+SGX Device Plugin implémente l’interface du plug-in d’appareil Kubernetes pour la mémoire EPC. Concrètement, ce plug-in fait de la mémoire EPC un type de ressource supplémentaire dans Kubernetes. Les utilisateurs peuvent spécifier des limites sur cette ressource de la même façon que sur les autres ressources. Outre la fonction de planification, le plug-in d’appareil facilite l’attribution d’autorisations de pilote d’appareil SGX aux conteneurs de charges de travail confidentiels. Un exemple d’implémentation d’un déploiement basé sur la mémoire EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) est disponible [ici](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Service SGX Quote Helper <a id="sgx-quote"></a>
 

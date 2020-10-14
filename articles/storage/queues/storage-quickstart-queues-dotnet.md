@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd60adf94e57be3892a264c2a8457b839e1c8778
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011291"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939200"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour .NET
 
@@ -77,7 +77,7 @@ dotnet add package Azure.Storage.Queues
 1. Ouvrez le fichier *Program.cs* dans votre éditeur.
 1. Supprimez l'instruction `Console.WriteLine("Hello World!");`.
 1. Ajoutez des directives `using`.
-1. Mettez à jour la déclaration de méthode `Main` pour [prendre en charge le code asynchrone](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Mettez à jour la déclaration de méthode `Main` pour [prendre en charge le code asynchrone](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 

@@ -4,12 +4,12 @@ description: Découvrez les groupes d’administration, le fonctionnement des au
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533803"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951874"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -202,6 +202,6 @@ Quand vous cherchez à interroger les groupes d’administration en dehors du po
 
 Pour en savoir plus sur les groupes d’administration, consultez :
 
-- [Créer des groupes d’administration pour organiser les ressources Azure](./create.md)
+- [Créer des groupes d’administration pour organiser les ressources Azure](./create-management-group-portal.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](./manage.md)
 - Découvrez les différentes options permettant de [protéger votre hiérarchie de ressources](./how-to/protect-resource-hierarchy.md)

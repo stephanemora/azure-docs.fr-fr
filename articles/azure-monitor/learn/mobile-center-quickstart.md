@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322140"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993873"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
@@ -124,7 +124,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
    1. Sélectionnez la requête en cliquant n’importe où sur celle-ci dans l’éditeur de texte.
    2. Ensuite, cliquez sur **Accéder** pour exécuter la requête. 
 
-   Découvrez-en plus sur [Application Insights Analytics](../log-query/log-query-overview.md) et le [langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Découvrez-en plus sur [Application Insights Analytics](../log-query/log-query-overview.md) et le [langage de requête Log Analytics](/azure/data-explorer/kusto/query/).
 
 
 2. **Segmenter et filtrer les données de télémétrie de vos événements personnalisés.** Dans la page **Vue d’ensemble** d’Application Insights, choisissez **Utilisateurs** dans la table des matières.
@@ -168,4 +168,3 @@ Pour supprimer la ressource Application Insights :
 
 > [!div class="nextstepaction"]
 > [Comprendre comment les clients utilisent votre application](../app/usage-overview.md)
-

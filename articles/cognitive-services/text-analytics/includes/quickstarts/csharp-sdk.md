@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: b5249850a572090a32b0d3515cbeaec9bfb112ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91401001"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977801"
 ---
 <a name="HOLTop"></a>
 
@@ -175,11 +175,11 @@ Si vous utilisez la version `3.x` du service, vous pouvez vous servir d’une in
 ## <a name="code-examples"></a>Exemples de code
 
 * [Analyse des sentiments](#sentiment-analysis)
+* [Exploration des opinions](#opinion-mining)
 * [Détection de la langue](#language-detection)
 * [Reconnaissance d’entité nommée](#named-entity-recognition-ner)
 * [Liaison d’entités](#entity-linking)
 * [Extraction de phrases clés](#key-phrase-extraction)
-
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 

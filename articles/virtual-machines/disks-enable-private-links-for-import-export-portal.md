@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815859"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979051"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utiliser le portail Azure afin de restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées
 
@@ -30,12 +30,6 @@ Vous pouvez définir la propriété NetworkAccessPolicy avec `DenyAll` pour emp�
 ## <a name="regional-availability"></a>Disponibilité régionale
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Prérequis
-
-Pour utiliser des points de terminaison privés pour l’exportation et l’importation de disques managés, la fonctionnalité doit être activée sur votre abonnement. Envoyez un e-mail à mdprivatelinks@microsoft.com avec vos ID d’abonnement pour activer la fonctionnalité.
-
-Vous devrez noter le réseau virtuel de la machine virtuelle à laquelle vos disques sont attachés. Le réseau virtuel est nécessaire pour configurer le point de terminaison privé.
 
 ## <a name="create-a-disk-access-resource"></a>Créer une ressource d’accès au disque
 
@@ -101,4 +95,4 @@ Vous venez de terminer la configuration des liaisons privées, que vous pouvez m
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Questions fréquentes (FAQ) sur les liaisons privées](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exporter/copier des instantanés managés en tant que disque dur virtuel vers un compte de stockage dans une région différente avec PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Exporter/copier des instantanés managés en tant que disque dur virtuel vers un compte de stockage dans une région différente avec PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)
