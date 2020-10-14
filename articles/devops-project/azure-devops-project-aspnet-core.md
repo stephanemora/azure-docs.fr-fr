@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88163694"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854721"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour .NET avec Azure DevOps Starter
 
@@ -133,7 +133,7 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et l
 Pour plus d’informations sur la modification des pipelines de build et de mise en production dans le but de répondre aux besoins de votre équipe, consultez ce tutoriel :
 
 > [!div class="nextstepaction"]
-> [Personnaliser le processus CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Videos
 

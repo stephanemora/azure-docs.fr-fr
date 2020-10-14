@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 6dfd63f92b8c420a3c5281ee2962b211b8779dd1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577014"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045055"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>Démarrage rapide : Connecter un exemple d’application pour appareil IoT Plug-and-Play s’exécutant sur Windows à IoT Hub (Java)
 
@@ -26,7 +26,7 @@ Ce démarrage rapide montre comment créer un exemple d’application d’appare
 
 Pour suivre ce démarrage rapide sur Windows, installez les logiciels suivants sur votre environnement Windows local :
 
-* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
+* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Téléchargement du code
@@ -119,4 +119,4 @@ Date since = new Gson().fromJson(jsonRequest, Date.class);
 Dans ce démarrage rapide, vous avez appris à connecter un appareil IoT Plug-and-Play à un hub IoT. Pour en savoir plus sur la création d’une solution qui interagit avec vos appareils IoT Plug-and-Play, consultez :
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour Se connecter à un appareil et interagir avec celui-ci](howto-develop-solution.md)
+> [Guide pratique pour Se connecter à un appareil et interagir avec celui-ci](./quickstart-service-node.md)

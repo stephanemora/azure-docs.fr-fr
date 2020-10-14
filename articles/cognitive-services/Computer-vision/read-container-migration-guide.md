@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530457"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973119"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -65,10 +65,10 @@ Le cœur et la quantité de mémoire correspondent aux paramètres `--cpus` et `
 >[!NOTE]
 > MongoDB n’est plus pris en charge dans les versions 3.x du conteneur. En effet, les conteneurs prennent plutôt en charge le stockage Azure et les systèmes de fichiers hors connexion.
 
-| Implémentation |  Argument(s) de runtime nécessaire(s) |
+| Implémentation |    Argument(s) de runtime nécessaire(s) |
 |---------|---------|
-|Niveau de fichier (par défaut)   | Aucun argument de runtime n’est nécessaire. Le répertoire `/share` sera utilisé. |
-|Objets blob Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Niveau de fichier (par défaut)    | Aucun argument de runtime n’est nécessaire. Le répertoire `/share` sera utilisé. |
+|Objets blob Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implémentations de file d’attente
 
@@ -78,7 +78,7 @@ Dans un conteneur v3.x, RabbitMQ n’est pas pris en charge pour l’instant. Le
 |---------|---------|-------|
 | En mémoire (par défaut) | Aucun argument de runtime n’est nécessaire. | Développement et test |
 | Files d'attente Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
-| RabbitMQ  | Indisponible | Production |
+| RabbitMQ    | Indisponible | Production |
 
 Pour une redondance accrue, le conteneur Read v3.x utilise un minuteur de visibilité pour vérifier que les demandes peuvent être traitées correctement en cas d’incident, dans le cadre de l’exécution dans une configuration à plusieurs conteneurs. 
 
@@ -86,7 +86,7 @@ Définissez le minuteur avec `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`,
 
 | Valeur par défaut | Valeur recommandée |
 |---------|---------|
-| 30000 |   120 000 |
+| 30000 |    120 000 |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

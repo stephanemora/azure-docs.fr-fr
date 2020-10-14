@@ -3,12 +3,12 @@ title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
 description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773390"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825932"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
@@ -81,7 +81,7 @@ Suivez ces instructions pour vous connecter à votre hub IoT à l’aide de l’
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Live Video Analytics basé sur la détection de mouvement":::
-1. <!--In Visual Studio Code-->Sélectionnez **Affichage** > **Explorateur**. Vous pouvez aussi sélectionner Ctrl+Maj+E.
+1. Sélectionnez **Affichage** > **Explorateur**. Vous pouvez aussi sélectionner Ctrl+Maj+E.
 1. Dans l’angle en bas à gauche de l’onglet **Explorateur**, sélectionnez **Azure IoT Hub**.
 1. Sélectionnez l’icône **Plus d’options** pour voir le menu contextuel. Sélectionnez ensuite **Définir la chaîne de connexion IoT Hub**.
 1. Quand une zone d’entrée s’affiche, entrez votre chaîne de connexion IoT Hub. Dans Cloud Shell, vous pouvez obtenir la chaîne de connexion dans *~/clouddrive/lva-sample/appsettings.json*.

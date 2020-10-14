@@ -1,54 +1,20 @@
 ---
-ms.openlocfilehash: 93c88f34e32e2057efd3eae25b1f41f58b948575
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f5e180cb85e65cf832ffe0a3746e25790644e1ba
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682208"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829181"
 ---
-1. Démarrez une session de débogage en appuyant sur la touche F5. La fenêtre **TERMINAL** affiche des messages.
-1. Le code *operations.json* appelle les méthodes directes `GraphTopologyList` et `GraphInstanceList`. Si vous avez nettoyé les ressources après les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Sélectionnez la touche Entrée.
-    
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-  
-  La fenêtre **TERMINAL** affiche le jeu d’appels de méthode directe suivant :  
-  
-  * Un appel à `GraphTopologySet` qui utilise `topologyUrl` 
-  * Un appel à `GraphInstanceSet` qui utilise le corps suivant :
-  
-  ```
-  {
-    "@apiVersion": "1.0",
-    "name": "Sample-Graph",
-    "properties": {
-      "topologyName": "EVRToFilesOnMotionDetection",
-      "description": "Sample graph description",
-      "parameters": [
-        {
-          "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-        },
-        {
-          "name": "rtspUserName",
-          "value": "testuser"
-        },
-        {
-          "name": "rtspPassword",
-          "value": "testpassword"
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Paramètres d’extension":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension"
         }
       ]
     }

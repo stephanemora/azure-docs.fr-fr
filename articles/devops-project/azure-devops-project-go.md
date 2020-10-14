@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233123"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854611"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Créer un pipeline CI/CD pour Go avec Azure DevOps Starter
 
@@ -123,4 +123,4 @@ Quand ils ne sont plus nécessaires, vous pouvez supprimer l’instance Azure Ap
 Pour plus d’informations sur la modification des pipelines de build et de mise en production afin de répondre aux besoins de votre équipe, consultez :
 
 > [!div class="nextstepaction"]
-> [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Définir votre pipeline de déploiement continu (CD) multiétape](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

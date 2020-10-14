@@ -2,18 +2,18 @@
 title: Guide de démarrage rapide de la bibliothèque de client Python du Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
-ms.openlocfilehash: ec13ee65595ccb0bdca1656522a7cd5f21b49a10
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: mbullwin
+ms.openlocfilehash: c0c766753fe7c865fe15af992817379b3a7f6e13
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319246"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018446"
 ---
 Commencez à utiliser la bibliothèque de client Détecteur d’anomalies pour Python. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 

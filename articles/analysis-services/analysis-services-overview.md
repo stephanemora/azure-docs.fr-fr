@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: c6913fee6872d8875e068b2502727c9f42f80401
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594201"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018795"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -27,7 +27,7 @@ Azure Analysis Services est une plateforme entièrement gérée en tant que serv
 
 ## <a name="get-up-and-running-quickly"></a>Opérationnel rapidement
 
-Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-server.md) en quelques minutes. Et, avec les [modèles](../azure-resource-manager/resource-manager-create-first-template.md) Azure Resource Manager et PowerShell, vous pouvez créer des serveurs à l’aide d’un modèle déclaratif. Un même modèle vous permet de déployer plusieurs ressources de serveur, ainsi que d’autres composants Azure tels que des comptes de stockage et Azure Functions. 
+Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-server.md) en quelques minutes. Et, avec les [modèles](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) Azure Resource Manager et PowerShell, vous pouvez créer des serveurs à l’aide d’un modèle déclaratif. Un même modèle vous permet de déployer plusieurs ressources de serveur, ainsi que d’autres composants Azure tels que des comptes de stockage et Azure Functions. 
 
 **Vidéo :** consultez [Automatisation du déploiement](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) afin d'en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
 
@@ -138,13 +138,13 @@ Le coût total dépend de plusieurs facteurs, tels que la région que vous avez 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Basé sur SQL Server Analysis Services
 
-Azure Analysis Services est compatible avec de nombreuses fonctionnalités d’exception déjà intégrées à SQL Server Analysis Services Enterprise Edition. Azure Analysis Services prend en charge les modèles tabulaires aux [niveaux de compatibilité](analysis-services-compat-level.md) 1200 et ultérieurs. Les modèles tabulaires sont des constructions de modélisation relationnelle (modèle, tables, colonnes), articulés dans des définitions d’objets de métadonnées tabulaires dans le code de langage de script de modèle tabulaire (TMSL, Tabular Model Scripting Language) et de modèle d’objet tabulaire (TOM, Tabular Object Model). Les partitions, les perspectives, la sécurité au niveau des lignes, les relations bidirectionnelles et les traductions sont toutes prises en charge\*. Les modèles multidimensionnels et PowerPivot pour SharePoint *ne sont pas* pris en charge dans Azure Analysis Services.
+Azure Analysis Services est compatible avec de nombreuses fonctionnalités d’exception déjà intégrées à SQL Server Analysis Services Enterprise Edition. Azure Analysis Services prend en charge les modèles tabulaires aux [niveaux de compatibilité](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 et ultérieurs. Les modèles tabulaires sont des constructions de modélisation relationnelle (modèle, tables, colonnes), articulés dans des définitions d’objets de métadonnées tabulaires dans le code de langage de script de modèle tabulaire (TMSL, Tabular Model Scripting Language) et de modèle d’objet tabulaire (TOM, Tabular Object Model). Les partitions, les perspectives, la sécurité au niveau des lignes, les relations bidirectionnelles et les traductions sont toutes prises en charge\*. Les modèles multidimensionnels et PowerPivot pour SharePoint *ne sont pas* pris en charge dans Azure Analysis Services.
 
 Les modèles tabulaires dans les modes En mémoire et DirectQuery sont pris en charge. En mode En mémoire (par défaut), les modèles tabulaires prennent en charge plusieurs sources de données. Étant donné que les données de modèle sont fortement compressées et mises en mémoire cache, ce mode offre la réponse de requête la plus rapide pour les quantités importantes de données. Il offre également la plus grande flexibilité pour les jeux de données et les requêtes complexes. 
 
 Le partitionnement permet des charges incrémentielles, augmente la parallélisation et réduit la consommation de mémoire. D’autres fonctionnalités de modélisation de données avancées incluent les tables calculées, et toutes les fonctions DAX sont prises en charge. Les modèles en mémoire doivent être actualisés (traités) pour mettre à jour les données en cache à partir de sources de données. Grâce à la prise en charge de principaux de service Azure, les opérations d’actualisation imprévues à l’aide de PowerShell, TOM, TMSL et REST offrent une flexibilité permettant de garantir que vos données de modèle sont toujours à jour. 
 
-Le mode DirectQuery* tire profit de la base de données relationnelle principale pour le stockage et l’exécution de la requête. Les jeux de données extrêmement volumineux de sources de données SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), Oracle et Teradata sont pris en charge. Les jeux de données de serveur principal peuvent dépasser la mémoire de ressource serveur disponible. Des scénarios d’actualisation de modèle de données complexes ne sont pas nécessaires. Il existe également certaines restrictions, telles que des limitations des types de sources de données, des limitations liées aux formules DAX, et certaines fonctionnalités de modélisation de données avancées qui ne sont pas prises en charge. Avant de déterminer le mode vous convenant le mieux, consultez [Mode DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+Le mode DirectQuery* tire profit de la base de données relationnelle principale pour le stockage et l’exécution de la requête. Les jeux de données extrêmement volumineux de sources de données SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), Oracle et Teradata sont pris en charge. Les jeux de données de serveur principal peuvent dépasser la mémoire de ressource serveur disponible. Des scénarios d’actualisation de modèle de données complexes ne sont pas nécessaires. Il existe également certaines restrictions, telles que des limitations des types de sources de données, des limitations liées aux formules DAX, et certaines fonctionnalités de modélisation de données avancées qui ne sont pas prises en charge. Avant de déterminer le mode vous convenant le mieux, consultez [Mode DirectQuery](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* La disponibilité des fonctionnalités dépend du niveau.
 
@@ -154,7 +154,7 @@ Les modèles tabulaires dans Azure Analysis Services prennent en charge une gran
 
 ## <a name="compatibility-level"></a>Niveau de compatibilité
 
-Le niveau de compatibilité fait référence aux comportements spécifiques de chaque version dans le moteur Analysis Services. Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Pour plus d’informations, consultez [Niveau de compatibilité pour les modèles tabulaires](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
+Le niveau de compatibilité fait référence aux comportements spécifiques de chaque version dans le moteur Analysis Services. Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Pour plus d’informations, consultez [Niveau de compatibilité pour les modèles tabulaires](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>Sécuriser vos données
@@ -179,7 +179,7 @@ Vous sécurisez l’accès aux sources de données locales dans votre organisati
 
 ### <a name="roles"></a>Rôles
 
-Analysis Services utilise l’[autorisation en fonction du rôle](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular) qui accorde l’accès au serveur et aux opérations, objets et données de base de données de modèle. Tous les utilisateurs qui accèdent à un serveur ou une base de données le font avec leur compte d’utilisateur Azure AD au sein d’un rôle assigné. Le rôle administrateur du serveur se trouve au niveau de la ressource serveur. Par défaut, le compte utilisé lors de la création d’un serveur est automatiquement inclus dans le rôle Administrateur de serveur. D’autres comptes d’utilisateur et de groupe sont ajoutés à l’aide du portail, SSMS ou PowerShell.
+Analysis Services utilise l’[autorisation en fonction du rôle](/analysis-services/tabular-models/roles-ssas-tabular) qui accorde l’accès au serveur et aux opérations, objets et données de base de données de modèle. Tous les utilisateurs qui accèdent à un serveur ou une base de données le font avec leur compte d’utilisateur Azure AD au sein d’un rôle assigné. Le rôle administrateur du serveur se trouve au niveau de la ressource serveur. Par défaut, le compte utilisé lors de la création d’un serveur est automatiquement inclus dans le rôle Administrateur de serveur. D’autres comptes d’utilisateur et de groupe sont ajoutés à l’aide du portail, SSMS ou PowerShell.
   
 Les utilisateurs finaux non administrateurs qui interrogent les données se voient accorder un accès via des rôles de base de données. Un rôle de bases de données est créé en tant qu’objet distinct dans la base de données et s’applique uniquement à la base de données dans laquelle il est créé. Les rôles de base de données sont définis par les autorisations Administrateur, Lecture et Lecture et traitement (base de données). Les comptes d’utilisateur et de groupe sont ajoutés à l’aide de SSMS ou PowerShell.
 
@@ -189,7 +189,7 @@ Les modèles tabulaires à tous les niveaux de compatibilité prennent en charge
 
 ### <a name="object-level-security"></a>Sécurité au niveau des objets 
 
-Les modèles tabulaires au niveau de compatibilité 1400 prennent en charge la sécurité au niveau des objets qui inclut la sécurité au niveau des tables et la sécurité au niveau des colonnes. La sécurité au niveau des objets est définie dans les métadonnées basées sur JSON dans le fichier Model.bim à l’aide de TMSL ou TOM. Pour en savoir plus, consultez [Sécurité au niveau des objets](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security).
+Les modèles tabulaires au niveau de compatibilité 1400 prennent en charge la sécurité au niveau des objets qui inclut la sécurité au niveau des tables et la sécurité au niveau des colonnes. La sécurité au niveau des objets est définie dans les métadonnées basées sur JSON dans le fichier Model.bim à l’aide de TMSL ou TOM. Pour en savoir plus, consultez [Sécurité au niveau des objets](/analysis-services/tabular-models/object-level-security).
 
 ### <a name="automation-through-service-principals"></a>Automatisation à l’aide de principaux de service
 
@@ -212,7 +212,7 @@ Les projets Microsoft Analysis Services sont disponibles sous la forme d’un pa
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-Gérez vos serveurs et bases de données model à l’aide de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Connectez-vous à vos serveurs dans le cloud. Exécutez les scripts TMSL directement à partir de la fenêtre de requête XMLA et automatisez des tâches à l’aide des scripts TMSL et PowerShell. De nouvelles fonctionnalités sont régulièrement implémentées : SSMS est mis à jour tous les mois.
+Gérez vos serveurs et bases de données model à l’aide de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). Connectez-vous à vos serveurs dans le cloud. Exécutez les scripts TMSL directement à partir de la fenêtre de requête XMLA et automatisez des tâches à l’aide des scripts TMSL et PowerShell. De nouvelles fonctionnalités sont régulièrement implémentées : SSMS est mis à jour tous les mois.
 
 ### <a name="open-source-tools"></a>Outils open source
 
@@ -224,7 +224,7 @@ Les tâches de gestion des ressources du serveur telles que la création de ress
 
 ### <a name="object-model-and-scripting"></a>Modèle d’objet et scripts
 
-Les modèles tabulaires offrent un développement rapide et sont hautement personnalisables. Les modèles tabulaires incluent le [modèle d’objet tabulaire](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) pour décrire les modèles d’objet. Le modèle d’objet tabulaire est affiché au format JSON via le langage [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) et le langage de définition de données AMO via l’espace de noms [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
+Les modèles tabulaires offrent un développement rapide et sont hautement personnalisables. Les modèles tabulaires incluent le [modèle d’objet tabulaire](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) pour décrire les modèles d’objet. Le modèle d’objet tabulaire est affiché au format JSON via le langage [TMSL (Tabular Model Scripting Language)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) et le langage de définition de données AMO via l’espace de noms [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Prise en charge des derniers outils clients
 
@@ -236,21 +236,21 @@ Les outils modernes d’exploration et de visualisation de données comme Power 
 
 Azure Analysis Services est intégré aux métriques Azure Monitor, fournissant ainsi un nombre important de métriques spécifiques de ressources pour vous aider à superviser le niveau de performance et l’intégrité de vos serveurs. Pour plus d’informations, consultez [Surveiller les métriques du serveur](analysis-services-monitor.md). Enregistrez des métriques avec les [journaux de plateforme de ressources](../azure-monitor/platform/platform-logs-overview.md). Surpervisez et envoyez les journaux d’activité à [Stockage Azure](https://azure.microsoft.com/services/storage/), transmettez-les à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et exportez-les vers des [journaux d’activité Azure Monitor](https://azure.microsoft.com/services/log-analytics/), un service d’[Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Pour en savoir plus, consultez [Configurer la journalisation des diagnostics](analysis-services-logging.md).
 
-Azure Analysis Services prend également en charge l’utilisation de [vues de gestion dynamique (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Basées sur la syntaxe SQL, les vues de gestion dynamique font l’interface avec les lignes de schéma qui retournent des métadonnées et des informations d’analyse sur l’instance de serveur.
+Azure Analysis Services prend également en charge l’utilisation de [vues de gestion dynamique (DMV)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Basées sur la syntaxe SQL, les vues de gestion dynamique font l’interface avec les lignes de schéma qui retournent des métadonnées et des informations d’analyse sur l’instance de serveur.
 
 ## <a name="documentation"></a>Documentation
 
 La documentation relative à Azure Analysis Services est incluse ici. Utilisez la table des matières à gauche de l’écran de votre navigateur pour rechercher des articles. 
 
-Les modèles tabulaires Azure Analysis Services étant quasiment identiques à ceux des jeux de données SQL Server Analysis Services et Power BI Premium, il existe une bibliothèque étendue partagée de tutoriels sur la modélisation de données, accompagnés d’articles traitant des concepts, procédures, développements et références, dans la [documentation d’Analysis Services](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Les articles dans la documentation partagée Analysis Services indiquent s’ils s’appliquent également à Azure Analysis Services par une bannière APPLIES TO (S’APPLIQUE À) placée sous le titre. Vous pouvez également utiliser le sélecteur de version au-dessus de la table des matières pour afficher uniquement les articles qui s’appliquent à la plateforme que vous utilisez.
+Les modèles tabulaires Azure Analysis Services étant quasiment identiques à ceux des jeux de données SQL Server Analysis Services et Power BI Premium, il existe une bibliothèque étendue partagée de tutoriels sur la modélisation de données, accompagnés d’articles traitant des concepts, procédures, développements et références, dans la [documentation d’Analysis Services](/analysis-services/?view=azure-analysis-services-current). Les articles dans la documentation partagée Analysis Services indiquent s’ils s’appliquent également à Azure Analysis Services par une bannière APPLIES TO (S’APPLIQUE À) placée sous le titre. Vous pouvez également utiliser le sélecteur de version au-dessus de la table des matières pour afficher uniquement les articles qui s’appliquent à la plateforme que vous utilisez.
 
 ![Documentation partagée](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>Participez !
 
-La documentation d’Analysis Services, comme cet article, est open source. Pour en savoir plus sur la façon dont vous pouvez contribuer, consultez le [Guide du contributeur de documents](https://docs.microsoft.com/contribute/). 
+La documentation d’Analysis Services, comme cet article, est open source. Pour en savoir plus sur la façon dont vous pouvez contribuer, consultez le [Guide du contributeur de documents](/contribute/). 
 
-La documentation d’Analysis Services Azure utilise également les [Problèmes GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Vous pouvez fournir des commentaires sur le produit ou la documentation. Utilisez **Commentaires** au bas d’un article. Les problèmes GitHub ne sont pas activés pour la documentation partagée d’Analysis Services. 
+La documentation d’Analysis Services Azure utilise également les [Problèmes GitHub](/teamblog/a-new-feedback-system-is-coming-to-docs). Vous pouvez fournir des commentaires sur le produit ou la documentation. Utilisez **Commentaires** au bas d’un article. Les problèmes GitHub ne sont pas activés pour la documentation partagée d’Analysis Services. 
 
 ## <a name="blogs"></a>Blogs
 
@@ -269,4 +269,4 @@ Analysis Services a une communauté active d’utilisateurs. Rejoignez la conver
 > [Démarrage rapide : Créer un serveur - Portail](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)  
+> [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88234939"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824618"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK Python et Azure Cosmos DB
 
@@ -128,7 +128,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Téléchargez le certificat racine Baltimore CyberTrust localement à partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Renommez le fichier avec l’extension de fichier *.cer*.
 
-   Le certificat a le numéro de série `02:00:00:b9` et l’empreinte digitale SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   Le certificat a le numéro de série `02:00:00:b9` et l’empreinte digitale SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Ouvrez *pyquickstart.py* et changez `path\to\cert` pour le faire pointer vers votre nouveau certificat.
 
