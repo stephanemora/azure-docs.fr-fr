@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 8fe541432366d3c2ac1dc1470fea66d328f79780
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213050"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825571"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser .NET et C# dans Visual Studio pour se connecter à une base de données dans Azure SQL Database ou Azure SQL Managed Instance et interroger la base de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,7 +78,7 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
    
 1. Une fois l’installation terminée, vous pouvez fermer le **Gestionnaire de package NuGet**. 
    
-1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<server>`, `<username>`, `<password>` et `<database>` par vos valeurs.
+1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<your_server>`, `<your_username>`, `<your_password>` et `<your_database>` par vos valeurs.
    
    >[!IMPORTANT]
    >Dans cet exemple, le code utilise les exemples de données AdventureWorksLT que vous pouvez choisir comme source lors de la création de votre base de données. Si votre base de données comporte des données différentes, utilisez des tables de votre propre base de données dans la requête SELECT. 
@@ -97,10 +97,10 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
                try 
                { 
                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                   builder.DataSource = "<server>.database.windows.net"; 
-                   builder.UserID = "<username>";            
-                   builder.Password = "<password>";     
-                   builder.InitialCatalog = "<database>";
+                   builder.DataSource = "<your_server>.database.windows.net"; 
+                   builder.UserID = "<your_username>";            
+                   builder.Password = "<your_password>";     
+                   builder.InitialCatalog = "<your_database>";
    
                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                    {

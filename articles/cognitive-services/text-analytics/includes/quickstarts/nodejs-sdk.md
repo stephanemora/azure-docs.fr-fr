@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c24a50926fe028dcbf42d3642ae3ec5c9ae84f5b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400931"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977804"
 ---
 <a name="HOLTop"></a>
 
@@ -147,6 +147,7 @@ L’objet Response est une liste contenant les informations d’analyse de chaqu
 
 * [Authentification du client](#client-authentication)
 * [Analyse des sentiments](#sentiment-analysis) 
+* [Exploration des opinions](#opinion-mining)
 * [Détection de la langue](#language-detection)
 * [Reconnaissance d’entité nommée](#named-entity-recognition-ner)
 * [Liaison d’entités](#entity-linking)

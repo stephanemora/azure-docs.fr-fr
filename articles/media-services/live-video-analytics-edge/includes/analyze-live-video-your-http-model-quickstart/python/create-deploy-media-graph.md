@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6be3da1e031a1ea5b32f58343639d6e7fbf2425e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2c690360167626566b2ea45aef172e1e832ab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684259"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828843"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -68,9 +68,18 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 
 ### <a name="prepare-to-monitor-events"></a>Préparer la supervision d’événements
 
-Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélectionnez sur **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre **SORTIE** de Visual Studio Code. 
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
-![Démarrer la surveillance](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Paramètres d’extension":::
+1. Recherchez et activez « Afficher le message détaillé ».
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension":::
+1. Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélectionnez sur **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre **SORTIE** de Visual Studio Code. 
+
+   ![Démarrer la surveillance](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 

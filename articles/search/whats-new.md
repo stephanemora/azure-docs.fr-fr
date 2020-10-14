@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532225"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948899"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -26,11 +26,11 @@ Créez une identité pour un service de recherche dans Azure Active Directory, p
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |------------------------------|----------|-------------|---------------|
-| [Identité MSI (Managed Service Identity)](search-howto-managed-identities-data-sources.md) | Indexeurs, sécurité | Créez une identité pour un service de recherche dans Azure Active Directory, puis utilisez les autorisations RBAC pour accorder l’accès aux sources de données Azure. Cette approche élimine la nécessité d’utiliser des informations d’identification dans la chaîne de connexion. <br><br>Une identité MSI peut aussi être utilisée avec une [exception de service approuvé](search-indexer-howto-access-trusted-service-exception.md) si des règles IP doivent être appliquées. | En disponibilité générale. Accédez à cette fonctionnalité quand vous utilisez le portail ou [créez une source de données (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) avec api-version=2020-06-30. |
-| [Requêtes sortantes utilisant une liaison privée](search-indexer-howto-access-private.md) | Indexeurs, sécurité | Créez une ressource de liaison privée partagée que les indexeurs pourront utiliser pour accéder aux ressources Azure sécurisées par Azure Private Link. Pour plus d’informations sur toutes les méthodes de sécurisation des connexions des indexeurs, consultez [Sécuriser les ressources d’indexeur à l’aide des fonctionnalités de sécurité réseau d’Azure](search-indexer-securing-resources.md). | En disponibilité générale. Accédez à cette fonctionnalité quand vous utilisez le portail ou la [ressource de liaison privée partagée](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) avec api-version=2020-08-01. |
-| [API REST Gestion (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | La nouvelle API REST stable autorise la création de ressources de liaison privée partagée. | En disponibilité générale. |
-| [API REST Gestion (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Ajoute une ressource de liaison privée partagée pour Azure Functions et les bases de données Azure SQL pour MySQL. | Préversion publique. |
-| [SDK .NET de gestion 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | Kit de développement logiciel (SDK) .NET | Mise à jour du SDK Azure pour le SDK de gestion, ciblant la version 2020-08-01 de l’API REST. | En disponibilité générale. |
+| [Identité MSI (Managed Service Identity)](search-howto-managed-identities-data-sources.md) | Indexeurs, sécurité | Créez une identité pour un service de recherche dans Azure Active Directory, puis utilisez les autorisations RBAC pour accorder l’accès aux sources de données Azure. Cette approche élimine la nécessité d’utiliser des informations d’identification dans la chaîne de connexion. <br><br>Une identité MSI peut aussi être utilisée avec une [exception de service approuvé](search-indexer-howto-access-trusted-service-exception.md) si des règles IP doivent être appliquées. | En disponibilité générale. Accédez à cette fonctionnalité quand vous utilisez le portail ou [créez une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30. |
+| [Requêtes sortantes utilisant une liaison privée](search-indexer-howto-access-private.md) | Indexeurs, sécurité | Créez une ressource de liaison privée partagée que les indexeurs pourront utiliser pour accéder aux ressources Azure sécurisées par Azure Private Link. Pour plus d’informations sur toutes les méthodes de sécurisation des connexions des indexeurs, consultez [Sécuriser les ressources d’indexeur à l’aide des fonctionnalités de sécurité réseau d’Azure](search-indexer-securing-resources.md). | En disponibilité générale. Accédez à cette fonctionnalité quand vous utilisez le portail ou la [ressource de liaison privée partagée](/rest/api/searchmanagement/sharedprivatelinkresources) avec api-version=2020-08-01. |
+| [API REST Gestion (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | La nouvelle API REST stable autorise la création de ressources de liaison privée partagée. | En disponibilité générale. |
+| [API REST Gestion (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | Ajoute une ressource de liaison privée partagée pour Azure Functions et les bases de données Azure SQL pour MySQL. | Préversion publique. |
+| [SDK .NET de gestion 4.0](/dotnet/api/overview/azure/search/management) | Kit de développement logiciel (SDK) .NET | Mise à jour du SDK Azure pour le SDK de gestion, ciblant la version 2020-08-01 de l’API REST. | En disponibilité générale. |
 
 ## <a name="august-2020"></a>Août 2020
 

@@ -2,20 +2,20 @@
 title: Comparer les services Active Directory dans Azure | Microsoft Docs
 description: Dans cette vue d’ensemble, vous comparez les différentes offres d’identité pour Active Directory Domain Services, Azure Active Directory et Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: iainfou
-ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.author: joflore
+ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396363"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962664"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparer les services Active Directory Domain Services automanagés, Azure Active Directory et les services Azure Active Directory Domain Services managés
 

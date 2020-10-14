@@ -1,63 +1,22 @@
 ---
-ms.openlocfilehash: ed7be82146f38cc7ae57fd863bb0c1b8e6910fd2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2349939d4997ddc57d0c0c56a21eeec0357bf0ec
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691020"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829289"
 ---
 Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
-1. Dans Visual Studio Code, accédez à *src/cloud-to-device-console-app/operations.json*.
-1. Sur le nœud **GraphTopologySet**, vérifiez que vous voyez la valeur suivante :
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou appuyez sur Ctrl+Maj+X) et recherchez Azure IoT Hub.
+1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Sur les nœuds **GraphInstanceSet** et **GraphTopologyDelete**, vérifiez que la valeur de `topologyName` correspond à celle de la propriété `name` dans la topologie de graphe :
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Paramètres d’extension":::
+1. Recherchez et activez « Afficher le message détaillé ».
 
-    `"topologyName" : "MotionDetection"`
-    
-1. Démarrez une session de débogage en appuyant sur la touche F5. La fenêtre **TERMINAL** affiche des messages.
-1. Le fichier *operations.json* commence par appeler `GraphTopologyList` et `GraphInstanceList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-        "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-        "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-    
-    La fenêtre **TERMINAL** affiche le jeu d’appels de méthode directe suivant :
-     * Un appel à `GraphTopologySet` qui utilise le `topologyUrl` précédent
-     * Un appel à `GraphInstanceSet` qui utilise le corps suivant :
-         
-    ```
-    {
-      "@apiVersion": "1.0",
-      "name": "Sample-Graph",
-      "properties": {
-        "topologyName": "MotionDetection",
-        "description": "Sample graph description",
-        "parameters": [
-          {
-            "name": "rtspUrl",
-            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-          },
-          {
-            "name": "rtspUserName",
-            "value": "testuser"
-          },
-          {
-            "name": "rtspPassword",
-            "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension"
           }
         ]
       }

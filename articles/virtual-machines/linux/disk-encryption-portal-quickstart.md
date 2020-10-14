@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510694"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978405"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux à l’aide du portail Azure
 
@@ -38,7 +38,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Écran Création de machine virtuelle Linux":::
 
     > [!WARNING]
-    > L’onglet « Disques » contient un champ « type de chiffrement » sous **Options de disque**. Ce champ permet de spécifier les options de chiffrement pour [Disques managés](managed-disks-overview.md) et CMK, et **non** pour Azure Disk Encryption.
+    > L’onglet « Disques » contient un champ « type de chiffrement » sous **Options de disque**. Ce champ permet de spécifier les options de chiffrement pour [Disques managés](../managed-disks-overview.md) et CMK, et **non** pour Azure Disk Encryption.
     >
     > Pour éviter toute confusion, nous vous suggérons d’ignorer complètement l’onglet *Disques* pendant ce tutoriel.
 

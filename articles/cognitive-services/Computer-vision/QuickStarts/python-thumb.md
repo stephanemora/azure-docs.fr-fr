@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: c415e8e9c07ca991b32576ebf9daa109a500dbff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65af79f6ebb3e0c2965ff426008ae7580ca370d0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88505833"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960082"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST Vision par ordinateur et de Python
 
-Dans ce guide de démarrage rapide, vous allez générer une miniature à partir d’une image en utilisant l’API REST de Vision par ordinateur. La méthode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c) vous permet de spécifier la hauteur et la largeur souhaitées. Vision par ordinateur utilise ensuite le rognage intelligent pour identifier la zone d’intérêt et générer des coordonnées de rognage en fonction de cette région.
+Dans ce guide de démarrage rapide, vous allez générer une miniature à partir d’une image en utilisant l’API REST de Vision par ordinateur. La méthode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20c) vous permet de spécifier la hauteur et la largeur souhaitées. Vision par ordinateur utilise ensuite le rognage intelligent pour identifier la zone d’intérêt et générer des coordonnées de rognage en fonction de cette région.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,7 +49,7 @@ from io import BytesIO
 subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
 endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-thumbnail_url = endpoint + "vision/v3.0/generateThumbnail"
+thumbnail_url = endpoint + "vision/v3.1/generateThumbnail"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
@@ -103,4 +103,4 @@ Vous pouvez exécuter ce guide de démarrage rapide étape par étape à l’aid
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)
 
-* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c).
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20c).

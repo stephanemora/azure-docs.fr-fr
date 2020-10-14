@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575093"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045038"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Qu’est ce qu’IoT Plug-and-Play ?
 
@@ -26,7 +26,7 @@ IoT Plug-and-Play permet aux créateurs de solutions d’intégrer des appareils
 
 Vous pouvez regrouper ces éléments dans des interfaces afin de les réutiliser dans différents modèles pour faciliter la collaboration et accélérer le développement.
 
-Pour qu’IoT Plug-and-Play fonctionne avec [Azure Digital Twins](../digital-twins/about-digital-twins.md), vous définissez des modèles et des interfaces à l’aide du langage [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug-and-Play et DTDL sont ouverts à la communauté, et Microsoft accepte la collaboration avec les clients, les partenaires et le secteur. Les deux sont basés sur des standards W3C ouverts, tels que JSON-LD et RDF, qui permettent une adoption plus facile des services et outils.
+Pour qu’IoT Plug-and-Play fonctionne avec [Azure Digital Twins](../digital-twins/overview.md), vous définissez des modèles et des interfaces à l’aide du langage [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug-and-Play et DTDL sont ouverts à la communauté, et Microsoft accepte la collaboration avec les clients, les partenaires et le secteur. Les deux sont basés sur des standards W3C ouverts, tels que JSON-LD et RDF, qui permettent une adoption plus facile des services et outils.
 
 Il n’existe aucun coût supplémentaire pour l’utilisation d’IoT Plug-and-Play et de DTDL. Les tarifs standard pour [Azure IoT Hub](../iot-hub/about-iot-hub.md) et d’autres services Azure restent les mêmes.
 
@@ -68,14 +68,9 @@ En tant que développeur d’appareil, vous pouvez développer un produit matér
 
 Le [programme de certification d’appareil IoT Plug-and-Play](howto-certify-device.md) vérifie qu’un appareil répond aux exigences de certification IoT Plug-and-Play. Vous pouvez ajouter un appareil certifié au [catalogue des appareils certifiés pour Azure IoT](https://aka.ms/devicecatalog).
 
-## <a name="regional-availability"></a>Disponibilité régionale
-
-Cette actualisation d’IoT Plug-and-Play est disponible sur les hubs IoT créés dans les régions USA Centre, Europe Nord et Japon Est.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous disposez d’une vue d’ensemble d’IoT Plug-and-Play, l’étape suivante suggérée consiste à essayer l’un des démarrages rapides suivants :
 
 - [Connecter un appareil à IoT Hub (C)](./quickstart-connect-device-c.md)
 - [Interagir avec un appareil à partir de votre solution (Node.js)](./quickstart-service-node.md)
-
