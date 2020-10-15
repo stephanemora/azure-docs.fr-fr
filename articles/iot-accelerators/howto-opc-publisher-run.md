@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f7d6581a1892ebd74a1adba5c09c0af9d3cf9d43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282134"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079001"
 ---
 # <a name="run-opc-publisher"></a>Exécuter OPC Publisher
 
@@ -370,7 +370,7 @@ Vérifiez [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
 
 ## <a name="run-as-an-azure-iot-edge-module"></a>Exécuter en tant que module Azure IoT Edge
 
-OPC Publisher est prêt à être utilisé en tant que module [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge). Quand vous utilisez OPC Publisher en tant que module IoT Edge, les seuls protocoles de transport pris en charge sont **Amqp_Tcp_Only** et **Mqtt_Tcp_Only**.
+OPC Publisher est prêt à être utilisé en tant que module [Azure IoT Edge](../iot-edge/index.yml). Quand vous utilisez OPC Publisher en tant que module IoT Edge, les seuls protocoles de transport pris en charge sont **Amqp_Tcp_Only** et **Mqtt_Tcp_Only**.
 
 Pour ajouter OPC Publisher comme module à votre déploiement IoT Edge, accédez à vos paramètres IoT Hub dans le portail Azure, puis effectuez les étapes suivantes :
 

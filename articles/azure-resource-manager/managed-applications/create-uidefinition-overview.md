@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319563"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json pour une expérience de création d’applications managées Azure
@@ -129,7 +129,7 @@ Pour `location`, spécifiez les propriétés du contrôle d’emplacement que vo
 
 L’étape **Basics** est la première étape générée lorsque le portail Azure analyse le fichier. Par défaut, l’étape Basics permet aux utilisateurs de choisir l’abonnement, le groupe de ressources et l’emplacement du déploiement.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Paramètres Basics par défaut":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Assistant d’onglet":::
 
 Vous pouvez ajouter d’autres éléments dans cette section. Lorsque cela est possible, ajoutez des éléments qui interrogent les paramètres de déploiement, comme le nom d’un cluster ou des informations d’identification administrateur.
 

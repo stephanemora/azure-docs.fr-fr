@@ -3,11 +3,11 @@
     - name: Page de fonctionnalité de résilience Azure
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Concevoir des applications résilientes pour Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
+      href: /azure/architecture/resiliency/
 - name: Haute disponibilité
   items:
     - name: Haute disponibilité des applications Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+      href: /azure/architecture/resiliency/high-availability-azure-applications
     - name: Régions et zones de disponibilité
       href: az-overview.md
     - name: Documentation sur les zones de disponibilité
@@ -39,34 +39,34 @@
             - name: Standard Load Balancer et zones de disponibilité
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Créer un équilibrage de charge standard public et redondant dans une zone
-              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Créer un équilibrage de charge standard public et redondant dans une zone (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Créer un équilibrage de charge standard public et zonal
-              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Créer un équilibrage de charge standard public et zonal (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
-              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
               items:
                 - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité avec Azure (CLI)
-                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
         - name: Adresse IP publique
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
             - name: Zones de disponibilité avec SQL Database
-              href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
         - name: Stockage
           items:
             - name: Stockage redondant interzone
-              href: ../storage/common/storage-redundancy-zrs.md
+              href: ../storage/common/storage-redundancy.md
         - name: Event Hubs
           items:
             - name: Géo-reprise d’activité après sinistre Event Hubs
@@ -102,11 +102,11 @@
 - name: Récupération d’urgence
   items:
     - name: Utiliser Azure Site Recovery
-      href: 'https://docs.microsoft.com/azure/site-recovery/'
+      href: ../site-recovery/index.yml
 - name: Sauvegarde Azure
   items:
     - name: Utiliser la Sauvegarde Azure
-      href: 'https://docs.microsoft.com/azure/backup/'
+      href: ../backup/index.yml
 - name: Ressources
   items:
     - name: Feuille de route Azure

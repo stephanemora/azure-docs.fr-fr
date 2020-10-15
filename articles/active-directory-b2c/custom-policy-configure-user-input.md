@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389358"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069855"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -95,12 +95,12 @@ Pour collecter la revendication de ville au cours de l’inscription, celle-ci d
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Pour collecter la revendication de ville après la connexion initiale avec un compte fédéré, celle-ci doit être ajoutée en tant que revendication de sortie au profil technique `SelfAsserted-Social`. Pour que les utilisateurs de comptes locaux et de comptes fédérés puissent modifier leurs données de profil ultérieurement, ajoutez la revendication de sortie au profil technique `SelfAsserted-ProfileUpdate`. Remplacez ces profils techniques dans le fichier d’extension. Spécifiez la liste complète des revendications de sortie pour contrôler l’ordre dans lequel les revendications sont présentées à l’écran. Recherchez l’élément **ClaimsProviders**. Ajoutez un nouveau ClaimsProvider comme suit :
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
