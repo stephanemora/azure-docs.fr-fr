@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316730"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058112"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -31,8 +31,7 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
 * Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple la sauvegarde de Windows Server, qui ne sont pas dus à Sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
   * En cas d’erreur avec l’entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
   * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
-  * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle Sauvegarde Azure fonctionnait correctement, mais la « sauvegarde de Windows Server » a échoué :<br>
-    ![Échec de la Sauvegarde Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle Sauvegarde Azure fonctionnait correctement, mais la « sauvegarde de Windows Server » a échoué : ![Échec de la Sauvegarde Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * En cas d’échec de la Sauvegarde Azure, recherchez le code d’erreur correspondant dans la section Erreurs de sauvegarde de machine virtuelle courantes dans cet article.
 
 ## <a name="common-issues"></a>Problèmes courants
@@ -106,31 +105,33 @@ Message d’erreur : L’opération de capture instantanée a échoué parce qu
 Cette erreur se produit parce que les enregistreurs VSS sont dans un état incorrect. Les extensions Sauvegarde Azure interagissent avec les enregistreurs VSS pour prendre des instantanés des disques. Pour résoudre ce problème, effectuez les étapes suivantes :
 
 Étape 1 : Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
-- À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```.
-- La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez le service de l’enregistreur VSS correspondant. 
-- Pour redémarrer le service, exécutez les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
+
+* À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```.
+* La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez le service de l’enregistreur VSS correspondant.
+* Pour redémarrer le service, exécutez les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > Le redémarrage de certains services peut avoir un impact sur votre environnement de production. Assurez-vous que le processus d’approbation est respecté et que le service est redémarré à l’heure d’arrêt prévue.
- 
-   
+
 Étape 2 : Si le redémarrage des enregistreurs VSS n’a pas résolu le problème, exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges (en tant qu’administrateur) pour empêcher la création de threads pour les instantanés-blobs.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 Étape 3 : Si les étapes 1 et 2 n’ont pas résolu le problème, l’échec peut être dû à un dépassement du délai d’expiration des enregistreurs VSS en raison d’un IOPS limité.<br>
 
 Pour vérifier, accédez à ***Journaux du système et des applications de l’observateur d’événements*** et recherchez le message d’erreur suivant :<br>
 *Le délai d’attente du fournisseur de clichés instantanés a expiré pendant que les écritures en attente dans le volume était copiées en mémoire fantôme. Cela est probablement dû à une activité excessive sur le volume par une application ou un service système. Réessayez plus tard lorsque l’activité sur le volume sera réduite.*<br>
 
 Solution :
-- Vérifiez les possibilités de distribution de la charge sur les disques de machine virtuelle. Cela permet de réduire la charge sur les disques individuels. Vous pouvez [vérifier la limitation d’IOPS en activant les métriques de diagnostic au niveau du stockage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
-- Modifiez la stratégie de sauvegarde pour effectuer des sauvegardes pendant les heures creuses, lorsque la charge sur la machine virtuelle est à son niveau le plus bas.
-- Mettez à niveau les disques Azure pour prendre en charge des IOPS supérieures. [En savoir plus ici](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+
+* Vérifiez les possibilités de distribution de la charge sur les disques de machine virtuelle. Cela permet de réduire la charge sur les disques individuels. Vous pouvez [vérifier la limitation d’IOPS en activant les métriques de diagnostic au niveau du stockage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Modifiez la stratégie de sauvegarde pour effectuer des sauvegardes pendant les heures creuses, lorsque la charge sur la machine virtuelle est à son niveau le plus bas.
+* Mettez à niveau les disques Azure pour prendre en charge des IOPS supérieures. [En savoir plus ici](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState : échec de l’opération d’instantané en raison de l’état incorrect du service VSS (cliché instantané de volume)
 
@@ -140,31 +141,32 @@ Message d’erreur : Échec de l’opération d’instantané en raison de l’
 Cette erreur se produit parce que le service VSS est dans un état incorrect. Les extensions Sauvegarde Azure interagissent avec le service VSS pour prendre des instantanés des disques. Pour résoudre ce problème, effectuez les étapes suivantes :
 
 Redémarrez le service VSS (cliché instantané de volume).
-- Accédez à Services.msc et redémarrez « Service de cliché instantané du volume ».<br>
+
+* Accédez à Services.msc et redémarrez « Service de cliché instantané du volume ».<br>
 (ou)<br>
-- Exécutez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
+* Exécutez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 Si le problème persiste, redémarrez la machine virtuelle lors des temps d’arrêt planifiés.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable  : échec de création de la machine virtuelle, car la taille de machine virtuelle sélectionnée n’est pas disponible
 
-Code d’erreur : UserErrorSkuNotAvailable Message d’erreur : Échec de création de la machine virtuelle car la taille de machine virtuelle sélectionnée n’est pas disponible. 
- 
+Code d’erreur : UserErrorSkuNotAvailable Message d’erreur : Échec de création de la machine virtuelle car la taille de machine virtuelle sélectionnée n’est pas disponible.
+
 Cette erreur se produit parce que la taille de machine virtuelle sélectionnée pendant l’opération de restauration n’est pas prise en charge. <br>
 
 Pour résoudre ce problème, utilisez l’option [Restaurer les disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) au cours de l’opération de restauration. Utilisez ces disques pour créer une machine virtuelle à partir de la liste des [tailles de machines virtuelles prises en charge disponibles](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) à l’aide de [cmdlets PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported  : échec de création de la machine virtuelle en raison de l’absence d’une demande d’achat de Place de marché
 
-Code d’erreur : UserErrorMarketPlaceVMNotSupported Message d’erreur : Échec de création de la machine virtuelle en raison de l’absence d’une demande d’achat de Place de marché. 
- 
+Code d’erreur : UserErrorMarketPlaceVMNotSupported Message d’erreur : Échec de création de la machine virtuelle en raison de l’absence d’une demande d’achat de Place de marché.
+
 Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles qui sont disponibles sur Place de marché Azure. Cette erreur se produit lorsque vous essayez de restaurer une machine virtuelle (avec un paramètre Plan/Éditeur spécifique) qui n’est plus disponible sur Place de marché Azure. [En savoir plus ici](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
-- Pour résoudre ce problème, utilisez l’option [Restaurer les disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) au cours de l’opération de restauration, puis utilisez des cmdlets [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) ou [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) pour créer la machine virtuelle avec les informations les plus récentes sur le marketplace qui correspondent à la machine virtuelle.
-- Si l’éditeur ne dispose d’aucune information sur le marketplace, vous pouvez utiliser les disques de données pour récupérer vos données et les attacher à une machine virtuelle existante.
+
+* Pour résoudre ce problème, utilisez l’option [Restaurer les disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) au cours de l’opération de restauration, puis utilisez des cmdlets [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) ou [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) pour créer la machine virtuelle avec les informations les plus récentes sur le marketplace qui correspondent à la machine virtuelle.
+* Si l’éditeur ne dispose d’aucune information sur le marketplace, vous pouvez utiliser les disques de données pour récupérer vos données et les attacher à une machine virtuelle existante.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – Échec d’analyse de la configuration pour l’extension de sauvegarde
 
@@ -244,7 +246,7 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 
 **Étape 2** : Essayer de modifier la planification de la sauvegarde en la définissant sur une heure à laquelle la machine virtuelle est moins chargée (moins de processeurs ou IOPS)
 
-**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](https://azure.microsoft.com/blog/resize-virtual-machines/), puis réessayez l’opération
+**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm), puis réessayez l’opération
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound – Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus / 400094, BCMV2VMNotFound – La machine virtuelle n’existe pas / Machine virtuelle Azure introuvable
 
@@ -315,12 +317,12 @@ Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au 
 
 ## <a name="restore"></a>Restaurer
 
-#### <a name="disks-appear-offline-after-file-restore"></a>Les disques apparaissent hors connexion après la restauration des fichiers
+### <a name="disks-appear-offline-after-file-restore"></a>Les disques apparaissent hors connexion après la restauration des fichiers
 
-Si, après la restauration, vous remarquez que les disques sont hors connexion, alors : 
+Si, après la restauration, vous remarquez que les disques sont hors connexion, alors :
+
 * Vérifiez si l’ordinateur sur lequel le script est exécuté répond à la configuration requise du système d’exploitation. [En savoir plus](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements)  
 * Assurez-vous que vous ne restaurez pas sur la même source. [En savoir plus](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
-
 
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |

@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890009"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91315573"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Déboguer et détecter un problème ParallelRunStep
 
@@ -35,13 +35,17 @@ Par exemple, le fichier journal `70_driver_log.txt` contient des informations pr
 
 En raison de la nature distribuée des travaux ParallelRunStep, les journaux peuvent provenir de plusieurs sources différentes. Toutefois, deux fichiers consolidés sont créés et fournissent des informations de haut niveau :
 
-- `~/logs/overview.txt`: Ce fichier fournit des informations de haut niveau sur le nombre de mini-lots (également appelés tâches) créés jusqu’à présent et le nombre de mini-lots traités jusqu’à présent. À cette fin, il affiche le résultat du travail. Si le travail a échoué, le message d’erreur s’affiche et indique où démarrer la résolution des problèmes.
+- `~/logs/job_progress_overview.txt`: Ce fichier fournit des informations de haut niveau sur le nombre de mini-lots (également appelés tâches) créés jusqu’à présent et le nombre de mini-lots traités jusqu’à présent. À cette fin, il affiche le résultat du travail. Si le travail a échoué, le message d’erreur s’affiche et indique où démarrer la résolution des problèmes.
 
-- `~/logs/sys/master.txt`: Ce fichier fournit la vue du nœud principal (également connu sous le nom d’orchestrateur) du travail en cours d’exécution. Comprend la création de tâches, la supervision de la progression et le résultat de l’exécution.
+- `~/logs/sys/master_role.txt`: Ce fichier fournit la vue du nœud principal (également connu sous le nom d’orchestrateur) du travail en cours d’exécution. Comprend la création de tâches, la supervision de la progression et le résultat de l’exécution.
 
 Les journaux générés à partir du script d’entrée avec l’assistance EntryScript et les instructions print se trouvent dans les fichiers suivants :
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Ces fichiers sont les journaux écrits à partir d’entry_script avec le helper EntryScript. Contient également l’instruction print (stdout) d’entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Ces fichiers sont les journaux écrits à partir d’entry_script avec le helper EntryScript.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt` : ces fichiers sont les journaux de stdout (par exemple, l’instruction print) d’entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt` : ces fichiers sont les journaux de stderr d’entry_script.
 
 Pour une compréhension concise des erreurs contenues dans votre script :
 
@@ -49,17 +53,17 @@ Pour une compréhension concise des erreurs contenues dans votre script :
 
 Pour plus d’informations sur les erreurs dans votre script :
 
-- `~/logs/user/error/`: Contient toutes les erreurs levées et les rapports complets des appels de procédure, organisés par nœud.
+- `~/logs/user/error/` : contient des traces de la pile complète d’exceptions levées pendant le chargement et l’exécution du script d’entrée.
 
 Lorsque vous avez besoin de comprendre en détail la façon dont chaque nœud a exécuté le script de score, examinez les journaux de processus individuels pour chaque nœud. Les journaux de processus se trouvent dans le dossier `sys/node`, regroupés par nœuds Worker :
 
-- `~/logs/sys/node/<node_name>.txt`: Ce fichier fournit des informations détaillées sur chaque mini-lot au fur et à mesure qu’il est sélectionné ou traité par un Worker. Pour chaque mini-lot, ce fichier comprend les éléments suivants :
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Ce fichier fournit des informations détaillées sur chaque mini-lot au fur et à mesure qu’il est sélectionné ou traité par un Worker. Pour chaque mini-lot, ce fichier comprend les éléments suivants :
 
     - L’adresse IP et le PID du processus Worker. 
     - Le nombre total d’éléments, le nombre d’éléments traités avec succès et le nombre d’éléments ayant échoué.
     - L’heure de début, la durée, le temps de traitement et la durée de la méthode d’exécution.
 
-Vous pouvez également trouver des informations sur l’utilisation des ressources des processus pour chaque Worker. Ces informations sont au format CSV et se trouvent dans `~/logs/sys/perf/overview.csv`. Les informations sur chaque processus sont disponibles sous `~logs/sys/processes.csv`.
+Vous pouvez également trouver des informations sur l’utilisation des ressources des processus pour chaque Worker. Ces informations sont au format CSV et se trouvent dans `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`. Les informations sur chaque processus sont disponibles sous `~logs/sys/perf/<ip_address>/processes_resource_usage.csv`.
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Comment se connecter à son script utilisateur depuis un contexte distant ?
 ParallelRunStep peut exécuter plusieurs processus sur un nœud en fonction de process_count_per_node. Pour organiser les journaux de chaque processus sur un nœud et combiner les instructions print et log, nous vous recommandons d’utiliser l’enregistreur d’événements ParallelRunStep comme indiqué ci-dessous. Vous recevez d’EntryScript un enregistreur d’événements et affichez les journaux dans le dossier **logs/user** dans le portail.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Comment utiliser des jeux de données d’entrée avec l’authentification du principal du service ?
+
+L’utilisateur peut passer des jeux de données d’entrée avec l’authentification du principal du service utilisée dans l’espace de travail. L’utilisation d’un tel jeu de données dans ParallelRunStep nécessite que le jeu de données soit inscrit pour pouvoir construire une configuration ParallelRunStep.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

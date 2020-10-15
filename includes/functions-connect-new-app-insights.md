@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 87af50c5b5e5b69fd175ac4a570c4b6f659b97e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730996"
 ---
 Azure Functions facilite l’ajout de l’intégration d’Application Insights à une application de fonction à partir du [portail Azure].
@@ -30,7 +30,7 @@ Azure Functions facilite l’ajout de l’intégration d’Application Insights 
     | **Nouveau nom de la ressource** | Nom d’application unique | Il est plus facile d’utiliser le même nom que celui de votre application de fonction, qui doit être unique dans votre abonnement. | 
     | **Lieu** | Europe Ouest | Si possible, utilisez la même [région](https://azure.microsoft.com/regions/) que celle de votre application de fonction ou une région proche. |
 
-    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Création d’une ressource Application Insights":::
+    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Activer Application Insights à partir du portail":::
 
 1. Sélectionnez **Appliquer**. 
 

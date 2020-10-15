@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255296"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072082"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -176,10 +176,10 @@ Si vous souhaitez créer des pools de nœuds avec le runtime Moby (Docker), vous
 
 ## <a name="generation-2-virtual-machines-preview"></a>Machines virtuelles de 2e génération (préversion)
 
-Azure prend en charge les [machines virtuelles de 2e génération (Gen2)](../virtual-machines/windows/generation-2.md). Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par les machines virtuelles de 1re génération (Gen1). Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM).
+Azure prend en charge les [machines virtuelles de 2e génération (Gen2)](../virtual-machines/generation-2.md). Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par les machines virtuelles de 1re génération (Gen1). Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM).
 
 Les machines virtuelles de 2e génération utilisent la nouvelle architecture de démarrage basée sur UEFI alors que les machines virtuelles de 1ère génération utilisaient l’architecture basée sur le BIOS.
-Seules des références SKU et des tailles spécifiques prennent en charge les machines virtuelles Gen2. Vérifiez la [liste des tailles prises en charge](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes) pour voir si votre référence SKU prend en charge ou requiert Gen2.
+Seules des références SKU et des tailles spécifiques prennent en charge les machines virtuelles Gen2. Vérifiez la [liste des tailles prises en charge](../virtual-machines/generation-2.md#generation-2-vm-sizes) pour voir si votre référence SKU prend en charge ou requiert Gen2.
 
 En outre, toutes les images de machine virtuelle ne prennent pas en charge Gen2. Sur AKS, les machines virtuelles Gen2 utiliseront la nouvelle [image AKS Ubuntu 18.04](#os-configuration). Cette image prend en charge toutes les tailles et références SKU de Gen2.
 

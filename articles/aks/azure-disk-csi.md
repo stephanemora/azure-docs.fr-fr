@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: dfbef8da1349c2b86595f520e173aee9d455e3a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68a892768e5cfa5be7fe6f9ad99fc4cded68b02d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299576"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071810"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser le disque Azure CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
@@ -408,7 +408,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

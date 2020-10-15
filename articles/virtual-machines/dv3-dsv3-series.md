@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: db85774dd1cf1e7dd5a284182faf354004671618
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891772"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91649641"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 et Dsv3
 
@@ -28,15 +28,13 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®.
 
-ACU : 160-190
-
-Premium Storage :  Non pris en charge
-
-Mise en cache du Stockage Premium :  Non pris en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 160-190<br>
+[Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 1<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de cartes réseau/bande passante réseau max. |
 |---|---|---|---|---|---|---|
@@ -54,15 +52,13 @@ Les tailles de la série Dsv3 s’exécutent sur les processeurs Intel® Xeon® 
 
 Machines virtuelles de série Dsv3 dotées de la technologie Hyper-Threading d’Intel®.
 
-ACU : 160-190
-
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 160-190<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit maximal de rafale mis en cache : IOPS/Mo/s<sup>1</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|---|---|

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090650"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963259"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
-L’extension de machine virtuelle Diagnostics des performances Azure permet de collecter des données de diagnostic des performances sur des machines virtuelles Windows. Elle effectue une analyse et fournit un rapport de résultats et de recommandations permettant d’identifier et de résoudre les problèmes de performances sur la machine virtuelle. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](https://aka.ms/perfinsights).
+L’extension de machine virtuelle Diagnostics des performances Azure permet de collecter des données de diagnostic des performances sur des machines virtuelles Windows. Elle effectue une analyse et fournit un rapport de résultats et de recommandations permettant d’identifier et de résoudre les problèmes de performances sur la machine virtuelle. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > Si vous souhaitez exécuter des diagnostics sur votre machine virtuelle à partir du portail Azure pour les machines virtuelles non classiques, il est recommandé d’utiliser la nouvelle expérience. Pour plus d’informations, consultez [Diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) 
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informations sur les données capturées
-L’outil PerfInsights collecte différents types de journaux d’activité, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](https://aka.ms/perfinsights).
+L’outil PerfInsights collecte différents types de journaux d’activité, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](./how-to-use-perfinsights.md).
 
 ## <a name="view-and-share-the-results"></a>Afficher et partager les résultats
 

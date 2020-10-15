@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530690"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutoriel : Interroger un index Recherche cognitive à partir de Power Apps
@@ -49,7 +49,7 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
 
 1. Sélectionnez **+ Nouveau connecteur personnalisé**, puis **Créer entièrement**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Créer entièrement" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Donnez un nom à votre connecteur personnalisé (par exemple, *AzureSearchQuery*), puis cliquez sur **Continuer**.
 
@@ -60,15 +60,15 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
    * Dans l’hôte, vous devez entrer l’URL de votre service de recherche (par exemple, `<yourservicename>.search.windows.net`)
    * Pour l’URL de base, entrez simplement « / »
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Boîte de dialogue Informations générales" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Dans la page Sécurité, définissez *Clé de l’API* comme **Type d’authentification**, puis définissez l’étiquette et le nom du paramètre sur *api-key*. Pour **Emplacement du paramètre**, sélectionnez *En-tête* comme indiqué ci-dessous.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Option Type d’authentification" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Dans la page Définitions, sélectionnez **+ Nouvelle action** pour créer une action qui interroge l’index. Entrez la valeur « Requête » pour le résumé et le nom de l’ID d’opération. Entrez une description comme *« Interroge l’index de recherche »* .
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Options Nouvelle action" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Faites défiler vers le bas. Dans Demandes, cliquez sur le bouton **+ Importer à partir de l’exemple** pour configurer une demande de requête à destination de votre service de recherche :
 
@@ -80,23 +80,23 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
 
      **Power Apps** utilise la syntaxe pour extraire les paramètres de la requête. Notez que nous avons défini explicitement le champ de recherche. 
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importer à partir de l’exemple" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Cliquez sur **Importer** pour compléter automatiquement la demande. Terminez la définition des métadonnées de paramètre en cliquant sur le symbole **...** en regard de chacun des paramètres. Cliquez sur **Retour** pour retourner à la page Demande après chaque mise à jour de paramètre.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Boîte de dialogue Importer à partir de l’exemple" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Pour *search* : définissez `*` comme **valeur par défaut**, définissez **obligatoire** sur *Faux* et définissez la **visibilité** sur *aucune*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Métadonnées du paramètre Search" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Pour *select* : définissez `HotelName,Description,Address/City` comme **valeur par défaut**, définissez **obligatoire** sur *Faux* et définissez la **visibilité** sur *aucune*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Sélectionner les métadonnées de paramètre" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Pour *api-version* : définissez `2020-06-30` comme **valeur par défaut**, définissez **obligatoire** sur *Vrai* et définissez la **visibilité** sur *interne*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Métadonnées du paramètre Version" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Pour *Content-Type* : Défini sur `application/json`.
 
@@ -158,7 +158,7 @@ Vous aurez besoin d’une [clé d’API de requête](search-security-api-keys.md
 
 1. Sélectionnez le connecteur, développez la liste d’actions, puis sélectionnez **Afficher les propriétés**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Afficher les propriétés" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Sélectionnez **Modifier** en haut à droite.
 
@@ -170,7 +170,7 @@ Vous aurez besoin d’une [clé d’API de requête](search-security-api-keys.md
 
 1. Dans Opérations, cliquez sur le bouton **Opération de test**. Si l’opération aboutit, vous obtenez un état 200 et un JSON apparaît dans le corps de la réponse avec une description des résultats de la recherche.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Réponse JSON" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 ## <a name="3---visualize-results"></a>3 – Visualiser les résultats
 
@@ -178,7 +178,7 @@ Dans cette étape, vous allez créer une application Power Apps avec une zone de
 
 1. À gauche, développez **Apps** >  **+ Nouvelle application** > **Canevas**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Créer une application canevas" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Sélectionnez le type d’application. Pour ce tutoriel, créez une **application vide** avec le **Mode téléphone**. **Power Apps Studio** s’affiche.
 
@@ -186,13 +186,13 @@ Dans cette étape, vous allez créer une application Power Apps avec une zone de
 
    Entrez la clé d’API de requête.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Connecter le connecteur" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
     À présent, *AzureSearchQuery* est une source de données qui peut être utilisée à partir de votre application.
 
 1. Sous l’**onglet Insertion**, ajoutez quelques contrôles au canevas.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Insérer des contrôles" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Insérez les éléments suivants :
 
@@ -203,7 +203,7 @@ Dans cette étape, vous allez créer une application Power Apps avec une zone de
 
     Voici comment se présente le canevas :
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Disposition des contrôles" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
 1. Pour que le **bouton Rechercher** émette une requête, collez l’action suivante dans **OnSelect** :
 
@@ -214,7 +214,7 @@ Dans cette étape, vous allez créer une application Power Apps avec une zone de
 
    La capture d’écran suivante affiche la barre de formule pour l’action **OnSelect**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Bouton OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Menu du connecteur personnalisé" border="true":::
 
    Cette action fera que le bouton mettra à jour une nouvelle collection appelée *azResult* avec le résultat de la requête de recherche en utilisant le texte de la zone de texte *txtQuery* comme terme de la requête.
 
@@ -236,17 +236,17 @@ Dans cette étape, vous allez créer une application Power Apps avec une zone de
 
     Étant donné que nous avons fourni un exemple de résultat lorsque nous avons défini le connecteur, l’application connaît les champs disponibles dans votre index.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Champs de la galerie" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Menu du connecteur personnalisé" border="true":::   
  
 1. Appuyez sur la touche **F5** pour afficher un aperçu de l’application.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Application finale" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Menu du connecteur personnalisé" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Menu du connecteur personnalisé" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

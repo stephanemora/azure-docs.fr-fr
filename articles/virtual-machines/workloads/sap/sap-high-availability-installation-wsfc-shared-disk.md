@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855330"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963633"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "88855330"
 
 Cet article explique comment installer et configurer un système SAP à haute disponibilité dans Azure à l’aide d’un cluster de basculement Windows Server et d’un disque partagé de cluster pour le clustering d’une instance SAP ASCS/SCS. Comme décrit dans [Guide d’architecture : Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster][sap-high-availability-guide-wsfc-shared-disk], il existe deux possibilités pour un *disque partagé de cluster* :
 
-- [Disques partagés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Disques partagés Azure](../../windows/disks-shared.md)
 - Utilisation de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) pour créer un stockage en miroir, qui simule le disque partagé en cluster 
 
 ## <a name="prerequisites"></a>Prérequis
