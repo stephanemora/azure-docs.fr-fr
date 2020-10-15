@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297736"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017741"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -44,8 +44,8 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 *  v3 est basée sur une surface d’API unifiée qui expose des fonctionnalités de gestion et de fonctionnement qui s’appuient sur Azure Resource Manager. Vous pouvez utiliser les modèles Azure Resource Manager pour créer et déployer des transformations, des points de terminaison de streaming, des événements en direct, etc.
 * Document sur la [spécification OpenAPI (anciennement Swagger)](https://aka.ms/ams-v3-rest-sdk).
     Expose le schéma pour tous les composants de service, dont l’encodage basé sur un fichier.
-* Kits de développement logiciel (SDK) disponibles pour [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) et Ruby.
-* Intégration d’[Azure CLI](https://aka.ms/ams-v3-cli-ref) pour la prise en charge de scripts simples.
+* Kits de développement logiciel (SDK) disponibles pour [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://aka.ms/ams-v3-go-ref) et Ruby.
+* Intégration d’[Azure CLI](/cli/azure/ams) pour la prise en charge de scripts simples.
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
@@ -69,7 +69,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
     * Consulter (et non gérer) les [actifs multimédias](assets-concept.md) v3. 
     * [Obtenir des informations sur l’accès aux API](./access-api-howto.md). 
 
-    Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+    Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/), l’interface [CLI](/cli/azure/ams) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 * Vous devez provisionner des unités réservées Multimédia (MRU) dans votre compte afin de contrôler la concurrence et les performances de vos travaux, en particulier ceux impliquant une analyse audio ou vidéo. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Vous pouvez gérer les MRU à l’aide de [CLI 2.0 pour Media Services v3](media-reserved-units-cli-how-to.md), du [portail Azure](../previous/media-services-portal-scale-media-processing.md) ou des [API v2](../previous/media-services-dotnet-encoding-units.md). Vous devez provisionner des unités réservées Multimédia, indépendamment de la version (v2 ou v3) des API Media Services que vous utilisez.
 * Des entités Media Services créées avec l’API v3 ne peuvent pas être gérées avec l’API v2.  
 * Toutes les entités de l’API V2 ne s’affichent pas automatiquement dans l’API V3.  Voici quelques exemples d’entités dans les deux versions et qui sont incompatibles :  

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474340"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
@@ -26,19 +26,19 @@ Quand un seul élément peut être sélectionné, le contrôle s’affiche comme
 
 Lorsque des descriptions sont incluses, le contrôle s’affiche comme suit :
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Sélection unique Microsoft.Common.DropDown avec descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Sélection unique Microsoft.Common.DropDown":::
 
 Lorsque la sélection multiple est activée, le contrôle ajoute une option **Sélectionner tout** et des cases à cocher pour sélectionner plusieurs éléments :
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Sélection multiple Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Sélection unique Microsoft.Common.DropDown":::
 
 Les descriptions peuvent être incluses lorsque la sélection multiple est activée.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Sélection multiple Microsoft.Common.DropDown avec descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Sélection unique Microsoft.Common.DropDown":::
 
 Lorsque le filtrage est activé, le contrôle comprend une zone de texte pour ajouter la valeur de filtrage.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Sélection multiple Microsoft.Common.DropDown avec descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Sélection unique Microsoft.Common.DropDown":::
 
 ## <a name="schema"></a>schéma
 

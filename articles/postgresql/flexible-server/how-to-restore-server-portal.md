@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90930132"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauration à un instant dans le passé d’un serveur flexible
@@ -40,7 +40,7 @@ Suivez ces étapes pour restaurer votre serveur flexible à l’aide de la plus 
 
 4.  Sélectionnez **Point de restauration le plus ancien**, puis fournissez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. L’horodateur le plus ancien auquel vous pouvez restaurer s’affiche. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Heure de restauration la plus ancienne":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Présentation de la restauration":::
 
 5.  Cliquez sur **OK**.
 
@@ -61,7 +61,7 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 5.  Sélectionnez la date et l’heure, puis entrez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Heure de restauration personnalisée":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Présentation de la restauration":::
  
 6.  Cliquez sur **OK**.
 

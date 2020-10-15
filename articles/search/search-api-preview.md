@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 90f91c56b2448e8455f3c22cf7ccae7b06b5be70
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 983322800198246bcfaecec92fe0b2b74e587756
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539909"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952095"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Fonctionnalités d’évaluation dans Recherche cognitive Azure
 
@@ -23,8 +23,8 @@ Les fonctionnalités d’évaluation qui passent en disponibilité générale so
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |---------|------------------|-------------|---------------|
-| [**Compétence Azure Machine Learning (AML)** ](cognitive-search-aml-skill.md) | Enrichissement de l’IA| Nouveau type de compétence permettant d'intégrer un point de terminaison d'inférence à partir d'Azure Machine Learning. Pour bien démarrer, suivez [ce tutoriel](cognitive-search-tutorial-aml-custom-skill.md). | Utilisez l'[API REST Recherche 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/) ou 2019-05-06-Preview. Également disponible sur le portail, dans la conception de compétences, si les services Recherche cognitive et Azure ML sont déployés sur le même abonnement. |
-| [**Paramètre featuresMode**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Pertinence (scoring) | Expansion du score de pertinence pour inclure des détails : score de similarité par champ, fréquence de terme par champ, et nombre de jetons uniques correspondants par champ. Vous pouvez consommer ces points de données dans des [solutions de scoring personnalisées](https://github.com/Azure-Samples/search-ranking-tutorial). | Ajoutez ce paramètre de requête à l’aide de [Recherche dans des documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) avec api-version=2020-06-30-Preview ou 2019-05-06-Preview. |
+| [**Compétence Azure Machine Learning (AML)** ](cognitive-search-aml-skill.md) | Enrichissement de l’IA| Nouveau type de compétence permettant d'intégrer un point de terminaison d'inférence à partir d'Azure Machine Learning. Pour bien démarrer, suivez [ce tutoriel](cognitive-search-tutorial-aml-custom-skill.md). | Utilisez l'[API REST Recherche 2020-06-30-Preview](/rest/api/searchservice/) ou 2019-05-06-Preview. Également disponible sur le portail, dans la conception de compétences, si les services Recherche cognitive et Azure ML sont déployés sur le même abonnement. |
+| [**Paramètre featuresMode**](/rest/api/searchservice/search-documents#featuresmode) | Pertinence (scoring) | Expansion du score de pertinence pour inclure des détails : score de similarité par champ, fréquence de terme par champ, et nombre de jetons uniques correspondants par champ. Vous pouvez consommer ces points de données dans des [solutions de scoring personnalisées](https://github.com/Azure-Samples/search-ranking-tutorial). | Ajoutez ce paramètre de requête à l’aide de [Recherche dans des documents (REST)](/rest/api/searchservice/search-documents) avec api-version=2020-06-30-Preview ou 2019-05-06-Preview. |
 | [**Sessions de débogage**](cognitive-search-debug-session.md) | Portail, enrichissement par IA (ensemble de compétences) | Éditeur d’ensemble de compétences dans la session utilisé pour examiner et résoudre les problèmes liés aux ensembles de compétences. Les correctifs appliqués au cours d’une session de débogage peuvent être enregistrés dans un ensemble de compétences dans le service. | Portail uniquement, à l’aide des liens en milieu de page Vue d’ensemble pour ouvrir une session de débogage. |
 | [**Suppression réversible native d’objets blob**](search-howto-index-changed-deleted-blobs.md) | Indexeurs, objets blob Azure| L’indexeur Stockage Blob Azure dans Recherche cognitive Azure reconnaît les objets blob qui sont dans un état de suppression réversible, et supprime le document de recherche correspondant durant l’indexation. | Ajoutez ce paramètre de configuration à l’aide de [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer) avec api-version=2020-06-30-Preview ou api-version=2019-05-06-Preview. |
 | [**Compétence de recherche d’entité personnalisée**](cognitive-search-skill-custom-entity-lookup.md ) | Enrichissement par IA (ensemble de compétences) | Compétence cognitive qui recherche du texte dans une liste personnalisée de mots et d'expressions définie par l'utilisateur. À l’aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes. | Référencez cette qualification en préversion à l’aide de l’éditeur d’ensemble de compétences dans le portail ou [créez un ensemble de compétences (REST)](/rest/api/searchservice/create-skillset) avec api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |

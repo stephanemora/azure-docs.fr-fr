@@ -10,10 +10,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86199795"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Préserver la confidentialité des données en utilisant la confidentialité différentielle et le package WhiteNoise (version préliminaire)

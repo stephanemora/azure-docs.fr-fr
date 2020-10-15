@@ -8,10 +8,10 @@ ms.date: 06/04/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 995e5a1a87ee332c48641f42c4134e3e58f11cfa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495418"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurer l’accès à partir de réseaux virtuels (VNet)
@@ -47,7 +47,7 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 
 1. Lorsque le compte Azure Cosmos DB se voit autoriser l’accès à partir d’un réseau virtuel, il autorise uniquement le trafic provenant de ce sous-réseau. Le réseau virtuel et le sous-réseau que vous avez ajoutés devraient se présenter comme dans la capture d’écran suivante :
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Réseau virtuel et sous-réseau configurés correctement":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Sélectionner un réseau virtuel et un sous-réseau":::
 
 > [!NOTE]
 > Les autorisations d’abonnement suivantes sont nécessaires pour activer les points de terminaison de service de réseau virtuel :
@@ -67,7 +67,7 @@ Voici les instructions pour inscrire un abonnement avec le fournisseur de ressou
 
 1. Fournissez les détails nécessaires pour créer un réseau virtuel, puis sélectionnez **Créer**. Le sous-réseau sera créé avec un point de terminaison de service pour « Microsoft.AzureCosmosDB » activé.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Sélectionner un réseau virtuel et un sous-réseau pour un nouveau réseau virtuel":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Sélectionner un réseau virtuel et un sous-réseau":::
 
 Si votre compte Azure Cosmos DB est utilisé par d’autres services Azure, comme la Recherche cognitive Azure, ou s’il est accessible à partir de Stream Analytics ou de Power BI, sélectionnez **Accepter les connexions provenant des centres de données Azure globaux** pour en autoriser l’accès.
 
@@ -81,7 +81,7 @@ Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du por
 
 1. Pour supprimer une règle de réseau virtuel ou de sous-réseau, sélectionnez **...** en regard du réseau virtuel ou du sous-réseau et sélectionnez **Supprimer**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Supprimer un réseau virtuel":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Sélectionner un réseau virtuel et un sous-réseau":::
 
 1. Sélectionnez **Enregistrer** pour enregistrer vos modifications.
 

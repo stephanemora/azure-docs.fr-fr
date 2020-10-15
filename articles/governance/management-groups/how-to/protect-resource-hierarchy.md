@@ -3,12 +3,12 @@ title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvern
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533977"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951891"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -115,5 +115,5 @@ Pour désactiver le paramètre, utilisez le même point de terminaison et attrib
 
 Pour en savoir plus sur les groupes d’administration, consultez :
 
-- [Créer des groupes d’administration pour organiser les ressources Azure](../create.md)
+- [Créer des groupes d’administration pour organiser les ressources Azure](../create-management-group-portal.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](../manage.md)

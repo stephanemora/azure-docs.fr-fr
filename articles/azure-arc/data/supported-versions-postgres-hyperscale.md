@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0f3f9e7f4566800bdea6871cae1c5bafb3b37b95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90930196"
 ---
 # <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Versions prises en charge de Postgres avec PostgreSQL Hyperscale activé pour Azure Arc

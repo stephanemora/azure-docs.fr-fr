@@ -3,12 +3,12 @@ title: Économiser grâce à l’instance réservée de Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91491662"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951415"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -22,7 +22,7 @@ Les instances réservées sont disponibles avec quelques exceptions près :
 
 -   **Quota insuffisant** : une réservation qui est limitée à un abonnement unique/partagé doit avoir un quota d’hôtes disponible dans l’abonnement pour la nouvelle instance réservée. Pour résoudre ce problème, vous pouvez  [créer une demande d’augmentation de quota](enable-azure-vmware-solution.md).
 
--   **Éligibilité de l’offre** : vous aurez besoin d’un  [Contrat Entreprise (EA) Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) avec Microsoft.
+-   **Éligibilité de l’offre** : vous aurez besoin d’un  [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) avec Microsoft.
 
 -   **Restrictions de capacité** : dans de rares cas, Azure limite l’achat de nouvelles réservations pour les SKU d’hôtes Azure VMware Solution, en raison d’une faible capacité dans une région donnée.
 
