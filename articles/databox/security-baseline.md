@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89225602"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de référence de sécurité Azure pour Azure Data Box
@@ -74,7 +74,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Informations de port pour Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-system-requirements#port-requirements)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -230,7 +230,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
+**Conseils** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
 
 **Supervision d’Azure Security Center** : Non applicable
 

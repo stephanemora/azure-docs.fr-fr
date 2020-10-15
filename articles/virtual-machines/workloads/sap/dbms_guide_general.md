@@ -1,26 +1,18 @@
 ---
 title: Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP | Microsoft Docs
 description: Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: bburns
-editor: ''
-tags: azure-resource-manager
-keywords: SAP, SGBD, stockage, ultra Disk, stockage Premium
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 1f71d95d61e401e12c76ca5589368eed6cc29ce6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331350"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993281"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -273,7 +265,7 @@ Il existe d’autres méthodes de redondance. Pour plus d’informations, consul
 
 
 ## <a name="vm-node-resiliency"></a>Résilience des nœuds de machine virtuelle
-Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des Zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../windows/manage-availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../linux/manage-availability.md).
+Azure propose plusieurs contrats SLA différents pour les machines virtuelles. Pour plus d’informations, consultez la dernière mise à jour du [SLA pour Machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). La couche SGBD étant un facteur critique pour la disponibilité dans un système SAP, vous devez bien comprendre les concepts des groupes à haute disponibilité, des Zones de disponibilité et des événements de maintenance. Pour plus d’informations sur ces concepts, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure](../../manage-availability.md) et [Gérer la disponibilité des machines virtuelles Linux dans Azure](../../manage-availability.md).
 
 Les recommandations minimales pour les scénarios de SGBD de production avec une charge de travail SAP sont les suivantes :
 
@@ -295,7 +287,7 @@ Ces bonnes pratiques sont le résultat de centaines de déploiements clients :
 - Les réseaux virtuels sur lesquels l’application SAP est déployée n’ont pas accès à Internet.
 - Les machines virtuelles de base de données s’exécutent dans le même réseau virtuel que la couche application, séparées dans un sous-réseau différent de la couche application SAP.
 - Les machines virtuelles du réseau virtuel ont une allocation statique de l’adresse IP privée. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/public-ip-addresses.md).
-- Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont *pas* définies avec des pare-feu installés sur les machines virtuelles SGBD locales. À la place, le routage du trafic est défini avec des [groupes de sécurité réseau (NSG)](../../../virtual-network/security-overview.md).
+- Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont *pas* définies avec des pare-feu installés sur les machines virtuelles SGBD locales. À la place, le routage du trafic est défini avec des [groupes de sécurité réseau (NSG)](../../../virtual-network/network-security-groups-overview.md).
 - Pour séparer et isoler le trafic à destination des machines virtuelles SGBD, attribuez des cartes réseau distinctes aux machines virtuelles. Chaque carte réseau obtient une adresse IP différente et est attribuée à un sous-réseau virtuel différent. Chaque sous-réseau a ses propres règles NSG. L’isolation ou la séparation du trafic réseau est une méthode de routage. Elle ne permet pas de définir des quotas de débit réseau.
 
 > [!NOTE]
@@ -304,7 +296,7 @@ Ces bonnes pratiques sont le résultat de centaines de déploiements clients :
 
 
 > [!WARNING]
-> Il n’est pas possible de configurer des [appliances virtuelles réseau](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. Cette restriction est implémentée pour des raisons de performances et de fonctionnalités. Le chemin de communication entre la couche Application SAP et la couche SGBD doit être direct. La restriction n’inclut pas les [règles NSG et règles de groupe de sécurité d’application (ASG)](../../../virtual-network/security-overview.md) si ces règles ASG et NSG autorisent un chemin de communication direct. 
+> Il n’est pas possible de configurer des [appliances virtuelles réseau](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. Cette restriction est implémentée pour des raisons de performances et de fonctionnalités. Le chemin de communication entre la couche Application SAP et la couche SGBD doit être direct. La restriction n’inclut pas les [règles NSG et règles de groupe de sécurité d’application (ASG)](../../../virtual-network/network-security-groups-overview.md) si ces règles ASG et NSG autorisent un chemin de communication direct. 
 >
 > Voici d’autres scénarios où les appliances réseau virtuelles ne sont pas prises en charge :
 >
@@ -333,7 +325,7 @@ S’il y a basculement du nœud de base de données, la reconfiguration de l’a
 
 Azure fournit deux [références SKU d’équilibreur de charge](../../../load-balancer/load-balancer-overview.md) différentes : une référence SKU de base et une référence SKU standard. En fonction des avantages de l’installation et des fonctionnalités, vous devez utiliser la référence SKU standard d’Azure Load Balancer. L’un des grands avantages de la version standard de l’équilibreur de charge est que celui-ci ne reçoit pas de trafic de données routé.
 
-Un exemple de configuration d’un équilibreur de charge interne figure dans l’article [Tutoriel : Configurer manuellement un groupe de disponibilité SQL Server sur des machines virtuelles Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
+Un exemple de configuration d’un équilibreur de charge interne figure dans l’article [Tutoriel : Configurer manuellement un groupe de disponibilité SQL Server sur des machines virtuelles Azure](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer)
 
 > [!NOTE]
 > Il existe des différences de comportement entre la référence SKU de base et la référence SKU standard en ce qui concerne l'accès aux adresses IP publiques. Le contournement des restrictions de la référence SKU standard pour accéder aux adresses IP publiques est décrite dans le document [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).

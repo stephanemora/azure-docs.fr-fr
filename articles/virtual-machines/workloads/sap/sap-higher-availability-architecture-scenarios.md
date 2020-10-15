@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134532"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361634"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité d’un système SAP
 
@@ -210,7 +210,7 @@ ms.locfileid: "86134532"
 
 > Cette section s’applique à :
 >
-> ![Windows][Logo_Windows] Windows et ![Linux][Logo_Linux] Linux
+> ![Logo Windows.][Logo_Windows] Windows et ![Logo Linux.][Logo_Linux] Linux
 >
 
 Si vous décidez de ne pas utiliser des fonctionnalités telles que le clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux (actuellement prises en charge pour SUSE Linux Enterprise Server [SLES] 12 et versions ultérieures uniquement), le redémarrage de la machine virtuelle Azure est utilisé. Il protège les systèmes SAP contre les temps d’arrêt planifiés ou non de l’infrastructure de serveur physique Azure et de la plateforme Azure sous-jacente globale.

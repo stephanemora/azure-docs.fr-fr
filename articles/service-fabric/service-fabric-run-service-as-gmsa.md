@@ -1,17 +1,14 @@
 ---
 title: Exécuter un service Azure Service Fabric sous un compte gMSA
 description: Découvrez comment exécuter un service en tant que compte de service administré de groupe (gMSA) sur un cluster autonome Service Fabric Windows.
-author: dkkapur
 ms.topic: how-to
 ms.date: 03/29/2018
-ms.author: dekapur
-ms.custom: sfrev
-ms.openlocfilehash: 8dea63ef6a50597d9ad852cb9cdea4745532fed4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9750042764306c5df7a391429cc6926704db05ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252910"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838906"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Exécuter un service en tant que compte de service administré de groupe
 

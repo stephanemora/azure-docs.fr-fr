@@ -1,22 +1,18 @@
 ---
 title: Infrastructure de mise à jour Red Hat | Microsoft Docs
 description: Découvrez l’infrastructure de mise à jour Red Hat pour les instances Red Hat Enterprise Linux à la demande dans Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: cynthn
+ms.openlocfilehash: 3bdbd84785053b79198479305e1ca76e133a46f3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612511"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994266"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.

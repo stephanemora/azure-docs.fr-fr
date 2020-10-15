@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653509"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359611"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -543,11 +543,11 @@ Dans la mesure où les différentes versions d’un système d’exploitation ou
 Différentes étapes permettent de créer une image privée pour Linux et pour Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows][Logo_Windows] Windows
 >
 > Pour préparer une image Windows pouvant être utilisée pour déployer plusieurs machines virtuelles, les paramètres Windows (comme le nom d’hôte et le SID Windows) doivent être abstraits ou généralisés sur la machine virtuelle locale. Pour ce faire, vous pouvez utiliser la commande [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux][Logo_Linux] Linux
 >
 > Pour préparer une image Linux pouvant être utilisée pour déployer plusieurs machines virtuelles, certains paramètres Linux doivent être abstraits ou généralisés sur la machine virtuelle locale. Pour ce faire, vous pouvez utiliser la commande `waagent -deprovision`. Pour plus d’informations, consultez [Capturer une machine virtuelle Linux exécutée sur Azure][virtual-machines-linux-capture-image] et le [Guide de l’utilisateur de l’agent Linux Azure][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -683,11 +683,11 @@ Dans ce scénario, l’agent de machine virtuelle **n’est pas** installé auto
 Pour plus d’informations sur l’agent de machine virtuelle Azure, consultez les ressources suivantes.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows][Logo_Windows] Windows
 >
 > [Vue d’ensemble d’agent de machine virtuelle Azure][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux][Logo_Linux] Linux
 >
 > [Guide d’utilisateur de l’agent Linux Azure][virtual-machines-linux-agent-user-guide]
 >
@@ -1309,7 +1309,7 @@ Si certaines des données d’infrastructure ne sont pas délivrées correctemen
 > [!NOTE]
 > L’extension de machine virtuelle se présente sous deux versions. Ce chapitre traite de l’extension par défaut. Si vous avez installé la nouvelle extension de machine virtuelle, consultez le chapitre [Résolution des problèmes de la nouvelle extension Azure pour SAP][deployment-guide-5.3-new].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Les compteurs de performances Azure ne s’affichent pas
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows][Logo_Windows] Les compteurs de performances Azure ne s’affichent pas
 
 Le service Windows AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. Si le service n’a pas été installé correctement ou s’il n’est pas exécuté sur votre machine virtuelle, aucun indicateur de performance ne peut être collecté.
 
@@ -1350,13 +1350,13 @@ Le service Windows AzureEnhancedMonitoring existe et est activé, mais ne parvie
 
 La configuration est incorrecte. Redémarrez l’extension Azure pour SAP, comme décrit dans [Configurer l’extension Azure pour SAP][deployment-guide-4.5].
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Certains compteurs de performances Azure sont manquants
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows][Logo_Windows] Certains compteurs de performances Azure sont manquants
 
 Le service Windows AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. Le service obtient des données provenant de plusieurs sources. Certaines données de configuration sont collectées localement, et certains indicateurs de performance sont lus à partir des diagnostics Azure. Les compteurs de stockage sont utilisés à partir de votre enregistrement au niveau de l’abonnement de stockage.
 
 Si la résolution des problèmes à l’aide de la note SAP [1999351] ne résout pas le problème, réexécutez le script de configuration `Set-AzVMAEMExtension`. Vous devrez peut-être attendre une heure, car il est possible que les compteurs d’analyse ou de diagnostics de stockage ne soient pas créés immédiatement après avoir été activés. Si le problème persiste, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Les compteurs de performances Azure ne s’affichent pas
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Linux][Logo_Linux] Les compteurs de performances Azure ne s’affichent pas
 
 Les indicateurs de performance dans Azure sont collectés par un démon. Si le démon ne fonctionne pas, aucun indicateur de performance ne peut être collecté.
 
@@ -1389,7 +1389,7 @@ En exécutant azperfli.exe comme décrit plus haut, vous pouvez obtenir un résu
 Les messages s’affichent parce que les disques managés standard ne fournissent pas les API utilisées par l’extension de SAP pour Azure pour vérifier les statistiques des comptes de stockage Azure standard. Vous n’avez pas à vous en soucier. Nous avons introduit la collecte des données des comptes de stockage sur disque standard pour éviter les limitations trop fréquentes des entrées et sorties. Les disques managés évitent ces limitations en réduisant le nombre de disques dans un compte de stockage. Par conséquent, ces données ne sont pas capitales dans ce contexte.
 
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Certains compteurs de performances Azure sont manquants
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo Linux][Logo_Linux] Certains compteurs de performances Azure sont manquants
 
 Les indicateurs de performance sur Azure sont collectés par un démon, qui obtient des données de plusieurs sources. Certaines données de configuration sont collectées localement, et certains indicateurs de performance sont lus à partir des diagnostics Azure. Les compteurs de stockage proviennent des journaux d’activité de votre abonnement de stockage.
 
@@ -1402,7 +1402,7 @@ Si le recours à la note SAP [1999351] ne résout pas le problème, réexécutez
 > [!NOTE]
 > L’extension de machine virtuelle se présente sous deux versions. Ce chapitre traite de la nouvelle extension. Si vous avez installé l’extension de machine virtuelle par défaut, consultez le chapitre [Résolution des problèmes de l’extension Azure pour SAP][deployment-guide-5.3].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Les compteurs de performances Azure ne s’affichent pas
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows][Logo_Windows] Les compteurs de performances Azure ne s’affichent pas
 
 Le processus AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. S’il ne s’exécute pas sur votre machine virtuelle, aucun indicateur de performance ne peut être collecté.
 
@@ -1416,13 +1416,13 @@ Le répertoire d’installation C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureE
 
 L’extension n’est pas installée. Déterminez s’il s’agit d’un problème de proxy (comme décrit précédemment). Vous devrez peut-être redémarrer l’ordinateur ou réinstaller l’extension de machine virtuelle.
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Certains compteurs de performances Azure sont manquants
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows][Logo_Windows] Certains compteurs de performances Azure sont manquants
 
 Le processus Windows AzureEnhancedMonitoring recueille les indicateurs de performance dans Azure. Il récupère des données provenant de plusieurs sources. Certaines données de configuration sont collectées localement, certains indicateurs de performance sont lus à partir d’Azure Monitor.
 
 Si la note SAP [1999351] ne permet pas de résoudre le problème, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux. Joignez le fichier journal C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt à l’incident.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Les compteurs de performances Azure ne s’affichent pas
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Linux][Logo_Linux] Les compteurs de performances Azure ne s’affichent pas
 
 Les indicateurs de performance dans Azure sont collectés par un démon. Si le démon ne fonctionne pas, aucun indicateur de performance ne peut être collecté.
 
@@ -1436,7 +1436,7 @@ Le répertoire \\var\\lib\\waagent\\ ne contient pas de sous-répertoire pour l�
 
 L’extension n’est pas installée. Déterminez s’il s’agit d’un problème de proxy (comme décrit précédemment). Vous devrez peut-être redémarrer l’ordinateur ou réinstaller l’extension de machine virtuelle.
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Certains compteurs de performances Azure sont manquants
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo Linux][Logo_Linux] Certains compteurs de performances Azure sont manquants
 
 Les indicateurs de performance sur Azure sont collectés par un démon, qui obtient des données de plusieurs sources. Certaines données de configuration sont collectées localement, certains indicateurs de performance sont lus à partir d’Azure Monitor.
 

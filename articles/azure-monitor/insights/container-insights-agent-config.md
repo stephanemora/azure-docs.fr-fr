@@ -3,12 +3,12 @@ title: Configuration d’Azure Monitor pour la collecte de données de l’agent
 description: Cet article décrit comment configurer Azure Monitor pour que l’agent de conteneurs contrôle stdout/stderr et la collecte des journaux de variables d’environnement.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299279"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994615"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs
 
@@ -134,7 +134,7 @@ La sortie qui s’affiche est similaire à ce qui suit avec les versions de sch�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Azure Monitor pour conteneurs n’inclut pas d’un ensemble prédéfini d’alertes. Pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md).
+- Azure Monitor pour conteneurs n’inclut pas d’un ensemble prédéfini d’alertes. Pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](./container-insights-log-alerts.md).
 
 - Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre Azure Kubernetes Service ou de vos clusters hybrides et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
 

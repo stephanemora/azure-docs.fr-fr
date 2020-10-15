@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336120"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978337"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -65,7 +65,7 @@ Les paquets d’extensions sont téléchargés à partir du dépôt d’extensio
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité, les extensions échouent, que vous utilisiez, ou non, une version prise en charge.
 
-Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui exigent un accès au service Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour le [Stockage](../../virtual-network/security-overview.md#service-tags).
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui exigent un accès au service Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour le [Stockage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Pour rediriger les requêtes de trafic d’agent, l’agent Linux prend en charge les serveurs proxy. Toutefois, cette prise en charge des serveurs proxy ne s’applique pas aux extensions. Vous devez configurer chaque extension individuelle pour qu’elle fonctionne avec un proxy.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306869"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977097"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -73,7 +73,7 @@ Oracle Linux        | Accès à la console série activé par défaut.
 ### <a name="custom-linux-images"></a>Images Linux personnalisées
 Afin d’activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans le fichier */etc/inittab* pour exécuter un terminal sur `ttyS0`. Par exemple : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Vous devrez peut-être aussi générer un getty sur ttyS0. Pour ce faire, vous pouvez utiliser `systemctl start serial-getty@ttyS0.service`.
 
-Vous devez également ajouter ttys0 comme destination de la sortie en série. Pour plus d’informations sur la configuration d’une image personnalisée pour que cette dernière fonctionne avec la console série, consultez les exigences générales du système sous [Création et téléchargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+Vous devez également ajouter ttys0 comme destination de la sortie en série. Pour plus d’informations sur la configuration d’une image personnalisée pour que cette dernière fonctionne avec la console série, consultez les exigences générales du système sous [Création et téléchargement d’un disque dur virtuel Linux dans Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/* .
 
@@ -128,7 +128,7 @@ Problème                           |   Limitation des risques
 L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | GRUB n’est peut-être pas correctement configuré. Exécutez les commandes suivantes : `grub2-mkconfig -o /etc/grub2-efi.cfg` et/ou `grub2-mkconfig -o /etc/grub2.cfg`. Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui empêche Linux de se connecter au port série.
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte). | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Installez xterm ou un utilitaire similaire pour disposer de la commande `resize`, puis exécutez `resize`.
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
-Entrée de clavier erratique dans les images SLES BYOS. L’entrée de clavier n’est reconnue que de manière sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure tant que vous n’avez pas besoin d’un écran de démarrage. Plymouth interfère avec la capacité de la plateforme à utiliser la console série. Supprimez Plymouth avec `sudo zypper remove plymouth`, puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez le faire en [modifiant l’entrée de démarrage au moment du démarrage](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, en regénérant GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis en redémarrant la machine.
+Entrée de clavier erratique dans les images SLES BYOS. L’entrée de clavier n’est reconnue que de manière sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure tant que vous n’avez pas besoin d’un écran de démarrage. Plymouth interfère avec la capacité de la plateforme à utiliser la console série. Supprimez Plymouth avec `sudo zypper remove plymouth`, puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez le faire en [modifiant l’entrée de démarrage au moment du démarrage](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, en regénérant GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis en redémarrant la machine.
 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions

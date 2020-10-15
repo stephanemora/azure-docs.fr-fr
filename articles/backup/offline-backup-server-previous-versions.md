@@ -4,10 +4,10 @@ description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en deh
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890091"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Workflow de sauvegarde en mode hors connexion pour DPM et le serveur de sauvegarde Azure (versions précédentes)

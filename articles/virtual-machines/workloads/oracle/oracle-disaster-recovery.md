@@ -1,25 +1,18 @@
 ---
 title: Vue d’ensemble du scénario de récupération d’urgence Oracle dans votre environnement Azure | Documents Microsoft
 description: Scénario de récupération d’urgence pour une base de données Oracle Database 12c dans votre environnement Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274559"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996168"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Récupération d’urgence pour une base de données Oracle Database 12c dans votre environnement Azure
 
@@ -100,7 +93,7 @@ Voici un résumé de la configuration Azure :
 - [Concevoir et mettre en œuvre une base de données Oracle sur Azure](oracle-design.md)
 - [Implémenter Oracle Data Guard sur une machine virtuelle Linux Azure](configure-oracle-dataguard.md)
 - [Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure](configure-oracle-golden-gate.md)
-- [Sauvegarde et récupération Oracle](oracle-backup-recovery.md)
+- [Sauvegarde et récupération Oracle](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

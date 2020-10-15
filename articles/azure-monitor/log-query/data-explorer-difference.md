@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
-ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: bfa27b0df7febbfb8c97f11f69f87c352810699b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585709"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993181"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Différences propres au langage de requête de journal d'Azure Monitor
 
@@ -56,5 +56,5 @@ Les opérateurs suivants prennent en charge des fonctionnalités propres à Azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Obtenir des références aux différentes [ressources pour l'écriture de requêtes de journal Azure Monitor](query-language.md).
+- Obtenir des références aux différentes [ressources pour l'écriture de requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
 - Accédez à la [documentation de référence complète du langage de requête Kusto](/azure/kusto/query/).

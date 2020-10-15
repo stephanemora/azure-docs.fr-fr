@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 350584984bff82c7dc80aff38044d887f981424c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256750"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979102"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -117,7 +117,7 @@ Dans cette section, nous enverrons des requêtes qui sont pertinentes pour le co
     L’opération **POST** suivante est envoyée.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. La réponse inclut le jeton et définit la variable d’environnement « AccessToken » sur la valeur du jeton. Pour afficher le code qui définit « AccessToken », cliquez sur l’onglet **Tests**. 

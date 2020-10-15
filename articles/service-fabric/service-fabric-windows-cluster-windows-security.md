@@ -1,16 +1,14 @@
 ---
 title: Sécuriser un cluster exécuté sur Windows avec la sécurité Windows
 description: Apprenez à configurer la sécurité de nœud à nœud et de client à nœud sur un cluster autonome exécuté sous Windows avec la sécurité Windows.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: dekapur
-ms.openlocfilehash: 360bba2ffc344175214c44e2c9c1d3c0859ac3e5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255963"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839478"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Sécuriser un cluster autonome sous Windows avec la sécurité Windows
 Pour empêcher tout accès non autorisé à un cluster Service Fabric, vous devez sécuriser le cluster. La sécurité est particulièrement importante lorsque le cluster exécute des charges de travail de production. Cet article explique comment configurer la sécurité de nœud à nœud et de client à nœud avec la sécurité Windows dans le fichier *ClusterConfig.JSON*.  Le processus correspond à l’étape de configuration de la sécurité sur la page [Créer un cluster autonome s’exécutant sous Windows](service-fabric-cluster-creation-for-windows-server.md). Pour plus d’informations sur la manière dont Service Fabric utilise la sécurité Windows, référez-vous à [Scénarios de sécurité du cluster](service-fabric-cluster-security.md).

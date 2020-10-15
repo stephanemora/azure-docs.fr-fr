@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: bce702873fc4e66f283a9785bb408bbfa7fda83c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266892"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973255"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Vous disposez de plusieurs options :
 
 Vous pouvez également utiliser le portail Azure pour [créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](create-vm-specialized-portal.md).
 
-Cet article montre comment utiliser des disques managés. Si vous avez un déploiement hérité qui nécessite l’utilisation d’un compte de stockage, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage](sa-create-vm-specialized.md).
+Cet article montre comment utiliser des disques managés. Si vous avez un déploiement hérité qui nécessite l’utilisation d’un compte de stockage, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
 
 Nous vous recommandons de limiter le nombre de déploiements simultanés à 20 machines virtuelles provenant d’un seul disque dur virtuel ou d’une seule capture instantanée. 
 

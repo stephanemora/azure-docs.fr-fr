@@ -4,12 +4,12 @@ description: Surveillance efficace de vos rôles Web et de travail avec Applicat
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759371"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992836"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](../platform/diagnostics-extension-overview.md) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -67,7 +67,7 @@ Pour éviter cette situation, créez des ressources distinctes pour chaque confi
 
 Pour envoyer les données de télémétrie aux ressources appropriées, vous pouvez configurer le SDK Application Insights pour qu’il récupère une clé d’instrumentation différente en fonction de la configuration de build. 
 
-Découvrez comment [définir dynamiquement la clé d’instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) pour différentes étapes. 
+Découvrez comment [définir dynamiquement la clé d’instrumentation](./separate-resources.md#dynamic-ikey) pour différentes étapes. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Création d’une ressource Application Insights pour chaque rôle
 
@@ -290,4 +290,3 @@ Avez-vous effectué une génération pour .NET 4.6 ? .NET 4.6 n’est pas aut
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

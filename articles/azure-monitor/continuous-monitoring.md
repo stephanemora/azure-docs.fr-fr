@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318128"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996398"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -43,7 +43,7 @@ Les applications ne sont fiables que si leur infrastructure sous-jacente l’est
 
 L’[infrastructure en tant que code](/azure/devops/learn/what-is-infrastructure-as-code) est la gestion de l’infrastructure dans un modèle descriptif, en utilisant la même gestion de versions que celle utilisée par les équipes DevOps pour le code source. Cette possibilité ajoute fiabilité et scalabilité à votre environnement, tout en vous permettant de tirer parti de processus similaires à ceux qui habituellement gèrent vos applications.
 
--  Utilisez des [modèles Resource Manager](platform/template-workspace-configuration.md) pour activer la supervision et configurer des alertes sur un large éventail de ressources.
+-  Utilisez des [modèles Resource Manager](./samples/resource-manager-workspace.md) pour activer la supervision et configurer des alertes sur un large éventail de ressources.
 - Utilisez [Azure Policy](../governance/policy/overview.md) pour appliquer différentes règles sur vos ressources. Vous avez ainsi l’assurance que vos ressources demeurent en conformité avec les standards et contrats de niveau de service de votre entreprise. 
 
 
@@ -87,4 +87,3 @@ Le fait de veiller à ce que votre développement et vos opérations aient accè
 
 - Découvrir les différents composants d’[Azure Monitor](overview.md).
 - [Ajouter la supervision continue](./app/continuous-monitoring.md) à votre pipeline de mise en production.
-

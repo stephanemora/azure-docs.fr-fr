@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3df547307a49de9e50abe8eb655fbe4acd67a8be
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8221abe3ff726a7f94d49f69ae18368f87925901
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552677"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850827"
 ---
 # <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Tutoriel : Intégrer iWellnessNow à Azure Active Directory
 
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
 
-    ![image](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Reply URL et sélectionner Save.](common/idp-intiated.png)
 
     > [!Note]
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
@@ -102,7 +102,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CustomerName>.iwellnessnow.com/`
 

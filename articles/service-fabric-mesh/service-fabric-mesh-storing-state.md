@@ -1,16 +1,16 @@
 ---
 title: Options de stockage d’état dans Azure Service Fabric Mesh
 description: Découvrez comment stocker un état de façon fiable dans des applications Service Fabric mesh s’exécutant sur Azure Service Fabric mesh.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984123"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843207"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestion d’état avec Service Fabric
 

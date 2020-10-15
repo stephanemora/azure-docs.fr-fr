@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334931"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91828788"
 ---
 | Ressource | Limite | Remarque |
 | --- | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "80334931"
 | Règles personnalisées WAF maximales|100||
 | Nombre maximal d’exclusions WAF|100||
 
-<sup>1</sup> En cas de références SKU avec WAF activé, nous vous recommandons de limiter le nombre de ressources à 40 pour des performances optimales.
+<sup>1</sup> Dans le cas des références SKU compatibles WAF, vous devez limiter le nombre de ressources à 40.
