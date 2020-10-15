@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067984"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968665"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tâche DevOps du service Azure Image Builder
 
@@ -31,8 +31,8 @@ Il existe deux tâches DevOps Azure VM Image Builder (AIB) :
 * Installez la [tâche stable DevOps à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * Vous devez disposer d’un compte VSTS DevOps et d’un pipeline de build créé
 * Inscrire et activer les exigences de la fonctionnalité Image Builder dans l’abonnement utilisé par les pipelines :
-    * [Az PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
-    * [Az CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
+    * [Az PowerShell](../windows/image-builder-powershell.md#register-features)
+    * [Az CLI](../windows/image-builder.md#register-the-features)
     
 * Créez un compte de Stockage Azure standard dans le groupe de ressources d’images sources, vous pouvez utiliser d’autres comptes de groupe de ressources/stockage. Le compte de stockage est utilisé pour transférer les artefacts de build à partir de la tâche DevOps vers l’image.
 
@@ -71,14 +71,14 @@ Utilisez le groupe de ressources dans lequel l’artefact du modèle d’image t
  
 ### <a name="location"></a>Emplacement
 
-L’emplacement est la région dans laquelle Image Builder sera exécuté. Seul un nombre défini de [régions](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) sont prises en charge. Les images sources doivent être présentes à cet emplacement. Par exemple, si vous utilisez Shared Image Gallery, un réplica doit exister dans cette région.
+L’emplacement est la région dans laquelle Image Builder sera exécuté. Seul un nombre défini de [régions](../windows/image-builder-overview.md#regions) sont prises en charge. Les images sources doivent être présentes à cet emplacement. Par exemple, si vous utilisez Shared Image Gallery, un réplica doit exister dans cette région.
 
 ### <a name="managed-identity-required"></a>Identité managée (obligatoire)
-Image Builder nécessite une identité managée, qu’il utilise pour lire les images personnalisées sources, se connecter au Stockage Azure et créer des images personnalisées. Consultez [ce document](https://aka.ms/azvmimagebuilder#permissions) pour plus d’informations.
+Image Builder nécessite une identité managée, qu’il utilise pour lire les images personnalisées sources, se connecter au Stockage Azure et créer des images personnalisées. Consultez [ce document](./image-builder-overview.md#permissions) pour plus d’informations.
 
 ### <a name="vnet-support"></a>Prise en charge du réseau virtuel
 
-Actuellement, la tâche DevOps ne prend pas en charge la spécification d’un sous-réseau existant, elle se trouve sur la feuille de route, mais si vous souhaitez utiliser un réseau virtuel existant, vous pouvez utiliser un modèle Resource Manager, avec un modèle Image Builder imbriqué à l’intérieur, consultez les exemples de modèles Image Builder Windows pour savoir comment procéder ou utilisez [AZ AIB PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell).
+Actuellement, la tâche DevOps ne prend pas en charge la spécification d’un sous-réseau existant, elle se trouve sur la feuille de route, mais si vous souhaitez utiliser un réseau virtuel existant, vous pouvez utiliser un modèle Resource Manager, avec un modèle Image Builder imbriqué à l’intérieur, consultez les exemples de modèles Image Builder Windows pour savoir comment procéder ou utilisez [AZ AIB PowerShell](../windows/image-builder-powershell.md).
 
 ### <a name="source"></a>Source
 
@@ -139,7 +139,7 @@ Sélectionnez le bouton **Chemin d’accès à la build** pour choisir le dossie
 
 L’exemple suivant explique son fonctionnement :
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Une structure de répertoires qui présente la hiérarchie.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Sélection de l’option Ajouter un artefact dans le pipeline de mise en production.":::
 
 
 * Des fichiers Windows existent dans `C:\`. Un répertoire nommé `buildArtifacts` est créé et comprend le répertoire `webapp`.
@@ -194,7 +194,7 @@ L’exemple suivant explique son fonctionnement :
     
 #### <a name="total-length-of-image-build"></a>Longueur totale de la build d’image
 
-La longueur totale ne peut pas encore être modifiée dans la tâche de pipeline DevOps. Il utilise la valeur par défaut de 240 minutes. Si vous souhaitez augmenter la [buildTimeoutInMinutes](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#properties-buildtimeoutinminutes), vous pouvez utiliser une tâche AZ CLI dans le pipeline de mise en production. Configurez la tâche pour copier un modèle et l’envoyer. Pour obtenir un exemple, consultez cette [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) ou utilisez AZ PowerShell.
+La longueur totale ne peut pas encore être modifiée dans la tâche de pipeline DevOps. Il utilise la valeur par défaut de 240 minutes. Si vous souhaitez augmenter la [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), vous pouvez utiliser une tâche AZ CLI dans le pipeline de mise en production. Configurez la tâche pour copier un modèle et l’envoyer. Pour obtenir un exemple, consultez cette [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) ou utilisez AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Compte de stockage
@@ -314,7 +314,7 @@ En cas d’échec d’une build, la tâche DevOps ne supprime pas le groupe de r
 
 Vous verrez une erreur dans le journal DevOps pour la tâche Image Builder de machine virtuelle et vous verrez l’emplacement du fichier customization.log. Par exemple :
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemple d’erreur de tâche DevOps qui indique une défaillance.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Sélection de l’option Ajouter un artefact dans le pipeline de mise en production.":::
 
 Pour plus d’informations sur la résolution des problèmes, consultez [Résoudre des problèmes liés au service Azure Image Builder](image-builder-troubleshoot.md). 
 

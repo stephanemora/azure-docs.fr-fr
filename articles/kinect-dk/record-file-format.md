@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, capteur, kit de développement logiciel (sdk), profondeur, rvb, enregistrement, lecture, matroska, mkv
 ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501778"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Utiliser le Kit de développement logiciel (SDK) de capteur Azure Kinect pour enregistrer un format de fichier

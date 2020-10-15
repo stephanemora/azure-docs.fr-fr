@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605441"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutoriel : Détection des menaces prête à l’emploi
@@ -65,7 +65,7 @@ Les types de modèles suivants sont disponibles :
 
 1. Pour utiliser un modèle intégré, cliquez sur le nom du modèle, puis cliquez sur le bouton **Créer une règle** dans le volet d’informations pour créer une nouvelle règle active basée sur ce modèle. Chaque modèle possède une liste de sources de données requises. Lorsque vous ouvrez le modèle, la disponibilité des sources de données est automatiquement vérifiée. En cas de problème de disponibilité, le bouton **Créer une règle** peut être désactivé ou un avertissement à cet effet peut s’afficher.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panneau d’aperçu de la règle de détection":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel":::
  
 1. Cliquer sur le bouton **Créer une règle** ouvre l’Assistant Création de règles en fonction du modèle sélectionné. Tous les détails sont remplis automatiquement et, grâce aux modèles **Planifié** ou **Sécurité Microsoft**, vous pouvez personnaliser la logique et les autres paramètres de règle pour mieux répondre à vos besoins spécifiques. Vous pouvez répéter ce processus pour créer des règles supplémentaires basées sur le modèle intégré. Après avoir suivi jusqu’au bout les étapes de l’Assistant Création de règles, vous aurez terminé la création d’une règle basée sur le modèle. Les nouvelles règles s’affichent dans l’onglet **Règles actives**.
 
