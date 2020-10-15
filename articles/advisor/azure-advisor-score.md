@@ -3,12 +3,12 @@ title: Optimiser les charges de travail Azure à l’aide du score Advisor
 description: Utilisez le score Advisor pour tirer le meilleur parti d’Azure.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335617"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074020"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optimiser les charges de travail Azure à l’aide du score Advisor
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335617"
 Azure Advisor fournit des recommandations sur les bonnes pratiques en matière de charges de travail. Ces recommandations sont personnalisées et actionnables pour vous aider à :
 * Améliorer la posture de vos charges de travail et optimiser vos déploiements Azure.
 * Prévenir de manière proactive les principaux problèmes en respectant les bonnes pratiques.
-* Évaluer vos charges de travail Azure par rapport aux cinq piliers de [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/).
+* Évaluer vos charges de travail Azure par rapport aux cinq piliers de [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
 En tant que fonctionnalité de base d’Advisor, le **score Advisor** est conçu pour vous aider à atteindre efficacement ces objectifs. 
 
@@ -56,7 +56,7 @@ Le calcul du score Advisor peut être résumé en quatre étapes :
   * Les ressources ayant des recommandations à long terme sont davantage prises en compte dans le calcul du score.
   * Les ressources que vous reportez ou ignorez dans Advisor sont retirées entièrement du calcul de votre score. 
     
-Advisor applique ce modèle au niveau de la catégorie Advisor (Sécurité utilise le modèle [Niveau de sécurité](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score)), ce qui donne un score Advisor pour chaque catégorie, et une moyenne simple produit le score final d’Advisor.
+Advisor applique ce modèle au niveau de la catégorie Advisor (Sécurité utilise le modèle [Niveau de sécurité](../security-center/secure-score-security-controls.md#introduction-to-secure-score)), ce qui donne un score Advisor pour chaque catégorie, et une moyenne simple produit le score final d’Advisor.
 
 
 ## <a name="advisor-score-faq"></a>FAQ sur le score Advisor

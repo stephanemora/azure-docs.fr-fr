@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997878"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857246"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutoriel : Envoyer des données via une passerelle transparente
 
@@ -238,5 +238,8 @@ Dans cet article, nous avons utilisé notre machine virtuelle de développement 
 
 Des informations supplémentaires sont disponibles dans les pages suivantes :
 
-* [Connecter un appareil en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md)
-* [Stocker des données à la périphérie avec Stockage Blob Azure sur IoT Edge (préversion)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connecter un appareil en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Stocker des données à la périphérie avec Stockage Blob Azure sur IoT Edge (préversion)](how-to-store-data-blob.md)

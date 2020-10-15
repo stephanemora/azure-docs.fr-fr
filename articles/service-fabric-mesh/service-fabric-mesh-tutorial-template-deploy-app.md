@@ -1,17 +1,17 @@
 ---
 title: Tutoriel - Déployer une application sur Azure Service Fabric Mesh
 description: Dans ce tutoriel, vous allez apprendre à déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248388"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842527"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
 

@@ -3,15 +3,15 @@ title: Créer un pool avec le chiffrement de disque activé
 description: Découvrez comment utiliser la configuration du chiffrement de disque pour chiffrer des nœuds avec une clé gérée par la plateforme.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267040"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849260"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Créer un pool avec le chiffrement de disque activé
 
@@ -21,7 +21,7 @@ Cet article explique comment créer un pool Batch avec le chiffrement de disque 
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Pourquoi utiliser un pool avec une configuration du chiffrement de disque ?
 
-Avec un pool Batch, vous pouvez accéder aux données et les stocker sur le système d’exploitation et des disques temporaires du nœud de calcul. Le chiffrement du disque côté serveur à l’aide d’une clé gérée par la plateforme va permettre de protéger ces données avec une faible surcharge et de façon très pratique.  
+Avec un pool Batch, vous pouvez accéder aux données et les stocker sur le système d’exploitation et des disques temporaires du nœud de calcul. Le chiffrement du disque côté serveur à l’aide d’une clé gérée par la plateforme va permettre de protéger ces données avec une faible surcharge et de façon très pratique.
 
 Batch va appliquer l’une de ces technologies de chiffrement de disque sur les nœuds de calcul, en fonction de la configuration du pool et de la prise en charge régionale.
 
@@ -35,8 +35,8 @@ Batch va appliquer l’une de ces technologies de chiffrement de disque sur les 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous ne pouvez pas spécifier la méthode de chiffrement à appliquer aux nœuds de votre pool. Au lieu de cela, vous indiquez les disques cibles à chiffrer sur leurs nœuds, et Batch peut choisir la méthode de chiffrement appropriée, en veillant à ce que les disques spécifiés soient chiffrés sur le nœud de calcul.
- 
-## <a name="azure-portal"></a>Portail Azure 
+
+## <a name="azure-portal"></a>Portail Azure
 
 Quand vous créez un pool Batch dans le portail Azure, sélectionnez **TemporaryDisk** ou **OsAndTemporaryDisk** sous **Configuration du chiffrement de disque**.
 
@@ -44,7 +44,7 @@ Quand vous créez un pool Batch dans le portail Azure, sélectionnez **Temporary
 
 Une fois le pool créé, vous pouvez voir les cibles de configuration du chiffrement de disque dans la section **Propriétés** du pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Capture d’écran montrant les cibles de configuration du chiffrement de disque dans le portail Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Capture d’écran de l’option Configuration du chiffrement de disque dans le portail Azure.":::
 
 ## <a name="examples"></a>Exemples
 
@@ -87,7 +87,7 @@ Corps de la requête :
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }
