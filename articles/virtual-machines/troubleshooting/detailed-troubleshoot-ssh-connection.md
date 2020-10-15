@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069168"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975669"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Étapes détaillées supplémentaires de résolution des problèmes SSH pour la connexion à une machine virtuelle Linux dans Azure
 Il existe de nombreuses raisons pour lesquelles le client SSH peut ne pas pouvoir accéder au service SSH sur la machine virtuelle. Si vous avez suivi les [étapes de dépannage générales pour SSH](troubleshoot-ssh-connection.md), vous devez aussi résoudre le problème de connexion. Cet article vous guide tout au long des étapes de dépannage détaillées pour déterminer où la connexion SSH échoue et comment résoudre le problème.
@@ -39,7 +39,7 @@ Les étapes suivantes vous aident à isoler la source du problème et à déterm
 
 2. Sélectionnez **Paramètres** pour examiner les points de terminaison, les adresses IP, les groupes de sécurité réseau et les autres paramètres.
 
-   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/security-overview.md)** . Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
+   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md)** . Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
 
 Pour vérifier la connectivité réseau, contrôlez les points de terminaison configurés et déterminez si vous pouvez vous connecter à la machine virtuelle par le biais d’un autre protocole, comme HTTP ou un autre service.
 
@@ -114,7 +114,7 @@ Pour vérifier que le point de terminaison n’est pas la source du problème, s
 
 ## <a name="source-4-network-security-groups"></a>Source 4 : Groupes de sécurité réseau
 Les groupes de sécurité réseau vous permettent de mieux contrôler le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Vérifiez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic SSH vers et depuis Internet est autorisé.
-Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../../virtual-network/security-overview.md).
+Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
 Vous pouvez également utiliser Vérification IP pour valider la configuration NSG. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance réseau Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 

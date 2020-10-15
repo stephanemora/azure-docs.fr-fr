@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0b6d4ebd199e1db9e5b325df5ea08eaede8e581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311884"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976009"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurer une application Java pour Azure App Service
 
@@ -29,8 +29,6 @@ Vous pouvez utiliser le [plug-in Azure Web App pour Maven](/java/api/overview/az
 
 Sinon, votre méthode de déploiement dépend du type de votre archive :
 
-::: zone pivot="platform-windows"  
-
 ### <a name="java-se"></a>Java SE
 
 Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#rest).
@@ -39,7 +37,6 @@ Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison
 
 Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-war-file).
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP

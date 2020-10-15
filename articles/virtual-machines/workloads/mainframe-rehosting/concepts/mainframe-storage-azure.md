@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652846"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977270"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
 
@@ -57,7 +57,7 @@ Le Stockage Azure est disponible en tant que [Disques Azure](../../../managed-di
 <tr><td>Azure Files
 </td>
 <td>
-Fournit une interface SMB, des bibliothèques clientes et une interface <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> qui permet d’accéder en tout lieu aux fichiers stockés.
+Fournit une interface SMB, des bibliothèques clientes et une interface <a href="/rest/api/storageservices/file-service-rest-api">REST</a> qui permet d’accéder en tout lieu aux fichiers stockés.
 </td>
 <td><ul>
 <li>Développer et transférer une application dans le cloud quand celle-ci utilise les API du système de fichiers natif pour partager des données avec d’autres applications s’exécutant dans Azure.</li>
@@ -67,7 +67,7 @@ Fournit une interface SMB, des bibliothèques clientes et une interface <a href
 </tr>
 <tr><td>Objets blob Azure
 </td>
-<td>Fournit des bibliothèques de client et une interface <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> qui permet de stocker des données non structurées et d’y accéder à grande échelle dans des objets blob de blocs. Prend également en charge <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> pour les solutions d’analytique d’entreprise Big Data.
+<td>Fournit des bibliothèques de client et une interface <a href="/rest/api/storageservices/blob-service-rest-api">REST</a> qui permet de stocker des données non structurées et d’y accéder à grande échelle dans des objets blob de blocs. Prend également en charge <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> pour les solutions d’analytique d’entreprise Big Data.
 </td>
 <td><ul>
 <li>Prendre en charge le streaming et l’accès aléatoire dans une application.</li>
@@ -77,7 +77,7 @@ Fournit une interface SMB, des bibliothèques clientes et une interface <a href
 </tr>
 <tr><td>Disques Azure
 </td>
-<td>Fournit des bibliothèques clientes et une interface <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a> qui permet de stocker de manière permanente les données et d’y accéder à partir d’un disque dur virtuel joint.
+<td>Fournit des bibliothèques clientes et une interface <a href="/rest/api/compute/disks">REST</a> qui permet de stocker de manière permanente les données et d’y accéder à partir d’un disque dur virtuel joint.
 </td>
 <td><ul>
 <li>Développer et transférer des applications qui utilisent les API du système de fichiers natif pour lire et écrire des données sur des disques persistants.</li>

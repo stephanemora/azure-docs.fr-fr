@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: kinect, azure, configurer, profondeur, couleur, rvg, caméra, capteur, kit de développement logiciel (sdk), imu, capteur de mouvement, mouvement, gyroscope, gyro, accéléromètre, i/s, fps
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276479"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Récupérer des échantillons d’IMU Azure Kinect

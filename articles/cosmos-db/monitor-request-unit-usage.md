@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260744"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Comment surveiller le débit ou l’utilisation des unités de requête d’une opération dans Azure Cosmos DB
@@ -42,11 +42,11 @@ Si vous remarquez que certaines requêtes consomment davantage d’unités de re
 
 1. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Choisir le compte Azure Cosmos DB pour visualiser les métriques":::
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Volet Métriques dans Azure Monitor":::
 
 1. Sélectionnez ensuite la métrique **Unités de requête totales** dans la liste des métriques disponibles. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner **Unités de requête totales** et **Moyenne** comme valeur d’agrégation. En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche. Vous pouvez voir le nombre moyen d’unités de requête consommées par minute pendant la période sélectionnée.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Choisir une métrique à partir du portail Azure":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Volet Métriques dans Azure Monitor":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filtres l’utilisation des unités de requête
 
@@ -54,11 +54,11 @@ Vous pouvez aussi filtrer les métriques et obtenir des graphiques affichés en 
 
 Pour obtenir l’utilisation des unités de requête de chaque opération par total (somme) ou par moyenne, sélectionnez **Appliquer le fractionnement**, puis choisissez **Type d’opération** et la valeur du filtre comme illustré dans l’image suivante :
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Unités de requête Cosmos DB pour des opérations dans Azure Monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Volet Métriques dans Azure Monitor":::
 
 Si vous voulez voir l’utilisation des unités de requête par collection, sélectionnez **Appliquer le fractionnement** et choisissez le nom de la collection comme filtre. Vous voyez alors un graphique comme celui-ci avec un choix de collections dans le tableau de bord. Vous pouvez ensuite sélectionner un nom de collection spécifique pour voir plus de détails :
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Unités de requête Cosmos DB pour toutes les opérations de la collection dans Azure Monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Volet Métriques dans Azure Monitor":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

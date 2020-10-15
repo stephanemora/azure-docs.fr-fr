@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598071"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978167"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux
 
@@ -93,9 +93,9 @@ Commencez par lire les notes et publications SAP suivantes :
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Traditionnellement, dans un environnement de scale-up, tous les systèmes de fichiers pour SAP HANA sont montés à partir du stockage local. La configuration de la haute disponibilité pour la réplication du système SAP HANA sur Red Hat Enterprise Linux est publiée dans le guide [Configurer la réplication du système SAP HANA sur RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel).
+Traditionnellement, dans un environnement de scale-up, tous les systèmes de fichiers pour SAP HANA sont montés à partir du stockage local. La configuration de la haute disponibilité pour la réplication du système SAP HANA sur Red Hat Enterprise Linux est publiée dans le guide [Configurer la réplication du système SAP HANA sur RHEL](./sap-hana-high-availability-rhel.md).
 
-Afin d’atteindre la haute disponibilité SAP HANA du système de scale-up sur les partages NFS d’[Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/), nous avons besoin d’une configuration supplémentaire des ressources dans le cluster, afin que les ressources HANA soient récupérées lorsqu’un nœud perd l’accès aux partages NFS sur ANF.  Le cluster gère les montages NFS, ce qui lui permet de surveiller l’intégrité des ressources. Les dépendances entre les montages de système de fichiers et les ressources SAP HANA sont appliquées.  
+Afin d’atteindre la haute disponibilité SAP HANA du système de scale-up sur les partages NFS d’[Azure NetApp Files](../../../azure-netapp-files/index.yml), nous avons besoin d’une configuration supplémentaire des ressources dans le cluster, afin que les ressources HANA soient récupérées lorsqu’un nœud perd l’accès aux partages NFS sur ANF.  Le cluster gère les montages NFS, ce qui lui permet de surveiller l’intégrité des ressources. Les dépendances entre les montages de système de fichiers et les ressources SAP HANA sont appliquées.  
 
 ![Scale-up de la haute disponibilité SAP HANA sur ANF](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
@@ -125,29 +125,29 @@ La configuration de la réplication du système SAP HANA utilise un nom d’hôt
 
 ## <a name="set-up-the-azure-netapp-file-infrastructure"></a>Configurer l’infrastructure Azure NetApp Files
 
-Avant de poursuivre la configuration de l’infrastructure Azure NetApp Files, familiarisez-vous avec la [documentation Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/).
+Avant de poursuivre la configuration de l’infrastructure Azure NetApp Files, familiarisez-vous avec la [documentation Azure NetApp Files](../../../azure-netapp-files/index.yml).
 
 Azure NetApp Files est disponible dans plusieurs [régions Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Vérifiez si la région Azure que vous avez sélectionnée est compatible avec Azure NetApp Files.
 
 Pour plus d’informations sur la disponibilité d’Azure NetApp Files par région Azure, consultez [Disponibilité d’Azure NetApp Files par région Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
-Avant de déployer Azure NetApp Files, demandez l’intégration à Azure NetApp Files en accédant à [Instructions d’inscription à Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).
+Avant de déployer Azure NetApp Files, demandez l’intégration à Azure NetApp Files en accédant à [Instructions d’inscription à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Déployer des ressources Azure NetApp Files
 
-Les instructions suivantes supposent que vous avez déjà déployé votre [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Les ressources Azure NetApp Files et les machines virtuelles, où les ressources Azure NetApp Files seront montées, doivent être déployées dans le même réseau virtuel Azure ou dans des réseaux virtuels Azure appairés.
+Les instructions suivantes supposent que vous avez déjà déployé votre [réseau virtuel Azure](../../../virtual-network/virtual-networks-overview.md). Les ressources Azure NetApp Files et les machines virtuelles, où les ressources Azure NetApp Files seront montées, doivent être déployées dans le même réseau virtuel Azure ou dans des réseaux virtuels Azure appairés.
 
-1. Si vous n’avez pas encore déployé les ressources, demandez l’[intégration à Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).
+1. Si vous n’avez pas encore déployé les ressources, demandez l’[intégration à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
 
-2. Créez un compte NetApp dans la région Azure sélectionnée en suivant les instructions de la page [Création d’un compte NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).
+2. Créez un compte NetApp dans la région Azure sélectionnée en suivant les instructions de la page [Création d’un compte NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-3.  Configurez un pool de capacité Azure NetApp Files en suivant les instructions de la page [Configuration d’un pool de capacité Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).
+3.  Configurez un pool de capacité Azure NetApp Files en suivant les instructions de la page [Configuration d’un pool de capacité Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-    L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de service *Ultra*. Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)*Ultra* ou *Premium* d’Azure NetApp Files.
+    L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de service *Ultra*. Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](../../../azure-netapp-files/azure-netapp-files-service-levels.md)*Ultra* ou *Premium* d’Azure NetApp Files.
 
-4.  Déléguez un sous-réseau à Azure NetApp Files, comme décrit dans les instructions de la page [Déléguer un sous-réseau à Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
+4.  Déléguez un sous-réseau à Azure NetApp Files, comme décrit dans les instructions de la page [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-5.  Déployez des volumes Azure NetApp Files en suivant les instructions de la page [Créer un volume NFS pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).
+5.  Déployez des volumes Azure NetApp Files en suivant les instructions de la page [Créer un volume NFS pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
     Lors du déploiement des volumes, veillez à sélectionner la version NFSv4.1. Déployez les volumes dans le sous-réseau Azure NetApp Files désigné. Les adresses IP des volumes Azure NetApp sont attribuées automatiquement.
 
@@ -171,10 +171,10 @@ Au fur et à mesure que vous créez votre instance Azure NetApp Files pour les s
 
 - La taille de pool de capacité minimale est de 4 tébioctets (Tio).
 - La taille de volume minimale est de 100 gibioctets (Gio).
-- Azure NetApp Files et toutes les machines virtuelles où les volumes Azure NetApp Files seront montés doivent être déployés dans le même réseau virtuel Azure ou dans des [réseaux virtuels appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) dans la même région.
+- Azure NetApp Files et toutes les machines virtuelles où les volumes Azure NetApp Files seront montés doivent être déployés dans le même réseau virtuel Azure ou dans des [réseaux virtuels appairés](../../../virtual-network/virtual-network-peering-overview.md) dans la même région.
 - Le réseau virtuel sélectionné doit avoir un sous-réseau délégué à Azure NetApp Files.
-- Le débit d’un volume Azure NetApp Files est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Lorsque vous dimensionnez les volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration requise pour HANA.
-- Grâce à la [stratégie d’exportation](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) d’Azure NetApp Files, vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.).
+- Le débit d’un volume Azure NetApp Files est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Lorsque vous dimensionnez les volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration requise pour HANA.
+- Grâce à la [stratégie d’exportation](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md) d’Azure NetApp Files, vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.).
 - La fonctionnalité Azure NetApp Files ne tient pas encore compte des zones. Actuellement, la fonctionnalité n’est pas déployée dans toutes les zones de disponibilité d’une région Azure. Méfiez-vous de l’impact potentiel sur les temps de latence dans certaines régions Azure.
 
 > [!IMPORTANT]
@@ -182,7 +182,7 @@ Au fur et à mesure que vous créez votre instance Azure NetApp Files pour les s
 
 ### <a name="sizing-of-hana-database-on-azure-netapp-files"></a>Dimensionnement de la base de données HANA sur Azure NetApp Files
 
-Le débit d’un volume NetApp Azure Files est une fonction de la taille de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels).
+Le débit d’un volume NetApp Azure Files est une fonction de la taille de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
 Lorsque vous concevez l’infrastructure pour SAP dans Azure, tenez compte des besoins de stockage minimaux de SAP, qui se traduisent par des caractéristiques de débit minimales :
 
@@ -190,7 +190,7 @@ Lorsque vous concevez l’infrastructure pour SAP dans Azure, tenez compte des b
 - Activité de lecture à un débit de 400 Mo/s au minimum pour /hana/data pour des tailles d’E/S de 16 Mo et 64 Mo.
 - Activité d’écriture à un débit de 250 Mo/s au minimum pour /hana/data avec des tailles d’E/S de 16 Mo et 64 Mo.
 
-Les [limites de débit Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) pour un quota de volume de 1 Tio sont les suivantes :
+Les [limites de débit Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) pour un quota de volume de 1 Tio sont les suivantes :
 
 - Niveau de stockage Premium – 64 Mio/s.
 - Niveau de stockage Ultra – 128 Mio/s.
@@ -256,7 +256,7 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Effectuez ensuite le
         1.  Sélectionnez **OK**.
 
 > [!NOTE] 
-> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Si à l’inverse votre scénario exige d’utiliser l’équilibreur de charge de base, suivez ces étapes de configuration :
     1.  Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
@@ -308,7 +308,7 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Effectuez ensuite le
 Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la note SAP [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer). Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer). Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Monter le volume Azure NetApp Files
 
@@ -457,7 +457,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
 
 ## <a name="configure-sap-hana-system-replication"></a>Configurer la réplication de système SAP HANA
 
-Suivez les étapes décrites dans [Configurer la réplication du système SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) pour configurer la réplication du système SAP HANA. 
+Suivez les étapes décrites dans [Configurer la réplication du système SAP HANA](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) pour configurer la réplication du système SAP HANA. 
 
 ## <a name="cluster-configuration"></a>Configuration de clusters
 
@@ -465,7 +465,7 @@ Cette section décrit les étapes nécessaires au bon fonctionnement du cluster 
 
 ### <a name="create-a-pacemaker-cluster"></a>Créez un cluster Pacemaker
 
-Suivez les étapes décrites sur la page [Configurer Pacemaker sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) dans Azure pour créer un cluster Pacemaker de base pour ce serveur HANA.
+Suivez les étapes décrites sur la page [Configurer Pacemaker sur Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) dans Azure pour créer un cluster Pacemaker de base pour ce serveur HANA.
 
 ### <a name="configure-filesystem-resources"></a>Configurer les ressources du système de fichiers
 
@@ -540,7 +540,7 @@ Dans cet exemple, chaque nœud de cluster possède ses propres systèmes de fich
 
 ### <a name="configure-sap-hana-cluster-resources"></a>Configurer les ressources de cluster SAP HANA
 
-1. Suivez les étapes décrites dans [Créer les ressources de cluster SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-sap-hana-cluster-resources) pour créer les ressources SAP HANA dans le cluster. Une fois que les ressources SAP HANA sont créées, nous devons créer une contrainte de règle d’emplacement entre les ressources SAP HANA et les systèmes de fichiers (montages NFS).
+1. Suivez les étapes décrites dans [Créer les ressources de cluster SAP HANA](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) pour créer les ressources SAP HANA dans le cluster. Une fois que les ressources SAP HANA sont créées, nous devons créer une contrainte de règle d’emplacement entre les ressources SAP HANA et les systèmes de fichiers (montages NFS).
 
 2. **[1]** Configurez des contraintes entre les ressources SAP HANA et les montages NFS.
 
@@ -687,4 +687,4 @@ Cette section explique comment vous pouvez tester votre configuration.
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2
     ```
 
-   Nous vous recommandons de tester minutieusement la configuration des clusters SAP HANA, en effectuant également les tests décrits dans [Configurer la réplication du système SAP HANA sur RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).   
+   Nous vous recommandons de tester minutieusement la configuration des clusters SAP HANA, en effectuant également les tests décrits dans [Configurer la réplication du système SAP HANA sur RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).

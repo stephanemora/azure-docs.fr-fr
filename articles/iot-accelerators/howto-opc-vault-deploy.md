@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282021"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071487"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Générer et déployer le service de gestion de certificats OPC Vault
 
@@ -31,7 +31,7 @@ Cet article explique comment déployer le service de gestion de certificats OPC�
 
 Actuellement, l’opération de génération et de déploiement est limitée à Windows.
 Les exemples sont tous écrits pour C# .NET Standard, ce dont vous avez besoin pour générer le service et des exemples pour le déploiement.
-Tous les outils dont vous avez besoin pour .NET Standard sont fournis avec les outils .NET Core. Consultez [Bien démarrer avec .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Tous les outils dont vous avez besoin pour .NET Standard sont fournis avec les outils .NET Core. Consultez [Bien démarrer avec .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Installez .NET Core 2.1+][dotnet-install].
 2. [Installez Docker][docker-url] (facultatif, uniquement si la build Docker locale est nécessaire).

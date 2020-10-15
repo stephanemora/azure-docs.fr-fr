@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829082"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977372"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -70,7 +70,7 @@ Les paquets d’extensions sont téléchargés à partir du dépôt d’extensio
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires.
 
-Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui nécessitent un accès au service Stockage Azure ou Azure Active Directory, vous pouvez autoriser l’accès à l’aide d’[étiquettes de service NSG Azure](../../virtual-network/security-overview.md#service-tags) pour le Stockage ou AzureActiveDirectory.
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui nécessitent un accès au service Stockage Azure ou Azure Active Directory, vous pouvez autoriser l’accès à l’aide d’[étiquettes de service NSG Azure](../../virtual-network/network-security-groups-overview.md#service-tags) pour le Stockage ou AzureActiveDirectory.
 
 L’agent invité Windows ne prend pas en charge le serveur proxy qui vous permettrait de rediriger les demandes de trafic de l’agent, ce qui signifie que l’agent invité Windows passe par votre proxy personnalisé (si vous en avez un) pour accéder aux ressources sur Internet ou sur l’hôte via l’adresse IP 168.63.129.16.
 

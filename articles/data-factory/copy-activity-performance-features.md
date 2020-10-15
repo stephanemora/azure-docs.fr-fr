@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440539"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324329"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de l’activité de copie
 
@@ -124,31 +124,35 @@ Lorsque vous spécifiez une valeur pour la propriété `parallelCopies`, prenez 
 
 ## <a name="staged-copy"></a>copie intermédiaire
 
-Lorsque vous copiez des données entre une banque de données source et une banque de données réceptrice, vous pouvez choisir d’utiliser le stockage Blob comme banque intermédiaire. La fonctionnalité intermédiaire est particulièrement utile dans les cas suivants :
+Lorsque vous copiez des données entre un magasin de données source et un magasin de données récepteur, vous pouvez choisir d’utiliser le service Stockage Blob Azure ou Azure Data Lake Storage Gen2 comme magasin intermédiaire. La fonctionnalité intermédiaire est particulièrement utile dans les cas suivants :
 
-- **Vous voulez ingérer des données à partir de divers magasins de données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) via PolyBase.** Azure Synapse Analytics utilise PolyBase comme un mécanisme à haut débit pour charger des données volumineuses dans Azure Synapse Analytics. La source de données doit se trouver dans le stockage d’objets blob ou Azure Data Lake Store, et se conformer à des critères supplémentaires. Lorsque vous chargez des données à partir d’un magasin de données autre que le stockage Blob ou Azure Data Lake Store, vous pouvez activer la copie de données via un stockage Blob intermédiaire. Dans ce cas, Azure Data Factory effectue les transformations de données requises pour garantir la conformité vis-à-vis des exigences de PolyBase. Ensuite, il utilise PolyBase pour charger efficacement les données dans Azure Synapse Analytics. Pour plus d’informations, consultez [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Vous souhaitez ingérer des données de divers magasins de données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) via PolyBase, copier des données à partir de/vers Snowflake, ou ingérer des données à partir d’Amazon redshift/HDFS efficacement.** Pour plus de détails, consultez :
+  - [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)
+  - [Connecteur Snowflake](connector-snowflake.md)
+  - [Connecteur Amazon Redshift](connector-amazon-redshift.md)
+  - [Connecteur HDFS](connector-hdfs.md)
+- **Vous ne souhaitez pas ouvrir des ports autres que le port 80 et le port 443 dans votre pare-feu, en raison des stratégies informatiques d’entreprise**. Par exemple, lorsque vous copiez des données d’un magasin de données local vers Azure SQL Database ou Azure Synapse Analytics, vous devez activer les communications TCP sortantes sur le port 1433 pour le pare-feu Windows et votre pare-feu d’entreprise. Dans ce scénario, une copie intermédiaire peut tirer parti du runtime d’intégration auto-hébergé pour copier les données vers un stockage intermédiaire via HTTP ou HTTPS sur le port 443, puis charger les données à partir du stockage intermédiaire dans SQL Database ou Azure Synapse Analytics. Dans ce flux, vous n’avez pas besoin d’activer le port 1433.
 - **Il peut être assez long parfois d’effectuer des déplacements de données hybrides (c’est-à-dire, de copier à partir d’une banque de données locale vers une banque de données cloud) sur une connexion réseau lente**. Pour améliorer les performances, vous pouvez utiliser une copie intermédiaire pour compresser les données locales afin de réduire le temps nécessaire pour déplacer des données vers la banque de données intermédiaire dans le cloud. Ensuite, vous pouvez décompresser les données dans la banque intermédiaire avant de charger dans la banque de données de destination.
-- **Vous ne souhaitez pas ouvrir des ports autres que le port 80 et le port 443 dans votre pare-feu, en raison des stratégies informatiques d’entreprise**. Par exemple, lorsque vous copiez des données d’un magasin de données local vers un récepteur Azure SQL Database ou un récepteur Azure Synapse Analytics, vous devez activer les communications TCP sortantes sur le port 1433 pour le pare-feu Windows et votre pare-feu d’entreprise. Dans ce scénario, une copie intermédiaire peut tirer parti de la passerelle du runtime d’intégration auto-hébergé pour commencer par copier les données dans une instance de stockage blob intermédiaire via HTTP ou HTTPS sur le port 443. Ensuite, elle peut charger les données dans SQL Database ou Azure Synapse Analytics à partir du stockage d’objet blob intermédiaire. Dans ce flux, vous n’avez pas besoin d’activer le port 1433.
 
 ### <a name="how-staged-copy-works"></a>Fonctionnement de la copie intermédiaire
 
-Lorsque vous activez la fonctionnalité intermédiaire, les données sont d’abord copiées à partir du magasin de données source vers le stockage Blob intermédiaire (indiquez le vôtre). Ensuite, les données sont copiées à partir de la banque de données intermédiaire dans la banque de données de réceptrice. Azure Data Factory gère automatiquement le flux à deux étapes pour vous. Azure Data Factory nettoie également les données temporaires du stockage intermédiaire une fois le déplacement de données terminé.
+Lorsque vous activez la fonctionnalité intermédiaire, les données sont d’abord copiées à partir du magasin de données source vers le stockage intermédiaire (votre propre objet blob Azure ou Azure Data Lake Storage Gen2). Ensuite, les données sont copiées à partir du stockage intermédiaire vers le magasin de données récepteur. L’activité de copie d’Azure Data Factory gère automatiquement pour vous le flux en deux étapes, et nettoie les données temporaires du stockage intermédiaire une fois le déplacement des données terminé.
 
 ![copie intermédiaire](media/copy-activity-performance/staged-copy.png)
 
-Lorsque vous activez le déplacement de données à l’aide d’une banque de données intermédiaire, vous pouvez indiquer si vous souhaitez compresser les données avant de les déplacer de la banque de données source vers une banque de données intermédiaire, et les décompresser avant leur transfert d’une banque de données intermédiaire vers une banque de données réceptrice.
+Lorsque vous activez le déplacement des données à l’aide d’un magasin de données intermédiaire, vous pouvez indiquer si vous souhaitez compresser les données avant de les déplacer du magasin de données source vers le stockage intermédiaire, puis les décompresser avant leur transfert d’un magasin de données intermédiaire ou temporaire vers le magasin de données récepteur.
 
 Actuellement, vous ne pouvez pas copier des données entre deux banques de données qui sont connectées via différents runtimes d’intégration auto-hébergés, ni avec ni sans copie intermédiaire. Dans ce scénario, vous pouvez configurer deux activités de copie explicitement chaînées pour copier à partir de la source vers un environnement intermédiaire, puis de l’environnement intermédiaire vers le récepteur.
 
 ### <a name="configuration"></a>Configuration
 
-Configurez le paramètre **enableStaging** sur l’activité de copie pour spécifier si vous souhaitez que les données soient placées dans un stockage d’objets blob intermédiaire avant d’être chargées dans une banque de données de destination. Lorsque vous définissez **enableStaging** sur `TRUE`, spécifiez les propriétés supplémentaires répertoriées dans le tableau suivant. Vous devez créer un Stockage Azure ou un service lié à la signature d’accès partagé du stockage pour le stockage intermédiaire si vous n’en avez pas.
+Configurez le paramètre **enableStaging** dans l’activité de copie pour spécifier si vous souhaitez que les données soient placées dans un stockage intermédiaire avant d’être chargées dans un magasin de données de destination. Lorsque vous définissez **enableStaging** sur `TRUE`, spécifiez les propriétés supplémentaires répertoriées dans le tableau suivant. 
 
 | Propriété | Description | Valeur par défaut | Obligatoire |
 | --- | --- | --- | --- |
 | enableStaging |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| linkedServiceName |Spécifiez le nom d’un service lié [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) faisant référence à l’instance de stockage que vous utilisez comme magasin de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans Azure Synapse Analytics via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| path |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| linkedServiceName |Spécifiez le nom d’un service lié [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) faisant référence à l’instance de stockage que vous utilisez comme magasin de données intermédiaire. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| path |Spécifiez le chemin dans lequel vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. |N/A |Non |
 | enableCompression |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Voici un exemple de définition de l’activité de copie avec les propriétés 
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

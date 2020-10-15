@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320096"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975550"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
-Les [SSD premium Azure](disks-types.md) offrent une prise en charge des disques haute performance et à faible latence pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Ce guide vous aide à migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Les [SSD premium Azure](../disks-types.md) offrent une prise en charge des disques haute performance et à faible latence pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Ce guide vous aide à migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence en orchestrant la réplication des machines virtuelles et des serveurs physiques locaux dans le cloud (Azure) ou dans un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. 
 
@@ -167,7 +167,7 @@ Pour vérifier que votre serveur de configuration est correctement associé à l
 
    ![Volet Activer la réplication avec Source sélectionné][13]
 
-Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre la bonne pratique de la couche de stockage concernant l’[utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité](../linux/manage-availability.md). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure.
+Lorsque vous concevez votre environnement de stockage Azure, nous vous recommandons d’utiliser des comptes de stockage distincts pour chaque machine virtuelle dans un groupe à haute disponibilité. Nous vous recommandons de suivre la bonne pratique de la couche de stockage concernant l’[utilisation de plusieurs comptes de stockage pour chaque groupe à haute disponibilité](../manage-availability.md). La distribution de disques de machines virtuelles sur plusieurs comptes de stockage permet d’améliorer la disponibilité du stockage et distribue les E/S sur l’infrastructure de stockage Azure.
 
 Si vos machines virtuelles se trouvent dans un groupe à haute disponibilité au lieu de répliquer les disques de toutes les machines virtuelles dans un compte de stockage, nous vous recommandons vivement de migrer plusieurs machines virtuelles plusieurs fois. De cette façon, les machines virtuelles d’un même groupe à haute disponibilité ne partagent pas le même compte de stockage. Utilisez le volet **Activer la réplication** pour configurer un par un des comptes de stockage de destination pour chaque machine virtuelle.
  

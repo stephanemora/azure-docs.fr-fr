@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650688"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978218"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -60,8 +60,8 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - Azure prend en charge l’utilisation de configurations de cluster multi-SID pour SAP Central Services sur les systèmes d’exploitation invités Windows, SLES et RHEL. Gardez à l’esprit que plus vous placez d’instances ASCS/SCS sur un tel cluster multi-SID, plus le rayon d’impact peut augmenter. Vous trouverez la documentation du scénario du système d’exploitation invité correspondant dans les articles suivants :
         - [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-        - [Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-        - [Guide multi-SID de haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur Red Hat Enterprise Linux for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+        - [Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse-multi-sid.md)
+        - [Guide multi-SID de haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur Red Hat Enterprise Linux for SAP Applications](./high-availability-guide-rhel-multi-sid.md)
     - Architecture de haute disponibilité et de récupération d’urgence.
         - En fonction des objectifs RTO et RPO, définissez l’architecture de haute disponibilité et de récupération d’urgence.
         - Pour une haute disponibilité dans une zone, vérifiez ce que le SGBD souhaité peut offrir dans Azure. La plupart des packages SGBD offrent les méthodes synchrones d’un serveur de secours synchrone, ce que nous recommandons pour les systèmes de production. Consultez aussi la documentation SAP pour les différentes bases de données en commençant par [Facteurs à prendre en compte pour le déploiement SGBD de machines virtuelles Azure pour les charges de travail SAP](./dbms_guide_general.md) et les documents connexes.
@@ -109,7 +109,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
            -  [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
            -  [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
    2. Stockage.
-        - Vérifiez le document [Types de stockage Azure pour une charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage).
+        - Vérifiez le document [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md).
         - Utilisez au minimum le [stockage Disque SSD Standard Azure](../../disks-types.md#standard-ssd) pour les machines virtuelles représentant des couches Application SAP et pour un déploiement de SGBD non sensibles aux performances.
         - En général, nous déconseillons l’utilisation de [disques HDD Standard Azure](../../disks-types.md#standard-hdd).
         - Utilisez [Stockage Premium Azure](../../disks-types.md#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance.
@@ -127,7 +127,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - Évaluez et testez le chemin des données entre la couche application SAP et la couche SGBD SAP.
             -  Le placement d’[appliances virtuelles réseau Azure](https://azure.microsoft.com/solutions/network-appliances/) sur le chemin de communication entre l’application SAP et la couche SGBD des systèmes SAP basés sur SAP NetWeaver, Hybris ou S/4HANA n’est pas pris en charge.
             -  Le placement des couches Application SAP et SGBD SAP sur différents réseaux virtuels Azure non appairés n’est pas pris en charge.
-            -  Vous pouvez utiliser des [règles de groupe de sécurité d’application et de groupe de sécurité réseau](../../../virtual-network/security-overview.md) pour définir les itinéraires entre la couche d’application SAP et la couche SGBD SAP.
+            -  Vous pouvez utiliser des [règles de groupe de sécurité d’application et de groupe de sécurité réseau](../../../virtual-network/network-security-groups-overview.md) pour définir les itinéraires entre la couche d’application SAP et la couche SGBD SAP.
         - Assurez-vous que la [mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est activée sur les machines virtuelles utilisées dans la couche application SAP et la couche SGBD SAP. N'oubliez pas que différents niveaux de SE sont nécessaires pour prendre en charge la mise en réseau accélérée dans Azure :
             - Windows Server 2012 R2 ou ultérieur.
             - SUSE Linux 12 SP3 ou version ultérieure.
@@ -138,7 +138,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - Si vous utilisez Azure Load Balancer avec des systèmes d’exploitation invité Linux, vérifiez que le paramètre réseau Linux **net.ipv4.tcp_timestamps** a la valeur **0**. Cette suggestion est incompatible avec les suggestions des anciennes versions de la [note SAP n° 2382421](https://launchpad.support.sap.com/#/notes/2382421). La note SAP mise à jour indique que ce paramètre doit être défini sur **0** pour fonctionner avec les équilibreurs de charge Azure.
         - Envisagez d’utiliser des [groupes de placement de proximité Azure](../../linux/co-location.md) pour bénéficier d’une latence réseau optimale. Pour plus d’informations, consultez [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
    4. Déploiements de haute disponibilité et de récupération d’urgence.
-        - Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent des instances de dialogue SAP ou des instances intergiciel d’un système SAP unique sont déployées dans un [groupe à haute disponibilité](../../windows/manage-availability.md).
+        - Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent des instances de dialogue SAP ou des instances intergiciel d’un système SAP unique sont déployées dans un [groupe à haute disponibilité](../../manage-availability.md).
         - Si vous n’avez pas besoin de la haute disponibilité pour les services SAP Central Services et le SGBD, vous pouvez déployer ces machines virtuelles dans le même groupe à haute disponibilité que la couche Application SAP.
         - Si vous protégez les services SAP Central Services et la couche SGBD pour bénéficier de la haute disponibilité avec la réplication passive, placez les deux nœuds SAP Central Services dans un groupe à haute disponibilité distinct et les deux nœuds SGBD dans un autre groupe à haute disponibilité.
         - Si vous procédez à des déploiements dans des Zones de disponibilité Azure, vous ne pouvez pas utiliser de groupes à haute disponibilité. Toutefois, vous devez veiller à déployer les nœuds Central Services actifs et passifs dans deux zones de disponibilité différentes. Utilisez les zones de disponibilité ayant la latence la plus faible entre elles.
@@ -179,7 +179,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
    4. Testez l’architecture et la fonctionnalité de récupération d’urgence inter-régions.
 1. Vérifications de sécurité.
    1. Testez la validité de votre architecture de contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’objectif est de séparer et de limiter l’accès et les autorisations des différentes équipes. Par exemple, les membres de l’équipe SAP Basis doivent pouvoir déployer des machines virtuelles et assigner des disques du Stockage Azure à un réseau virtuel Azure donné. Cependant, l’équipe SAP Basis ne doit pas être en mesure de créer ses propres réseaux virtuels ou de modifier les paramètres des réseaux virtuels existants. Les membres de l’équipe réseau ne doivent pas être en mesure de déployer des machines virtuelles sur des réseaux virtuels dans lesquels des machines virtuelles sont exécutées sur les couches Application SAP et SGBD. Les membres de cette équipe ne doivent pas non plus être en mesure de modifier les attributs des machines virtuelles, ni même de supprimer des machines virtuelles ou des disques.  
-   1.  Vérifiez que les [règles du groupe de sécurité et les règles ASC](../../../virtual-network/security-overview.md) fonctionnent comme prévu et protègent les ressources protégées.
+   1.  Vérifiez que les [règles du groupe de sécurité et les règles ASC](../../../virtual-network/network-security-groups-overview.md) fonctionnent comme prévu et protègent les ressources protégées.
    1.  Assurez-vous que toutes les ressources qui doivent être chiffrées le sont. Définissez et implémentez des processus pour sauvegarder les certificats, les stocker, y accéder et restaurer les entités chiffrées.
    1.  Utilisez [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour les disques de système d’exploitation, si possible du point de vue de la prise en charge du système d’exploitation.
    1.  Veillez à ne pas utiliser un nombre excessif de couches de chiffrement. Dans certains cas, il est logique d’utiliser Azure Disk Encryption avec l’une des méthodes TDE (Transparent Data Encryption) SGBD afin de protéger différents disques ou composants sur le même serveur.  Par exemple, sur un serveur SGBD SAP, Azure Disk Encryption (ADE) peut être activé sur le disque de démarrage du système d’exploitation (si le système d’exploitation prend en charge ADE) et sur les disques de données qui ne sont pas utilisés par les fichiers de persistance des données du SGBD.  Vous pouvez notamment utiliser ADE sur le disque contenant les clés de chiffrement TDE SGBD.

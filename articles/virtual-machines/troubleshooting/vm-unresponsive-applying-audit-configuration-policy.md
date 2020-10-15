@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299522"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977950"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La machine virtuelle ne répond pas lors de l’application de la stratégie Configuration de la stratégie d’audit
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes d’abse
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que le système d’exploitation restait sans réponse au cours d’un démarrage avec le message **Application de la stratégie Configuration de la stratégie d’audit**.
+Lorsque vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que le système d’exploitation restait sans réponse au cours d’un démarrage avec le message **Application de la stratégie Configuration de la stratégie d’audit**.
 
   ![Démarrage du système d’exploitation avec le message : « Application de la stratégie Configuration de la stratégie d’audit »](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Voici la stratégie problématique : *Configuration ordinateur\Stratégies\Modè
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="disable-the-policy"></a>Désactiver la stratégie
@@ -153,7 +153,7 @@ Voici la stratégie problématique : *Configuration ordinateur\Stratégies\Modè
    
 ### <a name="rebuild-the-virtual-machine"></a>Régénérer la machine virtuelle
 
-1. Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+1. Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.
 
 1. Testez si votre machine virtuelle démarre normalement pour voir si le problème a été résolu.
 
@@ -175,11 +175,11 @@ Pour résoudre ce problème, vous devez d’abord collecter le fichier de l’im
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Attacher le disque du système d’exploitation à une machine virtuelle de récupération
 
-1. Suivez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une nouvelle machine virtuelle de réparation.
+1. Suivez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une nouvelle machine virtuelle de réparation.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Rechercher le fichier de l’image mémoire et envoyer un ticket de support
 
 1. Sur la machine virtuelle de réparation, accédez au dossier Windows sur le disque du système d’exploitation attaché. Si la lettre de lecteur qui est affectée au disque de système d’exploitation attaché est *F*, alors vous devez accéder à `F:\Windows`.
 1. Recherchez le fichier `memory.dmp`, puis [soumettez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) avec le fichier de vidage de la mémoire.
-1. Si vous rencontrez des difficultés pour localiser le fichier `memory.dmp`, utilisez à la place des [appels d’interruption non masquable (NMI) dans la console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls). Suivez le guide pour [générer un fichier d’image mémoire sur incident complet à l’aide d’appels NMI](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Si vous rencontrez des difficultés pour localiser le fichier `memory.dmp`, utilisez à la place des [appels d’interruption non masquable (NMI) dans la console série](./serial-console-windows.md#use-the-serial-console-for-nmi-calls). Suivez le guide pour [générer un fichier d’image mémoire sur incident complet à l’aide d’appels NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263039"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser Robo 3T avec l’API Azure Cosmos DB pour MongoDB
@@ -37,14 +37,14 @@ Pour ajouter votre compte Cosmos au gestionnaire de connexions Robo 3T, procéd
 
 4. Dans la fenêtre **Paramètres de connexion**, choisissez un nom. Ensuite, recherchez **Hôte** et **Port** dans vos informations de connexion à l’étape 1 et entrez-les dans les champs **Adresse** et **Port**, respectivement.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Capture d’écran de la gestion des connexions avec Robomongo":::
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Capture d’écran du panneau Chaîne de connexion":::
 5. Dans l’onglet **Authentification**, cliquez sur **Effectuer l’authentification**. Entrez ensuite votre base de données (la valeur par défaut est *Admin*), le **Nom d’utilisateur** et le **Mot de passe**.
 Le **Nom d’utilisateur** et le **Mot de passe** figurent tous deux dans vos informations de connexion à l’étape 1.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Capture d’écran de l’onglet Authentification de Robomongo":::
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Capture d’écran du panneau Chaîne de connexion":::
 6. Dans l’onglet **SSL**, cochez **Utiliser le protocole SSL**, puis modifiez la **Méthode d’authentification** sur **Certificat auto-signé**.
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Capture d’écran de l’onglet SSL de Robomongo":::
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Capture d’écran du panneau Chaîne de connexion":::
 7. Enfin, cliquez sur **Test** pour vérifier que vous êtes en mesure de vous connecter, puis sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes

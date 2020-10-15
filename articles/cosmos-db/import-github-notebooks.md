@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262886"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importer des blocs-notes à partir d’un dépôt GitHub dans Azure Cosmos DB
@@ -37,7 +37,7 @@ Vous pouvez vous connecter à vos propres dépôts GitHub ou à d’autres dép�
 
 1. Une fois que vous avez sélectionné le dépôt requis, son entrée passe de la section des **dépôt désépinglés** à celle des **dépôts épinglés**. Si nécessaire, vous pouvez également choisir une branche spécifique de ce dépôt à partir de laquelle importer les blocs-notes.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Choisir un dépôt et une branche":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autoriser Azure Cosmos DB à accéder à vos dépôts GitHub":::
 
 1. Sélectionnez **OK** pour terminer l’opération d’importation. Tous les blocs-notes disponibles dans la branche sélectionnée de votre dépôt sont importés dans votre compte Azure Cosmos.
 
@@ -53,7 +53,7 @@ Après avoir modifié un bloc-notes existant, sélectionnez **Enregistrer**. Une
 
 Dans le flux GitHub normal, après avoir validé les modifications, vous expédiez (push) généralement les modifications à distance. Toutefois, dans ce cas, l’option Valider sert à mettre en lots, valider, puis pousser vos mises à jour vers GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Modifier des blocs-notes et valider les modifications sur GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autoriser Azure Cosmos DB à accéder à vos dépôts GitHub":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

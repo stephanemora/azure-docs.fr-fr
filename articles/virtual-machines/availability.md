@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972524"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 
@@ -51,7 +51,7 @@ Les groupes identiques de machines virtuelles Azure vous permettent de créer et
 
 **Domaines d’erreur et domaines de mise à jour**
 
-Les groupes de machines virtuelles identiques simplifient la conception pour la haute disponibilité en alignant les domaines d’erreur et les domaines de mise à jour. Vous avez uniquement à définir le nombre de domaines d’erreur pour le groupe identique. Le nombre de domaines d’erreur disponibles pour les groupes identiques peut varier selon la région. Consultez [Gérer la disponibilité des machines virtuelles dans Azure](./windows/manage-availability.md).
+Les groupes de machines virtuelles identiques simplifient la conception pour la haute disponibilité en alignant les domaines d’erreur et les domaines de mise à jour. Vous avez uniquement à définir le nombre de domaines d’erreur pour le groupe identique. Le nombre de domaines d’erreur disponibles pour les groupes identiques peut varier selon la région. Consultez [Gérer la disponibilité des machines virtuelles dans Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
@@ -61,7 +61,7 @@ Dans un groupe à haute disponibilité, les machines virtuelles sont automatique
 
 Les machines virtuelles faisant appel à [Azure Disques managés](./faq-for-disks.md) sont alignées sur les domaines d’erreur des disques managés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques managés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques managés. 
 
-Seules des machines virtuelles avec des disques managés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Seules des machines virtuelles avec des disques managés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Groupe à haute disponibilité géré](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
