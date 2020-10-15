@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4860918fc4f995ad267fc35b142d3fcb460ce177
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002825"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Effectuer une mise à niveau vers la version 1.1 du SDK .NET Recherche Azure

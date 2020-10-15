@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084821"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
@@ -56,12 +56,12 @@ Familiarisons-nous avec le pilote ODBC.
 
 1. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)** , indiquez les informations suivantes : 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
     - **Nom de source de données** : le nom convivial de votre DSN ODBC. Ce nom étant spécifique à votre compte Azure Cosmos DB, choisissez-le de manière appropriée si vous possédez plusieurs comptes.
     - **Description** : courte description de la source de données.
     - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. 
     - **Clé d’accès** : clé primaire ou secondaire, en lecture-écriture ou en lecture seule, affichée sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. Nous vous recommandons d'utiliser la clé en lecture seule si le DSN sert au traitement des données en lecture seule et à la création de rapports.
-    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Page des clés Azure Cosmos DB":::
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
     - **Chiffrer la clé d’accès pour** : sélectionnez l’option optimale en fonction des utilisateurs de cet ordinateur. 
     
 1. Cliquez sur le bouton **Test** pour vérifier que vous pouvez vous connecter à votre compte Azure Cosmos DB. 
@@ -76,7 +76,7 @@ Familiarisons-nous avec le pilote ODBC.
         - Cliquez avec le bouton droit pour ajouter une nouvelle valeur **String** :
             - Nom de la valeur : **IgnoreSessionToken**
             - Données de la valeur : **1**
-            :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Paramètres de l’Éditeur du Registre":::
+            :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
     - **Cohérence des requêtes** : sélectionnez le [niveau de cohérence](consistency-levels.md) de vos opérations. La valeur par défaut est Session.
     - **Nombre de tentatives** : entrez le nombre de tentatives d’une opération si la demande initiale n’aboutit pas en raison d’une limitation du débit service.
     - **Fichier de schéma** : Vous avez plusieurs possibilités.
@@ -86,7 +86,7 @@ Familiarisons-nous avec le pilote ODBC.
 
 1. Une fois que vous avez terminé et fermé la fenêtre de **configuration DSN du pilote ODBC Azure Cosmos DB**, le DSN du nouvel utilisateur est ajouté à l’onglet DSN utilisateur.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Nouveau nom de source de données ODBC Azure Cosmos DB dans l’onglet Nom de source de données utilisateur":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de conteneur
 
@@ -94,7 +94,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre **Configuration DSN du pilote ODBC Azure Cosmos DB**.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Bouton Éditeur de schéma dans la fenêtre de configuration du nom de source de données du pilote ODBC Azure Cosmos DB":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 1. Dans la fenêtre **Éditeur de schéma**, cliquez sur **Créer**.
     La fenêtre **Générer le schéma** affiche tous les conteneurs du compte Azure Cosmos DB. 
 
@@ -162,7 +162,7 @@ Vous pouvez interroger Azure Cosmos DB à partir de SQL Server Management Studio
     
 Pour voir le nom du nouveau serveur lié, actualisez la liste Serveurs liés.
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Serveur lié dans SSMS":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 ### <a name="query-linked-database"></a>Interroger une base de données liée
 
@@ -196,7 +196,7 @@ Vous pouvez définir et créer des vues dans le cadre du processus d’échantil
 
 Pour créer une vue de vos données, dans la fenêtre **Éditeur de schéma**, dans la colonne **View Definitions** (Définitions de vue), cliquez sur **Add** (Ajouter) sur la ligne du conteneur à échantillonner. 
 
-:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Création d’une vue des données":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 
 Puis, dans la fenêtre **View Definitions** (Définitions de la vue), procédez comme suit :
@@ -205,7 +205,7 @@ Puis, dans la fenêtre **View Definitions** (Définitions de la vue), procédez 
 
 1. Dans la fenêtre **Modifier l’affichage**, entrez une requête Azure Cosmos DB. Utilisez obligatoirement une [requête SQL Azure Cosmos DB](how-to-sql-query.md), par exemple `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, puis cliquez sur **OK**.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Ajout d’une requête lors de la création d’une vue":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 
 Vous pouvez créer autant de vues que vous le souhaitez. Une fois que vous avez terminé la définition des vues, vous pouvez échantillonner les données. 
@@ -218,21 +218,21 @@ Vous pouvez utiliser votre nouveau DSN pour vous connecter à Azure Cosmos DB av
 
 1. Cliquez sur **Get Data** (Obtenir les données).
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obtenir les données dans Power BI Desktop":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 1. Dans la fenêtre **Get Data** (Obtenir les données), cliquez sur **Other** (Autre)  | **ODBC** | **Connect** (Se connecter).
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Choix de la source de données ODBC dans l’option Obtenir les données de Power BI":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 1. Dans la fenêtre **From ODBC** (Depuis ODBC), sélectionnez le nom de source de données que vous avez créé, puis cliquez sur **OK**. Vous pouvez laisser les entrées **Options avancées** vides.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Choisir le nom de la source de données de l’option Obtenir des données de Power BI":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 1. Dans la fenêtre **Accéder à une source de données à l’aide d’un pilote ODBC**, sélectionnez **Par défaut ou Personnalisé** , puis cliquez sur **Connecter**. Vous n’avez pas besoin d’inclure les **propriétés de la chaîne d’informations d’identification**.
 
 1. Dans la fenêtre du **navigateur**, dans le volet gauche, développez la base de données, le schéma, puis sélectionnez la table. Le volet des résultats inclut les données en utilisant le schéma que vous avez créé.
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Sélection de la table dans l’option Obtenir les données de Power BI":::
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Administrateur de la source de données ODBC Azure Cosmos DB":::
 
 1. Pour visualiser les données dans Power BI Desktop, cochez la case en regard du nom de la table, puis cliquez sur **Charger**.
 

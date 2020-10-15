@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092743"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070008"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -77,7 +77,7 @@ Cet article comprend des questions fréquentes sur les problèmes de configurati
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Pourquoi la chaîne d’approbation du certificat TLS/SSL de mon service cloud est-elle incomplète ?
     
-Nous recommandons aux clients d’installer la chaîne de certificats complète (certificat feuille, certificats intermédiaires et certificat racine) au lieu du seul certificat feuille. Quand vous installez uniquement le certificat feuille, vous faites confiance à Windows pour générer la chaîne de certificats en parcourant la liste CTL. Si Azure ou Windows Update rencontre des problèmes réseau ou DNS intermittents pendant que Windows tente de valider le certificat, celui-ci peut être considéré comme non valide. En installant la chaîne de certificats complète, ce problème peut être évité. L’article du blog intitulé [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) (Comment installer un certificat SSL chaîné) explique comment effectuer cette opération.
+Nous recommandons aux clients d’installer la chaîne de certificats complète (certificat feuille, certificats intermédiaires et certificat racine) au lieu du seul certificat feuille. Quand vous installez uniquement le certificat feuille, vous faites confiance à Windows pour générer la chaîne de certificats en parcourant la liste CTL. Si Azure ou Windows Update rencontre des problèmes réseau ou DNS intermittents pendant que Windows tente de valider le certificat, celui-ci peut être considéré comme non valide. En installant la chaîne de certificats complète, ce problème peut être évité. L’article du blog intitulé [How to install a chained SSL certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) (Comment installer un certificat SSL chaîné) explique comment effectuer cette opération.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>À quoi sert le « certificat de chiffrement Windows Azure Tools pour les extensions » ?
 
@@ -111,11 +111,11 @@ Vous pouvez automatiser cette tâche à l’aide d’un script de démarrage (ba
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qu’est l’objectif du certificat « Microsoft Azure Service Management pour MachineKey » ?
 
-Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez [ces conseils](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez [ces conseils](/security-updates/securityadvisories/2018/4092731).
 
 Pour plus d’informations, consultez les articles suivants :
-- [Comment configurer et exécuter des tâches de démarrage pour un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Tâches courantes de démarrage dans le service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Comment configurer et exécuter des tâches de démarrage pour un service cloud](./cloud-services-startup-tasks.md)
+- [Tâches courantes de démarrage dans le service cloud](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -139,16 +139,16 @@ Vous avez épuisé le quota de stockage local réservé à l’écriture dans le
 * Augmentez la limite de quota pour les ressources locales.
 
 Pour plus d’informations, consultez les documents suivants :
-* [Stocker et afficher des données de diagnostic dans le stockage Azure](/azure/storage/common/storage-introduction)
-* [Le service Journaux d’activité IIS cesse d’écrire dans le service cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Stocker et afficher des données de diagnostic dans le stockage Azure](../storage/common/storage-introduction.md)
+* [Le service Journaux d’activité IIS cesse d’écrire dans le service cloud](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Comment activer la journalisation des diagnostics Microsoft Azure pour les Services cloud ?
 Vous pouvez activer la journalisation Diagnostics Azure pour Windows (WAD) par le biais des options suivantes :
-1. [Activer à partir de Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Activer par le biais du code .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Activer par le biais de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Activer à partir de Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Activer par le biais du code .NET](./cloud-services-dotnet-diagnostics.md)
+3. [Activer par le biais de PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la cmd ps [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».
+Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la cmd ps [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».
 
 
 ## <a name="network-configuration"></a>Configuration réseau
@@ -248,7 +248,7 @@ Pour plus d’informations sur la façon d’utiliser une métrique personnalis�
 
 Pour plus d’informations sur la façon d’intégrer Diagnostics Azure à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
-Pour plus d’informations sur la façon d’activer Application Insights pour les services cloud, consultez [Application Insights pour Services cloud Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices).
+Pour plus d’informations sur la façon d’activer Application Insights pour les services cloud, consultez [Application Insights pour Services cloud Azure](../azure-monitor/app/cloudservices.md).
 
 Pour plus d’informations sur la façon d’activer la journalisation Diagnostics Azure pour les services cloud, consultez [Configurer les diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them).
 
@@ -313,7 +313,7 @@ La liaison SNI peut être configurée à l’aide de l’applet de commande Powe
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-Comme décrit [ici](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags peut adopter l’une des valeurs suivantes :
+Comme décrit [ici](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), $sslFlags peut adopter l’une des valeurs suivantes :
 
 |Valeur|Signification|
 ------|------
@@ -324,7 +324,7 @@ Comme décrit [ici](https://technet.microsoft.com/library/ee790567.aspx), $sslFl
  
 **Méthode 2 : Utiliser le code**
 
-La liaison SNI peut également être configurée via code au cours du démarrage de rôle comme décrit dans ce [billet de blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/) :
+La liaison SNI peut également être configurée via code au cours du démarrage de rôle comme décrit dans ce [billet de blog](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service) :
 
 ```csharp
 //<code snip> 
@@ -356,7 +356,6 @@ Un service cloud déjà déployé est facturé pour les ressources de calcul et 
 
 Voici ce que vous pouvez faire pour réduire votre facturation sans perdre l’adresse IP de votre service :
 
-1. [Réservez l’adresse IP](../virtual-network/virtual-networks-reserved-public-ip.md) avant de supprimer les déploiements.  Vous êtes uniquement facturé pour cette adresse IP. Pour plus d’informations sur la facturation d’une adresse IP, consultez [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Réservez l’adresse IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) avant de supprimer les déploiements.  Vous êtes uniquement facturé pour cette adresse IP. Pour plus d’informations sur la facturation d’une adresse IP, consultez [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Supprimez les déploiements. Ne supprimez pas xxx.cloudapp.net, afin que vous puissiez l’utiliser à l’avenir.
 3. Si vous souhaitez redéployer le service cloud à l’aide de l’adresse IP de réserve que vous avez réservée dans votre abonnement, consultez [Adresses IP réservées pour les services cloud et les machines virtuelles](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-

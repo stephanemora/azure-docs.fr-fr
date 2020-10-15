@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68854009"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
@@ -53,28 +53,28 @@ Si `textDecorations` est `true`, Bing peut inclure les marqueurs suivants dans l
 
 |Unicode|HTML|Description
 |-|-|-
-|U+E000|\<b&gt;|Marque le début du terme de requête (mise en surbrillance des correspondances)
-|U+E001|\</b&gt;|Marque la fin du terme de requête
-|U+E002|\<i&gt;|Marque le début du contenu en italique 
-|U+E003|\</i&gt;|Marque la fin du contenu en italique
-|U+E004|\<br/&gt;|Marque un saut de ligne
+|U+E000|\<b>|Marque le début du terme de requête (mise en surbrillance des correspondances)
+|U+E001|\</b>|Marque la fin du terme de requête
+|U+E002|\<i>|Marque le début du contenu en italique 
+|U+E003|\</i>|Marque la fin du contenu en italique
+|U+E004|\<br/>|Marque un saut de ligne
 |U+E005||Marque le début d’un numéro de téléphone
 |U+E006||Marque la fin d’un numéro de téléphone
 |U+E007||Marque le début d’une adresse
 |U+E008||Marque la fin d’une adresse
 |U+E009|\&nbsp;|Marque une espace insécable
-|U+E00C|\<strong&gt;|Marque le début du contenu en gras
-|U+E00D|\</strong&gt;|Marque la fin du contenu en gras
+|U+E00C|\<strong>|Marque le début du contenu en gras
+|U+E00D|\</strong>|Marque la fin du contenu en gras
 |U+E00E||Marque le début du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
 |U+E00F||Marque la fin du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
 |U+E010||Marque le début du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
 |U+E011||Marque la fin du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
-|U+E012|\<del&gt;|Marque le début du contenu qui doit être barré
-|U+E013|\</del&gt;|Marque la fin du contenu qui doit être barré
-|U+E016|\<sub&gt;|Marque le début du contenu en indice
-|U+E017|\</sub&gt;|Marque la fin du contenu en indice
-|U+E018|\<sup&gt;|Marque le début du contenu en exposant
-|U+E019|\</sup&gt;|Marque la fin du contenu en exposant
+|U+E012|\<del>|Marque le début du contenu qui doit être barré
+|U+E013|\</del>|Marque la fin du contenu qui doit être barré
+|U+E016|\<sub>|Marque le début du contenu en indice
+|U+E017|\</sub>|Marque la fin du contenu en indice
+|U+E018|\<sup>|Marque le début du contenu en exposant
+|U+E019|\</sup>|Marque la fin du contenu en exposant
 
 ## <a name="next-steps"></a>Étapes suivantes
 

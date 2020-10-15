@@ -4,10 +4,10 @@ description: Cet article fournit la procédure d’affichage des journaux d’ac
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87094123"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Afficher les journaux d’activité pour les laboratoires dans Azure DevTest Labs 
@@ -27,19 +27,19 @@ Cet article explique comment afficher les journaux d’activité d’un laborato
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::
 1. Sur la page **Configuration et stratégies**, sélectionnez **Journaux d’activité** dans le menu de gauche, sous **Gérer**. Vous devriez voir des entrées pour les opérations effectuées sur le laboratoire. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Journal d’activité":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::    
 1. Sélectionnez un événement pour en afficher les détails. Sur la page **Résumé**, vous pouvez voir des informations telles que le nom de l’opération, l’horodatage et la personne qui a effectué l’opération. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Événement d’arrêt de machine virtuelle - Résumé":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::        
 1. Basculez vers l’onglet **JSON** pour afficher plus de détails. Dans l’exemple suivant, vous pouvez voir le nom de la machine virtuelle et l’opération effectuée sur la machine virtuelle (arrêtée).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Événement d’arrêt de machine virtuelle - JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::           
 1. Basculez vers l’onglet **Historique des changements (préversion)** pour afficher l’historique des modifications. Dans l’exemple suivant, vous voyez la modification qui a été apportée sur la machine virtuelle. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Événement d’arrêt de machine virtuelle - Historique des changements":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::             
 1. Sélectionnez la modification dans la liste d’historique des changements pour afficher plus de détails sur la modification. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Événement d’arrêt de machine virtuelle - Détails des changements":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Sélectionnez Configuration et stratégies dans le menu de gauche":::             
 
 Pour plus d’informations à propos des Journaux d’activité, consultez [Journal d’activité Azure](../azure-monitor/platform/activity-log.md).
 

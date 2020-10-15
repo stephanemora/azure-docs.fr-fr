@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266040"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -51,7 +51,7 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
-1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 (préversion)** .
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365**.
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
@@ -102,7 +102,7 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
-1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 (préversion)** .
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365**.
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
