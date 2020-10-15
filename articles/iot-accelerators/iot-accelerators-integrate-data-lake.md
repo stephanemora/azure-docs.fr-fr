@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73889232"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069843"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
 
@@ -180,4 +180,4 @@ Azure Stream Analytics utilise un langage de requête de type SQL pour spécifie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Azure Data Lake Analytics peut être utilisé pour effectuer une analyse de big data sur vos jeux de données Data Lake Store. Explorez la [Documentation Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics) pour en savoir plus.
+Azure Data Lake Analytics peut être utilisé pour effectuer une analyse de big data sur vos jeux de données Data Lake Store. Explorez la [Documentation Data Lake Analytics](../data-lake-analytics/index.yml) pour en savoir plus.

@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042443"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des applications iOS avec Azure Notification Hubs
@@ -60,11 +60,11 @@ Générez le fichier de demande de signature de certificat (CSR, Certificate Sig
 
 3. Sélectionnez votre **adresse e-mail d’utilisateur**, entrez votre **nom commun** , veillez à spécifier  **Enregistré sur le disque**, puis sélectionnez **Continuer**. Laissez le champ **Adresse de messagerie d’autorité de certification** vide, car il n’est pas nécessaire.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Informations requises sur le certificat":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Trousseaux d’accès":::
 
 4. Entrez un nom pour le fichier CSR dans **Enregistrer en tant que**, sélectionnez l’emplacement dans **Où**, puis sélectionnez **Enregistrer**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Choisir le nom de fichier":::
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Trousseaux d’accès":::
 
    Cette action enregistre le fichier CSR à l’emplacement sélectionné. L’emplacement par défaut est **Bureau**. Notez l’emplacement choisi pour ce fichier.
 
@@ -76,26 +76,26 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 
 1. Si vous n’avez pas encore inscrit votre application, accédez au [portail de provisionnement iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) dans le Centre pour développeurs Apple. Connectez-vous au portail avec votre ID Apple, puis sélectionnez **Identifiers**. Sélectionnez ensuite **+**  pour inscrire une nouvelle application.
 
-   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Page App IDs":::
+   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Trousseaux d’accès":::
 
 2. Dans l’écran **Register a New Identifier** , sélectionnez la case d’option **App IDs** . Sélectionnez **Continue**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Page Register new ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Trousseaux d’accès":::
 
 3. Mettez à jour les trois valeurs suivantes pour votre nouvelle application, puis sélectionnez **Continue** :
 
    - **Description** : tapez un nom descriptif pour votre application.
    - **Bundle ID** : entrez un identifiant de bundle au format **Organization Identifier.Product Name** comme indiqué dans le [Guide de distribution d’application](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Les valeurs **Organization Identifier** et **Product Name** doivent correspondre à l’identificateur d’organisation et au nom de produit que vous utiliserez pour créer le projet Xcode. Dans la capture d’écran ci-dessous, la valeur **NotificationHubs** est utilisée comme identificateur d’organisation, tandis que la valeur  **GetStarted** correspond au nom du produit. Vérifiez que la valeur **Bundle Identifier** correspond à celle de votre projet Xcode, afin que Xcode utilise le profil de publication correct.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Inscrire un ID d’application":::
+      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Trousseaux d’accès":::
 
    - **Push Notifications** : Cochez l’option **Push Notifications** dans la section **Capabilities** .
 
-      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Inscrire un nouvel ID d’application":::
+      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Trousseaux d’accès":::
 
       L’ID de votre application est généré et vous êtes invité à confirmer les informations. Sélectionnez **Continue**, puis **Register** pour confirmer le nouvel ID d’application.
 
-      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Confirmer le nouvel ID d’application":::
+      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Trousseaux d’accès":::
 
       Après avoir sélectionné **Register**, vous voyez le nouvel ID d’application affiché comme élément de ligne dans la page  **Certificates, Identifiers & Profiles**.
 
@@ -118,11 +118,11 @@ La deuxième option présente un certain nombre d’avantages (par rapport à l�
 
 1. Faites défiler la page jusqu’à l’option cochée **Push Notifications** , puis sélectionnez **Configure** pour créer le certificat.
 
-   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="ID d’application":::
+   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="Trousseaux d’accès":::
 
 2. La fenêtre **Apple Push Notification service SSL Certificates** s’affiche. Sélectionnez le bouton **Create Certificate** dans la section **Development SSL Certificate**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Créer un certificat":::
+   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Trousseaux d’accès":::
 
    L’écran **Create a new Certificate** s’affiche.
 
@@ -133,11 +133,11 @@ La deuxième option présente un certain nombre d’avantages (par rapport à l�
 
 4. Une fois que le portail a créé le certificat, sélectionnez le bouton **Download**. Enregistrez le certificat et notez son emplacement pour le retrouver facilement.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Télécharger le certificat":::
+   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Trousseaux d’accès":::
 
    Le certificat est téléchargé et enregistré dans votre dossier  **Downloads**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Rechercher le fichier de certificat":::
+   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Trousseaux d’accès":::
 
    Par défaut, le certificat de développement téléchargé se nomme **aps_development.cer**.
 
@@ -149,7 +149,7 @@ La deuxième option présente un certain nombre d’avantages (par rapport à l�
 
 6. Dans Trousseaux d’accès, cliquez avec le bouton droit sur le certificat Push que vous avez créé dans la catégorie **Certificats**. Sélectionnez **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis sélectionnez **Enregistrer**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Exporter le certificat":::
+   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Trousseaux d’accès":::
 
    Vous pouvez choisir de protéger le certificat par un mot de passe, mais cela est facultatif. Cliquez sur **OK** si vous souhaitez ignorer l’étape de création du mot de passe. Notez le nom du fichier et l’emplacement du certificat .p12 exporté. Ces informations sont nécessaires pour activer l’authentification avec APNS.
 
@@ -201,11 +201,11 @@ La deuxième option présente un certain nombre d’avantages (par rapport à l�
 
 2. Sélectionnez **iOS App Development** sous **Development** comme type de profil de provisionnement, puis sélectionnez **Continue**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Liste de profils de provisionnement":::
+   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Trousseaux d’accès":::
 
 3. Ensuite, dans la liste déroulante **App ID**, sélectionnez l’ID d’application que vous avez créé, puis **Continue**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Sélection d’un ID d’application":::
+   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Trousseaux d’accès":::
 
 4. Dans la fenêtre **Select certificates**, sélectionnez le certificat de développement utilisé pour la signature de code, puis sélectionnez **Continue**. Ce certificat n’est pas le certificat Push que vous avez créé. S’il n’en existe pas, vous devez le créer. Si un certificat existe, passez à l’étape suivante. Pour créer un certificat de développement s’il n’en existe pas déjà :
 
@@ -224,7 +224,7 @@ La deuxième option présente un certain nombre d’avantages (par rapport à l�
 
 8. Pour finir, choisissez un nom pour le profil dans **Provisioning Profile Name**, puis sélectionnez **Generate**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Choisir un nom de profil de provisionnement":::
+   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Trousseaux d’accès":::
 
 9. Une fois le profil de provisionnement créé, sélectionnez **Download**. Notez son emplacement pour le retrouver facilement.
 
@@ -238,11 +238,11 @@ Dans cette section, vous créez un hub de notification et configurez l’authent
 
 2. Sélectionnez **Tous les services** dans le menu de gauche, puis sélectionnez **Notification Hubs** dans la section **Mobile**. Sélectionnez l’icône représentant une étoile en regard du nom du service pour l’ajouter à la section **FAVORIS** dans le menu de gauche. Après avoir ajouté **Notification Hubs** à **FAVORIS**, sélectionnez-le.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Portail Azure":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Trousseaux d’accès":::
 
 3. Dans la page **Notification Hubs**,sélectionnez **Ajouter** dans la barre d’outils.
 
-   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Bouton de barre d’outils Ajouter":::
+   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Trousseaux d’accès":::
 
 4. Dans la page **Notification Hubs**, effectuez les étapes suivantes :
 
@@ -252,18 +252,18 @@ Dans cette section, vous créez un hub de notification et configurez l’authent
    4. Sélectionnez un groupe de ressources existant dans  **Groupe de ressources**, ou créez-en un.
    5. Sélectionnez  **Créer**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Définir des propriétés":::
+   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Trousseaux d’accès":::
 
 5. Sélectionnez **Notifications** (icône représentant une cloche), puis **Accéder à la ressource**. Vous pouvez également actualiser la liste dans la page **Notification Hubs**, puis sélectionner votre hub.
 
-   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Notifications du portail":::
+   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Trousseaux d’accès":::
 
 6. Sélectionnez **Stratégies d’accès** dans la liste. Notez que les deux chaînes de connexion sont disponibles pour vous. Vous en aurez besoin pour gérer les notifications Push.
 
    > [!IMPORTANT]
    > N’utilisez pas la stratégie **DefaultFullSharedAccessSignature** dans votre application. Elle est censée être utilisée uniquement dans votre back-end.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Chaînes de connexion":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Trousseaux d’accès":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Configurer le hub de notification avec des informations APNS
 
@@ -284,7 +284,7 @@ Sous **Services de notification**, sélectionnez **Apple (APNS)** , puis effec
 
 5. Sélectionnez le mode  **Bac à sable**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Configurer":::
+   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Trousseaux d’accès":::
 
 6. Sélectionnez  **Enregistrer**.
 

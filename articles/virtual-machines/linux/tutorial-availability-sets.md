@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e04f6120f7d9a5646a3b30553b5083c5259acae2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4b3817bd33c72ce6d1c3426aa8379101c84f5bc5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499634"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961508"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
 
@@ -116,5 +116,5 @@ Passez au didacticiel suivant pour en savoir plus sur les groupes de machines vi
 > [Créer un groupe de machines virtuelles identiques](tutorial-create-vmss.md)
 
 * Pour en savoir plus sur les zones de disponibilité, consultez la [documentation sur les zones de disponibilité](../../availability-zones/az-overview.md).
-* Vous trouverez de la documentation supplémentaire sur les groupes à haute disponibilité et les zones de disponibilité [ici](./manage-availability.md).
+* Vous trouverez de la documentation supplémentaire sur les groupes à haute disponibilité et les zones de disponibilité [ici](../manage-availability.md).
 * Pour tester les zones de disponibilité, consultez [Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure](./create-cli-availability-zone.md).

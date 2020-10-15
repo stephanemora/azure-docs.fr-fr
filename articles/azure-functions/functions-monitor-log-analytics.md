@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208363"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorage d’Azure Functions avec Azure Monitor Logs
@@ -38,7 +38,7 @@ Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/qu
 
 1. Entrez un **nom de paramètres de diagnostic**, puis sélectionnez **Enregistrer**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Ajouter un paramètre de diagnostic":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Sélectionner Paramètres de diagnostic":::
 
 ## <a name="user-generated-logs"></a>Journaux générés par l’utilisateur
 
@@ -89,7 +89,7 @@ Pour interroger les journaux générés :
 
    Azure Functions écrit tous les journaux dans la table **FunctionAppLogs** sous **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Fenêtre de requête dans l’espace de travail Log Analytics":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Sélectionner Paramètres de diagnostic":::
 
 Voici quelques exemples de requêtes :
 

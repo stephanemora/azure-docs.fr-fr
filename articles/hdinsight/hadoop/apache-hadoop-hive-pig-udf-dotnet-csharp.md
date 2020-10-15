@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000615"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight

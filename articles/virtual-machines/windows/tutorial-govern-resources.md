@@ -9,10 +9,10 @@ ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
 ms.openlocfilehash: 723eaeb6eb8946473b31b447e817a0a3b696f1cc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926567"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutoriel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
@@ -41,7 +41,7 @@ Pour le moment, le groupe de ressources est vide.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Un [Contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue.
+Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le [contrôle d'accès en fonction du rôle (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue.
 
 Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer d’un accès `Microsoft.Authorization/roleAssignments/*`. Cet accès est accordé par le biais du rôle Propriétaire ou Administrateur de l’accès utilisateur.
 

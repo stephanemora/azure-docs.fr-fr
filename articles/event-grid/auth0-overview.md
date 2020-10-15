@@ -4,10 +4,10 @@ description: Envoyer des événements d’Auth0 à des services Azure avec Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103345"
 ---
 # <a name="auth0-partner-topics"></a>Rubriques de partenaire Auth0

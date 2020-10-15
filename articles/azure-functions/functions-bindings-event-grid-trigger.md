@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214133"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
@@ -407,7 +407,7 @@ Pour les fonctions développées dans le portail Azure avec le déclencheur Even
 
 Ce lien ouvre la page **Créer un abonnement aux événements** dans le portail avec le point de terminaison du déclencheur actuel déjà défini.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Créer un abonnement aux événements avec le point de terminaison de fonction déjà défini" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Connectez un nouvel abonnement aux événements à déclencher dans le portail." :::
 
 Pour plus d’informations sur la création d’abonnements à l’aide du Portail Azure, consultez la section [Créer un événement personnalisé - Portail Azure](../event-grid/custom-event-quickstart-portal.md) dans la documentation Event Grid.
 

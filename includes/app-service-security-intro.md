@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83649050"
 ---
 Les composants de plateforme d’App Service, notamment les machines virtuelles Azure, le stockage, les connexions réseau, les frameworks web, les fonctionnalités de gestion et d’intégration, sont activement sécurisés et renforcés. App Service fait régulièrement l’objet de vérifications de conformité strictes pour garantir les points suivants :

@@ -13,10 +13,10 @@ ms.date: 08/07/2020
 ms.author: hahamil
 ms.reviewer: marsma
 ms.openlocfilehash: c0b08a6c1a784216abe2bd562109dbb1586252c9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119808"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Gérer les exceptions et les erreurs dans MSAL pour Android
