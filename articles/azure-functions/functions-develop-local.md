@@ -4,10 +4,10 @@ description: Apprenez à coder et à tester des fonctions Azure sur votre ordina
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 2362fcd27f1b5f7c0b3411eae5b3b94c7dc6cf4c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86540177"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement

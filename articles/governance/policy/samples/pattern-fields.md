@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Propriétés de champs dans une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple d’utilisation des propriétés de champs dans une définition de stratégie.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565710"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072966"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Modèle Azure Policy : Propriétés de champs
 

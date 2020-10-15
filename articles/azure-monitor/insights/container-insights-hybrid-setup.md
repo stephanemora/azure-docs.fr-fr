@@ -3,12 +3,12 @@ title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les c
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398379"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994441"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
@@ -40,7 +40,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un [espace de travail Log Analytics](../platform/design-logs-deployment.md).
 
-    Azure Monitor pour conteneurs prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
+    Azure Monitor pour conteneurs prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
 
     >[!NOTE]
     >L’analyse de plusieurs clusters avec le même nom de cluster dans le même espace de travail Log Analytics n’est pas prise en charge. Les noms de cluster doivent être uniques.

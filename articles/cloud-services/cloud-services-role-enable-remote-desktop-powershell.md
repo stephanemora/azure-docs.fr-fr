@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 13d5be5b1e0bcdf84001f21a45364296d67a5da4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7742267f5ce199f3a5bffc52200374d2323f0622
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013895"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072456"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 
@@ -30,7 +30,7 @@ Cet article décrit comment activer Bureau à distance sur vos rôles Service Cl
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurer le Bureau à distance à partir de PowerShell
 L’applet de commande [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) permet d’activer le Bureau à distance sur des rôles spécifiés ou sur tous les rôles de déploiement de votre service cloud. L’applet de commande vous permet de spécifier le nom d’utilisateur et le mot de passe de l’utilisateur de bureau à distance par le biais du paramètre *informations d’identification* qui accepte un objet PSCredential.
 
-Si vous utilisez PowerShell de manière interactive, vous pouvez facilement définir l’objet PSCredential en appelant l’applet de commande [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
+Si vous utilisez PowerShell de manière interactive, vous pouvez facilement définir l’objet PSCredential en appelant l’applet de commande [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) .
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 Cette commande affiche une boîte de dialogue vous permettant de saisir le nom d’utilisateur et un mot de passe utilisateur distant de manière sécurisée.
 
-Dans la mesure où PowerShell sera utilisé dans les scénarios d’automatisation, vous pouvez également configurer l’objet **PSCredential** d’une façon qui ne nécessite pas l’interaction utilisateur. Vous devez d'abord configurer un mot de passe sécurisé. Commencez par spécifier un mot de passe en texte brut et convertissez-le en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Vous devez ensuite convertir cette chaîne sécurisée en chaîne standard chiffrée avec [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Vous pouvez maintenant enregistrer cette chaîne chiffrée standard dans un fichier [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Dans la mesure où PowerShell sera utilisé dans les scénarios d’automatisation, vous pouvez également configurer l’objet **PSCredential** d’une façon qui ne nécessite pas l’interaction utilisateur. Vous devez d'abord configurer un mot de passe sécurisé. Commencez par spécifier un mot de passe en texte brut et convertissez-le en chaîne sécurisée à l’aide [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). Vous devez ensuite convertir cette chaîne sécurisée en chaîne standard chiffrée avec [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring). Vous pouvez maintenant enregistrer cette chaîne chiffrée standard dans un fichier [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)).
 
 Vous pouvez également créer un fichier de mot de passe sécurisé pour ne pas avoir à retaper le mot de passe à chaque fois. En outre, un fichier de mot de passe sécurisé est préférable à un fichier texte brut. Utilisez l’opération PowerShell suivante pour créer un fichier de mot de passe sécurisé :
 
@@ -47,9 +47,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](https://technet.microsoft.com/library/cc786468.aspx).
+> Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)).
 
-Pour créer l’objet d’informations d’identification à partir du fichier de mot de passe sécurisé, vous devez lire le contenu du fichier et le reconvertir en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Pour créer l’objet d’informations d’identification à partir du fichier de mot de passe sécurisé, vous devez lire le contenu du fichier et le reconvertir en chaîne sécurisée à l’aide [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 L’applet de commande [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) accepte également un paramètre *Expiration* qui spécifie une valeur **DateTime** à laquelle le compte d’utilisateur expire. Par exemple, vous pouvez configurer le compte pour qu'il expire quelques jours après la date et l'heure actuelles.
 
@@ -101,5 +101,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 [Configuration des services cloud](cloud-services-how-to-configure-portal.md)
-
-

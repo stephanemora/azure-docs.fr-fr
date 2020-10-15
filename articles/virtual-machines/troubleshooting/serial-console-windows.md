@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9cf3f9a1cd933526c5e376d232fa5acbc97fad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325978"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969719"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -189,7 +189,7 @@ Seules les informations d’intégrité sont affichées lors de la connexion à 
 SAC n’occupe pas la totalité de la zone de la console série dans le navigateur | Il s’agit d’un problème connu touchant Windows et l’émulateur de terminal. Nous effectuons le suivi de ce problème avec les deux équipes, mais pour l’instant, aucune solution d’atténuation n’est disponible.
 Impossible d’entrer des données à l’invite de commandes de la console SAC si le débogage du noyau est activé. | Établissez une connexion RDP vers la machine virtuelle et exécutez `bcdedit /debug {current} off` à partir d’une invite de commandes avec élévation de privilèges. Si vous ne pouvez pas établir de connexion RDP, vous pouvez joindre le disque du système d’exploitation à une autre machine virtuelle Azure et le modifier pendant qu’il est joint en tant que disque de données en exécutant `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, puis en rebasculant le disque.
 Coller du contenu dans PowerShell sous la console SAC génère un troisième caractère si le contenu d’origine contenait un caractère répété. | Une solution de contournement consiste à exécuter `Remove-Module PSReadLine` pour décharger le module PSReadLine de la session active. Cette action ne supprime pas et ne désinstalle pas le module.
-Certaines entrées de clavier produisent une sortie étrange de la console SAC (par exemple, **[A**, **[3~** ). | Les séquences d’échappement [VT100](https://aka.ms/vtsequences) ne sont pas prises en charge par l’invite de la console SAC.
+Certaines entrées de clavier produisent une sortie étrange de la console SAC (par exemple, **[A**, **[3~** ). | Les séquences d’échappement [VT100](/windows/console/console-virtual-terminal-sequences) ne sont pas prises en charge par l’invite de la console SAC.
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions

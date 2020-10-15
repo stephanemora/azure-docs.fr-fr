@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706348"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070382"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -31,7 +31,7 @@ Azure AD utilise cette intégration pour activer les workflows suivants d’appl
 - **Mise à jour de l’application RH cloud** : mettez à jour les adresses e-mail et les attributs de nom d’utilisateur à partir d’Azure AD sur l’application RH cloud.
 
 > [!NOTE]
-> Ce plan de déploiement vous indique comment déployer vos workflows d’application RH cloud à l’aide de l’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur la façon de déployer l’approvisionnement automatique d’utilisateurs vers des applications SaaS (Software-as-a-Service), consultez [Planifier un déploiement de l’approvisionnement automatique d’utilisateurs](https://aka.ms/deploymentplans/provisioning).
+> Ce plan de déploiement vous indique comment déployer vos workflows d’application RH cloud à l’aide de l’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur la façon de déployer l’approvisionnement automatique d’utilisateurs vers des applications SaaS (Software-as-a-Service), consultez [Planifier un déploiement de l’approvisionnement automatique d’utilisateurs](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Scénarios RH activés
 
@@ -126,7 +126,7 @@ Tenez compte des besoins de votre organisation lorsque vous déterminez la strat
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](https://aka.ms/deploymentplans). Assurez-vous également que les rôles des parties prenantes dans le projet sont bien compris. Documentez les parties prenantes et leurs informations et responsabilités de projet.
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md). Assurez-vous également que les rôles des parties prenantes dans le projet sont bien compris. Documentez les parties prenantes et leurs informations et responsabilités de projet.
 
 Incluez un représentant de l’organisation RH qui peut fournir des informations sur les processus opérationnels RH existants et les exigences en matière de traitement des données relatives à l’identité du travailleur et à ses tâches.
 
@@ -378,7 +378,7 @@ Azure AD peut fournir des insights supplémentaires sur l’exploitation de l�
 
 Après l’exécution d’un [cycle initial](../app-provisioning/how-provisioning-works.md#initial-cycle) réussi, le service d’approvisionnement Azure AD continue d’exécuter indéfiniment des mises à jour incrémentielles dos à dos, à des intervalles définis dans les tutoriels propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
 
-- Le service est arrêté manuellement. Un nouveau cycle initial est déclenché à l’aide du [portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriée.
+- Le service est arrêté manuellement. Un nouveau cycle initial est déclenché à l’aide du [portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](/graph/api/resources/synchronization-overview) appropriée.
 - Un nouveau cycle initial est déclenché en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue.
 - Le processus d’approvisionnement passe en quarantaine en raison d’un taux d’erreur élevé. Il reste en quarantaine pendant plus de quatre semaines, au bout desquelles il est automatiquement désactivé.
 
@@ -416,6 +416,6 @@ Pour résoudre les problèmes susceptibles de survenir au cours de l’approvisi
 ### <a name="next-steps"></a>Étapes suivantes
 
 - [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
+- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
 - [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](skip-out-of-scope-deletions.md)
 - [Agent de provisionnement Azure AD Connect : Historique de publication des versions](provisioning-agent-release-version-history.md)

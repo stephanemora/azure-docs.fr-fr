@@ -4,10 +4,10 @@ description: Cet article explique comment utiliser Stockage Blob comme magasin d
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 1c876ed36be6aec9395a1acba3a1deb25a47de2c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87039223"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Utiliser Stockage Blob comme magasin de points de contrôle – Event Hubs sur Azure Stack Hub (préversion)

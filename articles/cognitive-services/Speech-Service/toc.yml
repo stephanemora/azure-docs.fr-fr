@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: Guides pratiques
       items:
-        - name: Reconnaître la voix stockée dans Stockage Blob
-          href: quickstarts/from-blob.md
-        - name: Choisir un mode de reconnaissance vocale
-          href: how-to-choose-recognition-mode.md
         - name: Changer la langue source de la reconnaissance vocale
           href: how-to-specify-source-language.md
         - name: Améliorer la précision avec Custom Speech
@@ -37,8 +33,6 @@
         - name: Utiliser des formats d’entrée audio compressés
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: Améliorer la précision avec des listes d’expressions
-          href: how-to-phrase-lists.md
         - name: Sélectionner un périphérique d’entrée de microphone spécifique
           href: how-to-select-audio-input-devices.md
         - name: Utiliser la détection automatique de la langue source
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Tutoriels
       items:
+        - name: Reconnaître la voix stockée dans Stockage Blob
+          href: quickstarts/from-blob.md
         - name: Améliorer la précision avec des modèles de locataire
           href: tutorial-tenant-model.md
     - name: Personnalisation
@@ -148,7 +144,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Informations de référence
+    - name: Référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'

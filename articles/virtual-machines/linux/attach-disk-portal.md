@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a37ed39f3c663f9f77daa1ed8f6946403348edd0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 565b781b5015f82cafe4e47be2170f2327660821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072636"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971589"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -20,7 +20,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 Avant d’attacher des disques à votre machine virtuelle, lisez les conseils suivants :
 
 * La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Les disques attachés aux machines virtuelles sont en réalité des fichiers .vhd stockés dans Azure. Pour plus d’informations, consultez [Introduction aux disques managés](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Les disques attachés aux machines virtuelles sont en réalité des fichiers .vhd stockés dans Azure. Pour plus d’informations, consultez [Introduction aux disques managés](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
 * Après avoir attaché le disque, vous devez vous [connecter à la machine virtuelle Linux pour monter le nouveau disque](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
