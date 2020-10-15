@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322549"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978728"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Création d’images généralisées sans agent d’approvisionnement
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Ce service système fait trois choses pour l’approvisionnement de base :
 
 1. Préparez les rapports pour Azure (pour indiquer qu’ils ont été correctement exécutés).
-1. Renomme la machine virtuelle en fonction du nom de machine virtuelle fourni par l’utilisateur en extrayant ces données à partir d’[Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Remarque** IMDS fournit également d’autres [métadonnées d’instance](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), telles que des clés publiques SSH, pour vous permettre de définir davantage le nom d’hôte.
+1. Renomme la machine virtuelle en fonction du nom de machine virtuelle fourni par l’utilisateur en extrayant ces données à partir d’[Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Remarque** IMDS fournit également d’autres [métadonnées d’instance](./instance-metadata-service.md#accessing-azure-instance-metadata-service), telles que des clés publiques SSH, pour vous permettre de définir davantage le nom d’hôte.
 1. Se désactive pour s’exécuter uniquement au premier démarrage et non pas lors des redémarrages suivants.
 
 Avec l’unité sur le système de fichiers, exécutez la commande suivante pour l’activer :

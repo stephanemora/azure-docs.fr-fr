@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531574"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876037"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
@@ -214,6 +214,8 @@ Le déclencheur n’indique pas si un document a été mis à jour ou inséré, 
 ## <a name="input"></a>Entrée
 
 La liaison d’entrée Azure Cosmos DB utilise l’API SQL pour récupérer un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction.
+
+## <a name="input---example"></a>Entrée - exemple
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1146,6 +1148,8 @@ Les mises à jour ne sont pas effectuées automatiquement une fois la fonction t
 ## <a name="output"></a>Output
 
 La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB en utilisant l’API SQL.
+
+## <a name="output---example"></a>Sortie - exemple
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 86927a525fbfcb6a252d8e3d214733a0f1e83ed1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 60bf2034f1e6404f3f09bf25a66c497dbbaf4d05
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550373"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361651"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutoriel : Configurer Insight4GRC pour l’approvisionnement automatique d’utilisateurs
 
@@ -80,15 +80,15 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+    ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Approvisionnement](common/provisioning-automatic.png)
+    ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez l’URL du point de terminaison SCIM dans **URL de locataire**. L'URL du point de terminaison doit être au format `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 `, où **Nom de domaine Insight4GRC** est la valeur récupérée dans les étapes précédentes. Saisissez le jeton du porteur récupéré précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Insight4GRC. Si la connexion échoue, vérifiez que votre compte Insight4GRC dispose des autorisations d’administrateur et réessayez.
 
-    ![approvisionnement](./media/insight4grc-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

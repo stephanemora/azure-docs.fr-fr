@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268483"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019611"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -28,7 +28,7 @@ Cet article contient des réponses aux questions les plus fréquemment posées s
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quelles sont les limitations du portail Azure pour Media Services v3 ?
 
-Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les événements en direct v3, voir des actifs multimédias et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. <br/>Pour toutes les autres tâches de gestion (par exemple la gestion des transformations et travaux ou l’analyse de contenu v3), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’[interface CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les événements en direct v3, voir des actifs multimédias et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. <br/>Pour toutes les autres tâches de gestion (par exemple la gestion des transformations et travaux ou l’analyse de contenu v3), utilisez l’[API REST](/rest/api/media/accountfilters), l’[interface CLI](/cli/azure/ams) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 Si votre vidéo a été chargée dans le compte Media Services à l’aide de l’API Media Services v3, ou si du contenu a été généré à partir d’une sortie en direct, vous ne verrez pas les boutons **Encoder**, **Analyser** ou **Chiffrer** dans le portail Azure. Utilisez les API Media Services v3 pour effectuer ces tâches.  
 
@@ -163,7 +163,7 @@ Vous pouvez actuellement utiliser le portail [Azure](https://portal.azure.com/) 
 * Afficher (non gérer) des [éléments multimédias](assets-concept.md) v3. 
 * [Obtenir des informations sur l’accès aux API](./access-api-howto.md). 
 
-Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](/rest/api/media/), [Azure CLI](/cli/azure/ams) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe-t-il un concept de fichier d’élément multimédia dans v3 ?
 

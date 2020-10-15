@@ -7,19 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223684"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076672"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 
 Des conditions peuvent être définies pour un rôle de travail de service cloud qui déclenchent une opération de scale-in ou de scale-out. Les conditions pour le rôle peuvent être basées sur le processeur, le disque ou la charge réseau du rôle. Vous pouvez également définir une condition basée sur une file d’attente de messages ou sur des mesures d’une autre ressource Azure associée à votre abonnement.
 
 > [!NOTE]
-> Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Vous pouvez mettre à l’échelle une machine virtuelle standard en l’associant à un [groupe à haute disponibilité](../virtual-machines/windows/classic/configure-availability-classic.md) et en l’activant ou la désactivant manuellement.
+> Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Vous pouvez mettre à l’échelle une machine virtuelle standard en l’associant à un [groupe à haute disponibilité](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) et en l’activant ou la désactivant manuellement.
 
 ## <a name="considerations"></a>Considérations
 Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :
@@ -105,6 +105,3 @@ Ce paramètre supprime la mise à l’échelle automatique du rôle, et vous pou
 3. Nombre d’instances pour la mise à l’échelle du rôle.
 
 Après avoir configuré les paramètres de mise à l’échelle, sélectionnez l’icône **Enregistrer** en haut.
-
-
-
