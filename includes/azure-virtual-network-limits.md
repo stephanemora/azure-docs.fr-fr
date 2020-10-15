@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854114"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936088"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -75,7 +75,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Ressources back-end par équilibreur de charge <sup>1<sup> | 150                   |
 | Ports de haute disponibilité                 | 1 par serveur frontal interne       |
 | Règles de trafic sortant par Load Balancer        | 600                           |
-| [Délai d’inactivité TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
+| Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)   |
 
 <sup>1</sup>La limite est fixée à 150 ressources, toute combinaison de ressources de machines virtuelles autonomes, ressources de groupes à haute disponibilité et groupes de placement de groupes de machines virtuelles identiques.
 
@@ -88,7 +88,8 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                          |
 | Configurations d’adresses IP frontales              | 200                          |
 | Taille de pool de serveur principal                       | 300 configurations d’adresses IP, groupe à haute disponibilité |
-| Groupes à haute disponibilité par Load Balancer     | 150                          |
+| Groupes à haute disponibilité par Load Balancer     | 1                            |
+| Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)  |
 
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement **classique** par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 

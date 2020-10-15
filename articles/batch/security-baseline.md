@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400974"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Base de référence de sécurité Azure pour Batch
@@ -792,7 +792,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 **Conseils** : Pour les nœuds de pool Azure Batch, implémentez une solution tierce qui détecte la présence d’applications logicielles non approuvées sur les nœuds de cluster.
 
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

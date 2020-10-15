@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 09/30/2020
 ms.author: tamram
-ms.openlocfilehash: 43a72d915fa5a00c54bef7a06fe3815a7d63f2fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe493ca4a2edf16bfda405e8b2c5581c0f745616
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85805516"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665596"
 ---
 | Ressource | Cible | Cible (préversion) |
 |-|-|-|
@@ -19,13 +19,15 @@ ms.locfileid: "85805516"
 | Taille maximale d’un objet blob de blocs | 50 000 x 100 Mio (environ 4,75 Tio) | 50 000 x 4 000 Mio (environ 190,7 Tio) (préversion) |
 | Taille maximale d’un bloc dans un objet blob d’ajout | 4 Mio |  |
 | Taille maximale d’un objet blob d’ajout | 50 000 x 4 Mio (environ 195 Gio) |  |
-| Taille maximale d’un objet blob de pages | 8 Tio |  |
+| Taille maximale d’un objet blob de pages | 8 Tio<sup>2</sup> |  |
 | Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5 |  |
 | Taux de requêtes cibles pour un seul objet blob | Jusqu’à 500 requêtes par seconde |  |
-| Débit cible pour un blob de page unique | Jusqu’à 60 Mio par seconde |  |
+| Débit cible pour un blob de page unique | Jusqu’à 60 Mio par seconde<sup>2</sup> |  |
 | Débit cible pour un objet blob de blocs unique | Jusqu’à la limite d’entrée/sortie du compte de stockage<sup>1</sup> |  |
 
 <sup>1</sup> Le débit pour un seul objet blob dépend de plusieurs facteurs, dont et sans s’y limiter : concurrence, taille de la demande, niveau de performance, vitesse des chargements à la source et des téléchargements à la destination. Pour tirer parti des améliorations des performances des [objets blob de blocs à haut débit](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), chargez des objets blob ou des blocs plus volumineux. En particulier, appelez l’opération [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block](/rest/api/storageservices/put-block) avec une taille d’objet blob ou de bloc supérieure à 4 Mio pour les comptes de stockage standard. Pour les objets blob de blocs Premium ou pour les comptes de stockage Data Lake Storage Gen2, utilisez une taille de bloc ou d’objet blob supérieure à 256 Kio.
+
+<sup>2</sup> Les objet blob de pages ne sont pas encore pris en charge dans les comptes qui ont le paramètre **Espace de noms hiérarchique** activé.
 
 Le tableau suivant décrit les tailles maximales de blocs et d’objets blob autorisées par la version du service.
 

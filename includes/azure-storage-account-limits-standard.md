@@ -5,17 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8c908b7f72e5581122427a7d711ae9cf61d2d90f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145936"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665595"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage d’objets blob, d’objets blob de blocs et V1 et V2 universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
+
+> [!NOTE]
+> Vous pouvez demander des limites de capacité et d’entrée supérieures. Pour demander une augmentation, contactez le [Support Azure](https://azure.microsoft.com/support/faq/).
 
 | Ressource | Limite |
 | --- | --- |
@@ -38,6 +41,5 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 > [!NOTE]
 > Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob Azure vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](../articles/storage/common/storage-account-upgrade.md).
 
-Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage. Ensuite, vous pouvez partitionner vos objets de données sur ces comptes de stockage. Pour plus d’informations sur la tarification en volume, consultez la page [Tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
-
 Tous les comptes de stockage s’exécutent sur une topologie de réseau plat, indépendamment du moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Stockage Azure et sur son extensibilité, consultez [Stockage Microsoft Azure : un service de stockage cloud hautement disponible à cohérence forte](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
+

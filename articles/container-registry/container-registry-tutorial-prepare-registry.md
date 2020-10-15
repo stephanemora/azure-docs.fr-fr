@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259529"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutoriel : Préparer un registre de conteneurs Azure géorépliqué
@@ -57,7 +57,7 @@ Configurez votre nouveau registre avec les paramètres suivants. Sous l’onglet
 
 Sélectionnez **Vérifier + créer**, puis **Créer** pour créer l’instance du Registre.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Configuration d’un registre de conteneurs dans le portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 Dans le reste de ce didacticiel, nous utilisons `<acrName>` en lieu et place du **nom du registre** de conteneurs.
 
@@ -70,19 +70,19 @@ Maintenant que vous disposez d’un registre Premium, vous pouvez configurer la 
 
 Accédez à votre nouveau registre de conteneurs dans le portail Azure, puis sélectionnez **Réplications** sous **Services** :
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Option Réplications dans l’interface utilisateur du registre de conteneurs du portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 Une carte où les régions Azure disponibles pour la géoréplication sont représentées par des hexagones verts s’affiche :
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Carte des régions dans le portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 Répliquez votre registre dans la région USA Est en sélectionnant l’hexagone vert correspondant, puis sélectionnez **Créer** sous **Créer une réplication** :
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Interface utilisateur de création d’une réplication dans le portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 Une fois la réplication terminée, le portail indique l’état *Prêt* pour les deux régions. Utilisez le bouton **Actualiser** pour actualiser l’état de la réplication. La création et la synchronisation des réplicas peuvent prendre environ une minute.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Interface utilisateur de l’état de la réplication dans le portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 
 ## <a name="enable-admin-account"></a>Activer un compte administrateur
@@ -91,7 +91,7 @@ Dans les tutoriels suivants, vous allez déployer une image conteneur du registr
 
 Accédez à votre nouveau registre de conteneurs dans le portail Azure, puis sélectionnez **Clés d’accès** sous **Paramètres**. Sous **Utilisateur administrateur**, sélectionnez **Activer**.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Activer le compte administrateur dans le portail Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
@@ -110,7 +110,7 @@ Une fois l’opération terminée, la commande renvoie `Login Succeeded`.
 
 L’exemple de ce didacticiel inclut une petite application web générée avec [ASP.NET Core][aspnet-core]. L’application fournit une page HTML qui affiche la région à partir de laquelle l’image a été déployée par Azure Container Registry.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Application de tutoriel affichée dans le navigateur":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Création d’un registre de conteneurs dans le portail Azure":::
 
 Utilisez git pour télécharger l’exemple dans un répertoire local et utilisez la commande `cd` pour accéder au répertoire :
 

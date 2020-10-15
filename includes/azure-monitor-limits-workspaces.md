@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602323"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91640655"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -72,18 +72,28 @@ Quand vous envoyez des données vers un espace de travail à un débit supérieu
 
 Pour être notifié quand vous approchez ou atteignez la limite du débit de volume d’ingestion dans votre espace de travail, créez une [règle d’alerte de journal](../articles/azure-monitor/platform/alerts-log.md) à l’aide de la requête suivante avec une logique d’alerte basée sur le nombre de résultats supérieur à zéro, une période d’évaluation de 5 minutes et une fréquence de 5 minutes.
 
-Le débit du volume d’ingestion a atteint 80 % du seuil :
+Le débit du volume d’ingestion a franchi le seuil
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Error"
 ```
 
-Le débit du volume d’ingestion a atteint le seuil :
+Le débit du volume d’ingestion a franchi 80 % du seuil
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Warning"
+```
+
+Le débit du volume d’ingestion a franchi 70 % du seuil
+```Kusto
+Operation
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Info"
 ```
 
 >[!NOTE]

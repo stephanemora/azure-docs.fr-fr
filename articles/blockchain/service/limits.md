@@ -5,10 +5,10 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80676515"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites dans Azure Blockchain Service
@@ -22,7 +22,7 @@ Les limites maximales sur les transactions et les nœuds validateurs varient sel
 | Niveau tarifaire | Nombre maximal de nœuds de transaction | Nombre maximal de nœuds validateurs |
 |:---|:---:|:---:|
 | De base | 10 | 1 |
-| Standard | 10 | 2 |
+| standard | 10 | 2 |
 
 Le réseau de votre consortium doit comporter au moins deux nœuds Azure Blockchain Service de niveau standard. Les nœuds de niveau standard incluent deux nœuds validateurs. Quatre nœuds validateurs sont requis pour satisfaire le [consensus IBFT (Istanbul Byzantine Fault Tolerant)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 

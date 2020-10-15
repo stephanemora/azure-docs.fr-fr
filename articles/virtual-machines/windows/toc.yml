@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Télécharger un disque existant
           href: download-vhd.md
+        - name: Disque managé d’une version d’image
+          href: ../managed-disk-from-image-version.md
     - name: Sécuriser des machines virtuelles
       items:
         - name: Recommandations

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 085da17a29e1d5ff1fa69a62e0029fb917d56bb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936331"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965894"
 ---
 # <a name="call-the-computer-vision-api"></a>Appeler l’API Vision par ordinateur
 
@@ -254,4 +254,4 @@ Ces erreurs sont identiques à celles de vision.analyze, avec en plus l’erreur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour utiliser l’API REST, consultez les [Informations de référence sur l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).
+Pour utiliser l’API REST, consultez les [Informations de référence sur l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).

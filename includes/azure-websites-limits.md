@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425268"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91745460"
 ---
-| Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
+| Ressource | Gratuit | Partagé | De base | standard | Premium (v3) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Applications Web, mobiles ou API](https://azure.microsoft.com/services/app-service/) par [plan Azure App Service](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup>|
 | [Plan App Service](../articles/app-service/overview-hosting-plans.md) |10 par région |10 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources|
@@ -52,7 +52,7 @@ ms.locfileid: "87425268"
 <sup>5</sup>La limite de stockage est la taille totale du contenu entre toutes les applications du même plan de service d’application. La taille totale du contenu de toutes les applications de l’ensemble des plans de service d’application d’un même groupe de ressources et d’une même région ne peut pas dépasser 500 Go.  
 <sup>6</sup>Ces ressources sont limitées par les ressources physiques sur les instances dédiées (taille de l'instance et nombre d'instances).  
 <sup>7</sup>Si vous mettez à l'échelle une application sur deux instances dans la version de base, vous disposez de 350 connexions simultanées pour chacune des deux instances. Pour le niveau Standard et les niveaux supérieurs, il n’existe aucune limite théorique concernant les Web Sockets. Toutefois, d’autres facteurs peuvent limiter leur nombre. Par exemple, le nombre maximal autorisé de requêtes simultanées (défini par `maxConcurrentRequestsPerCpu`) est ainsi : 7 500 pour une petite machine virtuelle, 15 000 pour une machine virtuelle moyenne (7 500 x 2 cœurs) et 75 000 pour une grande machine virtuelle (18 750 x 4 cœurs).  
-<sup>8</sup>Le nombre maximal de connexions IP s’entend par instance et dépend de la taille de l’instance : 1 920 par instance B1/S1/P1V2, 3 968 par instance B2/S2/P2V2, 8 064 par instance B3/S3/P3V2.  
+<sup>8</sup>Le nombre maximal de connexions IP s’entend par instance et dépend de la taille de l’instance : 1 920 par instance B1/S1/P1V3, 3 968 par instance B2/S2/P2V3, 8 064 par instance B3/S3/P3V3.  
 <sup>9</sup>La limite de quota de certificats App Service par abonnement peut être augmentée via une demande de support jusqu’à la limite maximale de 200.  
 <sup>10</sup>Les références SKU App Service Isolé peuvent bénéficier d’un équilibrage de charge en interne (sans connectivité à Internet) avec Azure Load Balancer. Aussi, certaines fonctionnalités d’une instance isolée d’App Service à charge équilibrée en interne doivent être utilisées à partir de machines qui ont un accès direct au point de terminaison réseau avec équilibrage de charge en interne.  
 <sup>11</sup>Exécutez des exécutables et/ou des scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Il n’existe aucune limite prédéfinie pour le nombre de tâches Web pouvant s’exécuter dans une instance App Service. Il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.

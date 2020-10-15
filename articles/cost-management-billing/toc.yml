@@ -180,8 +180,10 @@
               href: manage/pay-by-invoice.md
             - name: Créer des abonnements supplémentaires
               href: manage/create-subscription.md
-            - name: Créer des abonnements par programmation
+            - name: Créer des abonnements programmatiquement avec la dernière API
               href: manage/programmatically-create-subscription.md
+            - name: Créer des abonnements programmatiquement avec l’API en préversion
+              href: manage/programmatically-create-subscription-preview.md
             - name: Accorder l’accès pour créer des abonnements EA
               href: manage/grant-access-to-create-subscription.md
             - name: Exporter les informations d’abonnement
@@ -338,6 +340,12 @@
               href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
     - name: Dépanner
       items:
+        - name: Problèmes de facturation EA avec les fichiers d’utilisation
+          href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+        - name: Problèmes de facturation MCA avec les fichiers d’utilisation
+          href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+        - name: Problèmes de facturation CSP avec les fichiers d’utilisation
+          href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
         - name: Aucun abonnement trouvé
           href: manage/no-subscriptions-found.md
         - name: Problèmes de paiement
