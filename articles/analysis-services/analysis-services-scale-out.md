@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007687"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019429"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -46,9 +46,9 @@ Lors des opérations ultérieures de montée en charge (par exemple, augmentatio
 
 * La synchronisation reste autorisée même en l’absence de réplicas dans le pool de requêtes. Si vous passez de zéro à un ou plusieurs réplicas avec de nouvelles données issues d’une opération de traitement sur le serveur principal, effectuez tout d’abord la synchronisation sans aucun réplica dans le pool de requêtes, puis passez à la montée en charge. L’ordre synchronisation-montée en charge évite une alimentation redondante des réplicas ajoutés.
 
-* La suppression d’une base de données model du serveur principal n’a pas pour effet de la supprimer automatiquement des réplicas du pool de requêtes. Il est nécessaire d’effectuer une opération de synchronisation avec la commande PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance), qui supprime de l’emplacement de Stockage Blob partagé du réplica le ou les fichiers de cette base de données, puis supprime la base de données model sur les réplicas du pool de requêtes. Pour déterminer si une base de données model existe sur les réplicas du pool de requêtes, mais pas sur le serveur principal, définissez le paramètre **Séparer le serveur de traitement du pool de requêtes** sur **Oui**. Ensuite, utilisez SSMS pour vous connecter au serveur principal avec le qualificateur `:rw` afin de voir si la base de données existe déjà. Connectez-vous aux réplicas du pool de requêtes sans le qualificateur `:rw` pour savoir si la même base de données s’y trouve également. Si la base de données existe sur les réplicas du pool de requêtes, mais pas sur le serveur principal, exécutez une opération de synchronisation.   
+* La suppression d’une base de données model du serveur principal n’a pas pour effet de la supprimer automatiquement des réplicas du pool de requêtes. Il est nécessaire d’effectuer une opération de synchronisation avec la commande PowerShell [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance), qui supprime de l’emplacement de Stockage Blob partagé du réplica le ou les fichiers de cette base de données, puis supprime la base de données model sur les réplicas du pool de requêtes. Pour déterminer si une base de données model existe sur les réplicas du pool de requêtes, mais pas sur le serveur principal, définissez le paramètre **Séparer le serveur de traitement du pool de requêtes** sur **Oui**. Ensuite, utilisez SSMS pour vous connecter au serveur principal avec le qualificateur `:rw` afin de voir si la base de données existe déjà. Connectez-vous aux réplicas du pool de requêtes sans le qualificateur `:rw` pour savoir si la même base de données s’y trouve également. Si la base de données existe sur les réplicas du pool de requêtes, mais pas sur le serveur principal, exécutez une opération de synchronisation.   
 
-* En cas de renommage d’une base de données sur le serveur principal, une étape supplémentaire est nécessaire pour que la base de données soit correctement synchronisée avec tous les réplicas. Après le renommage, effectuez une synchronisation avec la commande [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) en spécifiant le paramètre `-Database` avec l’ancien nom de la base de données. Cette synchronisation supprime de tous les réplicas la base de données et les fichiers portant l’ancien nom. Ensuite, effectuez une autre synchronisation en indiquant le paramètre `-Database` avec le nouveau nom de la base de données. La deuxième synchronisation copie la base de données portant le nouveau nom dans le deuxième ensemble de fichiers et alimente tous les réplicas. Il n’est pas possible d’effectuer ces synchronisations avec la commande Synchroniser le modèle du portail.
+* En cas de renommage d’une base de données sur le serveur principal, une étape supplémentaire est nécessaire pour que la base de données soit correctement synchronisée avec tous les réplicas. Après le renommage, effectuez une synchronisation avec la commande [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) en spécifiant le paramètre `-Database` avec l’ancien nom de la base de données. Cette synchronisation supprime de tous les réplicas la base de données et les fichiers portant l’ancien nom. Ensuite, effectuez une autre synchronisation en indiquant le paramètre `-Database` avec le nouveau nom de la base de données. La deuxième synchronisation copie la base de données portant le nouveau nom dans le deuxième ensemble de fichiers et alimente tous les réplicas. Il n’est pas possible d’effectuer ces synchronisations avec la commande Synchroniser le modèle du portail.
 
 ### <a name="synchronization-mode"></a>Mode de synchronisation
 
@@ -150,11 +150,11 @@ Codes de statut de retour :
 
 Avant d’utiliser PowerShell, [installez ou mettez à jour le dernier module Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Pour exécuter la synchronisation, utilisez [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+Pour exécuter la synchronisation, utilisez [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Pour définir le nombre de réplicas de requête, utilisez [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Spécifiez le paramètre `-ReadonlyReplicaCount` facultatif.
+Pour définir le nombre de réplicas de requête, utilisez [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Spécifiez le paramètre `-ReadonlyReplicaCount` facultatif.
 
-Pour séparer le serveur de traitement du pool de requêtes, utilisez [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Spécifiez le paramètre `-DefaultConnectionMode` facultatif pour utiliser `Readonly`.
+Pour séparer le serveur de traitement du pool de requêtes, utilisez [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Spécifiez le paramètre `-DefaultConnectionMode` facultatif pour utiliser `Readonly`.
 
 Pour plus d’informations, voir [Utiliser un principal de service avec le module Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -183,4 +183,4 @@ Vous pouvez modifier le niveau tarifaire sur un serveur avec plusieurs réplicas
 ## <a name="related-information"></a>Informations connexes
 
 [Surveiller les métriques du serveur](analysis-services-monitor.md)   
-[Gérer Azure Analysis Services](analysis-services-manage.md) 
+[Gérer Azure Analysis Services](analysis-services-manage.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749087"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018812"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -79,7 +79,7 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 **Remarques :**  
 <a name="tab1400b">6</a> – Modèles tabulaires 1400 ou supérieurs uniquement.  
 <a name="sqlim">7</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, spécifiez MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé), SQL Server Native Client 11.0 ou le Fournisseur de données .NET Framework pour SQL Server.  
-<a name="instgw">8</a> – Si vous spécifiez MSOLEDBSQL comme fournisseur de données, il peut être nécessaire de télécharger et installer [Microsoft OLE DB Driver pour SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) sur le même ordinateur que la passerelle de données locale.  
+<a name="instgw">8</a> – Si vous spécifiez MSOLEDBSQL comme fournisseur de données, il peut être nécessaire de télécharger et installer [Microsoft OLE DB Driver pour SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) sur le même ordinateur que la passerelle de données locale.  
 <a name="oracle">9</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Oracle Data Provider for .NET. S’il est spécifié comme source de données structurées, assurez-vous d’[activer le fournisseur managé Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> – Pour les modèles tabulaires 1200 ou pour une source de données *fournisseur* de modèles tabulaires 1400 et supérieurs, spécifiez Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> – Les fichiers contenus dans SharePoint en local ne sont pas pris en charge.

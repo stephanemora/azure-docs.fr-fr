@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761190"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Outils de productivité sur la machine virtuelle DSVM

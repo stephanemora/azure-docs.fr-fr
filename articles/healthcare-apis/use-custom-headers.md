@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081841"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Ajouter des données aux journaux d’audit en utilisant des en-têtes HTTP personnalisés
@@ -24,7 +24,7 @@ Par exemple, quand l’utilisateur de l’API est authentifié par un système e
 
 Vous pouvez voir ce flux de données dans le diagramme suivant :
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagramme d’en-têtes personnalisés":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagramme d’en-têtes personnalisés&quot;:::
 
 Vous pouvez utiliser des en-têtes personnalisés pour capturer plusieurs types d’informations. Par exemple :
 
@@ -47,9 +47,9 @@ Ces en-têtes HTTP sont inclus dans un jeu de propriétés qui est ajouté au jo
 Ces informations sont ensuite sérialisées en JSON quand elles sont ajoutées à la colonne de propriétés du journal. Par exemple :
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234&quot; }
 ```
  
 Comme pour tout en-tête HTTP, il est possible de répéter le même nom d’en-tête avec des valeurs différentes. Par exemple :
@@ -59,7 +59,7 @@ Comme pour tout en-tête HTTP, il est possible de répéter le même nom d’en-
 
 Une fois ajoutées au journal, les valeurs sont combinées à l’aide d’une liste séparée par des virgules. Par exemple :
 
-{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "HospitalA, Emergency" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;HospitalA, Emergency" }
  
 Vous pouvez ajouter au maximum 10 en-têtes uniques (les répétitions d’un même en-tête avec des valeurs différentes comptent pour un). Au total, la longueur maximale de la valeur d’un en-tête est de 2 048 caractères.
 

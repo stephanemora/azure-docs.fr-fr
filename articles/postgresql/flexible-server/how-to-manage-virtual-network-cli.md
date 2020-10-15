@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 727eb4cd7e7c3de090e1573cb5358ef23118385e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929798"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Créer et gérer des réseaux virtuels pour le serveur flexible Azure Database pour PostgreSQL à l'aide du portail d’Azure CLI
@@ -55,7 +55,7 @@ Vous pouvez utiliser la commande `az postgres flexible-server` pour créer le se
 >[!Important]
 > L’utilisation de cette commande permet de déléguer le sous-réseau à **Microsoft.DBforPostgreSQL/flexibleServers**. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver dans le sous-réseau délégué.
 >
-Reportez-vous à la documentation de référence sur l’interface de ligne de commande Azure <!--FIXME --> pour obtenir la liste complète de ses paramètres configurables. Par exemple, dans les commandes ci-dessous, vous pouvez éventuellement spécifier le groupe de ressources.
+Reportez-vous à la documentation de référence sur l’interface de ligne de commande Azure <!--FIXME --> pour obtenir la liste complète des paramètres d’interface de ligne de commande configurables. Par exemple, dans les commandes ci-dessous, vous pouvez éventuellement spécifier le groupe de ressources.
 
 - Créer un serveur flexible à l’aide d’un réseau virtuel et d’un sous-réseau par défaut avec le préfixe d’adresse par défaut
     ```azurecli-interactive
@@ -65,7 +65,7 @@ Reportez-vous à la documentation de référence sur l’interface de ligne de c
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
     ```-->
-- Créez un serveur flexible à l’aide d’un réseau virtuel, d’un sous-réseau et de l’ID de sous-réseau déjà existants. Le sous-réseau fourni ne doit pas contenir d’autres ressources déjà déployées. Il est délégué à **Microsoft.DBforPostgreSQL/flexibleServers**, en l’absence de délégation existante.
+- Créer un serveur flexible à l’aide d’un réseau virtuel, d’un sous-réseau et de l’ID de sous-réseau déjà existants. Le sous-réseau fourni ne doit pas contenir d’autres ressources déjà déployées. Il est délégué à **Microsoft.DBforPostgreSQL/flexibleServers**, en l’absence de délégation existante.
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
