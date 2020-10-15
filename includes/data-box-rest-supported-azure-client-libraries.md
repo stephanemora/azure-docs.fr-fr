@@ -5,16 +5,16 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 3221fd64439920d11a7b45d013f3b26a1496a76d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 72c344c0a5c9cca278fe8c633309b1195a0454b0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744091"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941415"
 ---
 Bibliothèque cliente     |Version prise en charge     | Lien   |     Spécification du point de terminaison      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |     11.0.0                                           |    Package NuGet :  <br>Courant :   https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br> Objet blob :   https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>File d’attente : https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>Version de GitHub :   https://github.com/Azure/azure-storage-net/releases/tag/v11.0.00                          |    Fichier app.config                 |
+|    .NET                |     11.0.0                                           |    Package NuGet :  <br>Courant :   https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br> Objet blob :   https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>File d’attente : https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>Version de GitHub :   https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0                          |    Fichier app.config                 |
 |    Java                |    12.0.0-préversion.3                                           |   Package Maven :   https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3   <br>Version de GitHub :   https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage                                                                                                                                                                              |    Configuration de la chaîne de connexion         |
 |    Node.js             |    2.8.3                                           |    Lien NPM :   https://www.npmjs.com/package/azure-storage   (Exécutez : `npm install azure-storage@2.7.0` )   <br>Version de GitHub :   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Déclaration d’instance de service    |
 |    C++                 |    5.2.0                                           |    Package NuGet : https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Version de GitHub :   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configuration de la chaîne de connexion         |

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 57d2ac4f1e80c24a750e0e5f8eb22850718594a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363152"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071028"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutoriel : Gérer vos appareils connectés en bloc
 
@@ -59,7 +59,7 @@ Avant de commencer :
 * Vérifiez que la [version du chargeur de démarrage sur votre appareil DevKit IoT est 1.4.0 ou ultérieure](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Vérifiez que le SDK IoT DevKit est à la même version que le chargeur de démarrage. Vous pouvez mettre à jour le SDK IoT DevKit à l’aide d’Azure IoT Workbench dans VS Code. Ouvrez la palette de commandes, puis entrez **Arduino : Gestionnaire de cartes**. Pour plus d’informations, consultez [Préparer l’environnement de développement](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Vous devez également connecter au moins un appareil DevKit IoT à votre accélérateur de solution de supervision à distance. Si aucun appareil DevKit IoT n’est connecté, consultez [Connecter MXChip IoT DevKit AZ3166 à l’accélérateur de solution de supervision à distance IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Vous devez également connecter au moins un appareil DevKit IoT à votre accélérateur de solution de supervision à distance. Si aucun appareil DevKit IoT n’est connecté, consultez [Connecter MXChip IoT DevKit AZ3166 à l’accélérateur de solution de supervision à distance IoT](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Accédez au tableau de bord.
 
@@ -274,4 +274,4 @@ Sur la page **Déploiements**, cliquez sur un déploiement pour connaître l’�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment mettre à jour le microprogramme d’un groupe d’appareils connectés à votre solution. Pour mettre à jour les appareils, votre solution utilise la gestion automatique des appareils. Pour en savoir plus sur la fonctionnalité de gestion automatique des appareils dans le hub IoT sous-jacent de votre solution, consultez [Configurer et superviser des appareils IoT à grande échelle à l’aide du portail Azure](../iot-hub/iot-hub-auto-device-config.md).
+Ce tutoriel vous a montré comment mettre à jour le microprogramme d’un groupe d’appareils connectés à votre solution. Pour mettre à jour les appareils, votre solution utilise la gestion automatique des appareils. Pour en savoir plus sur la fonctionnalité de gestion automatique des appareils dans le hub IoT sous-jacent de votre solution, consultez [Configurer et superviser des appareils IoT à grande échelle à l’aide du portail Azure](../iot-hub/iot-hub-automatic-device-management.md).

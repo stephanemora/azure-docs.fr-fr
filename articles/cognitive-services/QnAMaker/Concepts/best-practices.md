@@ -1,14 +1,16 @@
 ---
 title: Bonnes pratiques - QnA Maker
 description: Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053133"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777018"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -56,7 +58,7 @@ Les échanges de conversation sont pris en charge pour plusieurs personnalités 
 
 |Personnalité |Fichier de jeu de données QnA Maker |
 |---------|-----|
-|Professionnel |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Professional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |Convivial |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
 |Comique |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
 |Attentif |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
@@ -102,7 +104,7 @@ Par défaut, QnA Maker recherche dans les questions et les réponses. Pour reche
 ### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la probabilité de trouver une correspondance avec une requête utilisateur. Les questions alternatives sont utiles quand il existe plusieurs manières de poser une question. C’est notamment le cas pour les variantes syntaxiques et lexicales.
 
-|Requête d’origine|Autres requêtes|Modifier|
+|Requête d’origine|Autres requêtes|Change|
 |--|--|--|
 |Un stationnement est-il disponible ?|Vous avez un parking ?|Variante syntaxique|
  |Salut|Bonjour<br>Ça va ?|Variante lexicale ou argot|
@@ -139,7 +141,7 @@ QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/col
 
 ## <a name="active-learning"></a>Apprentissage actif
 
-L’[apprentissage actif](../How-to/use-active-learning.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , puis vérifier et accepter, ou rejeter, ces suggestions.
+L’[apprentissage actif](../How-to/use-active-learning.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)**, puis vérifier et accepter, ou rejeter, ces suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

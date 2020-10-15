@@ -2,20 +2,20 @@
 title: Concepts des jeux de réplicas pour Azure AD Domain Services | Microsoft Docs
 description: Découvrez les jeux de réplicas qui se trouvent dans Azure Active Directory Domain Services et la façon dont ils assurent la redondance des applications qui requièrent des services d’identité.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505537"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961066"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Concepts et fonctionnalités des jeux de réplicas pour Azure Active Directory Domain Services (préversion)
 

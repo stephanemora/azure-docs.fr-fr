@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905854"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connecter un service Azure App Service existant à un serveur de base de données Azure pour MySQL
@@ -29,18 +29,18 @@ La base de données Azure pour MySQL fournit une sécurité d’accès à l’ai
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 2. Sélectionnez **ON** dans **Autoriser l’accès aux services Azure**, puis **Enregistrer**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portail Azure - Autoriser l’accès à Azure":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solution 2 - Créer une règle de pare-feu pour autoriser explicitement des adresses IP sortantes
 Vous pouvez ajouter explicitement toutes les adresses IP sortantes de votre service Azure App Service.
 
 1. Dans le panneau Propriétés d’App Service, affichez votre **ADRESSE IP SORTANTE**.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portail Azure - Afficher des adresses IP sortantes":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 2. Dans le panneau Sécurité de la connexion de MySQL, ajoutez une par une des adresses IP sortantes.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portail Azure - Ajouter des adresses IP explicites":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 3. N’oubliez pas d’**Enregistrer** vos règles de pare-feu.
 
