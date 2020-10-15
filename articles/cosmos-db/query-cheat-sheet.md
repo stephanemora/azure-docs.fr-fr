@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117979"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
@@ -28,7 +28,7 @@ Téléchargez les[aide-mémoires pour les requêtes au format A4 Azure Cosmos DB
 ## <a name="oversized-cheat-sheets"></a>Aide-mémoires volumineux
 Téléchargez les [aide-mémoires pour les requêtes au format A3 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413) si vous souhaitez imprimer à l’aide d’un traceur ou d’une imprimante grand format sur du papier A3 (11,7 x 16,5 pouces).
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Aide-mémoires pour les requêtes Azure Cosmos DB : format A3, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Aide-mémoires pour les requêtes Azure Cosmos DB : format A4, avec les fonctions et requêtes des API SQL, JavaScript, MongoDB, Gremlin et Table" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’écriture de requêtes, consultez les articles suivants :
