@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923881"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077879"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 
@@ -88,4 +88,4 @@ Vous pouvez attribuer un rôle à un groupe d'utilisateurs pour ce tableau de bo
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir la liste des rôles, voir [Rôles Azure intégrés](../role-based-access-control/built-in-roles.md).
-* Pour en savoir plus sur la gestion des ressources, consultez [Gérer des ressources Azure à l'aide du portail Azure](resource-group-portal.md).
+* Pour en savoir plus sur la gestion des ressources, consultez [Gérer des ressources Azure à l'aide du portail Azure](../azure-resource-manager/management/manage-resources-portal.md).

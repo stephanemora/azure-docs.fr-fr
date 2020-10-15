@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235697"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070365"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -129,7 +129,7 @@ Tenez compte des besoins de votre organisation pour déterminer la stratégie de
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Les échecs de projets informatiques, lorsqu’ils se produisent, proviennent généralement d’une disparité entre les attentes et l’impact, les responsabilités et les résultats. Pour éviter ces écueils, [veillez à faire appel aux parties prenantes appropriées](https://aka.ms/deploymentplans) et à ce que les rôles de ces parties prenantes dans le projet soient également bien compris. Pour ce faire, dressez une liste de leurs contributions et de leurs responsabilités.
+Les échecs de projets informatiques, lorsqu’ils se produisent, proviennent généralement d’une disparité entre les attentes et l’impact, les responsabilités et les résultats. Pour éviter ces écueils, [veillez à faire appel aux parties prenantes appropriées](../fundamentals/active-directory-deployment-plans.md) et à ce que les rôles de ces parties prenantes dans le projet soient également bien compris. Pour ce faire, dressez une liste de leurs contributions et de leurs responsabilités.
 
 ### <a name="plan-communications"></a>Planifier les communications
 
@@ -264,7 +264,7 @@ Le service de provisionnement stocke l’état des deux systèmes après le cycl
 
 Utilisez le [portail Azure](https://portal.azure.com/) pour gérer le provisionnement et le déprovisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge. Suivez les étapes dans [Comment configurer le provisionnement automatique pour une application ?](../app-provisioning/user-provisioning.md)
 
-Le service d’approvisionnement des utilisateurs Azure AD peut également être configuré et géré à l’aide de [l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+Le service d’approvisionnement des utilisateurs Azure AD peut également être configuré et géré à l’aide de [l’API Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Gérer l’attribution automatique d’utilisateurs
 
@@ -274,7 +274,7 @@ Maintenant que vous avez déployé, vous devez gérer la solution.
 
 Après l’exécution d’un [cycle initial](../app-provisioning/user-provisioning.md) réussi, le service de provisionnement Azure AD exécute indéfiniment des mises à jour incrémentielles, à des intervalles propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
 
-* Le service est arrêté manuellement, et un nouveau cycle initial est déclenché à l’aide du [portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriée.
+* Le service est arrêté manuellement, et un nouveau cycle initial est déclenché à l’aide du [portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](/graph/api/resources/synchronization-overview) appropriée.
 
 * Une nouveau cycle initial est déclenché par une modification dans les mappages d’attributs ou les filtres d’étendue.
 
@@ -310,7 +310,7 @@ Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de s
 
 * [Écriture d’expressions pour les mappages d’attributs](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
+* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
 
 * [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](skip-out-of-scope-deletions.md)
 

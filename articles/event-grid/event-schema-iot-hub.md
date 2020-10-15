@@ -4,10 +4,10 @@ description: Cet article fournit les propriétés et les schémas des événemen
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113647"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub en tant que source Event Grid

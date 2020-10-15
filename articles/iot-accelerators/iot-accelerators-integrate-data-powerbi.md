@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ba669c86c406959a3f92949e5f806fa011527d47
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976005"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070909"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
@@ -94,9 +94,9 @@ Une fois le flux connecté, vous pouvez créer vos tableaux de bord personnalis�
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publication du tableau de bord et actualisation des données
 
-Une fois créés, il est recommandé de [publier vos tableaux de bord Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) en vue de les partager.
+Une fois créés, il est recommandé de [publier vos tableaux de bord Power BI](/power-bi/desktop-upload-desktop-files) en vue de les partager.
 
-Vous devez également [actualiser les données](https://docs.microsoft.com/power-bi/refresh-data) du tableau de bord publié afin de vérifier que vous disposez bien du dernier jeu de données.
+Vous devez également [actualiser les données](/power-bi/refresh-data) du tableau de bord publié afin de vérifier que vous disposez bien du dernier jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -107,4 +107,3 @@ Pour plus d’informations sur la personnalisation de la solution de supervision
 * [Personnalisation de l’interface utilisateur de la solution de supervision à distance](iot-accelerators-remote-monitoring-customize.md)
 * [Guide d’informations de référence pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guide de résolution des problèmes pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

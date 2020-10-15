@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485248"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recommandations sur les performances dans Azure Database pour MySQL
@@ -35,7 +35,7 @@ Sélectionnez **Analyser** et choisissez une base de données, l’analyse comme
 
 La fenêtre **Recommandations** affiche une liste de recommandations si des recommandations ont été trouvées, ainsi que l’ID de requête associé qui a généré cette recommandation. Avec l’ID de requête, vous pouvez utiliser la vue [mysql.query_store](concepts-query-store.md#mysqlquery_store) pour en savoir plus sur la requête.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nouvelle page Suggestions sur les performances":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Page d’accueil des suggestions sur les performances":::
 
 Les recommandations ne sont pas appliquées automatiquement. Pour appliquer la recommandation, copiez le texte de la requête et exécutez-le à partir du client de votre choix. N’oubliez pas de tester et de surveiller pour évaluer la recommandation.
 

@@ -3,12 +3,12 @@ title: 'Tutoriel : Déployer un cluster vSphere dans Azure'
 description: Découvrez comment déployer un cluster vSphere dans Azure en utilisant Azure VMware Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578312"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952282"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution dans Azure
 
@@ -43,7 +43,7 @@ Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le [portai
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour créer un cloud privé Azure VMware Solution, vous pouvez utiliser l’interface Azure CLI à l’aide d’Azure Cloud Shell au lieu du portail Azure.  Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes VMware Azure](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Pour créer un cloud privé Azure VMware Solution, vous pouvez utiliser l’interface Azure CLI à l’aide d’Azure Cloud Shell au lieu du portail Azure.  Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes VMware Azure](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Ouvrir Azure Cloud Shell
 
@@ -96,7 +96,7 @@ Une fois qu’un cloud privé est supprimé, il n’existe aucun moyen de récup
 
 ## <a name="azure-vmware-commands"></a>Commandes Azure VMware
 
-Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes VMware Azure](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes VMware Azure](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

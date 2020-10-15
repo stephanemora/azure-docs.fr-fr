@@ -7,10 +7,10 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129933"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
@@ -73,16 +73,16 @@ Pour activer la réplication, procédez comme suit :
 
    Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines virtuelles que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine virtuelle. Si vous n'avez pas de réseau, vous devez en créer un. Pour créer un réseau à l’aide d’Azure Resource Manager, sélectionnez **Créer**. Le cas échéant, sélectionnez un sous-réseau, puis sélectionnez **OK**.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Fenêtre cible pour l’activation de la réplication":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Fenêtre d’activation de la source de réplication":::
 
 1. Pour la zone **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine virtuelle à répliquer. Vous pouvez uniquement sélectionner les machines virtuelles pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**. Si vous ne pouvez pas voir ou sélectionner une machine virtuelle spécifique, consultez l’article [Ordinateur source non répertorié sur le portail Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) pour résoudre le problème.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Fenêtre de sélection des machines virtuelles pour l’activation de la réplication":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Fenêtre d’activation de la source de réplication":::
 
 1. Pour la zone **Propriétés** > **Configurer les propriétés**, sélectionnez le compte utilisé par le serveur de processus pour installer automatiquement le service Mobilité Site Recovery sur la machine virtuelle. Choisissez également le type de disque managé a utiliser pour la réplication en fonction de vos modèles d’activité des données.
 1. Par défaut, tous les disques d’une machine virtuelle source sont répliqués. Pour exclure des disques de la réplication, cochez la case **Inclure** des disques que vous ne souhaitez pas répliquer. Sélectionnez ensuite **OK**. Vous pouvez opter pour une définition ultérieure des propriétés. [Apprenez-en davantage](vmware-azure-exclude-disk.md) sur l’exclusion de disques.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Fenêtre de configuration des propriétés pour l’activation de la réplication":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Fenêtre d’activation de la source de réplication":::
 
 1. Dans la zone **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication sélectionnée est correcte. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > _nom de la stratégie_ > **Modifier les paramètres**. Les modifications appliquées à une stratégie s’appliquent également à la réplication et aux nouvelles machines virtuelles.
 1. Si vous souhaitez regrouper les machines virtuelles dans un groupe de réplication, activez l’option **Cohérence multimachine virtuelle**. Spécifiez un nom pour le groupe, puis sélectionnez **OK**.
@@ -91,7 +91,7 @@ Pour activer la réplication, procédez comme suit :
    > - Toutes les machines virtuelles d’un groupe de réplication sont répliquées ensemble et partagent des points de récupération de cohérence en cas d’incident et de cohérence des applications lorsqu’elles basculent.
    > - Rassemblez les machines virtuelles et les serveurs physiques afin qu’ils reflètent vos charges de travail. L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail. N’effectuez cette opération que si les machines virtuelles exécutent la même charge de travail, et que vous avez besoin de cohérence.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fenêtre d’activation de la réplication":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fenêtre d’activation de la source de réplication":::
 
 1. Sélectionnez **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** en sélectionnant **Paramètres** > **Travaux** > **Travaux Site Recovery**. Lorsque la tâche **Finaliser la protection** s’exécute, la machine virtuelle est prête à être basculée.
 
@@ -103,7 +103,7 @@ Ensuite, vérifiez les propriétés de la machine virtuelle source. N’oubliez 
 1. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
 1. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez modifier plusieurs propriétés de machine virtuelle.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fenêtre de propriétés Calcul et réseau":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fenêtre d’activation de la source de réplication":::
 
    - **Nom de machine virtuelle Azure** : si besoin, modifiez ce nom afin de respecter les exigences d’Azure.
    - **Taille ou type de machine virtuelle cible** : la taille de machine virtuelle par défaut est choisie en fonction de paramètres, tels que le nombre de disques, le nombre de cartes réseau, le nombre de cœurs du processeur, la mémoire et les tailles de rôle de machine virtuelle disponibles dans la région Azure cible. Azure Site Recovery sélectionne la première taille de machine virtuelle disponible réunissant tous les critères. Si besoin, vous pouvez à tout moment sélectionner une autre taille de machine virtuelle avant le basculement. La taille du disque de la machine virtuelle dépend également de la taille du disque source et n’est modifiable qu’après le basculement. Pour plus d’informations sur les tailles de disque et les taux d’IOPS, consultez l’article [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](../virtual-machines/windows/disk-scalability-targets.md).

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64391d7f5a7b1a295be7e404d27e5cbe8c691eb2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73826252"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079086"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de supervision à distance
 
@@ -40,13 +40,13 @@ Pour plus d’informations, consultez [Upgrade map key to see devices on a dynam
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de supervision à distance ?
 
-La version précédente de l’accélérateur de solution de supervision à distance était la solution préconfigurée de supervision à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+La version précédente de l’accélérateur de solution de supervision à distance était la solution préconfigurée de supervision à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
 
 ### <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
 * [Explorer les fonctionnalités de l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
-* [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
+* [Présentation de l’accélérateur de solution de maintenance prédictive](./iot-accelerators-predictive-walkthrough.md)
 * [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)
-* [Sécurisation de l’Internet des objets de bout en bout](/azure/iot-fundamentals/iot-security-ground-up)
+* [Sécurisation de l’Internet des objets de bout en bout](../iot-fundamentals/iot-security-ground-up.md)
