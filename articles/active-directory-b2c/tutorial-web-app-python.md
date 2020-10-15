@@ -12,10 +12,10 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
 ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844624"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application web Python avec Azure AD B2C
@@ -162,13 +162,13 @@ Cet exemple d’application prend en charge l’inscription, la connexion et la 
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Page d’inscription affichée par le flux utilisateur Azure AD B2C":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Navigateur web montrant l’application web Flask Python s’exécutant localement":::
 
 1. Sélectionnez **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
 Quand vous sélectionnez **Créer**, l’application affiche le nom de l’utilisateur connecté.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Navigateur web montrant l’application web Flask Python avec utilisateur connecté":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Navigateur web montrant l’application web Flask Python s’exécutant localement":::
 
 Si vous voulez tester la connexion, sélectionnez le bouton **Logout**, puis sélectionnez **Sign In**, et connectez-vous avec l’adresse e-mail et le mot de passe que vous avez entrés lors de votre inscription.
 

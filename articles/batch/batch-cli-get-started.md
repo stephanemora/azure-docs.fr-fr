@@ -4,12 +4,12 @@ description: Obtenez une brève introduction aux commandes Batch dans l’interf
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531675"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055509"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -107,7 +107,7 @@ En installant l’extension CLI Azure Batch, vous pouvez utiliser l’interface 
 
 ## <a name="script-examples"></a>Exemples de scripts
 
-Consultez les [exemples de scripts de l’interface de ligne de commande](cli-samples.md) pour Batch pour accomplir des tâches courantes. Ces exemples couvrent la plupart des commandes disponibles dans Azure CLI pour Batch pour créer et gérer des comptes, des pools, des travaux et des tâches. 
+Consultez les [exemples de scripts de l’interface de ligne de commande](./scripts/batch-cli-sample-create-account.md) pour Batch pour accomplir des tâches courantes. Ces exemples couvrent la plupart des commandes disponibles dans Azure CLI pour Batch pour créer et gérer des comptes, des pools, des travaux et des tâches.
 
 ## <a name="json-files-for-resource-creation"></a>Fichiers JSON pour la création de ressources
 

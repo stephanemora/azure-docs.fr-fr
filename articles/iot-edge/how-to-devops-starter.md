@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297128"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045854"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour IoT Edge avec Azure DevOps Starter
 
@@ -81,7 +81,7 @@ DevOps Starter crée un dépôt Git pour votre projet dans Azure Repos. Dans cet
 
    ![Ouvrir le fichier module.json dans Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Notez que ce fichier utilise des [variables de build Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) dans le paramètre **version**. Cette configuration garantit qu’une nouvelle version du module sera créée chaque fois qu’un nouveau build s’exécutera.
+3. Notez que ce fichier utilise des [variables de build Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) dans le paramètre **version**. Cette configuration garantit qu’une nouvelle version du module sera créée chaque fois qu’un nouveau build s’exécutera.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examiner le pipeline CI/CD
 

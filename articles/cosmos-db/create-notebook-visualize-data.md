@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961096"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
@@ -49,7 +49,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
    Pour exécuter une cellule, sélectionnez `Shift + Enter` ou sélectionnez la cellule et choisissez l’option **Run Active Cell** (Exécuter la cellule active) dans la barre de navigation de l’Explorateur de données.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Exécuter la cellule active":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Créer un notebook":::
 
    La base de données et le conteneur sont créés dans votre compte Azure Cosmos actuel. Le conteneur est provisionné avec 400 RU/s. La sortie suivante s’affiche après la création de la base de données et du conteneur. 
 
@@ -60,23 +60,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
    Vous pouvez également actualiser l’onglet **Data** et voir les ressources nouvellement créées :
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Actualiser l’onglet des données pour voir le nouveau conteneur":::
-
-1. Ensuite, vous allez importer les exemples de données de vente dans le conteneur Azure Cosmos. Voici le format d’un élément des données de vente :
-
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Créer un notebook"
     }
    ```
 
@@ -135,7 +119,7 @@ Dans une nouvelle cellule de notebook, exécutez le code suivant pour lire les 1
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Exécuter la requête pour obtenir les 10 premiers articles":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Créer un notebook":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Exécuter des requêtes et analyser vos données
 
@@ -148,7 +132,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Sortie du chiffre d’affaires total":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Créer un notebook":::
 
 * **Requête 2** : pour obtenir la liste des cinq éléments les plus achetés, ouvrez une nouvelle cellule de notebook et exécutez le code suivant :
 
@@ -159,7 +143,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Cinq articles les plus achetés":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Créer un notebook":::
 
 ## <a name="visualize-your-data"></a>Visualiser vos données  
 
@@ -235,7 +219,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
 
    La sortie affiche la carte du monde avec différentes couleurs. Les couleurs plus sombres représentent les pays/régions dont le chiffre d’affaires est le plus élevé, et les couleurs plus claires le chiffre d’affaires le plus bas.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualisation de la carte des chiffres d’affaires par pays/région":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Créer un notebook":::
 
 1. Examinons un autre cas de visualisation des données. Le conteneur WebsiteData contient des enregistrements d’utilisateurs qui ont visualisé un article, l’ont ajouté à leur panier et l’ont acheté. Nous allons tracer le taux de conversion des articles achetés. Exécutez le code suivant dans une nouvelle cellule afin de visualiser le taux de conversion pour chaque article :
 
@@ -286,7 +270,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualiser le taux de conversion des achats":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Créer un notebook":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

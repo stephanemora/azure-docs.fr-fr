@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935328"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950803"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
-La compétence de **reconnaissance optique de caractères (OCR)** reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles Machine Learning fournis par l’API [Vision par ordinateur](../cognitive-services/computer-vision/home.md) [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
+La compétence de **reconnaissance optique de caractères (OCR)** reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles Machine Learning fournis par l’API [Vision par ordinateur](../cognitive-services/computer-vision/overview.md) [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
 
 + Pour l’anglais, l’espagnol, l’allemand, le français, l’italien, le portugais et le néerlandais, la nouvelle API [« Lecture »](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) est utilisée.
 + Pour toutes les autres langues, l’API [« OCR »](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) est utilisée.
