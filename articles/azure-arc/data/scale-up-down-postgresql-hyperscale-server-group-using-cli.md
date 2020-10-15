@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b96f38d04fe3e3cb59fa75424ae588fe0e38f510
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929982"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91285313"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Mettre à l’échelle un groupe de serveurs Azure Database pour PostgreSQL Hyperscale à l’aide de l’interface de ligne de commande (azdata ou kubectl)
 
@@ -84,7 +84,7 @@ Dans une configuration par défaut, seule la mémoire minimale est définie sur 
 
 Les paramètres que vous allez définir doivent être pris en compte dans la configuration que vous définissez pour votre cluster Kubernetes. Veillez à ne pas définir de valeurs que votre cluster Kubernetes ne sera pas en mesure de satisfaire. Cela peut conduire à des erreurs ou à un comportement imprévisible. Par exemple, si l’état de votre groupe de serveurs reste défini sur _mise à jour_ pendant un temps prolongé après la modification de la configuration, cela peut indiquer que vous définissez les paramètres ci-dessous sur des valeurs que votre cluster Kubernetes ne peut pas satisfaire. Si tel est le cas, annulez la modification ou lisez _troubleshooting_section.
 
-Supposons que vous souhaitiez effectuer un scale-up de la définition de votre groupe de serveurs vers :
+Par exemple, supposons que vous souhaitiez effectuer un scale-up de la définition de votre groupe de serveurs vers :
 
 - vCore min = 2
 - vCore max = 4
@@ -94,6 +94,13 @@ Supposons que vous souhaitiez effectuer un scale-up de la définition de votre g
 Vous devez utiliser l’une des approches suivantes :
 
 ### <a name="cli-with-azdata"></a>Interface de ligne de commande avec azdata
+
+```console
+azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
+```
+
+> [!CAUTION]
+> Voici un exemple fourni pour illustrer l’utilisation de la commande. Avant d’exécuter une commande edit, veillez à définir les paramètres sur des valeurs que le cluster Kubernetes peut honorer.
 
 ```console
 azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
@@ -116,6 +123,10 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 
 Vous accédez à l’éditeur vi dans lequel vous pouvez naviguer et modifier la configuration. Utilisez la commande suivante pour mapper le paramètre souhaité au nom du champ dans la spécification :
 
+> [!CAUTION]
+> Voici un exemple fourni pour illustrer la modification de la configuration. Avant de mettre à jour la configuration, veillez à définir les paramètres sur des valeurs que le cluster Kubernetes peut honorer.
+
+Par exemple :
 - vCore min = 2 -> planification\par défaut\ressources\demandes\uc
 - vCore max = 4-> planification\par défaut\ressources\limites\uc
 - Mémoire min = 512 Mo -> planification\par défaut\ressources\demandes\uc
@@ -175,4 +186,4 @@ Pour effectuer un scale-down du groupe de serveurs, vous exécutez la même comm
 - [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)
 - [Développement des revendications de volume persistant](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
-- [Modèle de ressource Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Modèle de ressources Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
