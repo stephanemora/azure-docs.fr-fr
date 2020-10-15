@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261428"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076043"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
 
@@ -520,4 +520,4 @@ Si vos fichiers passent la validation, cliquez sur **Enregistrer** et votre mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide pratique, vous avez appris à créer les fichiers du modèle d’appareil utilisés dans la simulation d’appareils et à établir un modèle d’appareil avancé. Vous voudrez ensuite peut-être explorer comment [Utiliser Time Series Insights pour visualiser les données de télémétrie envoyées par l’accélérateur de solution de simulation d’appareil](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+Dans ce guide pratique, vous avez appris à créer les fichiers du modèle d’appareil utilisés dans la simulation d’appareils et à établir un modèle d’appareil avancé. Vous voudrez ensuite peut-être explorer comment [Utiliser Time Series Insights pour visualiser les données de télémétrie envoyées par l’accélérateur de solution de simulation d’appareil](./iot-accelerators-device-simulation-time-series-insights.md).

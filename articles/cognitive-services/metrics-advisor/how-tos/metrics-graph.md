@@ -3,19 +3,19 @@ title: Graphe de métriques de Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Guide pratique pour configurer votre graphe de métriques et visualiser les anomalies associées dans vos données.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: aahi
-ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930751"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043151"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Procédure : Créer un graphe de métriques pour analyser les métriques associées
 
@@ -35,7 +35,7 @@ Ensuite, vous devez ajouter un autre nœud et spécifier une relation avec un ou
 
 Cliquez sur **Ajouter une relation** : vous pouvez choisir une autre métrique et spécifier le type de relation entre les deux nœuds. Vous pouvez également appliquer des filtres de dimension spécifiques. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Ajout d’un nœud et d’une relation":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Sélectionner la métrique":::
 
 Après avoir répété les étapes ci-dessus, vous disposerez d’un graphe de métriques décrivant les relations entre toutes les métriques associées.
 **Indicateur concernant la couleur des nœuds**
@@ -50,7 +50,7 @@ Une fois le graphe de métriques créé, chaque fois qu’une anomalie est déte
 
 Cliquez sur un incident au sein du graphe et faites défiler jusqu’à **Analyse croisée des métriques**, sous les informations de diagnostic.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Affichage des métriques et anomalies associées":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Sélectionner la métrique":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577711"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042913"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
@@ -40,10 +40,10 @@ Une solution peut obtenir l’ID de modèle de l’appareil IoT Plug-and-Play à
 
 ### <a name="get-device-twin-api"></a>API Obtenir un jumeau d’appareil
 
-La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
+La solution peut utiliser l’API [Obtenir un jumeau d’appareil](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
 
 > [!TIP]
-> Pour les modules et les modules IoT Edge, utilisez [ModuleClient. getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
+> Pour les modules et les modules IoT Edge, utilisez [ModuleClient. getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 Dans l’extrait de code suivant de réponse de jumeau d’appareil, `modelId` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
 
@@ -71,7 +71,7 @@ Dans l’extrait de code suivant de réponse de jumeau d’appareil, `modelId` c
 
 ### <a name="get-digital-twin-api"></a>API Obtenir le jumeau numérique
 
-La solution peut utiliser l’API [Obtenir le jumeau numérique](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) pour récupérer l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play.
+La solution peut utiliser l’API [Obtenir le jumeau numérique](/rest/api/iothub/service/digitaltwin/getdigitaltwin) pour récupérer l’ID de modèle du modèle implémenté par l’appareil IoT Plug-and-Play.
 
 Dans l’extrait de code suivant de réponse de jumeau numérique, `$metadata.$model` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
 
@@ -121,7 +121,7 @@ Les solutions peuvent utiliser le [référentiel de modèles](concepts-model-rep
 
 Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion d’appareil, procédez comme suit :
 
-1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du référentiel de modèles. Pour plus d’informations, consultez [Obtenir des modèles](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Récupérez la définition de modèle à l’aide de l’ID de modèle à partir du référentiel de modèles. Pour plus d’informations, consultez [Obtenir des modèles](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil.
 
@@ -144,5 +144,5 @@ Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion 
 Maintenant que vous avez appris à intégrer les modèles IoT Plug-and-Play dans une solution IoT, voici quelques étapes ultérieures suggérées :
 
 - [Interaction avec un appareil à partir de la solution](quickstart-service-node.md)
-- [API REST de jumeau numérique IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST de jumeau numérique IoT](/rest/api/iothub/service/digitaltwin)
 - [Explorateur Azure IoT](howto-use-iot-explorer.md)

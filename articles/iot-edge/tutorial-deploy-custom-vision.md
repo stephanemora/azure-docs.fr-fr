@@ -9,16 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042800"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044579"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
-Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le déplacement des charges de travail en dehors du cloud et vers la périphérie. Cette fonctionnalité s’avère particulièrement utile pour les services qui traitent de nombreuses données, comme les modèles de vision par ordinateur. [Custom Vision](../cognitive-services/custom-vision-service/home.md) vous permet de créer des classifieurs d’images personnalisés et de les déployer en tant que conteneurs sur des appareils. En fonctionnant de concert, ces deux services vous permettent de rechercher des insights à partir de flux vidéo ou d’images sans avoir à transférer toutes les données hors site au préalable. Custom Vision fournit un classifieur qui compare une image par rapport à un modèle entraîné pour générer des insights.
+Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le déplacement des charges de travail en dehors du cloud et vers la périphérie. Cette fonctionnalité s’avère particulièrement utile pour les services qui traitent de nombreuses données, comme les modèles de vision par ordinateur. [Custom Vision](../cognitive-services/custom-vision-service/overview.md) vous permet de créer des classifieurs d’images personnalisés et de les déployer en tant que conteneurs sur des appareils. En fonctionnant de concert, ces deux services vous permettent de rechercher des insights à partir de flux vidéo ou d’images sans avoir à transférer toutes les données hors site au préalable. Custom Vision fournit un classifieur qui compare une image par rapport à un modèle entraîné pour générer des insights.
 
 Par exemple, Custom Vision sur un appareil IoT Edge peut déterminer si le trafic sur une autoroute est plus ou moins dense que la normale, ou si un parking dispose de places libres dans une ligne. Ces insights peuvent être partagés avec un autre service pour entreprendre des actions.
 
@@ -46,7 +46,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède a
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
-* Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
 

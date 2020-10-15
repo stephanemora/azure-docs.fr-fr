@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292672"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044596"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -446,7 +446,7 @@ Voici une révision du scénario que vous avez créé au cours de ce tutoriel.
 
 Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer. 
 
-Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Sont ainsi supprimés le groupe de ressources ; l’instance Azure Digital Twins ; le hub IoT et l’inscription de l’appareil hub ; la rubrique Event Grid et les abonnements associés ; l’application Azure Functions, y compris les deux fonctions et les ressources associées (par exemple, le stockage).
+Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Sont ainsi supprimés le groupe de ressources ; l’instance Azure Digital Twins ; le hub IoT et l’inscription de l’appareil hub ; la rubrique Event Grid et les abonnements associés ; l’application Azure Functions, y compris les deux fonctions et les ressources associées (par exemple, le stockage).
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. 

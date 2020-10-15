@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426416"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication interne à Azure
@@ -63,7 +63,7 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 
 1. Sélectionnez **Enregistrer**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Paramètres de mise à jour de l’extension":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Paramètres d’extension":::
 
 > [!IMPORTANT]
 > Lorsque vous sélectionnez **Autoriser Site Recovery à gérer**, le paramètre est appliqué à toutes les machines virtuelles présentes dans le coffre.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Si de nouvelles mises à jour pour le service Mobilité sont installées sur vos machines virtuelles, vous verrez la notification suivante : **Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Fenêtre Éléments répliqués":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Paramètres d’extension":::
 
 1. Sélectionnez la notification pour ouvrir la page de sélection de machine virtuelle.
 1. Choisissez les machines virtuelles que vous voulez mettre à niveau, puis sélectionnez **OK**. Le service de mise à jour de la Mobilité démarre pour chaque machine virtuelle sélectionnée.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Éléments répliqués - Liste des machines virtuelles":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Paramètres d’extension":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Problèmes courants et résolutions
 
@@ -479,7 +479,7 @@ Si vous ne pouvez pas activer les mises à jour automatiques, consultez les erre
 
   Pour résoudre la plupart des problèmes après avoir activé les mises à jour automatiques, sélectionnez **Réparer**. Si le bouton de réparation n’est pas disponible, consultez le message d’erreur affiché dans le volet des paramètres de mise à jour de l’extension.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Bouton de réparation du service Site Recovery dans les paramètres de mise à jour de l’extension":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Paramètres d’extension":::
 
 - **Erreur** : le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
 
@@ -495,7 +495,7 @@ Si vous ne pouvez pas activer les mises à jour automatiques, consultez les erre
 
   **Action recommandée** : Pour résoudre ce problème, sélectionnez **Réparer**, puis **Renouveler le certificat**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renew-cert":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Paramètres d’extension":::
 
   > [!NOTE]
   > Une fois le certificat renouvelé, actualisez la page pour afficher l’état actuel.

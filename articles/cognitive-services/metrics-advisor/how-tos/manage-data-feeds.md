@@ -3,19 +3,19 @@ title: Gérer les flux de données dans Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment gérer les flux de données que vous avez ajoutés à Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929938"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043168"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procédure : Gérer vos flux de données
 
@@ -106,7 +106,7 @@ Les options sont :
 
 Les modèles de lien d’action permettent de prédéfinir des URL HTTP actionnables, qui se composent des espaces réservés `%datafeed`, `%metric`, `%timestamp`, `%detect_config`et `%tagset`. Vous pouvez utiliser le modèle pour rediriger une anomalie ou un incident vers une URL spécifique à des fins d’exploration au niveau du détail.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Modèle de lien d’action" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Renvoi d’un flux de données" lightbox="../media/action-link-template.png":::
 
 Une fois que vous avez renseigné le lien d’action, cliquez sur **Go to action link** (Accéder au lien d’action) sous l’option Action de la liste d’incidents et dans le menu contextuel de l’arborescence des incidents. Remplacez les espaces réservés du modèle de lien d’action par les valeurs correspondantes de l’anomalie ou de l’incident.
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067703"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044375"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unités de requête dans Azure Digital Twins 
 
-Une **unité de requête** Azure Digital Twins est une unité de calcul à la demande qui est utilisée pour exécuter vos [requêtes Azure Digital Twins](how-to-query-graph.md) à l’aide de l’[API de requête](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+Une **unité de requête** Azure Digital Twins est une unité de calcul à la demande qui est utilisée pour exécuter vos [requêtes Azure Digital Twins](how-to-query-graph.md) à l’aide de l’[API de requête](/rest/api/digital-twins/dataplane/query). 
 
 Elle soustrait les ressources système comme le processeur, l’IOPS et la mémoire qui sont requises pour effectuer les opérations de requête prises en charge par Azure Digital Twins, ce qui vous permet de suivre l’utilisation des unités de requête à la place.
 
@@ -28,7 +28,7 @@ Cet article explique comment comprendre les unités de requête et effectuer le 
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Trouvez la consommation d’unités de requête dans Azure Digital Twins 
 
-Lorsque vous exécutez une requête à l’aide de l’[API de requête](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query) d’Azure Digital Twins, vous pouvez examiner l’en-tête de réponse pour suivre le nombre de RU utilisées par la requête. Recherchez « query-charge » dans la réponse renvoyée par Azure Digital Twins. 
+Lorsque vous exécutez une requête à l’aide de l’[API de requête](/rest/api/digital-twins/dataplane/query) d’Azure Digital Twins, vous pouvez examiner l’en-tête de réponse pour suivre le nombre de RU utilisées par la requête. Recherchez « query-charge » dans la réponse renvoyée par Azure Digital Twins. 
 
 Les [Kits de développement logiciel (SDK)](how-to-use-apis-sdks.md) Azure Digital Twins vous permettent d’extraire l’en-tête query-charge de la réponse paginable. Cette section montre comment interroger des jumeaux numériques et comment itérer sur la réponse paginable pour extraire l’en-tête query-charge. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Pour en savoir plus sur l’interrogation d’Azure Digital Twins, rendez-vous sur le site :
 * [*Concepts : langage de requête*](concepts-query-language.md)
 * [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)
-* [Documentation de référence de l’API de requête](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Documentation de référence de l’API de requête](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Vous trouverez des limites relatives aux requêtes Azure Digital Twins dans [*Référence : Limites du service en préversion publique*](reference-service-limits.md).

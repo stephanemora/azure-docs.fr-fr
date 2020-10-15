@@ -54,6 +54,22 @@
               href: class-type-matlab.md
             - name: Conception assistée par ordinateur (CAO) SolidWorks
               href: class-type-solidworks.md
+        - name: Utiliser Azure Lab Services dans Teams
+          items:
+            - name: Vue d’ensemble
+              href: lab-services-within-teams-overview.md
+            - name: Créer un labo depuis Teams
+              href: how-to-get-started-create-lab-within-teams.md
+            - name: Gérer les listes d’utilisateurs
+              href: how-to-manage-user-lists-within-teams.md
+            - name: Gérer un pool de machines virtuelles
+              href: how-to-manage-vm-pool-within-teams.md
+            - name: Supprimer des labos
+              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+            - name: Planifications et paramètres
+              href: how-to-create-schedules-within-teams.md
+            - name: Accéder à une machine virtuelle (vue étudiant)
+              href: how-to-access-vm-for-students-within-teams.md
 - name: Guides pratiques
   items:
     - name: Guide de l’administrateur

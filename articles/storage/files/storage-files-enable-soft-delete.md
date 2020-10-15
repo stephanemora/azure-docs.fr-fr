@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590113"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
@@ -68,13 +68,13 @@ Pour restaurer un partage de fichiers supprimé de manière réversible :
 
     Cela affiche tous les partages actuellement dans un état **Supprimé**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Si la colonne État, la colonne à côté de la colonne de nom, est définie sur Supprimé, votre partage de fichiers est dans un état supprimé de manière réversible. Et il sera définitivement supprimé après la période de rétention spécifiée.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section des partages de fichiers, du commutateur activer/désactiver, de la définition d’une période de rétention et de l’option Enregistrer. Cela active la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
 
 1. Sélectionnez le partage et **Annuler la suppression**. Le partage sera restauré.
 
     Vous pouvez vérifier que le partage est restauré, car son état passe à **Actif**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Si la colonne État, la colonne à côté de la colonne de nom, est définie sur Actif, votre partage de fichiers a été restauré.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section des partages de fichiers, du commutateur activer/désactiver, de la définition d’une période de rétention et de l’option Enregistrer. Cela active la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ Si vous souhaitez cesser d’utiliser la suppression réversible ou supprimer d�
 1. Sous **Partages de fichiers**, sélectionnez **Désactivé** pour **Suppression réversible pour les partages de fichiers**.
 1. Sélectionnez **Enregistrer** pour confirmer vos paramètres de conservation des données.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="La désactivation de la suppression réversible vous permet de supprimer immédiatement et définitivement tous les partages de fichiers de votre compte de stockage.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section des partages de fichiers, du commutateur activer/désactiver, de la définition d’une période de rétention et de l’option Enregistrer. Cela active la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

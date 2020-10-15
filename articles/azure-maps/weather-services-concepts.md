@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972034"
 ---
 # <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps

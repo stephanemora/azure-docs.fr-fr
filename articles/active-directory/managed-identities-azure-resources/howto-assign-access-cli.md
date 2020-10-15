@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 13c69dda1e300bcff95b6a017fdeb308a6bbf3a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969252"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI

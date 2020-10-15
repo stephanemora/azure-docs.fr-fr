@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400464"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Ligne de base de sécurité Azure pour Key Vault
@@ -347,7 +347,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 **Conseils** : Non applicable. Azure Key Vault n’intègre pas le concept de mots de passe par défaut, car l’authentification est assurée par Active Directory et sécurisée avec le contrôle d’accès en fonction du rôle.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -942,7 +942,7 @@ Documentation Azure Repos
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
