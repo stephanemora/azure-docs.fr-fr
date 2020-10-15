@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0db0a705d97743bb199550bc74ade8e270c7472c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907485"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec le portail Azure
@@ -48,7 +48,7 @@ Découvrez comment utiliser le portail Azure pour configurer et gérer le chiffr
 
 2. Sélectionnez **Autorisations de clé**, puis **Obtenir**, **Inclure la clé**, **Ne pas inclure la clé** et **Principal**, qui est le nom du serveur PostgreSQL. Si votre principal de serveur est introuvable dans la liste des principaux existants, vous devez l’inscrire. Vous êtes invité à inscrire votre principal de serveur quand vous tentez de configurer le chiffrement des données pour la première fois et que l’opération échoue.  
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Vue d’ensemble de la stratégie d’accès":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 3. Sélectionnez **Enregistrer**.
 
@@ -56,11 +56,11 @@ Découvrez comment utiliser le portail Azure pour configurer et gérer le chiffr
 
 1. Dans Azure Database pour PostgreSQL, sélectionnez **Chiffrement des données** pour configurer la clé gérée par le client.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de Chiffrement des données":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 2. Vous pouvez sélectionner un coffre de clés et une paire de clés ou entrer un identificateur de clé.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence des options de chiffrement des données":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 3. Sélectionnez **Enregistrer**.
 
@@ -72,28 +72,28 @@ Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une 
 
 1. Sur votre serveur, sélectionnez **Vue d’ensemble** > **Restaurer**.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence des éléments Vue d’ensemble et Restaurer":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
    Autrement, pour un serveur compatible avec la réplication, sous le titre **Paramètres**, sélectionnez **Réplication**.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-replica.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de Réplication":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-replica.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 2. Une fois l’opération de restauration terminée, le serveur créé est chiffré avec la clé du serveur principal. Toutefois, les fonctionnalités et les options du serveur sont désactivées et le serveur est inaccessible. Toute manipulation de données est ainsi impossible, car l’identité du nouveau serveur n’a pas encore reçu l’autorisation d’accéder au coffre de clés.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de l’état Inaccessible":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 3. Pour rendre le serveur accessible, revalidez la clé sur le serveur restauré. Sélectionnez **Chiffrement des données** > **Revalider la clé**.
 
    > [!NOTE]
    > La première tentative de revalidation échouera, car le principal de service du nouveau serveur doit avoir accès au coffre de clés. Pour générer le principal de service, sélectionnez **Revalider la clé**. Vous verrez un message d’erreur, mais pourrez générer le principal de service. Ensuite, reportez-vous à [ces étapes](#set-the-right-permissions-for-key-operations) plus haut dans cet article.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de l’option de revalidation":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
    Vous devez autoriser le coffre de clés à accéder au nouveau serveur.
 
 4. Après avoir inscrit le principal de service, revalidez la clé pour que le serveur reprenne son fonctionnement normal.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Capture d’écran d’Azure Database pour PostgreSQL, montrant les fonctionnalités restaurées":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

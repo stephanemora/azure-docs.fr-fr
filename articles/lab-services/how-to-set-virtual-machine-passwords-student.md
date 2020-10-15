@@ -4,10 +4,10 @@ description: Découvrez comment réinitialiser des mots de passe pour des machin
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d63d14da8859c12fa797a04fa9a3c3230219adab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445336"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Définir ou réinitialiser un mot de passe d’accès à des machines virtuelles dans un labo de salle de classe (étudiants)

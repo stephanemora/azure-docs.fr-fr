@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191275"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Journaux de diagnostic – Azure Content Delivery Network
@@ -52,7 +52,7 @@ En suivant ces étapes, vous activez la journalisation pour votre point de termi
 
 3. Dans la section **Supervision**, sélectionnez **Journaux de diagnostic** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Sélectionner les journaux de diagnostics." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Activation de la journalisation avec Stockage Azure
 
@@ -69,7 +69,7 @@ Pour utiliser un compte de stockage afin de stocker les journaux d’activité, 
 
 4. Sélectionnez l’abonnement et le compte de stockage pour les journaux.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Journaux de diagnostic – Stockage." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
 
 3. Sélectionnez **Enregistrer**.
 
@@ -86,7 +86,7 @@ Pour utiliser Log Analytics pour les journaux, suivez ces étapes :
 
 3. Sélectionnez l’abonnement et l’espace de travail Log Analytics pour les journaux.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Journaux de diagnostic – Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
 
 4. Sélectionnez **Enregistrer**.
 
@@ -103,7 +103,7 @@ Pour utiliser un hub d’événements pour les journaux, suivez ces étapes :
 
 3. Sélectionnez l’abonnement et l’espace de noms Event Hub pour les journaux.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Journaux de diagnostic – Hub d’événements." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
 
 4. Sélectionnez **Enregistrer**.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077369"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015315"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
 
@@ -33,8 +33,8 @@ Vous pouvez créer des principaux de service dans le portail Azure ou avec Power
 
 Les informations d’identification et les certificats des principaux de service peuvent être stockés de manière sécurisée dans Azure Automation pour les opérations de runbook. Pour plus d'informations, consultez les rubriques suivantes :
 
-[Ressources d’informations d’identification dans Azure Automation](../automation/automation-credentials.md)   
-[Ressources de certificats dans Azure Automation](../automation/automation-certificates.md)
+[Ressources d’informations d’identification dans Azure Automation](../automation/shared-resources/credentials.md)   
+[Ressources de certificats dans Azure Automation](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Ajouter des principaux de service au rôle d’administrateur de serveur
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO et ADOMD 
 
-Lorsque vous vous connectez à une application cliente ou à une application web, les packages installables des [bibliothèques clientes AMO et ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 (et ultérieures) issus de NuGet prennent en charge l’utilisation des principaux de service dans les chaînes de connexion à l’aide de la syntaxe suivante : `app:AppID`, puis le mot de passe ou `cert:thumbprint`. 
+Lorsque vous vous connectez à une application cliente ou à une application web, les packages installables des [bibliothèques clientes AMO et ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 (et ultérieures) issus de NuGet prennent en charge l’utilisation des principaux de service dans les chaînes de connexion à l’aide de la syntaxe suivante : `app:AppID`, puis le mot de passe ou `cert:thumbprint`. 
 
 Dans l’exemple suivant, `appID` et `password` sont utilisés pour effectuer une opération d’actualisation d’une base de données model :
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Se connecter avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Actualiser avec Logic Apps](analysis-services-refresh-logic-app.md)  
 [Actualiser avec Azure Automation](analysis-services-refresh-azure-automation.md)  
 [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)  
-[Automatiser des tâches d’espace de travail et de jeu de données Power BI Premium avec des principaux de service](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatiser des tâches d’espace de travail et de jeu de données Power BI Premium avec des principaux de service](/power-bi/admin/service-premium-service-principal)

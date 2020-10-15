@@ -3,12 +3,12 @@ title: Analyser des flux vidéo en direct avec le service Vision par ordinateur 
 description: Ce didacticiel explique comment utiliser Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824130"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015683"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
 
@@ -32,7 +32,7 @@ Lisez ces articles avant de commencer :
 * [Terminologie de Live Video Analytics sur IoT Edge](terminology.md)
 * [Concepts relatifs aux graphes multimédia](media-graph-concept.md)
 * [Enregistrement de vidéo basé sur les événements](event-based-video-recording-concept.md)
-* [Tutoriel : Développement d’un module IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutoriel : Développement d’un module IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Déployer Live Video Analytics sur Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -55,12 +55,12 @@ Ce diagramme montre comment les signaux circulent dans ce tutoriel. Un [module d
 
 Le nœud MediaGraphCognitiveServicesVisionExtension joue le rôle d’un proxy. Il convertit les images vidéo dans le type d’image spécifié. Il relaie ensuite l’image via une **mémoire partagée** vers un autre module de périphérie qui exécute des opérations IA derrière un point de terminaison gRPC. Dans cet exemple, ce module de périphérie est le module d’analyse spatiale. Le nœud processeur MediaGraphCognitiveServicesVisionExtension effectue deux opérations :
 
-* Il rassemble les résultats et publie les événements sur le nœud [récepteur IoT Hub](media-graph-concept.md#iot-hub-message-sink). Le nœud envoie ensuite ces événements à [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub). 
+* Il rassemble les résultats et publie les événements sur le nœud [récepteur IoT Hub](media-graph-concept.md#iot-hub-message-sink). Le nœud envoie ensuite ces événements à [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
 * Il capture également un clip vidéo de 30 secondes à partir de la source RTSP en utilisant un [processeur de signaux](media-graph-concept.md#signal-gate-processor) et le stocke en tant que ressource Media Services.
 
 ## <a name="create-the-computer-vision-resource"></a>Créer la ressource Vision par ordinateur
 
-Vous devez créer une ressource Azure de type Vision par ordinateur sur le [Portail Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) ou via Azure CLI. Vous serez en mesure de créer la ressource une fois que votre demande d’accès au conteneur aura été approuvée et que votre ID d’abonnement Azure aura été inscrit. Rendez-vous sur https://aka.ms/csgate pour envoyer votre cas d’usage et votre ID d’abonnement Azure.  Vous devez créer la ressource Azure à l’aide du même abonnement Azure que celui qui a été fourni dans le formulaire de demande d’accès.
+Vous devez créer une ressource Azure de type Vision par ordinateur sur le [Portail Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou via Azure CLI. Vous serez en mesure de créer la ressource une fois que votre demande d’accès au conteneur aura été approuvée et que votre ID d’abonnement Azure aura été inscrit. Rendez-vous sur https://aka.ms/csgate pour envoyer votre cas d’usage et votre ID d’abonnement Azure.  Vous devez créer la ressource Azure à l’aide du même abonnement Azure que celui qui a été fourni dans le formulaire de demande d’accès.
 
 ### <a name="gathering-required-parameters"></a>Collecte des paramètres requis
 
@@ -75,7 +75,7 @@ Une clé est utilisée pour démarrer le conteneur d’analyse spatiale ; elle 
 
 ## <a name="set-up-azure-stack-edge"></a>Configurer Azure Stack Edge
 
-Suivez [ces étapes](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) pour configurer Azure Stack Edge, puis continuez à suivre les étapes ci-dessous pour déployer le module Live Video Analytics et le module d’analyse spatiale.
+Suivez [ces étapes](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) pour configurer Azure Stack Edge, puis continuez à suivre les étapes ci-dessous pour déployer le module Live Video Analytics et le module d’analyse spatiale.
 
 ## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
@@ -136,7 +136,7 @@ Il y a plusieurs éléments auxquels vous devez faire attention dans le fichier 
 1. Le paramètre `IpcMode` dans le module lvaEdge et le paramètre createOptions dans le module d’analyse spatiale doivent être identiques et être définis sur l’hôte.
 1. Pour que le simulateur RTSP fonctionne, assurez-vous que vous avez configuré le paramètre Volume Bounds. Pour plus d’informations, consultez la page [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts) (Configurer les montages de volumes Docker).
 
-    1. [Connectez-vous au partage SMB](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.
+    1. [Connectez-vous au partage SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.
     1. Vérifiez que le module rtspsim présente la configuration suivante :
         
         ```json

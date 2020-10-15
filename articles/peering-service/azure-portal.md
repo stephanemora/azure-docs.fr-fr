@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 6646016a4529f46431ecb622c7546140a93a5d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871479"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534945"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Inscrire Peering Service à l’aide du portail Azure
 
-Azure Peering Service est un service réseau qui améliore la connectivité entre le client et les services cloud de Microsoft tels qu’Office 365, Dynamics 365, les services SaaS, Azure ou les services Microsoft accessibles via le réseau Internet public.
+Azure Peering Service est un service réseau qui améliore la connectivité entre le client et les services cloud Microsoft, comme Microsoft 365, Dynamics 365, les services SaaS, Azure ou les services Microsoft accessibles via l’Internet public.
 
 Cet article explique comment inscrire une connexion Peering Service à l’aide du portail Azure.
 
@@ -72,14 +72,14 @@ Dans un navigateur, accédez au portail Azure et connectez-vous avec votre compt
 1. Sélectionnez **Create new prefix** (Créer un préfixe) en bas de la section **Prefixes** (Préfixes). Plusieurs zones de texte s’affichent. À présent, entrez le nom de la ressource de préfixe ainsi que les préfixes associés au fournisseur de services.
 
 1. Sélectionnez **Prefix Key** (Clé de préfixe) et ajoutez la clé de préfixe attribuée par votre fournisseur (ISP ou IXP). Cette clé permet à Microsoft de valider le préfixe et le fournisseur qui a alloué votre préfixe IP.
-   > ![Onglet de configuration de l’inscription de Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![La capture d’écran montre l’onglet Configuration de la page Créer une connexion au service de peering, où vous pouvez entrer la clé de préfixe.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Sélectionnez le bouton **Vérifier + créer** en bas à gauche de la page. La page **Vérifier + créer** apparaît, et Azure valide votre configuration.
     
 
 1. Quand vous voyez le message **Validation réussie**, sélectionnez **Créer**.
 
-   > ![Onglet de configuration de l’inscription de Peering Service](./media/peering-service-portal/peering-service-prefix.png)
+   > ![La capture d’écran montre l’onglet Vérifier + créer de la page Créer une connexion au service de peering.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Une fois que vous avez inscrit une connexion Peering Service, une validation supplémentaire est effectuée sur les préfixes inclus. Vous pouvez vérifier l’état de la validation sous la section **Préfixes** du nom de la ressource. Si la validation échoue, l’un des messages d’erreur suivants s’affiche :

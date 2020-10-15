@@ -3,16 +3,16 @@ title: Guide pratique d’utilisation d’Azure Defender pour les registres de c
 description: Découvrez comment analyser les images de vos registres avec Azure Defender pour les registres de conteneurs.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18fa1b14bb20bbb2805eee2ec663d1316f787950
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930699"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532599"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -127,7 +127,7 @@ Les résultats correspondant aux critères définis dans vos règles de désacti
 > [!IMPORTANT]
 > Pour créer une règle, vous devez disposer de l’autorisation de modifier une stratégie dans Azure Policy.
 >
-> Pour plus d’informations, consultez [Autorisations RBAC dans Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
+> Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 Les critères suivants peuvent être utilisés : 
 
@@ -150,7 +150,7 @@ Pour créer une règle :
 1. Pour afficher, remplacer ou supprimer une règle : 
     1. Sélectionnez **Désactiver une règle**.
     1. Dans la liste des étendues, les abonnements présentant des règles actives apparaissent avec la mention **Règle appliquée**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modification ou suppression d’une alerte":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Création d’une règle de désactivation des résultats de VA sur le registre":::
     1. Pour afficher ou supprimer la règle, sélectionnez le menu de points de suspension (« … »).
 
 

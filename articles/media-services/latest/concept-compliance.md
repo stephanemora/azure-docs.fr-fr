@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269724"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015819"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformité réglementaire de Media Services
 
@@ -33,11 +33,11 @@ Les services Media Services Government sont conformes aux prescriptions DoD CC S
 
 Une révision de Media Services par 3PAO et JAB n’est pas prévue pour 2020.
 
-Pour en savoir plus sur la conformité des services Azure, consultez l’article [Services Azure par étendue d’audit du FedRAMP et du DoD SRG](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+Pour en savoir plus sur la conformité des services Azure, consultez l’article [Services Azure par étendue d’audit du FedRAMP et du DoD SRG](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## <a name="azure-compliance-documentation"></a>Documentation sur la conformité Azure
 
-Si votre organisation doit se conformer à des normes légales ou réglementaires internationales, du gouvernement des USA, régionales, ou régissant les secteurs des services financiers, de la santé, des médias et de la fabrication, commencez par la [Documentation sur la conformité Azure](https://docs.microsoft.com/azure/compliance/).
+Si votre organisation doit se conformer à des normes légales ou réglementaires internationales, du gouvernement des USA, régionales, ou régissant les secteurs des services financiers, de la santé, des médias et de la fabrication, commencez par la [Documentation sur la conformité Azure](../../compliance/index.yml).
 
 Vous y trouverez également des ressources de conformité supplémentaires, telles que des rapports d’audit, une liste de contrôle de la confidentialité en lien avec le Règlement général sur la protection des données (RGPD), des blueprints de conformité, des directives nationales et régionales, des implémentations et des mappages, ainsi que des livres blancs et autres rapports d’analystes.
 

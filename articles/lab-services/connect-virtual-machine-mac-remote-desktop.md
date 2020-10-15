@@ -4,10 +4,10 @@ description: Découvrez comment vous connecter à partir d’un Mac à une machi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 674bea13093e185ae991148c2cf96599a273d0bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444622"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-mac"></a>Se connecter à une machine virtuelle à l’aide du Protocole Bureau à distance sur un Mac
