@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654597"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963582"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP
 
@@ -71,7 +71,7 @@ SAP ASE écrit des données de façon séquentielle dans les unités de stockage
 Il est recommandé de configurer l’extension automatique de la base de données comme décrit dans l’article [Configuring Automatic Database Space Expansion in SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) et [Note de support SAP n° 1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Exemples de configurations de SAP ASE sur des systèmes de fichiers, des disques et des machines virtuelles Azure 
-Les modèles ci-dessous présentent des exemples de configurations pour Linux et Windows. Avant de confirmer la configuration des machines virtuelles et des disques, vérifiez que les quotas de bande passante de stockage et de réseau de la machine virtuelle individuelle sont suffisants pour répondre aux besoins de l’entreprise. Gardez également à l’esprit que différents types de machines virtuelles Azure ont un nombre maximal différent de disques pouvant être attachés à la machine virtuelle. Par exemple, une machine virtuelle E4s_v3 a un débit d’ES de stockage limité à 48 Mo/s. Si le débit de stockage requis par l’activité de sauvegarde de base de données exige plus de 48 Mo/s, un plus grand type de machine virtuelle avec davantage de débit de bande passante de stockage est inévitable. Quand vous configurez le stockage Azure, vous devez également garder à l’esprit que, en particulier avec le [stockage Premium Azure](../../windows/premium-storage-performance.md) le débit et les E/S par seconde par Go de capacité changent. Pour plus d’informations à ce sujet, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](../../disks-types.md). Les quotas pour des types de machines virtuelles Azure spécifiques sont décrits dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md) et les articles qui y sont liés. 
+Les modèles ci-dessous présentent des exemples de configurations pour Linux et Windows. Avant de confirmer la configuration des machines virtuelles et des disques, vérifiez que les quotas de bande passante de stockage et de réseau de la machine virtuelle individuelle sont suffisants pour répondre aux besoins de l’entreprise. Gardez également à l’esprit que différents types de machines virtuelles Azure ont un nombre maximal différent de disques pouvant être attachés à la machine virtuelle. Par exemple, une machine virtuelle E4s_v3 a un débit d’ES de stockage limité à 48 Mo/s. Si le débit de stockage requis par l’activité de sauvegarde de base de données exige plus de 48 Mo/s, un plus grand type de machine virtuelle avec davantage de débit de bande passante de stockage est inévitable. Quand vous configurez le stockage Azure, vous devez également garder à l’esprit que, en particulier avec le [stockage Premium Azure](../../premium-storage-performance.md) le débit et les E/S par seconde par Go de capacité changent. Pour plus d’informations à ce sujet, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](../../disks-types.md). Les quotas pour des types de machines virtuelles Azure spécifiques sont décrits dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md) et les articles qui y sont liés. 
 
 > [!NOTE]
 >  Si un système SGBD est déplacé d’un site local vers Azure, il est recommandé d’effectuer une supervision de la machine virtuelle et d’évaluer le processeur, la mémoire, les E/S par seconde et le débit de stockage. Comparez les valeurs maximales observées aux limites de quotas de machines virtuelles décrites dans les articles mentionnés ci-dessus

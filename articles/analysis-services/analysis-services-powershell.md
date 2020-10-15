@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28f414c5eaaea7b987f2c3694cb8fc73b70838e9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050445"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018761"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 
@@ -46,21 +46,21 @@ Documentation - [Référence de SQL Server](/powershell/module/sqlserver)
 
 |Applet de commande|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Ajoute un membre à un rôle de base de données.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Sauvegarde une base de données Analysis Services.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Supprime un membre d’un rôle de base de données.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Exécute un script TMSL.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Traite une base de données.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Traite une partition.| 
-|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Traiter une table.|  
-|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Fusionne une partition.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Restaurer une base de données Analysis Services.| 
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|Ajoute un membre à un rôle de base de données.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Sauvegarde une base de données Analysis Services.|  
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|Supprime un membre d’un rôle de base de données.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Exécute un script TMSL.|
+|[Invoke-ProcessASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|Traite une base de données.|  
+|[Invoke-ProcessPartition](/powershell/module/sqlserver/invoke-processpartition)|Traite une partition.| 
+|[Invoke-ProcessTable](/powershell/module/sqlserver/invoke-processtable)|Traiter une table.|  
+|[Merge-Partition](/powershell/module/sqlserver/merge-partition)|Fusionne une partition.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Restaurer une base de données Analysis Services.| 
   
 
 ## <a name="related-information"></a>Informations connexes
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [Télécharger le module SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Télécharger SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [Télécharger le module SQL Server PowerShell](/sql/ssms/download-sql-server-ps-module)   
+* [Télécharger SSMS](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [Module SqlServer dans PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Programmation de modèle tabulaire pour le niveau de compatibilité 1200 et ultérieur](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Programmation de modèle tabulaire pour le niveau de compatibilité 1200 et ultérieur](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

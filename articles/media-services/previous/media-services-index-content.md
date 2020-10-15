@@ -16,12 +16,12 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256444"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018953"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexation de fichiers multimédias avec Azure Media Indexer
 
@@ -48,7 +48,7 @@ Vous pouvez définir plus de détails pour vos tâches d’indexation en utilisa
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l’aide d’un fichier manifeste.
 
-Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](./media-services-analytics-overview.md).
+Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](./legacy-components.md).
 
 ## <a name="index-an-asset"></a>Indexation d’une ressource
 La méthode suivante télécharge un fichier multimédia en tant que ressource et crée une tâche pour indexer la ressource.
@@ -161,7 +161,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 ## <a name="index-multiple-files"></a>indexer plusieurs fichiers
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
-Un fichier manifeste avec l’extension .lst est créé et chargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](./media-services-analytics-overview.md).
+Un fichier manifeste avec l’extension .lst est créé et chargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](./legacy-components.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -278,6 +278,6 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Liens connexes
-[Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
+[Vue d’ensemble d’Azure Media Services Analytics](./legacy-components.md)
 
-[Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
+[Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](./legacy-components.md)

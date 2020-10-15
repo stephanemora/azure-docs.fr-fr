@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697597"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018774"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Déployer un modèle à partir de Visual Studio
 
@@ -23,7 +23,7 @@ Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Serveur Analysis Services** dans Azure. Pour plus d’informations, consultez l’article [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md).
-* **Projet de modèle tabulaire** dans Visual Studio ou modèle tabulaire existant au niveau de compatibilité 1200 ou supérieur. Vous ne l’avez jamais fait ? Essayez le [Didacticiel de modélisation tabulaire des ventes Internet Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
+* **Projet de modèle tabulaire** dans Visual Studio ou modèle tabulaire existant au niveau de compatibilité 1200 ou supérieur. Vous ne l’avez jamais fait ? Essayez le [Didacticiel de modélisation tabulaire des ventes Internet Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **Passerelle locale** : si une ou plusieurs sources de données sont locales dans le réseau de votre entreprise, vous devez installer une [Passerelle de données locale](analysis-services-gateway.md). La passerelle est nécessaire pour que votre serveur se connecte dans le cloud à vos sources de données locales pour traiter et actualiser les données du modèle.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Si le déploiement échoue sur une table, il est probable que votre serveur n’
 
 Maintenant que votre modèle tabulaire est déployé sur votre serveur, vous êtes prêt à vous connecter à celui-ci. Vous pouvez vous [connecter avec SQL Server Management Studio (SSMS)](analysis-services-manage.md) pour le gérer. Vous pouvez également vous [connecter à celui-ci à l’aide d’un outil client](analysis-services-connect.md) tel que Power BI, Power BI Desktop ou Excel, et commencer à créer des rapports.   
 
-Pour en savoir plus sur les méthodes du déploiement avancé, consultez [Déploiement d’une solution de modèle tabulaire](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+Pour en savoir plus sur les méthodes du déploiement avancé, consultez [Déploiement d’une solution de modèle tabulaire](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).

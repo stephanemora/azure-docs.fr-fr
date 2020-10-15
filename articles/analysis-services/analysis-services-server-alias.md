@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 753ac449418b78fe02640f1b70b94b5b3d7f2be5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361436"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019033"
 ---
 # <a name="alias-server-names"></a>Alias de noms de serveurs
 
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Voir aussi
 
-[Bibliothèques clientes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Bibliothèques clientes](/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Se connecter à partir de Power BI Desktop](analysis-services-connect-pbi.md)

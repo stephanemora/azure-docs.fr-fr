@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885566"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018285"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non |
 |UDF et UDA JavaScript     |Oui         |Oui         |Windows uniquement         |
 |Machine Learning Service     |Oui        |Oui         |Non          |
-|Machine Learning Studio     |Oui, mais la requête ne peut pas être testée        |Oui |Non          |
+|Azure Machine Learning Studio (classique)|Oui, mais la requête ne peut pas être testée        |Oui |Non          |
 |Niveau de compatibilité     |1.0</br>1.1</br>1.2 (valeur par défaut)         |1.0</br>1.1</br>1.2 (valeur par défaut)           |1.0</br>1.1</br>1.2 (valeur par défaut)           |
 |Fonctions de détection d’anomalie ML intégrées     |Oui         |Oui         |Oui         |
 |Fonctions géospatiales intégrées     |Oui         |Oui         |Oui         |

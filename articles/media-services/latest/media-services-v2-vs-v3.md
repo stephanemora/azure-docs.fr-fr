@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651750"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019832"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 par rapport à Media Services v3
 
@@ -74,7 +74,7 @@ Cet article décrit les changements qui ont été introduits dans Azure Media Se
 
 Les API v3 présentent les différences de fonctionnalités suivantes par rapport aux API v2. Le gommage de ces différences est en cours.
 
-* L’[Encodeur Premium](../previous/media-services-premium-workflow-encoder-formats.md) et les [processeurs d’analytique multimédia](../previous/media-services-analytics-overview.md) hérités (indexeur Azure Media Services 2 en préversion, Face Redactor, etc.) ne sont pas accessibles via v3.<br/>Les clients qui souhaitent migrer à partir de l’indexeur multimédia 1 ou 2 en préversion peuvent utiliser immédiatement l’AudioAnalyzer prédéfini dans l’API v3.  Cet nouveau préréglage contient davantage de fonctionnalités que l’ancien indexeur multimédia 1 ou 2. 
+* L’[Encodeur Premium](../previous/media-services-encode-asset.md) et les [processeurs d’analytique multimédia](../previous/legacy-components.md) hérités (indexeur Azure Media Services 2 en préversion, Face Redactor, etc.) ne sont pas accessibles via v3.<br/>Les clients qui souhaitent migrer à partir de l’indexeur multimédia 1 ou 2 en préversion peuvent utiliser immédiatement l’AudioAnalyzer prédéfini dans l’API v3.  Cet nouveau préréglage contient davantage de fonctionnalités que l’ancien indexeur multimédia 1 ou 2. 
 * La plupart des [fonctionnalités avancées de Media Encoder Standard dans les API v2](../previous/media-services-advanced-encoding-with-mes.md) ne sont actuellement pas disponibles dans v3, par exemple :
   
     * Combinaison de ressources

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 53e1daca47a2917a19cbc30db5348e4fcc06b325
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90038900"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963123"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La machine virtuelle ne répond pas lors de l’application de la stratégie des contrôleurs de domaine par défaut
 
@@ -28,7 +28,7 @@ Cet article explique comment résoudre les problèmes liés à la stratégie des
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d'écran de la machine virtuelle, vous constatez sur la capture d'écran que le système d'exploitation ne répond plus au moment du démarrage et que le message **Stratégie des contrôleurs de domaine par défaut** s'affiche.
+Lorsque vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d'écran de la machine virtuelle, vous constatez sur la capture d'écran que le système d'exploitation ne répond plus au moment du démarrage et que le message **Stratégie des contrôleurs de domaine par défaut** s'affiche.
 
   ![La figure 1 montre le système d'exploitation bloqué, avec le message « Stratégie des contrôleurs de domaine par défaut »](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -46,7 +46,7 @@ Pour résoudre ce problème, vous devez d'abord collecter le fichier de l'image 
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Attacher le disque du système d’exploitation à une machine virtuelle de récupération
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
@@ -56,4 +56,4 @@ Pour résoudre ce problème, vous devez d'abord collecter le fichier de l'image 
 
 1. Recherchez le fichier memory.dmp, puis [envoyez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) avec le fichier de l’image mémoire.
 
-1. Si vous rencontrez des difficultés pour localiser le fichier memory.dmp, vous pouvez utiliser à la place des [appels d’interruption non masquable (NMI) dans la console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls). Suivez le guide pour [générer un fichier d'image mémoire sur incident à l'aide d'appels NMI](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Si vous rencontrez des difficultés pour localiser le fichier memory.dmp, vous pouvez utiliser à la place des [appels d’interruption non masquable (NMI) dans la console série](./serial-console-windows.md#use-the-serial-console-for-nmi-calls). Suivez le guide pour [générer un fichier d'image mémoire sur incident à l'aide d'appels NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

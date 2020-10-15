@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fafe2ba9ae65f95d8a2258ead5715cc0630202ba
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510155"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963480"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutoriel – Configurer la stratégie de déploiement Canary pour des machines virtuelles Linux Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "86510155"
 
 Azure Pipelines fournit un ensemble d’outils d’automatisation CI/CD pour les déploiements sur des machines virtuelles. Vous pouvez configurer un pipeline de livraison continue pour une machine virtuelle Azure à partir du portail Azure.
 
-Cet article explique comment configurer un pipeline CI/CD qui utilise la stratégie Canary pour les déploiements multi-machine. Le portail Azure prend également en charge d’autres stratégies, telles que [Rolling](https://aka.ms/AA7jlh8) et [Blue-Green](https://aka.ms/AA83fwu).
+Cet article explique comment configurer un pipeline CI/CD qui utilise la stratégie Canary pour les déploiements multi-machine. Le portail Azure prend également en charge d’autres stratégies, telles que [Rolling](./tutorial-devops-azure-pipelines-classic.md) et [Blue-Green](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurer les outils CI/CD sur les machines virtuelles
 
@@ -72,8 +72,8 @@ Vous pouvez configurer des déploiements Canary sur vos « machines virtuelles�
    ![Volet Artefacts montrant deploy.sh dans le dossier deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Autres stratégies de déploiement
-- [Configurer la stratégie de déploiement Rolling](https://aka.ms/AA7jlh8)
-- [Configurer la stratégie de déploiement Blue-Green](https://aka.ms/AA83fwu)
+- [Configurer la stratégie de déploiement Rolling](./tutorial-devops-azure-pipelines-classic.md)
+- [Configurer la stratégie de déploiement Blue-Green](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

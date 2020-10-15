@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569505"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019781"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Développer avec les API Media Services v3
 
@@ -122,9 +122,9 @@ Une seule opération de longue durée est prise en charge pour un événement en
 
 |Kit SDK|Informations de référence|
 |---|---|
-|[Kit de développement logiciel (SDK) .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Ref de .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[Kit SDK Java](https://aka.ms/ams-v3-java-sdk)|[Ref de Java](https://aka.ms/ams-v3-java-ref)|
-|[Kit de développement logiciel (SDK) Python](https://aka.ms/ams-v3-python-sdk)|[Ref de Python](https://aka.ms/ams-v3-python-ref)|
+|[Kit de développement logiciel (SDK) .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Ref de .NET](/dotnet/api/overview/azure/mediaservices/management)|
+|[Kit SDK Java](https://aka.ms/ams-v3-java-sdk)|[Ref de Java](/java/api/overview/azure/mediaservices/management)|
+|[Kit de développement logiciel (SDK) Python](https://aka.ms/ams-v3-python-sdk)|[Ref de Python](/python/api/overview/azure/mediaservices/management)|
 |[Kit de développement logiciel (SDK) Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Ref de Node.js ](/javascript/api/overview/azure/mediaservices/management)| 
 |[Kit de développement logiciel (SDK) Go](https://aka.ms/ams-v3-go-sdk) |[Ref de Go](https://aka.ms/ams-v3-go-ref)|
 |[Kit de développement logiciel (SDK) Ruby](https://aka.ms/ams-v3-ruby-sdk)||

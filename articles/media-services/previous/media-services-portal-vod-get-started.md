@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268381"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018982"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure
 
@@ -127,7 +127,7 @@ Une URL de signature d’accès partagé a le format suivant :
 > 
 > 
 
-Pour mettre à jour une date d’expiration sur un localisateur, vous pouvez utiliser une [API REST](/rest/api/media/operations/locator#update_a_locator) ou une [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Pour mettre à jour une date d’expiration sur un localisateur, vous pouvez utiliser une [API REST](/rest/api/media/operations/locator#update_a_locator) ou une [API .NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Lorsque vous mettez à jour la date d’expiration d’un localisateur de signature d’accès partagé, l’URL est modifiée.
