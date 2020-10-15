@@ -2,20 +2,20 @@
 title: Tutoriel – Créer un jeu de réplicas dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment créer et utiliser des jeux de réplicas sur le portail Azure pour la résilience des services avec Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: joflore
+ms.openlocfilehash: 8cd78a98e47468f103459fd7aa40b145d53db4fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245092"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967033"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer et utiliser des jeux de réplicas pour la résilience ou la géolocalisation dans Azure Active Directory Domain Services (préversion)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261886"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963293"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cycle de vie et états des machines virtuelles
 
@@ -418,13 +418,13 @@ Une fois l’opération terminée, la machine virtuelle passe à l’un des éta
 
 ## <a name="vm-instance-view"></a>Vue d’instance de machine virtuelle
 
-L’API de vue d’instance fournit des informations sur l’état d’exécution d’une machine virtuelle. Pour plus d’informations, consultez la documentation relative à l’API [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) (Machines virtuelles : vue d’instance).
+L’API de vue d’instance fournit des informations sur l’état d’exécution d’une machine virtuelle. Pour plus d’informations, consultez la documentation relative à l’API [Virtual Machines - Instance View](/rest/api/compute/virtualmachines/instanceview) (Machines virtuelles : vue d’instance).
 
 Azure Resource Explorer présente une interface utilisateur simple permettant d’afficher l’état d’exécution des machines virtuelles : [Resource Explorer](https://resources.azure.com/).
 
 Les états d’approvisionnement sont visibles dans la vue d’instance et les propriétés des machines virtuelles. Les états d’alimentation sont disponibles dans la vue d’instance des machines virtuelles.
 
-Pour récupérer l’état d’alimentation de toutes les machines virtuelles de votre abonnement, utilisez l’[API Machines virtuelles - Répertorier tout](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) avec le paramètre **statusOnly** défini sur *true*.
+Pour récupérer l’état d’alimentation de toutes les machines virtuelles de votre abonnement, utilisez l’[API Machines virtuelles - Répertorier tout](/rest/api/compute/virtualmachines/listall) avec le paramètre **statusOnly** défini sur *true*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

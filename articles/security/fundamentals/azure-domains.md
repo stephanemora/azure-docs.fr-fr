@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
 ms.openlocfilehash: 63b00682af3de8c558a6ef69dd6cb8b9a7d5f2b4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87433212"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Liste de référence des domaines Azure (non exhaustive)

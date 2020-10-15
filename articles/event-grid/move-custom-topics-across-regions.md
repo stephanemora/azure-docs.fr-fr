@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145335"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Déplacer des rubriques personnalisées Azure Event Grid vers une autre région
@@ -38,22 +38,10 @@ Pour commencer, exportez un modèle Resource Manager pour la rubrique personnali
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Recherchez et sélectionnez Rubriques Event Grid":::
 3. Sélectionnez la **rubrique** que vous souhaitez exporter vers un modèle Resource Manager. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Sélectionnez la vignette personnalisée":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Recherchez et sélectionnez Rubriques Event Grid":::   
 4. Dans la page **Rubrique Event Grid**, sélectionnez **Exporter le modèle** sous **Paramètres** dans le menu de gauche, puis sélectionnez **Télécharger** dans la barre d’outils. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Exporter le modèle -> Télécharger":::   
-
-    > [!IMPORTANT]
-    > Seule la rubrique est exportée vers le modèle. Les abonnements de la rubrique ne sont pas exportés. Par conséquent, vous devez créer des abonnements pour la rubrique après l’avoir déplacée vers la région cible. 
-5. Localisez le fichier **.zip** que vous avez téléchargé à partir du portail, puis décompressez-le dans le dossier de votre choix. Ce fichier zip contient les fichiers JSON des modèles et paramètres. 
-1. Ouvrez le fichier **template.json** dans l’éditeur de votre choix. 
-8. Mettez à jour `location` pour la ressource **topic** en spécifiant la région ou l’emplacement cible. Pour obtenir les codes d’emplacement, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/). Le code d’une région correspond au nom de la région sans espace, par exemple `West US` correspond à `westus`.
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Recherchez et sélectionnez Rubriques Event Grid"
     ```
 1. **Enregistrez** le modèle. 
 
@@ -74,14 +62,14 @@ Déployez le modèle pour créer une rubrique personnalisée dans la région cib
     1. Pour **Nom de la rubrique**, entrez un nouveau nom pour la rubrique. 
     1. Au bas de la page, sélectionnez **Examiner et créer**. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Déploiement personnalisé":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Recherchez et sélectionnez Rubriques Event Grid":::
     1. Dans la page **Vérifier + créer**, passez en revue les paramètres, puis sélectionnez **Créer**. 
 
 ## <a name="verify"></a>Vérification
 
 1. Une fois le déploiement réussi, sélectionnez **Accéder à la ressource**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Accéder à la ressource":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Recherchez et sélectionnez Rubriques Event Grid":::
 1. Vérifiez que la page **Rubrique Event Grid** de la rubrique personnalisée est visible.   
 1. Suivez les étapes fournies dans [Router des événements personnalisés vers un point de terminaison web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) pour envoyer des événements à la rubrique. Vérifiez que le gestionnaire d’événements du webhook est appelé. 
 

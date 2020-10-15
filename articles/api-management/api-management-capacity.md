@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205885"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071317"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
@@ -107,4 +107,4 @@ La **capacité** est la métrique dont vous devez tenir compte pour prendre des 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Mettre à niveau une instance du service Gestion des API et la mettre à l’échelle](upgrade-and-scale.md)
-- [Optimiser et réduire les dépenses liées au cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimiser et réduire les dépenses liées au cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

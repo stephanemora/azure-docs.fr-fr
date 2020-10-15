@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986629"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715399"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recommandations de sécurité pour Stockage File d’attente
 
@@ -29,7 +29,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
-| Utiliser le Modèle de déploiement Azure Resource Manager | Créez des comptes de stockage en utilisant le Modèle de déploiement Azure Resource Manager pour les améliorations de sécurité importantes, notamment les fonctionnalités de contrôle d’accès (RBAC) et d’audit de premier plan, le déploiement et la gouvernance basés sur Resource Manager, l’accès aux identités managées, l’accès pour Azure Key Vault pour les secrets, et l’authentification et l’autorisation basées sur Azure AD pour l’accès aux données et aux ressources de Stockage Azure. Si possible, migrez les comptes de stockage existants qui utilisent le Modèle de déploiement classique pour qu’ils utilisent Azure Resource Manager. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Utiliser le Modèle de déploiement Azure Resource Manager | Créez des comptes de stockage en utilisant le modèle de déploiement Azure Resource Manager pour les améliorations de sécurité importantes, notamment les fonctionnalités de contrôle d’accès en fonction du rôle Azure (Azure RBAC) et d’audit de premier plan, le déploiement et la gouvernance basés sur Resource Manager, l’accès aux identités managées, l’accès pour Azure Key Vault pour les secrets, et l’authentification et l’autorisation basées sur Azure AD pour l’accès aux données et aux ressources de Stockage Azure. Si possible, migrez les comptes de stockage existants qui utilisent le Modèle de déploiement classique pour qu’ils utilisent Azure Resource Manager. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Activez Advanced Threat Protection pour tous vos comptes de stockage | La protection avancée contre les menaces pour Stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées dans Azure Security Center quand des anomalies se produisent dans des activités ; elles sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de remédier aux menaces. Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](../common/azure-defender-storage-configure.md). | [Oui](../../security-center/security-center-sql-service-recommendations.md) |
 | Limiter les jetons de signature d’accès partagé (SAS) aux seules connexions HTTPS | Le fait d’exiger HTTPS lorsqu’un client utilise un jeton SAS pour accéder à des données de file d’attente permet de réduire le risque d’écoute. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md). | - |
 
@@ -38,7 +38,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
 | Utiliser Azure Active Directory (Azure AD) pour autoriser l’accès aux données d’objet de file d’attente | Azure AD offre une sécurité et une facilité d’utilisation supérieures sur les clés partagées pour autoriser les demandes auprès du Stockage File d’attente. Pour plus d’informations, voir [Autoriser l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Gardez à l’esprit le principe du Moindre privilège lors de l’attribution d’autorisations à un principal de sécurité Azure AD via RBAC | Quand vous attribuez un rôle à un utilisateur, un groupe ou une application, accordez à ce principal de sécurité seulement les autorisations nécessaires pour effectuer ses tâches. La limitation de l’accès aux ressources permet d’éviter une mauvaise utilisation accidentelle et malveillante de vos données. | - |
+| Garder à l’esprit le principe du moindre privilège lors de l’attribution d’autorisations à un principal de sécurité Azure AD via Azure RBAC | Quand vous attribuez un rôle à un utilisateur, un groupe ou une application, accordez à ce principal de sécurité seulement les autorisations nécessaires pour effectuer ses tâches. La limitation de l’accès aux ressources permet d’éviter une mauvaise utilisation accidentelle et malveillante de vos données. | - |
 | Sécuriser vos clés d’accès de compte avec Azure Key Vault | Microsoft recommande d’utiliser Azure AD pour autoriser les demandes auprès de Stockage Azure. Cependant, si vous devez utiliser l’autorisation Clé partagée, sécurisez vos clés de compte avec Azure Key Vault. Vous pouvez récupérer les clés du coffre de clés au Moment de l’exécution, au lieu de les enregistrer avec votre application. | - |
 | Regénérer régulièrement vos clés de compte | Effectuer une rotation des clés de compte régulièrement réduit le risque d’exposer vos données à des acteurs malveillants. | - |
 | Gardez à l’esprit le principe du Moindre privilège lors de l’attribution d’autorisations à une signature d’accès partagé | Lors de la création d’une signature d’accès partagé, spécifiez seulement les autorisations nécessaires au client pour remplir sa fonction. La limitation de l’accès aux ressources permet d’éviter une mauvaise utilisation accidentelle et malveillante de vos données. | - |

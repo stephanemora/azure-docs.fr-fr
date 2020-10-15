@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207166"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Résoudre les problèmes courants liés à Ingress Controller

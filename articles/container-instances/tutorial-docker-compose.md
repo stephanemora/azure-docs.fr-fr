@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708272"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutoriel : Déployer plusieurs conteneurs à l’aide de Docker Compose 
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Pour afficher l’application en cours d’exécution dans le cloud, entrez l’adresse IP affichée dans un navigateur web local. Dans cet exemple, entrez `52.179.23.131`. L’exemple d’application est chargée, comme indiqué dans l’exemple suivant :
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Image de l’application Voting dans ACI":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Image de l’application Voting":::
 
 Pour afficher les journaux du conteneur frontal, exécutez la commande [docker logs](https://docs.docker.com/engine/reference/commandline/logs). Exemple :
 

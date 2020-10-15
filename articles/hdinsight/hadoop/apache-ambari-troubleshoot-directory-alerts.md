@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 7fd287377a82caeaecea264f0165d12ced57f5cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76722673"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Scénario : Alertes de répertoire Apache Ambari dans Azure HDInsight
