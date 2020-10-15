@@ -63,9 +63,12 @@
       href: load-balancer-ha-ports-overview.md
     - name: Plusieurs serveurs frontaux
       href: load-balancer-multivip-overview.md
-    - name: Connexions sortantes
+    - name: Proxy sortant
       href: load-balancer-outbound-connections.md
     - name: Réinitialisation de TCP et délai d’inactivité de TCP
+    - name: Règles de trafic sortant
+      href: outbound-rules.md
+    - name: Réinitialisation du protocole TCP pendant le délai d’inactivité
       href: load-balancer-tcp-reset.md
     - name: Référence Standard de Load Balancer et zones de disponibilité
       href: load-balancer-standard-availability-zones.md

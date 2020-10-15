@@ -2,13 +2,13 @@
 title: Événement de création de pool Azure Batch
 description: Informations de référence pour l’événement de création de pool Batch, qui est émis après la création d’un pool. Le contenu du journal fournit des informations générales sur le pool.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: eee512bbeed223269c43bde77435fbff2b67b533
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 10/08/2020
+ms.openlocfilehash: dea0e04fa506274e645ba7a578039a0d6f021043
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147318"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850946"
 ---
 # <a name="pool-create-event"></a>Événement de création de pool
 
@@ -41,7 +41,7 @@ ms.locfileid: "86147318"
     "resizeTimeout": "300000",
     "targetDedicatedNodes": 2,
     "targetLowPriorityNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
@@ -64,7 +64,7 @@ ms.locfileid: "86147318"
 |`enableAutoScale`|Bool|Spécifie si la taille du pool s’ajuste automatiquement au fil du temps.|
 |`enableInterNodeCommunication`|Bool|Spécifie si le pool est configuré pour une communication directe entre les nœuds.|
 |`isAutoPool`|Bool|Spécifie si le pool a été créé via un mécanisme AutoPool du travail.|
-|`maxTasksPerNode`|Int32|Nombre maximal de tâches pouvant s’exécuter simultanément sur un nœud de calcul unique au sein du pool.|
+|`taskSlotsPerNode`|Int32|Nombre maximal de tâches pouvant s’exécuter simultanément sur un nœud de calcul unique au sein du pool.|
 |`vmFillType`|String|Définit la manière dont le service Batch distribue les tâches entre les nœuds de calcul au sein du pool. Les valeurs valides sont Spread ou Pack.|
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration

@@ -121,6 +121,8 @@
       href: ../../storage/common/security-baseline.md
     - name: Base de référence de la sécurité Azure Traffic Manager
       href: ../../traffic-manager/security-baseline.md
+    - name: Base de référence de la sécurité Azure Web Application Firewall
+      href: ../../web-application-firewall/security-baseline.md
     - name: Base de référence de la sécurité Batch
       href: ../../batch/security-baseline.md
     - name: Base de référence de la sécurité Cognitive Services

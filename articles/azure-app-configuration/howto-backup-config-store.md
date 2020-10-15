@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207145"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074853"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Sauvegarder automatiquement des magasins App Configuration
 
@@ -124,7 +124,7 @@ Dans cet article, vous allez utiliser des fonctions C# qui ont les propriétés
 - Runtime Azure Functions version 3.x
 - Fonction déclenchée par le minuteur toutes les 10 minutes
 
-Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une fonction](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que vous pouvez utiliser sans modifier le code. Téléchargez les Fichiers projet et [publiez-les sur votre propre application de fonction Azure à partir de Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une fonction](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que vous pouvez utiliser sans modifier le code. Téléchargez les Fichiers projet et [publiez-les sur votre propre application de fonction Azure à partir de Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > N’apportez aucune modification aux variables d’environnement dans le code que vous avez téléchargé. Vous allez créer les paramètres d’application requis dans la section suivante.
@@ -133,13 +133,13 @@ Pour faciliter la sauvegarde de vos données, nous avons [testé et publié une 
 ### <a name="build-your-own-function"></a>Créer votre propre fonction
 
 Si l’exemple de code fourni précédemment ne répond pas à vos besoins, vous pouvez également créer votre propre fonction. Votre fonction doit être en mesure d’exécuter les tâches suivantes pour effectuer la sauvegarde :
-- Lire régulièrement le contenu de votre file d’attente pour voir si elle contient des notifications d’Event Grid. Pour plus d’informations sur l’implémentation, consultez [Kit SDK de la file d’attente de stockage](/azure/storage/queues/storage-quickstart-queues-dotnet).
-- Si votre file d’attente contient des [notifications d’événements d’Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), extraire toutes les informations `<key, label>` uniques des messages d’événement. La combinaison de la clé et de l’étiquette est l’identificateur unique pour les modifications de paires clé-valeur dans le magasin principal.
+- Lire régulièrement le contenu de votre file d’attente pour voir si elle contient des notifications d’Event Grid. Pour plus d’informations sur l’implémentation, consultez [Kit SDK de la file d’attente de stockage](../storage/queues/storage-quickstart-queues-dotnet.md).
+- Si votre file d’attente contient des [notifications d’événements d’Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extraire toutes les informations `<key, label>` uniques des messages d’événement. La combinaison de la clé et de l’étiquette est l’identificateur unique pour les modifications de paires clé-valeur dans le magasin principal.
 - Lire tous les paramètres du magasin principal. Mettre à jour uniquement les paramètres du magasin secondaire qui ont un événement correspondant dans la file d’attente. Supprimer tous les paramètres du magasin secondaire qui étaient présents dans la file d’attente, mais pas dans le magasin principal. Vous pouvez utiliser le [Kit de développement logiciel (SDK) App Configuration](https://github.com/Azure/AppConfiguration#sdks) pour accéder par programmation à vos magasins de configuration.
 - Supprimer les messages de la file d’attente si aucune exception n’a été levée lors du traitement.
 - Implémenter la gestion des erreurs en fonction de vos besoins. Reportez-vous à l’exemple de code précédent pour voir quelques exceptions courantes que vous pouvez gérer.
 
-Pour en savoir plus sur la création d’une fonction, consultez : [Créer une fonction dans Azure qui est déclenchée par un minuteur](/azure/azure-functions/functions-create-scheduled-function) et [Développer Azure Functions à l’aide de Visual Studio](/azure/azure-functions/functions-develop-vs).
+Pour en savoir plus sur la création d’une fonction, consultez : [Créer une fonction dans Azure qui est déclenchée par un minuteur](../azure-functions/functions-create-scheduled-function.md) et [Développer Azure Functions à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Accorder l’accès à l’identité managée de l’application de fonction
 
-Utilisez la commande suivante ou le [portail Azure](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) pour ajouter une identité managée affectée par le système à votre application de fonction.
+Utilisez la commande suivante ou le [portail Azure](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) pour ajouter une identité managée affectée par le système à votre application de fonction.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> Pour effectuer les opérations de création de ressource et de gestion des rôles nécessaires, votre compte doit bénéficier des autorisations `Owner` avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide pour l’attribution de rôle, découvrez [comment ajouter ou supprimer des attributions de rôles Azure en utilisant le portail Azure](/azure/role-based-access-control/role-assignments-portal).
+> Pour effectuer les opérations de création de ressource et de gestion des rôles nécessaires, votre compte doit bénéficier des autorisations `Owner` avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide pour l’attribution de rôle, découvrez [comment ajouter ou supprimer des attributions de rôles Azure en utilisant le portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-Utilisez les commandes suivantes ou le [portail Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) pour accorder à l’identité managée de votre application de fonction l’accès à vos magasins App Configuration. Utilisez ces rôles :
+Utilisez les commandes suivantes ou le [portail Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) pour accorder à l’identité managée de votre application de fonction l’accès à vos magasins App Configuration. Utilisez ces rôles :
 - Attribuez le rôle `App Configuration Data Reader` dans le magasin App Configuration principal.
 - Attribuez le rôle `App Configuration Data Owner` dans le magasin App Configuration secondaire.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Utilisez la commande suivante ou le [portail Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) pour accorder à l’identité managée de votre application de fonction l’accès à votre file d’attente. Attribuez le rôle `Storage Queue Data Contributor` dans la file d’attente.
+Utilisez la commande suivante ou le [portail Azure](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) pour accorder à l’identité managée de votre application de fonction l’accès à votre file d’attente. Attribuez le rôle `Storage Queue Data Contributor` dans la file d’attente.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 Vous avez déclenché l’événement. Dans quelques instants, Event Grid enverra la notification d’événement à votre file d’attente. *Après la prochaine exécution planifiée de votre fonction*, affichez les paramètres de configuration dans votre magasin secondaire pour voir s’il contient la paire clé-valeur mise à jour du magasin principal.
 
 > [!NOTE]
-> Vous pouvez [déclencher votre fonction manuellement](/azure/azure-functions/functions-manually-run-non-http) pendant le test et la résolution des problèmes sans attendre le déclenchement du minuteur planifié.
+> Vous pouvez [déclencher votre fonction manuellement](../azure-functions/functions-manually-run-non-http.md) pendant le test et la résolution des problèmes sans attendre le déclenchement du minuteur planifié.
 
 Après avoir vérifié que la fonction de sauvegarde a été exécutée avec succès, vous pouvez voir que la clé est maintenant présente dans votre magasin secondaire.
 
@@ -243,9 +243,9 @@ Si le nouveau paramètre ne s’affiche pas dans votre magasin secondaire :
 
 - Assurez-vous que la fonction de sauvegarde a été déclenchée *après* la création du paramètre dans votre magasin principal.
 - Il est possible qu’Event Grid n’ait pas pu envoyer à temps la notification de l’événement à la file d’attente. Vérifiez si la file d’attente contient toujours la notification d’événement de votre magasin principal. Si c’est le cas, déclenchez à nouveau la fonction de sauvegarde.
-- Consultez les [journaux Azure Functions](/azure/azure-functions/functions-create-scheduled-function#test-the-function) pour détecter les erreurs ou les avertissements.
-- Utilisez le [portail Azure](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) pour vous assurer que l’application de fonction Azure contient des valeurs correctes pour les paramètres d’application qu’Azure Functions tente de lire.
-- Vous pouvez également configurer une surveillance et des alertes pour Azure Functions à l’aide [d’Azure Application Insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Consultez les [journaux Azure Functions](../azure-functions/functions-create-scheduled-function.md#test-the-function) pour détecter les erreurs ou les avertissements.
+- Utilisez le [portail Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) pour vous assurer que l’application de fonction Azure contient des valeurs correctes pour les paramètres d’application qu’Azure Functions tente de lire.
+- Vous pouvez également configurer une surveillance et des alertes pour Azure Functions à l’aide [d’Azure Application Insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

@@ -3,12 +3,12 @@ title: Guide pratique pour interroger des journaux à partir d’Azure Monitor p
 description: Azure Monitor pour conteneurs collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254888"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994017"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs
 
@@ -110,5 +110,4 @@ Les résultats obtenus sont similaires à ceux de l’exemple suivant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Azure Monitor pour conteneurs n’inclut pas d’un ensemble prédéfini d’alertes. Pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md). 
-
+Azure Monitor pour conteneurs n’inclut pas d’un ensemble prédéfini d’alertes. Pour savoir comment créer les alertes recommandées pour une utilisation élevée du processeur et de la mémoire, consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](./container-insights-log-alerts.md).

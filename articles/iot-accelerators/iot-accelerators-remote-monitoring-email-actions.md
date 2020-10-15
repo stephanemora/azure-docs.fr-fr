@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168369"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074462"
 ---
 # <a name="add-an-email-action"></a>Ajouter une action de messagerie
 
@@ -166,7 +166,7 @@ Les étapes suivantes vous montrent comment modifier le modèle d’e-mail HTML.
 
 ## <a name="throttling"></a>Limitation
 
-L’accélérateur de solution de supervision à distance utilise Outlook pour envoyer des notifications par e-mail. Outlook limite le nombre d’e-mails envoyés à [30 e-mails par minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Les clients de messagerie qui reçoivent les e-mails peuvent également limiter le nombre d’e-mails reçus par minute. Vérifiez les limitations auprès de votre client de messagerie spécifique. Quand vous configurez la notification par e-mail pour une règle, la règle doit calculer les valeurs moyennes sur une période d’au moins une minute et non utiliser des valeurs instantanées :
+L’accélérateur de solution de supervision à distance utilise Outlook pour envoyer des notifications par e-mail. Outlook limite le nombre d’e-mails envoyés à [30 e-mails par minute](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Les clients de messagerie qui reçoivent les e-mails peuvent également limiter le nombre d’e-mails reçus par minute. Vérifiez les limitations auprès de votre client de messagerie spécifique. Quand vous configurez la notification par e-mail pour une règle, la règle doit calculer les valeurs moyennes sur une période d’au moins une minute et non utiliser des valeurs instantanées :
 
 ![Calcul de la moyenne](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

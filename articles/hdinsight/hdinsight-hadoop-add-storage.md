@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078981"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856226"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
-Découvrez comment utiliser des actions de script pour ajouter des *comptes* Stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant. Cet article s’applique aux *comptes* de stockage (différents du compte de stockage en cluster par défaut) et pas à un stockage supplémentaire comme [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) et [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Découvrez comment utiliser des actions de script pour ajouter des *comptes* Stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant. Cet article s’applique aux *comptes* de stockage (différents du compte de stockage en cluster par défaut) et pas à un stockage supplémentaire comme [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) et [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).

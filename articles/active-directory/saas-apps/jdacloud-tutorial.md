@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 98d77af45da5edff935e761fc3be81ff21306ea8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 365082fa6b0f9788bab5291e4dbf215848223d1f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552694"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutoriel : Intégration d’Azure Active Directory avec JDA Cloud
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec JDA Cloud, effectuez l
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL JDA Cloud](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Reply URL et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.jdadelivers.com`
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec JDA Cloud, effectuez l
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL JDA Cloud](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<Azure AD Identifier>`
 

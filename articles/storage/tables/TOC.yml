@@ -164,10 +164,10 @@
   items:
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stockage Azure sur Microsoft Q&A
+    - name: Stockage Table sur Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-table-storage.html'
-    - name: Stockage Azure sur Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Stockage Table sur Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-table-storage'
     - name: Prix du stockage Table
       href: 'https://azure.microsoft.com/en-us/pricing/details/storage/tables/'
     - name: Calculatrice de prix Azure
