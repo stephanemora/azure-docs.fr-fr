@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713403"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -67,7 +67,7 @@ Ensuite, choisissez la façon dont vous souhaitez que vos commandes obtiennent l
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Option 1 : Obtenir l’autorisation à l’aide d’Azure Active Directory (AD)
 
-Avec cette approche, le système garantit que votre compte d’utilisateur dispose des autorisations de contrôle d’accès en fonction du rôle (RBAC) appropriées et des autorisations de liste de contrôle d’accès (ACL). 
+Avec cette approche, le système garantit que votre compte d’utilisateur dispose des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) appropriées et des autorisations de liste de contrôle d’accès (ACL). 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -75,7 +75,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Option n°2 : Obtenir l’autorisation à l’aide de la clé de compte de stockage
 
-Avec cette approche, le système ne vérifie pas les autorisations de contrôle d'accès en fonction du rôle (RBAC) ou les autorisations de liste de contrôle d'accès (ACL).
+Avec cette approche, le système ne vérifie pas les autorisations Azure RBAC ou ACL.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"

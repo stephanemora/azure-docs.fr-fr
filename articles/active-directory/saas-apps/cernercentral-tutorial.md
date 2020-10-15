@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e6d598176bdd36b3b932161e944bc26059a5b80
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Didacticiel : Intégration d’Azure Active Directory à Cerner Central

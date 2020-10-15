@@ -2,20 +2,20 @@
 title: Résoudre les problèmes de jonction à un domaine avec Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment résoudre les problèmes courants quand vous essayez de joindre une machine virtuelle à un domaine ou de connecter une application à Azure Active Directory Domain Services et que vous ne pouvez pas vous connecter au domaine managé ni vous authentifier auprès de celui-ci.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039685"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967509"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Résoudre les problèmes de jonction à un domaine avec un domaine managé Azure Active Directory Domain Services
 

@@ -1,20 +1,20 @@
 ---
 title: Migrer Azure Active Directory Domain Services à partir d’un réseau virtuel classique | Microsoft Docs
 description: Découvrez comment procéder à la migration d’un domaine managé Azure Active Directory Domain Services existant, depuis le modèle de réseau virtuel classique vers un réseau virtuel basé sur Resource Manager.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
-ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 09/24/2020
+ms.author: joflore
+ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054287"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968172"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -139,6 +139,14 @@ Certaines restrictions s’appliquent aux réseaux virtuels vers lesquels un dom
 
 Pour plus d’informations sur les conditions du réseau virtuel, consultez [Considérations relatives à la conception du réseau virtuel et options de configuration][network-considerations].
 
+Vous devez également créer un groupe de sécurité réseau afin de limiter le trafic dans le réseau virtuel pour le domaine managé. Un équilibreur de charge standard Azure est créé au cours du processus de migration, qui requiert que ces règles soient en place. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement.
+
+Pour plus d’informations sur les règles requises, consultez [Groupes de sécurité réseau et ports Azure AD DS requis](network-considerations.md#network-security-groups-and-required-ports).
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>Expiration du certificat LDAPS et TLS/SSL
+
+Si votre domaine managé est configuré pour LDAPS, assurez-vous que votre certificat TLS/SSL actuel est valide pendant plus de 30 jours. Un certificat qui expire dans les 30 prochains jours entraîne l’échec des processus de migration. Si nécessaire, renouvelez le certificat et appliquez-le à votre domaine managé, puis commencez le processus de migration.
+
 ## <a name="migration-steps"></a>Étapes de la migration
 
 La migration vers le réseau virtuel et le modèle de déploiement Resource Manager se décompose en 5 étapes principales :
@@ -166,7 +174,9 @@ Avant de commencer le processus de migration, effectuez les vérifications et mi
 
     Assurez-vous que les paramètres réseau ne bloquent pas les ports nécessaires à Azure AD DS. Les ports doivent être ouverts à la fois sur le réseau virtuel classique et le réseau virtuel Resource Manager. Ces paramètres incluent des tables de routage (même si leur utilisation est déconseillée) et des groupes de sécurité réseau.
 
-    Pour afficher les ports obligatoires, consultez [Groupes de sécurité réseau et ports nécessaires][network-ports]. Pour réduire au minimum les problèmes de communication réseau, il est recommandé d’attendre la fin de la migration avant d’appliquer un groupe de sécurité réseau ou une table de routage au réseau virtuel Resource Manager.
+    Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les ports nécessaires au domaine managé et bloquer tout autre trafic entrant. Ce groupe de sécurité réseau agit comme une couche de protection supplémentaire pour verrouiller l’accès au domaine managé. Pour afficher les ports obligatoires, consultez [Groupes de sécurité réseau et ports nécessaires][network-ports].
+
+    Si vous utilisez le protocole LDAP sécurisé, ajoutez une règle au groupe de sécurité réseau afin d’autoriser le trafic entrant pour le port *TCP* *636*. Pour plus d’informations, consultez [Verrouiller l’accès LDAP sécurisé via Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet).
 
     Prenez note du groupe de ressources cible, du réseau virtuel cible et du sous-réseau du réseau virtuel cible. Ces noms de ressources sont utilisés au cours du processus de migration.
 
@@ -295,13 +305,6 @@ Au besoin, vous pouvez mettre à jour la stratégie de mot de passe affinée pou
 1. Si une machine virtuelle est exposée à Internet, passez en revue les noms de comptes génériques, comme *administrateur*, *utilisateur* ou *invité*, qui présentent des tentatives de connexion à risque élevé. Dans la mesure du possible, mettez à jour ces machines virtuelles afin d’utiliser des noms de compte moins génériques.
 1. Utilisez un suivi réseau sur la machine virtuelle pour localiser la source des attaques et empêcher ces adresses IP de tenter des connexions.
 1. En cas de problème de verrouillage minime, mettez à jour la stratégie de mot de passe affinée pour qu’elle soit aussi restrictive que nécessaire.
-
-### <a name="creating-a-network-security-group"></a>Création d’un groupe de sécurité réseau
-
-Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les ports nécessaires au domaine managé et bloquer tout autre trafic entrant. Ce groupe de sécurité réseau agit comme une couche de protection supplémentaire pour verrouiller l’accès au domaine managé ; il n’est pas créé automatiquement. Pour créer le groupe de sécurité réseau et ouvrir les ports nécessaires, conformez-vous aux étapes suivantes :
-
-1. Dans le portail Azure, sélectionnez votre ressource Azure AD DS. Dans la page de la vue d’ensemble, un bouton est affiché pour créer un groupe de sécurité réseau si aucun n’est associé à Azure Active Directory Domain Services.
-1. Si vous utilisez le protocole LDAP sécurisé, ajoutez une règle au groupe de sécurité réseau afin d’autoriser le trafic entrant pour le port *TCP* *636*. Pour plus d’informations, consultez [Configurer le protocole LDAP sécurisé][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Annuler et restaurer à partir de la migration
 

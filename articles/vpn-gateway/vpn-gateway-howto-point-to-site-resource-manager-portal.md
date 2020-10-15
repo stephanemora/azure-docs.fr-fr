@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 03dbc481950ed2a020a26dc3af8668c516b66115
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435999"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure

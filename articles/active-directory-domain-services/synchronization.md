@@ -2,7 +2,7 @@
 title: Fonctionnement de la synchronisation dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez le fonctionnement du processus de synchronisation pour les objets et les informations d’identification d’un client Azure AD ou d’un environnement Active Directory Domain Services local à un domaine managé Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039838"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967662"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure Active Directory Domain Services
 

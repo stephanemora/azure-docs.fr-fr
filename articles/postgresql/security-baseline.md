@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: fb27868a06e133f6f90d0a7a18d218b74aafdd69
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420045"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL – Serveur unique
@@ -54,7 +54,7 @@ Vous pouvez aussi sécuriser votre serveur Azure Database pour PostgreSQL avec d
 
 - [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -62,7 +62,7 @@ Vous pouvez aussi sécuriser votre serveur Azure Database pour PostgreSQL avec d
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -88,7 +88,7 @@ Activez la protection DDoS standard sur les réseaux virtuels associés à vos i
 
 - [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -106,7 +106,7 @@ Activez la protection DDoS standard sur les réseaux virtuels associés à vos i
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -138,7 +138,7 @@ Remarque : Azure Database pour PostgreSQL utilise l’étiquette de service «�
 
 - [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -152,7 +152,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -164,7 +164,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -190,7 +190,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -212,7 +212,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -238,7 +238,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -266,7 +266,7 @@ En outre, vous pouvez activer les journaux et les paramètres de diagnostic du s
 
 **Aide** : Non applicable. Azure Database pour PostgreSQL ne traite pas et ne produit pas de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -282,7 +282,7 @@ En outre, vous pouvez activer les journaux et les paramètres de diagnostic du s
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -344,7 +344,7 @@ Séparément, l’accès au plan de contrôle pour PostgreSQL est disponible via
 
 - [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -358,7 +358,7 @@ Séparément, l’accès au plan de contrôle pour PostgreSQL est disponible via
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -370,7 +370,7 @@ Séparément, l’accès au plan de contrôle pour PostgreSQL est disponible via
 
 - [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -388,7 +388,7 @@ Utilisez les détections de risque Azure AD pour visualiser les alertes et des r
 
 - [Présentation des détections de risques Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -398,7 +398,7 @@ Utilisez les détections de risque Azure AD pour visualiser les alertes et des r
 
 - [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -412,7 +412,7 @@ Les informations d’identification Azure AD peuvent également être utilisées
 
 - [Authentification auprès d’Azure Database pour PostgreSQL avec Azure Active Directory](howto-configure-sign-in-aad-authentication.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -440,7 +440,7 @@ Les informations d’identification Azure AD peuvent également être utilisées
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -484,7 +484,7 @@ Vous pouvez aussi ingérer des journaux dans Azure Sentinel pour approfondir vot
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -516,7 +516,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Database pour PostgreS
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -540,7 +540,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -564,7 +564,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Database pour PostgreS
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -616,7 +616,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -624,7 +624,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -632,7 +632,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -658,7 +658,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -668,7 +668,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -682,7 +682,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -690,7 +690,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -708,7 +708,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -716,7 +716,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -724,7 +724,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -732,7 +732,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -756,7 +756,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -774,7 +774,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -782,7 +782,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -802,7 +802,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -810,7 +810,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -822,7 +822,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -830,7 +830,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -850,7 +850,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -868,7 +868,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -878,7 +878,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -886,7 +886,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -926,7 +926,7 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 - [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -940,7 +940,7 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Azure App Service), mais il ne s’exécute pas sur du contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -950,7 +950,7 @@ Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge 
 
 Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul, comme App Service, Data Lake Storage, Stockage Blob, Azure Database pour PostgreSQL, etc. Microsoft ne peut pas accéder à vos données dans ces instances.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -960,7 +960,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple Azure Database pour PostgreSQL), mais il ne s’exécute pas sur du contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -1034,7 +1034,7 @@ Testez régulièrement la restauration de vos instances Azure Database pour Post
 
 - [Le client peut également tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de son propre plan de réponse aux incidents](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1044,7 +1044,7 @@ Testez régulièrement la restauration de vos instances Azure Database pour Post
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1054,17 +1054,17 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1076,7 +1076,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1086,7 +1086,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Comment configurer l’automatisation des workflows et Logic Apps](../security-center/workflow-automation.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1100,7 +1100,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif dans l’infrastructure, les services et les applications cloud gérés par Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

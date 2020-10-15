@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: 53d2d47143c5a2cefbd50faca9a02af18ffae315
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754686"
 ---
 Pour lire des données dans le stockage archive, vous devez d’abord attribuer un niveau chaud ou froid à l’objet blob. Ce processus est appelé « réalimentation » et peut prendre des heures. Nous recommandons des tailles d’objet blob importantes pour obtenir des performances de réalimentation optimales. La réalimentation simultanée de plusieurs petits objets blob peut demander du temps supplémentaire. Il existe actuellement deux priorités de réalimentation, haute et standard, qui peuvent être définies via la propriété facultative *x-ms-rehydrate-priority* sur une opération [Définir un niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou [Copier l’objet blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob).

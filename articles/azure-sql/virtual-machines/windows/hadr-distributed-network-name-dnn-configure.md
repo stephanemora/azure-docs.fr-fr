@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317002"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurer un nom de réseau distribué (DNN) pour une instance de cluster de basculement 

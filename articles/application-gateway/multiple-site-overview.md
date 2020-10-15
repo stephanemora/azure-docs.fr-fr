@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474323"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
@@ -35,7 +35,7 @@ Application Gateway autorise l’acheminement en fonction de l’hôte à l’ai
 
 En utilisant un caractère générique dans le nom d’hôte, vous pouvez faire correspondre plusieurs noms d’hôtes dans un seul écouteur. Par exemple, `*.contoso.com` peut correspondre à `ecom.contoso.com`, `b2b.contoso.com` ainsi qu’à `customer1.b2b.contoso.com`, etc. À l’aide d’un tableau de noms d’hôtes, il est possible de configurer plusieurs noms d’hôtes pour un écouteur, pour acheminer les demandes vers un pool principal. Par exemple, un écouteur peut contenir `contoso.com, fabrikam.com` qui accepte les demandes pour les deux noms d’hôtes.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Écouteur avec caractères génériques":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Passerelle d’application multisite":::
 
 >[!NOTE]
 > Cette fonctionnalité, en préversion, n’est disponible que pour les références SKU Standard_v2 et WAF_v2 d’Application Gateway. Pour plus d’informations sur les préversions, consultez les [conditions d’utilisation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

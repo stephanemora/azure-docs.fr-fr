@@ -8,10 +8,10 @@ ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393426"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
@@ -91,7 +91,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Guide pratique pour activer Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -165,7 +165,7 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -206,7 +206,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
-**Conseils** : Microsoft gère les sources de temps pour les ressources Azure. Toutefois, vous avez la possibilité de gérer les paramètres de synchronisation date/heure pour vos ressources de calcul. Par exemple, exécutez une commande de synchronisation de l’heure dans un conteneur en cours d’exécution.
+**Aide** : Microsoft gère les sources de temps pour les ressources Azure. Toutefois, vous avez la possibilité de gérer les paramètres de synchronisation date/heure pour vos ressources de calcul. Par exemple, exécutez une commande de synchronisation de l’heure dans un conteneur en cours d’exécution.
 
 * [Comment configurer la synchronisation de l’heure pour les ressources de calcul Azure](../virtual-machines/windows/time-sync.md)
 
@@ -230,7 +230,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
-**Conseils** : Azure Monitor collecte les journaux de ressources (anciennement appelés journaux de diagnostic) pour les événements pilotés par l’utilisateur dans votre registre. Azure Container Instances offre la prise en charge intégrée de l’envoi de journaux de conteneur et de données d’événements et journaux de groupe de conteneurs aux journaux Azure Monitor.
+**Aide** : Azure Monitor collecte les journaux de ressources (anciennement appelés journaux de diagnostic) pour les événements pilotés par l’utilisateur dans votre registre. Azure Container Instances offre la prise en charge intégrée de l’envoi de journaux de conteneur et de données d’événements et journaux de groupe de conteneurs aux journaux Azure Monitor.
 
 * [Groupe de conteneurs et journalisation des instances de conteneur avec les journaux Azure Monitor](../container-registry/container-registry-diagnostics-audit-logs.md)
 
@@ -847,7 +847,7 @@ Gérez et vérifiez l’accès aux ressources Azure Container Instances à l’a
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1018,7 +1018,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1089,7 +1089,7 @@ Sauvegardez éventuellement les images conteneur en les important d’un registr
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : valider toutes les sauvegardes, y compris les clés gérées par le client
 
-**Conseils** : Testez la restauration des clés gérées par le client sauvegardées dans Azure Key Vault à l’aide d’outils en ligne de commande ou de kits de développement logiciel (SDK) Azure.
+**Aide** : Testez la restauration des clés gérées par le client sauvegardées dans Azure Key Vault à l’aide d’outils en ligne de commande ou de kits de développement logiciel (SDK) Azure.
 
 * [Comment restaurer des clés Azure Key Vault dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -1103,7 +1103,7 @@ Sauvegardez éventuellement les images conteneur en les important d’un registr
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : garantir la protection des sauvegardes et des clés gérées par le client
 
-**Conseils** : Vous pouvez activer la suppression réversible dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
+**Aide** : Vous pouvez activer la suppression réversible dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
 * [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
@@ -1156,7 +1156,7 @@ En outre, marquez clairement les abonnements (par exemple, production, non-produ
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 

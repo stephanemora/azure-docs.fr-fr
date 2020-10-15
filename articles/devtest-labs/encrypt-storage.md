@@ -4,10 +4,10 @@ description: Découvrez comment configurer le chiffrement d’un compte de stock
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87433495"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Chiffrer un compte de stockage Azure utilisé par un labo dans Azure DevTest Labs
@@ -28,10 +28,10 @@ Chaque labo créé dans Azure DevTest Labs est créé avec un compte de stockage
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="Sélection du groupe de ressources dans la page Vue d’ensemble":::
 1. Sélectionnez le compte de stockage Azure du labo. La convention de nommage pour le compte de stockage du labo est la suivante : `a<labNameWithoutInvalidCharacters><4-digit number>`. Par exemple, si le nom du labo est `contosolab`, le nom du compte de stockage peut être `acontosolab7576`. 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Sélection du compte de stockage dans le groupe de ressources du labo":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Sélection du groupe de ressources dans la page Vue d’ensemble":::
 3. Dans la page **Compte de stockage**, sélectionnez **Explorateur Stockage (préversion)** dans le menu de gauche, puis sélectionnez **CONTENEURS D’OBJETS BLOB** pour rechercher le contenu pertinent associé au labo. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Explorateur de stockage (version préliminaire)" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Sélection du groupe de ressources dans la page Vue d’ensemble" lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>Chiffrer le compte de stockage du labo
 Le Stockage Azure chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement du Stockage Azure protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
