@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723994"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutoriel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
@@ -50,7 +50,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
    - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources. Si ce groupe n’existe pas encore, sélectionnez **Créer** pour le créer.
    - **Nom de passerelle d’application** : entrez *myAppGateway* comme nom de passerelle d’application.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Créer une passerelle Application Gateway":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Passerelle d’application multisite":::
 
 2.  Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez. Vous pouvez créer un réseau virtuel ou en utiliser un. Dans cet exemple, vous allez créer un réseau virtuel en même temps que la passerelle d’application. Les instances Application Gateway sont créées dans des sous-réseaux séparés. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end.
 
@@ -66,7 +66,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
     Sélectionnez **OK** pour fermer la fenêtre **Créer un réseau virtuel** et enregistrez les paramètres du réseau virtuel.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Créer un réseau virtuel":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Passerelle d’application multisite":::
     
 3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Serveurs frontaux**.
 
@@ -78,7 +78,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 2. Choisissez **Créer nouveau** pour **Adresse IP publique**, puis entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Créer un autre réseau virtuel":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Passerelle d’application multisite":::
 
 3. Sélectionnez **Suivant : Back-ends**.
 
@@ -96,7 +96,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.
 4. Ajoutez maintenant un autre pool de back-ends appelé *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Créer des backends":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Passerelle d’application multisite":::
 
 4. Sous l’onglet **Back-ends**, sélectionnez **Suivant : Configuration**.
 
@@ -119,7 +119,7 @@ Sous l’onglet **Configuration**, vous allez connecter les pools de front-ends 
 
    Acceptez les valeurs par défaut pour les autres paramètres sous l’onglet **Écouteur**, puis sélectionnez l’onglet **Cibles de back-end** pour configurer le reste de la règle de routage.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Créer une règle d’acheminement":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Passerelle d’application multisite":::
 
 4. Sous l’onglet **Cibles de back-end**, sélectionnez **contosoPool** pour la **Cible de back-end**.
 
@@ -128,7 +128,7 @@ Sous l’onglet **Configuration**, vous allez connecter les pools de front-ends 
 6. Dans la fenêtre **Ajouter une règle de routage**, sélectionnez **Ajouter** pour enregistrer la règle de routage et revenir à l’onglet **Configuration**.
 7. Sélectionnez **Ajouter une règle** et ajoutez une règle, un écouteur, une cible de back-end et un paramètre HTTP similaires pour Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Règle Fabrikam":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Passerelle d’application multisite":::
 
 7. Sélectionnez **Suivant : Balises**, puis sur **Suivant : Vérifier + créer**.
 

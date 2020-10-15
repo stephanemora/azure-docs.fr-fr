@@ -1,20 +1,20 @@
 ---
 title: Présentation de la gestion des versions des modèles d’appareil pour vos applications Azure IoT Central | Microsoft Docs
 description: Itérez au sein de vos modèles d’appareil en créant une nouvelle version sans impacter vos appareils actuellement connectés
-author: sarahhubbard
-ms.author: sahubbar
+author: philmea
+ms.author: philmea
 ms.date: 04/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 3c13c0b8cb118df877642328fa1b5512be31cffa
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015957"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014424"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 

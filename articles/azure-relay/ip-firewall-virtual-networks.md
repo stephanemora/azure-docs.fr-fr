@@ -3,12 +3,12 @@ title: Configurer le pare-feu IP pour l’espace de noms Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu pour autoriser les connexions d’adresses IP spécifiques à des espaces de noms Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999500"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurer le pare-feu IP pour un espace de noms Azure Relay
 Par défaut, les espaces de noms Azure Relay sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -76,7 +76,7 @@ Le modèle prend un paramètre : **ipMask**, qui est une adresse IPv4 unique o
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ Le modèle prend un paramètre : **ipMask**, qui est une adresse IPv4 unique o
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ Le modèle prend un paramètre : **ipMask**, qui est une adresse IPv4 unique o
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

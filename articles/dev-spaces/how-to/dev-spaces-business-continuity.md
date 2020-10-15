@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Apprenez à utiliser Azure Dev Spaces et Azure Kubernetes Service pour assurer la continuité des activités et préparer la récupération d’urgence.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232421"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973136"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuité d’activité et reprise d’activité dans Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Passer en revue les conseils sur la reprise d’activité pour Azure Kubernetes Service (AKS)
 

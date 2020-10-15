@@ -10,12 +10,12 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266032"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014385"
 ---
 # <a name="deliver-content-to-customers"></a>Fournir du contenu aux clients
 
@@ -69,7 +69,7 @@ Les localisateurs ont une date d’expiration. Le portail Azure définit une dat
 > 
 > 
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
 Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Vous pouvez accorder différents droits d’accès aux utilisateurs en utilisant les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez la page [Sécurisation des médias](/previous-versions/azure/dn282272(v=azure.100)).
 

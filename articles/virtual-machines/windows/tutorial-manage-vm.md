@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65116f979131590a66ff2f08896e7a89ae075303
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3e52a808b187e3823acfee2c260986518f2f6f49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074149"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978001"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
 
@@ -262,7 +262,7 @@ Status
 PowerState/running
 ```
 
-Pour récupérer l’état d’alimentation de toutes les machines virtuelles de votre abonnement, utilisez l’[API Machines virtuelles - Répertorier tout](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) avec le paramètre **statusOnly** défini sur *true*.
+Pour récupérer l’état d’alimentation de toutes les machines virtuelles de votre abonnement, utilisez l’[API Machines virtuelles - Répertorier tout](/rest/api/compute/virtualmachines/listall) avec le paramètre **statusOnly** défini sur *true*.
 
 ## <a name="management-tasks"></a>Tâches de gestion
 

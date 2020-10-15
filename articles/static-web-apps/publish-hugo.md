@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797715"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
@@ -115,7 +115,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Pour _SKU_, sélectionnez **Free** (Gratuit).
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Champs renseignés":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
 1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
 
@@ -125,7 +125,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Pour _Branch_ (Branche), sélectionnez **master** (principale).
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Champs GitHub renseignés":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
 ### <a name="build"></a>Build
 
@@ -149,7 +149,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Dans la fenêtre _Overview_ (Vue d’ensemble) du portail Azure de la ressource Azure Static Web Apps nouvellement créée, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Application déployée":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

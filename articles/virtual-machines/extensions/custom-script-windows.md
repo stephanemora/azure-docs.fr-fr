@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426263"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973816"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -48,7 +48,7 @@ L’extension vous permet d’utiliser vos informations d’identification de St
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou du Stockage Azure, vous devez ouvrir des ports de pare-feu et de groupe de sécurité réseau supplémentaires. Par exemple, si votre script se trouve dans le Stockage Azure, vous pouvez en autoriser l’accès à l’aide de balises de service du groupe de sécurité réseau Azure pour le [Stockage](../../virtual-network/security-overview.md#service-tags).
+Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou du Stockage Azure, vous devez ouvrir des ports de pare-feu et de groupe de sécurité réseau supplémentaires. Par exemple, si votre script se trouve dans le Stockage Azure, vous pouvez en autoriser l’accès à l’aide de balises de service du groupe de sécurité réseau Azure pour le [Stockage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Si votre script se trouve sur un serveur local, vous devrez peut-être encore ouvrir des ports de pare-feu et de groupe de sécurité réseau supplémentaires.
 

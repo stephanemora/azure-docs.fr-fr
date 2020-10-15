@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653594"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978235"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](../../../availability-zones/az-overview.md) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -30,7 +30,7 @@ Ce graphique montre l’architecture de base de la haute disponibilité SAP :
 
 ![Configuration de la haute disponibilité standard](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-La couche Application SAP est déployée sur un seul [groupe à haute disponibilité](../../windows/manage-availability.md) Azure. Pour que SAP Central Services soit hautement disponible, vous pouvez déployer deux machines virtuelles dans un autre groupe à haute disponibilité. En cas de problème lié au framework ou aux logiciels, servez-vous du clustering de basculement Windows Server ou de Pacemaker (Linux) en tant que framework de haute disponibilité avec basculement automatique. Pour en savoir plus sur ces déploiements, consultez :
+La couche Application SAP est déployée sur un seul [groupe à haute disponibilité](../../manage-availability.md) Azure. Pour que SAP Central Services soit hautement disponible, vous pouvez déployer deux machines virtuelles dans un autre groupe à haute disponibilité. En cas de problème lié au framework ou aux logiciels, servez-vous du clustering de basculement Windows Server ou de Pacemaker (Linux) en tant que framework de haute disponibilité avec basculement automatique. Pour en savoir plus sur ces déploiements, consultez :
 
 - [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers](./sap-high-availability-guide-wsfc-file-share.md)

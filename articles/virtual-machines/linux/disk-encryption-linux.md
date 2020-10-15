@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977763"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -408,7 +408,7 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
 - Vidage sur incident du noyau (kdump)
 - Oracle ACFS (ASM Cluster File System).
-- Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Les disques NVMe des machines virtuelles de la série Lsv2 (cf. [Série Lsv2](../lsv2-series.md)).
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
 - Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.

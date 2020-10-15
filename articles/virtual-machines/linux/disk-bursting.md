@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2e5fc8bde2c79a355fb7963c9101c4b040f97fa7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee3b65e95fe3f4c52136cb3645c987fe7f6c9a7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275152"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975363"
 ---
 # <a name="managed-disk-bursting"></a>Mode rafale des disques managés
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -29,6 +29,6 @@ Le mode rafale au niveau des machines virtuelles est également disponible dans 
 Le mode rafale est activé par défaut pour les machines virtuelles qui le prennent en charge.
 
 ## <a name="disk-level-bursting"></a>Mode rafale au niveau des disques
-Le mode rafale est également disponible sur nos [SSD Premium](disks-types.md#premium-ssd) pour les tailles de disque P20 et inférieures dans toutes les régions des clouds Azure publics, gouvernementaux et en Chine. Le mode rafale du disque est activé par défaut sur tous les déploiements nouveaux et existants des tailles de disque qui le prennent en charge. 
+Le mode rafale est également disponible sur nos [SSD Premium](../disks-types.md#premium-ssd) pour les tailles de disque P20 et inférieures dans toutes les régions des clouds Azure publics, gouvernementaux et en Chine. Le mode rafale du disque est activé par défaut sur tous les déploiements nouveaux et existants des tailles de disque qui le prennent en charge. 
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]
