@@ -3,19 +3,19 @@ title: Intégrer votre flux de données à Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Prise en main de l’intégration de vos flux de données à Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930665"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043197"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Procédure : Intégration de vos données de métriques à Metrics Advisor
 
@@ -188,7 +188,7 @@ Pour vérifier les détails de l’échec d’ingestion :
 2. Cliquez sur **État** puis choisissez **Échec** ou **Erreur**.
 3. Placez le curseur sur une ingestion ayant échoué et affichez le message détaillé qui s’affiche.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Vérifier l’ingestion des échecs":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barre de progression de l’ingestion":::
 
 Un état d’*échec* indique que l’ingestion de cette source de données sera retentée ultérieurement.
 Un état d’*erreur* indique que Metrics Advisor ne peut pas réessayer pour la source de données. Pour recharger des données, vous devez déclencher un renvoi/rechargement manuel.
