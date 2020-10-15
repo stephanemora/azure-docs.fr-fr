@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 394c87bcd3e4580289fbccc6a31b164f914dc8a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bedb619d77d9e5a88fdc16d0fbd066fa092e0765
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020794"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950786"
 ---
 # <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Utilisation de Microsoft.Azure.Search (v10) dans une application .NET
 
@@ -44,7 +44,7 @@ Si vous souhaitez formuler des commentaires pour une prochaine mise à jour du K
 
 Le SDK .NET cible la version `2019-05-06` de l’[API REST de Recherche cognitive Azure](/rest/api/searchservice/). Cette version inclut la prise en charge des [types complexes](search-howto-complex-data-types.md), de l’[enrichissement par IA](cognitive-search-concept-intro.md), de la [saisie semi-automatique](/rest/api/searchservice/autocomplete) et du [mode d’analyse JsonLines](search-howto-index-json-blobs.md) lors de l’indexation d’objets blob Azure. 
 
-Ce Kit de développement logiciel (SDK) ne prend pas en charge les [opérations de gestion](/rest/api/searchmanagement/) telles que la création et la mise à l’échelle des services de recherche, ainsi que la gestion des clés API. Si vous avez besoin de gérer vos ressources de recherche à partir d’une application .NET, vous pouvez utiliser le [Kit de développement logiciel (SDK) .NET de la Recherche cognitive Azure](https://aka.ms/search-mgmt-sdk).
+Ce Kit de développement logiciel (SDK) ne prend pas en charge les [opérations de gestion](/rest/api/searchmanagement/) telles que la création et la mise à l’échelle des services de recherche, ainsi que la gestion des clés API. Si vous avez besoin de gérer vos ressources de recherche à partir d’une application .NET, vous pouvez utiliser le [Kit de développement logiciel (SDK) .NET de la Recherche cognitive Azure](/dotnet/api/overview/azure/search).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Mise à niveau vers la dernière version du Kit de développement logiciel (SDK)
 Si vous utilisez déjà une version antérieure du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure et que vous souhaitez mettre à niveau vers la dernière version mise à la disposition générale, [cet article](search-dotnet-sdk-migration-version-9.md) vous explique comment procéder.

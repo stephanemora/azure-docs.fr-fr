@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57031d4ccdfdba73b8b36c8dc943280a8280ffcc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281624"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048523"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Intégration continue et déploiement continu sur des appareils Azure IoT Edge
 
@@ -21,7 +21,7 @@ Vous pouvez facilement adopter DevOps avec vos applications Azure IoT Edge via l
 
 ![Diagramme - Branches CI et CD pour le développement et la production](./media/how-to-continuous-integration-continuous-deployment/model.png)
 
-Dans cet article, vous allez apprendre à utiliser les [tâches Azure IoT Edge](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) intégrées pour Azure Pipelines afin de créer des pipelines de build et de mise en production pour votre solution IoT Edge. Chaque tâche Azure IoT Edge ajoutée à votre pipeline implémente l’une des quatre actions suivantes :
+Dans cet article, vous allez apprendre à utiliser les [tâches Azure IoT Edge](/azure/devops/pipelines/tasks/build/azure-iot-edge) intégrées pour Azure Pipelines afin de créer des pipelines de build et de mise en production pour votre solution IoT Edge. Chaque tâche Azure IoT Edge ajoutée à votre pipeline implémente l’une des quatre actions suivantes :
 
  | Action | Description |
  | --- | --- |
@@ -32,25 +32,25 @@ Dans cet article, vous allez apprendre à utiliser les [tâches Azure IoT Edge](
 
 Sauf indication contraire, les procédures décrites dans cet article n’explorent pas toutes les fonctionnalités disponibles par le biais des paramètres de tâche. Pour plus d’informations, consultez les rubriques suivantes :
 
-* [Version de la tâche](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-versions)
+* [Version de la tâche](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
 * **Avancé** - Le cas échéant, spécifiez les modules que vous ne souhaitez pas générer.
-* [Options de contrôle](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-control-options)
-* [Variables d’environnement](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
-* [Variables de sortie](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
+* [Options de contrôle](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
+* [Variables d’environnement](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
+* [Variables de sortie](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav). Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**.
-* Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](how-to-visual-studio-develop-csharp-module.md). Pour cet article, nous avons créé dans notre dépôt une solution nommée **IoTEdgeSolution** qui contient le code d’un module nommé **filtermodule**.
+* Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**.
+* Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](./how-to-visual-studio-develop-module.md). Pour cet article, nous avons créé dans notre dépôt une solution nommée **IoTEdgeSolution** qui contient le code d’un module nommé **filtermodule**.
 
    Pour cet article, vous avez uniquement besoin du dossier de solution créé par les modèles IoT Edge dans Visual Studio Code ou Visual Studio. Vous n'avez pas à créer, envoyer (push), déployer ou déboguer ce code avant de continuer. Vous configurerez ces processus dans Azure Pipelines.
 
    Si vous créez une solution, commencez par cloner votre référentiel localement. Ensuite, lorsque vous créez la solution, vous pouvez choisir de le faire directement dans le dossier du référentiel. De là, vous pouvez facilement valider et envoyer (push) les nouveaux fichiers.
 
-* Registre de conteneurs vers lequel envoyer (push) vos images de module. Vous pouvez utiliser [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou un registre tiers.
+* Registre de conteneurs vers lequel envoyer (push) vos images de module. Vous pouvez utiliser [Azure Container Registry](../container-registry/index.yml) ou un registre tiers.
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) Azure actif avec au moins deux appareils IoT Edge à des fins de test distinct des phases de déploiement de test et de production. Vous pouvez suivre les articles de démarrage rapide pour créer un appareil IoT Edge sur [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 
-Pour plus d’informations sur l’utilisation d’Azure Repos, consultez [Partager votre code avec Visual Studio et Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
+Pour plus d’informations sur l’utilisation d’Azure Repos, consultez [Partager votre code avec Visual Studio et Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>Créer un pipeline de build pour l’intégration continue
 
@@ -112,13 +112,13 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
        | --- | --- |
        | Dossier source | Dossier source à partir duquel effectuer la copie. La racine du référentiel est vide. Utilisez des variables si des fichiers ne se trouvent pas dans le référentiel. Exemple : `$(agent.builddirectory)`.
        | Contenu | Ajoutez deux lignes : `deployment.template.json` et `**/module.json`. |
-       | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables). |
+       | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables). |
 
    * Tâche : **Publier des artefacts de build**
 
        | Paramètre | Description |
        | --- | --- |
-       | Chemin de publication | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables). |
+       | Chemin de publication | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables). |
        | Nom de l’artefact | Spécifiez le nom par défaut : `drop` |
        | Emplacement de publication des artefacts | Utilisez l’emplacement par défaut : `Azure Pipelines` |
 

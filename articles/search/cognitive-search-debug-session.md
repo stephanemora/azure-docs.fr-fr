@@ -3,17 +3,17 @@ title: Concepts des sessions de débogage (préversion)
 titleSuffix: Azure Cognitive Search
 description: Les sessions de débogage, accessibles via le portail Azure, fournissent un environnement de type IDE au sein duquel vous pouvez identifier et corriger les erreurs, valider les modifications et les transférer vers un ensemble de compétences dans le pipeline d’enrichissement par IA. Les sessions de débogage sont disponibles en préversion.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743180"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057618"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessions de débogage dans Recherche cognitive Azure
 

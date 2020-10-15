@@ -3,19 +3,19 @@ title: Configurer les alertes de Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Comment configurer vos alertes Metrics Advisor à l’aide de hooks d’e-mail, web et Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977787"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046789"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procédure : Configurer des alertes et obtenir des notifications à l’aide d’un hook
 
@@ -88,11 +88,11 @@ Pour créer un hook Azure DevOps, vous devrez ajouter les informations suivantes
 Accédez à la page de détails des métriques pour y rechercher la section **Paramètres d’alerte** en bas à gauche. Elle répertorie tous les paramètres d’alerte qui s’appliquent à la configuration de détection sélectionnée. Lorsqu’une nouvelle configuration de détection est créée, il n’existe aucun paramètre d’alerte et aucune alerte n’est envoyée.  
 Vous pouvez utiliser les icônes **Ajouter**, **Modifier** et **Supprimer** pour modifier les paramètres d’alerte.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Élément de menu Paramètres d’alerte.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="fenêtre de création de webhook.":::
 
 Cliquez sur le bouton **ajouter** ou **Modifier** pour obtenir une fenêtre permettant d’ajouter ou de modifier vos paramètres d’alerte.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Ajouter ou modifier des paramètres d’alerte":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="fenêtre de création de webhook.":::
 
 **Nom du paramètre d’alerte** : nom du paramètre d’alerte. Il s’affichera dans le titre de l’e-mail d’alerte.
 
@@ -134,7 +134,7 @@ Le sélecteur d’**Opérateur** est la relation logique de chaque section pour 
 |AND     | Envoyer une alerte uniquement si une série correspond à chaque section d’alerte et que tous les points de données sont des anomalies. Si les métriques ont des noms de dimensions différents, une alerte ne sera jamais déclenchée.         |
 |OU     | Envoyer l’alerte si au moins une section contient des anomalies.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Section Opérateur pour plusieurs paramètres d’alerte":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="fenêtre de création de webhook.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009643"
 ---
 Il est possible que votre organisation exige des actions supplémentaires de la part des propriétaires/administrateurs d’abonnement pour configurer correctement une inscription d’application (et donc pour terminer la configuration d’une instance Azure Digital Twins utilisable). Les étapes requises peuvent varier en fonction des paramètres spécifiques de votre organisation.
@@ -20,7 +20,7 @@ Voici quelques activités courantes qu’un propriétaire/administrateur peut de
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Vue du portail du bouton « Consentement administrateur requis » sous Autorisations de l’API":::
   - Si le consentement a été accordé avec succès, l’entrée pour Azure Digital Twins doit alors indiquer une valeur d’*État* _Accordé pour **(votre société)**_
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Vue du portail du consentement administrateur accordé à la société sous Autorisations de l’API":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Vue du portail du bouton « Consentement administrateur requis » sous Autorisations de l’API":::
 * Activer l’accès client public
 * Définir des URL de réponse spécifiques pour l’accès web et au bureau
 * Autoriser les flux d’authentification OAuth2 implicites

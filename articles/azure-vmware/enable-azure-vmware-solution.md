@@ -3,19 +3,19 @@ title: Comment activer votre ressource Azure VMware Solution
 description: Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus de nœuds dans votre cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90817880"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948729"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Comment activer la ressource Azure VMware Solution
 Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus de nœuds dans votre cloud privé Azure VMware Solution.
 
 ## <a name="eligibility-criteria"></a>Critères d’éligibilité
 
-* Vous aurez besoin d’un [Contrat Entreprise (EA) Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) avec Microsoft.
+* Vous aurez besoin d’un [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) avec Microsoft.
 * Vous devez disposer d’un compte Azure dans un abonnement Azure.
 
 

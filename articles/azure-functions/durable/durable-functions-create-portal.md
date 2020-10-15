@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081914"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
@@ -40,19 +40,12 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
 3. Dans la console Kudu, sélectionnez **Console de débogage**, puis **CMD**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Console de débogage Kudu":::
-
-3. La structure de répertoires de fichiers de votre application de fonction doit s’afficher. Accédez au dossier `site/wwwroot`. À partir de cet emplacement, vous pouvez charger un fichier `package.json` en le faisant glisser et en le déposant dans la fenêtre de répertoires de fichiers. Voici un exemple de fichier `package.json` :
-
-    ```json
-    {
-      "dependencies": {
-        "durable-functions": "^1.3.1"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Les fonctionnalités de la plateforme Functions choisissent Kudu"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Chargement du fichier package.json dans Kudu":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Les fonctionnalités de la plateforme Functions choisissent Kudu":::
 
 4. Une fois votre fichier `package.json` chargé, exécutez la commande `npm install` dans la console d’exécution à distance Kudu.
 
@@ -64,7 +57,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
 1. Dans le champ de recherche de la page **nouvelle fonction**, entrez `durable`, puis choisissez le modèle **Démarrage HTTP Durable Functions**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Sélectionner Démarrage HTTP Durable Functions":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Les fonctionnalités de la plateforme Functions choisissent Kudu":::
 
 1. Pour la nom de la **Nouvelle fonction**, entrez `HttpStart`, puis sélectionnez **Créer une fonction**.
 

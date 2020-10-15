@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829837"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
@@ -50,7 +50,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Sur la page **Nouvelle fonction**, entrez `cosmos` dans le champ de recherche, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Page Fonctions dans le portail Azure":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Code Azure Cosmos DB":::
 
 
 1. Configurez le nouveau déclencheur avec les paramètres spécifiés dans le tableau suivant :
@@ -64,7 +64,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | **Nom de collection pour les baux** | baux | Nom de la collection dans laquelle stocker les baux. |
     | **Créer une collection de baux si elle n’existe pas** | Oui | Vérifie l’existence de la collection de baux et la crée automatiquement si nécessaire. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Créer la fonction déclenchée par Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Code Azure Cosmos DB":::
 
 1. Sélectionnez **créer une fonction**. 
 
@@ -72,7 +72,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Pour afficher le code de fonction basé sur un modèle, sélectionnez **Code + test**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modèle de fonction Cosmos DB en C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Code Azure Cosmos DB":::
 
     Ce modèle de fonction écrit le nombre de documents et le premier ID de document dans les journaux d’activité.
 
@@ -111,15 +111,7 @@ Une fois que le conteneur spécifié dans la liaison de fonction a été créé,
 
 1. Développez le nouveau conteneur **Éléments** dans l’Explorateur de données, choisissez **Éléments**, puis sélectionnez **Nouvel élément**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Créer un élément dans un conteneur d’éléments":::
-
-1. Remplacez le contenu du nouvel élément par le contenu suivant, puis choisissez **Enregistrer**.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Code Azure Cosmos DB"
     }
     ```
 

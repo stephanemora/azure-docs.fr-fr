@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68780170"
 ---
 1. Accédez à la page de votre passerelle de réseau virtuel. Vous pouvez y accéder de plusieurs manières. Vous pouvez accéder à la passerelle en accédant au **Nom de votre VNet -> Vue d’ensemble -> Appareils connectés -> Nom de votre passerelle**.
