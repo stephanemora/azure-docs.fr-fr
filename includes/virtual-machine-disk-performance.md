@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539995"
 ---
 Cet article vous aide à clarifier les performances des disques et la procédure lorsque vous combinez des machines virtuelles Azure et des disques Azure. Il explique également comment vous pouvez diagnostiquer les goulots d’étranglement des E/S de disque et les modifications que vous pouvez apporter pour optimiser les performances.

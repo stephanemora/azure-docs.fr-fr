@@ -3,12 +3,12 @@ title: Gestion du cycle de vie des machines virtuelles du service Azure VMware S
 description: Découvrez comment gérer tous les aspects du cycle de vie des machines virtuelles de votre service Azure VMware Solution avec les outils natifs de Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575472"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950361"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
 
@@ -58,7 +58,7 @@ Le service **Azure Update Management** dans Azure Automation gère les mises à 
 
 Le service **Azure Security Center** offre une protection avancée contre les menaces pesant sur vos charges de travail hybrides dans le cloud et localement. Il évalue la vulnérabilité des machines virtuelles du service Azure VMware Solution, et déclenche des alertes en fonction des besoins. Ces alertes de sécurité peuvent être transférées à Azure Monitor à des fins de résolution.
 - Le service Azure Security Center ne nécessite pas de déploiement. Pour plus d’informations, consultez la liste des [Fonctionnalités prises en charge pour les machines virtuelles](../security-center/security-center-services.md).
-- Pour ajouter des machines virtuelles du service Azure VMware Solution et des machines virtuelles non Azure au service Azure Security Center, consultez [Intégrer des ordinateurs Windows à Azure Security Center](../security-center/quick-onboard-windows-computer.md) et [Intégrer des ordinateurs Linux à Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Pour ajouter des machines virtuelles du service Azure VMware Solution et des machines virtuelles non Azure au service Azure Security Center, consultez [Intégrer des ordinateurs Windows à Azure Security Center](../security-center/quickstart-onboard-machines.md) et [Intégrer des ordinateurs Linux à Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - Après l’ajout de machines virtuelles, le service Azure Security Center analyse l’état de sécurité des ressources pour identifier des vulnérabilités potentielles. Il affiche également des recommandations sous l’onglet Vue d’ensemble. Pour plus d’informations, consultez les [recommandations de sécurité dans Azure Security Center](../security-center/security-center-recommendations.md).
 - Vous pouvez définir des stratégies de sécurité dans Azure Security Center. Pour plus d’informations sur la configuration de vos stratégies de sécurité, consultez [Utilisation de stratégies de sécurité](../security-center/tutorial-security-policy.md).
 

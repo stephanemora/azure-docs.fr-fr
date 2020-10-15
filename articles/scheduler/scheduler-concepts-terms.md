@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878389"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler

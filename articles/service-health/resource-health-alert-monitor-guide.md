@@ -4,10 +4,10 @@ description: Créez des alertes via le portail Azure qui vous informent de l’i
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540674"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurer des alertes d’intégrité de ressources avec le portail Azure

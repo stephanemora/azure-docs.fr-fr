@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985313"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60547334"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Langues et régions prises en charge par l’API Suggestion automatique Bing
@@ -64,7 +64,7 @@ Vous trouverez ci-dessous la liste des langues prises en charge par l’API Sugg
 | Suédois     | `sv`          |
 | Turc     | `tr`          |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 - [Page de documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Page de produits Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

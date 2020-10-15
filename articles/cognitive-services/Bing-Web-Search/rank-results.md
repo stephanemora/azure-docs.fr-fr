@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390138"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Comment utiliser le classement pour afficher les résultats obtenus avec l’API Recherche Web Bing  
@@ -24,7 +24,7 @@ Chaque réponse de recherche inclut une réponse [RankingResponse](https://docs.
 
 Au sein de chaque groupe (liens premium et encadrés), le tableau [Éléments](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identifie l’ordre dans lequel doit apparaître le contenu. Chaque élément fournit deux façons d’identifier le résultat au sein d’une réponse.  
 
--   `answerType` et `resultIndex` : le champ `answerType` identifie la réponse (par exemple, une page web ou des actualités) et `resultIndex` identifie un résultat au sein de la réponse (par exemple, un article). L’index a pour base zéro.  
+-   `answerType` et `resultIndex` : le champ `answerType` identifie la réponse (par exemple, une page web ou des actualités) et `resultIndex` identifie un résultat au sein de la réponse (par exemple, un article). L'index est de base zéro.  
 
 -   `value` : le champ `value` contient un identifiant qui correspond à l’identifiant de la réponse ou d’un résultat au sein de la réponse. La réponse ou les résultats contiennent l’identifiant, mais pas les deux.  
 

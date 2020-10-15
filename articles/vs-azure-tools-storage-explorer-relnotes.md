@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828776"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure

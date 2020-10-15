@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67176929"
 ---
 Créez une connexion Bureau à distance pour vous connecter à une machine virtuelle déployée sur votre réseau virtuel. La meilleure méthode pour vérifier que vous pouvez vous connecter à votre machine virtuelle consiste à vous connecter à l’aide de son adresse IP privée, plutôt qu’avec le nom d’ordinateur. Vous testez ainsi si vous pouvez vous connecter, que la résolution de nom soit configurée correctement ou non. 

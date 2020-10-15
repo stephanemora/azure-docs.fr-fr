@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a52dd48bb97c8e7979771bdc2dbb50654493b088
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972596"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540100"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MariaDB
 
@@ -119,7 +119,7 @@ Pour les serveurs créés après le 26 octobre 2020 (26/10/2020), vous pouvez 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Quelle est la fréquence à laquelle Microsoft met à jour ses certificats ou quelle est la stratégie d’expiration ?
 Les certificats utilisés par Azure Database for MariaDB sont fournis par des autorités de certification approuvées. Par conséquent, la prise en charge de ces certificats sur Azure Database for MariaDB est liée à la prise en charge de ces certificats par l’autorité de certification. Toutefois, comme dans le cas présent, il peut y avoir des bogues imprévus dans ces certificats prédéfinis et ceux-ci doivent être corrigés au plus tôt.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur maître ou sur les réplicas de lecture ?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur source ou sur les réplicas de lecture ?
 Étant donné que cette mise à jour est une modification côté client, si le client avait l’habitude de lire les données du serveur de réplica, vous devez également appliquer les modifications pour ces clients.
 
 ### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si j'utilise la réplication des données entrantes, dois-je effectuer une action particulière ?
@@ -137,7 +137,7 @@ Si vous utilisez la [réplication des données entrantes](concepts-data-in-repli
 
     Si vous constatez que le certificat est fourni pour CA_file, SSL_Cert et SSL_Key, vous devez mettre à jour le fichier en ajoutant le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-*   Si la réplication des données s'effectue entre deux instances d'Azure Database pour MySQL, vous devez réinitialiser le réplica en exécutant **CALL mysql.az_replication_change_master** et en fournissant le nouveau certificat racine double en tant que dernier paramètre [master_ssl_ca](howto-data-in-replication.md#link-the-master-and-replica-servers-to-start-data-in-replication).
+*   Si la réplication des données s'effectue entre deux instances d'Azure Database pour MySQL, vous devez réinitialiser le réplica en exécutant **CALL mysql.az_replication_change_master** et en fournissant le nouveau certificat racine double en tant que dernier paramètre [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. Existe-t-il une requête côté serveur pour vérifier si SSL est utilisé ?
 Pour vérifier si vous utilisez une connexion SSL pour vous connecter au serveur, consultez [Vérification SSL](howto-configure-ssl.md#verify-the-ssl-connection).

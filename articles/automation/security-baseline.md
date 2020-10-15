@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400515"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070688"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/threat-protection.md)
+* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
 * [Présentation de la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy pour le réseau](/azure/governance/policy/samples/#network)
+* [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
 * [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Toutefois, si vous utilisez des Runbook Workers hybrides qui s’appuient sur de
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -608,7 +608,7 @@ Lorsque vous utilisez des Runbook Workers hybrides, les disques virtuels des mac
 
 * [Variables managées dans Azure Automation](./shared-resources/variables.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -720,7 +720,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
+* [Exemples Azure Policy intégrés pour Azure Automation](./policy-reference.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -792,7 +792,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -854,7 +854,7 @@ Le contrôle d’application adaptatif est une solution de bout en bout intellig
 
 * [Vue d’ensemble du pare-feu d’applications web](../web-application-firewall/overview.md)
 
-* [Groupes de sécurité réseau](../virtual-network/security-overview.md)
+* [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md)
 
 * [Vue d’ensemble du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme b
 
 * [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
+* [Exemples Azure Policy intégrés pour Azure Automation](./policy-reference.md)
 
 * [Exportation monoressource ou multiressource vers un modèle sur le portail Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez la re
 
 * [Déploiement d’un compte Automation à l’aide d’un modèle Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
+* [Exemples Azure Policy intégrés pour Azure Automation](./policy-reference.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -984,7 +984,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, veillez à bie
 
 * [Utiliser des alias](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
+* [Exemples Azure Policy intégrés pour Azure Automation](./policy-reference.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1014,7 +1014,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, tirez parti d�
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy intégrés pour Azure Automation](./policy-samples.md)
+* [Exemples Azure Policy intégrés pour Azure Automation](./policy-reference.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1046,7 +1046,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Azure
 
 * [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

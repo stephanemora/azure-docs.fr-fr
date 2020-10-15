@@ -8,23 +8,23 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 9ffd7d2513e87f818001d7ccf96212a4dbef7ac2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534724"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950140"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Accéder à des ressources sécurisées par le biais de points de terminaison privés
 
 Les ressources Azure (telles que les comptes de stockage utilisés comme sources de données) peuvent être configurées pour n'être accessibles qu'à partir d'une liste spécifique de réseaux virtuels. Elles peuvent également être configurées de manière à interdire tout accès de type « réseau public ».
-Les clients peuvent demander au service Recherche cognitive Azure d'établir une [connexion par point de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) (sortant) afin d'accéder en toute sécurité aux données de ces sources de données via des indexeurs.
+Les clients peuvent demander au service Recherche cognitive Azure d'établir une [connexion par point de terminaison privé](../private-link/private-endpoint-overview.md) (sortant) afin d'accéder en toute sécurité aux données de ces sources de données via des indexeurs.
 
 ## <a name="shared-private-link-resources-management-apis"></a>API de gestion des ressources de liaison privée partagées
 
 Les points de terminaison privés créés par le service Recherche cognitive Azure à la demande du client pour accéder aux ressources « sécurisées » sont appelés *ressources de liaison privée partagées*. Le client « partage » l'accès à une ressource (telle qu'un compte de stockage) qui a été intégrée au [service Azure Private Link](https://azure.microsoft.com/services/private-link/).
 
-Le service Recherche cognitive Azure offre, via l'API de gestion des recherches, la possibilité de [Créer ou mettre à jour des ressources de liaison privée partagées](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Vous utiliserez cette API avec d'autres API de gestion des *ressources de liaison privée partagées* pour configurer l'accès à une ressource sécurisée à partir d'un indexeur Recherche cognitive Azure.
+Le service Recherche cognitive Azure offre, via l'API de gestion des recherches, la possibilité de [Créer ou mettre à jour des ressources de liaison privée partagées](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Vous utiliserez cette API avec d'autres API de gestion des *ressources de liaison privée partagées* pour configurer l'accès à une ressource sécurisée à partir d'un indexeur Recherche cognitive Azure.
 
 Les connexions par point de terminaison privé à certaines ressources ne peuvent être établies qu'à l'aide de la préversion de l'API de gestion des recherches (`2020-08-01-Preview`), signalée par la mention « préversion » dans le tableau ci-dessous. Les ressources non accompagnées de la mention « préversion » peuvent être créées à la fois via l'API de la préversion et via l'API de la disponibilité générale (`2020-08-01`)
 
@@ -40,7 +40,7 @@ Vous trouverez ci-dessous la liste des ressources Azure vers lesquelles des poin
 | Azure Key Vault | `vault` |
 | Azure Functions (préversion) | `sites` |
 
-La liste des ressources Azure pour lesquelles les connexions par point de terminaison privé sortant sont prises en charge peut également être interrogée via l'[API Répertorier les ressources prises en charge](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
+La liste des ressources Azure pour lesquelles les connexions par point de terminaison privé sortant sont prises en charge peut également être interrogée via l'[API Répertorier les ressources prises en charge](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
 Dans le cadre de ce guide, une combinaison d'[ARMClient](https://github.com/projectkudu/ARMClient) et de [Postman](https://www.postman.com/) est utilisée pour illustrer les appels d'API REST.
 
@@ -51,12 +51,12 @@ Ce guide explique comment le service __contoso-search__ peut être configuré po
 
 ## <a name="securing-your-storage-account"></a>Sécuriser votre compte de stockage
 
-Configurez le compte de stockage afin de [n'autoriser l'accès qu'à partir de sous-réseaux spécifiques](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network). Via le portail Azure, si vous cochez cette option sans renseigner le reste, cela signifie qu'aucun trafic provenant d'un réseau virtuel n'est autorisé.
+Configurez le compte de stockage afin de [n'autoriser l'accès qu'à partir de sous-réseaux spécifiques](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Via le portail Azure, si vous cochez cette option sans renseigner le reste, cela signifie qu'aucun trafic provenant d'un réseau virtuel n'est autorisé.
 
    ![Accès au réseau virtuel](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Accès au réseau virtuel")
 
 > [!NOTE]
-> L'[approche Service Microsoft approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) peut être utilisée pour contourner les restrictions liées aux réseaux virtuels ou aux adresses IP sur ce type de compte de stockage, et peut permettre au service de recherche d'accéder aux données du compte de stockage comme décrit dans le [guide pratique](search-indexer-howto-access-trusted-service-exception.md). Toutefois, avec cette approche, la communication entre le service Recherche cognitive Azure et le compte de stockage s'effectue via l'adresse IP publique du compte de stockage, sur le réseau principal sécurisé de Microsoft.
+> L'[approche Service Microsoft approuvé](../storage/common/storage-network-security.md#trusted-microsoft-services) peut être utilisée pour contourner les restrictions liées aux réseaux virtuels ou aux adresses IP sur ce type de compte de stockage, et peut permettre au service de recherche d'accéder aux données du compte de stockage comme décrit dans le [guide pratique](search-indexer-howto-access-trusted-service-exception.md). Toutefois, avec cette approche, la communication entre le service Recherche cognitive Azure et le compte de stockage s'effectue via l'adresse IP publique du compte de stockage, sur le réseau principal sécurisé de Microsoft.
 
 ## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Étape 1 : Créer une ressource de liaison privée partagée avec le compte de stockage
 
@@ -101,7 +101,7 @@ Cet URI peut être régulièrement interrogé pour obtenir l'état de l'opérati
 ## <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Étape 2a : Approuver la connexion par point de terminaison privé pour le compte de stockage
 
 > [!NOTE]
-> Dans cette section, nous utiliserons le portail Azure pour suivre le processus d'approbation d'un point de terminaison privé vers le stockage. L'[API REST](https://docs.microsoft.com/rest/api/storagerp/privateendpointconnections) disponible via le fournisseur de ressources de stockage peut aussi être utilisée.
+> Dans cette section, nous utiliserons le portail Azure pour suivre le processus d'approbation d'un point de terminaison privé vers le stockage. L'[API REST](/rest/api/storagerp/privateendpointconnections) disponible via le fournisseur de ressources de stockage peut aussi être utilisée.
 >
 > D'autres fournisseurs, tels que CosmosDB et Azure SQL Server, proposent également des API de fournisseur de ressources similaires pour gérer les connexions par point de terminaison privé.
 
@@ -117,7 +117,7 @@ Dès l'approbation de la demande de connexion par point de terminaison privé, l
 
 ## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Étape 2b : Interroger l'état de la ressource de liaison privée partagée
 
- Pour vérifier que la ressource de liaison privée partagée a bien été mise à jour à l'issue de l'approbation, accédez à son état à l'aide de l'[API GET](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get).
+ Pour vérifier que la ressource de liaison privée partagée a bien été mise à jour à l'issue de l'approbation, accédez à son état à l'aide de l'[API GET](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -143,24 +143,24 @@ Si la propriété `properties.provisioningState` de la ressource est `Succeeded`
 > [!NOTE]
 > Cette opération peut être effectuée avant même que la connexion par point de terminaison privé ne soit approuvée. Tant que la connexion par point de terminaison privé n'est pas approuvée, tout indexeur qui tente de communiquer avec une ressource sécurisée (comme le compte de stockage) est en état d'échec temporaire. Il est alors impossible de créer de nouveaux indexeurs. Dès que la connexion par point de terminaison privé est approuvée, les indexeurs ont accès au compte de stockage privé.
 
-1. [Créez une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) qui pointe vers le compte de stockage sécurisé et un conteneur approprié au sein du compte de stockage. L'exemple suivant illustre une demande effectuée via Postman.
+1. [Créez une source de données](/rest/api/searchservice/create-data-source) qui pointe vers le compte de stockage sécurisé et un conteneur approprié au sein du compte de stockage. L'exemple suivant illustre une demande effectuée via Postman.
 ![Créer une source de données](media\search-indexer-howto-secure-access\create-ds.png "Création d'une source de données")
 
-2. De même, [créez un index](https://docs.microsoft.com/rest/api/searchservice/create-index) et, si vous le souhaitez, [créez un ensemble de compétences](https://docs.microsoft.com/rest/api/searchservice/create-skillset) à l'aide de l'API REST.
+2. De même, [créez un index](/rest/api/searchservice/create-index) et, si vous le souhaitez, [créez un ensemble de compétences](/rest/api/searchservice/create-skillset) à l'aide de l'API REST.
 
-3. [Créez un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) qui pointe vers la source de données, l'index et l'ensemble de compétences créés ci-dessus. En outre, forcez l'exécution de l'indexeur dans l'environnement d'exécution privé en définissant la propriété de configuration de l'indexeur `executionEnvironment` sur `"Private"`.
+3. [Créez un indexeur](/rest/api/searchservice/create-indexer) qui pointe vers la source de données, l'index et l'ensemble de compétences créés ci-dessus. En outre, forcez l'exécution de l'indexeur dans l'environnement d'exécution privé en définissant la propriété de configuration de l'indexeur `executionEnvironment` sur `"Private"`.
 ![Create Indexer](media\search-indexer-howto-secure-access\create-idr.png "Création d'un indexeur")
 
-Une fois créé, l'indexeur indexe le contenu du compte de stockage via la connexion par point de terminaison privé. L'état de l'indexeur peut être surveillé via l'[API d'état de l'indexeur](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Une fois créé, l'indexeur indexe le contenu du compte de stockage via la connexion par point de terminaison privé. L'état de l'indexeur peut être surveillé via l'[API d'état de l'indexeur](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
-> Si vous disposez déjà d'indexeurs, vous pouvez simplement les mettre à jour via l'[API PUT](https://docs.microsoft.com/rest/api/searchservice/create-indexer) pour définir `executionEnvironment` sur `"Private"`.
+> Si vous disposez déjà d'indexeurs, vous pouvez simplement les mettre à jour via l'[API PUT](/rest/api/searchservice/create-indexer) pour définir `executionEnvironment` sur `"Private"`.
 
 ## <a name="troubleshooting-issues"></a>Résolution des problèmes
 
 - Si la création d'un indexeur échoue avec un message d'erreur de type « Les informations d'identification de la source de données ne sont pas valides », cela signifie que la connexion par point de terminaison privé n'a pas été *approuvée* ou qu'elle n'est pas fonctionnelle.
-Utilisez l'[API GET](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get) pour accéder à l'état de la ressource de liaison privée partagée. Si elle a été *approuvée*, vérifiez la propriété `properties.provisioningState` de la ressource. Si elle est définie sur `Incomplete`, cela signifie que certaines des dépendances sous-jacentes de la ressource n'ont pas pu être approvisionnées ; réexécutez alors la requête `PUT` pour « recréer » la ressource de liaison privée partagée, ce qui devrait résoudre le problème. Une nouvelle approbation peut être nécessaire ; vérifiez à nouveau l'état de la ressource.
-- Si l'indexeur est créé sans que sa propriété `executionEnvironment` ne soit définie, la création peut aboutir, mais l'historique des exécutions de cet indexeur indiquera que celles-ci ont échoué. Vous devez [mettre à jour l'indexeur](https://docs.microsoft.com/rest/api/searchservice/update-indexer) pour spécifier l'environnement d'exécution.
+Utilisez l'[API GET](/rest/api/searchmanagement/sharedprivatelinkresources/get) pour accéder à l'état de la ressource de liaison privée partagée. Si elle a été *approuvée*, vérifiez la propriété `properties.provisioningState` de la ressource. Si elle est définie sur `Incomplete`, cela signifie que certaines des dépendances sous-jacentes de la ressource n'ont pas pu être approvisionnées ; réexécutez alors la requête `PUT` pour « recréer » la ressource de liaison privée partagée, ce qui devrait résoudre le problème. Une nouvelle approbation peut être nécessaire ; vérifiez à nouveau l'état de la ressource.
+- Si l'indexeur est créé sans que sa propriété `executionEnvironment` ne soit définie, la création peut aboutir, mais l'historique des exécutions de cet indexeur indiquera que celles-ci ont échoué. Vous devez [mettre à jour l'indexeur](/rest/api/searchservice/update-indexer) pour spécifier l'environnement d'exécution.
 - Si l'indexeur est créé sans que sa propriété `executionEnvironment` ne soit définie et qu'il s'exécute correctement, cela signifie que le service Recherche cognitive Azure a décidé que son environnement d'exécution est l'environnement « privé » spécifique du service de recherche. Celui-ci peut toutefois varier en fonction de différents facteurs (ressources consommées par l'indexeur, charge du service de recherche, etc.) et il peut échouer ultérieurement. Nous vous recommandons vivement de définir `executionEnvironment` sur `"Private"` pour vous assurer que l'environnement d'exécution n'échouera pas.
 - Les [quotas et limites](search-limits-quotas-capacity.md) déterminent le nombre de ressources de liaison privée partagée qui peuvent être créées et qui dépendent de la référence SKU du service de recherche.
 
@@ -168,5 +168,5 @@ Utilisez l'[API GET](https://docs.microsoft.com/rest/api/searchmanagement/shared
 
 En savoir plus sur les points de terminaison privés :
 
-- [Présentation des points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
-- [Configurations DNS nécessaires pour les points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)
+- [Présentation des points de terminaison privés](../private-link/private-endpoint-overview.md)
+- [Configurations DNS nécessaires pour les points de terminaison privés](../private-link/private-endpoint-dns.md)

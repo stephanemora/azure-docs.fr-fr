@@ -3,16 +3,16 @@ title: Détails de la structure d’exemption de stratégie
 description: Décrit la définition d’exemption de stratégie utilisée par Azure Policy pour exempter des ressources de l’évaluation d’initiatives ou de définitions.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968046"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950174"
 ---
 # <a name="azure-policy-exemption-structure"></a>Structure d’exemption Azure Policy
 
-La fonctionnalité d’exemption Azure Policy (préversion) est utilisée pour _exempter_ une hiérarchie de ressources ou une ressource individuelle de l’évaluation d’initiatives ou de définitions. Les ressources qui ne sont _exemptes de_ pour la conformité globale, mais ne peuvent pas être évaluées ou comportent une dérogation temporaire. Pour plus d’informations, consultez [Comprendre l’étendue d’Azure Policy](./scope.md). Les exemptions Azure Policy fonctionnent uniquement avec les modes de [gestionnaire des ressources](./definition-structure.md#resource-manager-modes) et ne fonctionnent pas avec **modes de fournisseur de ressources**.
+La fonctionnalité d’exemption Azure Policy (préversion) est utilisée pour _exempter_ une hiérarchie de ressources ou une ressource individuelle de l’évaluation d’initiatives ou de définitions. Les ressources qui ne sont _exemptes de_ pour la conformité globale, mais ne peuvent pas être évaluées ou comportent une dérogation temporaire. Pour plus d’informations, consultez [Comprendre l’étendue d’Azure Policy](./scope.md). Les exemptions Azure Policy fonctionnent uniquement avec les modes de [gestionnaire des ressources](./definition-structure.md#resource-manager-modes) et ne fonctionnent pas avec [modes de fournisseur de ressources](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Cette fonctionnalité est gratuite pendant la **préversion**. Pour plus d’informations sur la tarification, consultez la [tarification d’Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/). Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

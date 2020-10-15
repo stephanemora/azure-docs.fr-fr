@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f485569caef285601d1dce7acd116f13675da83a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463238"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950191"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Configuration de règles de pare-feu IP pour permettre l’accès de l’indexeur
 
@@ -89,6 +89,6 @@ La mise à jour des règles de pare-feu prend de 5 à 10 minutes après lesque
 
 Maintenant que vous savez comment obtenir les deux ensembles d’adresses IP pour autoriser l’accès aux index, utilisez les liens suivants pour mettre à jour les règles de pare-feu IP pour certaines sources de données courantes.
 
-- [Configurer des pare-feu pour le service Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- [Configurer un pare-feu IP pour CosmosDB](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
-- [Configurer un pare-feu IP pour Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+- [Configurer des pare-feu pour le service Stockage Azure](../storage/common/storage-network-security.md)
+- [Configurer un pare-feu IP pour CosmosDB](../cosmos-db/firewall-support.md)
+- [Configurer un pare-feu IP pour Azure SQL Server](../azure-sql/database/firewall-configure.md)

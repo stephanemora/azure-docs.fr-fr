@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984155"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données

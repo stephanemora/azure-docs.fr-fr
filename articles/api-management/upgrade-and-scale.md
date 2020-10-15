@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205772"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078304"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -84,4 +84,4 @@ Si vous effectuez une mise à l’échelle à partir de ou vers le niveau dével
 
 - [Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure](api-management-howto-deploy-multi-region.md)
 - [Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](api-management-howto-autoscale.md)
-- [Optimiser et réduire vos coûts de cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimiser et réduire vos coûts de cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

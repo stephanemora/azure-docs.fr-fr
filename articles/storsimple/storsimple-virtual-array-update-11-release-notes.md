@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60789635"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.1
