@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, V2, Azure Kinect, comparaison, Kit de développement logiciel (SDK), différences, matériel, logiciels
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87031573"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparaison entre Azure Kinect et Kinect pour Windows v2

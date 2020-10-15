@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817087"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez le portail Azure pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
@@ -63,7 +63,7 @@ Vous devez déployer une nouvelle machine virtuelle pour activer le chiffrement 
 1. Dans le panneau **Disques**, sélectionnez **Oui** pour **Chiffrement au niveau de l’hôte**.
 1. Effectuez les sélections restantes comme vous le souhaitez.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Capture d’écran du panneau Disques de la création d’une machine virtuelle, l’option Chiffrement au niveau de l’hôte est mise en surbrillance.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Capture d’écran du panneau Informations de base de la création d’une machine virtuelle, la région et la taille de machine virtuelle sont mises en surbrillance.":::
 
 1. Terminez le processus de déploiement de la machine virtuelle en effectuant les sélections qui conviennent à votre environnement.
 

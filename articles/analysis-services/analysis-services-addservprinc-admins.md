@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015406"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013931"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -117,5 +117,5 @@ Ensuite, vous utilisez cet ID client conjointement avec l’ID de locataire pour
 
 ## <a name="related-information"></a>Informations connexes
 
-* [Télécharger le module SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Télécharger SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Télécharger le module SQL Server PowerShell](/sql/ssms/download-sql-server-ps-module)   
+* [Télécharger SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

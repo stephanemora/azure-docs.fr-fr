@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606836"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91377102"
 ---
 Azure Files offre quatre niveaux de stockage, premium, optimisé pour les transactions, chaud et froid, pour vous permettre de personnaliser vos partages en fonction des performances et du budget demandés par votre scénario :
 
@@ -26,4 +26,5 @@ Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’u
 
 Les partages de fichiers chauds et froids sont disponibles dans toutes les régions Azure publiques et Azure Government. Les partages de fichiers optimisés pour les transactions sont disponibles dans toutes les régions Azure, y compris les régions Azure Chine et Azure Allemagne.
 
-Pour déployer un partage de fichiers chaud ou froid, consultez [Créer un partage de fichiers chaud ou froid](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Vous pouvez déplacer des partages de fichiers d’un niveau à l’autre, au sein des comptes de stockage de type GPv2 (Transaction optimisée, Accès chaud et Accès froid). Les déplacements d’un niveau à l’autre impliquent des transactions : le passage d’un niveau plus chaud à un niveau plus froid entraînera des frais de transaction d’écriture côté niveau froid pour chaque fichier du partage, tandis que le passage d’un niveau plus froid à un niveau plus chaud entraînera des frais de transaction de lecture côté niveau froid pour chaque fichier du partage.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005614"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurer une règle de restriction IP avec un Pare-feu d’applications web pour Azure Front Door
@@ -76,7 +76,7 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
 1. Une fois le déploiement de la stratégie WAF terminé, accédez au nom de votre hôte front-end Front Door.
 2. Vous devez voir votre message de bloc personnalisé.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Test de règle WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Règle personnalisée":::
 
    > [!NOTE]
    > Une adresse IP privée a été utilisée intentionnellement dans la règle personnalisée pour garantir le déclenchement de la règle. Dans un déploiement réel, créez des règles *Autoriser* et *Refuser* à l’aide d’adresses IP pour votre situation particulière.

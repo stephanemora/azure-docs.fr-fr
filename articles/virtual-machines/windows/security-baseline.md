@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400379"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978018"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -32,7 +32,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, Pare-feu Azure peut également être utilisé pour répondre à ces besoins.
 
-* [Réseaux virtuels et machines virtuelles dans Azure](./network-overview.md)
+* [Réseaux virtuels et machines virtuelles dans Azure](../network-overview.md)
 
 * [Guide pratique pour créer un réseau virtuel](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour déployer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../../security-center/threat-protection.md)
+* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../../security-center/azure-defender.md)
 
 * [Présentation de la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy pour le réseau](/azure/governance/policy/samples/#network)
+* [Exemples Azure Policy pour le réseau](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Guide pratique pour créer un blueprint Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Utilisez Azure Policy pour valider (ou corriger) des configurations de ressource
 
 * [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy pour le réseau](/azure/governance/policy/samples/#network)
+* [Exemples Azure Policy pour le réseau](../../governance/policy/samples/built-in-policies.md#network)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -252,7 +252,7 @@ Si votre organisation souhaite conserver les données du journal des événement
 
 **Aide** : Vérifiez que la période de conservation des journaux définie dans les comptes de stockage ou les espaces de travail Log Analytics utilisés pour le stockage des journaux des machines virtuelles est conforme aux obligations réglementaires de votre organisation.
 
-* [Comment surveiller des machines virtuelles dans Azure](./monitor.md)
+* [Comment surveiller des machines virtuelles dans Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Comment configurer la période de conservation d’un espace de travail Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -360,7 +360,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -458,7 +458,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Comment surveiller des machines virtuelles dans Azure](./monitor.md)
+* [Comment surveiller des machines virtuelles dans Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -508,7 +508,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Conseils** : Suivez les recommandations d’Azure Security Center en matière d’évaluation des vulnérabilités sur vos machines virtuelles Azure. Utilisez la solution de sécurité Azure recommandée ou tierce pour effectuer des évaluations de vulnérabilités pour vos machines virtuelles.
 
-* [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -692,7 +692,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../../governance/policy/samples/index.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -817,13 +817,13 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 **Aide** : Les applications à haut risque déployées dans votre environnement Azure peuvent être isolées à l’aide d’un réseau virtuel, d’un sous-réseau, d’abonnements, de groupes d’administration, etc. et suffisamment sécurisées avec un pare-feu Azure, un pare-feu d’applications web (WAF) ou un groupe de sécurité réseau.
 
-* [Réseaux virtuels et machines virtuelles dans Azure](./network-overview.md)
+* [Réseaux virtuels et machines virtuelles dans Azure](../network-overview.md)
 
 * [Présentation du Pare-feu Azure](../../firewall/overview.md)
 
 * [Présentation du pare-feu d’applications web](../../web-application-firewall/overview.md)
 
-* [Vue d’ensemble de la sécurité réseau](../../virtual-network/security-overview.md)
+* [Vue d’ensemble de la sécurité réseau](../../virtual-network/network-security-groups-overview.md)
 
 * [Vue d’ensemble de Réseau virtuel Microsoft Azure](../../virtual-network/virtual-networks-overview.md)
 

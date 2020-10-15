@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447329"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977029"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erreur d’arrêt de Windows - 0x00000074 Informations de configuration système incorrectes
 
@@ -27,7 +27,7 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes empêc
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez les [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant le code d’arrêt Windows l’échec de l’installation de Windows **#0x00000074** ou**BAD_SYSTEM_CONFIG_INFO**.
+Lorsque vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant le code d’arrêt Windows l’échec de l’installation de Windows **#0x00000074** ou**BAD_SYSTEM_CONFIG_INFO**.
 
 *Votre PC a rencontré un problème et doit redémarrer. Vous pouvez redémarrer.* 
 *Pour plus d’informations sur ce problème ainsi que les correctifs possibles, visitez http://windows.com/stopcode* 
@@ -58,7 +58,7 @@ Le code d’arrêt **BAD_SYSTEM_CONFIG_INFO** intervient en cas de corruption de
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) pour préparer une machine virtuelle de réparation.
+1. Effectuez les étapes 1 à 3 des [commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 1. Recherchez une éventuelle corruption de la ruche.
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 1. Copiez le dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` et enregistrez-le dans votre partition de disque saine ou dans un autre emplacement sécurisé. Sauvegardez ce dossier par précaution, car vous allez modifier les fichiers de Registre critiques. 
@@ -133,4 +133,4 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

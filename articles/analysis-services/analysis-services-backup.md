@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506993"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014050"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Sauvegarde et restauration de bases de données Analysis Services
 
-La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Services est relativement semblable à celle des Analysis Services locaux. La principale différence réside dans le lieu où vous enregistrez vos fichiers de sauvegarde. Les fichiers de sauvegarde doivent être enregistrés dans un conteneur dans un [compte de stockage Azure](../storage/common/storage-create-storage-account.md). Vous pouvez utiliser un compte de stockage et un conteneur que vous avez déjà, ou bien en créer de nouveaux lors de la configuration des paramètres de stockage de votre serveur.
+La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Services est relativement semblable à celle des Analysis Services locaux. La principale différence réside dans le lieu où vous enregistrez vos fichiers de sauvegarde. Les fichiers de sauvegarde doivent être enregistrés dans un conteneur dans un [compte de stockage Azure](../storage/common/storage-account-create.md). Vous pouvez utiliser un compte de stockage et un conteneur que vous avez déjà, ou bien en créer de nouveaux lors de la configuration des paramètres de stockage de votre serveur.
 
 > [!NOTE]
 > La création d’un compte de stockage peut entraîner un nouveau service facturable. Pour en savoir plus, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -75,10 +75,10 @@ Avant de procéder à la sauvegarde, vous devez configurer les paramètres de st
 
 
 ### <a name="powershell"></a>PowerShell
-Utilisez l’applet de commande [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
+Utilisez l’applet de commande [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase).
 
 ## <a name="restore"></a>Restaurer
-Lors de la restauration, votre fichier de sauvegarde doit être dans le compte de stockage que vous avez configuré pour votre serveur. Si vous devez déplacer un fichier de sauvegarde d’un emplacement local vers votre compte de stockage, utilisez [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou l’utilitaire de ligne de commande [AzCopy](../storage/common/storage-use-azcopy.md). 
+Lors de la restauration, votre fichier de sauvegarde doit être dans le compte de stockage que vous avez configuré pour votre serveur. Si vous devez déplacer un fichier de sauvegarde d’un emplacement local vers votre compte de stockage, utilisez [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) ou l’utilitaire de ligne de commande [AzCopy](../storage/common/storage-use-azcopy-v10.md). 
 
 
 
@@ -102,11 +102,11 @@ Lors de la restauration, votre fichier de sauvegarde doit être dans le compte d
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
+Utilisez l’applet de commande [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Informations connexes
 
-[Des comptes de stockage Azure](../storage/common/storage-create-storage-account.md)  
+[Des comptes de stockage Azure](../storage/common/storage-account-create.md)  
 [Haute disponibilité](analysis-services-bcdr.md)      
 [FAQ sur la connectivité réseau d’Analysis Services](analysis-services-network-faq.md)

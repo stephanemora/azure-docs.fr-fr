@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
-ms.openlocfilehash: 5195d63180d45ad408256264e3cf10174e55cd96
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551946"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014832"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Meilleures pratiques en matière d'opérations de longue durée
 
@@ -50,5 +50,4 @@ Lorsque vous utilisez des réplicas de requête en lecture seule et si les actua
 [Actualisation asynchrone avec l’API REST](analysis-services-async-refresh.md)  
 [Scale-out d’Azure Analysis Services](analysis-services-scale-out.md)  
 [Haute disponibilité Analysis Services](analysis-services-bcdr.md)  
-[Guide du mécanisme de nouvelle tentative relatif aux services Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
-
+[Guide du mécanisme de nouvelle tentative relatif aux services Azure](/azure/architecture/best-practices/retry-service-specific)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731864"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013676"
 ---
 # <a name="azure-analysis-services-samples"></a>Exemples Azure Analysis Services
 
@@ -28,7 +28,7 @@ Le dépôt [Analysis Services](https://github.com/Microsoft/Analysis-Services) s
 
 ## <a name="sample-database-on-azure"></a>Base de données d’exemple sur Azure
 
-Azure Synapse Analytics (SQL Data Warehouse) fournit un exemple de base de données AdventureWorksDW pouvant être inclus dans une ressource provisionnée. Pour en savoir plus, consultez [Démarrage rapide : Créer et interroger un pool SQL Azure Synapse Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
+Azure Synapse Analytics (SQL Data Warehouse) fournit un exemple de base de données AdventureWorksDW pouvant être inclus dans une ressource provisionnée. Pour en savoir plus, consultez [Démarrage rapide : Créer et interroger un pool SQL Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Exemples de bases de données sur GitHub
 
@@ -46,5 +46,5 @@ Si vous avez un serveur Analysis Services dans le portail Azure, vous pouvez rap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Passerelle de données locale Azure](analysis-services-gateway.md)  
+[Didacticiel Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Passerelle de données locale Azure](analysis-services-gateway.md)
