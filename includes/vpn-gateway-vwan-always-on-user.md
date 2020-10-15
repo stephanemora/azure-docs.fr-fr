@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79500188"
 ---
 1. Installez des certificats clients sur le client Windows 10 comme indiqué dans l’article [Installer des certificats client pour des connexions d’authentification par certificat P2S](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin d’utilisateurs actuel.
