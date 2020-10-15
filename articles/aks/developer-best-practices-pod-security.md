@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022273"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
@@ -97,7 +97,7 @@ L’utilisation du projet d’identités de pod vous permet de vous authentifier
 
 Lorsque les applications ont besoin d’informations d’identification, elles communiquent avec le coffre numérique, récupèrent le dernier contenu des secrets, puis se connectent au service nécessaire. Azure Key Vault peut être utilisé comme coffre numérique. Le schéma suivant illustre de façon simplifiée le workflow utilisé pour récupérer des informations d’identification à partir d’Azure Key Vault à l’aide d’identités de pod managées :
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Workflow simplifié pour récupérer des informations d’identification dans Key Vault à l’aide d’une identité de pod managée":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Workflow simplifié du système d’identités de pod managées dans Azure":::
 
 Key Vault vous permet de stocker et faire tourner régulièrement les secrets, tels que les informations d’identification, les clés de compte de stockage ou les certificats. Vous pouvez intégrer Azure Key Vault à un cluster AKS à l’aide du [fournisseur Azure Key Vault pour le pilote Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Le pilote Secrets Store CSI permet au cluster AKS de récupérer en mode natif le contenu des secrets à partir de Key Vault, et fournit celui-ci uniquement au pod demandeur. Collaborez avec votre opérateur de cluster pour déployer le pilote Secrets Store CSI sur les nœuds Worker AKS. Vous pouvez utiliser une identité managée par un pod pour demander l’accès à Key Vault et récupérer le contenu des secrets par le biais du pilote Secrets Store CSI.
 

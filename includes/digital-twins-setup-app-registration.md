@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: 45f55e6c18d7cc551a6b96504ad2ce2ec3f84d86
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009645"
 ---
 Une fois que vous avez configuré une instance Azure Digital Twins, il est courant d’interagir avec cette instance par le biais d’une application cliente. Pour créer une application cliente opérationnelle, vous devez vous assurer que l’application cliente sera en mesure de s’authentifier auprès d’Azure Digital Twins. Pour ce faire, configurez une **inscription d’application** [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) que votre application cliente doit utiliser.

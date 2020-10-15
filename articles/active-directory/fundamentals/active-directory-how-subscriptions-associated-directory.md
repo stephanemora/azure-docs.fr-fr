@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426093"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91666430"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -50,7 +50,7 @@ Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches sui
   - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association
   - Si vous disposez d''identités gérées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association
   - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association
-  - Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
+  - Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 
 - Connectez-vous avec un compte qui :
 
@@ -93,7 +93,7 @@ Après avoir associé un abonnement à un autre annuaire, vous pouvez être amen
 
 - Si vous avez inscrit une instance Azure Stack à l’aide de cet abonnement, vous devez procéder à une réinscription. Pour plus d’informations, consultez [Inscrire Azure Stack auprès d’Azure](/azure-stack/operator/azure-stack-registration).
 
-- Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)](../../role-based-access-control/transfer-subscription.md).
+- Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

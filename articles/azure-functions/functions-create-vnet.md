@@ -4,10 +4,10 @@ description: Tutoriel pas à pas qui vous montre comment connecter une fonction 
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387521"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutoriel : Intégrer Azure Functions à un réseau virtuel Azure
@@ -105,7 +105,7 @@ Avec un site WordPress en cours d’exécution sur une machine virtuelle dans un
 
 1. Dans la page **Intégration au réseau virtuel**, sélectionnez **Ajouter un réseau virtuel**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Ajouter l’intégration de réseau virtuel - préversion":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Choisir la mise en réseau dans l’application de fonction":::
 
 1. Dans **État de la fonctionnalité réseau**, utilisez les paramètres figurant dans le tableau sous l’image :
 
@@ -129,7 +129,7 @@ Avec l’intégration de réseau virtuel activée, vous pouvez créer un proxy d
 
 1. Dans votre application de fonction, sélectionnez **Proxies** dans le menu de gauche, puis **Ajouter**. Utilisez les paramètres de proxy indiqués dans le tableau sous l’image ci-après :
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Définir les paramètres du proxy":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Choisir la mise en réseau dans l’application de fonction":::
 
     | Paramètre  | Valeur suggérée  | Description      |
     | -------- | ---------------- | ---------------- |

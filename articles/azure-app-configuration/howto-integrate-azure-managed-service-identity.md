@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 02d9407766930f02c70d580112136b50b6036e11
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029861"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078168"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utiliser des identités managées pour accéder à App Configuration
 
@@ -39,7 +39,7 @@ Dans cet article, vous apprendrez comment :
 Pour suivre ce didacticiel, vous avez besoin de :
 
 * [SDK .NET Core](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell configuré](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Azure Cloud Shell configuré](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
     ![Ajouter une identité managée](./media/add-managed-identity.png)
 
-1. Facultatif : Si vous souhaitez également accorder l’accès à Key Vault, suivez les instructions fournies dans [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+1. Facultatif : Si vous souhaitez également accorder l’accès à Key Vault, suivez les instructions fournies dans [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
@@ -185,7 +185,7 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
     Vous pouvez maintenant accéder aux références Key Vault comme n’importe quelle autre clé App Configuration. Le fournisseur de configuration utilise le `KeyVaultClient` que vous avez configuré pour l’authentification auprès de Key Vault et la récupération de la valeur.
 
 > [!NOTE]
-> `ManagedIdentityCredential` prend uniquement en charge l’authentification d’identité managée. Il ne fonctionne pas dans les environnements locaux. Si vous souhaitez exécuter le code localement, vous pouvez utiliser `DefaultAzureCredential`, qui prend également en charge l’authentification du principal du service. Pour plus d’informations, consultez le [lien](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential).
+> `ManagedIdentityCredential` prend uniquement en charge l’authentification d’identité managée. Il ne fonctionne pas dans les environnements locaux. Si vous souhaitez exécuter le code localement, vous pouvez utiliser `DefaultAzureCredential`, qui prend également en charge l’authentification du principal du service. Pour plus d’informations, consultez le [lien](/dotnet/api/azure.identity.defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

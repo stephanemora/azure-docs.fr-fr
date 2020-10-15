@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836120"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961474"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -67,12 +67,12 @@ Lisez tout d’abord les documents suivants :
   * [Présentation du pare-feu Azure](../../../firewall/overview.md) : une présentation du pare-feu Azure
   * [Tutoriel : Déployer et configurer le pare-feu Azure](../../../firewall/tutorial-firewall-deploy-portal.md) : des instructions sur la configuration du pare-feu Azure via le portail Azure
 * [Réseaux virtuels - Règles définies par l’utilisateur](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) : concepts et règles de routage Azure  
-* [Balises de service des groupes de sécurité](../../../virtual-network/security-overview.md#service-tags) : comment simplifier vos groupes de sécurité réseau et la configuration du pare-feu avec des balises de service
+* [Balises de service des groupes de sécurité](../../../virtual-network/network-security-groups-overview.md#service-tags) : comment simplifier vos groupes de sécurité réseau et la configuration du pare-feu avec des balises de service
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Un Azure Standard Load Balancer supplémentaire pour les connexions sortantes vers Internet
 
 Une option pour obtenir une connectivité sortante aux points de terminaison publics, et ce sans autoriser la connectivité entrante à la machine virtuelle à partir du point de terminaison public, consiste à créer un second équilibreur de charge avec une adresse IP publique, à ajouter les machines virtuelles au pool principal du deuxième équilibreur de charge et à définir uniquement les [règles sortantes](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Utilisez les [groupes de sécurité réseau](../../../virtual-network/security-overview.md) pour contrôler les points de terminaison publics, qui sont accessibles pour les appels sortants à partir de la machine virtuelle.  
+Utilisez les [groupes de sécurité réseau](../../../virtual-network/network-security-groups-overview.md) pour contrôler les points de terminaison publics, qui sont accessibles pour les appels sortants à partir de la machine virtuelle.  
 Pour plus d’informations, consultez le scénario 2 dans le document [Connexions sortantes](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 La configuration ressemblerait à ceci :  
 
@@ -81,11 +81,11 @@ La configuration ressemblerait à ceci :
 ### <a name="important-considerations"></a>Points importants à prendre en compte
 
 - Vous pouvez utiliser un Load Balancer public supplémentaire pour plusieurs machines virtuelles dans le même sous-réseau pour obtenir une connectivité sortante vers le point de terminaison public et optimiser les coûts  
-- Utilisez les [groupes de sécurité réseau](../../../virtual-network/security-overview.md) pour contrôler les points de terminaison publics accessibles pour les machines virtuelles. Vous pouvez affecter le groupe de sécurité réseau au sous-réseau ou à chaque machine virtuelle. Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/security-overview.md#service-tags) pour réduire la complexité des règles de sécurité.  
+- Utilisez les [groupes de sécurité réseau](../../../virtual-network/network-security-groups-overview.md) pour contrôler les points de terminaison publics accessibles pour les machines virtuelles. Vous pouvez affecter le groupe de sécurité réseau au sous-réseau ou à chaque machine virtuelle. Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/network-security-groups-overview.md#service-tags) pour réduire la complexité des règles de sécurité.  
 - L’équilibrage de charge Standard Azure avec une adresse IP publique et des règles de trafic sortant permet l’accès direct au point de terminaison public. Si vous avez des exigences de sécurité d’entreprise pour que tout le trafic sortant passe par une solution d’entreprise centralisée pour audit et journalisation, vous ne pourrez peut-être pas répondre aux exigences avec ce scénario.  
 
 >[!TIP]
->Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/security-overview.md#service-tags) pour réduire la complexité du groupe de sécurité réseau. 
+>Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/network-security-groups-overview.md#service-tags) pour réduire la complexité du groupe de sécurité réseau. 
 
 ### <a name="deployment-steps"></a>Étapes du déploiement
 
@@ -117,7 +117,7 @@ La configuration ressemblerait à ceci :
 
    ![Connexion sortante avec le deuxième équilibreur de charge avec une adresse IP publique](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Pour plus d’informations sur les groupes de sécurité réseau Azure, consultez [Groupes de sécurité](../../../virtual-network/security-overview.md). 
+   Pour plus d’informations sur les groupes de sécurité réseau Azure, consultez [Groupes de sécurité](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Pare-feu Azure pour les connexions sortantes vers Internet
 
@@ -137,7 +137,7 @@ L’architecture ressemblerait à :
 - Si la solution de pare-feu d’entreprise n’est pas un pare-feu Azure et que vous avez des exigences de sécurité pour que tout le trafic sortant passe par une solution d’entreprise centralisée, cette solution peut ne pas être pratique.  
 
 >[!TIP]
->Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/security-overview.md#service-tags) pour réduire la complexité des règles du pare-feu Azure.  
+>Dans la mesure du possible, utilisez des [balises de service](../../../virtual-network/network-security-groups-overview.md#service-tags) pour réduire la complexité des règles du pare-feu Azure.  
 
 ### <a name="deployment-steps"></a>Étapes du déploiement
 

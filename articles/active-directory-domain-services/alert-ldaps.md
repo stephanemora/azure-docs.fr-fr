@@ -2,7 +2,7 @@
 title: Résoudre les alertes du protocole LDAP sécurisé dans Azure Active Directory Domain Services | Microsoft Docs
 description: Découvrez comment détecter et résoudre les alertes courantes du protocole LDAP sécurisé pour Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: d987bbbe2a35dd24341b75d5663bab33d8c3bdb9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: joflore
+ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220250"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962800"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes du protocole LDAP sécurisé dans Azure Active Directory Domain Services
 

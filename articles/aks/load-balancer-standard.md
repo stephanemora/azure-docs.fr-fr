@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182120"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070501"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)
 
@@ -322,7 +322,7 @@ Voici une liste des annotations prises en charge pour les services Kubernetes av
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` ou `false`                     | Spécifiez si l’équilibreur de charge doit être interne. Si elle n’est pas définie, la valeur par défaut est public.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nom du sous-réseau                    | Spécifiez le sous-réseau auquel l’équilibreur de charge interne doit être lié. Il s’agit par défaut du sous-réseau configuré dans le fichier de configuration Cloud, s’il n’est pas défini.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nom de l’étiquette DNS sur les adresses IP publiques   | Spécifiez le nom d’étiquette DNS pour le service **public**. Si elle est définie sur une chaîne vide, l’entrée DNS de l’adresse IP publique ne sera pas utilisée.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Spécifiez que le service doit être exposé à l’aide d’une règle de sécurité Azure qui peut être partagée avec un autre service, la spécificité des règles d’une augmentation du nombre de services qui peuvent être exposés. Cette annotation s’appuie sur la fonctionnalité [Règles de sécurité augmentée](../virtual-network/security-overview.md#augmented-security-rules) Azure des groupes de sécurité réseau. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Spécifiez que le service doit être exposé à l’aide d’une règle de sécurité Azure qui peut être partagée avec un autre service, la spécificité des règles d’une augmentation du nombre de services qui peuvent être exposés. Cette annotation s’appuie sur la fonctionnalité [Règles de sécurité augmentée](../virtual-network/network-security-groups-overview.md#augmented-security-rules) Azure des groupes de sécurité réseau. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nom du groupe de ressources            | Spécifiez le groupe de ressources des adresses IP publiques de l’équilibreur de charge ne figurant pas dans le même groupe de ressources que l’infrastructure de cluster (groupe de ressources de nœud).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Liste des balises de service autorisées          | Spécifiez une liste de [balises de service][service-tags] autorisées et séparées par une virgule.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Le délai d'expiration TCP en minutes          | Spécifiez la valeur en minutes, des délais d’expiration de la connexion TCP sur l’équilibreur de charge. La valeur par défaut et minimale est 4. La valeur maximale est 30. Doit être un entier.
@@ -426,4 +426,4 @@ Pour en savoir plus sur l’utilisation de l’équilibreur de charge interne po
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
