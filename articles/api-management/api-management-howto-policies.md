@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905514"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070892"
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
@@ -70,7 +70,7 @@ Pour obtenir la liste complète des instructions et des paramètres de stratégi
 
 ## <a name="policy-samples"></a>Exemples de stratégie
 
-Consultez [Exemples de stratégie](policy-samples.md) pour obtenir plus d’exemples de code.
+Consultez [Exemples de stratégie](./policy-reference.md) pour obtenir plus d’exemples de code.
 
 ## <a name="examples"></a>Exemples
 
@@ -119,7 +119,7 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [Exemples de stratégie](policy-samples.md)   
++ [Exemples de stratégie](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

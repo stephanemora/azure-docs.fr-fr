@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068385"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
@@ -180,7 +180,7 @@ Les chemins d’accès extraits lors de l’indexation des données facilitent l
 
 Considérez la requête suivante : `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Le prédicat de requête (filtrage sur les éléments, où une localisation affiche « France » comme pays/région) correspondrait au chemin mis en évidence en rouge ci-dessous :
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Mise en correspondance d’un chemin d’accès spécifique au sein d’une arborescence" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="L’élément précédent représenté sous forme d’arborescence" border="false":::
 
 > [!NOTE]
 > Une clause `ORDER BY` qui commande par une seule propriété a *toujours* besoin d’un index plage et échouera si le chemin d’accès qu’elle référence n’en a pas. De même, une requête `ORDER BY` qui commande selon plusieurs propriétés nécessite *toujours* un index composite.

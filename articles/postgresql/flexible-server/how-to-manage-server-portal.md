@@ -6,13 +6,13 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: mvc
+ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930059"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961406"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gérer un serveur flexible Azure Database pour PostgreSQL à l’aide du portail Azure
 
@@ -52,7 +52,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="réinitialiser le mot de passe du serveur flexible":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
 
 3. Sélectionnez **Enregistrer** pour enregistrer le nouveau mot de passe.
 
@@ -63,7 +63,7 @@ Vous pouvez supprimer votre serveur si vous n’en avez plus besoin.
 1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
 2. Tapez le nom du serveur dans la zone d’entrée pour confirmer que vous voulez supprimer le serveur.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="supprimer le serveur flexible":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
 
    > [!IMPORTANT]
    > La suppression d’un serveur est irréversible.

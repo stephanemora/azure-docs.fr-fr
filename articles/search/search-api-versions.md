@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761717"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951577"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versions d’API dans la Recherche cognitive Azure
 
@@ -41,7 +41,7 @@ Les versions du kit SDK .NET Recherche cognitive Azure antérieures à la versio
 
 Après cette date, les applications utilisant l’API REST déconseillée ou les versions du Kit de développement logiciel (SDK) ne fonctionneront plus et nécessiteront une mise à niveau. Comme pour toute modification de ce type, nous donnons un préavis de 12 mois pour vous laisser le temps de vous adapter.
 
-Pour continuer à utiliser le service Recherche cognitive Azure, migrez le code existant ciblant [l’API REST](search-api-migration.md) vers l’[API REST version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) ou vers un Kit de développement logiciel (SDK) plus récent avant le 15 octobre 2020.  Si vous avez des questions sur la mise à jour vers la dernière version, envoyez un courrier à azuresearch_contact@microsoft.com pour le 15 mai 2020 afin d’être certain de disposer de suffisamment de temps pour mettre à jour votre code.
+Pour continuer à utiliser le service Recherche cognitive Azure, migrez le code existant ciblant [l’API REST](search-api-migration.md) vers l’[API REST version 2020-06-30](/rest/api/searchservice/) ou vers un Kit de développement logiciel (SDK) plus récent avant le 15 octobre 2020.  Si vous avez des questions sur la mise à jour vers la dernière version, envoyez un courrier à azuresearch_contact@microsoft.com pour le 15 mai 2020 afin d’être certain de disposer de suffisamment de temps pour mettre à jour votre code.
 
 ## <a name="rest-apis"></a>API REST
 
@@ -74,8 +74,8 @@ Créez et configurez un service de recherche et gérez les clés API.
 
 | Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Statut | Description |
 |-------------------------|--------|------------------------------|
-| [Gestion 01-08-2020](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Version stable la plus récente des API REST de gestion. Ajoute la prise en charge de ressource de liaison privée partagée généralement disponible pour toutes les ressources faisant l’objet d’un accès sortant, à l’exception de celles indiquées dans la préversion. |
-| [Gestion 01-08-2020 – Préversion](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | PRÉVERSION  | Actuellement en préversion : prise en charge des ressources de liaison privée partagée pour Azure Functions et Azure Database pour MySQL. |
+| [Gestion 01-08-2020](/rest/api/searchmanagement/) | Stable | Version stable la plus récente des API REST de gestion. Ajoute la prise en charge de ressource de liaison privée partagée généralement disponible pour toutes les ressources faisant l’objet d’un accès sortant, à l’exception de celles indiquées dans la préversion. |
+| [Gestion 01-08-2020 – Préversion](/rest/api/searchmanagement/index-preview) | PRÉVERSION  | Actuellement en préversion : prise en charge des ressources de liaison privée partagée pour Azure Functions et Azure Database pour MySQL. |
 | Gestion 2020-03-13  | Stable | Ajoute un [point de terminaison privé](service-create-private-endpoint.md) via une liaison privée et des [règles d’IP réseau](service-configure-firewall.md) pour les nouveaux services. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Gestion 2019-10-01-Preview | Préversion  | Aucune fonctionnalité en préversion n’a été introduite dans cette liste. Cette préversion est fonctionnellement équivalente à la version 13-03-2020. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Gestion 19-08-2015  | Stable | Première version en disponibilité générale des API REST de gestion. Fournit le provisionnement des services, le scale-up et la gestion des clés API. Pour plus d’informations, consultez cette [spécification Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |

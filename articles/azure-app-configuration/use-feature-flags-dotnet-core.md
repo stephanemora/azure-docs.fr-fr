@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317308"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078899"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -27,7 +27,7 @@ Les bibliothèques de gestion des fonctionnalités .NET Core fournissent une pri
 
 Les bibliothèques de gestion des fonctionnalités gèrent également les cycles de vie des indicateurs de fonctionnalités en arrière-plan. Par exemple, elles actualisent et mettent en cache l’état des indicateurs ou garantissent qu’un état d’indicateur est immuable pendant un appel de demande. De plus, la bibliothèque ASP.NET Core offre des intégrations prêtes à l’emploi, notamment des intergiciels (middleware), des routes, des vues et des actions de contrôleur MVC.
 
-Le [guide de démarrage rapide Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) montre plusieurs façons d’ajouter des indicateurs de fonctionnalités à une application ASP.NET Core. Ce tutoriel explique plus en détails ces différentes méthodes. Pour obtenir une référence complète, consultez la [documentation sur la gestion des fonctionnalités ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410).
+Le [guide de démarrage rapide Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) montre plusieurs façons d’ajouter des indicateurs de fonctionnalités à une application ASP.NET Core. Ce tutoriel explique plus en détails ces différentes méthodes. Pour obtenir une référence complète, consultez la [documentation sur la gestion des fonctionnalités ASP.NET Core](/dotnet/api/microsoft.featuremanagement).
 
 Dans ce didacticiel, vous apprendrez à :
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 Dans ce tutoriel, vous avez découvert comment implémenter des indicateurs de fonctionnalités dans votre application ASP.NET Core en utilisant les bibliothèques `Microsoft.FeatureManagement`. Pour plus d’informations sur la prise en charge de la gestion des fonctionnalités dans ASP.NET Core et App Configuration, consultez les ressources suivantes :
 
-* [Exemple de code d’indicateur de fonctionnalité ASP.NET Core](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Documentation de Microsoft.FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [Exemple de code d’indicateur de fonctionnalité ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Documentation de Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement)
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md)

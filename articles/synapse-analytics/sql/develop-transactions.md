@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500757"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91288611"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Utilisation de transactions dans un pool SQL
 
@@ -29,7 +29,7 @@ Comme vous le savez, le pool SQL prend en charge les transactions dans le cadre 
 
 Le pool SQL implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l'option de base de données READ_COMMITTED_SNAPSHOT pour une base de données utilisateur lorsqu'elle est connectée à la base de données MASTER.  
 
-Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).
+Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="transaction-size"></a>Taille de la transaction
 Une transaction de modification de données unique est limitée en taille. La limite est appliquée par distribution. Par conséquent, l’allocation totale peut être calculée en multipliant la limite par le nombre de distributions. 
@@ -181,7 +181,7 @@ La seule chose qui a changé est que l’opération ROLLBACK de la transaction d
 
 ## <a name="error_line-function"></a>Fonction Error_Line()
 
-Il est également important de signaler que le pool SQL n’implémente ni ne prend en charge la fonction ERROR_LINE(). Si elle figure dans votre code, vous devez la supprimer pour respecter les exigences du pool SQL. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Pour plus d’informations, consultez l’article [LABEL](develop-label.md).
+Il est également important de signaler que le pool SQL n’implémente ni ne prend en charge la fonction ERROR_LINE(). Si cette fonction figure dans votre code, vous devez la supprimer pour respecter les exigences du pool SQL. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Pour plus d’informations, consultez l’article [LABEL](develop-label.md) :
 
 ## <a name="use-of-throw-and-raiserror"></a>Utilisation des paramètres THROW et RAISERROR
 
@@ -193,9 +193,7 @@ THROW est l’implémentation la plus moderne du déclenchement d’exceptions d
 
 ## <a name="limitations"></a>Limites
 
-En ce qui concerne les transactions, le pool SQL présente quelques restrictions supplémentaires.
-
-Les voici :
+En ce qui concerne les transactions, le pool SQL présente quelques restrictions supplémentaires. Les voici :
 
 * Les transactions distribuées ne sont pas acceptées.
 * Les transactions imbriquées ne sont pas autorisées.

@@ -2,7 +2,7 @@
 title: Regrouper les comptes de service administrés pour Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment créer un compte de service administré de groupe (gMSA) pour une utilisation avec des domaines managés Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: joflore
+ms.openlocfilehash: af1df1dd95d570038c44ea9052db88ae80586c32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960981"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Créer un compte de service administré de groupe (gMSA) dans Azure Active Directory Domain Services
 
