@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325706"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932343"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -62,9 +62,9 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     L’espace d’adressage du réseau virtuel où Azure NetApp Files est déployé doit être ajouté à un site Active Directory nouveau ou existant (où se trouve un contrôleur de domaine accessible par Azure NetApp Files). 
 
-* Les serveurs DNS spécifiés doivent être accessibles à partir du [sous-réseau délégué](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) d’Azure NetApp Files.  
+* Les serveurs DNS spécifiés doivent être accessibles à partir du [sous-réseau délégué](./azure-netapp-files-delegate-subnet.md) d’Azure NetApp Files.  
 
-    Consultez [Consignes pour planifier un réseau Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour découvrir les topologies de réseau prises en charge.
+    Consultez [Consignes pour planifier un réseau Azure NetApp Files](./azure-netapp-files-network-topologies.md) pour découvrir les topologies de réseau prises en charge.
 
     Les groupes de sécurité réseau et les pare-feu doivent avoir des règles configurées de manière appropriée pour autoriser les demandes de trafic Active Directory et DNS. 
 
@@ -72,7 +72,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     Si vous avez des contrôleurs de domaine que le sous-réseau délégué Azure NetApp Files ne peut pas atteindre, vous pouvez spécifier un site Active Directory au moment de créer la connexion Active Directory.  Azure NetApp Files doit communiquer uniquement avec les contrôleurs de domaine du site où se trouve l’espace d’adressage du sous-réseau délégué Azure NetApp Files.
 
-    Consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
+    Consultez [Conception de la topologie du site](/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
     
 * Vous pouvez activer le chiffrement AES pour un volume SMB en activant la case à cocher **Chiffrement AES** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). Azure NetApp Files prend en charge les types de chiffrement DES, Kerberos AES 128 et Kerberos AES 256 (du moins sécurisé au plus sécurisé). Si vous activez le chiffrement AES, les informations d’identification de l’utilisateur utilisées pour rejoindre Active Directory doivent avoir l’option de compte correspondante la plus élevée activée correspondant aux fonctionnalités activées pour votre instance Active Directory.    
 
@@ -82,21 +82,21 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     ![MMC des utilisateurs et ordinateurs Active Directory](../media/azure-netapp-files/ad-users-computers-mmc.png)
 
-* Azure NetApp Files prend en charge la [signature LDAP](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), qui permet la transmission sécurisée du trafic LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ciblés. Si vous suivez les conseils de l’avis de sécurite Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) pour la signature LDAP, vous devez activer la fonctionnalité de signature LDAP dans Azure NetApp Files en activant la case à cocher **Signature LDAP** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). 
+* Azure NetApp Files prend en charge la [signature LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), qui permet la transmission sécurisée du trafic LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ciblés. Si vous suivez les conseils de l’avis de sécurite Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) pour la signature LDAP, vous devez activer la fonctionnalité de signature LDAP dans Azure NetApp Files en activant la case à cocher **Signature LDAP** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). 
 
     La configuration de [Liaison de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) n’a aucun effet sur le service Azure NetApp Files. 
 
-Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) pour Azure NetApp Files. 
+Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB](./azure-netapp-files-faqs.md#smb-faqs) pour Azure NetApp Files. 
 
 ## <a name="decide-which-domain-services-to-use"></a>Déterminer quels services de domaine utiliser 
 
-Azure NetApp Files prend en charge à la fois [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) et Azure Active Directory Domain Services (AADDS) pour les connexions AD.  Avant de créer une connexion AD, vous devez choisir entre ADDS et AADDS.  
+Azure NetApp Files prend en charge à la fois [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) et Azure Active Directory Domain Services (AADDS) pour les connexions AD.  Avant de créer une connexion AD, vous devez choisir entre ADDS et AADDS.  
 
-Pour plus d’informations, consultez [Comparer les services Active Directory Domain Services auto-gérés, Azure Active Directory et Azure Active Directory Domain Services managés](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). 
+Pour plus d’informations, consultez [Comparer les services Active Directory Domain Services auto-gérés, Azure Active Directory et Azure Active Directory Domain Services managés](../active-directory-domain-services/compare-identity-solutions.md). 
 
 ### <a name="active-directory-domain-services"></a>Active Directory Domain Services
 
-Vous pouvez utiliser l’étendue [Sites et services Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) préférée pour Azure NetApp Files. Cette option autorise les accès en lecture et écriture aux contrôleurs de domaine Active Directory Domain Services (ADDS) [accessibles à Azure NetApp Files](azure-netapp-files-network-topologies.md). Par ailleurs, elle empêche le service de communiquer avec les contrôleurs de domaine qui ne se trouvent pas dans le site Sites et services Active Directory spécifié. 
+Vous pouvez utiliser l’étendue [Sites et services Active Directory](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) préférée pour Azure NetApp Files. Cette option autorise les accès en lecture et écriture aux contrôleurs de domaine Active Directory Domain Services (ADDS) [accessibles à Azure NetApp Files](azure-netapp-files-network-topologies.md). Par ailleurs, elle empêche le service de communiquer avec les contrôleurs de domaine qui ne se trouvent pas dans le site Sites et services Active Directory spécifié. 
 
 Si vous utilisez ADDS, vous pouvez obtenir le nom de votre site auprès du groupe d’administration de votre organisation qui est en charge d’Active Directory Domain Services. L’exemple ci-dessous illustre le plug-in Sites et services Active Directory dans lequel figure le nom du site : 
 
@@ -106,7 +106,7 @@ Quand vous configurez une connexion AD pour Azure NetApp Files, vous devez spéc
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
 
-Pour obtenir des recommandations et des informations sur la configuration d’Azure Active Directory Domain Services (AADDS), consultez la [documentation Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+Pour obtenir des recommandations et des informations sur la configuration d’Azure Active Directory Domain Services (AADDS), consultez la [documentation Azure AD Domain Services](../active-directory-domain-services/index.yml).
 
 Des considérations supplémentaires liées à AADDS s’appliquent à Azure NetApp Files : 
 
@@ -184,10 +184,10 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
     * **Signature LDAP**   
-        Cochez cette case pour activer la signature LDAP. Cette fonctionnalité permet de sécuriser les recherches LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory Domain Services](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services) spécifiés par l’utilisateur. Pour plus d’informations, consultez [ADV190023 | Instructions de Microsoft pour activer la liaison de canal LDAP et la signature LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+        Cochez cette case pour activer la signature LDAP. Cette fonctionnalité permet de sécuriser les recherches LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory Domain Services](/windows/win32/ad/active-directory-domain-services) spécifiés par l’utilisateur. Pour plus d’informations, consultez [ADV190023 | Instructions de Microsoft pour activer la liaison de canal LDAP et la signature LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 
         ![Signature LDAP Active Directory](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
@@ -206,7 +206,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
      * **Utilisateurs de stratégie de sauvegarde**  
         Vous pouvez inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files.  
@@ -228,7 +228,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
@@ -325,6 +325,6 @@ Vous pouvez définir des autorisations pour un fichier ou un dossier à l’aide
 
 * [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Questions fréquentes sur SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
-* [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-* [Installation d’une nouvelle forêt Active Directory à l’aide d’Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Questions fréquentes sur SMB](./azure-netapp-files-faqs.md#smb-faqs)
+* [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](../virtual-network/virtual-network-for-azure-services.md)
+* [Installation d’une nouvelle forêt Active Directory à l’aide d’Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

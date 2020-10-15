@@ -3,19 +3,19 @@ title: Forum Aux Questions sur Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Forum aux questions sur le service Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.author: mbullwin
+ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631735"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046806"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Forum Aux Questions sur Metrics Advisor
 

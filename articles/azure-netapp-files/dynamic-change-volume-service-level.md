@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 9050982338c4a6096ef180b34c0d0a0dca931427
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f5627f4bd0d62a70ef9d7809f0bf1441141f4c6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278309"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931243"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Changer dynamiquement le niveau de service d’un volume
 
@@ -53,7 +53,7 @@ La fonctionnalité de déplacement d’un volume vers un autre pool de capacité
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Déplacer un volume vers un autre pool de capacité
 

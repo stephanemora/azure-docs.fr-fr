@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 3d5ca648b149fa85b28f695956a438cdac9e67e8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086621"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047945"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutoriel : Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -42,7 +42,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Linux AMD64 exécutant Azure IoT Edge](quickstart-linux.md).
   * Les appareils ARM, comme Raspberry Pis, ne peuvent pas exécuter SQL Server. Si vous souhaitez utiliser SQL sur un appareil ARM, vous pouvez vous inscrire pour essayer [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) en préversion.
-* Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
 
@@ -228,7 +228,7 @@ Un [manifeste de déploiement](module-composition.md) déclare les modules que l
 7. Recherchez la section **modules**. Vous devez voir trois modules. Le module *SimulatedTemperatureSensor* est inclus par défaut dans les nouvelles solutions et fournit des données de test à utiliser avec vos autres modules. Le module *sqlFunction* est le module que vous avez initialement créé et mis à jour avec le nouveau code. Enfin, le module *sql* a été importé à partir de la Place de marché Azure.
 
    >[!Tip]
-   >Le module SQL Server est fourni avec un mot de passe par défaut défini dans les variables d’environnement du manifeste de déploiement. Chaque fois que vous créez un conteneur SQL Server dans un environnement de production, vous devez [modifier le mot de passe administrateur par défaut du système](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >Le module SQL Server est fourni avec un mot de passe par défaut défini dans les variables d’environnement du manifeste de déploiement. Chaque fois que vous créez un conteneur SQL Server dans un environnement de production, vous devez [modifier le mot de passe administrateur par défaut du système](/sql/linux/quickstart-install-connect-docker).
 
 8. Fermez le fichier **deployment.template.json**.
 
@@ -331,9 +331,9 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+Dans ce tutoriel, vous avez créé un module Azure Functions qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez découvrir comment [développer Azure Functions avec Azure IoT Edge pour Visual Studio Code](./how-to-vs-code-develop-module.md).
 
-Dans ce tutoriel, vous avez créé un module Azure Functions qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez découvrir comment [développer Azure Functions avec Azure IoT Edge pour Visual Studio Code](how-to-develop-csharp-function.md).
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous souhaitez essayer une autre méthode de stockage en périphérie, découvrez comment utiliser le Stockage Blob Azure sur IoT Edge.
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836477"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Création et gestion de Private Link pour Azure Database for MariaDB avec le portail
@@ -130,7 +130,7 @@ Dans cette section, vous allez créer un serveur Azure Database for MariaDB dans
 
 Dans cette section, vous allez créer un point de terminaison privé pour l’ajouter au serveur MariaDB. 
 
-1. En haut à gauche de l’écran du Portail Azure, sélectionnez **Créer une ressource** > **Réseaux** > **Liaison privée**.
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Liaison privée**.
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
     ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
@@ -240,7 +240,7 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
 
 6. (Facultatif) Parcourez les bases de données à partir du menu de gauche et créez ou interrogez des informations à partir de la base de données MariaDB
 
-7. Fermez la connexion Bureau à distance avec myVm.
+7. Fermez la connexion Bureau à distance à myVm.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur MariaDB et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient :

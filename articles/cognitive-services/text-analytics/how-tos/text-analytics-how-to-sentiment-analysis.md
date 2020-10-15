@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 08/25/2020
+ms.date: 10/09/2020
 ms.author: aahi
-ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933016"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930286"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -78,13 +78,13 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
-
-[Informations de référence sur Analyse des sentiments v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
-
 #### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
 
 [Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+
+#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+[Informations de référence sur Analyse des sentiments v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
 ---
 
@@ -95,10 +95,6 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver votre clé et votre point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
-
 #### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
@@ -108,6 +104,10 @@ Pour avoir les résultats de l’exploration des opinions, vous devez inclure le
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
+
+#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
 ---
 
@@ -141,44 +141,6 @@ L’API Analyse de texte est sans état. Aucune donnée n’est stockée dans vo
 L’analyse des sentiments retourne une étiquette de sentiment et un score de confiance pour l’ensemble du document et chaque phrase qu’il contient. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Un document peut contenir plusieurs phrases, et les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1.
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages](../concepts/text-offsets.md).
-
-#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
-
-### <a name="sentiment-analysis-v30-example-response"></a>Exemple de réponse d’Analyse des sentiments v3.0
-
-Les réponses d’Analyse des sentiments v3 contiennent des étiquettes de sentiment pour chaque phrase et document analysés.
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly."
-                }
-            ],
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
-}
-```
 
 #### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-1)
 
@@ -266,6 +228,44 @@ Analyse des sentiments v3.1 propose l’exploration des opinions en plus de l�
                             "isNegated": false
                         }
                     ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
+```
+
+#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+### <a name="sentiment-analysis-v30-example-response"></a>Exemple de réponse d’Analyse des sentiments v3.0
+
+Les réponses d’Analyse des sentiments v3 contiennent des étiquettes de sentiment pour chaque phrase et document analysés.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
             ],
             "warnings": []

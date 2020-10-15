@@ -4,12 +4,12 @@ description: Détails de l’initiative intégrée Conformité réglementaire de
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 93d875c55a671fe68cec720bc78507fcbec638b9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5da46631d0b6cfcd142ab32172de306115a080bd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91820024"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932156"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée Conformité réglementaire de CIS Microsoft Azure Foundations Benchmark
 
@@ -23,7 +23,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 > [!IMPORTANT]
 > Chaque contrôle ci-dessous est associé à une ou plusieurs définitions [Azure Policy](../overview.md).
-> Ces stratégies peuvent vous aider à [évaluer la conformité](../how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance de 1:1 ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux définitions de stratégie elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les domaines de conformité, les contrôles et les définitions Azure Policy pour cette norme de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
+> Ces stratégies peuvent vous aider à [évaluer la conformité](../how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance un-à-un ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux définitions de stratégie elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les domaines de conformité, les contrôles et les définitions Azure Policy pour cette norme de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 

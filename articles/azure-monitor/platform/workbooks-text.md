@@ -2,19 +2,17 @@
 title: Paramètres texte des classeurs Azure Monitor
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés. Apprenez-en davantage sur les paramètres de texte de classeur.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7241777c0b94ce7ccadbd273c5c305c679bfe30a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687323"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932309"
 ---
 # <a name="workbook-text-parameters"></a>Paramètres texte de classeur
 

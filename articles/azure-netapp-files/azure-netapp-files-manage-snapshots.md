@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325687"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932275"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -65,7 +65,7 @@ La fonctionnalité **stratégie d’instantané** est actuellement en préversio
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
 ### <a name="create-a-snapshot-policy"></a>Créer une stratégie de capture instantanée 
 

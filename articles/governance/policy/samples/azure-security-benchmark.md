@@ -4,12 +4,12 @@ description: Informations sur l’initiative intégrée Conformité réglementai
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 722ed78592ef8e0d7443635c087c8611ef3483fa
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91820038"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932173"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark
 
@@ -23,7 +23,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 > [!IMPORTANT]
 > Chaque contrôle ci-dessous est associé à une ou plusieurs définitions [Azure Policy](../overview.md).
-> Ces stratégies peuvent vous aider à [évaluer la conformité](../how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance de 1:1 ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux définitions de stratégie elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les domaines de conformité, les contrôles et les définitions Azure Policy pour cette norme de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json).
+> Ces stratégies peuvent vous aider à [évaluer la conformité](../how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance un-à-un ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux définitions de stratégie elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les domaines de conformité, les contrôles et les définitions Azure Policy pour cette norme de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json).
 
 ## <a name="network-security"></a>Sécurité réseau
 

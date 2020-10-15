@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e88cf0c063b3ba42dadd72c19c23be8fcf919b86
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325587"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930728"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -130,4 +130,4 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 * [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurer une stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](../virtual-network/virtual-network-for-azure-services.md)

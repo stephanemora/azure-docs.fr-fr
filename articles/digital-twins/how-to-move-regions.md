@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328493"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047384"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -49,18 +49,18 @@ Voici quelques questions à prendre en compte :
     - Service de provisionnement d’appareil (DPS)
 * Quelles autres **applications personnelles ou d’entreprise** se connectent à mon instance ?
 
-Vous pouvez collecter ces informations à l’aide du [portail Azure](https://portal.azure.com), des [API et kits SDK Azure Digital Twins](how-to-use-apis-sdks.md), des [commandes CLI d’Azure Digital Twins](how-to-use-cli.md) ou de l’exemple [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez collecter ces informations à l’aide du [portail Azure](https://portal.azure.com), des [API et kits SDK Azure Digital Twins](how-to-use-apis-sdks.md), des [commandes CLI d’Azure Digital Twins](how-to-use-cli.md) ou de l’exemple [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 ## <a name="prepare"></a>Préparation
 
-Dans cette section, vous allez préparer la recréation de votre instance en **téléchargeant vos modèles, jumeaux et graphe d’origine** à partir de votre instance de départ. À cette fin, le présent article utilise l’exemple [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Dans cette section, vous allez préparer la recréation de votre instance en **téléchargeant vos modèles, jumeaux et graphe d’origine** à partir de votre instance de départ. À cette fin, le présent article utilise l’exemple [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 >[!NOTE]
 >Vous disposez peut-être déjà des fichiers contenant les modèles et/ou le graphe dans votre instance. Si c’est le cas, vous n’avez pas besoin de tout retélécharger, récupérez seulement les éléments manquants, ou qui ont été modifiés depuis le chargement initial de ces fichiers (par exemple, les jumeaux qui ont peut-être été mis à jour avec de nouvelles données).
 
 ### <a name="limitations-of-adt-explorer"></a>Limites d’ADT Explorer
 
-L’[exemple Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) est un exemple d’application cliente qui prend en charge une représentation visuelle de votre graphe et fournit une interaction visuelle avec votre instance. Cet article explique comment l’utiliser pour télécharger, puis recharger ultérieurement vos modèles, jumeaux et graphes.
+L’[exemple Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) est un exemple d’application cliente qui prend en charge une représentation visuelle de votre graphe et fournit une interaction visuelle avec votre instance. Cet article explique comment l’utiliser pour télécharger, puis recharger ultérieurement vos modèles, jumeaux et graphes.
 
 Notez, cependant, qu’il s’agit d’un **exemple** et non d’un outil complet. Il n’a fait l’objet d’aucun test de contrainte et n’est pas conçu pour gérer des graphes de grande taille. Par conséquent, n’oubliez pas les limites suivantes de cet exemple prêt à l’emploi :
 * Pour l’instant, l’exemple a été testé uniquement sur des tailles de graphes comprises entre 1 000 nœuds et 2 000 relations.
@@ -76,7 +76,7 @@ Si l’exemple n’est pas en mesure de gérer la taille de votre graphe, vous p
 
 Pour continuer avec ADT Explorer, commencez par télécharger l’exemple de code d’application, puis configurez-le pour qu’il s’exécute sur votre machine. 
 
-Accédez à l’exemple ici : [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**ADT_Explorer.zip**_. Décompressez le fichier.
+Accédez à l’exemple ici : [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**ADT_Explorer.zip**_. Décompressez le fichier.
 
 Ensuite, configurez les autorisations permettant à ADT Explorer de s’exécuter sur votre machine. Pour ce faire, suivez les étapes décrites à la section [*Définir les autorisations d’ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) du Guide de démarrage rapide d’Azure Digital Twins.
 
@@ -219,7 +219,7 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 Pour confirmer que votre nouvelle instance a été correctement configurée, vous pouvez utiliser les outils suivants :
 * Le [**Portail Azure**](https://portal.azure.com) (idéal pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la région cible appropriée ; il est également pratique pour la vérification des points de terminaison et des routes ainsi que des connexions à d’autres services Azure)
 * Les [**commandes CLI** d’Azure Digital Twins](how-to-use-cli.md) (idéales pour vérifier que votre nouvelle instance existe et qu’elle se trouve dans la région cible appropriée ; elles peuvent également être utilisées pour contrôler les données d’instance)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (pratique pour la vérification des données d’instance, telles que les modèles, les jumeaux et le graphe)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (pratique pour la vérification des données d’instance, telles que les modèles, les jumeaux et le graphe)
 * Les [API et kits SDK Azure Digital Twins](how-to-use-apis-sdks.md) (pratiques pour la vérification des données d’instance, telles que les modèles, les jumeaux et le graphe ; également recommandés pour la vérification des points de terminaison et des routes)
 
 Vous pouvez aussi essayer d’exécuter les applications personnalisées ou les flux de bout en bout que vous avez exécutés avec votre instance d’origine, pour vous permettre de vérifier leur fonctionnement correct avec la nouvelle instance.

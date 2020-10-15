@@ -4,10 +4,10 @@ description: Cet article décrit en détails les fonctionnalités et la terminol
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936229"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs

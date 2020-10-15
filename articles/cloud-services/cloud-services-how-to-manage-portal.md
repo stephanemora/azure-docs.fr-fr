@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002928"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076706"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
 Dans la zone **Services cloud** du portail Azure, vous pouvez :
@@ -83,7 +83,7 @@ Notez que les mises à jour du système d’exploitation invité et les opérati
 
 **Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?**
 
-Comme décrit dans la section précédente, une permutation de déploiements est généralement rapide, car il s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
+Comme décrit dans la section précédente, une permutation de déploiements est généralement rapide, car il s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Supprimer des déploiements et un service cloud
 Avant de pouvoir supprimer un service cloud, vous devez supprimer tous les déploiements existants.
@@ -124,6 +124,3 @@ Le panneau **d’aperçu** possède une barre d’état en haut. Lorsque vous s�
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * Configurez des [certificats TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

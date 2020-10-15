@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653687"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929454"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Questions fréquentes (FAQ) sur les performances SMB pour Azure NetApp Files
 
@@ -39,7 +39,7 @@ Quand SMB Multichannel est activé, un client SMB3 établit plusieurs connexions
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Quelles versions de Windows prennent en charge SMB Multichannel ?
 
-Windows prend en charge SMB Multichannel depuis Windows 2012 pour optimiser les performances.  Pour plus d’informations, consultez [déployer SMB Multichannel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) et [Notions de base de SMB Multichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/). 
+Windows prend en charge SMB Multichannel depuis Windows 2012 pour optimiser les performances.  Pour plus d’informations, consultez [déployer SMB Multichannel](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) et [Notions de base de SMB Multichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0). 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Ma machine virtuelle Azure prend-elle en charge RSS ?
@@ -132,7 +132,7 @@ Une fois que le trafic de données est en cours d’exécution dans vos volumes,
 
 ## <a name="is-accelerated-networking-recommended"></a>L’accélération réseau est-elle recommandée ?
 
-Pour des performances optimales, il est recommandé de configurer l’[accélération réseau](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) dans la mesure du possible. Gardez à l’esprit les points suivants :  
+Pour des performances optimales, il est recommandé de configurer l’[accélération réseau](../virtual-network/create-vm-accelerated-networking-powershell.md) dans la mesure du possible. Gardez à l’esprit les points suivants :  
 
 * Le portail Azure active l’accélération réseau par défaut pour les machines virtuelles prenant en charge cette fonctionnalité.  Toutefois, il est possible que ce ne soit pas le cas d’autres méthodes de déploiement telles qu’Ansible et les outils de configuration similaires.  L’échec de l’activation de l’accélération réseau peut entraver les performances d’une machine.  
 * Si l’accélération réseau n’est pas activée sur l’interface réseau d’une machine virtuelle en raison de l’absence de prise en charge d’un type ou d’une taille d’instance, elle reste désactivée avec les types d’instances plus grands. Dans ces cas, vous avez besoin d’une intervention manuelle.
