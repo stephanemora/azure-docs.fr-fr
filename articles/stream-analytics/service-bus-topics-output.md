@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ef5802d0c5e35b9c12db1f40782ba5f190ad1883
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91261044"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Sortie des rubriques Service Bus à partir d’Azure Stream Analytics
 
@@ -46,6 +46,22 @@ La taille maximale du message est de 256 Ko par message pour le niveau Standard 
 ## <a name="custom-metadata-properties-for-output"></a>Propriétés de métadonnées personnalisées pour la sortie
 
 Vous pouvez joindre des colonnes de requête en tant que propriétés de l’utilisateur aux messages sortants. Ces colonnes ne font pas partie de la charge utile. Les propriétés sont présentes sous la forme d’un dictionnaire sur le message de sortie. *Clé* est le nom de colonne et *valeur* est la valeur de la colonne dans le dictionnaire de propriétés. Tous les types de données Stream Analytics sont pris en charge à l’exception des enregistrements et des tableaux.
+
+Dans l’exemple suivant, les champs `DeviceId` et `DeviceStatus` sont ajoutés aux métadonnées.
+
+1. Utilisez la requête suivante :
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configurez `DeviceId,DeviceStatus` comme colonnes de propriété dans la sortie.
+
+   :::image type="content" source="media/service-bus-topics-output/property-columns.png" alt-text="Colonnes de propriété":::
+
+L’illustration suivante présente les propriétés de message de sortie attendues qui sont inspectées dans un Event Hub à l’aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Colonnes de propriété":::
 
 ## <a name="system-properties"></a>Propriétés système
 

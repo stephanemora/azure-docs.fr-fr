@@ -198,7 +198,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Policy
+        - name: Stratégie
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -224,7 +224,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Policy
+        - name: Stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Définitions de stratégies
           href: /rest/api/resources/policydefinitions
+        - name: Exemptions de stratégies
+          href: /rest/api/resources/policyexemptions
         - name: Définitions d’initiatives
           href: /rest/api/resources/policysetdefinitions
         - name: Ressources suivies par les stratégies

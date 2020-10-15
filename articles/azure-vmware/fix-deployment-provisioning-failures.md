@@ -4,10 +4,10 @@ description: Comment obtenir les informations dont vous avez besoin auprès de v
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752239"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenir de l’aide pour les échecs d’approvisionnement ou de déploiement d’Azure VMware Solution
@@ -37,7 +37,7 @@ Si l’échec se produit lors des étapes préalables à la validation, avant le
 
 Les détails des erreurs peuvent également être utiles pour résoudre votre problème. Dans l’écran précédent, sélectionnez **Cliquez ici pour plus de détails** (en surbrillance). Un résumé des erreurs s’ouvre, comme affiché dans la capture d’écran suivante.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Résumé des options.":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
 
 Recopiez et réenregistrez ce résumé pour l’inclure dans la demande de service.
  
@@ -45,15 +45,15 @@ Recopiez et réenregistrez ce résumé pour l’inclure dans la demande de servi
 
 Vous pouvez récupérer les déploiements passés, notamment ceux qui ont échoué, en effectuant une recherche dans le journal d’activité de déploiement auquel vous accédez en sélectionnant l’icône des notifications.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Ouvrez les notifications.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
 
 Dans Notifications, sélectionnez **Plus d’événements dans le journal d’activité**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Lien : Plus d’événements dans le journal d’activité.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
 
 Recherchez ensuite le nom de la ressource, ou une autre information unique que vous avez utilisée lors de la création de la ressource en vue de trouver le déploiement ayant échoué et son ID de corrélation. L’exemple suivant montre les résultats de recherche sur une ressource de cloud privé (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Recherchez les déploiements de d’Azure VMware Solution ayant échoué dans le passé.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
  
 Si vous sélectionnez le nom d’opération du déploiement qui a échoué, une fenêtre contenant des détails s’ouvre. Sélectionnez l’onglet JSON et recherchez correlationId. Copiez et incluez dans la demande de service. 
  
@@ -63,7 +63,7 @@ Vous disposez peut-être déjà d’un cloud privé et vous rencontrez un probl�
 
 Lors de l’affichage d’un cloud privé dans le portail, sélectionnez **Connectivité > ExpressRoute** et copiez l’**ID ExpressRoute** dans le Presse-papiers.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copiez l’ID ExpressRoute dans le presse-papiers."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation."::: 
  
 Collez l’ID ExpressRoute dans le champ approprié de la nouvelle demande de support. Pour plus d’informations, consultez la section suivante, [Créer votre demande de support](#create-your-support-request).
  
@@ -78,7 +78,7 @@ Voici des conseils supplémentaires spécifiques à la création d’une demande
 
 1. Sélectionnez l’icône **Aide** puis **+ Nouvelle demande de support**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collectez un ID ExpressRoute pour votre DS.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Échec du déploiement du cloud privé avec l’ID de corrélation.":::
 
 2. Renseignez tous les champs obligatoires et, sous l’onglet **Informations de base** :
 

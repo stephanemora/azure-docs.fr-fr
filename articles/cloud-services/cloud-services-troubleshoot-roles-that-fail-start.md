@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460114"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076570"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.
@@ -122,6 +122,6 @@ Pour résoudre les erreurs liées à des DLL et des assemblies manquants, procé
 Après avoir vérifié que toutes les erreurs ont été corrigées, vous pouvez déployer le service sans cocher la case **Activer IntelliTrace pour les rôles .NET 4** .
 
 ## <a name="next-steps"></a>Étapes suivantes
-Affichez plus d’ [articles de résolution des problèmes](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) liés aux services cloud.
+Affichez plus d’ [articles de résolution des problèmes](../index.yml?product=cloud-services&tag=top-support-issue) liés aux services cloud.
 
-Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

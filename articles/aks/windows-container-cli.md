@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c99244df7811b09abaf10d54d924a727201bbad
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421227"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076638"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -268,7 +268,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

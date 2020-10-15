@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253851"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968937"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Effectuer une mise à niveau de Read v2.x vers Read v3.x
 
@@ -55,7 +55,7 @@ Lorsque l’appel de `Get Read Operation Result` aboutit, il renvoie un champ de
  
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
@@ -194,7 +194,7 @@ Lorsque l’appel de `Get Recognize Text Operation Result` aboutit, il renvoie u
  
 |Reconnaître le texte 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|

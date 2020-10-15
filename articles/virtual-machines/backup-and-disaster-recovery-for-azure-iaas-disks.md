@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754971"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969702"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -48,7 +48,7 @@ Cette architecture a permis à Azure de fournir de façon cohérente une durabil
 
 Les défaillances matérielles localisées sur l’ordinateur hôte ou dans la plateforme de stockage peuvent parfois entraîner une indisponibilité temporaire de la machine virtuelle qui est couverte par le [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) qui en garantit la disponibilité. Azure fournit également un contrat SLA de pointe pour les instances de machine virtuelle uniques qui utilisent des disques SSD Azure Premium.
 
-Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](windows/manage-availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur.
+Pour protéger les charges de travail d’application contre les temps d’arrêt suite à l’indisponibilité temporaire d’un disque ou d’une machine virtuelle, les clients peuvent utiliser les [groupes à haute disponibilité](./manage-availability.md). Plusieurs machines virtuelles regroupées dans un groupe à haute disponibilité assurent la redondance de votre application. Azure crée ensuite ces machines virtuelles et disques dans des domaines d’erreur distincts avec différents composants d’alimentation, réseau et serveur.
 
 En raison de ces domaines d’erreur distincts, les défaillances matérielles localisées n’affectent généralement pas plusieurs machines virtuelles du groupe en même temps. Ces domaines d’erreur distincts garantissent une haute disponibilité pour votre application. Il est considéré comme une bonne pratique d’utiliser des groupes à haute disponibilité lorsque la haute disponibilité est requise. La section suivante couvre l’aspect de la récupération d’urgence.
 
@@ -77,7 +77,7 @@ Prenons l’exemple d’un serveur de base de données de production, tel que SQ
 - Les données doivent être protégées et récupérables.
 - Le serveur doit être disponible pour utilisation.
 
-Le plan de récupération d’urgence peut nécessiter de maintenir un réplica de la base de données dans une autre région en tant que sauvegarde. Selon les exigences liées à la récupération des données et à la disponibilité du serveur, la solution peut aller d’un site de réplica actif-actif ou actif-passif à des sauvegardes en mode hors connexion des données. Les bases de données relationnelles, telles que SQL Server et Oracle, fournissent diverses options pour la réplication. Pour SQL Server, utilisez les [groupes de disponibilité SQL Server Always On](https://msdn.microsoft.com/library/hh510230.aspx) pour la haute disponibilité.
+Le plan de récupération d’urgence peut nécessiter de maintenir un réplica de la base de données dans une autre région en tant que sauvegarde. Selon les exigences liées à la récupération des données et à la disponibilité du serveur, la solution peut aller d’un site de réplica actif-actif ou actif-passif à des sauvegardes en mode hors connexion des données. Les bases de données relationnelles, telles que SQL Server et Oracle, fournissent diverses options pour la réplication. Pour SQL Server, utilisez les [groupes de disponibilité SQL Server Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) pour la haute disponibilité.
 
 Les bases de données NoSQL comme MongoDB prennent également en charge les [réplicas](https://docs.mongodb.com/manual/replication/) pour assurer la redondance. Les réplicas pour la haute disponibilité sont utilisés.
 
@@ -201,7 +201,7 @@ Une autre option pour créer des sauvegardes cohérentes consiste à arrêter la
 
 1. Créez une capture instantanée de chaque objet blob de disque dur virtuel. Cette opération ne prend que quelques secondes.
 
-    Pour créer une capture instantanée, vous pouvez utiliser [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), l’[API REST Stockage Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/) ou l’une des bibliothèques clientes Stockage Azure comme [la bibliothèque cliente Stockage pour .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Pour créer une capture instantanée, vous pouvez utiliser [PowerShell](/powershell/module/az.storage), l’[API REST Stockage Azure](/rest/api/storageservices/Snapshot-Blob), [Azure CLI](/cli/azure/) ou l’une des bibliothèques clientes Stockage Azure comme [la bibliothèque cliente Stockage pour .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Démarrez la machine virtuelle, ce qui met fin au temps d’arrêt. En général, l’ensemble du processus se termine en quelques minutes.
 
@@ -224,7 +224,7 @@ Pour copier efficacement vos captures instantanées incrémentielles à des fins
 
 ### <a name="recovery-from-snapshots"></a>Récupération à partir de captures instantanées
 
-Pour récupérer une capture instantanée, copiez-la pour créer un nouveau blob. Si vous copiez la capture instantanée à partir du compte principal, vous pouvez la copier dans l’objet blob de base de la capture instantanée. Ce processus rétablit le disque vers la capture instantanée. Ce processus est également appelé « promotion de la capture instantanée ». Si vous copiez la sauvegarde de capture instantanée à partir d’un compte secondaire (dans le cas d’un compte de stockage géoredondant avec accès en lecture), vous devez la copier dans un compte principal. Vous pouvez copier une capture instantanée [à l’aide de PowerShell](https://docs.microsoft.com/powershell/module/az.storage) ou de l’utilitaire AzCopy. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Pour récupérer une capture instantanée, copiez-la pour créer un nouveau blob. Si vous copiez la capture instantanée à partir du compte principal, vous pouvez la copier dans l’objet blob de base de la capture instantanée. Ce processus rétablit le disque vers la capture instantanée. Ce processus est également appelé « promotion de la capture instantanée ». Si vous copiez la sauvegarde de capture instantanée à partir d’un compte secondaire (dans le cas d’un compte de stockage géoredondant avec accès en lecture), vous devez la copier dans un compte principal. Vous pouvez copier une capture instantanée [à l’aide de PowerShell](/powershell/module/az.storage) ou de l’utilitaire AzCopy. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 Pour les machines virtuelles contenant plusieurs disques, vous devez copier toutes les captures instantanées qui font partie du même point de restauration coordonné. Une fois que vous copiez les captures instantanées vers des blobs de disque dur virtuel accessibles en écriture, vous pouvez utiliser les blobs pour recréer votre machine virtuelle à l’aide du modèle correspondant.
 
@@ -265,4 +265,3 @@ Consultez [Sauvegarder des disques de machine virtuelle non managés Azure à l�
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

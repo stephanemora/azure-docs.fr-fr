@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d0b5d3678c3d9c7e55eede13c630510df89d5128
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631242"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045565"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 
@@ -46,9 +46,6 @@ Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si v
    Abonnement |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
    Resource group | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources contient les ressources associées d’une solution Azure. Dans cet exemple, nous allons utiliser **docs-aml**. Pour utiliser un groupe de ressources existant, vous devez disposer du rôle de *contributeur* ou de *propriétaire*.  Pour plus d'informations sur l'accès, consultez [Gérer l'accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md).
    Région | Sélectionnez la région Azure la plus proche de vos utilisateurs et des ressources de données pour créer votre espace de travail.
-   Édition de l’espace de travail | Sélectionnez **De base** ou **Entreprise**.  Cette édition de l’espace de travail détermine les fonctionnalités auxquelles vous aurez accès et la tarification. En savoir plus sur [Azure Machine Learning](overview-what-is-azure-ml.md). 
-
-    ![Configurer votre espace de travail](./media/how-to-manage-workspace/select-edition.png)
 
 1. Lorsque vous avez terminé de configurer l’espace de travail, sélectionnez **Vérifier + créer**. Si vous le souhaitez, utilisez les sections [Mise en réseau](#networking) et [Avancés](#advanced) pour configurer d’autres paramètres pour l’espace de travail.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025173"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082216"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
 Le protocole BGP est pris en charge sur toutes les références SKU de passerelle VPN Azure, à l’exception de la référence SKU De base.
@@ -108,3 +108,6 @@ Oui.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Que dois-je ajouter à mon périphérique VPN local pour la session de peering BGP ?
 Vous devez ajouter un itinéraire hôte de l’adresse IP de pair BGP Azure sur votre périphérique VPN pointant vers le tunnel VPN S2S IPsec. Par exemple, si l’adresse IP de pair VPN Azure est « 10.12.255.30 », vous devez ajouter un itinéraire hôte pour « 10.12.255.30 » avec l’interface de tronçon suivant de l’interface de tunnel IPsec correspondante sur votre périphérique VPN.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>La passerelle de réseau virtuel prend-elle en charge la détection de transfert bidirectionnel (BFD) pour les connexions de site à site avec BGP ?
+Non. La détection de transfert bidirectionnel (BFD) est un protocole qui peut être utilisé avec BGP pour détecter les temps d’arrêt voisins plus vite qu’en utilisant des connexions actives BGP standard. BFD utilise des minuteurs secondaires conçus pour fonctionner dans des environnements LAN, mais pas avec les connexions WAN ou sur l’Internet public. Pour les connexions sur l’Internet public, le fait d’avoir des paquets en retard ou même abandonnés n’est pas rare, donc introduire ces minuteurs agressifs ajouterait une instabilité susceptible de causer potentiellement le blocage de routes par BGP. Comme alternative, vous pouvez configurer votre appareil local avec des minuteurs inférieurs à l’intervalle de conservation de 60 secondes par défaut et le minuteur de suspension de 180 secondes pour accélérer le délai de convergence.

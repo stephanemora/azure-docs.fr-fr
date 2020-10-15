@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067973"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969635"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Options de mise en réseau du service Azure Image Builder
 
@@ -33,7 +33,7 @@ Pour plus d’informations, consultez l’un des exemples suivants :
 
 ### <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ?
 
-Azure Private Link fournit une connectivité privée entre un réseau virtuel et la plateforme Azure en tant que service (PaaS), appartenant à un client ou à des services partenaires Microsoft. Il simplifie l’architecture réseau et sécurise la connexion entre les points de terminaison dans Azure en éliminant l’exposition des données à l’internet public. Pour plus d'informations, consultez la [documentation Liaison privée](https://docs.microsoft.com/azure/private-link).
+Azure Private Link fournit une connectivité privée entre un réseau virtuel et la plateforme Azure en tant que service (PaaS), appartenant à un client ou à des services partenaires Microsoft. Il simplifie l’architecture réseau et sécurise la connexion entre les points de terminaison dans Azure en éliminant l’exposition des données à l’internet public. Pour plus d'informations, consultez la [documentation Liaison privée](../../private-link/index.yml).
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Autorisations requises pour un réseau virtuel existant
 
@@ -68,7 +68,7 @@ La taille de la machine virtuelle proxy déployée est A1_v2 standard, en plus d
 | subnetName | Nom du sous-réseau au sein du réseau virtuel spécifié. Doit être spécifié si et seulement si le *nom* est spécifié. |
 | resourceGroupName | Nom du groupe de ressources contenant le réseau virtuel spécifié. Doit être spécifié si et seulement si le *nom* est spécifié. |
 
-Le service Liaison privée requiert une adresse IP du réseau virtuel et du sous-réseau spécifiés. Actuellement, Azure ne prend pas en charge les stratégies réseau sur ces adresses IP. Par conséquent, les stratégies réseau doivent être désactivées sur le sous-réseau. Pour plus d'informations, consultez la [documentation Liaison privée](https://docs.microsoft.com/azure/private-link).
+Le service Liaison privée requiert une adresse IP du réseau virtuel et du sous-réseau spécifiés. Actuellement, Azure ne prend pas en charge les stratégies réseau sur ces adresses IP. Par conséquent, les stratégies réseau doivent être désactivées sur le sous-réseau. Pour plus d'informations, consultez la [documentation Liaison privée](../../private-link/index.yml).
 
 ### <a name="checklist-for-using-your-vnet"></a>Liste de contrôle pour l’utilisation de votre réseau virtuel
 

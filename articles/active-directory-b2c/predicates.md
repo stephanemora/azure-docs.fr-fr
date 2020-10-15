@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203807"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
@@ -96,7 +96,7 @@ La méthode MatchesRegex vérifie si une valeur de revendication de chaîne corr
 
 | Paramètre | Obligatoire | Description |
 | ------- | ----------- | ----------- |
-| RegularExpression | Oui | Modèle d'expression régulière à mettre en correspondance. |
+| RegularExpression | Oui | Modèle d’expression régulière à mettre en correspondance. |
 
 L’exemple suivant montre une méthode `MatchesRegex` avec le paramètre `RegularExpression` qui spécifie une expression régulière :
 
@@ -294,7 +294,7 @@ Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les
 Après avoir défini les validations de base, vous pouvez les combiner et créer un ensemble de stratégies de mot de passe utilisable dans votre stratégie :
 
 - **SimplePassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64
-- **StrongPassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64. Le dernier groupe `CharacterClasses` exécute un jeu supplémentaire de prédicats avec `MatchAtLeast` défini sur 3. Le mot de passe de l'utilisateur doit comprendre 8 à 16 caractères, et trois des caractères suivants : minuscule, majuscule, chiffre ou symbole.
+- **StrongPassword** valide DisallowedWhitespace, AllowedAADCharacters et IsLengthBetween8And64. Le dernier groupe `CharacterClasses` exécute un jeu supplémentaire de prédicats avec `MatchAtLeast` défini sur 3. Le mot de passe de l’utilisateur doit comprendre entre 8 et 16 caractères et trois des caractères suivants : minuscule, majuscule, nombre ou symbole.
 - **CustomPassword** valide uniquement DisallowedWhitespace, AllowedAADCharacters. Ainsi, l’utilisateur peut fournir n’importe quel mot de passe de n’importe quelle longueur, tant que les caractères sont valides.
 
 ```xml

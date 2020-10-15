@@ -1,10 +1,11 @@
-- name: Documentation sur le WAN virtuel
+- name: Documentation sur Virtual WAN
   href: index.yml
 - name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Virtual WAN\_?"
       href: virtual-wan-about.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Créer une connexion de site à site
       href: virtual-wan-site-to-site-portal.md

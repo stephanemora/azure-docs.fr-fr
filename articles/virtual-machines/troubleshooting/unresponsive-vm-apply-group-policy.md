@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
 ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526008"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La machine virtuelle ne répond pas quand une stratégie Utilisateurs locaux et groupes de stratégie de groupe est appliquée
@@ -31,7 +31,7 @@ Quand vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour visu
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Capture d’écran du chargement de l’application d’une stratégie Utilisateurs locaux et groupes de stratégie de groupe (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Capture d’écran du chargement de l’application d’une stratégie Utilisateurs locaux et groupes de stratégie de groupe (Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Capture d’écran du chargement de l’application d’une stratégie Utilisateurs locaux et groupes de stratégie de groupe (Windows Server 2012 R2).":::
 
 ## <a name="cause"></a>Cause
 
@@ -66,23 +66,7 @@ Voici la stratégie problématique :
 1. Sur la machine virtuelle de réparation, ouvrir l’éditeur du Registre.
 1. Localiser la clé **HKEY_LOCAL_MACHINE**, puis sélectionner **Fichier** > **Charger Hive** dans le menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="La capture d’écran montre en surbrillance HKEY_LOCAL_MACHINE et le menu qui contient l’option « Charger Hive ».":::
-
-    - Vous pouvez utiliser « Charger Hive » pour charger des clés de registre à partir d’un système hors connexion. Dans ce cas, le système est le disque défectueux attaché à la machine virtuelle de réparation.
-    - Les paramètres à l’ensemble du système sont stockés sur `HKEY_LOCAL_MACHINE` et peuvent être abrégés sous la forme « HKLM ».
-1. Dans le disque attaché, accédez au fichier `\windows\system32\config\SOFTWARE` et ouvrez-le.
-
-    1. Lorsque vous êtes invité à saisir un nom, saisissez BROKENSOFTWARE.
-    1. Pour vérifier que BROKENSOFTWARE a été chargé, développez **HKEY_LOCAL_MACHINE** et recherchez la clé BROKENSOFTWARE ajoutée.
-1. Accédez à BROKENSOFTWARE et vérifiez si la clé CleanupProfile existe dans la ruche chargée.
-
-    1. Si la clé existe, la stratégie CleanupProfile est définie. Sa valeur représente la stratégie de rétention mesurée en jours. Poursuivez la suppression de la clé.
-    1. Si la clé n’existe pas, la stratégie CleanupProfile n’est pas définie. [Soumettez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), incluant le fichier memory.dmp situé dans le répertoire Windows du disque du système d’exploitation attaché.
-
-1. Supprimez la clé CleanupProfiles à l’aide de cette commande :
-
-    ```
-    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Capture d’écran du chargement de l’application d’une stratégie Utilisateurs locaux et groupes de stratégie de groupe (Windows Server 2012 R2)." /v CleanupProfiles /f
     ```
 1.  Déchargez la ruche BROKENSOFTWARE à l’aide de cette commande :
 

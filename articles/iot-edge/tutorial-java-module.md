@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829983"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045599"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer des modules Java IoT Edge pour les appareils Linux
 
@@ -51,14 +51,14 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
-* Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
 
 Pour développer un module IoT Edge avec Java, installez les configurations requises supplémentaires suivantes sur votre machine de développement : 
 
 * [Pack d’extension Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) pour Visual Studio Code.
-* [Java SE Development Kit 10](https://aka.ms/azure-jdks), et [définissez la variable d’environnement`JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)pour pointer vers votre installation JDK.
+* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support), et [définissez la variable d’environnement`JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)pour pointer vers votre installation JDK.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -306,7 +306,7 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé un module IoT Edge qui filtre les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez en apprendre plus sur le [développement de modules IoT Edge](module-development.md) et sur le [développement de modules avec Visual Studio Code](how-to-vs-code-develop-module.md). Pour obtenir des exemples de code, notamment le module de température simulée, consultez les [exemples de modules IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules).
+Dans ce tutoriel, vous avez créé un module IoT Edge qui filtre les données brutes générées par votre appareil IoT Edge.
 
 Passez aux tutoriels suivants afin de découvrir comment Azure IoT Edge vous aide à déployer des services cloud Azure pour traiter et analyser des données en périphérie.
 

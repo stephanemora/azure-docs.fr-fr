@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969838"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Questions fréquemment posées sur la migration du modèle classique vers le modèle Azure Resource Manager
 
@@ -26,7 +26,7 @@ Le mot « Classic » dans la machine virtuelle IaaS (Classic) fait référence
 
 ## <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) est le plan de contrôle d’Azure le plus récent chargé de la création, de la gestion, de la suppression des machines virtuelles et de l’exécution d’autres opérations de plan de contrôle. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) est le plan de contrôle d’Azure le plus récent chargé de la création, de la gestion, de la suppression des machines virtuelles et de l’exécution d’autres opérations de plan de contrôle. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Quel est le temps nécessaire pour une migration ?
 
@@ -42,7 +42,7 @@ Les clients qui avaient des machines virtuelles IaaS actives ou arrêtées mais 
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Pourquoi est-ce que j’obtiens une erreur indiquant « NewClassicVMCreationNotAllowedForSubscription » ?
 
-Dans le cadre du processus de mise hors service, les machines virtuelles IaaS (Classic) ne sont plus disponibles pour de nouveaux clients. Étant donné que nous vous avons identifié comme nouveau client, votre opération n’a pas été autorisée. Nous vous recommandons vivement d’utiliser des [machines virtuelles Azure à l’aide de ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si vous ne pouvez pas utiliser de machines virtuelles Azure à l’aide d’ARM, contactez le support pour ajouter votre abonnement à la liste autorisée.
+Dans le cadre du processus de mise hors service, les machines virtuelles IaaS (Classic) ne sont plus disponibles pour de nouveaux clients. Étant donné que nous vous avons identifié comme nouveau client, votre opération n’a pas été autorisée. Nous vous recommandons vivement d’utiliser des [machines virtuelles Azure à l’aide de ARM](./windows/quick-create-powershell.md). Si vous ne pouvez pas utiliser de machines virtuelles Azure à l’aide d’ARM, contactez le support pour ajouter votre abonnement à la liste autorisée.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ? 
 
@@ -105,7 +105,7 @@ Nous vous recommandons d’abandonner votre migration et de créer ensuite une d
 
 ## <a name="how-do-i-report-an-issue"></a>Comment signaler un problème ? 
 
-Publiez vos problèmes et questions sur la migration dans notre [page de questions Microsoft Q&R sur les machines virtuelles](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), avec le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
+Publiez vos problèmes et questions sur la migration dans notre [page de questions Microsoft Q&R sur les machines virtuelles](/answers/topics/azure-virtual-machines.html), avec le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Comment procéder si je n’apprécie pas les noms que la plateforme a choisis pour mes ressources lors de la migration ? 
 

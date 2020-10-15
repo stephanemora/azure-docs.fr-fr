@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72965371"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076451"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Ajouter un appareil IoT Edge à votre accélérateur de solution de supervision à distance
 
@@ -45,10 +45,10 @@ Quand vous inscrivez un appareil directement auprès du hub IoT dans l’accél
 Avant de pouvoir déployer des modules sur votre appareil Edge, vous devez installer le runtime IoT Edge sur l’appareil réel. Les guides pratiques suivants vous montrent comment installer le runtime sur les plateformes d’appareils courantes :
 
 - [Installer le runtime Azure IoT Edge sur Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
-- [Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Windows](../iot-edge/how-to-install-iot-edge-windows-with-windows.md)
+- [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
+- [Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Windows](../iot-edge/how-to-install-iot-edge-windows.md)
 - [Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Installer le runtime IoT Edge sur Windows IoT Standard](../iot-edge/how-to-install-iot-core.md)
+- [Installer le runtime IoT Edge sur Windows IoT Standard](../iot-edge/how-to-install-iot-edge-windows.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

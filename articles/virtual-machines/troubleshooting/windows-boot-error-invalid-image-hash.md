@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447605"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969600"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erreur du gestionnaire de démarrage Windows - État 0xC0000428 - Hachage d’image non valide
 
@@ -28,7 +28,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes liés à
 
 ## <a name="symptom"></a>Symptôme
 
-Quand vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour visualiser la capture d’écran de la machine virtuelle, vous constatez que cette capture d’écran affiche le Gestionnaire de démarrage Windows avec le message :
+Quand vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour visualiser la capture d’écran de la machine virtuelle, vous constatez que cette capture d’écran affiche le Gestionnaire de démarrage Windows avec le message :
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ Vous n’êtes pas en mesure d’étendre la date d’expiration d’une image d
 
 ## <a name="solution"></a>Solution
 
-Si votre image est une image en préversion, il n’existe aucun moyen d’étendre la date d’expiration de l’image utilisée : vous devez [déployer une nouvelle machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) en utilisant une image qui n’est pas en préversion. Les étapes ci-dessous vous aideront à identifier si vous avez utilisé une image en préversion ; elles fournissent aussi des ressources pour vous aider à transférer des données à partir depuis cette machine virtuelle vers une nouvelle machine virtuelle. Si vous avez identifié que l’image était bien une image en préversion, cette image n’est pas récupérable, car elle a maintenant expiré.
+Si votre image est une image en préversion, il n’existe aucun moyen d’étendre la date d’expiration de l’image utilisée : vous devez [déployer une nouvelle machine virtuelle](../windows/quick-create-portal.md) en utilisant une image qui n’est pas en préversion. Les étapes ci-dessous vous aideront à identifier si vous avez utilisé une image en préversion ; elles fournissent aussi des ressources pour vous aider à transférer des données à partir depuis cette machine virtuelle vers une nouvelle machine virtuelle. Si vous avez identifié que l’image était bien une image en préversion, cette image n’est pas récupérable, car elle a maintenant expiré.
 
 Selon vos préférences, vous pouvez utiliser Azure PowerShell ou Azure CLI pour interroger votre image afin de déterminer s’il s’agit d’une image en préversion. Vous pouvez utiliser ces commandes pour vérifier si l’image est une image en préversion.
 
@@ -103,7 +103,7 @@ Selon vos préférences, vous pouvez utiliser Azure PowerShell ou Azure CLI pour
 
 ### <a name="query-using-the-azure-cli"></a>Interroger en utilisant Azure CLI
 
-1. Si vous ne l’avez pas déjà installé, vous devez [installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Si vous ne l’avez pas déjà installé, vous devez [installer Azure CLI](/cli/azure/install-azure-cli).
 1. Une fois le téléchargement effectué, utilisez l’invite de commandes ou PowerShell pour entrer la commande `az login`, puis connectez-vous avec vos informations d’identification de compte.
 1. Une fois connecté, entrez les commandes suivantes :
 

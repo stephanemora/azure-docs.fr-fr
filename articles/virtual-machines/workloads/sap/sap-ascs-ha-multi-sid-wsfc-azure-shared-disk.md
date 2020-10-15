@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860395"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970399"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec clustering de basculement Windows Server et disque partagé Azure
 
@@ -34,13 +34,13 @@ Cet article explique comment passer d'une installation ASCS/SCS unique à une co
 
 Vous pouvez actuellement utiliser des disques SSD Premium Azure en tant que disque partagé Azure pour l'instance SAP ASCS/SCS. Les limitations suivantes s'appliquent :
 
--  Le [disque Ultra Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) n'est pas pris en charge en tant que disque partagé Azure pour les charges de travail SAP. Il est actuellement impossible de placer des machines virtuelles Azure dans un groupe à haute disponibilité à l'aide d'un disque Ultra Azure.
--  Le [disque partagé Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de Zones de disponibilité. 
--  La valeur [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, vous configurez deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
--  Toutes les machines virtuelles en cluster SAP ASCS/SCS doivent être déployées dans le même [groupe de placement de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+-  Le [disque Ultra Azure](../../disks-types.md#ultra-disk) n'est pas pris en charge en tant que disque partagé Azure pour les charges de travail SAP. Il est actuellement impossible de placer des machines virtuelles Azure dans un groupe à haute disponibilité à l'aide d'un disque Ultra Azure.
+-  Le [disque partagé Azure](../../windows/disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de Zones de disponibilité. 
+-  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, vous configurez deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
+-  Toutes les machines virtuelles en cluster SAP ASCS/SCS doivent être déployées dans le même [groupe de placement de proximité Azure](../../windows/proximity-placement-groups.md).   
    Bien qu'il soit possible de déployer des machines virtuelles en cluster Windows dans un groupe à haute disponibilité avec un disque partagé Azure sans groupe de placement de proximité, le groupe de placement de proximité garantira une proximité physique étroite des disques partagés Azure et des machines virtuelles en cluster, réduisant ainsi la latence entre les machines virtuelles et la couche de stockage.    
 
-Pour plus de détails sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) de la documentation consacrée au disque partagé Azure.  
+Pour plus de détails sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../linux/disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.  
 
 > [!IMPORTANT]
 > Lors du déploiement d'un cluster de basculement Windows SAP ASCS/SCS avec disque partagé Azure, sachez que votre déploiement fonctionnera avec un seul disque partagé au sein d'un cluster de stockage. Votre instance SAP ASCS/SCS sera impactée en cas de problème au niveau du cluster de stockage dans lequel le disque partagé Azure est déployé.  
@@ -111,7 +111,7 @@ Nous allons installer un nouveau SID SAP **PR2**, en plus de l'instance SAP **PR
 
 ### <a name="create-azure-internal-load-balancer"></a>Créer l'équilibreur de charge interne Azure
 
-SAP ASCS, SAP SCS et la nouvelle instance SAP ERS2 utilisent un nom d'hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons vivement d'utiliser [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS et la nouvelle instance SAP ERS2 utilisent un nom d'hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](../../../load-balancer/load-balancer-overview.md) est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons vivement d'utiliser [Standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 Vous devrez ajouter la configuration à l'équilibreur de charge existant pour la deuxième instance SAP SID ASCS/SCS/ERS **PR2**. La configuration du premier SID SAP **PR1** doit déjà être en place.  
 

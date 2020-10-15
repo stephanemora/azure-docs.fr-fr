@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752064"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968683"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Réduire les coûts avec la réservation de disques Azure
 
@@ -89,7 +89,7 @@ Une fois que vous avez acheté une réservation, celle-ci est automatiquement ap
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Vous pouvez annuler, échanger ou rembourser des réservations dans certaines limites. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Vous pouvez annuler, échanger ou rembourser des réservations dans certaines limites. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="expiration-of-a-reservation"></a>Expiration d’une réservation
 

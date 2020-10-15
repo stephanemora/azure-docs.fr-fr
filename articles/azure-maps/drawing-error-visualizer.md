@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524741"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilisation du Visualiseur d’erreurs de dessin Azure Maps
@@ -82,11 +82,11 @@ Après le lancement de l’outil Visualiseur d’erreurs de dessin, la page de c
 
 Le fichier _ConversionWarningsAndErrors.json_ a été placé à la racine du répertoire téléchargé. Pour charger le fichier _ConversionWarningsAndErrors.json_, vous pouvez le glisser-déposer sur la zone ou cliquer sur la zone, rechercher le fichier dans la boîte de dialogue de l’Explorateur de fichiers, puis le charger.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Application Visualiseur d’erreurs de dessin – Glisser-déposer pour charger des données":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
 Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’afficher la liste de vos avertissements et erreurs de package de dessin. Chaque erreur ou avertissement est spécifié par sa couche, son niveau et un message détaillé. Pour voir des informations détaillées sur une erreur ou un avertissement, cliquez sur le lien **Détails**. Une section inflexible s’affiche alors en dessous de la liste. Vous pouvez maintenant accéder à chaque erreur pour en savoir plus sur la manière de la résoudre.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Application Visualiseur d’erreurs de dessin – Erreurs et avertissements":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855916"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970008"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
 
@@ -135,7 +135,7 @@ Il s’agit d’une étape facultative si vous souhaitez annuler vos modificatio
 Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans le modèle de déploiement classique et ne sont disponibles que dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
 
 > [!NOTE]
-> Il s’agit d’une opération idempotente. En cas d’échec, recommencez l’opération. Si l’échec persiste, créez un ticket de support ou créez un forum Internet sur [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
+> Il s’agit d’une opération idempotente. En cas d’échec, recommencez l’opération. Si l’échec persiste, créez un ticket de support ou créez un forum Internet sur [Microsoft Q&A](/answers/index.html).
 >
 >
 

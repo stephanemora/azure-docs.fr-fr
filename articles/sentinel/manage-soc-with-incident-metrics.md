@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761716"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mieux gérer votre SOC avec des métriques d’incident
@@ -82,9 +82,9 @@ Pour compléter le tableau **SecurityIncidents**, nous vous avons fourni un mod�
 
 Vous pouvez trouver ce nouveau modèle de classeur en choisissant **Classeurs** dans le menu de navigation d’Azure Sentinel et en sélectionnant l’onglet **Modèles**. Choisissez **Efficacité des opérations de sécurité** à partir de la galerie, puis cliquez sur l’un des boutons **Afficher le classeur enregistré** et **Afficher le modèle**.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galerie de classeurs d’incidents de sécurité":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tableau des incidents de sécurité":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Classeur d’incidents de sécurité terminé":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tableau des incidents de sécurité":::
 
 Vous pouvez utiliser le modèle pour créer vos propres classeurs personnalisés, adaptés à vos besoins spécifiques.
 
