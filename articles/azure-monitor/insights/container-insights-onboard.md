@@ -3,12 +3,12 @@ title: Activer Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article explique comment activer et configurer Azure Monitor pour conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320304"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994066"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Activer Azure Monitor pour conteneurs
 
@@ -43,7 +43,7 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
    Vous pouvez le créer quand vous activez la supervision de votre nouveau cluster AKS, ou vous pouvez laisser l’expérience d’intégration créer un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement de cluster AKS. 
    
    Si vous choisissez de créer l’espace de travail vous-même, vous pouvez le créer par le biais de : 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Portail Azure](../learn/quick-create-workspace.md) 
    
@@ -131,4 +131,3 @@ Pour activer Azure Monitor pour conteneurs, appliquez l’une des méthodes déc
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez activé la supervision, vous pouvez commencer à analyser les performances de vos clusters Kubernetes hébergés sur Azure Kubernetes Service (AKS), Azure Stack ou un autre environnement. Pour savoir comment utiliser Azure Monitor pour les conteneurs, consultez [Connaître les performances des clusters Kubernetes](container-insights-analyze.md).
-

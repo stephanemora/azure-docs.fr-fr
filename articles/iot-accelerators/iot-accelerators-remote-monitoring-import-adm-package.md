@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 266e31ae9865c8fb427e06e89cd755e7ff38b27f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61443331"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073867"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package de gestion automatique des appareils dans votre accélérateur de solution de supervision à distance
 
 Une configuration de gestion automatique des appareils définit les modifications de configuration à déployer sur un groupe d’appareils. Cet article suppose qu’un développeur de votre organisation a déjà créé une configuration de gestion automatique des appareils. Pour en savoir plus sur la façon dont un développeur crée une configuration, consultez un des articles de procédure suivants sur IoT Hub :
 
-- [Configurer et surveiller des appareils IoT à grande échelle avec le portail Azure](../iot-hub/iot-hub-auto-device-config.md)
-- [Configurer et surveiller des appareils IoT à grande échelle avec Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Configurer et surveiller des appareils IoT à grande échelle avec le portail Azure](../iot-hub/iot-hub-automatic-device-management.md)
+- [Configurer et surveiller des appareils IoT à grande échelle avec Azure CLI](../iot-hub/iot-hub-automatic-device-management-cli.md)
 
 Un développeur crée et teste une configuration de gestion automatique des appareils dans un environnement de développement. Quand vous êtes prêt, vous pouvez importer la configuration dans votre accélérateur de solution de supervision à distance.
 
