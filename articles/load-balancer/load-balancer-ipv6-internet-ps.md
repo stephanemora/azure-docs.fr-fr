@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001585"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager

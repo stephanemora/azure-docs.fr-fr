@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005597"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configurer une réponse personnalisée pour le pare-feu d’applications web (WAF) Azure
@@ -27,7 +27,7 @@ Vous pouvez configurer un corps et un code d’état de réponse personnalisé s
 
 Dans l’exemple ci-dessus, nous avons gardé le code de réponse 403 et configuré un message bref « Please contact us », comme illustré dans l’image ci-dessous :
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exemple de réponse personnalisée":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Paramètres de stratégie WAF":::
 
 « {{Azure-Ref}} » insère la chaîne de référence unique dans le corps de la réponse. La valeur correspond au champ TrackingReference dans les journaux `FrontdoorAccessLog` et `FrontdoorWebApplicationFirewallLog`.
 

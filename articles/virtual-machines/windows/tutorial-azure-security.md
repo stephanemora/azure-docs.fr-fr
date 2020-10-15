@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9eed237b1dd4d6bf6f2903b91c80847d615fe7a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984589"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978286"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutoriel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
 
@@ -66,7 +66,7 @@ Pour configurer une stratégie de sécurité pour l’intégralité d’un abonn
 
 ## <a name="view-vm-configuration-health"></a>Afficher l’état de configuration des machines virtuelles
 
-Après que vous avez activé la collecte de données et défini une stratégie de sécurité, Security Center commence à fournir des alertes et des recommandations. À mesure que des machines virtuelles sont déployées, l’agent de collecte de données est installé. Security Center reçoit ensuite des données relatives aux nouvelles machines virtuelles. Pour des informations détaillées sur l’intégrité de la configuration des machines virtuelles, consultez [Protéger vos machines virtuelles dans Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+Après que vous avez activé la collecte de données et défini une stratégie de sécurité, Security Center commence à fournir des alertes et des recommandations. À mesure que des machines virtuelles sont déployées, l’agent de collecte de données est installé. Security Center reçoit ensuite des données relatives aux nouvelles machines virtuelles. Pour des informations détaillées sur l’intégrité de la configuration des machines virtuelles, consultez [Protéger vos machines virtuelles dans Security Center](../../security-center/asset-inventory.md). 
 
 À mesure que des données sont collectées, les informations sur l’état d’intégrité des ressources de chaque machine virtuelle et des ressources Azure associées sont agrégées. Les informations sont affichées dans un graphique aisément lisible. 
 

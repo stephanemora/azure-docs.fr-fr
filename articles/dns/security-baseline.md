@@ -8,10 +8,10 @@ ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89225664"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Base de référence de sécurité Azure pour Azure DNS
@@ -68,13 +68,13 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
-**Aide** : Utilisez Azure Security Center avec un espace de travail Log Analytics pour superviser les activités anormales détectées dans les journaux de sécurité et les événements et générer des alertes s’y rapportant.
+**Conseil** : utilisez Azure Security Center avec un espace de travail Log Analytics pour superviser les activités anormales détectées dans les journaux de sécurité et les événements et générer des alertes s’y rapportant.
 
 Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 

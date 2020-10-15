@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015100"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073527"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Démarrer un runbook depuis un Webhook
 
@@ -89,7 +89,7 @@ Tenez compte des stratégies suivantes :
 
 * Faites en sorte que le runbook valide une condition externe quand il reçoit une demande de webhook. Par exemple, imaginez un runbook qui soit appelé par GitHub à chaque nouvelle validation effectuée dans un dépôt GitHub. Avant de poursuivre, le runbook peut se connecter à GitHub pour vérifier qu’une nouvelle validation s’est produite.
 
-* Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, plus précisément [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md) et déclencher des webhooks à partir de votre réseau virtuel. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus granulaire en limitant les plages d’adresses IP à une région spécifique.
+* Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, plus précisément [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md) et déclencher des webhooks à partir de votre réseau virtuel. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus granulaire en limitant les plages d’adresses IP à une région spécifique.
 
 ## <a name="create-a-webhook"></a>Créer un webhook
 

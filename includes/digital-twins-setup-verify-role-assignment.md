@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: fdb3bd034d93e623037be9fa0721a805924af5c3
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88864644"
 ---
 Une façon de vérifier que vous avez correctement configuré l’attribution de rôle consiste à afficher les attributions de rôle pour l’instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com). Accédez à votre instance Azure Digital Twins dans le portail Azure (vous pouvez la rechercher dans la page des [instances Azure Digital Twins](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) ou rechercher son nom dans la barre de recherche du portail).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266057"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992812"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -103,7 +103,7 @@ Si vous n’utilisez pas de clients compatibles avec l’évaluation continue de
 
 1. Un client compatible avec l’évaluation continue de l’accès présente à Azure AD des informations d’identification ou un jeton d’actualisation demandant un jeton d’accès pour une certaine ressource.
 1. Un jeton d’accès est retourné au client avec d’autres artefacts.
-1. Un administrateur [révoque explicitement tous les jetons d’actualisation d’un utilisateur](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Un événement de révocation sera envoyé au fournisseur de ressources à partir d’Azure AD.
+1. Un administrateur [révoque explicitement tous les jetons d’actualisation d’un utilisateur](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Un événement de révocation sera envoyé au fournisseur de ressources à partir d’Azure AD.
 1. Un jeton d’accès est présenté au fournisseur de ressources. Le fournisseur de ressources évalue la validité du jeton et vérifie s’il existe un événement de révocation pour l’utilisateur. Le fournisseur de ressources utilise ces informations pour décider d’accorder ou non l’accès à la ressource.
 1. Dans ce cas, le fournisseur de ressources refuse l’accès et renvoie une contestation de revendication 401+ au client.
 1. Le client compatible avec l’EAC comprend la contestation de revendication 401+. Il contourne les caches et revient à l’étape 1, en renvoyant à Azure AD son jeton d’actualisation avec la contestation de revendication. Azure AD réévalue ensuite toutes les conditions et invite l’utilisateur à se réauthentifier dans ce cas.
@@ -159,7 +159,7 @@ Si ce scénario existe dans votre environnement, afin d’éviter les boucles in
 | Canal d’entreprise semi-annuel | Si la valeur est Activé ou 1, l’évaluation continue de l’accès n’est pas prise en charge. | Si la valeur est Activé ou 1, l’évaluation continue de l’accès n’est pas prise en charge. |
 | Canal actuel <br> or <br> Canal d’entreprise mensuel | L’évaluation continue de l’accès est prise en charge, quel que soit le paramètre | L’évaluation continue de l’accès est prise en charge, quel que soit le paramètre |
 
-Pour une explication concernant les canaux Office Update, consultez [Vue d’ensemble des canaux de mise à jour pour Microsoft 365 Apps](https://docs.microsoft.com/deployoffice/overview-update-channels). Nous recommandons aux organisations de ne pas désactiver le Gestionnaire de comptes web (WAM).
+Pour une explication concernant les canaux Office Update, consultez [Vue d’ensemble des canaux de mise à jour pour Microsoft 365 Apps](/deployoffice/overview-update-channels). Nous recommandons aux organisations de ne pas désactiver le Gestionnaire de comptes web (WAM).
 
 ### <a name="policy-change-timing"></a>Synchronisation des changements de stratégie
 

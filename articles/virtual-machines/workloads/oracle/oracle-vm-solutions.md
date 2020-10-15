@@ -1,24 +1,18 @@
 ---
 title: Solutions Oracle sur les machines virtuelles Azure | Microsoft Docs
 description: Découvrez les configurations prises en charge et les limitations des images de machine virtuelle Oracle sur Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331367"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993489"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure
 
@@ -132,7 +126,7 @@ Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du sy
 
 Le didacticiel [Implémenter Oracle GoldenGate sur Azure](configure-oracle-golden-gate.md), qui vous guide dans la procédure d’installation de base sur Azure.
 
-Bien qu’une solution de haute disponibilité et récupération d’urgence soit architecturée dans Azure, vous devez veiller à avoir une stratégie de sauvegarde en place pour restaurer votre base de données. Le didacticiel [Sauvegarde et restauration d’une base de données Oracle](oracle-backup-recovery.md) vous guide tout au long de la procédure de base pour l’établissement d’une sauvegarde cohérente.
+Bien qu’une solution de haute disponibilité et récupération d’urgence soit architecturée dans Azure, vous devez veiller à avoir une stratégie de sauvegarde en place pour restaurer votre base de données. Le didacticiel [Sauvegarde et restauration d’une base de données Oracle](./oracle-overview.md) vous guide tout au long de la procédure de base pour l’établissement d’une sauvegarde cohérente.
 
 ## <a name="support-for-jd-edwards"></a>Prise en charge de JD Edwards
 

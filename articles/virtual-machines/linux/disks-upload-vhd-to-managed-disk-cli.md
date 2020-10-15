@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c7eb50caa4e7f0505809da64dd0309c6e0b8709f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691341"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978983"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 
@@ -79,7 +79,7 @@ Maintenant que vous disposez d'une SAS pour votre disque managé vierge, vous po
 
 Utilisez AzCopy v10 pour charger votre fichier de disque dur virtuel local sur un disque managé en spécifiant l'URI de la SAS que vous avez générée.
 
-Ce chargement présente le même débit que le disque [HDD Standard](disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu’à 500 Mio/s.
+Ce chargement présente le même débit que le disque [HDD Standard](../disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu’à 500 Mio/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
@@ -108,17 +108,17 @@ Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameH
 > Si vous créez un disque de système d’exploitation, ajoutez --hyper-v-generation <yourGeneration> à `az disk create`.
 
 ```azurecli
-sourceDiskName = <sourceDiskNameHere>
-sourceRG = <sourceResourceGroupHere>
-targetDiskName = <targetDiskNameHere>
-targetRG = <targetResourceGroupHere>
-targetLocale = <yourTargetLocationHere>
+sourceDiskName=<sourceDiskNameHere>
+sourceRG=<sourceResourceGroupHere>
+targetDiskName=<targetDiskNameHere>
+targetRG=<targetResourceGroupHere>
+targetLocation=<yourTargetLocationHere>
 
-sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
+sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
@@ -131,4 +131,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez réussi à charger un disque dur virtuel sur un disque managé, vous pouvez joindre le disque en tant que [disque de données à une machine virtuelle existante](add-disk.md) ou [joindre le disque à une machine virtuelle en tant que disque de système d'exploitation](upload-vhd.md#create-the-vm) pour créer une nouvelle machine virtuelle. 
+Maintenant que vous avez réussi à charger un disque dur virtuel sur un disque managé, vous pouvez joindre le disque en tant que [disque de données à une machine virtuelle existante](add-disk.md) ou [joindre le disque à une machine virtuelle en tant que disque de système d'exploitation](upload-vhd.md#create-the-vm) pour créer une nouvelle machine virtuelle.

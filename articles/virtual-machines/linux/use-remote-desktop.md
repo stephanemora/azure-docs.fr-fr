@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d9d7ff9c9a54b74e3160b9de3df1f08a81e6531
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05241715663ac2cbb90e16f345398f863541e6ed
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291090"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972201"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Création d’une règle de groupe de sécurité réseau pour le trafic du Bureau à distance
-Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtuelle Linux, une règle de groupe de sécurité réseau doit être créée pour permettre au TCP sur le port 3389 d’atteindre votre machine virtuelle. Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Vous pouvez également [utiliser le portail Azure pour créer une règle de groupe de sécurité réseau](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtuelle Linux, une règle de groupe de sécurité réseau doit être créée pour permettre au TCP sur le port 3389 d’atteindre votre machine virtuelle. Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) Vous pouvez également [utiliser le portail Azure pour créer une règle de groupe de sécurité réseau](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#az-vm-open-port) sur le port *3389*. À partir d’Azure CLI, et non de la session SSH sur votre machine virtuelle, ouvrez la règle de groupe de sécurité réseau suivante :
 

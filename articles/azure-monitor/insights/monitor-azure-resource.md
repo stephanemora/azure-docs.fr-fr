@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030342"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993705"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -80,7 +80,7 @@ Les paramètres de diagnostic définissent où les journaux de ressources et les
 - [Hubs d’événements](../platform/resource-logs.md#send-to-azure-event-hubs) pour envoyer en streaming des données vers des systèmes externes tels que des solutions SIEM tierces et d’autres solutions Log Analytics. 
 - [Compte de stockage Azure](../platform/resource-logs.md#send-to-azure-storage) qui est utile à des fins d’audit, d’analyse statique ou de sauvegarde.
 
-Suivez la procédure indiquée dans [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../platform/diagnostic-settings.md) pour créer et gérer les paramètres de diagnostic via le portail Azure. Consultez [Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager](../platform/diagnostic-settings-template.md) pour les définir dans un modèle et activer la supervision complète d’une ressource lors de sa création.
+Suivez la procédure indiquée dans [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../platform/diagnostic-settings.md) pour créer et gérer les paramètres de diagnostic via le portail Azure. Consultez [Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager](../samples/resource-manager-diagnostic-settings.md) pour les définir dans un modèle et activer la supervision complète d’une ressource lors de sa création.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Surveillance dans le portail Azure
@@ -160,5 +160,4 @@ Utilisez **Alertes** dans le menu d’une ressource pour afficher les alertes et
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les journaux de ressources des différents services Azure.  
-
+* Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les journaux de ressources des différents services Azure.

@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41e8f6f3e3562654edcc4ba347abe57e300af511
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074223"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978035"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -134,7 +134,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. L’UC et la connectivité réseau peuvent être suspendus, mais cela n’a aucun impact sur la mémoire ni sur les fichiers ouverts.<li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: la machine virtuelle Spot est supprimée (le contenu des disques éphémères est perdu). <li> `Terminate`: La suppression de la machine virtuelle est planifiée. |
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
-| Ressources| Liste de ressources affectée par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut tout aussi bien ne pas contenir toutes les machines de ce domaine. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Ressources| Liste de ressources affectée par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](../manage-availability.md), mais elle peut tout aussi bien ne pas contenir toutes les machines de ce domaine. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est fourni. L’événement n’est plus renvoyé lorsqu’il est terminé.
 | NotBefore| Heure après laquelle cet événement peut démarrer. <br><br> Exemple : <br><ul><li> Lundi 19 septembre 2016 18:29:47 GMT  |
 | Description | Description de cet événement. <br><br> Exemple : <br><ul><li> Le serveur hôte est en cours de maintenance. |

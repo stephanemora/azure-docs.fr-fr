@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: b1a154e562db9f8fdd74300bb8eb3d6839cb2ef4
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 6d20f02b846c7ae47aef395694aef2bc5732957e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321920"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978643"
 ---
 # <a name="azure-vm-powershell-samples-for-creating-and-managing-linux-vms"></a>Exemples PowerShell de machines virtuelles Azure pour la création et la gestion de machines virtuelles Linux
 
@@ -36,6 +36,6 @@ Le tableau suivant contient des liens vers des exemples de scripts PowerShell qu
 | [Copier une capture instantanée vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copie une capture instantanée vers le même abonnement ou un abonnement différent, dans la même région que la capture instantanée parente. |
 |**Surveiller les machines virtuelles**||
 | [Superviser une machine virtuelle avec les journaux Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée une machine virtuelle, installe l’agent Log Analytics et inscrit la machine virtuelle auprès d’un espace de travail Log Analytics.  |
-| [Copier un disque managé vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copie un disque managé vers le même abonnement ou un abonnement différent, mais dans la même région que le disque géré parent.
+| [Copier un disque managé vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Copie un disque managé vers le même abonnement ou un abonnement différent, mais dans la même région que le disque géré parent.
 | [Collecter plus d’informations sur toutes les machines virtuelles dans un abonnement avec PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée un fichier csv qui contient le nom de la machine virtuelle, le nom du groupe de ressources, la région, le réseau virtuel, le sous-réseau, l’adresse IP privée, le type de système d’exploitation et l’adresse IP publique des machines virtuelles dans l’abonnement fourni.
 | | |

@@ -4,10 +4,10 @@ description: Découvrez comment créer des fichiers de ressources Batch à parti
 ms.date: 03/18/2020
 ms.topic: how-to
 ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230940"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources

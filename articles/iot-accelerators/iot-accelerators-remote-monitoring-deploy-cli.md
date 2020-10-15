@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9dcf19f5318021df5d9fdde777b8786942e33d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258292"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072252"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de supervision à distance à l’aide de l’interface CLI
 
@@ -73,12 +73,12 @@ Un déploiement de base crée les services suivants dans votre abonnement Azure�
 | 1     | [Machine virtuelle Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hébergement des microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | Niveau Standard S1 | Gestion des appareils et communication |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | standard        | Stockage des données de configuration, des règles, des alertes et d’autres supports de stockage à froid |  
-| 1     | [Compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | standard        | Stockage des points de contrôle streaming et de machine virtuelle |
+| 1     | [Compte Stockage Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)  | standard        | Stockage des points de contrôle streaming et de machine virtuelle |
 | 1     | [Application Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hébergement de l’application web frontend |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestion des identités d’utilisateur et de la sécurité |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | standard                | Affichage des emplacements de ressources |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unités              | Prise en charge des analyses en temps réel |
-| 1     | [Service d’approvisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
+| 1     | [Service d’approvisionnement des appareils Azure](../iot-dps/index.yml)        |       S1          | Approvisionnement des appareils à grande échelle |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
 ### <a name="standard"></a>standard
@@ -94,12 +94,12 @@ Un déploiement standard crée les services suivants dans votre abonnement Azure
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Utilisez un service d’orchestration de conteneurs Kubernetes entièrement managé (3 agents par défaut).|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alertes et les messages |
-| 5     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
+| 5     | [Comptes de stockage Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Passerelle d’application via TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestion des identités d’utilisateur et de la sécurité |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | standard                | Affichage des emplacements de ressources |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unités              | Prise en charge des analyses en temps réel |
-| 1     | [Service d’approvisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
+| 1     | [Service d’approvisionnement des appareils Azure](../iot-dps/index.yml)        |       S1          | Approvisionnement des appareils à grande échelle |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
 > [!NOTE]

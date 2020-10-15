@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 821ba551dc19f92988a352b8f1bab792ce52207b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660156"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978915"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Rechercher et supprimer les disques managés et non managés Azure qui ne sont pas attachés à l’aide d’Azure CLI
 Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Cette fonctionnalité permet d’éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer tous les disques non attachés pour réduire les coûts inutiles. 
@@ -20,7 +20,7 @@ Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les d
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Disques managés : Rechercher et supprimer les disques non attachés 
 
-Le script suivant recherche des [disques managés](managed-disks-overview.md) non attachés en examinant la valeur de la propriété **ManagedBy**. Lorsqu’un disque managé est attaché à une machine virtuelle, la propriété **ManagedBy** contient l’ID de ressource de la machine virtuelle. Lorsqu’un disque managé est non attaché, la propriété **ManagedBy** a la valeur null. Le script examine tous les disques managés dans un abonnement Azure. Lorsque le script localise un disque managé dont la propriété **ManagedBy** a la valeur null, il détermine que le disque n’est pas attaché.
+Le script suivant recherche des [disques managés](../managed-disks-overview.md) non attachés en examinant la valeur de la propriété **ManagedBy**. Lorsqu’un disque managé est attaché à une machine virtuelle, la propriété **ManagedBy** contient l’ID de ressource de la machine virtuelle. Lorsqu’un disque managé est non attaché, la propriété **ManagedBy** a la valeur null. Le script examine tous les disques managés dans un abonnement Azure. Lorsque le script localise un disque managé dont la propriété **ManagedBy** a la valeur null, il détermine que le disque n’est pas attaché.
 
 >[!IMPORTANT]
 >En premier lieu, exécutez le script en définissant la variable **deleteUnattachedDisks** sur 0. Cette action vous permet de rechercher et d’afficher tous les disques managés non attachés.
@@ -106,5 +106,3 @@ done
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Supprimer un compte de stockage](../../storage/common/storage-account-create.md#delete-a-storage-account) .
-
-

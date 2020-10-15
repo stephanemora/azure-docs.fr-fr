@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 738c2a240ad6c88186357e69b02d33b40d366d7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561259"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977063"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Résolution des problèmes de l’agent invité Windows Azure
 
-L’agent invité Windows Azure est un agent de machine virtuelle. Il permet à la machine virtuelle de communiquer avec le contrôleur de structure (serveur physique sous-jacent sur lequel la machine virtuelle est hébergée) via l’adresse IP 168.63.129.16. Il s’agit d’une adresse IP publique virtuelle qui facilite la communication. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)
+L’agent invité Windows Azure est un agent de machine virtuelle. Il permet à la machine virtuelle de communiquer avec le contrôleur de structure (serveur physique sous-jacent sur lequel la machine virtuelle est hébergée) via l’adresse IP 168.63.129.16. Il s’agit d’une adresse IP publique virtuelle qui facilite la communication. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
- L’agent invité Windows Azure n’est pas installé sur la machine virtuelle migrée vers Azure à partir d’un emplacement local ou créée à l’aide d’une image personnalisée. Dans ces scénarios, vous devez installer manuellement l’agent de machine virtuelle. Pour plus d’informations sur l’agent de machine virtuelle, consultez [Vue d’ensemble d’agent de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ L’agent invité Windows Azure n’est pas installé sur la machine virtuelle migrée vers Azure à partir d’un emplacement local ou créée à l’aide d’une image personnalisée. Dans ces scénarios, vous devez installer manuellement l’agent de machine virtuelle. Pour plus d’informations sur l’agent de machine virtuelle, consultez [Vue d’ensemble d’agent de machine virtuelle Azure](../extensions/agent-windows.md).
 
 Une fois l’agent invité Windows Azure correctement installé, vous pouvez voir les services suivants répertoriés dans la fichier services.msc sur la machine virtuelle :
  
@@ -74,7 +74,7 @@ Accédez à la page des propriétés de la machine virtuelle dans le portail Azu
 
     Dans le Panneau de configuration, accédez à **Programmes et fonctionnalités** pour déterminer si le service de l’agent invité Windows Azure est installé.
 
-Si vous ne trouvez pas de packages, de services et de processus en cours d’exécution et ne voyez même pas l’agent invité Windows Azure installé sous Programmes et fonctionnalités, essayez d’[installer le service de l’agent invité Windows Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). Si l’agent invité ne s’installe pas correctement, vous pouvez [installer l’agent de machine virtuelle en mode hors connexion](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+Si vous ne trouvez pas de packages, de services et de processus en cours d’exécution et ne voyez même pas l’agent invité Windows Azure installé sous Programmes et fonctionnalités, essayez d’[installer le service de l’agent invité Windows Azure](../extensions/agent-windows.md). Si l’agent invité ne s’installe pas correctement, vous pouvez [installer l’agent de machine virtuelle en mode hors connexion](./install-vm-agent-offline.md).
 
 Si vous pouvez voir les services et qu’ils sont en cours d’exécution, redémarrez le service pour voir si le problème est résolu. Si les services sont arrêtés, démarrez-les et patientez quelques minutes. Vérifiez ensuite si l’**État de l’agent** est **Prêt**. Si vous constatez que ces services se bloquent, il se peut que certains processus tiers provoquent leur blocage. Pour une résolution plus avancée de ces problèmes, contactez le [Support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -111,7 +111,7 @@ L’agent invité Windows Azure intègre une fonctionnalité de mise à jour aut
     ```
     Vérifiez ensuite si les services de l’agent invité démarrent correctement.
  
-    Dans les rares cas où l’agent invité ne s’installe pas correctement, vous pouvez [installer l’agent de machine virtuelle en mode hors connexion](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    Dans les rares cas où l’agent invité ne s’installe pas correctement, vous pouvez [installer l’agent de machine virtuelle en mode hors connexion](./install-vm-agent-offline.md).
     
 
 ### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>Étape 3 : vérifier si la machine virtuelle peut se connecter au contrôleur de structure
@@ -189,7 +189,7 @@ La machine virtuelle ne peut pas atteindre le serveur hôte wireserver.
 1. Si vous ne parvenez pas à accéder à l’URL de l’étape 1, vérifiez l’interface réseau afin de déterminer si le protocole DHCP est activé et si elle dispose d’un DNS. Pour vérifier l’état du protocole DHCP de l’interface réseau, exécutez la commande suivante : `netsh interface ip show config`.
 1. Si le protocole DHCP est désactivé, exécutez la commande suivante en veillant à remplacer la valeur en jaune par le nom de votre interface : `netsh interface ip set address name="Name of the interface" source=dhcp`.
 1. Vérifiez si un pare-feu, un proxy ou une autre source pourraient occasionner des problèmes susceptibles de bloquer l’accès à l’adresse IP 168.63.129.16.
-1. Vérifiez si le Pare-feu Windows ou un pare-feu tiers bloquent l’accès aux ports 80, 443 et 32526. Pour plus d’informations sur la raison pour laquelle cette adresse ne doit pas être bloquée, consultez [Qu’est-ce que l’adresse IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+1. Vérifiez si le Pare-feu Windows ou un pare-feu tiers bloquent l’accès aux ports 80, 443 et 32526. Pour plus d’informations sur la raison pour laquelle cette adresse ne doit pas être bloquée, consultez [Qu’est-ce que l’adresse IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ### <a name="guest-agent-is-stuck-stopping"></a>Agent invité bloqué dans l’état « Arrêt en cours »  
 

@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536604"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072643"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -126,7 +126,7 @@ Pour vous assurer que tous les utilisateurs qui ont accès à votre solution de 
 1. Sélectionnez **Enregistrer** pour créer l’attribution de rôle. Après quelques instants, le rôle est attribué au principal de sécurité dans les stratégies d’accès aux données.
 
 > [!NOTE]
-> Si vous devez accorder à des utilisateurs supplémentaires l’accès à l’Explorateur Time Series Insights, vous pouvez suivre ces étapes pour [accorder l’accès aux données](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Si vous devez accorder à des utilisateurs supplémentaires l’accès à l’Explorateur Time Series Insights, vous pouvez suivre ces étapes pour [accorder l’accès aux données](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## <a name="configure-azure-stream-analytics"></a>Configuration d’Azure Stream Analytics 
 
@@ -217,7 +217,7 @@ Configurez l’environnement de déploiement `basic` pour les microservices mis 
 
 1. Extrayez le [dernier fichier yaml Docker Compose](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) à partir du référentiel GitHub à l’aide de la dernière balise. 
 
-1. Connectez-vous à la machine virtuelle à l’aide du protocole SSH en suivant les étapes décrites dans l’article [Comment utiliser des clés SSH avec Windows sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. Connectez-vous à la machine virtuelle à l’aide du protocole SSH en suivant les étapes décrites dans l’article [Comment utiliser des clés SSH avec Windows sur Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 1. Une fois connecté, tapez `cd /app`.
 
@@ -300,4 +300,4 @@ Configurez l’environnement de déploiement `standard` pour les microservices m
 
 * Pour découvrir comment explorer vos données et diagnostiquer une alerte dans l’Explorateur Time Series Insights, consultez notre didacticiel sur la [réalisation d’une analyse de cause racine](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Pour apprendre à explorer et interroger des données dans l’Explorateur Time Series Insights, consultez la documentation relative à [l’Explorateur Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Pour apprendre à explorer et interroger des données dans l’Explorateur Time Series Insights, consultez la documentation relative à [l’Explorateur Azure Time Series Insights](../time-series-insights/time-series-insights-explorer.md).

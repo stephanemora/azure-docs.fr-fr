@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835479"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973901"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers la fonctionnalité Disques managés dans Azure
 
@@ -41,7 +41,7 @@ Vous pouvez charger des disques durs virtuels généralisés et spécialisés.
 ## <a name="overview-of-managed-disks"></a>Vue d’ensemble de la fonctionnalité Disques managés
 
 Azure Disques managés simplifie la gestion des machines virtuelles en éliminant la nécessité de gérer des comptes de stockage. La fonctionnalité Disques managés bénéficie également d’une meilleure fiabilité des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles.
-Selon vos besoins, vous avez le choix entre quatre types d’options de stockage. Pour en savoir plus sur les types de disques disponibles, consultez l'article [Sélectionner un type de disque](disks-types.md).
+Selon vos besoins, vous avez le choix entre quatre types d’options de stockage. Pour en savoir plus sur les types de disques disponibles, consultez l'article [Sélectionner un type de disque](../disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planification de la migration vers la fonctionnalité Disques managés
 

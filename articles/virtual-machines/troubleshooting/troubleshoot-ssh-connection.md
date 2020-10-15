@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371454"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978949"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 Cet article vous aide à trouver et corriger les problèmes qui se produisent en raison d’erreurs SSH (Secure Shell), d’échecs de connexion SSH ou de refus SSH quand vous essayez de vous connecter à une machine virtuelle Linux. Vous pouvez utiliser le portail Azure, l’interface de ligne de commande Azure ou l’extension d’accès aux machines virtuelles pour Linux pour dépanner et résoudre des problèmes de connexion.
@@ -46,7 +46,7 @@ Si vous cherchez des procédures de dépannage plus détaillées et des explicat
 Vous pouvez réinitialiser les informations d’identification ou la configuration SSH avec l’une des méthodes suivantes :
 
 * [Portail Azure](#use-the-azure-portal) : utile si vous devez rapidement réinitialiser la configuration SSH ou la clé SSH et que vous n’avez pas installé les outils Azure.
-* [Console série de machine virtuelle Azure](https://aka.ms/serialconsolelinux) : la console série de machine virtuelle fonctionne quelle que soit la configuration SSH et fournit une console interactive à votre machine virtuelle. De fait, la console série a été spécialement conçue pour éviter les problèmes de connexion SSH. Vous trouverez plus de détails ci-dessous.
+* [Console série de machine virtuelle Azure](./serial-console-linux.md) : la console série de machine virtuelle fonctionne quelle que soit la configuration SSH et fournit une console interactive à votre machine virtuelle. De fait, la console série a été spécialement conçue pour éviter les problèmes de connexion SSH. Vous trouverez plus de détails ci-dessous.
 * [Azure CLI](#use-the-azure-cli) : Si vous êtes déjà sur la ligne de commande, réinitialisez rapidement la configuration SSH ou les informations d’identification. Si vous utilisez une machine virtuelle classique, vous pouvez utiliser l’[interface de ligne de commande Azure classique](#use-the-azure-classic-cli).
 * [L’extension VMAccessForLinux Azure](#use-the-vmaccess-extension) : création et réutilisation de fichiers de définition json pour réinitialiser la configuration SSH ou les informations d’identification utilisateur.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 9247ae6e6cfc276c871689df826935c519620573
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908142"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978966"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Stack Edge Pro  
 
@@ -66,7 +66,7 @@ Pour modifier une planification de bande passante, procédez comme suit.
 
 4. Une fois la planification modifiée, la liste des planifications est mise à jour pour refléter cette modification.
 
-    ![Modification d’une planification](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modifier l’utilisateur 2](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Supprimer une planification
