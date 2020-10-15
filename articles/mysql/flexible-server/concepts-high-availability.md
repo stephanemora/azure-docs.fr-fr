@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929826"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)

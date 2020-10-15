@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
 ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929966"
 ---
 # <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Utiliser Power BI et Synapse SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link (préversion)
@@ -46,7 +46,7 @@ Dans l’espace de travail Synapse, accédez à l’onglet **Développer**, sél
 
 Chaque espace de travail est fourni avec un point de terminaison serverless Synapse SQL. Après avoir créé un script SQL, à partir de la barre d’outils du haut, connectez-vous à **SQL à la demande**.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Autoriser le script SQL à utiliser le point de terminaison serverless Synapse SQL dans l’espace de travail":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
 Créez une nouvelle base de données nommée **RetailCosmosDB** et un affichage SQL sur les conteneurs pour lesquels Synapse Link est activée. La commande suivante montre comment créer une base de données :
 
@@ -106,7 +106,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Sélectionnez **Exécuter** qui donne le résultat suivant à la table :
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Résultats de la requête après avoir joint les affichages StoreDemographics et RetailSales":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Affichage de modèle sur des conteneurs avec Power BI
 
@@ -141,7 +141,7 @@ Ensuite, ouvrez le bureau Power BI et connectez-vous au point de terminaison Syn
 1. Glissez-déplacez **productCode** entre l’affichage **RetailSales** et la légende pour sélectionner une gamme de produits spécifique.
 Une fois ces options choisies, un graphique semblable à la capture d’écran suivante doit s’afficher :
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Rapport comparant l’importance relative de la taille du ménage au revenu moyen par magasin":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

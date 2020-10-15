@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3c88d21c6ad17c613c5d708bf697ae8717c9ec91
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087884"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075261"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -67,7 +67,7 @@ Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez
 
 ### <a name="service-tags"></a>Étiquettes de service
 
-Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, à commencer par l’étiquette de service [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus précis en limitant les plages d’adresses IP à une région spécifique.
+Azure Automation prend en charge les étiquettes de service de réseau virtuel Azure, à commencer par l’étiquette de service [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom d’étiquette de service **GuestAndHybridManagement** dans le champ source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service Automation. Cette étiquette de service ne permet pas d’autoriser un contrôle plus précis en limitant les plages d’adresses IP à une région spécifique.
 
 L’étiquette de service du service Azure Automation fournit uniquement les adresses IP utilisées pour les scénarios suivants :
 

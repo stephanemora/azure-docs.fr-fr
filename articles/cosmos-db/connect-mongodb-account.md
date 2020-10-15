@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85954092"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
@@ -46,7 +46,7 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 3. Dans le volet gauche du panneau Compte, cliquez sur **Chaîne de connexion**.
 4. Le panneau **Chaîne de connexion** s’ouvre. Il affiche toutes les informations nécessaires pour la connexion au compte à l’aide d’un pilote pour MongoDB, dont une chaîne de connexion prédéfinie.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Panneau Chaîne de connexion" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Panneau Démarrage rapide" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Exigences relatives à la chaîne de connexion
 

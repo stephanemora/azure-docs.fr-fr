@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929793"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Redémarrer Azure Database pour PostgreSQL - Serveur flexible
@@ -43,7 +43,7 @@ Pour redémarrer votre serveur flexible, procédez comme suit.
 
 4.  Cliquez sur **Oui** si vous souhaitez continuer.
    
-     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Confirmation de redémarrage":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Redémarrer la sélection":::
  
 6.  Une notification indique que l’opération de redémarrage est lancée.
 

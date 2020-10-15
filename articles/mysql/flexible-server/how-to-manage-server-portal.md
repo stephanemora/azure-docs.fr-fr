@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929859"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Gérer un serveur flexible Azure Database pour MySQL (préversion) à l’aide du portail Azure
@@ -50,7 +50,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="réinitialiser le mot de passe du serveur flexible":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
 
 3. Sélectionnez **Enregistrer** pour enregistrer le nouveau mot de passe.
 
@@ -63,7 +63,7 @@ Vous pouvez supprimer votre serveur si vous n’en avez plus besoin.
 2. Tapez le nom du serveur dans la zone d’entrée pour confirmer que vous voulez supprimer le serveur.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="supprimer le serveur flexible":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
 
    > [!NOTE]
    > La suppression d’un serveur est irréversible.

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929812"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concepts de haute disponibilité dans Azure Database pour PostgreSQL – Serveur flexible
@@ -43,7 +43,7 @@ L’intégrité de la configuration de haute disponibilité est surveillée et s
 
 Les applications clientes PostgreSQL sont connectées au serveur primaire à l’aide du nom du serveur BDD. Les lectures d’application sont servies directement à partir du serveur primaire, tandis que les validations et les écritures sont confirmées à l’application uniquement une fois les données conservées tant sur le serveur primaire que sur le réplica de secours. En raison de cette exigence d’aller-retour supplémentaire, les applications peuvent s’attendre à une latence élevée pour les écritures et les validations. Vous pouvez surveiller l’intégrité de la haute disponibilité sur le portail.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Haute disponibilité redondante interzone – État stable"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Haute disponibilité redondante interzone"::: 
 
 1. Les clients se connectent au serveur flexible et effectuent des opérations d’écriture.
 2. Les modifications sont répliquées sur le site de secours.
@@ -64,7 +64,7 @@ Pour les autres opérations initiées par l’utilisateur, telles que la mise à
 
 Les interruptions non planifiées incluent des bogues logiciels ou des défaillances de composants d’infrastructure ayant un impact sur la disponibilité de la base de données. En cas d’indisponibilité du serveur détectée par le système de surveillance, la réplication vers le serveur réplica de secours est interrompue, et le serveur réplica de secours est activé pour en faire le serveur de base de données primaire. Les clients peuvent se reconnecter au serveur de base de données à l’aide de la même chaîne de connexion et reprendre leurs opérations. Le basculement global est censé prendre entre 60 et 120 secondes. Toutefois, en fonction de l’activité sur le serveur de base de données primaire au moment du basculement, par exemple, si les transactions et temps de récupération sont conséquents, le basculement peut prendre plus de temps.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Haute disponibilité redondante interzone – Basculement"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Haute disponibilité redondante interzone"::: 
 
 1. Le serveur de base de données primaire est à l’arrêt et les clients perdent la connexion à la base de données. 
 2. Le serveur de secours est activé pour devenir le nouveau serveur primaire. Le client se connecte au nouveau serveur primaire en utilisant la même chaîne de connexion. Le fait que l’application cliente se trouve dans la même zone que le serveur de base de données primaire réduit la latence et améliore les performances.
