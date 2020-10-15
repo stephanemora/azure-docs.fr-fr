@@ -4,10 +4,10 @@ description: Découvrir comment utiliser le portail Azure pour sauvegarder des p
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890346"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure

@@ -4,10 +4,10 @@ description: Découvrez comment utiliser l’API REST pour gérer et superviser 
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88892845"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gérer la sauvegarde de partage de fichiers Azure avec l’API REST

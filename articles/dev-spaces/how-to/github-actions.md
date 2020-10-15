@@ -7,14 +7,16 @@ description: Passez en revue et testez les modifications à partir d’une deman
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js
-ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316101"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973102"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces fournit un flux de travail en utilisant GitHub Actions, qui vous permet de tester les modifications d’une demande de tirage (pull request) directement dans AKS avant de la fusionner dans la branche principale de votre dépôt. Avoir une application en cours d’exécution pour examiner les modifications apportées à une demande de tirage peut accroître la confiance du développeur et des membres de l’équipe. Cette application en cours d’exécution peut également aider les membres de son équipe, tels que les chefs de produits et les concepteurs, à faire partie du processus de révision lors des premières étapes du développement.
 

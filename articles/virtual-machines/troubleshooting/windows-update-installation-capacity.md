@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
 ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999103"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Résoudre les problèmes de démarrage du système d’exploitation – Capacité d’installation Windows Update

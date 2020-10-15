@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: f82e66053585340e9b2d25b139fc9f64fefc6f52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b1c6a7a1c92d1bb2e6899c1dc96322362baa190d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75370208"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971292"
 ---
-Un [groupe de ressources](../articles/azure-resource-manager/management/overview.md#terminology) est un conteneur logique dans lequel les ressources Azure comme les applications web, les bases de données et les comptes de stockage sont déployés et gérés. Par exemple, vous pouvez choisir de supprimer le groupe de ressources complet ultérieurement en une seule étape.
+Un [groupe de ressources](../articles/azure-resource-manager/management/overview.md#terminology) est un conteneur logique dans lequel les ressources Azure, comme les applications web, les bases de données et les comptes de stockage, sont déployées et managées. Par exemple, vous pouvez choisir de supprimer le groupe de ressources complet ultérieurement en une seule étape.

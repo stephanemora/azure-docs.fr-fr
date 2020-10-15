@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89081621"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Déplacer des domaines Azure Event Grid vers une autre région
@@ -37,10 +37,10 @@ Pour commencer, exportez un modèle Resource Manager pour le domaine.
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Rechercher et sélectionner des domaines Event Grid":::
 3. Sélectionnez le **domaine** que vous souhaitez exporter vers un modèle Resource Manager. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Sélectionner le domaine":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Rechercher et sélectionner des domaines Event Grid":::   
 4. Dans la page **Domaine Event Grid**, sélectionnez **Exporter le modèle** sous **Paramètres** dans le menu de gauche, puis sélectionnez **Télécharger** dans la barre d’outils. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Exporter le modèle -> Télécharger" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Rechercher et sélectionner des domaines Event Grid" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Le domaine et les rubriques de domaine sont exportés. Les abonnements aux rubriques de domaine ne sont pas exportés. Par conséquent, vous devez créer des abonnements pour les rubriques de domaine après les avoir déplacées. 
@@ -73,7 +73,7 @@ Déployez le modèle pour créer le domaine et les rubriques de domaine dans la 
     1. Pour **Nom de domaine**, entrez un nouveau nom pour le domaine. 
     1. Sélectionnez **Revoir + créer**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Déployer un modèle":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Rechercher et sélectionner des domaines Event Grid":::        
     1. Une fois la validation du modèle réussie, sélectionnez **Créer** en bas de la page pour déployer la ressource. 
     1. Une fois le déploiement réussi, sélectionnez **Accéder au groupe de ressources** pour accéder à la page du groupe de ressources. Confirmez qu’il existe un domaine dans le groupe de ressources. Sélectionnez le domaine. Confirmez qu’il existe des rubriques de domaine dans le domaine. 
 

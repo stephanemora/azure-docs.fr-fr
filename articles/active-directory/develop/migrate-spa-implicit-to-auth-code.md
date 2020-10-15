@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027085"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrer une application monopage JavaScript de l’octroi implicite vers le flux de code d’autorisation
@@ -48,11 +48,11 @@ Effectuez ces étapes pour les inscriptions d’applications qui sont actuelleme
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
 1. Sélectionnez *uniquement* les URI de redirection dont les applications utiliseront MSAL.js 2.x, puis sélectionnez **Configurer**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Sélectionnez le volet URI de redirection dans le volet SPA du portail Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
 
 Ces URI de redirection doivent maintenant apparaître dans la vignette de plateforme **Application monopage**, indiquant que la prise en charge de CORS avec le flux de code d’autorisation et PKCE est activée pour ces URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Vignette d’application monopage dans l’inscription d’application dans le portail Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
 
 Vous pouvez également [créer une inscription d’application](scenario-spa-app-registration.md) au lieu de mettre à jour les URI de redirection dans votre inscription existante.
 

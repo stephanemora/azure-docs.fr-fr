@@ -3,16 +3,16 @@ title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589722"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974360"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
-Dans cet article, vous allez découvrir comment publier une offre de service managé publique ou privée sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) à l’aide du programme [Place de marché commerciale](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) dans l’Espace partenaires. Les clients qui achètent l’offre délèguent ensuite des abonnements ou des groupes de ressources, ce qui vous permet de les gérer avec [Azure Lighthouse](../overview.md).
+Dans cet article, vous allez découvrir comment publier une offre de service managé publique ou privée sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) à l’aide du programme [Place de marché commerciale](../../marketplace/overview.md) dans l’Espace partenaires. Les clients qui achètent l’offre délèguent ensuite des abonnements ou des groupes de ressources, ce qui vous permet de les gérer avec [Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Exigences de publication
 
@@ -40,7 +40,7 @@ Le tableau suivant peut vous aider à déterminer si des clients doivent être i
 
 Pour obtenir des instructions détaillées sur la création de votre offre, y compris l’ensemble des informations et ressources que vous devrez fournir, consultez [Créer une offre de service managé](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Pour en savoir plus sur le processus général de publication, consultez [Guide de l’éditeur Place de marché Microsoft Azure et AppSource](../../marketplace/marketplace-publishers-guide.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies), en particulier la section [Managed Services](/legal/marketplace/certification-policies#700-managed-services).
+Pour en savoir plus sur le processus général de publication, consultez [Guide de l’éditeur Place de marché Microsoft Azure et AppSource](../../marketplace/overview.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies), en particulier la section [Managed Services](/legal/marketplace/certification-policies#700-managed-services).
 
 Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abonnements ou groupes de ressources, qui seront ensuite [intégrés à Azure Lighthouse](#the-customer-onboarding-process).
 
@@ -64,6 +64,6 @@ Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur la [Place de marché commerciale](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Apprenez-en davantage sur la [Place de marché commerciale](../../marketplace/overview.md).
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.

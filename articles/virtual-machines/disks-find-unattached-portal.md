@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542736"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trouver et supprimer les disques managés et non managés Azure non attachés - Portail Azure
@@ -45,17 +45,17 @@ Si vous avez des disques non managés qui ne sont pas attachés à une machine v
 
     La liste de tous vos disques non managés apparaît. Tout disque contenant « **-**  » dans la colonne **Attaché à** est un disque non attaché.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Capture d’écran du panneau des disques non managés. Dans ce panneau, les disques dont la colonne « attaché à » contient « - » ne sont pas attachés.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Capture d’écran d’un panneau de disque managé individuel. Ce panneau indique « non attaché » dans l’état du disque s’il n’est pas attaché. Vous pouvez supprimer ce disque si vous n’avez plus besoin de conserver ses données":::
 
 1. Sélectionnez le disque non attaché que vous souhaitez supprimer. Le panneau du disque s’ouvre.
 
 1. Dans le panneau du disque, vous pouvez vérifier que ce dernier n’est pas attaché, car **Attaché à** contient toujours **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Capture d’écran d’un panneau de disque non managé individuel. La valeur de « attaché à » est « - » s’il n’est pas attaché. Si vous n’avez plus besoin des données de ce disque, vous pouvez le supprimer.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Capture d’écran d’un panneau de disque managé individuel. Ce panneau indique « non attaché » dans l’état du disque s’il n’est pas attaché. Vous pouvez supprimer ce disque si vous n’avez plus besoin de conserver ses données":::
 
 1. Sélectionnez **Supprimer**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Capture d’écran d’un panneau de disque non managé individuel, avec mise en évidence de l’option Supprimer.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Capture d’écran d’un panneau de disque managé individuel. Ce panneau indique « non attaché » dans l’état du disque s’il n’est pas attaché. Vous pouvez supprimer ce disque si vous n’avez plus besoin de conserver ses données":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

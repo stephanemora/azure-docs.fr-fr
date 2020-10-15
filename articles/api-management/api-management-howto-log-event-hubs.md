@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903389"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072405"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -32,7 +32,7 @@ Vous trouverez des instructions détaillées pour créer un hub d’événements
 ## <a name="create-an-api-management-logger"></a>Créer un enregistreur d’événements de gestion des API
 Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](/rest/api/apimanagement/2019-12-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
 
-Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/apimapi). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configurer des stratégies Enregistrer sur event hub
 

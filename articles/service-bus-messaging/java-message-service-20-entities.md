@@ -4,10 +4,10 @@ description: Cet article fournit une vue d’ensemble des entités de messagerie
 ms.topic: article
 ms.date: 07/20/2020
 ms.openlocfilehash: 1a7fe3d6355146ccf0fce50266a6f3b8da5231b3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801244"
 ---
 # <a name="java-message-service-jms-20-entities-preview"></a>Entités de Java Message Service (JMS) 2.0 (préversion)
