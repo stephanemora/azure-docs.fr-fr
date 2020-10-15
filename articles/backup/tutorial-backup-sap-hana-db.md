@@ -4,10 +4,10 @@ description: Dans ce tutoriel, découvrez comment sauvegarder des bases de donn�
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254345"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure

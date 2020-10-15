@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90992254"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Rôles RBAC locaux intégrés au HSM managé
@@ -77,5 +77,5 @@ Il existe plusieurs rôles RBAC locaux intégrés au HSM managé que vous pouve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez la présentation du [contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md).
+- Consulter la présentation du [contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md)
 - Suivez un tutoriel sur la [Gestion des rôles dans Managed HSM](role-management.md).

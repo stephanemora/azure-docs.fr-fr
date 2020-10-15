@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281454"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045837"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -77,7 +77,7 @@ Pour en savoir plus sur les certificats IoT Edge et certaines implications en ma
 
 ## <a name="provide-the-root-ca-certificate"></a>Fournir le certificat d’autorité de certification racine
 
-Pour vérifier les certificats de l’appareil de passerelle, l’appareil en aval a besoin de sa propre copie du certificat d’autorité de certification racine. Si vous avez utilisé les scripts fournis dans le dépôt Git IoT Edge pour créer des certificats de test, le certificat d’autorité de certification racine est appelé **azure-iot-test-only.root.ca.cert.pem**. Si vous ne l’avez pas déjà fait dans le cadre d’autres étapes de préparation des appareils en aval, vous pouvez déplacer ce fichier de certificat vers n’importe quel répertoire de votre appareil en aval. Vous pouvez utiliser un service comme [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer le fichier de certificat.
+Pour vérifier les certificats de l’appareil de passerelle, l’appareil en aval a besoin de sa propre copie du certificat d’autorité de certification racine. Si vous avez utilisé les scripts fournis dans le dépôt Git IoT Edge pour créer des certificats de test, le certificat d’autorité de certification racine est appelé **azure-iot-test-only.root.ca.cert.pem**. Si vous ne l’avez pas déjà fait dans le cadre d’autres étapes de préparation des appareils en aval, vous pouvez déplacer ce fichier de certificat vers n’importe quel répertoire de votre appareil en aval. Vous pouvez utiliser un service comme [Azure Key Vault](../key-vault/index.yml) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer le fichier de certificat.
 
 ## <a name="install-certificates-in-the-os"></a>Installer des certificats sur le système d’exploitation
 
@@ -98,7 +98,7 @@ Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** tiré des articles sur les prérequis et que vous avez copié le certificat dans un emplacement de l’appareil en aval.
 
-Vous pouvez installer des certificats en utilisant l’applet de commande PowerShell [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) en tant qu’administrateur :
+Vous pouvez installer des certificats en utilisant l’applet de commande PowerShell [Import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) en tant qu’administrateur :
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ Vous pouvez aussi installer des certificats avec l’utilitaire **certlm** :
 
 Vous pouvez également installer des certificats par programmation à l’aide de l’API .NET, comme indiqué dans l’exemple .NET plus loin dans cet article.
 
-En général, les applications utilisent la pile TLS fournie par Windows et appelée [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) pour se connecter en toute sécurité via TLS. Schannel *requiert* l’installation de tous les certificats dans le magasin de certificats Windows avant de tenter d’établir une connexion TLS.
+En général, les applications utilisent la pile TLS fournie par Windows et appelée [Schannel](/windows/desktop/com/schannel) pour se connecter en toute sécurité via TLS. Schannel *requiert* l’installation de tous les certificats dans le magasin de certificats Windows avant de tenter d’établir une connexion TLS.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Utiliser des certificats avec les kits de développement logiciel Azure IoT
 

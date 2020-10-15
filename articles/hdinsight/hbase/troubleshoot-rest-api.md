@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
 ms.openlocfilehash: 3bf63aa08ec4c1deff2551cfcc0cf188a75261bc
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82515971"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>API REST pour interroger Apache HBase dans Azure HDInsight

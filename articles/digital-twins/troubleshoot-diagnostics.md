@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723926"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047673"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
@@ -49,7 +49,7 @@ Voici comment activer les paramètres de diagnostic pour votre instance Azure Di
     
 4. Enregistrez les nouveaux paramètres. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d'écran montrant la page des paramètres de diagnostic où l'utilisateur a renseigné un nom de paramètre de diagnostic et coché quelques cases en rapport avec les détails de la catégorie et de la destination. Le bouton Enregistrer est en surbrillance.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux réapparaissent dans la cible configurée sur la page **Paramètres de diagnostic** de votre instance. 
 
@@ -73,7 +73,7 @@ Chaque catégorie de journal se compose d'opérations d'écriture, de lecture, d
 | DELETE | Suppression |
 | Action | POST |
 
-Voici une liste complète des opérations et des [appels d’API REST Azure Digital Twins](https://docs.microsoft.com/rest/api/azure-digitaltwins/) correspondants consignés dans chaque catégorie. 
+Voici une liste complète des opérations et des [appels d’API REST Azure Digital Twins](/rest/api/azure-digitaltwins/) correspondants consignés dans chaque catégorie. 
 
 >[!NOTE]
 > Chaque catégorie de journal contient plusieurs opérations/appels d’API REST. Dans le tableau ci-dessous, chaque catégorie de journal est mappée à l’ensemble des opérations/appels d’API REST en dessous, jusqu’à ce que la catégorie suivante du journal soit affichée. 

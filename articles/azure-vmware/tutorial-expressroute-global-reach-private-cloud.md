@@ -3,12 +3,12 @@ title: 'Tutoriel : Appairer des environnements locaux avec un cloud privé'
 description: Découvrez comment créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576725"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948304"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
@@ -83,7 +83,7 @@ Vous avez créé une clé d’autorisation pour le circuit ExpressRoute de cloud
 Nous avons ajouté à l’[article relatif aux commandes CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) des informations et exemples spécifiques pour vous aider à configurer l’appairage ExpressRoute Global Reach entre des environnements locaux et un cloud privé Azure VMware Solution.  
 
 > [!TIP]  
-> Par souci de concision dans la sortie de la commande Azure CLI, ces instructions peuvent utiliser un [argument `–query` pour exécuter une requête JMESPath afin d’afficher uniquement les résultats nécessaires](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> Par souci de concision dans la sortie de la commande Azure CLI, ces instructions peuvent utiliser un [argument `–query` pour exécuter une requête JMESPath afin d’afficher uniquement les résultats nécessaires](/cli/azure/query-azure-cli).
 
 
 1. Connectez-vous au portail Azure en utilisant le même abonnement que le circuit ExpressRoute local et ouvrez Cloud Shell. Gardez l’interpréteur de commandes en environnement Bash.

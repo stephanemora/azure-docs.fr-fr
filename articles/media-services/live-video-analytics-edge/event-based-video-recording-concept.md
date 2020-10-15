@@ -4,10 +4,10 @@ description: Un enregistrement vidéo basé sur les événements est un enregist
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568486"
 ---
 # <a name="event-based-video-recording"></a>Enregistrement de vidéo basé sur les événements  
@@ -46,7 +46,7 @@ Un événement du nœud détecteur de mouvement déclenchera le nœud processeur
 Dans ce cas d’usage, les signaux d’un autre capteur IoT peuvent être utilisés pour déclencher l’enregistrement de la vidéo. Le diagramme ci-dessous montre une représentation graphique d’un graphe multimédia qui résout ce cas d’usage. La représentation JSON de la topologie d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Enregistrement de vidéo basé sur les événements provenant d’autres sources":::
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Enregistrement de vidéo basé sur la détection de mouvement":::
 
 Dans le diagramme, le capteur externe envoie des événements au hub IoT Edge. Les événements sont ensuite acheminés vers le nœud processeur de porte de signal via le nœud [source de messages IoT Hub](media-graph-concept.md#iot-hub-message-source). Le comportement du nœud processeur de porte de signal est le même que dans le cas d’usage précédent : il s’ouvre et laisse le flux vidéo en direct passer du nœud source RTSP au nœud récepteur de fichiers (ou au nœud récepteur de ressources) lorsqu’il est déclenché par l’événement externe. 
 
@@ -57,7 +57,7 @@ Si vous utilisez un nœud récepteur de fichiers, la vidéo sera enregistrée da
 Dans ce cas d’usage, vous pouvez enregistrer des clips vidéo basés sur le signal d’un système logique externe. Un exemple de ce cas d’usage peut être l’enregistrement d’un clip vidéo uniquement lorsqu’un camion est détecté dans le flux vidéo du trafic sur une autoroute. Le diagramme ci-dessous montre une représentation graphique d’un graphe multimédia qui résout ce cas d’usage. La représentation JSON de la topologie d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Enregistrement de vidéo basé sur un module d’inférence externe":::
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Enregistrement de vidéo basé sur la détection de mouvement":::
 
 Dans le diagramme, le nœud source RTSP capture le flux vidéo en direct à partir de la caméra et le remet à deux branches : l’une possède un nœud [processeur de porte de signal](media-graph-concept.md#signal-gate-processor), et l’autre utilise un nœud [d’extension HTTP](media-graph-concept.md) pour envoyer des données à un module logique externe. Le nœud d’extension HTTP permet au graphe multimédia d’envoyer des trames d’image (au format JPEG, BMP ou PNG) à un service d’inférence externe via REST. Généralement, ce chemin de signal ne peut prendre en charge que des fréquences d’images faibles (< 5 fps). Vous pouvez utiliser le nœud [processeur de filtre de fréquence d’images](media-graph-concept.md#frame-rate-filter-processor) pour réduire la fréquence d’images de la vidéo allant vers le nœud d’extension HTTP.
 

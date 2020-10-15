@@ -2,19 +2,17 @@
 title: Paramètres de ressources des classeurs Azure Monitor
 description: Découvrez comment utiliser les paramètres de ressources pour choisir des ressources dans les classeurs. Utilisez les paramètres des ressources pour définir l’étendue à partir de laquelle les données sont extraites.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b0d16844315ce0adefcac9dc815640d4444df28b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972848"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932326"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 

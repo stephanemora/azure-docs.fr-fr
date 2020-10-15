@@ -3,16 +3,16 @@ title: Erreurs de SKU non disponible
 description: Décrit comment résoudre les erreurs de référence SKU non disponible quand vous déployez des ressources avec Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 37ad70093cce4cea6689fecbc3b6ccb91db5017b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 15df8c5ff45994a03e12731cf3798f7f4c2a295b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333220"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948610"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
 
-Cet article décrit comment résoudre les erreurs **SkuNotAvailable**. Si vous ne parvenez pas à trouver de référence SKU appropriée dans cette région/zone ou une autre qui réponde aux besoins de votre entreprise, envoyez une [demande de référence SKU](https://aka.ms/skurestriction) au support Azure.
+Cet article décrit comment résoudre les erreurs **SkuNotAvailable**. Si vous ne parvenez pas à trouver de référence SKU appropriée dans cette région/zone ou une autre qui réponde aux besoins de votre entreprise, envoyez une [demande de référence SKU](../../azure-portal/supportability/sku-series-unavailable.md) au support Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -124,4 +124,3 @@ Elle renvoie les références et les régions disponibles dans le format suivant
   ]
 }
 ```
-

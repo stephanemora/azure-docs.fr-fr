@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
 ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82781744"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Guide pratique pour configurer un réseau de microphones

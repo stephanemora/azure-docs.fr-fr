@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82891786"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Comment utiliser des groupes dans des classeurs

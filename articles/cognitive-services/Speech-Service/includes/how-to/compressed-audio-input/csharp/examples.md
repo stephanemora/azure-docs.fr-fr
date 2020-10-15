@@ -6,10 +6,10 @@ ms.date: 03/09/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 313d2717e6e40280ed37322d695a2129d833dd59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934093"
 ---
 Pour diffuser en streaming des données dans un format audio compressé sur le service Speech, créez un élément `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux.
