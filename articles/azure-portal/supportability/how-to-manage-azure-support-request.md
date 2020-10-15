@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852134"
 ---
 # <a name="manage-an-azure-support-request"></a>Gérer une demande de support Azure
@@ -45,17 +45,17 @@ Sur cette page, vous pouvez rechercher, filtrer et trier des demandes de support
 
 1. Sur la page **Demande de support**, sélectionnez **Modifier**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Modifier la gravité de la demande de support":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Toutes les demandes de support":::
 
 1. Le portail Azure affiche l’un ou l’autre écran, selon que votre demande est déjà attribuée à un ingénieur du support technique ou non :
 
     - Si votre demande n’a pas été attribuée, un écran similaire à celui ci-dessous s’affiche. Sélectionnez un nouveau niveau de gravité, puis sélectionnez **Modifier**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Sélectionner un nouveau niveau de gravité":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Toutes les demandes de support":::
 
     - Si votre demande a été attribuée, un écran similaire à celui ci-dessous s’affiche. Sélectionnez **OK**, puis créez un [message](#send-a-message) pour demander une modification du niveau de gravité.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Impossible de sélectionner un nouveau niveau de gravité":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Toutes les demandes de support":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Partager des informations de diagnostic avec le support Azure
 
@@ -69,7 +69,7 @@ Lors de la création d’une demande de support, par défaut, l’option **Parta
     
     1. Sur la page **Demande de support**, sélectionnez **Accorder l’autorisation**, puis sélectionnez **Oui** et **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Accorder des autorisations pour les informations de diagnostic":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Toutes les demandes de support":::
 
 ## <a name="upload-files"></a>Charger des fichiers
 
@@ -79,7 +79,7 @@ Vous pouvez utiliser l’option de chargement de fichiers de diagnostic ou tout 
 
 1. Sur la page **Demande de support**, recherchez votre fichier, puis sélectionnez **Charger**. Répétez la procédure si vous avez plusieurs fichiers.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Charger un fichier":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Toutes les demandes de support":::
 
 ### <a name="file-upload-guidelines"></a>Instructions relatives au chargement de fichiers
 

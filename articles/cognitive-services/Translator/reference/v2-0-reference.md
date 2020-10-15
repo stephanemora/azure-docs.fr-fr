@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
 ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588613"
 ---
 # <a name="translator-v20"></a>Translator v2.0
@@ -52,7 +52,7 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, même si elle est
 |ProfanityAction    |Action |Exemple de source (japonais)  |Exemple de traduction (français)  |
 |:--|:--|:--|:--|
 |NoAction   |Par défaut. Équivaut à ne pas définir d’option. La vulgarité de la source est reflétée dans la cible.        |彼はジャッカスです。     |Il est un imbécile.   |
-|Marked     |Les mots vulgaires sont entourés de balises XML \<profanity> et \</profanity>.       |彼はジャッカスです。 |C’est un \<profanity>jackass\</profanity>.  |
+|Marked     |Les mots vulgaires sont entourés des balises XML \<profanity> et \</profanity>.       |彼はジャッカスです。 |Il est un \<profanity>imbécile\</profanity>.  |
 |Deleted    |Les mots vulgaires sont retirés de la cible sans remplacement.     |彼はジャッカスです。 |C’est un.   |
 
     

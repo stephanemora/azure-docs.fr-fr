@@ -4,10 +4,10 @@ description: Découvrez plus d’informations sur les comptes Azure Batch et leu
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83790906"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Comptes de Stockage Azure et Batch

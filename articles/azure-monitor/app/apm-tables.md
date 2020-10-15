@@ -2,15 +2,13 @@
 title: Schéma de ressource Azure Monitor Application Insights basé sur un espace de travail
 description: Découvrez la nouvelle structure des tableaux et le nouveau schéma des ressources basées sur l'espace de travail Azure Monitor Application Insights.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323177"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931051"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifications des ressources basées sur un espace de travail (préversion)
 

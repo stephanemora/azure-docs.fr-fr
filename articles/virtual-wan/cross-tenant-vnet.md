@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571206"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078967"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Connecter des réseaux virtuels inter-locataires à un hub Virtual WAN
 
@@ -54,7 +54,7 @@ Pour que l’abonnement parent doté du hub virtuel puisse accéder aux réseaux
 1. Ajoutez ensuite l’abonnement du locataire distant et l’abonnement du locataire parent à la session active de PowerShell. Exécutez la commande suivante : Si vous êtes connecté à l’abonnement parent, il vous suffit d’exécuter la commande pour le locataire distant.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Vérifiez que l’attribution de rôle a réussi en vous connectant à Azure PowerShell à l’aide des informations d’identification du parent, et exécutez la commande suivante :
@@ -72,25 +72,25 @@ Dans la procédure suivante, vous passez d’un contexte d’abonnement à un au
 1. Vérifiez que vous êtes dans le contexte de votre compte distant en exécutant la commande suivante :
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Créez une variable locale pour stocker les métadonnées du réseau virtuel que vous voulez connecter au hub.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Revenez au compte parent.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Connectez le réseau virtuel au hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. La nouvelle connexion apparaît dans PowerShell et dans le portail Azure.

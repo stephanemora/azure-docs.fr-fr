@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513619"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931034"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Kits SDK Azure NetApp Files et outils CLI
 
@@ -44,12 +44,12 @@ Le tableau ci-dessous liste les outils CLI pris en charge et les informations de
 
 |    Outil    |    Informations de référence sur les commandes    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell pour Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    PowerShell   |    [Azure PowerShell pour Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## <a name="code-samples"></a>Exemples de code
 
-Voir les [exemple de code pour Azure NetApp Files](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files).
+Voir les [exemple de code pour Azure NetApp Files](/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
 ## <a name="next-steps"></a>Étapes suivantes   
  [Télécharger des kits SDK Azure](https://azure.microsoft.com/downloads/)

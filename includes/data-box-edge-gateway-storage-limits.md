@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82561367"
 ---
 Cette section décrit les limites du service Stockage Azure et les conventions d’affectation de noms requises pour Azure Files, les objets blob de blocs Azure et les objets blob de pages Azure, telles qu’applicables au service Azure Stack Edge/Data Box Gateway. Examinez soigneusement les limites de stockage et suivez toutes les recommandations.

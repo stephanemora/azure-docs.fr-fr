@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266698"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069872"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -129,7 +129,7 @@ Lorsque vous modifiez la liste des attributs pris en charge, les propriétés su
 - **Multi-value?** - L’attribut prend en charge ou pas plusieurs valeurs.
 - **Exact case?** - Les valeurs d’attribut sont ou non évaluées en tenant compte de la casse.
 - **API Expression** : ne pas utiliser, sauf si vous êtes invité à le faire dans la documentation relative à un connecteur d’approvisionnement spécifique (tel que Workday).
-- **Referenced Object Attribute** : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID principaux pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais ils peuvent être modifiés via l’[API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Referenced Object Attribute** : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID principaux pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais ils peuvent être modifiés via l’[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionnement d’un attribut d’extension personnalisé sur une application conforme à SCIM
 La RFC SCIM définit un schéma d’utilisateur et de groupe principal, tout en permettant également aux extensions du schéma de répondre aux besoins de votre application. Pour ajouter un attribut personnalisé à une application SCIM :
@@ -321,7 +321,7 @@ Cette option entraîne une resynchronisation forcée de tous les utilisateurs pe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
-- [Écriture d’expressions pour les mappages d’attributs](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtres d’étendue pour l’approvisionnement des utilisateurs](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
+- [Filtres d’étendue pour l’approvisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](use-scim-to-provision-users-and-groups.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)

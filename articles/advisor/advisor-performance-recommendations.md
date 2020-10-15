@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405154"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077811"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -142,22 +142,22 @@ Les instances de cache fonctionnent mieux lorsqu’elles ne sont pas soumises à
 
 ## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Ajouter des régions avec du trafic vers votre compte Azure Cosmos DB
 
-Advisor détecte les comptes Azure Cosmos DB recevant du trafic en provenance d’une région non configurée. Il recommande l’ajout de cette région. Cela a pour effet d’améliorer la latence des requêtes en provenance de cette région et de garantir la disponibilité en cas de panne de la région. [En savoir plus sur la distribution de données mondiale avec Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor détecte les comptes Azure Cosmos DB recevant du trafic en provenance d’une région non configurée. Il recommande l’ajout de cette région. Cela a pour effet d’améliorer la latence des requêtes en provenance de cette région et de garantir la disponibilité en cas de panne de la région. [En savoir plus sur la distribution de données mondiale avec Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Configurer la stratégie d’indexation Azure Cosmos DB avec des chemins inclus ou exclus personnalisés
 
-Advisor identifie les conteneurs Azure Cosmos DB qui utilisent la stratégie d’indexation par défaut, mais qui pourraient bénéficier d’une stratégie d’indexation personnalisée. Cette détermination est basée sur le modèle de charge de travail. La stratégie d’indexation par défaut indexe toutes les propriétés. Une stratégie d’indexation personnalisée avec des chemins inclus ou exclus explicites utilisés dans les filtres de requêtes peut réduire les unités de requête et le stockage utilisés pour l’indexation. [En savoir plus sur la modification des stratégies d’indexation.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifie les conteneurs Azure Cosmos DB qui utilisent la stratégie d’indexation par défaut, mais qui pourraient bénéficier d’une stratégie d’indexation personnalisée. Cette détermination est basée sur le modèle de charge de travail. La stratégie d’indexation par défaut indexe toutes les propriétés. Une stratégie d’indexation personnalisée avec des chemins inclus ou exclus explicites utilisés dans les filtres de requêtes peut réduire les unités de requête et le stockage utilisés pour l’indexation. [En savoir plus sur la modification des stratégies d’indexation.](/azure/cosmos-db/index-policy)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Définir la taille de page de la requête Azure Cosmos DB (MaxItemCount) avec la valeur -1 
 
-Azure Advisor identifie les conteneurs Azure Cosmos DB qui utilisent une taille de page de requête de 100. Il recommande d’utiliser une taille de page de -1 pour des analyses plus rapides. [En savoir plus sur MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifie les conteneurs Azure Cosmos DB qui utilisent une taille de page de requête de 100. Il recommande d’utiliser une taille de page de -1 pour des analyses plus rapides. [En savoir plus sur MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
 
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Envisagez d’utiliser la fonctionnalité Écritures accélérées dans votre cluster HBase pour améliorer les performances du cluster
 Azure Advisor analyse les journaux système des 7 derniers jours et identifie si votre cluster a rencontré les scénarios suivants :
 1. Latence élevée de la durée de synchronisation du journal WAL 
 2. Nombre élevé de demandes d’écriture (au moins 3 fenêtres d’une heure de plus de 1000 demandes d’écriture moyennes par seconde et par nœud)
 
-Ces conditions sont des indicateurs que votre cluster subit des latences d’écriture élevées. Cela peut être dû à une charge de travail importante effectuée sur votre cluster. Pour améliorer les performances de votre cluster, vous pouvez envisager d’utiliser la fonctionnalité Écritures accélérées fournie par Azure HDInsight HBase. La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker) au lieu d’utiliser le stockage cloud. Ainsi, elle offre une faible latence en écriture et une meilleure résilience pour vos applications. Pour plus d’informations sur cette fonctionnalité, cliquez sur [En savoir plus](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+Ces conditions sont des indicateurs que votre cluster subit des latences d’écriture élevées. Cela peut être dû à une charge de travail importante effectuée sur votre cluster. Pour améliorer les performances de votre cluster, vous pouvez envisager d’utiliser la fonctionnalité Écritures accélérées fournie par Azure HDInsight HBase. La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker) au lieu d’utiliser le stockage cloud. Ainsi, elle offre une faible latence en écriture et une meilleure résilience pour vos applications. Pour plus d’informations sur cette fonctionnalité, cliquez sur [En savoir plus](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Modifier la période de mise en cache des tables Azure Data Explorer (stratégie) pour de meilleures performances (préversion)
 Cette recommandation expose les tables Azure Data Explorer ayant un grand nombre de requêtes qui dépassent la période de mise en cache configurée (stratégie) (vous verrez les 10 tables qui accèdent le plus aux données hors cache, en pourcentage de requêtes). L’action recommandée pour améliorer les performances du cluster est la suivante : Limitez au maximum les requêtes envoyées à cette table (tout en restant dans l’intervalle de temps défini par la stratégie). Si l’intégralité des données de l’intervalle de temps sont nécessaires, vous pouvez également augmenter la période de mise en cache vers la valeur recommandée.
@@ -169,11 +169,11 @@ L’analyse du conseiller interne indique que votre serveur MySQL peut entraîne
 Advisor identifie les groupes de serveurs sur lesquels les données n’ont pas été distribuées mais restent sur le coordinateur. Pour bénéficier de tous les avantages offerts par Hyperscale (Citus), Advisor vous recommande de distribuer les données sur les nœuds worker de vos groupes de serveurs. Cela améliorera les performances des requêtes en utilisant la ressource de chaque nœud dans le groupe de serveurs. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Améliorer l’expérience utilisateur et la connectivité en déployant des machines virtuelles plus près de l’emplacement de déploiement de Windows Virtual Desktop
-Nous avons déterminé que vos machines virtuelles se trouvaient dans une région différente ou loin de celle à partir duquel vos utilisateurs se connectent à l’aide de Windows Virtual Desktop (WVD). Cela peut allonger les temps de réponse de connexion et affecter l’expérience utilisateur globale sur WVD. Lors de la création de machines virtuelles pour vos pools d’hôtes, vous devez essayer d’utiliser une région plus proche de l’utilisateur. Une proximité étroite garantit une satisfaction continue avec le service WVD et une meilleure qualité d’expérience globale. [En savoir plus sur la latence de connexion](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+Nous avons déterminé que vos machines virtuelles se trouvaient dans une région différente ou loin de celle à partir duquel vos utilisateurs se connectent à l’aide de Windows Virtual Desktop (WVD). Cela peut allonger les temps de réponse de connexion et affecter l’expérience utilisateur globale sur WVD. Lors de la création de machines virtuelles pour vos pools d’hôtes, vous devez essayer d’utiliser une région plus proche de l’utilisateur. Une proximité étroite garantit une satisfaction continue avec le service WVD et une meilleure qualité d’expérience globale. [En savoir plus sur la latence de connexion](../virtual-desktop/connection-latency.md).
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Effectuer une mise à niveau vers la dernière version du SDK du Lecteur immersif
 Nous avons identifié des ressources dans cet abonnement qui utilisent des versions obsolètes du SDK du Lecteur immersif. L’utilisation de la dernière version du SDK du Lecteur immersif vous offre une sécurité et des performances mises à jour ainsi qu’un ensemble étendu de fonctionnalités permettant de personnaliser et d’améliorer votre expérience d’intégration.
-En savoir plus sur le [kit SDK Lecteur immersif](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+En savoir plus sur le [kit SDK Lecteur immersif](../cognitive-services/immersive-reader/index.yml).
 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans Advisor

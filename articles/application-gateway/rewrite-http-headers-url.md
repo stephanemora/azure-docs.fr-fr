@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281189"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
@@ -211,13 +211,13 @@ Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en
 
 * La troisième règle inclut une condition qui vérifie *category=accessories* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing3* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scénario de réécriture d’URL 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scénario de réécriture d’URL 1-1.":::
 
  
 
 **Étape 2 (b) :** Associez ce jeu de réécritures au chemin par défaut de la règle basée sur le chemin ci-dessus.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scénario de réécriture d’URL 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scénario de réécriture d’URL 1-1.":::
 
 À présent, si l’utilisateur demande *contoso.com/listing?category=any*, la chaîne sera mise en correspondance avec le chemin par défaut, car aucun des modèles de chemin du mappage du chemin (/listing1, /listing2, /listing3) ne correspond. Étant donné que vous avez associé le jeu de réécritures ci-dessus à ce chemin, ce jeu de réécritures sera évalué. Étant donné que la chaîne de requête ne correspondra pas à la condition des 3 règles de réécriture de ce jeu de réécritures, aucune action de réécriture n’aura lieu. La requête sera donc routée sans modification vers le back-end associé au chemin par défaut (*GenericList*).
 
@@ -234,11 +234,11 @@ Dans ce cas, Application Gateway peut capturer les paramètres à partir de l’
 
 **Condition** - Si la variable de serveur `uri_path` correspond au modèle `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scénario de réécriture d’URL 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scénario de réécriture d’URL 1-1.":::
 
 **Action** - Définir le chemin d’URL sur `buy.aspx` et la chaîne de requête sur `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scénario de réécriture d’URL 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scénario de réécriture d’URL 1-1.":::
 
 Pour obtenir un guide pas à pas permettant de réaliser le scénario décrit ci-dessus, consultez [Réécriture d’URL avec Azure Application Gateway – Portail Azure](rewrite-url-portal.md).
 
@@ -248,7 +248,7 @@ Dans le cadre d’une réécriture d’URL, Application Gateway réécrit l’UR
 
 Dans le cadre d’une redirection d’URL, Application Gateway envoie une réponse de redirection au client avec la nouvelle URL. Ceci oblige alors le client à renvoyer sa requête à la nouvelle URL fournie dans la redirection. L’URL que l’utilisateur voit dans le navigateur sera mise à jour vers la nouvelle URL.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Réécriture et redirection":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scénario de réécriture d’URL 1-1.":::
 
 ## <a name="limitations"></a>Limites
 
