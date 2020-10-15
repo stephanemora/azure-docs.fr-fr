@@ -4,10 +4,10 @@ description: Cet article fournit des instructions détaillées que vous pouvez s
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294847"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utiliser Azure DevTest Labs à des fins de formation

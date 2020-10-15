@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297303"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015844"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Charger des médias pour le streaming ou l’encodage
 
@@ -47,7 +47,7 @@ Une fois que vous avez [créé une ressource à l’aide de Postman ou d’une a
 
 ---
 <!-- add these to the tabs when available -->
-Pour les autres méthodes, consultez la [documentation Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/) en vue d’utiliser des objets blob avec [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python) et [JavaScript (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
+Pour les autres méthodes, consultez la [documentation Stockage Azure](../../storage/blobs/index.yml) en vue d’utiliser des objets blob avec [.NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [Python](../../storage/blobs/storage-quickstart-blobs-python.md) et [JavaScript (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,10 +4,10 @@ description: Cet article décrit les étapes à suivre pour enregistrer des imag
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476238"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires

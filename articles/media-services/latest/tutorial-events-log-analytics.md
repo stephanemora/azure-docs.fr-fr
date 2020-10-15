@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941724"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016993"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutoriel : Stocker les événements Azure Media Services dans Azure Log Analytics
 
@@ -43,11 +43,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > * Un [abonnement Azure](how-to-set-azure-subscription.md)
 > * Un compte [Media Services](create-account-howto.md) et un groupe de ressources.
 > * Une installation de [FFmpeg](https://ffmpeg.org/download.html) pour votre système d’exploitation.
-> * Un espace de travail [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+> * Un espace de travail [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md)
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>S’abonner à un événement Media Services avec une application logique
 
-1. Dans le portail Azure, si vous ne l’avez pas déjà fait, créez un espace de travail [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Vous aurez besoin de l’ID de l’espace de travail et de l’une des clés, donc gardez cette fenêtre de navigateur ouverte. Ensuite, ouvrez le portail dans un autre onglet ou une autre fenêtre.
+1. Dans le portail Azure, si vous ne l’avez pas déjà fait, créez un espace de travail [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Vous aurez besoin de l’ID de l’espace de travail et de l’une des clés, donc gardez cette fenêtre de navigateur ouverte. Ensuite, ouvrez le portail dans un autre onglet ou une autre fenêtre.
 
 1. Accédez à votre compte Azure Media Services et sélectionnez **Événements**. Cette opération affiche toutes les méthodes permettant de s’abonner à des événements Azure Media Services.
     > [!div class="mx-imgBorder"]
@@ -140,7 +140,7 @@ Maintenant que vous êtes abonné aux événements de votre choix, créez une ac
     > [!div class="mx-imgBorder"]
     > ![Vérifier les étapes Corps et Fonction](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
-1. Lorsque vous examinez toutes les ressources du groupe de ressources, il y aura une application logique et deux connecteurs d’API d’application logique répertoriés, un pour les événements et l’autre pour Log Analytics. Pour plus d’informations sur les rubriques système Event Grid, consultez [Rubriques système Event Grid](https://docs.microsoft.com/azure/event-grid/system-topics).
+1. Lorsque vous examinez toutes les ressources du groupe de ressources, il y aura une application logique et deux connecteurs d’API d’application logique répertoriés, un pour les événements et l’autre pour Log Analytics. Pour plus d’informations sur les rubriques système Event Grid, consultez [Rubriques système Event Grid](../../event-grid/system-topics.md).
     > [!div class="mx-imgBorder"]
     > ![Afficher toutes les nouvelles ressources dans un groupe de ressources](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
@@ -231,4 +231,4 @@ Si vous ne souhaitez pas continuer à utiliser les ressources que vous avez cré
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez créer des requêtes différentes et les enregistrer. Celles-ci peuvent être ajoutées au [tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+Vous pouvez créer des requêtes différentes et les enregistrer. Celles-ci peuvent être ajoutées au [tableau de bord Azure](../../azure-monitor/learn/tutorial-logs-dashboards.md).
