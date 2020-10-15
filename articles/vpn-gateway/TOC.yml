@@ -1,10 +1,11 @@
-- name: Documentation de la passerelle VPN
+- name: Documentation sur la passerelle VPN
   href: index.yml
 - name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’une passerelle VPN\_?"
       href: vpn-gateway-about-vpngateways.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Créer et gérer une passerelle VPN
       href: vpn-gateway-tutorial-create-gateway-powershell.md

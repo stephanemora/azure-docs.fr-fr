@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719564"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075873"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -56,7 +56,7 @@ Affectez les attributions de rôle App Configuration appropriées aux informatio
 
 Cette section explique comment utiliser la tâche Azure App Configuration Push dans un pipeline de build Azure DevOps.
 
-1. Accédez à la page de pipeline de build en cliquant sur **Pipelines** > **Pipelines**. Vous trouverez la documentation sur les pipelines de build [ici](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+1. Accédez à la page de pipeline de build en cliquant sur **Pipelines** > **Pipelines**. Vous trouverez la documentation sur les pipelines de build [ici](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Si vous créez un pipeline de build, sélectionnez **Afficher l’Assistant** sur le côté droit du pipeline, puis recherchez la tâche **Azure App Configuration Push**.
       - Si vous utilisez un pipeline de build existant, accédez à l’onglet **Tâches** lors de la modification du pipeline, puis recherchez la tâche **Azure App Configuration Push**.
 2. Configurez les paramètres nécessaires pour que la tâche envoie les paires clé-valeur du fichier de configuration vers le magasin App Configuration. Le paramètre de **chemin du fichier de configuration**  commence à la racine du référentiel de fichiers.
@@ -66,10 +66,10 @@ Cette section explique comment utiliser la tâche Azure App Configuration Push d
 
 Cette section explique comment utiliser la tâche Azure App Configuration Push dans des pipelines de mise en production Azure DevOps.
 
-1. Accédez à la page de pipeline de mise en production en sélectionnant **Pipelines** > **Mises en production**. La documentation sur les pipelines de mise en production est disponible [ici](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
+1. Accédez à la page de pipeline de mise en production en sélectionnant **Pipelines** > **Mises en production**. La documentation sur les pipelines de mise en production est disponible [ici](/azure/devops/pipelines/release?view=azure-devops).
 1. Choisissez un pipeline de mise en production existant. Si vous n’en avez pas, sélectionnez **+ Nouveau** pour en créer un.
 1. Sélectionnez le bouton **Modifier** dans le coin supérieur droit pour modifier le pipeline de mise en production.
-1. Choisissez la **phase** à laquelle ajouter la tâche. Vous trouverez des informations supplémentaires sur les phases [ici](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Choisissez la **phase** à laquelle ajouter la tâche. Vous trouverez des informations supplémentaires sur les phases [ici](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Sélectionnez **+** pour ce travail, puis ajoutez la tâche **Azure App Configuration Push** sous l’onglet **Déployer**.
 1. Configurez les paramètres nécessaires dans la tâche afin d’envoyer les paires clé-valeur du fichier de configuration vers votre magasin App Configuration. Vous trouverez des explications sur les paramètres dans la section **Paramètres** ci-dessous ainsi que dans les info-bulles en regard de chaque paramètre.
 1. Enregistrez et mettez en file d’attente une mise en production. Le journal de mise en production affiche les erreurs rencontrées pendant l’exécution de la tâche.

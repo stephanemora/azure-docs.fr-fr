@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 9526a1569a5d8320dd59272ca97f5b48ec1dac1c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6e148adfe6db62e6fdaea53165a5c23d9a08efba
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999115"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042369"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure comme modules IoT Edge
 
@@ -42,7 +42,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
-* Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* Un registre de conteneurs tel qu’[Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
 

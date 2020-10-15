@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012328"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075958"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -40,7 +40,7 @@ Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer de
 * .NET Core. Vous pouvez télécharger [.NET Core pour Mac, Linux ou Windows](https://www.microsoft.com/net/download).
 * Postman. Vous pouvez télécharger [Postman pour Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Un [hub IoT déployé dans votre abonnement Azure](../iot-hub/iot-hub-create-through-portal.md). Vous avez besoin de la chaîne de connexion du hub IoT pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
-* Une [base de données Cosmos DB déployée dans le cadre de votre abonnement Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) qui utilise l'API SQL et qui est configurée avec une [cohérence forte](../cosmos-db/manage-account.md). Vous avez besoin de la chaîne de connexion de la base de données Cosmos DB pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
+* Une [base de données Cosmos DB déployée dans le cadre de votre abonnement Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) qui utilise l'API SQL et qui est configurée avec une [cohérence forte](../cosmos-db/how-to-manage-database-account.md). Vous avez besoin de la chaîne de connexion de la base de données Cosmos DB pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
 * Un [compte de stockage Azure déployé dans le cadre de votre abonnement Azure](../storage/common/storage-account-create.md). La chaîne de connexion Compte de stockage est requise pour suivre les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
 
 ## <a name="prepare-your-development-environment"></a>Préparer votre environnement de développement

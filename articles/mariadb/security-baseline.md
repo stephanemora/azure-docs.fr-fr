@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393834"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Base de référence de sécurité Azure pour Azure Database for MariaDB
@@ -194,7 +194,7 @@ Comment configurer et accéder aux journaux d’audit pour Azure Database for Ma
 
 
 
-**Supervision Azure Security Center** : Non disponible
+**Supervision d’Azure Security Center** : Non disponible
 
 **Responsabilité** : Customer
 
@@ -206,7 +206,7 @@ Comment configurer et accéder aux journaux du serveur pour Azure Database for M
 
 
 
-**Supervision Azure Security Center** : Non disponible
+**Supervision d’Azure Security Center** : Non disponible
 
 **Responsabilité** : Customer
 
@@ -480,7 +480,7 @@ Comment configurer des points de terminaison de service dans Azure Database for 
 
 Comment configurer des règles de pare-feu d’Azure Database for MariaDB : https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
 
-**Supervision Azure Security Center** : Non disponible
+**Supervision d’Azure Security Center** : Non disponible
 
 **Responsabilité** : Customer
 
@@ -504,7 +504,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 Comment configurer le chiffrement en transit pour MariaDB : https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 
-**Supervision Azure Security Center** : Non disponible
+**Supervision d’Azure Security Center** : Non disponible
 
 **Responsabilité** : Partagé
 
@@ -676,7 +676,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -722,7 +722,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -925,7 +925,7 @@ Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/help
 Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Azure App Service), mais il ne s’exécute pas sur du contenu client.
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -992,7 +992,7 @@ Le délai estimé de récupération dépend de plusieurs facteurs, notamment du 
 Comprendre la sauvegarde et la restauration dans Azure Database for MariaDB : https://docs.microsoft.com/azure/mariadb/concepts-backup#restore
 
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

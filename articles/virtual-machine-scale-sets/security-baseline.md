@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398442"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Base de référence de sécurité Azure pour Virtual Machine Scale Sets
@@ -310,7 +310,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
-**Aide** : Vous pouvez utiliser Microsoft Antimalware pour Azure Cloud Services et Machines Virtuelles et configurer vos machines virtuelles Windows de manière à consigner les événements dans un compte de stockage Azure. Configurez un espace de travail Log Analytics de sorte qu’il ingère les événements des comptes de stockage et crée des alertes si nécessaire. Suivez les recommandations faites dans Azure Security Center : « Calcul et applications ». Pour les machines virtuelles Linux, vous aurez besoin d’un outil tiers pour la détection des vulnérabilités anti-programme malveillant.
+**Aide** : Vous pouvez utiliser Microsoft Antimalware pour Azure Cloud Services et Machines Virtuelles et configurer vos machines virtuelles Windows de manière à consigner les événements dans un compte de stockage Azure. Configurez un espace de travail Log Analytics de manière à ingérer les événements des comptes de stockage et créer des alertes, le cas échéant. Suivez les recommandations faites dans Azure Security Center : « Calcul et applications ». Pour les machines virtuelles Linux, vous aurez besoin d’un outil tiers pour la détection des vulnérabilités anti-programme malveillant.
 
 * [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
@@ -922,7 +922,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -964,7 +964,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Intégration des machines pour la gestion avec Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

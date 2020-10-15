@@ -9,10 +9,10 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.openlocfilehash: 6499c9c29d10a2056b0af5499b68b5edd67d82cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80158416"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Générer le pont d’appareil IoT Central pour connecter d’autres clouds IoT à IoT Central
