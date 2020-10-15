@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012073"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé

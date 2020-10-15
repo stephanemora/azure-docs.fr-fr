@@ -4,12 +4,12 @@ description: Découvrez comment activer la surveillance d’un cluster Azure Kub
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068425"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994507"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
@@ -160,7 +160,7 @@ Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la config
 >Le modèle doit être déployé dans le même groupe de ressources que le cluster.
 >
 
-L’espace de travail Log Analytics doit être créé avant d’activer la surveillance à l’aide d’Azure PowerShell ou CLI. Pour créer l’espace de travail, vous pouvez en configurer un via [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
+L’espace de travail Log Analytics doit être créé avant d’activer la surveillance à l’aide d’Azure PowerShell ou CLI. Pour créer l’espace de travail, vous pouvez en configurer un via [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../learn/quick-create-workspace.md).
 
 Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aide d’un modèle, consultez les rubriques suivantes :
 
@@ -383,4 +383,3 @@ Au bout de quelques minutes, la commande se termine et renvoie des informations 
 * Si vous rencontrez des problèmes en tentant d’intégrer la solution, consultez le [guide de résolution des problèmes](container-insights-troubleshoot.md)
 
 * Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Azure Kubernetes et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
-

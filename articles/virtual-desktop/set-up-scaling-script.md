@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078552"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
@@ -326,4 +326,4 @@ Si vous avez décidé d’utiliser Log Analytics, vous pouvez afficher toutes le
 
 ## <a name="report-issues"></a>Signaler des problèmes
 
-Les rapports de problèmes pour l’outil de mise à l’échelle sont actuellement traités par Support Microsoft. Lorsque vous créez un rapport de problème, veillez à suivre les instructions fournies dans [Signalement de problèmes](#reporting-issues). Si vous avez des commentaires sur l’outil ou si vous souhaitez demander de nouvelles fonctionnalités, ouvrez un problème GitHub intitulé « 4-WVD-scaling-tool » sur la [page RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
+Les rapports de problèmes pour l’outil de mise à l’échelle sont actuellement traités par le Support Microsoft. Lorsque vous créez un rapport de problème, veillez à suivre les instructions fournies dans [Signalement de problèmes](#reporting-issues). Si vous avez des commentaires sur l’outil ou si vous souhaitez demander de nouvelles fonctionnalités, ouvrez un problème GitHub intitulé « 4-WVD-scaling-tool » sur la [page RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

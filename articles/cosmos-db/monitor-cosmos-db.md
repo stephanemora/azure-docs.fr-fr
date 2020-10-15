@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797817"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
@@ -62,7 +62,7 @@ Azure Cosmos DB collecte les mêmes types de données de supervision que les aut
 
 La page **Vue d’ensemble** du portail Azure pour chaque base de données Azure Cosmos comprend un bref aperçu de l’utilisation de la base de données, y compris l’utilisation des requêtes et la facturation horaire. Il s’agit d’informations utiles, mais qui ne constituent qu’une petite quantité des données de surveillance disponibles. Certaines de ces données sont collectées automatiquement et disponibles pour analyse dès que vous créez la base de données, tandis que vous pouvez activer la collecte de données supplémentaires par configuration.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Page de présentation":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analyse des données de métrique
 
@@ -82,27 +82,27 @@ Vous pouvez analyser les métriques d’Azure Cosmos DB avec les métriques d’
 
 1. Sélectionnez **Surveillance** dans la barre de navigation gauche, puis sélectionnez **Métriques**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor":::
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 1. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Choisir un compte Cosmos DB pour voir les métriques":::
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 1. Ensuite, vous pouvez sélectionner une métrique dans la liste des métriques disponibles. Vous pouvez sélectionner des métriques propres aux unités de requête, au stockage, à la latence, à la disponibilité, à Cassandra, etc. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner **Unités de requête** et **Moy** comme valeur d’agrégation.
 
    En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche. Vous pouvez voir le nombre moyen d’unités de requête consommées par minute pendant la période sélectionnée.  
 
-   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Choisir une métrique à partir du portail Azure":::
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 ### <a name="add-filters-to-metrics"></a>Ajouter des filtres aux métriques
 
 Vous pouvez également filtrer les métriques et le graphique affiché par une valeur **CollectionName**, **DatabaseName**, **OperationType**, **Region** et **StatusCode** spécifique. Pour filtrer les métriques, sélectionnez **Ajouter un filtre** et choisissez la propriété nécessaire comme **OperationType**, puis sélectionnez une valeur comme **Requête**. Le graphique affiche alors les unités de requête consommées pour l’opération de requête pendant la période sélectionnée. Les opérations exécutées par procédure stockée ne sont pas journalisées si bien qu’elles ne sont pas disponibles sous la métrique OperationType.
 
-:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Ajouter un filtre pour sélectionner la granularité des métriques":::
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la division**. Par exemple, vous pouvez regrouper les unités de requête par type d’opération et voir le graphique pour toutes les opérations comme illustré dans l’image suivante :
 
-:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Ajouter un filtre d’application de la division":::
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Options de supervision disponibles dans le portail Azure":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> Analyse des données de journal
 

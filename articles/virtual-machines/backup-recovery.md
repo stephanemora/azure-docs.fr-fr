@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554714"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972354"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Options de sauvegarde et de restauration pour les machines virtuelles Linux dans Azure
 
@@ -32,7 +32,7 @@ Azure Site Recovery protège vos machines virtuelles dans un scénario de récup
 
 Vous pouvez effectuer des exercices de récupération d’urgence avec des tests de basculement à la demande, sans affecter vos charges de travail de production ni la réplication continue. Créez des plans de récupération pour orchestrer le basculement et la restauration automatique de l’intégralité de l’application en cours d’exécution sur plusieurs machines virtuelles. Le plan de récupération est intégré à des runbooks Azure Automation.
 
-Vous pouvez commencer par [répliquer vos machines virtuelles](https://aka.ms/a2a-getting-started). 
+Vous pouvez commencer par [répliquer vos machines virtuelles](../site-recovery/azure-to-azure-quickstart.md). 
 
 ## <a name="managed-snapshots"></a>Captures instantanées gérées 
 

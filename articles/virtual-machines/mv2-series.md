@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653551"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975754"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -35,7 +35,7 @@ Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 
-<sup>1</sup> Les machines virtuelles de la série Mv2 sont uniquement de 2e génération et prennent en charge un sous-ensemble d’images prises en charge de 2e génération. Pour obtenir la liste complète des images prises en charge pour la série Mv2, voir ci-dessous. Si vous utilisez Linux, consultez [Support des machines virtuelles de 2e génération dans Azure](./linux/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. Si vous utilisez Windows, consultez [Support des machines virtuelles de 2e génération dans Azure](./windows/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. 
+<sup>1</sup> Les machines virtuelles de la série Mv2 sont uniquement de 2e génération et prennent en charge un sous-ensemble d’images prises en charge de 2e génération. Pour obtenir la liste complète des images prises en charge pour la série Mv2, voir ci-dessous. Si vous utilisez Linux, consultez [Support des machines virtuelles de 2e génération dans Azure](./generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. Si vous utilisez Windows, consultez [Support des machines virtuelles de 2e génération dans Azure](./generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. 
 
 - Windows Server 2019 ou version ultérieure
 - SUSE Linux Enterprise Server 12 SP4 et versions ultérieures ou SUSE Linux Enterprise Server 15 SP1 et versions ultérieures

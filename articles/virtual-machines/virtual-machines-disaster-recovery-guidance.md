@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 3c87c234e376cc8380afbb26edf63e1969243475
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831139"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976621"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Que faire si une interruption du service Azure affecte des machines virtuelles Azure ?
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.
@@ -25,7 +25,7 @@ Cet article aborde un scénario réel de récupération d’urgence, dans lequel
 Pour vous aider à gérer ces rares occurrences, nous vous fournissons les conseils suivants pour les machines virtuelles Azure dans le cas d’une interruption de service sur l’ensemble de la région où votre application Azure Virtual Machine est déployée.
 
 ## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Option 1 : Lancer un basculement à l’aide d’Azure Site Recovery
-Vous pouvez configurer Azure Site Recovery pour vos machines virtuelles afin de pouvoir récupérer votre application en un seul clic en quelques minutes. Vous pouvez répliquer vers la région Azure de votre choix sans être limité à des régions appairées. Vous pouvez commencer par [répliquer vos machines virtuelles](https://aka.ms/a2a-getting-started). Vous pouvez [créer un plan de récupération](../site-recovery/site-recovery-create-recovery-plans.md) pour pouvoir automatiser la totalité du processus de basculement de votre application. Vous pouvez [tester vos basculements](../site-recovery/site-recovery-test-failover-to-azure.md) à l’avance sans affecter l’application de production ou la réplication en cours. En cas d’indisponibilité de la région principale, vous devez simplement [lancer un basculement](../site-recovery/site-recovery-failover.md) et mettre votre application dans la région cible.
+Vous pouvez configurer Azure Site Recovery pour vos machines virtuelles afin de pouvoir récupérer votre application en un seul clic en quelques minutes. Vous pouvez répliquer vers la région Azure de votre choix sans être limité à des régions appairées. Vous pouvez commencer par [répliquer vos machines virtuelles](../site-recovery/azure-to-azure-quickstart.md). Vous pouvez [créer un plan de récupération](../site-recovery/site-recovery-create-recovery-plans.md) pour pouvoir automatiser la totalité du processus de basculement de votre application. Vous pouvez [tester vos basculements](../site-recovery/site-recovery-test-failover-to-azure.md) à l’avance sans affecter l’application de production ou la réplication en cours. En cas d’indisponibilité de la région principale, vous devez simplement [lancer un basculement](../site-recovery/site-recovery-failover.md) et mettre votre application dans la région cible.
 
 
 ## <a name="option-2-wait-for-recovery"></a>Option 2 : Attendre la récupération
@@ -41,7 +41,7 @@ Cette option est la meilleure si vous n’avez pas activé Azure Site Recovery, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez à [protéger vos applications s’exécutant sur des machines virtuelles Azure ](https://aka.ms/a2a-getting-started) en utilisant Azure Site Recovery
+- Commencez à [protéger vos applications s’exécutant sur des machines virtuelles Azure ](../site-recovery/azure-to-azure-quickstart.md) en utilisant Azure Site Recovery
 
 - Pour plus d’informations sur la façon d’implémenter une stratégie de récupération d’urgence et de haute disponibilité, consultez [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/framework/resiliency/backup-and-recovery).
 
