@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019995"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Créer un conteneur Azure Cosmos
@@ -53,7 +53,7 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Capture d'écran de l'API Azure Cosmos DB pour MongoDB, boîte de dialogue Ajouter un conteneur":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API Cassandra
 
@@ -69,7 +69,7 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Capture d’écran de l’API Cassandra, boîte de dialogue Ajouter une table":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
 
 > [!NOTE]
 > Pour l’API Cassandra, la clé primaire est utilisée comme clé de partition.
@@ -89,7 +89,7 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Capture d’écran de l’API Gremlin, boîte de dialogue Ajouter un graphique":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>API de table
 
@@ -103,7 +103,7 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
    * Entrez un débit à provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Capture d’écran de l’API Table, boîte de dialogue Ajouter une table":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Capture d’écran du volet Explorateur de données, avec l’option Nouveau conteneur mise en surbrillance":::
 
 > [!Note]
 > Pour l’API Table, la clé de partition est spécifiée chaque fois que vous ajoutez une nouvelle ligne.

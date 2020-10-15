@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019264"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Utiliser les fonctionnalités et commandes de notebook intégrées dans les notebooks C# Azure Cosmos DB (préversion)
@@ -117,12 +117,12 @@ Par exemple, dans ’exemple *GetingStarted_Csharp.ipynb*, nous pouvons imprimer
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Cellule de requête Csharp":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Explorateur de données nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Cellule de requête Csharp":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Utiliser la visionneuse de dictionnaire intégrée
 Vous pouvez utiliser la visionneuse de dictionnaire intégrée pour afficher une variable. Dans une cellule, placez la variable que vous souhaitez visualiser sur la dernière ligne, qui sera automatiquement affichée lorsque la cellule sera exécutée.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visionneuse de dictionnaire intégrée":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Cellule de requête Csharp":::
 
 ## <a name="upload-json-items-to-a-container"></a>Charger des éléments JSON dans un conteneur
 Vous pouvez utiliser la commande magic ``%%upload`` pour télécharger des données d’un fichier JSON vers un conteneur Azure Cosmos spécifié. Utilisez la commande suivante pour télécharger les éléments :
@@ -160,7 +160,7 @@ Remplacez ``{notebookName}`` par le nom du notebook que vous voulez exécuter. L
 ## <a name="reset-notebooks-workspace"></a>Réinitialiser l’espace de travail des notebooks
 Pour rétablir les paramètres par défaut de l’espace de travail des notebooks, sélectionnez **Réinitialiser l’espace de travail** dans la barre de commandes. Cette opération supprime tous les packages personnalisés installés et redémarre le serveur Jupyter. Vos notebooks, fichiers et ressources Azure Cosmos ne seront pas affectés.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Réinitialiser l’espace de travail des notebooks":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Cellule de requête Csharp":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

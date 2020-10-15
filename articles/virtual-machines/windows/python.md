@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853413"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974853"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
@@ -492,7 +492,7 @@ De nombreux aspects du déploiement doivent être pris en considération lors du
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Ajouter un disque de données à la machine virtuelle
 
-Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de données](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) stockés en tant que disques durs virtuels.
+Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de données](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) stockés en tant que disques durs virtuels.
 
 1. Pour ajouter un disque de données à la machine virtuelle, ajoutez la fonction suivante après les variables dans le fichier .py : 
 

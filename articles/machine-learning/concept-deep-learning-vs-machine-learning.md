@@ -1,24 +1,27 @@
 ---
 title: Apprentissage profond et apprentissage automatique
-titleSuffix: Azure
-description: Découvrez la relation du Deep Learning avec le Machine Learning et l’intelligence artificielle. Le Deep Learning est utilisé dans des scénarios de détection de fraude, de reconnaissances vocale et faciale, d’analyse des sentiments et de prévision de série chronologique.
+titleSuffix: Azure Machine Learning
+description: Découvrez la relation de l’apprentissage profond (Deep Learning) avec l’apprentissage automatique (Machine Learning) et l’intelligence artificielle. Dans Azure Machine Learning, utilisez des modèles d’apprentissage profond pour la détection des fraudes, la détection d’objets, et bien plus.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905132"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91330126"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
-Cet article vous aide à comparer le Deep Learning et le Machine Learning. Il compare les deux concepts et explique comment ils s’inscrivent dans la catégorie plus large de l’intelligence artificielle. Enfin, il explique également comment le Deep Learning peut s’appliquer à des scénarios du monde réel, tels que la détection de fraude, les reconnaissances vocale et faciale, l’analyse des sentiments et la prévision de série chronologique.
+Cet article explique l’apprentissage profond et l’apprentissage automatique, ainsi que la façon dont ils s’intègrent dans la catégorie plus large de l’intelligence artificielle. Découvrez les solutions d’apprentissage profond que vous pouvez créer sur Azure Machine Learning, par exemple, pour la détection des fraudes, la reconnaissance vocale et faciale, l’analyse des sentiments et la prévision de séries chronologiques.
+
+Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consultez l’[Aide-mémoire de l’algorithme Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning et intelligence artificielle
 
@@ -37,7 +40,7 @@ Consultez les définitions suivantes pour comprendre la différence entre le dee
 
 - L’**intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
  
-Il est important de comprendre les relations entre l’intelligence artificielle, le Machine Learning et le Deep Learning. Le Machine Learning est un moyen d’aboutir à l’intelligence artificielle. Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la reconnaissance d’images, la reconnaissance vocale et la traduction linguistique.
+Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la reconnaissance d’images, la reconnaissance vocale et la traduction linguistique.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Techniques de Deep Learning et de Machine Learning 
 
@@ -58,7 +61,7 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 
 En raison de sa structure de réseau neuronal artificiel, le Deep Learning excelle dans l’identification de modèles dans des données non structurées telles que des images, du son, de la vidéo et du texte. Pour cette raison, le Deep Learning transforme rapidement de nombreux secteurs, donc ceux de la santé, de l’énergie, des finances et des transports. Ces secteurs repensent actuellement leurs processus métier traditionnels. 
 
-Certaines applications courantes du Deep Learning sont décrites dans les paragraphes suivants.
+Certaines applications courantes du Deep Learning sont décrites dans les paragraphes suivants. Dans Azure Machine Learning, vous pouvez utiliser un modèle créé à partir d’une infrastructure open source ou créer le modèle à l’aide des outils fournis.
 
 ### <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
 
@@ -69,6 +72,8 @@ La reconnaissance d’entité nommée est une méthode de deep learning qui pren
 le Deep Learning est souvent utilisé pour la détection d’objets. La détection d’objet s’opère en deux temps : classification d’image, puis localisation d’image. La _classification_ d’image identifie les objets figurant sur l’image, tels que des voitures ou des personnes. La _localisation_ d’image fournit l’emplacement spécifique de ces objets. 
 
 La détection d’objets est déjà utilisée dans les secteurs du jeu, de la distribution, du tourisme et des véhicules autonomes.
+
+Découvrez comment utiliser un modèle de classification d’images à partir d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Génération de légende d’image
 
@@ -88,6 +93,8 @@ L’analyse de texte basée sur des méthodes de deep learning implique l’anal
 
 Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres. 
 
+Découvrez comment utiliser un modèle TensorFlow dans Azure Machine Learning : [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 ## <a name="artificial-neural-networks"></a>Réseaux neuronaux artificiels
 
 Les réseaux neuronaux artificiels sont formés par couches de nœuds connectés. Les modèles de Deep Learning utilisent des réseaux neuronaux comportant grand nombre de couches. 
@@ -106,18 +113,12 @@ Les réseaux neuronaux récurrents sont un type de réseau neuronal artificiel l
 
 Un réseau neuronal convolutif est un réseau neuronal artificiel particulièrement efficace qui présente une architecture unique. Les couches sont organisées en trois dimensions : largeur, hauteur et profondeur. Les neurones d’une couche ne sont pas connectés à tous les neurones de la couche suivante, mais uniquement à une petite région de neurones de celle-ci. Le résultat final est réduit à un seul vecteur de notes de probabilité, organisées dans la dimension de la profondeur. 
 
-Les réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la reconnaissance vidéo, la reconnaissance d’images et les systèmes de recommandation.
+Des réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la reconnaissance vidéo, la reconnaissance d’images et les systèmes de recommandation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les articles suivants expliquent comment utiliser la technologie du deep learning dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri) :
-
-- [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Les articles suivants présentent des options supplémentaires pour l’utilisation de modèles d’apprentissage profond open source dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri) :
 
 - [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Utilisez également l’[Aide-mémoire de l’algorithme de Machine Learning](algorithm-cheat-sheet.md) pour choisir des algorithmes pour votre modèle.
