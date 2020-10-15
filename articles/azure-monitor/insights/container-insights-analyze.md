@@ -3,12 +3,12 @@ title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft 
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988125"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994759"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -293,7 +293,7 @@ Les icônes du champ d’état indiquent les états en ligne des pods, comme exp
 
 ## <a name="workbooks"></a>Workbooks
 
-Les classeurs regroupent du texte, des  [requêtes de journal](../log-query/query-language.md), des [métriques](../platform/data-platform-metrics.md) et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
+Les classeurs regroupent du texte, des  [requêtes de journal](/azure/data-explorer/kusto/query/), des [métriques](../platform/data-platform-metrics.md) et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
 
 Azure Monitor pour les conteneurs inclut quatre classeurs pour vous aider à démarrer :
 
@@ -321,8 +321,8 @@ Vous accédez à ces classeurs en les sélectionnant dans la liste déroulante *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md) pour découvrir comment créer des alertes pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps.
+- Consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](./container-insights-log-alerts.md) pour découvrir comment créer des alertes pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps.
 
 - Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
 
-- Consultez [Superviser l’intégrité des clusters](container-insights-health.md) pour en savoir plus sur l’affichage de l’état d’intégrité de votre cluster Kubernetes.
+- Consultez [Superviser l’intégrité des clusters](./container-insights-overview.md) pour en savoir plus sur l’affichage de l’état d’intégrité de votre cluster Kubernetes.

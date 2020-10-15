@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91369091"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutoriel : Charger des données sur un pool SQL Azure Synapse Analytics
 
@@ -83,7 +83,7 @@ Pour créer un pool SQL vide, suivez la procédure suivante.
 
 1. Sélectionnez **Vérifier + créer** pour passer en revue vos paramètres, puis sélectionnez **Créer** pour créer votre entrepôt de données. Vous pouvez superviser votre progression en ouvrant la page **Déploiement en cours** à partir du menu **Notifications**.
 
-     ![notification](./media/load-data-wideworldimportersdw/notification.png)
+     ![Capture d’écran affichant les notifications avec le déploiement en cours.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 

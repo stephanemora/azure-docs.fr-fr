@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450164"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876156"
 ---
 # <a name="monitor-module-twins"></a>Superviser les jumeaux de module
 
@@ -168,15 +168,15 @@ Si vous rencontrez des problèmes liés à vos appareils en aval, l’examen de 
 
 Les informations relatives à la connectivité de vos modules personnalisés sont gérées dans le jumeau de module de l’agent IoT Edge. Le jumeau de module de votre module personnalisé est principalement utilisé pour gérer les données de votre solution. Les propriétés souhaitées que vous avez définies dans votre fichier deployment.json sont répercutées dans le jumeau de module, et votre module peut mettre à jour les valeurs des propriétés signalées, si besoin.
 
-Vous pouvez utiliser votre langage de programmation préféré avec les [kits de développement logiciel (SDK) Azure IoT Hub Device](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) pour mettre à jour les valeurs des propriétés signalées dans le jumeau de module, selon le code d’application de votre module. Pour ce faire, la procédure suivante utilise le kit de développement logiciel (SDK) Azure pour .NET, à l’aide du code issu du module [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+Vous pouvez utiliser votre langage de programmation préféré avec les [kits de développement logiciel (SDK) Azure IoT Hub Device](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) pour mettre à jour les valeurs des propriétés signalées dans le jumeau de module, selon le code d’application de votre module. Pour ce faire, la procédure suivante utilise le kit de développement logiciel (SDK) Azure pour .NET, à l’aide du code issu du module [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 
-1. Créer une instance de [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) avec la méthode [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync).
+1. Créer une instance de [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) avec la méthode [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync).
 
-1. Obtenir une collection des propriétés du jumeau de module avec la méthode [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet).
+1. Obtenir une collection des propriétés du jumeau de module avec la méthode [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync).
 
-1. Créer un écouteur (en passant un rappel) pour intercepter les modifications apportées aux propriétés souhaitées à l’aide de la méthode [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet).
+1. Créer un écouteur (en passant un rappel) pour intercepter les modifications apportées aux propriétés souhaitées à l’aide de la méthode [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync).
 
-1. Dans votre méthode de rappel, mettez à jour les propriétés signalées dans le jumeau de module à l’aide de la méthode [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient), en passant un objet[TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) des valeurs des propriétés que vous souhaitez définir.
+1. Dans votre méthode de rappel, mettez à jour les propriétés signalées dans le jumeau de module à l’aide de la méthode [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient), en passant un objet[TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) des valeurs des propriétés que vous souhaitez définir.
 
 ## <a name="access-the-module-twins"></a>Accéder aux jumeaux de module
 

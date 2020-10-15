@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282066"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071504"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
 
@@ -25,8 +25,8 @@ Le module de représentations de OPC s’exécute sur IoT Edge et fournit plusie
 
 Il existe plusieurs options pour déployer des modules dans votre passerelle [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/).
 
-- [Déploiement à partir du panneau IoT Edge du portail Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Déploiement à l’aide de l’interface CLI AZ](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Déploiement à partir du panneau IoT Edge du portail Azure](../iot-edge/how-to-deploy-modules-portal.md)
+- [Déploiement à l’aide de l’interface CLI AZ](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Pour obtenir des informations détaillées et des instructions sur le déploiement, consultez le [dépôt](https://github.com/Azure/azure-iiot-components) GitHub.
@@ -86,7 +86,7 @@ Tous les modules sont déployés à l’aide d’un manifeste de déploiement.  
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
-                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--to\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--tm\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
               }
             }
           }
@@ -117,7 +117,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 1. Déployez les [dépendances](howto-opc-twin-deploy-dependencies.md) d’OPC Twin et obtenez le fichier `.env`. Notez le `hub name` déployé de la variable `PCS_IOTHUBREACT_HUB_NAME` dans le fichier `.env` obtenu.
 
-2. Inscrivez et démarrez une passerelle IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) et notez son `device id`.
+2. Inscrivez et démarrez une passerelle IoT Edge [Linux](../iot-edge/how-to-install-iot-edge-linux.md) ou [Windows](../iot-edge/how-to-install-iot-edge-windows.md) et notez son `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Déployer sur un appareil Edge
 
@@ -143,7 +143,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Renseignez les champs facultatifs si nécessaire. Pour plus d’informations sur les options de création de conteneur, la stratégie de redémarrage et l’état souhaité, consultez [Propriétés souhaitées pour EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Pour plus d’informations sur le jumeau de module, consultez [Définir ou mettre à jour les propriétés souhaitées](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Renseignez les champs facultatifs si nécessaire. Pour plus d’informations sur les options de création de conteneur, la stratégie de redémarrage et l’état souhaité, consultez [Propriétés souhaitées pour EdgeAgent](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Pour plus d’informations sur le jumeau de module, consultez [Définir ou mettre à jour les propriétés souhaitées](../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 7. Sélectionnez **Enregistrer** et répétez l’étape **5**.  
 
@@ -156,7 +156,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
    Pour *Options de création de conteneur* utilisez le JSON suivant :
 
    ```json
-   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
+   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--tm","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
    ```
 
 9. Sélectionnez **Enregistrer** puis **Suivant** pour passer à la section des itinéraires.
@@ -182,7 +182,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 ### <a name="prerequisites"></a>Prérequis
 
-1. Installez la dernière version de l’[interface de ligne de commande AZ](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) en suivant [ce lien](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installez la dernière version de l’[interface de ligne de commande AZ](/cli/azure/?view=azure-cli-latest) en suivant [ce lien](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Démarrage rapide
 
@@ -195,7 +195,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
    ```
 
    Le paramètre `device id` respecte la casse. Le paramètre content pointe vers le fichier manifeste de déploiement que vous avez enregistré. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![az IoT Edge set-modules output](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Une fois les modules déployés sur votre appareil, vous pouvez les voir tous à l’aide de la commande suivante :
 
@@ -203,7 +203,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   Le paramètre device-id respecte la casse. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   Le paramètre device-id respecte la casse. ![az iot hub module-identity list output](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439077"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979085"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -25,7 +25,7 @@ Ce tutoriel est le troisième d’une série qui explique comment évaluer et mi
  Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Ajouter l’outil Azure Migrate : Migration de serveur
+> * Ajoutez l’outil Azure Migrate : Migration de serveur.
 > * Découvrir les machines virtuelles que vous souhaitez migrer
 > * Démarrer la réplication des machines virtuelles
 > * Exécuter une migration de test pour vérifier que tout fonctionne comme prévu.
