@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314910"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929334"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Choisir les colonnes de distribution dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -71,8 +71,6 @@ L’erreur la plus fréquente lors de la modélisation des informations de séri
 
 -   **Ne choisissez pas un horodatage comme colonne de distribution.** Choisissez une colonne de distribution différente. Dans une application mutualisée, utilisez l’ID de locataire ou, dans une application en temps réel, l’ID d’entité.
 -   **Utilisez le partitionnement de table PostgreSQL pour les données temporelles à la place.** Utilisez le partitionnement de table pour diviser une table volumineuse de données chronologiques en plusieurs tables héritées contenant chacune différentes plages de temps. La distribution d’une table partitionnée Postgres dans Hyperscale (Citus) crée des partitions pour les tables héritées.
-
-Lisez le [didacticiel sur les séries chronologiques](https://aka.ms/hyperscale-tutorial-timeseries) pour obtenir un exemple de création de ce type d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment la [colocation](concepts-hyperscale-colocation.md) entre les requêtes distribuées permettent d’exécuter rapidement les requêtes.

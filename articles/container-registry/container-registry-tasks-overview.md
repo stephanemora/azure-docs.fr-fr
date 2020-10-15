@@ -4,10 +4,10 @@ description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure 
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488641"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks

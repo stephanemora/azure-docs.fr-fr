@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4f40a821a0a639fa117dc0844146f28d887166e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102633"
 ---
 Les instantanés incrémentiels sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous restaurez un disque à partir d’un instantané incrémentiel, le système reconstruit le disque complet qui représente la sauvegarde du disque au moment où l’instantané incrémentiel a été capturé. Cette nouvelle fonctionnalité de capture instantanée des disques managés améliore leur rentabilité, car vous n’êtes pas obligé de stocker l'intégralité du disque avec chaque instantané. Comme pour les instantanés complets, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou un instantané complet.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083155"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Réécriture d’URL avec Azure Application Gateway – Portail Azure (préversion)
@@ -53,13 +53,13 @@ Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */ar
     
     c. Sélectionnez **Suivant**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Association à une règle":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Ajout d’un jeu de réécriture":::
 
 5. Créer une règle de réécriture :
 
     a. Sélectionnez **Ajouter une règle de réécriture**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Ajout d’une règle de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Ajout d’un jeu de réécriture":::
     
     b. Entrez un nom pour la règle de réécriture dans la zone **Nom de règle de réécriture**. Entrez un numéro dans la zone **Séquence de règle**.
 
@@ -81,7 +81,7 @@ Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */ar
 
     g. Sélectionnez **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Ajout d’un jeu de réécriture":::
 
  
 
@@ -101,13 +101,13 @@ Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */ar
     
    f. Sélectionnez **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Action":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Ajout d’un jeu de réécriture":::
 
 8. Cliquez sur **Créer** pour créer le jeu de réécriture.
 
 9. Vérifiez que le nouveau jeu de réécriture apparaît dans la liste des jeux de réécriture :
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Ajout d’une règle de réécriture":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Ajout d’un jeu de réécriture":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Vérification de la réécriture d’URL au moyen des journaux d’accès
 

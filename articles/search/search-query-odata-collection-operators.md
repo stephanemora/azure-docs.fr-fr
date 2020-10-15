@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934903"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Opérateurs de collection OData dans la Recherche cognitive Azure - `any` et `all`

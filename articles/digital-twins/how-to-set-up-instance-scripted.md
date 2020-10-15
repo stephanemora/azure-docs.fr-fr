@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328635"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047418"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328635"
 
 Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
-Cette version de cet article effectue ces étapes en exécutant un [exemple de **script de déploiement automatisé**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) qui simplifie le processus. 
+Cette version de cet article effectue ces étapes en exécutant un [exemple de **script de déploiement automatisé**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) qui simplifie le processus. 
 * Pour afficher les étapes manuelles d’interface CLI que le script exécute en arrière-plan, consultez la version CLI de cet article : [*Guide pratique : Configurer une instance et l’authentification (CLI)* ](how-to-set-up-instance-cli.md).
 * Pour afficher les étapes manuelles utilisant le portail Azure, consultez la version de cet article relative au portail : [*Guide pratique : Configurer une instance et l’authentification (portail)* ](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Cette version de cet article effectue ces étapes en exécutant un [exemple de *
 
 ## <a name="prerequisites-download-the-script"></a>Configuration requise : Télécharger le script
 
-L’exemple de script est écrit dans PowerShell. Il fait partie des [**exemples Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que vous pouvez télécharger sur votre ordinateur en suivant ce lien et en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
+L’exemple de script est écrit dans PowerShell. Il fait partie des [**exemples Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que vous pouvez télécharger sur votre ordinateur en suivant ce lien et en sélectionnant le bouton *Télécharger le fichier ZIP* sous le titre.
 
 L’exemple de projet sera téléchargé sur votre ordinateur sous le nom _**Azure_Digital_Twins_samples.zip**_. Accédez au dossier sur votre ordinateur et décompressez-le pour extraire les fichiers.
 
@@ -157,7 +157,7 @@ Si l’une de ces étapes de vérification (ou les deux) a échoué, réessayez 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
 
 Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :

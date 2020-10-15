@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258489"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077386"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -38,7 +38,7 @@ Si votre pool utilise un composant interne déprécié, supprimez et recréez le
 
 ## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
 
-Azure Advisor détecte les règles d’alerte dont la section des conditions contient des requêtes non valides. Vous pouvez créer des règles d’alerte de journal dans Azure Monitor et les utiliser pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats de la requête déterminent si une alerte doit être déclenchée. Il arrive que des requêtes d’analytique deviennent non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor vous recommande alors de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement, et garantir ainsi une couverture de supervision complète de vos ressources dans Azure. [Découvrez-en plus sur la résolution des problèmes liés aux règles d’alerte.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor détecte les règles d’alerte dont la section des conditions contient des requêtes non valides. Vous pouvez créer des règles d’alerte de journal dans Azure Monitor et les utiliser pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats de la requête déterminent si une alerte doit être déclenchée. Il arrive que des requêtes d’analytique deviennent non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor vous recommande alors de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement, et garantir ainsi une couverture de supervision complète de vos ressources dans Azure. [Découvrez-en plus sur la résolution des problèmes liés aux règles d’alerte.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Utiliser les recommandations Azure Policy
 
@@ -55,7 +55,7 @@ Azure Policy est un service Azure que vous pouvez utiliser pour créer, affecter
 **Activer *Hériter une étiquette du groupe de ressources*.** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
 
 ## <a name="no-validation-environment-enabled"></a>Aucun environnement de validation activé
-Azure Advisor détermine que vous n’avez pas d’environnement de validation activé dans l’abonnement actuel. Lors de la création de vos pools d’hôtes, vous avez sélectionné \"Non\" pour \"Environnement de validation\" sous l’onglet Propriétés. Le fait d’avoir au moins un pool d’hôtes avec un environnement de validation activé garantit la continuité des activités via les déploiements du service Windows Virtual Desktop avec une détection précoce des problèmes potentiels. [En savoir plus](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor détermine que vous n’avez pas d’environnement de validation activé dans l’abonnement actuel. Lors de la création de vos pools d’hôtes, vous avez sélectionné \"Non\" pour \"Environnement de validation\" sous l’onglet Propriétés. Le fait d’avoir au moins un pool d’hôtes avec un environnement de validation activé garantit la continuité des activités via les déploiements du service Windows Virtual Desktop avec une détection précoce des problèmes potentiels. [En savoir plus](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir un environnement de production (et non de validation) pour bénéficier de fonctionnalités stables
 Azure Advisor détecte que l’environnement de validation est activé pour un trop grand nombre de vos pools d’hôtes. Pour que les environnements de validation remplissent au mieux leur fonction, vous devez avoir au moins un, mais jamais plus de la moitié de vos pools d’hôtes dans l’environnement de validation. En ayant un équilibre parfait entre vos pools d’hôtes avec l’environnement de validation activé et ceux pour lesquels il est désactivé, vous pourrez tirer le meilleur parti des avantages des déploiements en plusieurs phases proposés par Windows Virtual Desktop avec certaines mises à jour. Pour résoudre ce problème, ouvrez les propriétés de votre pool d’hôtes et sélectionnez \"Non\" à côté du paramètre \"Environnement de validation\".
