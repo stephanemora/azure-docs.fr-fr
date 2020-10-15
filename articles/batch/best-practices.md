@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146536"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849487"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -109,7 +109,7 @@ Les tâches peuvent être envoyées individuellement ou dans des collections. So
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Définir correctement le nombre maximal de tâches par nœud
 
-Batch prend en charge le surabonnement de tâches sur les nœuds (exécuter plus de tâches qu’un nœud n’a de cœurs). C’est à vous de veiller à ce que vos tâches « s’adaptent » aux nœuds de votre pool. Par exemple, vous pouvez avoir une dégradation de l’expérience si vous tentez de planifier huit tâches qui consomment chacune 25 % de l’utilisation de l’UC sur un nœud (dans un pool avec `maxTasksPerNode = 8`).
+Batch prend en charge le surabonnement de tâches sur les nœuds (exécuter plus de tâches qu’un nœud n’a de cœurs). C’est à vous de veiller à ce que vos tâches « s’adaptent » aux nœuds de votre pool. Par exemple, vous pouvez avoir une dégradation de l’expérience si vous tentez de planifier huit tâches qui consomment chacune 25 % de l’utilisation de l’UC sur un nœud (dans un pool avec `taskSlotsPerNode = 8`).
 
 ### <a name="design-for-retries-and-re-execution"></a>Concevoir pour les nouvelles tentatives et la réexécution
 
@@ -217,6 +217,6 @@ Azure Batch crée et gère un ensemble d’utilisateurs et de groupes sur la mac
 
 ### <a name="file-cleanup"></a>Nettoyage du fichier
 
-Batch tente activement de nettoyer le répertoire de travail dans lequel les tâches sont exécutées, une fois leur durée de rétention expirée. Il [vous incombe de nettoyer](#manage-task-lifetime) tous les fichiers écrits en dehors de ce répertoire afin d’éviter de saturer l’espace disque. 
+Batch tente activement de nettoyer le répertoire de travail dans lequel les tâches sont exécutées, une fois leur durée de rétention expirée. Il [vous incombe de nettoyer](#manage-task-lifetime) tous les fichiers écrits en dehors de ce répertoire afin d’éviter de saturer l’espace disque.
 
 Le nettoyage automatisé du répertoire de travail sera bloqué si vous exécutez un service sur Windows à partir du répertoire de travail startTask, du fait que le dossier est toujours en cours d’utilisation. Cela entraîne une dégradation des performances. Pour résoudre ce problème, remplacez le répertoire de ce service par un répertoire distinct qui n’est pas géré par Batch.

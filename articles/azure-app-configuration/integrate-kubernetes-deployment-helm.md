@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766850"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074836"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Intégrer au déploiement Kubernetes en utilisant Helm
 
@@ -28,12 +28,12 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Utiliser des valeurs d’App Configuration lors du déploiement d’une application sur Kubernetes avec Helm.
 > * Créer un secret Kubernetes basé sur une référence Key Vault dans App Configuration.
 
-Ce tutoriel suppose une compréhension de base de la gestion de Kubernetes avec Helm. Découvrez plus d’informations sur l’installation d’applications avec Helm dans [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm).
+Ce tutoriel suppose une compréhension de base de la gestion de Kubernetes avec Helm. Découvrez plus d’informations sur l’installation d’applications avec Helm dans [Azure Kubernetes Service](../aks/kubernetes-helm.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 ou ultérieure)
+- Installer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 ou ultérieure)
 - Installer [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 ou ultérieure)
 - Un cluster Kubernetes.
 
@@ -51,7 +51,7 @@ Ce tutoriel suppose une compréhension de base de la gestion de Kubernetes avec 
     Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Ajouter une référence Key Vault à App Configuration
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ajoutez un secret à [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) avec comme nom **Password** et comme valeur **myPassword**. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ajoutez un secret à [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) avec comme nom **Password** et comme valeur **myPassword**. 
 2. Sélectionnez l’instance de magasin App Configuration que vous avez créée dans la section précédente.
 
 3. Sélectionnez **Explorateur de configuration**.
@@ -185,7 +185,7 @@ settings:
 Tout d’abord, téléchargez la configuration depuis App Configuration dans un fichier *myConfig.yaml*. Utilisez un filtre de clé pour télécharger seulement les clés qui commencent par **settings.** . Si dans votre cas, le filtre de clé n’est pas suffisant pour exclure les clés des références Key Vault, vous pouvez utiliser l’argument **--skip-keyvault** pour les exclure. 
 
 > [!TIP]
-> Découvrez plus d’informations sur la [commande export](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Découvrez plus d’informations sur la [commande export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -225,7 +225,7 @@ else{
 
 ```
 
-Vérifiez que les configurations et les secrets ont été définis correctement en accédant au [Tableau de bord Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). Vous voyez que les valeurs pour **color** et **message** provenant d’App Configuration ont été renseignées dans les variables d’environnement du conteneur.
+Vérifiez que les configurations et les secrets ont été définis correctement en accédant au [Tableau de bord Kubernetes](../aks/kubernetes-dashboard.md). Vous voyez que les valeurs pour **color** et **message** provenant d’App Configuration ont été renseignées dans les variables d’environnement du conteneur.
 
 ![Démarrage rapide du lancement d’application local](./media/kubernetes-dashboard-env-variables.png)
 
@@ -242,4 +242,4 @@ Un secret, **password**, stocké en tant que référence Key Vault dans App Conf
 Dans ce tutoriel, vous avez exporté des données d’App Configuration à utiliser dans un déploiement Kubernetes avec Helm. Pour en savoir plus sur l’utilisation d’App Configuration, passez aux exemples Azure CLI.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)

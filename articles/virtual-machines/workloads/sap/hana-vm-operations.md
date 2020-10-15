@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649684"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978779"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -79,7 +79,7 @@ Pour les configurations de stockage et les types de stockage à utiliser avec SA
 Quand vous disposez d’une connectivité de site à site dans Azure via un VPN ou ExpressRoute, vous avez au minimum un réseau virtuel Azure connecté par le biais d’une passerelle virtuelle au circuit ExpressRoute ou VPN. Dans des déploiements simples, la passerelle virtuelle peut être déployée dans un sous-réseau du réseau virtuel (VNet) Azure qui héberge également les instances SAP HANA. Pour installer SAP HANA, vous devez créer deux sous-réseaux supplémentaires dans le réseau virtuel Azure. Un sous-réseau héberge les machines virtuelles pour exécuter les instances de SAP HANA. L’autre sous-réseau exécute des machines virtuelles Jumpbox ou de gestion pour héberger SAP HANA Studio, d’autres logiciels de gestion ou votre logiciel d’application.
 
 > [!IMPORTANT]
-> Par manque de fonctionnalités, mais surtout pour des raisons de performances, il n’est pas prévu de configurer [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin d’accès de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. La communication entre la couche application SAP et la couche SGBD doit être directe. La restriction n’inclut pas les [règles Azure ASG et NSG](../../../virtual-network/security-overview.md) tant que ces règles ASG et NSG permettent une communication directe. D’autres scénarios qui ne prennent pas en charge les appliances virtuelles réseau résident dans les chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse.md). Ou bien, dans les chemins de communication entre les machines virtuelles Azure et les systèmes SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](./sap-high-availability-guide-wsfc-file-share.md). Les appliances virtuelles réseau dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication et limiter le débit dans les chemins d’accès critiques entre la couche application SAP et la couche SGBD. Dans certains scénarios observés avec les clients, les machines virtuelles Azure peuvent provoquer des défaillances de clusters Pacemaker Linux dans les cas où les communications entre les nœuds du cluster Linux Pacemaker doivent communiquer avec leur appareil SBD via un machine virtuelle Azure.  
+> Par manque de fonctionnalités, mais surtout pour des raisons de performances, il n’est pas prévu de configurer [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin d’accès de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. La communication entre la couche application SAP et la couche SGBD doit être directe. La restriction n’inclut pas les [règles Azure ASG et NSG](../../../virtual-network/network-security-groups-overview.md) tant que ces règles ASG et NSG permettent une communication directe. D’autres scénarios qui ne prennent pas en charge les appliances virtuelles réseau résident dans les chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](./high-availability-guide-suse.md). Ou bien, dans les chemins de communication entre les machines virtuelles Azure et les systèmes SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](./sap-high-availability-guide-wsfc-file-share.md). Les appliances virtuelles réseau dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication et limiter le débit dans les chemins d’accès critiques entre la couche application SAP et la couche SGBD. Dans certains scénarios observés avec les clients, les machines virtuelles Azure peuvent provoquer des défaillances de clusters Pacemaker Linux dans les cas où les communications entre les nœuds du cluster Linux Pacemaker doivent communiquer avec leur appareil SBD via un machine virtuelle Azure.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ Pour obtenir une vue d’ensemble des différentes méthodes d’attribution des
 
 Pour les machines virtuelles qui exécutent SAP HANA, vous devez utiliser les adresses IP statiques attribuées. En effet, certains attributs de configuration pour HANA référencent des adresses IP.
 
-Les [groupes de sécurité réseau Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) permettent de diriger le trafic qui est acheminé vers l’instance de SAP HANA ou la machine virtuelle Jumpbox. Les groupes de sécurité réseau ainsi que les [groupes de sécurité d’application](../../../virtual-network/security-overview.md#application-security-groups) sont associés au sous-réseau SAP HANA et au sous-réseau de gestion.
+Les [groupes de sécurité réseau Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) permettent de diriger le trafic qui est acheminé vers l’instance de SAP HANA ou la machine virtuelle Jumpbox. Les groupes de sécurité réseau ainsi que les [groupes de sécurité d’application](../../../virtual-network/network-security-groups-overview.md#application-security-groups) sont associés au sous-réseau SAP HANA et au sous-réseau de gestion.
 
 L’image suivante représente une vue d’ensemble d’un schéma de déploiement approximatif pour SAP HANA selon une architecture de réseau virtuel hub and spoke :
 
@@ -324,4 +324,3 @@ Familiarisez-vous avec les articles répertoriés
 - [Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
- 

@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056050"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072711"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Prise en charge de Resource Health Check (RHC) pour Azure Cloud Services (classique)
 Cet article traite de la prise en charge de Resource Health Check (RHC) pour [Microsoft Azure Cloud Services (classique)](https://azure.microsoft.com/services/cloud-services).
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) pour les services cloud vous aide à diagnostiquer et à obtenir de l’aide pour les problèmes de service qui ont un impact sur votre déploiement, vos rôles et vos instances de rôle Azure Cloud Services. La fonctionnalité rend compte de l’intégrité actuelle et passée de vos services cloud aux niveaux Déploiement, Rôle et Instance de rôle.
+[Azure Resource Health](../service-health/resource-health-overview.md) pour les services cloud vous aide à diagnostiquer et à obtenir de l’aide pour les problèmes de service qui ont un impact sur votre déploiement, vos rôles et vos instances de rôle Azure Cloud Services. La fonctionnalité rend compte de l’intégrité actuelle et passée de vos services cloud aux niveaux Déploiement, Rôle et Instance de rôle.
 
 Azure fait état des problèmes qui touchent un large éventail de clients Azure. Resource Health vous donne un tableau de bord personnalisé de l’intégrité de vos ressources. Resource Health vous montre toutes les fois où vos ressources ont été non disponibles en raison de problèmes de service Azure. Ces données vous permettent de voir facilement si un contrat SLA n’a pas été respecté.
 
@@ -30,7 +30,7 @@ L’intégrité des ressources est signalée au niveau du déploiement ou du rô
 Les contrôles d’intégrité des ressources fonctionnent uniquement pour le déploiement d’emplacement de production. Le déploiement d’emplacement de préproduction n’est pas encore pris en charge. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>Resource Health Check vérifie-t-il également l’intégrité de l’application ?
-Non, le contrôle d’intégrité ne se produit que pour les instances de rôle et n’analyse pas l’intégrité de l’application. Par exemple, même si une instance de rôle sur trois est non saine, l’application peut continuer à être disponible. RHC n’utilise pas de [sondes d’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) ni de sonde d’agent invité. Par conséquent, les clients doivent continuer à utiliser des sondes d’équilibrage de charge pour surveiller l’intégrité de leur application. 
+Non, le contrôle d’intégrité ne se produit que pour les instances de rôle et n’analyse pas l’intégrité de l’application. Par exemple, même si une instance de rôle sur trois est non saine, l’application peut continuer à être disponible. RHC n’utilise pas de [sondes d’équilibrage de charge](../load-balancer/load-balancer-custom-probe-overview.md) ni de sonde d’agent invité. Par conséquent, les clients doivent continuer à utiliser des sondes d’équilibrage de charge pour surveiller l’intégrité de leur application. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Quelles sont les annotations pour Azure Cloud Services ?
 Les annotations sont l’état d’intégrité du déploiement ou des rôles. Il existe des annotations différentes en fonction de l’état d’intégrité, de la raison du changement d’état, etc. 

@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Gérer la gouvernance des balises'
 description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545503"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876275"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
 
@@ -126,7 +126,12 @@ Une stratégie [modify](../concepts/effects.md#modify) est nécessaire pour chac
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

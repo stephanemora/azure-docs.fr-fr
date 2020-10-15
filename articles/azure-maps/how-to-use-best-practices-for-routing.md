@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086400"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874592"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Meilleures pratiques d’utilisation du service Route Azure Maps
 
 Les API Route Directions et Route Matrix du [service Route](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps peuvent être utilisées pour calculer les heures d’arrivée estimées pour chaque itinéraire demandé. Les API Route tiennent compte de facteurs tels que les informations de trafic en temps réel et les données de trafic historiques, comme les vitesses routières typiques au jour ou à l’heure demandée. Les API retournent les itinéraires les plus courts ou les plus rapides disponibles vers plusieurs destinations à la fois à la suite ou dans un ordre optimisé, en fonction de l’heure ou de la distance. Les utilisateurs peuvent également demander des itinéraires spécialisés et des informations pour les piétons, les cyclistes et les véhicules commerciaux tels que les camions. Cet article vous présente les meilleures pratiques concernant l’appel du [service Route](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps et vous montre comment effectuer les opérations suivantes :
 
-> [!div class="checklist"]
-> * Choisir entre les API Route Directions et Matrix Routing
-> * Demander les temps de trajet prédits et historiques, en fonction des données de trafic historiques et en temps réel
-> * Demander des détails sur l’itinéraire, comme la durée et la distance, pour l’itinéraire entier et chaque tronçon de l’itinéraire
-> * Demander un itinéraire pour un véhicule commercial, comme un camion
-> * Demander des informations sur le trafic sur un itinéraire, comme les embouteillages et les informations de péage
-> * Demander un itinéraire constitué d’un ou de plusieurs arrêts (étapes)
-> * Optimiser un itinéraire d’un ou de plusieurs arrêts pour obtenir le meilleur ordre pour visiter chaque arrêt (étape)
-> * Optimiser les itinéraires alternatifs à l’aide des points de prise en charge (par exemple, proposer des itinéraires alternatifs qui passent par une station de recharge de véhicule électrique)
-> * Utiliser le [service Route](https://docs.microsoft.com/rest/api/maps/route) avec le SDK web Azure Maps
+ * Choisir entre les API Route Directions et Matrix Routing
+ * Demander les temps de trajet prédits et historiques, en fonction des données de trafic historiques et en temps réel
+ * Demander des détails sur l’itinéraire, comme la durée et la distance, pour l’itinéraire entier et chaque tronçon de l’itinéraire
+ * Demander un itinéraire pour un véhicule commercial, comme un camion
+ * Demander des informations sur le trafic sur un itinéraire, comme les embouteillages et les informations de péage
+ * Demander un itinéraire constitué d’un ou de plusieurs arrêts (étapes)
+ * Optimiser un itinéraire d’un ou de plusieurs arrêts pour obtenir le meilleur ordre pour visiter chaque arrêt (étape)
+ * Optimiser les itinéraires alternatifs à l’aide des points de prise en charge (par exemple, proposer des itinéraires alternatifs qui passent par une station de recharge de véhicule électrique)
+ * Utiliser le [service Route](https://docs.microsoft.com/rest/api/maps/route) avec le SDK web Azure Maps
 
 ## <a name="prerequisites"></a>Prérequis
 

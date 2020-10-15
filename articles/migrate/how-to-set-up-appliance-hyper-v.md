@@ -4,10 +4,10 @@ description: Découvrez comment configurer une appliance Azure Migrate pour éva
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448085"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V

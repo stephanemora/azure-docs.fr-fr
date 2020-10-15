@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324550"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB

@@ -4,12 +4,12 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603150"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91319552"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -34,6 +34,10 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    * [Aide pour le déplacement du réseau](./move-limitations/networking-move-limitations.md)
    * [Conseils pour le déplacement de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Conseils pour le déplacement de machines virtuelles](./move-limitations/virtual-machines-move-limitations.md)
+
+1. Si vous déplacez une ressource à laquelle un rôle Azure est affecté directement (ou est affecté à une ressource enfant de cette ressource), l’attribution de rôle n’est pas déplacée et devient orpheline. Après le déplacement, vous devez recréer l’attribution de rôle. Finalement, l’attribution de rôle orpheline sera automatiquement supprimée, mais il est recommandé de supprimer l’attribution de rôle avant de déplacer la ressource.
+
+    Pour plus d’informations sur la gestion des attributions de rôles, consultez [Répertorier les attributions de rôle](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) et [Ajouter ou supprimer des attributions de rôle](../../role-based-access-control/role-assignments-portal.md).
 
 1. Les abonnements source et de destination doivent être actifs. Si vous rencontrez des problèmes lors de l’activation d’un compte qui a été désactivé, [créez une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
 

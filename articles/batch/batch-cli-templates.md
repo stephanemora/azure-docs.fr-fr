@@ -2,14 +2,14 @@
 title: Exécuter des travaux de bout en bout à l’aide de modèles
 description: En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494925"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848719"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -65,7 +65,7 @@ Les modèles Azure Batch sont semblables aux modèles Azure Resource Manager en 
 -   **Paramètres**
 
     -   Ils autorisent la spécification des valeurs de propriété dans une section Corps, seules les valeurs de paramètre devant être fournies lorsque le modèle est utilisé. Par exemple, la définition complète d’un pool peut être placée dans le corps et un seul paramètre défini pour `poolId`. Par conséquent, seule la chaîne d’ID du pool doit être fournie pour créer un pool.
-        
+
     -   Le corps du modèle peut être créé par une personne connaissant Batch et les applications à exécuter dans celui-ci. Seules les valeurs des paramètres définis par l’auteur doivent être fournis lorsque le modèle est utilisé. Un utilisateur sans connaissance poussée de Batch ou des applications peut par conséquent utiliser les modèles.
 
 -   **Variables**
@@ -121,7 +121,7 @@ Voici l’exemple d’un modèle qui crée un pool de machines virtuelles Linux 
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ Voici un exemple de modèle qui crée un travail de transcodage de fichiers vid�
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Un groupe de fichiers correspond à un conteneur créé dans le compte de stocka
 L’extension Batch CLI fournit des commandes pour charger les fichiers du client vers un groupe de fichiers spécifié, et pour télécharger les fichiers du groupe de fichiers spécifié vers le client.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

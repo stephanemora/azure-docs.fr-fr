@@ -1,17 +1,17 @@
 ---
 title: Créer une application multiservice et la déployer sur Service Fabric Mesh
 description: Dans ce didacticiel, vous allez créer une application de maillage multiservice Azure Service Fabric composée d’un site web ASP.NET Core qui communique avec un service web back-end, la déboguer en local et la publier dans Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653109"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842544"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
 

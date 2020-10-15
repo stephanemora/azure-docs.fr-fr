@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 1a99a91152f8308af122677ad3b8df3fb5005dbb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896173"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
@@ -178,7 +178,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Instance Private Link créée":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Présentation de Private Link":::
 
     > [!NOTE] 
     > Le FQDN dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
