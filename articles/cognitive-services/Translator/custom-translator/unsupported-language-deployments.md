@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964683"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
@@ -47,7 +47,7 @@ Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequest
 
 ## <a name="whats-next"></a>Quelle est l’étape suivante ?
 
-Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles par le biais de Translator v3.  Ils seront par ailleurs disponibles par le biais de Translator v2 jusqu’au 1er juillet.  
+Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles via l’API Translator V3.  Ils seront également disponibles via l’API V2 jusqu’au 1er juillet.  
 
 Pour plus d’informations sur les dates importantes en lien avec l’abandon du hub, voir [ici](https://www.microsoft.com/translator/business/hub/).
 Après déploiement, les frais d’hébergement normaux s’appliquent.  Pour en savoir plus, voir les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).  
@@ -57,4 +57,4 @@ Contrairement aux modèles Custom Translator standard, les modèles du hub ne so
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Effectuer l’apprentissage d’un modèle](how-to-train-model.md).
-- Commencez à utiliser votre modèle de traduction personnalisé déployé via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

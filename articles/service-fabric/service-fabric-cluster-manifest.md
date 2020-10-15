@@ -1,16 +1,14 @@
 ---
 title: Configurer votre cluster Azure Service Fabric autonome
 description: Découvrez comment configurer votre cluster Azure Service Fabric local ou autonome.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: dekapur
-ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246569"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843156"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article décrit les paramètres de configuration d’un cluster Azure Service Fabric autonome qui peuvent être définis dans le fichier *ClusterConfig.json*. Utilisez ce fichier pour spécifier les informations sur les nœuds de cluster, les configurations de la sécurité ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau.  Après la modification ou l’ajout de paramètres de configuration, vous pouvez [créer un cluster autonome](service-fabric-cluster-creation-for-windows-server.md) ou [mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).

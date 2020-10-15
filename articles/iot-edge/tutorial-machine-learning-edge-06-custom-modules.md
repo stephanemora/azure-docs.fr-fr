@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997929"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857433"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutoriel : Créer et déployer des modules IoT Edge personnalisés
 
@@ -809,14 +809,6 @@ En vous connectant à l’appareil IoT Edge (la machine virtuelle Linux dans not
 Dans cet article, nous avons créé une solution IoT Edge dans Visual Studio Code avec trois modules : un classifieur, un routeur et un enregistreur/chargeur de fichier. Nous avons configuré les routes pour permettre aux modules de communiquer entre eux sur l’appareil de périphérie. Nous avons modifié la configuration de l’appareil de périphérie et mis à jour les fichiers Dockerfile pour installer des dépendances et ajouter des montages de liaisons aux conteneurs des modules. 
 
 Ensuite, nous avons mis à jour la configuration du hub IoT pour router nos messages selon le type et gérer les chargements de fichier. Une fois tous les éléments en place, nous avons déployé les modules sur l’appareil IoT Edge et vérifié que les modules étaient exécutés correctement.
-
-Pour plus d’informations, consultez les articles suivants :
-
-* [Découvrir comment déployer des modules et établir des routes dans IoT Edge](module-composition.md)
-* [Syntaxe des requêtes de routage des messages IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [Routage des messages IoT Hub : maintenant avec le routage dans le corps du message](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Chargement de fichiers avec IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Passez à l’article suivant pour commencer à envoyer des données et voir votre solution en action.
 

@@ -1,25 +1,18 @@
 ---
 title: Concevoir et implémenter une base de données Oracle sur Azure | Microsoft Docs
 description: Concevez et implémentez une base de données Oracle dans votre environnement Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274705"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996633"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -49,7 +42,7 @@ Le tableau suivant liste certaines des différences qui existent entre une impl�
 | **Mise en réseau** |LAN/WAN  |SDN (Software-Defined Networking)|
 | **Groupe de sécurité** |Outils de restriction d’adresse IP/de port |[Groupe de sécurité réseau](https://azure.microsoft.com/blog/network-security-groups) |
 | **Résilience** |MTBF (temps moyen entre les défaillances) |MTTR (temps moyen de récupération)|
-| **Maintenance planifiée** |Correctifs/mises à niveau|[Groupes à haute disponibilité](../../windows/infrastructure-example.md) (correctifs/mises à niveau gérés par Azure) |
+| **Maintenance planifiée** |Correctifs/mises à niveau|[Groupes à haute disponibilité](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (correctifs/mises à niveau gérés par Azure) |
 | **Ressource** |Dédié  |Partagée avec d’autres clients|
 | **Régions** |Centres de données |[Paires de régions](../../regions.md#region-pairs)|
 | **Stockage** |SAN/disques physiques |[Stockage géré par Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +223,7 @@ Une fois votre environnement Azure configuré, l’étape suivante consiste à s
 - [Configurer Oracle ASM](configure-oracle-asm.md)
 - [Implémenter Oracle Data Guard sur une machine virtuelle Linux Azure](configure-oracle-dataguard.md)
 - [Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure](configure-oracle-golden-gate.md)
-- [Sauvegarde et récupération Oracle](oracle-backup-recovery.md)
+- [Sauvegarde et récupération Oracle](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

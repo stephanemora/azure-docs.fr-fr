@@ -1,23 +1,18 @@
 ---
 title: Performances des tailles de machine virtuelle de la série HC
 description: Découvrez les résultats des tests de performances des machines virtuelles de série HC de différentes tailles dans Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
-ms.openlocfilehash: 0d63d9770dacf6a200e8b81e8d47d9f807a8a448
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.reviewer: cynthn
+ms.openlocfilehash: 34d47e6c10692cc212b6e178e3f9658069b96020
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603426"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995113"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tailles des machines virtuelles de la série HC
 

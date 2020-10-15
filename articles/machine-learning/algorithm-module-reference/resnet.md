@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91442043"
 ---
 # <a name="resnet"></a>ResNet
 
 Cet article explique comment utiliser le module **ResNet** dans le concepteur Azure Machine Learning pour créer un modèle de classification d’images à l’aide de l’algorithme ResNet.  
 
-Cet algorithme de classification est une méthode d’apprentissage supervisé qui nécessite un jeu de données étiqueté. Consultez le module [Convert to Image Directory](convert-to-image-directory.md) (Convertir en répertoire d’images) pour plus d’informations sur l’obtention d’un répertoire d’images étiquetées. Pour entraîner un modèle, indiquez ce dernier ainsi qu’un répertoire d’images étiquetées en tant qu’entrées du module [Train Pytorch Model](train-pytorch-model.md). Vous pouvez ensuite utiliser le modèle entraîné pour prédire les valeurs des nouveaux exemples d’entrée à l’aide du module [Score Image Model](score-image-model.md).
+Cet algorithme de classification est une méthode d’apprentissage supervisé qui nécessite un jeu de données étiqueté. 
+> [!NOTE]
+> Ce module ne prend pas en charge le jeu de données étiqueté généré à partir d’*Étiquetage des données* dans le studio ; il ne prend en charge que le répertoire d’images étiqueté généré à partir du module [Convertir en répertoire d’images](convert-to-image-directory.md). 
+
+Pour entraîner un modèle, indiquez ce dernier ainsi qu’un répertoire d’images étiquetées en tant qu’entrées du module [Train Pytorch Model](train-pytorch-model.md). Vous pouvez ensuite utiliser le modèle entraîné pour prédire les valeurs des nouveaux exemples d’entrée à l’aide du module [Score Image Model](score-image-model.md).
 
 ### <a name="more-about-resnet"></a>En savoir plus sur ResNet
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91339059"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978558"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>Appels PUT pour la création ou les mises à jour de ressources de calcul
 
@@ -66,5 +66,4 @@ Cela est important lors de l’envoi d’opérations de mise à jour à une ress
 `
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les appels de création ou de mise à jour pour les [machines virtuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) et les [groupes de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
-
+En savoir plus sur les appels de création ou de mise à jour pour les [machines virtuelles](/rest/api/compute/virtualmachines/createorupdate) et les [groupes de machines virtuelles identiques](/rest/api/compute/virtualmachinescalesets/createorupdate).

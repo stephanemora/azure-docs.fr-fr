@@ -3,18 +3,18 @@ title: Prise en main du Stockage File d’attente Azure à l’aide de .NET - St
 description: Les files d’attente Azure fournissent une messagerie asynchrone fiable entre les composants d’application. La messagerie cloud permet de mettre à l’échelle vos composants d’application indépendamment.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001108"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855920"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
@@ -33,9 +33,6 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 ### <a name="prerequisites"></a>Prérequis
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Bibliothèque de client commune du Stockage Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Bibliothèque de client du Stockage File d’attente Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - Un [compte de stockage Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -95,11 +92,6 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 1. Recherchez « Microsoft.Azure.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Azure Configuration Manager.
 
 ---
-
-> [!NOTE]
-> Les packages de bibliothèques de client du Stockage Azure sont également disponibles dans le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Toutefois, nous vous recommandons d’installer également les bibliothèques de client du Stockage Azure à partir de NuGet, pour vous assurer que vous avez toujours les dernières versions.
->
-> Les dépendances ODataLib de la bibliothèque de client du Stockage Azure pour .NET sont résolues via les packages ODataLib disponibles sur NuGet, et non à partir des services de données WCF. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib utilisés par la bibliothèque de client du Stockage Azure sont [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) et [Spatial](https://nuget.org/packages/System.Spatial/). Bien qu’elles soient utilisées par les classes de stockage de Table Azure, ces bibliothèques sont des dépendances requises pour la programmation avec la bibliothèque de client du Stockage Azure.
 
 ### <a name="determine-your-target-environment"></a>Déterminer votre environnement cible
 
@@ -185,7 +177,7 @@ La classe [QueueClient](/dotnet/api/azure.storage.queues.queueclient) vous perme
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-La classe [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) vous permet de récupérer des files d’attente stockées dans Queue Storage. Voici un moyen de créer le client du service :
+La classe [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) vous permet de récupérer des files d’attente stockées dans Queue Storage. Voici un moyen de créer le client du service :
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ Pour insérer un message dans une file d’attente existante, appelez la méthod
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Pour insérer un message dans une file d'attente existante, commencez par créer un [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Appelez ensuite la méthode [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) . Un `CloudQueueMessage` peut être créé à partir d’un `string` (au format UTF-8) ou d’un tableau `byte`. Voici le code qui crée une file d’attente (si elle n’existe pas) et insère le message « Hello, World » :
+Pour insérer un message dans une file d'attente existante, commencez par créer un [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Appelez ensuite la méthode [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) . Un `CloudQueueMessage` peut être créé à partir d’un `string` (au format UTF-8) ou d’un tableau `byte`. Voici le code qui crée une file d’attente (si elle n’existe pas) et insère le message « Hello, World » :
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ Vous pouvez lire furtivement le message dans la file d’attente sans l’enleve
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant la méthode [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) .
+Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant la méthode [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) .
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ Supprimez un message d’une file d’attente en deux étapes. Lorsque vous appe
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), vous obtenez le message suivant dans une file d'attente. Un message renvoyé par `GetMessage` devient invisible par les autres codes lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle `DeleteMessage` juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), vous obtenez le message suivant dans une file d'attente. Un message renvoyé par `GetMessage` devient invisible par les autres codes lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle `DeleteMessage` juste après le traitement du message.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -406,7 +398,7 @@ L’exemple de code suivant utilise la méthode [ReceiveMessages](/dotnet/api/az
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-L'exemple de code suivant utilise la méthode [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `foreach`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l’appel de `GetMessages`, tous les messages n’ayant pas été supprimés redeviennent visibles.
+L'exemple de code suivant utilise la méthode [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `foreach`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l’appel de `GetMessages`, tous les messages n’ayant pas été supprimés redeviennent visibles.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) renvoie la dernière valeur extraite par la méthode `FetchAttributes`, sans appeler le service de File d’attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) renvoie la dernière valeur extraite par la méthode `FetchAttributes`, sans appeler le service de File d’attente.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) sur l'objet file d'attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) sur l'objet file d'attente.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -499,16 +491,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 - Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente :
   - [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)
-- Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
   - [Prise en main du stockage de tables Azure à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) pour le stockage de données structurées.
   - [Prise en main d’Azure Blob Storage à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
   - [Connexion à SQL Database à l’aide de .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) pour stocker des données relationnelles.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).

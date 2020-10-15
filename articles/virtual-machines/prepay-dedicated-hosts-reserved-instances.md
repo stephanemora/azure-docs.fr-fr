@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825257"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978592"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 
-Lorsque vous validez une instance réservée d’hôtes Azure Dedicated Host, vous pouvez économiser de l’argent. La remise de réservation est appliquée automatiquement au nombre d’hôtes dédiés en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à un hôte dédié pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. Consultez l’article [Vue d’ensemble des hôtes Azure Dedicated Host pour machines virtuelles](./windows/dedicated-hosts.md).
+Lorsque vous validez une instance réservée d’hôtes Azure Dedicated Host, vous pouvez économiser de l’argent. La remise de réservation est appliquée automatiquement au nombre d’hôtes dédiés en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à un hôte dédié pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. Consultez l’article [Vue d’ensemble des hôtes Azure Dedicated Host pour machines virtuelles](./dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Déterminer la référence SKU appropriée de l’hôte dédié avant de l’acheter
 
@@ -129,7 +129,7 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 - [Qu’est-ce qu’une réservation Azure ?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Utilisation d’hôtes dédiés Azure](./windows/dedicated-hosts.md)
+- [Utilisation d’hôtes dédiés Azure](./dedicated-hosts.md)
 
 - [Tarifs des hôtes dédiés](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
