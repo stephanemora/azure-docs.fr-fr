@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
 ms.openlocfilehash: d97a1bf00d722414bedda4be79adc0c26d02c751
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81421799"
 ---
 ## <a name="speech-modes"></a>Modes Speech

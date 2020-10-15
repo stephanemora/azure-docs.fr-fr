@@ -3,12 +3,12 @@ title: Configurer des règles de pare-feu IP pour Azure Service Bus
 description: Utilisation des règles de pare-feu pour autoriser les connexions à Azure Service Bus à partir d’adresses IP spécifiques.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 561ee90fb6d1e25123d15a09bbf143aef59bcf6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300953"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058061"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Service Bus sont accessibles à partir d’Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez la limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -126,7 +126,7 @@ Paramètres du modèle :
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],

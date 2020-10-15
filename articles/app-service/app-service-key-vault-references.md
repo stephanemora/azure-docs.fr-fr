@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557909"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930490"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -30,7 +30,7 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
 
 1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Syntaxe de référence

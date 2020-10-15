@@ -4,10 +4,10 @@ description: Cet article fournit une vue d’ensemble de la supervision et de la
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567552"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation

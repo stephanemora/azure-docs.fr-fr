@@ -7,16 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439407"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048370"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
-De nombreuses solutions IoT utilisent les services d’analytique pour obtenir des insights sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
+De nombreuses solutions IoT utilisent les services d’analytique pour obtenir des insights sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics](../stream-analytics/index.yml) et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
 
 Azure IoT Edge et Azure Stream Analytics sont intégrés pour simplifier le développement de vos charges de travail. Vous pouvez créer un travail Azure Stream Analytics dans le portail Azure, puis le déployer en tant que module IoT Edge sans code supplémentaire.  
 

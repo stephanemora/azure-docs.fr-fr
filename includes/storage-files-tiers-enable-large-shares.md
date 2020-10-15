@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536480"
 ---
 Par défaut, les partages de fichiers standard peuvent couvrir jusqu’à 5 Tio seulement, même si la limite de partage peut être augmentée jusqu’à 100 Tio. Pour ce faire, la fonctionnalité de *partage de fichiers volumineux* doit être activée au niveau du compte de stockage. Les comptes de stockage Premium (comptes de stockage *FileStorage*) ne disposent pas de l’indicateur de fonctionnalité de partage de fichiers volumineux, car tous les partages de fichiers Premium sont déjà activés pour le provisionnement jusqu’à la capacité totale de 100 Tio.

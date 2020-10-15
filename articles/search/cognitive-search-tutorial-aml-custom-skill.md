@@ -3,17 +3,17 @@ title: 'Tutoriel : Créer et déployer une compétence personnalisée avec Azu
 titleSuffix: Azure Cognitive Search
 description: Ce tutoriel montre comment utiliser Azure Machine Learning pour créer et déployer une compétence personnalisée destinée au pipeline d’enrichissement par IA de la Recherche cognitive Azure.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399837"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057601"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 

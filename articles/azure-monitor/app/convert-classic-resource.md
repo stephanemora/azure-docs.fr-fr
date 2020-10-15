@@ -1,22 +1,20 @@
 ---
 title: Migrer une ressource Azure Monitor Application Insights classique vers une ressource basée sur un espace de travail | Microsoft Docs
 description: En savoir plus sur les étapes requises pour mettre à niveau votre Azure Monitor Application Insights ressource classique vers le nouveau modèle basé sur l’espace de travail.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930015"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930575"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
 Ce guide va vous guider tout au long du processus de migration d’une ressource de Application Insights classique vers une ressource basée sur un espace de travail. Les ressources basées sur un espace de travail prennent en charge l’intégration complète entre Application Insights et Log Analytics. Les ressources basées sur l’espace de travail envoient Application Insights télémétrie à un espace de travail Log Analytics commun, ce qui vous permet d’accéder aux [fonctionnalités les plus récentes de Azure Monitor](#new-capabilities) tout en conservant les journaux des applications, des infrastructures et des plateformes dans un emplacement consolidé unique.
 
-Les ressources basées sur l’espace de travail permettent de disposer d’un contrôle d’accès en fonction du rôle commun (RBAC) sur vos ressources, et éliminent le besoin de requêtes inter-applications/espace de travail.
+Les ressources basées sur l’espace de travail activent un contrôle d’accès en fonction du rôle (RBAC) commun sur vos ressources, et éliminent le besoin de requêtes inter-applications/espace de travail.
 
 **Les ressources basées sur l’espace de travail sont actuellement disponibles dans toutes les régions commerciales et Azure US Government**
 
@@ -34,12 +32,11 @@ Les Application Insights basées sur l’espace de travail vous permettent de ti
 
 Lorsque vous migrez vers une ressource basée sur un espace de travail, aucune donnée n’est transférée du stockage de votre ressource classique vers le nouveau stockage basé sur l’espace de travail. En revanche, choisir de migrer modifiera l’emplacement où les nouvelles données seront écrites vers un espace de travail Log Analytics tout en préservant l’accès à vos données de ressource classiques. 
 
-Vos données de ressource classiques seront conservées et soumises aux paramètres de rétention au moment où elles ont été ingérées. Toutes les nouvelles données ingérées après la migration seront soumises aux paramètres de rétention de l’espace de travail Log Analytics associé. 
-
+Vos données de ressource classiques seront conservées et soumises aux paramètres de rétention de votre ressource Application Insights classique. Toutes les nouvelles données ingérées après migration seront soumises aux [paramètres de rétention](../platform/manage-cost-storage.md#change-the-data-retention-period) de l’espace de travail Log Analytics associé, qui prend également en charge [différents paramètres de rétention par type de données](../platform/manage-cost-storage.md#retention-by-data-type).
 Le processus de migration est **permanent et ne peut pas être inversé**. Une fois que vous migrez une ressource vers une Application Insights basée sur un espace de travail, cette dernière reste toujours une ressource basée sur un espace de travail. Toutefois, une fois la migration effectuée, vous pouvez modifier l’espace de travail cible aussi souvent que nécessaire. 
 
 > [!NOTE]
-> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont facturées dans l’espace de travail Log Analytics où se trouvent les données. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail. (Les données de ressource de Application Insights classiques qui sont ingérées avant la migration continuent d’être visées par la rétention/tarification de Application Insights pendant la durée de conservation des données.) 
+> L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont [facturées dans l’espace de travail Log Analytics](../platform/manage-cost-storage.md) où se trouvent les données. Si vous avez sélectionné une conservation des données supérieure à 90 jours pour les données ingérées dans la ressource Application Insights classique avant la migration, la conservation des données continuera d’être facturée via cette ressource Application Insights. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
 
 Si vous n’avez pas besoin de migrer une ressource existante et que vous souhaitez plutôt créer une ressource de Application Insights basée sur un espace de travail, utilisez le [Guide de création de ressources basé sur l’espace de travail](create-workspace-resource.md).
 

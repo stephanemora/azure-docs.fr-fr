@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764041"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077862"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -78,13 +78,13 @@ Pour publier ce tableau de bord pour toutes les prochaines machines virtuelles, 
 Il existe deux approches pour les API qui créent des ressources dans Azure :
 
 * Les API impératives créent une ressource à la fois. Pour plus d’informations, consultez [Ressources](/rest/api/resources/resources).
-* Un système de déploiement basé sur un modèle crée plusieurs ressources dépendantes avec un seul appel d'API. Pour plus d'informations, consultez [Déployer des ressources à l'aide de modèles Resource Manager et d'Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Un système de déploiement basé sur un modèle crée plusieurs ressources dépendantes avec un seul appel d'API. Pour plus d'informations, consultez [Déployer des ressources à l'aide de modèles Resource Manager et d'Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 Le déploiement basé sur un modèle prend en charge le paramétrage et la création de modèles. Il s'agit de l'approche utilisée dans cet article.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Créer par programmation un tableau de bord à partir de votre modèle à l’aide d’un déploiement de modèle
 
-Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer et les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le langage de gabarit ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le cadre du déploiement d'un modèle. Elle ne fonctionne pas si elle est utilisée avec les API impératives mentionnées précédemment. Pour plus d'informations, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer et les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le langage de gabarit ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le cadre du déploiement d'un modèle. Elle ne fonctionne pas si elle est utilisée avec les API impératives mentionnées précédemment. Pour plus d'informations, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Le paramétrage doit être effectué en utilisant la syntaxe des paramètres du modèle.  Vous remplacez toutes les instances de l'ID de ressource que nous avons trouvé précédemment, comme indiqué ici.
 
@@ -125,7 +125,7 @@ Déclarez les métadonnées de modèle requises et les paramètres situés en ha
 Après avoir configuré votre modèle, déployez-le en utilisant l'une des méthodes suivantes :
 
 * [API REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
 * [Page de déploiement du modèle sur le portail Azure](https://portal.azure.com/#create/Microsoft.Template)
 

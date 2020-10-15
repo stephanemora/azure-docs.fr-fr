@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90992677"
 ---
 # <a name="managed-hsm-access-control"></a>Contrôle d’accès HSM managé
@@ -21,7 +21,7 @@ ms.locfileid: "90992677"
 > [!NOTE]
 > Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les **coffres** et les **HSM managés**. Le contrôle d’accès décrit dans cet article s’applique uniquement aux **HSM managés**. Pour plus d’informations sur le contrôle d’accès pour HSM managé, consultez [Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](../general/rbac-guide.md).
 
-Le HSM managé Azure Key Vault est un service cloud qui protège les clés de chiffrement. Ces données étant sensibles et critiques, vous devez sécuriser l’accès à vos HSM managés en permettant seulement aux applications et utilisateurs autorisés d’y accéder. Cet article fournit une vue d’ensemble du modèle de contrôle d’accès HSM managé. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos HSM managés.
+Le HSM managé Azure Key Vault est un service cloud qui protège les clés de chiffrement. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos HSM managés en permettant seulement aux applications et utilisateurs autorisés d’y accéder. Cet article fournit une vue d’ensemble du modèle de contrôle d’accès HSM managé. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos HSM managés.
 
 ## <a name="access-control-model"></a>Modèle de contrôle d'accès
 

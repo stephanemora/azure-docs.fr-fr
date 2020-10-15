@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075271"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055849"
 ---
 # <a name="example-powershell-scripts"></a>Exemples de scripts PowerShell
 
@@ -23,7 +23,7 @@ Azure Remote Rendering fournit les deux API REST suivantes :
 Le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering) contient des exemples de scripts situés dans le dossier *Scripts* qui permettent d’interagir avec les API REST du service. Cet article décrit leur utilisation.
 
 > [!CAUTION]
-Une fréquence trop élevée d’appels aux fonctions de l’API REST provoque la limitation du serveur, qui retourne une défaillance. Dans ce cas, l’ID de code d’échec HTTP est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
+> Une fréquence trop élevée d’appels aux fonctions de l’API REST provoque la limitation du serveur, qui retourne une défaillance. Dans ce cas, l’ID de code d’échec HTTP est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
 
 ## <a name="prerequisites"></a>Prérequis
 

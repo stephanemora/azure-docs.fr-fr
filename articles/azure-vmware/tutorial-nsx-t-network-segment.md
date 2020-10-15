@@ -4,10 +4,10 @@ description: Apprendre à créer les segments de réseau NSX-T utilisés pour le
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254531"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Tutoriel : Créer un segment réseau NSX-T dans Azure VMware Solution

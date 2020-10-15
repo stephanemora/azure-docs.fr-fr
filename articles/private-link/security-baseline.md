@@ -8,10 +8,10 @@ ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89614620"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Base de référence de sécurité Azure pour Azure Private Link
@@ -32,7 +32,7 @@ Créez des alertes dans Azure Monitor, qui se déclenchent en cas de modificatio
 
 - [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -100,7 +100,7 @@ Une autre option consiste à activer les données et à les intégrer à Azure S
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -132,7 +132,7 @@ Activez les données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -168,7 +168,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -180,7 +180,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -204,7 +204,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -226,7 +226,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -238,7 +238,7 @@ Simplifiez ce processus en créant des paramètres de diagnostic pour les compte
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -254,7 +254,7 @@ Ingérez des données dans Azure Sentinel pour approfondir votre examen.
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -276,7 +276,7 @@ Contrôlez l’accès aux ressources Azure au moyen du contrôle d’accès en f
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -288,7 +288,7 @@ Suivez les recommandations de Security Center relatives au chiffrement au repos 
 
 - [Présentation du chiffrement en transit avec Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -320,7 +320,7 @@ Rendez votre service privé pour la consommation à partir de vos autres réseau
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -340,7 +340,7 @@ Vérifiez que vous disposez des autorisations (en lecture) appropriées dans vot
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -350,7 +350,7 @@ Vérifiez que vous disposez des autorisations (en lecture) appropriées dans vot
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -366,7 +366,7 @@ Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -404,7 +404,7 @@ Par ailleurs, utilisez Azure Resource Graph pour interroger/découvrir des resso
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -548,7 +548,7 @@ Utilisez Azure Automation pour appeler régulièrement l’API d’exportation d
 
 - [Présentation d’Azure Automation](../automation/automation-intro.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -620,7 +620,7 @@ Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui déf
 
 - [Le client peut également tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de son propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -636,7 +636,7 @@ Il incombe au client de classer par ordre de priorité la correction des alertes
 
 - [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -646,7 +646,7 @@ Il incombe au client de classer par ordre de priorité la correction des alertes
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -672,7 +672,7 @@ En outre, utilisez le connecteur de données Security Center pour diffuser en co
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -700,7 +700,7 @@ Utilisez la stratégie et l’exécution de Red Teaming de Microsoft ainsi que l
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

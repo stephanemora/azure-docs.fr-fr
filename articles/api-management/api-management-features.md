@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905140"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077845"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparaison des fonctionnalités des niveaux de la Gestion des API Azure
 
@@ -37,7 +37,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 | Analytique intégrée                                                                           | Non          | Oui       | Oui   | Oui      | Oui     |
 | [Passerelle auto-hébergée](self-hosted-gateway-overview.md)<sup>3</sup>                           | Non          | Oui       | Non    | Non       | Oui     |
 | [Paramètres TLS](api-management-howto-manage-protocols-ciphers.md)                             | Oui         | Oui       | Oui   | Oui      | Oui     |
-| [Cache externe](https://aka.ms/apimbyoc)                                                    | Oui         | Oui       | Oui   | Oui      | Oui     |
+| [Cache externe](./api-management-howto-cache-external.md)                                                    | Oui         | Oui       | Oui   | Oui      | Oui     |
 | [Authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) | Oui         | Oui       | Oui   | Oui      | Oui     |
 | [Sauvegarde et restauration](api-management-howto-disaster-recovery-backup-restore.md)               | Non          | Oui       | Oui   | Oui      | Oui     |
 | [Gestion sur Git](api-management-configuration-repository-git.md)                        | Non          | Oui       | Oui   | Oui      | Oui     |

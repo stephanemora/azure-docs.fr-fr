@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515628"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde

@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067608"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB
@@ -86,7 +86,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
   * ***Vue d’ensemble du mode direct***
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de la stratégie de connexion Azure Cosmos DB" border="false":::
   
   L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 **canaux** côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, d’une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins par le **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** l’achemine vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 

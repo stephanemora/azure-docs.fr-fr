@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249601"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078491"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
-Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Stratégies de transformation
 
@@ -732,4 +732,4 @@ Pour plus d'informations, voir les rubriques suivantes :
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [Exemples de stratégie](policy-samples.md)
++ [Exemples de stratégie](./policy-reference.md)

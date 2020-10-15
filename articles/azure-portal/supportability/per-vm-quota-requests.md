@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26fc916a2bacc0f6ae9791a53b642e93bb031466
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117163"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077981"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Quota standard : augmenter les limites par série de machines virtuelles
 
@@ -30,7 +30,7 @@ Chaque fois qu’une nouvelle machine virtuelle Spot est déployée, l’utilisa
 
 Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. L’augmentation du quota des séries de machines virtuelles augmente automatiquement la limite totale des processeurs virtuels régionaux de la même valeur.
 
-Pour plus d’informations sur les quotas de processeurs virtuels standard, consultez [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md) et [Limites des abonnements et services Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
+Pour plus d’informations sur les quotas de processeurs virtuels standard, consultez [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md) et [Limites des abonnements et services Azure](./classic-deployment-model-quota-increase-requests.md).
 
 Pour savoir comment augmenter le nombre maximal de processeurs virtuels par région pour le quota Standard, consultez [Quota standard : augmenter les limites par région](regional-quota-requests.md).
 
