@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9636c76caf2302b872a2ecbb8e2e4bacfc1408a6
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904412"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952129"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro
 
@@ -53,7 +53,7 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 
 2. Entrez le nouveau mot de passe, puis confirmez-le. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Sélectionnez **Réinitialiser**.
 
-    ![Réinitialiser le mot de passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Réinitialiser le mot de passe 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
 

@@ -7,10 +7,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: d8f0a5697a128deb75537f3d48a3830dc7ba9df9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132532"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655070"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure
@@ -27,7 +27,7 @@ Vous pouvez vous contenter d'enregistrer une alerte lorsqu'une règle est décle
 
 Par défaut, le filtrage basé sur la Threat Intelligence est activé en mode d'alerte. Vous ne pouvez pas désactiver cette fonctionnalité ni changer de mode tant que l'interface du portail n'est pas disponible dans votre région.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interface du portail de filtrage basé sur le renseignement sur les menaces":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Renseignement sur les menaces du pare-feu":::
 
 ## <a name="logs"></a>Journaux d’activité
 

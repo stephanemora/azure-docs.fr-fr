@@ -4,10 +4,10 @@ description: Obtenez des réponses aux questions courantes sur la découverte, l
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577269"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes

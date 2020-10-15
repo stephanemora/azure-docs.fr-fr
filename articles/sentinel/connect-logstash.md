@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
 ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89663121"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
@@ -162,7 +162,7 @@ Voici quelques exemples de configurations qui utilisent des options différentes
 
 1. Pour afficher les enregistrements de la table, interrogez-la en utilisant son nom comme schéma.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Capture d’écran d’une requête dans les journaux personnalisés Logstash.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Capture d’écran des journaux personnalisés Logstash.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Surveiller les journaux d'audit du plug-in de sortie
 

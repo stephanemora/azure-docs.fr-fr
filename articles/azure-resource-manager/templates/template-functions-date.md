@@ -4,10 +4,10 @@ description: Décrit les fonctions à employer dans un modèle Azure Resource Ma
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058042"
 ---
 # <a name="date-functions-for-arm-templates"></a>Fonctions de date pour les modèles ARM

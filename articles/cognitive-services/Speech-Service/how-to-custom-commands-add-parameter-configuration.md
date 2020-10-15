@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
 ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284181"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Ajouter des configurations aux paramètres des commandes

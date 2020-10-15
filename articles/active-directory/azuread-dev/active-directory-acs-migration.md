@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706249"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055362"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procédure : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -214,7 +214,7 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 
 Si vous décidez qu’Azure Active Directory est la meilleure voie de migration pour vos applications et services, sachez qu’il existe deux manières d’intégrer votre application dans Azure Active Directory.
 
-Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active Directory, nous vous recommandons l’approche décrite dans [Comment configurer l’authentification unique fédérée pour une application non issue de la galerie](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Cet article fait référence à la configuration d’Azure Active Directory pour l’authentification unique basée sur SAML, mais il concerne également la configuration de WS-Federation. Cette approche nécessite une licence Azure Active Directory Premium. Cette approche offre deux avantages :
+Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active Directory, nous vous recommandons l’approche décrite dans [Comment configurer l’authentification unique fédérée pour une application non issue de la galerie](../manage-apps/configure-saml-single-sign-on.md). Cet article fait référence à la configuration d’Azure Active Directory pour l’authentification unique basée sur SAML, mais il concerne également la configuration de WS-Federation. Cette approche nécessite une licence Azure Active Directory Premium. Cette approche offre deux avantages :
 
 - Vous bénéficiez de toute la flexibilité offerte par la personnalisation des jetons Azure AD. Vous pouvez personnaliser les revendications émises par Azure Active Directory pour les faire correspondre aux revendications émises par Access Control Service. Cela inclut notamment la revendication d’identificateur de nom ou d’ID utilisateur. Pour continuer de recevoir des identificateurs cohérents pour vos utilisateurs même après avoir changé de technologie, vérifiez que les ID d’utilisateur émis par Azure Active Directory correspondent à ceux émis par Access Control Service.
 - Vous pouvez configurer un certificat de signature de jeton propre à votre application, dont vous contrôlez la durée de vie.
@@ -226,7 +226,7 @@ Une autre solution consiste à suivre [cet exemple de code](https://github.com/A
 
 Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](../develop/active-directory-signing-key-rollover.md). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements. Pour plus d’informations, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](/previous-versions/azure/dn641920(v=azure.100)).
 
-Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](https://aka.ms/aaddev).
+Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migration vers Azure Active Directory B2C
 
@@ -332,7 +332,7 @@ Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serv
 
 Pour obtenir des conseils sur l’implémentation des scénarios de serveur à serveur, consultez les ressources suivantes :
 
-- Section « service à service » du [Guide du développeur Azure Active Directory](https://aka.ms/aaddev)
+- Section « service à service » du [Guide du développeur Azure Active Directory](../develop/index.yml)
 - [Exemple de code de démon utilisant des informations d’identification de client avec mots de passe simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Exemple de code de démon utilisant des informations d’identification de client avec certificats](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

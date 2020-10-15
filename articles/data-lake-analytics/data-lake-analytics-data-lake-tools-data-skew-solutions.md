@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/16/2016
 ms.openlocfilehash: 5e9359582c07a78feb2d04b2ea87f046887238a1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129931"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio

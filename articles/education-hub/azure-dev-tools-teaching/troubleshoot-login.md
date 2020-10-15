@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87094088"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Résolution des problèmes de connexion des étudiants
@@ -39,16 +39,16 @@ Si un étudiant a un compte Microsoft (par exemple, Xbox), il peut connecter ce 
 
 1. Cliquez sur **Gérer la manière dont vous vous connectez à Microsoft**. Vous êtes invité à confirmer votre identité. Vous recevrez par e-mail un code de sécurité.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Gérer la connexion." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Message d’erreur de connexion." border="false":::
 
 1. Entrez le code de sécurité envoyé par e-mail.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Entrez le code de connexion." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Message d’erreur de connexion." border="false":::
 
 1. Cliquez sur **Ajouter e-mail** pour votre compte, puis entrez votre adresse e-mail universitaire.
 La prochaine fois que vous vous connecterez, vous pourrez utiliser votre adresse e-mail universitaire pour accéder à votre Azure Dev Tools for Teaching.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Gérer la manière dont vous vous connectez à Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Message d’erreur de connexion." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [FORUM AUX QUESTIONS](program-faq.md)

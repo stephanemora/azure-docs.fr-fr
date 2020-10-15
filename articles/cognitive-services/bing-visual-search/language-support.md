@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883543"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Langages et régions pris en charge par l’API Recherche visuelle Bing
@@ -57,7 +57,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Corée du Sud|KR|
 |Malaisie|MY|
 |Mexique|MX|
-|Pays-bas|NL|
+|Pays-Bas|NL|
 |Nouvelle-Zélande|NZ|
 |Norvège|Non|
 |Chine|CN|
@@ -72,7 +72,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Suisse|CH|
 |Taïwan|TW|
 |Turquie|TR|
-|United Kingdom|Go|
+|Royaume-Uni|Go|
 |États-Unis|US|
 
 
@@ -101,7 +101,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Corée du Sud|Coréen|ko-KR|
 |Malaisie|Anglais|en-MY|
 |Mexique|Espagnol|es-MX|
-|Pays-bas|Néerlandais|nl-NL|
+|Pays-Bas|Néerlandais|nl-NL|
 |Nouvelle-Zélande|Anglais|en-NZ|
 |Chine|Chinois|zh-CN|
 |Pologne|Polonais|pl-PL|
@@ -116,6 +116,6 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|United Kingdom|Anglais|en-GB|
+|Royaume-Uni|Anglais|en-GB|
 |États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|

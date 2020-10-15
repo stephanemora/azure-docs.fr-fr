@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326594"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077828"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalité dans une application Spring Boot
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 Dans ce tutoriel, vous avez découvert comment implémenter des indicateurs de fonctionnalités dans votre application Spring Boot en utilisant les bibliothèques `spring-cloud-azure-feature-management-web`. Pour plus d’informations sur la prise en charge de la gestion des fonctionnalités dans Spring Boot et App Configuration, consultez les ressources suivantes :
 
-* [Exemple de code d’indicateur de fonctionnalité Spring Boot](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Exemple de code d’indicateur de fonctionnalité Spring Boot](./quickstart-feature-flag-spring-boot.md)
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md)
