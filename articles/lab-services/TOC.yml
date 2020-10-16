@@ -65,7 +65,7 @@
             - name: Gérer un pool de machines virtuelles
               href: how-to-manage-vm-pool-within-teams.md
             - name: Supprimer des labos
-              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+              href: how-to-delete-lab-within-teams.md
             - name: Planifications et paramètres
               href: how-to-create-schedules-within-teams.md
             - name: Accéder à une machine virtuelle (vue étudiant)

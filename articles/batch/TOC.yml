@@ -168,6 +168,7 @@
         - name: Tâches d’achèvement et de préparation des travaux
           href: batch-job-prep-release.md
         - name: Tâches de nœud simultanées
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: Dépendances de la tâche
           href: batch-task-dependencies.md

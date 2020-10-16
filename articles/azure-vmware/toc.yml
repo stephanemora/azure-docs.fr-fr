@@ -92,6 +92,10 @@
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Déployer VMware Horizon
           href: azure-vmware-solution-horizon.md
+    - name: Écosystème VMware
+      items:
+        - name: Solutions de sauvegarde pour les machines virtuelles
+          href: ecosystem-back-up-vms.md
 - name: Ressources
   items:
     - name: Dépannage

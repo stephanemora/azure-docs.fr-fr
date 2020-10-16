@@ -386,7 +386,7 @@
       items:
         - name: Vue d’ensemble
           href: security-overview.md
-        - name: Contrôle d’accès en fonction du rôle
+        - name: Contrôle d'accès en fonction du rôle Azure
           href: backup-rbac-rs-vault.md
         - name: Suppression réversible
           items:

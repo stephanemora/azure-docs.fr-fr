@@ -40,7 +40,7 @@
     - name: Provisionner une instance Azure Spring Cloud avec Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD avec Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Utiliser l’identité managée pour connecter Key Vault à l’application Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Déployer Azure Spring Cloud dans un réseau virtuel
@@ -114,15 +114,15 @@
 - name: Informations de référence
   items:
     - name: Plug-in Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
+      href: /powershell/module/az.springcloud
     - name: Ressources
       href: spring-cloud-resources.md
     - name: Forum Aux Questions (FAQ)
       href: spring-cloud-faq.md
     - name: Référence d’API REST
-      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+      href: /rest/api/azurespringclould/
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
