@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problème de connexion à une application Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problème avec le mot de passe de l’authentification unique - application hors galerie
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problème avec le mot de passe de l’authentification unique - application de galerie
+            - name: Problème d’authentification unique
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problème avec l’application personnalisée
-              href: application-sign-in-problem-custom-dev.md
         - name: Résoudre les problèmes des applications locales
           items:
             - name: Résolution des problèmes de proxy d’application

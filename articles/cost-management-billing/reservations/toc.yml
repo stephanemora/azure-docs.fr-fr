@@ -118,6 +118,10 @@
       items:
         - name: Renouveler une réservation
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Dépanner
+      items:
+        - name: Aucun abonnement éligible
+          href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Informations de référence
   items:
     - name: API REST de réservations

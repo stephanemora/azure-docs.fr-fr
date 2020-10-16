@@ -12,12 +12,12 @@ metadata:
   author: mblythe
   ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88212092"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92089279"
 landingContent:
 - title: À propos du portail Azure
   linkLists:
@@ -43,13 +43,13 @@ landingContent:
     links:
     - text: Mettre sur liste fiable les URL du portail Azure
       url: azure-portal-safelist-urls.md
-    - text: Contrôle d’accès en fonction du rôle pour les tableaux de bord
+    - text: Contrôle d’accès en fonction du rôle Azure pour les tableaux de bord
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
     - text: Gérer des ressources dans Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Sécuriser vos ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC)
+    - text: Sécuriser vos ressources Azure avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Bien démarrer
   linkLists:
