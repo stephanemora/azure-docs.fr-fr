@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: Pipelines ML
       href: concept-ml-pipelines.md
-    - name: Préparation et sécurité de l’entreprise
+    - name: Sécurité
       items:
         - name: Vue d’ensemble de la sécurité en entreprise
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
+    - name: ML responsable
+      items:
+        - name: Vue d’ensemble du ML responsable
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Interprétabilité de modèles
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Équité dans Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Confidentialité différentielle
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: Guides pratiques
+  items:
+    - name: Sécurité
+      items:
         - name: Gestion des identités et des accès
           items:
             - name: Configurer l’authentification
@@ -212,22 +230,6 @@
         - name: Auditer et gérer la conformité
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: ML responsable
-      items:
-        - name: Vue d’ensemble du ML responsable
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Interprétabilité de modèles
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Équité dans Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Confidentialité différentielle
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: Guides pratiques
-  items:
     - name: Créer et gérer des espaces de travail
       items:
         - name: Utiliser le portail Azure
