@@ -1,5 +1,5 @@
 - name: Documentation Azure Data Box - Transfert hors connexion
-  href: /azure/databox
+  href: ./index.yml
   items:
     - name: Data Box
       items:
@@ -103,7 +103,7 @@
             - name: Migrer
               items:
                 - name: Vers SharePoint Online
-                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                  href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%252fazure%252fdatabox%252fcontext%252fcontext
                 - name: Vers Azure File Sync
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: À partir du magasin HDFS

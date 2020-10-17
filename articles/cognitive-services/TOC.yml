@@ -89,6 +89,8 @@
       href: ./policy-reference.md
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: cognitive-services-support-options.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Tarifs
@@ -97,8 +99,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Options d’aide et de support
-      href: cognitive-services-support-options.md
     - name: Contrat de Niveau de Service (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: Vidéos

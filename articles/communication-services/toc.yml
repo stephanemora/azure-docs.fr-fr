@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Notifications
       href: concepts/notifications.md
+    - name: Journalisation et diagnostics
+      href: concepts/logging-and-diagnostics.md
+    - name: Mesures
+      href: concepts/metrics.md
 - name: Exemples
   items:
     - name: Exemple de bannière d’appel de groupe
