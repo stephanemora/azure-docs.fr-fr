@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: Modèle Resource Manager
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: Supprimer et récupérer un espace de travail
               href: platform/delete-workspace.md
             - name: Gérer l’accès

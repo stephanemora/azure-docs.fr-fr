@@ -118,12 +118,12 @@
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
                 - name: S’authentifier avec un jeton limité à un référentiel (préversion)
                   href: container-registry-repository-scoped-permissions.md
-            - name: Contrôle d’accès en fonction du rôle
+            - name: Contrôle d'accès en fonction du rôle Azure
               href: container-registry-roles.md
             - name: Approbation du contenu
               href: container-registry-content-trust.md
             - name: Analyse des images avec Security Center
-              href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
         - name: Registres et autres services Azure
           expanded: false
           items:
