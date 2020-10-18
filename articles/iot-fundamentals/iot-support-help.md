@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: ea4ecbbeaa4ad016e32aa9301d6f6ac49a6d342e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23381a45d045e8f96e989bce9f52d627f5a88255
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330177"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979068"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Options d’aide et de support Azure IoT
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Quelles sont les options d’aide et de support d’Azure IoT ?
 
 Voici quelques suggestions pour obtenir de l’aide lors du développement de vos solutions Azure IoT.
 
@@ -101,5 +101,4 @@ Partagez également vos expériences, participez et apprenez auprès des experts
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Qu’est-ce qu’Azure IoT ?](iot-introduction.md)
+[Qu’est-ce qu’Azure IoT ?](iot-introduction.md)

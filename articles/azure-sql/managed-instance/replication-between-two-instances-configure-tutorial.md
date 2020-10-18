@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617058"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058214"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutoriel : Configurer la réplication entre deux instances managées
 
@@ -48,7 +48,7 @@ Ce tutoriel s’adresse à un public expérimenté et suppose que l’utilisateu
 
 La configuration de SQL Managed Instance pour fonctionner en tant que base de données du serveur de publication et/ou base de données du serveur de distribution implique que les conditions suivantes soient respectées :
 
-- L’instance managée de la base de données du serveur de publication se trouve sur le même réseau virtuel que la base de données du serveur de distribution et l’abonné, ou le [peering de réseau virtuel](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) a été configuré entre les réseaux virtuels des trois entités. 
+- L’instance gérée du serveur de publication se trouve sur le même réseau virtuel que le serveur de distribution et l’abonné, ou des [Passerelles VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) ont été configurées entre les réseaux virtuels des trois entités. 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 - Il existe un partage de compte de stockage Azure pour le répertoire de travail de réplication.
 - Le port 445 (TCP sortant) est ouvert dans les règles de sécurité du NSG pour que les instances managées puissent accéder au partage de fichiers Azure.  Si vous rencontrez l’erreur `failed to connect to azure storage \<storage account name> with os error 53`, vous devez ajouter une règle de trafic sortant au groupe de sécurité réseau du sous-réseau SQL Managed Instance approprié.

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437392"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619540"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > - Interrogez la base de données analytique.
 > - Utilisez Power BI pour la visualisation des données pour mettre en évidence les tendances dans les données client et effectuer des recommandations pour les améliorations.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![Le diagramme montre une vue d’ensemble de l’architecture utilisée pour cet article.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Modèle analytique client en mode hors connexion
 
@@ -138,7 +138,7 @@ Chaque travail extrait ses données et l’envoie dans le magasin d’analytique
 4. Appuyez sur F5 pour exécuter le script qui crée et exécute la tâche qui extrait les données des tickets et des clients à partir de chaque base de données client. La tâche enregistre les données dans le magasin d’analytique.
 5. Interrogez la table TicketsRawData dans la base de données tenantanalytics pour vous assurer que la table est remplie avec les informations de ticket de tous les clients.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![La capture d’écran présente la base de données ExtractTickets avec le propriétaire de base de données TicketsRawData sélectionné dans l’Explorateur d’objets.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Répétez les étapes précédentes, mais cette fois remplacez **\ExtractTickets.sql** par **\ExtractVenuesEvents.sql** à l’étape 2.
 
@@ -177,7 +177,7 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
 5. Sélectionnez **Base de données** dans le volet de gauche, puis saisissez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![La capture d’écran présente la boîte de dialogue de la base de données SQL Server dans laquelle vous pouvez entrer un nom d’utilisateur et un mot de passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : fact_Tickets, dim_Events, dim_Venues, dim_Customers et dim_Dates. Sélectionnez ensuite **Charger**. 
 
@@ -185,13 +185,13 @@ Félicitations ! Vous avez correctement chargé les données dans Power BI. Main
 
 Vous commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options suivantes dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![La capture d’écran présente une visualisation et des contrôles de Power BI pour la visualisation de données sur le côté droit.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Le tracé précédent confirme que le nombre d’entrées réalisées par chaque salle varie. Les emplacements qui vendent le plus de tickets plus utilisent votre service d’une manière plus importante que les systèmes qui en vendent moins. Il peut y avoir une opportunité de personnaliser l’allocation des ressources en fonction des besoins de chaque client.
 
 Vous pouvez approfondir l’analyse des données pour voir comment les ventes de tickets varient au fil du temps. Sélectionnez les options suivantes dans Power BI pour tracer le nombre total de tickets vendus chaque jour pendant une période 60 jours.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![La capture d’écran présente une visualisation de Power BI intitulée Ticket Sale Distribution versus Sale Day (Distribution des ventes de tickets en fonction du jour de la vente).](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Le graphique précédent affiche ce pic de ventes de tickets pour certains emplacements. Ces pics renforcent l’idée que certains emplacements peuvent consommer les ressources système de façon disproportionnée. Jusqu'à présent aucun motif évident ne permet de déterminer quand les pics se produisent.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Sélectionnez les options de visualisation suivantes pour tracer les pourcentages de tickets vendus par emplacement pour déterminer leur réussite relative.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![La capture d’écran présente une visualisation de Power BI intitulée Average Tickets Sold By Each Venue (Moyenne des tickets vendus par site).](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Le tracé précédent montre que même si la plupart des emplacements vendent plus de 80 % de leurs tickets, certains ont du mal à remplir plus de la moitié des sièges. Familiarisez-vous avec les valeurs pour sélectionner le pourcentage minimal ou maximal de tickets vendus pour chaque emplacement.
 

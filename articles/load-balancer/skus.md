@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654478"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631441"
 ---
 # <a name="azure-load-balancer-skus"></a>Références SKU Azure Load Balancer
 
@@ -54,7 +54,9 @@ Pour plus d’informations, consultez [Limites de Load balancer](https://docs.mi
 
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas changer la référence SKU d’une ressource existante.
 - Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.
-- Les [opérations de déplacement d’abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md) ne sont pas prises en charge pour les ressources IP publiques standard et Standard Load Balancer.
+- [Opérations de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md) :
+  - Les opérations de déplacement de groupe de ressources (dans un même abonnement) **sont prises en charge** pour Standard Load Balancer et les adresses IP publiques standard. 
+  - Les [opérations de déplacement de groupe d’abonnements](../azure-resource-manager/management/move-support-resources.md) ne sont **pas** prises en charge pour les ressources Standard Load Balancer et d’adresses IP publiques standard.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

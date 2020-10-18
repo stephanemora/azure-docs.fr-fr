@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: a6f400db2a068953080e734148e024b575e3e1e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070851"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617738"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutoriel : Ajouter une instance managée SQL Managed Instance à un groupe de basculement
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Créer un groupe de ressources et une instance managée principale
 
 Au cours de cette étape, vous allez créer le groupe de ressources et l’instance managée principale pour votre groupe de basculement à l’aide du portail Azure ou de PowerShell. 
+
+Déployez les deux instances gérées dans des [régions appairées](../../best-practices-availability-paired-regions.md) pour des raisons de performances. Les instances managées résidant dans des régions appairées géographiquement offrent des performances sensiblement meilleures que celles résidant dans des régions non appairées. 
 
 
 # <a name="portal"></a>[Portail](#tab/azure-portal) 
@@ -740,6 +742,8 @@ Pour que deux instances gérées participent à un groupe de basculement, il doi
 
 Cet article explique comment créer les deux passerelles VPN et les connecter, mais vous pouvez passer directement à la création du groupe de basculement si vous avez configuré ExpressRoute à la place. 
 
+> [!NOTE]
+> La référence SKU de la passerelle affecte les performances de débit. Ce didacticiel déploie une passerelle avec la référence (`HwGw1`) la plus basique. Pour obtenir un débit plus élevé, déployez une référence (SKU) supérieure (par exemple, `VpnGw3`). Pour toutes les options disponibles, consultez [Références (SKU) de passerelle](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3106b52ede95fe63a8df691a82acdd4937c8cce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544700"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91672296"
 ---
 **Exigences des serveur de configuration et de traitement**
 
@@ -58,7 +58,7 @@ https:\//login.microsoftonline.com | Élément utilisé pour la coordination et 
 time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale
 time.windows.com | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (facultatif) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | L’installation OVF nécessite l’accès à ces URL supplémentaires. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Pour effectuer le téléchargement de MySQL. </br> Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l’URL CDN figure également dans la liste verte, si nécessaire.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Pour effectuer le téléchargement de MySQL. </br> Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l’URL CDN est également approuvée, si nécessaire.
 |
 
 > [!NOTE]
@@ -83,4 +83,3 @@ Le tableau suivant récapitule les besoins en capacité du serveur de configurat
 12 processeurs virtuels<br/><br/> 2 sockets * 6 cœurs \@ 2,5 GHz | 18 Go | 600 Go | 500 Go à 1 To | 100 à 150 machines
 16 processeurs virtuels<br/><br/> 2 sockets * 8 cœurs \@ 2,5 GHz | 32 Go | 1 To | 1 à 2 To | 150 à 200 machines
 |
-

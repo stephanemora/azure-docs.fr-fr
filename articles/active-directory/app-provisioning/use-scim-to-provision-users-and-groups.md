@@ -1,24 +1,24 @@
 ---
-title: Développer un point de terminaison SCIM pour le provisionnement d’utilisateurs dans des applications à partir d’Azure AD
-description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Apprenez à développer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser le provisionnement des utilisateurs et des groupes dans vos applications cloud.
+title: Tutoriel – Développer un point de terminaison SCIM pour l’approvisionnement d’utilisateurs aux applications à partir d’Azure AD
+description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Ce tutoriel explique comment développer un point de terminaison SCIM, intégrer votre API SCIM avec Azure Active Directory, et automatiser l’approvisionnement d’utilisateurs et de groupes dans vos applications cloud.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563803"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070195"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
+# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD
 
 En tant que développeur d'applications, vous pouvez utiliser l'API de gestion des utilisateurs SCIM (System for Cross-Domain Identity Management) pour activer l'approvisionnement automatique des utilisateurs et des groupes entre votre application et Azure AD. Cet article explique comment créer un point de terminaison SCIM et l'intégrer au service d'approvisionnement Azure AD. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
@@ -747,7 +747,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Plages d’adresses IP
-Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. 
+Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. Notez que vous devez examiner attentivement la liste des plages d’adresses IP pour les adresses calculées. Une adresse telle que « 40.126.25.32 » peut être représentée dans la liste de plages d’adresses IP sous la forme « 40.126.0.0/18 ». Vous pouvez également récupérer par programme la liste de plages d’adresses IP à l’aide de l’[API](/rest/api/virtualnetwork/servicetags/list) suivante.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Étape 3 : Créer un point de terminaison SCIM
 
@@ -1193,7 +1193,7 @@ La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fin
 |--|--|--|--|
 |Nom d’utilisateur et mot de passe (non recommandé ou pris en charge par Azure AD)|Facile à implémenter|Non sécurisé - [Votre Pa$$word n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Prise en charge au cas par cas pour les applications de la galerie. Pas de prise en charge pour les applications ne figurant pas dans la galerie.|
 |Jeton de porteur de longue durée|Les jetons de longue durée ne nécessitent aucune intervention de la part d’un utilisateur. Ils sont simples à utiliser par les administrateurs qui configurent le provisionnement.|Les jetons de longue durée peuvent être difficiles à partager avec un administrateur sans utiliser de méthodes non sécurisées telles que la messagerie électronique. |Prise en charge pour toutes les applications (celles de la galerie et les autres). |
-|Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie, mais pas pour les autres. La prise en charge des applications n’appartenant pas à la galerie est dans notre backlog.|
+|Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie, mais pas pour les autres. Toutefois, vous pouvez fournir un jeton d’accès dans l’interface utilisateur en tant que jeton secret à des fins de test à court terme. Notre backlog inclut une prise en charge de l’octroi de code OAuth sur une application ne figurant pas dans la galerie.|
 |Octroi d’informations d’identification de client OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée. L’octroi du code d’autorisation et l’octroi d’informations d’identification du client permettent de créer le même type de jeton d’accès. L’utilisation de l’une ou l’autre de ces méthodes est donc transparente pour l’API.  Le provisionnement peut être entièrement automatisé, et de nouveaux jetons peuvent être demandés sans l’assistance d’un utilisateur. ||Pas de prise en charge pour les applications de la galerie ni pour les autres. La prise en charge est dans notre backlog.|
 
 > [!NOTE]
@@ -1210,6 +1210,17 @@ Notez qu’OAuth v1 n’est pas pris en charge en raison de l’exposition de l
 Meilleures pratiques (recommandées, mais pas obligatoires) :
 * Prise en charge de plusieurs URL de redirection. Les administrateurs peuvent configurer l’approvisionnement depuis « portal.azure.com » et « aad.portal.azure.com ». La prise en charge de plusieurs URL de redirection permet aux utilisateurs d'autoriser l’accès depuis l’un ou l’autre des portails.
 * Prise en charge de plusieurs clés secrètes pour assurer le bon renouvellement du secret, sans temps d’arrêt. 
+
+Étapes du flux d’octroi de code OAuth :
+1. L’utilisateur se connecte au portail Azure > Applications d’entreprise > Sélectionner une application > Approvisionnement, puis clique sur Autoriser.
+2. Le portail Azure redirige l’utilisateur vers l’URL d’autorisation (page de connexion pour l’application tierce).
+3. L’administrateur fournit des informations d’identification à l’application tierce. 
+4. L’application tierce redirige l’utilisateur vers portail Azure et fournit le code d’octroi 
+5. Les services d’approvisionnement Azure AD appellent l’URL du jeton et fournissent le code d’octroi. L’application tierce répond avec le jeton d’accès, le jeton d’actualisation et la date d’expiration
+6. Lors du démarrage du cycle d’approvisionnement, le service vérifie si le jeton d’accès actuel est valide et l’échange contre un nouveau jeton si nécessaire. Le jeton d’accès est fourni dans chaque demande adressée à l’application et la validité de la demande est vérifiée avant chaque demande.
+
+> [!NOTE]
+> Bien qu’il ne soit pas actuellement possible de configurer OAuth sur l’application ne figurant pas dans la galerie, vous pouvez générer manuellement un jeton d’accès à partir de votre serveur d’autorisation et l’entrer dans le champ de jeton secret de l’application ne figurant pas dans la galerie. Cela vous permet de vérifier la compatibilité de votre serveur SCIM avec le client SCIM d’Azure AD avant de l’intégrer à la galerie d’applications qui prend en charge l’octroi de code OAuth.  
 
 **Jetons de porteur OAuth à longue durée :** Si votre application ne prend pas en charge le flux d'octroi du code OAuth, vous pouvez générer un jeton de porteur OAuth à longue durée utilisable par un administrateur pour configurer l’intégration de l’approvisionnement. Le jeton doit être perpétuel, à défaut de quoi le travail d’approvisionnement sera [mis en quarantaine](application-provisioning-quarantine-status.md) à expiration du jeton. La taille de ce jeton doit être inférieure à 1 Ko.  
 

@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542777"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841944"
 ---
-La cible de calcul que vous utilisez pour héberger votre modèle aura une incidence sur le coût et la disponibilité de votre point de terminaison déployé. Utilisez le tableau ci-dessous pour choisir une cible de calcul appropriée.
+La cible de calcul que vous utilisez pour héberger votre modèle aura une incidence sur le coût et la disponibilité de votre point de terminaison déployé. Utilisez ce tableau pour choisir une cible de calcul appropriée.
 
 | Cible de calcul | Utilisé pour | Prise en charge GPU | Prise en charge FPGA | Description |
 | ----- | ----- | ----- | ----- | ----- |
@@ -26,14 +26,14 @@ La cible de calcul que vous utilisez pour héberger votre modèle aura une incid
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Test ou développement | &nbsp;  | &nbsp; | Pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM. |
 | [Clusters de calcul Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | Inférence&nbsp;Batch | [Oui](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline d’apprentissage automatique) | &nbsp;  | Exécutez le scoring par lots sur un calcul sans serveur. Prend en charge des machines virtuelles normales et basse priorité. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | Inférence en temps réel (préversion) | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Préversion) Module&nbsp;IoT |  &nbsp; | &nbsp; | Déployez et servez des modèles sur des appareils IoT. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Oui | Déployez et servez des modèles sur des appareils IoT. |
+| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Préversion) Module&nbsp;IoT |  &nbsp; | &nbsp; | Déployez et servez des modèles Machine Learning sur des appareils IoT. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Oui | Déployez et servez des modèles Machine Learning sur des appareils IoT. |
 
 > [!NOTE]
-> Même si les cibles de calcul telles que les cibles locales et les instances et clusters de calcul Azure Machine Learning prennent en charge les GPU pour la formation et l’expérimentation, l’utilisation des GPU pour l’inférence __lors d’un déploiement comme service web__ est prise en charge uniquement par Azure Kubernetes Service.
+> Même si des cibles de calcul telles que des cibles locales ainsi que des instances et clusters de calcul Azure Machine Learning prennent en charge de GPU pour la formation et l’expérimentation, l’utilisation d’un GPU pour l’inférence _lors d’un déploiement en tant que service web_ est prise en charge uniquement sur AKS.
 >
-> L’utilisation d’un GPU pour l’inférence __lors du scoring avec un pipeline d’apprentissage automatique__ est prise en charge uniquement sur Capacité de calcul Machine Learning.
+> L’utilisation d’un GPU pour l’inférence _lors du scoring avec un pipeline d’apprentissage automatique_ est prise en charge uniquement sur un calcul Azure Machine Learning.
 
 > [!NOTE]
-> * Azure Container Instances (ACI) convient uniquement aux petits modèles inférieurs à 1 Go. 
-> * Nous vous recommandons d’utiliser des clusters Azure Kubernetes Service (AKS) mononœuds pour le développement et le test de modèles plus grands.
+> * Des instances de conteneur conviennent uniquement pour des modèles d’une taille inférieure à 1 Go.
+> * Pour le développement et le test de modèles plus volumineux, utilisez des clusters AKS à nœud unique.

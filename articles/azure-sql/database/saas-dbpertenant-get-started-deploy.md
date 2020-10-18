@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542244"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91618937"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec Azure SQL Database
 
@@ -225,7 +225,7 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur **catalog-dpt-&lt;UTILISATEUR&gt;** .
     - Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (un modèle de base de données copié pour créer des locataires).
 
-   ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![La capture d’écran présente une page Vue d’ensemble du serveur de catalogue avec les deux bases de données.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Revenez à votre liste de serveurs SQL.
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606468"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856713"
 ---
 1. Sélectionnez **Connecter des sites VPN** pour ouvrir la page **Connecter des sites**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606468"
    Renseignez les champs suivants :
 
    * Entrez une clé prépartagée. Si vous n’entrez pas de clé, Azure en génère automatiquement une pour vous.
-   * Sélectionnez les paramètres Protocole et IPsec. Pour plus d’informations, consultez « Stratégies IPsec par défaut » (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Sélectionnez les paramètres Protocole et IPsec. Pour plus d’informations, consultez [IPsec par défaut/personnalisé](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Sélectionnez l’option appropriée pour **Propager l’itinéraire par défaut**. L’option **Activer** permet au hub virtuel de propager un itinéraire par défaut appris à cette connexion. Cet indicateur active la propagation de l’itinéraire par défaut à une connexion uniquement si l’itinéraire par défaut est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté. L’itinéraire par défaut ne provient pas du hub Virtual WAN.
 
 2. Sélectionnez **Connecter**.

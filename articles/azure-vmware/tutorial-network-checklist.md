@@ -3,12 +3,12 @@ title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez les prérequis pour les réseaux et détails sur la connectivité réseau et les ports réseau pour Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576675"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948202"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -37,11 +37,14 @@ Le cloud privé AVS est connecté à votre réseau virtuel Azure avec une connex
 
 Les clouds privés AVS nécessitent au minimum un bloc d’adresses réseau CIDR `/22` pour les sous-réseaux, comme indiqué ci-dessous. Ce réseau complète vos réseaux locaux. Le bloc d’adresses ne doit pas chevaucher les blocs d’adresses utilisés dans d’autres réseaux virtuels situés dans votre abonnement et des réseaux locaux. Dans ce bloc d’adresses, la gestion, le provisionnement et les réseaux vMotion sont provisionnés automatiquement.
 
+>[!NOTE]
+>Les plages autorisées pour votre bloc d’adresses sont les espaces d’adressage privés RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), à l’exception de 172.17.0.0/16.
+
 Exemple de bloc d’adresses réseau CIDR `/22` : `10.10.0.0/22`
 
 Les sous-réseaux :
 
-| Utilisation du réseau             | Subnet |  Exemple          |
+| Utilisation du réseau             | Subnet | Exemple          |
 | ------------------------- | ------ | ---------------- |
 | Gestion de cloud privé  | `/26`  | `10.10.0.0/26`   |
 | Réseau vMotion           | `/25`  | `10.10.1.128/25` |

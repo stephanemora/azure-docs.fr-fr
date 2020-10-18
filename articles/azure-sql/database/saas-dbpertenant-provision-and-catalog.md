@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027920"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619693"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Pour comprendre comment l’application Wingtip Tickets implémente le provision
 
 2. Pour ajouter un point d’arrêt, placez votre curseur n’importe où sur la ligne qui indique *New-Tenant `* . Ensuite, appuyez sur F9.
 
-   ![Point d’arrêt](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![La capture d’écran présente un script avec New-Tenant en surbrillance pour l’ajout d’un point d’arrêt.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Pour exécuter le script, appuyez sur la touche F5.
 

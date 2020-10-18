@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03e8719b256fc758874bd7375deed0637da9447e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026930"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91620305"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Création de rapports inter-clients à l’aide de requêtes distribuées
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Pour examiner la définition de la vue *Venues* :
 
 1. Dans **Explorateur d’objets**, développez **contosoconcerthall** > **Vues** :
 
-   ![views](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![La capture d’écran présente le contenu du nœud Affichages, incluant quatre types de dbo de lieu.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Cliquez avec le bouton droit sur **dbo.Venues**.
 3. Sélectionnez **Générer un script de la vue en tant que** > **CRÉER vers** > **Nouvelle fenêtre d’éditeur de requête**

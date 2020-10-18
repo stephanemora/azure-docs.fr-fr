@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973357"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073136"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Démarrage rapide : Création et modification d’un circuit ExpressRoute
 
@@ -172,7 +172,7 @@ Si l’état d’approvisionnement du fournisseur de services du circuit Express
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. 
+Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. Avant de continuer, assurez-vous que l’état du fournisseur est *Non approvisionné*.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Création d’un circuit ExpressRoute":::
 

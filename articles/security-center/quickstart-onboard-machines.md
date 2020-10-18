@@ -3,22 +3,54 @@ title: Connecter vos machines non-Azure à Azure Security Center
 description: Découvrez comment connecter vos machines non-Azure à Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: how-to
+ms.date: 10/01/2020
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2602df2e8a2699914ee32138a8aeba31d7f58cdb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930018"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993606"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
-Security Center peut surveiller l’état de sécurité de vos ordinateurs autres qu’Azure, mais vous devez d’abord intégrer ces ressources. Vous pouvez ajouter des ordinateurs non-Azure à partir de la page **Mise en route** ou de la page **Inventaire**, comme décrit ci-dessous.
+Le Centre de sécurité peut surveiller la posture de sécurité de vos ordinateurs autres qu’Azure, mais vous devez commencer par les connecter à Azure. 
 
-## <a name="add-non-azure-computers"></a>Ajouter des ordinateurs non-Azure 
+Vous pouvez connecter vos ordinateurs autres qu’Azure de l’une des manières suivantes :
+
+- Utilisation d’Azure Arc (**recommandée**)
+- À partir des pages Security Center du portail Azure (**Prise en main** et **Inventaire**)
+
+Les deux méthodes sont décrites dans cette page.
+
+::: zone pivot="azure-arc"
+
+## <a name="add-non-azure-machines-with-azure-arc"></a>Ajouter des machines autres qu’Azure avec Azure Arc
+
+Azure Arc constitue la meilleure façon d’ajouter vos machines autres qu’Azure au Centre de sécurité Azure.
+
+Une machine sur laquelle Azure Arc est activé devient une ressource Azure et s’affiche dans Security Center avec des recommandations telles que vos autres ressources Azure. 
+
+En outre, Azure Arc offre des fonctionnalités améliorées, notamment l’option permettant d’activer des stratégies sur la machine, de déployer l’agent Log Analytics en tant qu’extension, de simplifier le déploiement avec d’autres services Azure, et bien plus. Pour une présentation des avantages, consultez [Scénarios pris en charge](../azure-arc/servers/overview.md#supported-scenarios).
+
+**Pour déployer Azure Arc :**
+
+- Pour une machine, suivez les instructions fournies dans [Démarrage rapide : Connecter une machine hybride à l’aide d’un serveur avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- Pour déployer Azure Arc à grande échelle, consultez [Connecter des machines hybrides à Azure à grande échelle](../azure-arc/servers/onboard-service-principal.md).
+
+Apprenez-en davantage sur [Azure Arc](../azure-arc/servers/overview.md).
+
+> [!TIP]
+> Si vous intégrez des machines AWS, le connecteur de Security Center pour AWS gère en toute transparence le déploiement d’Azure Arc pour vous. Apprenez-en davantage dans [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md).
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Ajouter des machines non Azure à partir du portail Azure
 
 1. Dans le menu de Security Center, ouvrez la page **Mise en route**.
 1. Sélectionnez l’onglet **Prise en main**.
@@ -29,6 +61,8 @@ Security Center peut surveiller l’état de sécurité de vos ordinateurs autre
 
     > [!TIP]
     > Vous pouvez également ajouter des ordinateurs à partir de la page **Inventaire**, en cliquant sur le bouton **Ajouter des serveurs non-Azure**.
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Onglet Prise en main de la page Mise en route":::
 
     Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
@@ -87,14 +121,16 @@ Quand vous avez terminé, l’**agent Log Analytics** apparaît dans le **Pannea
 
 Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des machines Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## <a name="verifying"></a>Vérification
-Félicitations ! Vous pouvez maintenant afficher vos machines Azure et non-Azure au même endroit. Ouvrez la [page d’inventaire des ressources](asset-inventory.md) et filtrez les types de ressources appropriés. Ces deux icônes distinguent les différents types :
+Félicitations ! Vous pouvez maintenant afficher vos machines Azure et non-Azure au même endroit. Ouvrez la [page d’inventaire des ressources](asset-inventory.md) et filtrez les types de ressources appropriés. Ces icônes distinguent les différents types :
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Machine non-Azure
+  ![Icône ASC pour machine autre qu’Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Machine non-Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![Icône ASC pour machine Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
+  ![Icône ASC pour machine Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Machine avec Azure Arc
 
 ## <a name="next-steps"></a>Étapes suivantes
 

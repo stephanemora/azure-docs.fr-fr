@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: ec034ac3cf6f4cbec2d373d9dade45a00f70ddbe
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: f2a40744053ccc804b2513faf1bc2879d4fde902
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566686"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777171"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -25,6 +25,10 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2116-6-october-2020"></a>2.11.6 (6 octobre 2020)
+
+ - Cette version résout un problème de concurrence quand plusieurs conteneurs pourraient être créés au même moment. Dans ces cas, les données de l’émulateur sont laissées dans un état endommagé et les requêtes d’API suivantes adressées au point de terminaison de l’émulateur peuvent échouer avec des erreurs de type « service indisponible », ce qui nécessite un redémarrage et une réinitialisation des données locales de l’émulateur.
 
 ### <a name="2115-23-august-2020"></a>2.11.5 (23 août 2020)
 

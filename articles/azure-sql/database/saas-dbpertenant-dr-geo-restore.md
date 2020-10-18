@@ -6,24 +6,24 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028370"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91618997"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ce e didacticiel examine un scénario complet de récupération d’urgence pour une application SaaS multilocataire implémentée avec le modèle de base de données par locataire. Vous utilisez la [géorestauration](recovery-using-backups.md) pour récupérer les bases de données de catalogue et de locataire à partir de sauvegardes géoredondantes automatiquement conservées dans une autre région de récupération. Une fois la panne résolue, vous utilisez la [géoréplication](active-geo-replication-overview.md) pour rapatrier les bases de données modifiées dans leur région d’origine.
 
-![Architecture de géorestauration](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Le diagramme présente les régions d’origine et de récupération, qui disposent toutes deux d’une application, d’un catalogue, d’images originales ou miroir de serveurs et de pools, de sauvegardes automatiques vers le stockage, avec la région de récupération qui accepte la géo-réplication de sauvegarde et dispose d’un serveur et d’un pool pour les nouveaux locataires.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 La géorestauration est la solution de reprise d’activité la plus économique pour Azure SQL Database. Toutefois, la restauration à partir de sauvegardes géo-redondantes peut entraîner une perte de données allant jusqu'à une heure. Elle peut prendre beaucoup de temps, selon la taille de la base de données. 
 
