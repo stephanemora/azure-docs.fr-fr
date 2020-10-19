@@ -127,12 +127,6 @@
         - name: Serveurs avec Arc
           tocHref: /azure/azure-arc/servers/
           topicHref: /azure/azure-arc/servers/
-    - name: ASC pour IoT
-      tocHref: /azure/asc-for-iot/
-      topicHref: /azure/asc-for-iot/
-    - name: Attestation
-      tocHref: /azure/attestation/
-      topicHref: /azure/attestation/
     - name: Automatisation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
@@ -504,7 +498,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph
@@ -554,25 +548,6 @@
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
-    - name: Key Vault
-      tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault
-      items:
-        - name: Général
-          tocHref: /azure/key-vault/general/
-          topicHref: /azure/key-vault/general/
-        - name: Certificats
-          tocHref: /azure/key-vault/certificates/
-          topicHref: /azure/key-vault/certificates/
-        - name: Keys
-          tocHref: /azure/key-vault/keys/
-          topicHref: /azure/key-vault/keys/
-        - name: Secrets
-          tocHref: /azure/key-vault/secrets/
-          topicHref: /azure/key-vault/secrets/
-        - name: HSM managé
-          tocHref: /azure/key-vault/managed-hsm/
-          topicHref: /azure/key-vault/managed-hsm/
     - name: Azure Kinect DK
       tocHref: /azure/kinect-dk/
       topicHref: /azure/kinect-dk/
@@ -771,12 +746,37 @@
         - name: Benchmarks
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/
-    - name: Security Center
-      tocHref: /azure/security-center/
-      topicHref: /azure/security-center/
-    - name: Azure Sentinel
-      tocHref: /azure/sentinel/
-      topicHref: /azure/sentinel/
+        - name: Key Vault
+          tocHref: /azure/key-vault/
+          topicHref: /azure/key-vault
+          items:
+            - name: Général
+              tocHref: /azure/key-vault/general/
+              topicHref: /azure/key-vault/general/
+            - name: Certificats
+              tocHref: /azure/key-vault/certificates/
+              topicHref: /azure/key-vault/certificates/
+            - name: Keys
+              tocHref: /azure/key-vault/keys/
+              topicHref: /azure/key-vault/keys/
+            - name: Secrets
+              tocHref: /azure/key-vault/secrets/
+              topicHref: /azure/key-vault/secrets/
+            - name: HSM managé
+              tocHref: /azure/key-vault/managed-hsm/
+              topicHref: /azure/key-vault/managed-hsm/
+        - name: Security Center
+          tocHref: /azure/security-center/
+          topicHref: /azure/security-center/
+        - name: Azure Sentinel
+          tocHref: /azure/sentinel/
+          topicHref: /azure/sentinel/
+        - name: Defender pour IoT
+          tocHref: /azure/defender-for-iot/
+          topicHref: /azure/defender-for-iot/
+        - name: Attestation
+          tocHref: /azure/attestation/
+          topicHref: /azure/attestation/
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/

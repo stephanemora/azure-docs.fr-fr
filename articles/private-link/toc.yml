@@ -1,4 +1,4 @@
-- name: Documentation sur Liaison privée Azure
+- name: Documentation Private Link
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -24,6 +24,7 @@
     - name: Créer un service Private Link - Modèle ARM
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Tutoriels
   items:
     - name: Se connecter à un compte de stockage

@@ -92,6 +92,8 @@
     - name: Diagnostiquer et résoudre les problèmes par vous-même
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Superviser
+    - name: Créer des rôles et des autorisations
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Suivi distribué et App Insights
           href: spring-cloud-tutorial-distributed-tracing.md

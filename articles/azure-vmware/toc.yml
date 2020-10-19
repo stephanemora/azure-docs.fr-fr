@@ -6,10 +6,8 @@
       href: introduction.md
 - name: Démarrage rapide
   items:
-    - name: Processus de prédéploiement
+    - name: 0- Planifier le déploiement
       href: production-ready-deployment-steps.md
-    - name: Check-list pour le prédéploiement
-      href: pre-deployment-checklist.md
     - name: 1 - Déployer Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 - Se connecter localement
@@ -104,3 +102,7 @@
           href: fix-deployment-provisioning-failures.md
     - name: Questions fréquentes (FAQ)
       href: faq.md
+- name: Informations de référence
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware

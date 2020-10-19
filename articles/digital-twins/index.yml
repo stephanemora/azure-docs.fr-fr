@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 9f64d6da399285b82d1222a768b344dfdf6a317b
-  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+  ms.openlocfilehash: 546cde760946c2cd63bef539180395160acf3608
+  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92047040"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92131664"
 landingContent:
 - title: À propos d’Azure Digital Twins
   linkLists:
@@ -71,7 +71,7 @@ landingContent:
     links:
     - text: Écrire le code d’authentification de l’application
       url: how-to-authenticate-client.md
-- title: Informations de référence sur l'API
+- title: Afficher les informations de référence sur les API
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -85,3 +85,29 @@ landingContent:
     links:
     - text: API REST
       url: /rest/api/azure-digitaltwins/
+- title: Explorer des exemples de code
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Exemples de bout en bout
+      url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Explorateur Azure Digital Twins (exemple)
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explore
+  - linkListType: sample
+    links:
+    - text: Validateur DTDL (exemple)
+      url: /samples/azure-samples/dtdl-validator/dtdl-validator/
+  - linkListType: sample
+    links:
+    - text: Exemple d’intégration DPS et IoT Hub
+      url: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+  - linkListType: sample
+    links:
+    - text: Exemple d’intégration de SignalR
+      url: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Swaggers personnalisés pour le connecteur Logic Apps
+      url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
