@@ -89,6 +89,9 @@
     - name: Notebooks Jupyter
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
+    - name: Exemple de dépôt
+      displayName: 'example, examples, jupyter, python, notebook, github'
+      href: 'https://github.com/Azure/azureml-examples'
     - name: Exemples et jeux de données du concepteur
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, deploy, studio
+ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930075"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998998"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Utiliser Studio pour déployer des modèles entraînés dans le concepteur
 
@@ -26,6 +26,7 @@ Le déploiement dans Studio se compose des étapes suivantes :
 
 1. Inscrivez le modèle entraîné.
 1. Téléchargez le script d’entrée et le fichier de dépendances Conda du modèle.
+1. (Facultatif) Configurez un script d’entrée.
 1. Déployez le modèle sur la cible de calcul.
 
 Vous pouvez également déployer des modèles directement dans le concepteur pour ignorer les étapes d’inscription de modèle et de téléchargement de fichier. Cela peut être utile pour un déploiement rapide. Pour plus d’informations, consultez [Déployer un modèle avec le concepteur](tutorial-designer-automobile-price-deploy.md).
@@ -36,7 +37,14 @@ Les modèles entraînés dans le concepteur peuvent également être déployés 
 
 * [Un espace de travail Azure Machine Learning](how-to-manage-workspace.md)
 
-* Pipeline d’entraînement complet contenant un [module Entraîner un modèle](./algorithm-module-reference/train-model.md)
+* Un pipeline de formation complet contenant l’un des modules suivants :
+    - [Module de formation de modèle](./algorithm-module-reference/train-model.md)
+    - [Module Entraîner le modèle de détection d’anomalie](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Module Entraîner un modèle de clustering](./algorithm-module-reference/train-clustering-model.md)
+    - [Module Entraîner un modèle PyTorch](./algorithm-module-reference/train-pytorch-model.md)
+    - [Module Entraîner le générateur de recommandations SVD](./algorithm-module-reference/train-svd-recommender.md)
+    - [Module Entraîner un modèle Vowpal Wabbit](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Module Modèle Train Wide & Deep](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>Inscrire le modèle
 
@@ -136,9 +144,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### <a name="consume-computer-vision-related-real-time-endpoints"></a>Utiliser des points de terminaison en temps réel liés à la vision par ordinateur
+
+Lorsque vous consommez des points de terminaison en temps réel liés à vision de l’ordinateur, vous devez convertir les images en octets, puisque le service Web accepte uniquement la chaîne comme entrée. Voici l’exemple de code :
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## <a name="configure-the-entry-script"></a>Configurer le script d’entrée
 
-Certains modules du concepteur tels que [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md) et [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) ont des paramètres pour différents modes de notation. Dans cette section, découvrez comment mettre à jour ces paramètres dans le fichier de script d’entrée.
+Certains modules du concepteur tels que [Score SVD Recommender](./algorithm-module-reference/score-svd-recommender.md), [Score Wide and Deep Recommender](./algorithm-module-reference/score-wide-and-deep-recommender.md) et [Score Vowpal Wabbit Model](./algorithm-module-reference/score-vowpal-wabbit-model.md) ont des paramètres pour différents modes de notation. 
+
+Dans cette section, découvrez comment mettre à jour ces paramètres dans le fichier de script d’entrée.
 
 L’exemple suivant met à jour le comportement par défaut d’un modèle entraîné un modèle **Wide & Deep recommender**. Par défaut, le fichier `score.py` indique au service web de prédire les évaluations entre les utilisateurs et les éléments. 
 
