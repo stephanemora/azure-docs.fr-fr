@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362108"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843122"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
@@ -79,7 +79,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
     Dans **Éditeur simple**, entrez `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Action Appeler les points de terminaison Web en cas de réussite](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Capture d’écran montrant l’écran « On Success – Action to execute » (« Réussite – Action à effectuer »).](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Paramètre | Valeur suggérée | Description |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 - Réponse en cas de succès\
 Enregistrer, effectuer l’apprentissage et tester
    > [!div class="mx-imgBorder"]
-   > ![Action Appeler les points de terminaison Web en cas de réussite](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Capture d’écran montrant l’écran « On Success response » (« Réponse en cas de réussite »).](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Réponse en cas d’échec\
 Supprimer l’un des paramètres de la demande, enregistrer, effectuer un nouvel apprentissage et tester
    > [!div class="mx-imgBorder"]

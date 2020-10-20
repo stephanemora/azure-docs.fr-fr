@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070696"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742177"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Cloner à partir d’une sauvegarde de votre instance StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ Cet article décrit étape par étape comment cloner un jeu de sauvegarde de vos
    
    c.    Cliquez sur **OK**.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Cloner une sauvegarde 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. Dans le panneau **Cloner**, cliquez sur **Paramètres de la cible**, puis procédez comme suit :
    
    a.    Nommez le partage. Le nom du partage doit contenir entre 3 et 127 caractères.
@@ -59,23 +59,23 @@ Cet article décrit étape par étape comment cloner un jeu de sauvegarde de vos
    
    f.    Cliquez sur **OK**.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Cloner une sauvegarde 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Cliquez sur **Cloner** pour démarrer le clonage. Une fois la tâche terminée, l’opération de clonage démarre et vous recevez une notification. Pour surveiller la progression du clone, accédez au panneau **Tâches** et cliquez sur la tâche pour afficher les détails de la tâche.
 5. Une fois le clone créé, revenez au panneau **Partages** sur votre appareil.
 6. Vous pouvez maintenant afficher le nouveau partage cloné dans la liste des partages sur votre appareil. Un partage à plusieurs niveaux est cloné comme un partage à plusieurs niveaux, et un partage épinglé localement comme un partage épinglé localement.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Cloner une sauvegarde 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Cloner des volumes à partir d’un jeu de sauvegarde
 
 Pour effectuer un clonage à partir d’une sauvegarde, dans le portail Azure, vous devez effectuer les étapes similaires à celles effectuées lors du clonage d’un partage. L'opération de clonage clone la sauvegarde vers un nouveau volume sur le même appareil virtuel ; vous ne pouvez pas cloner vers un autre appareil.
 
-#### <a name="to-clone-a-volume"></a>Clonage d’un volume
+#### <a name="to-clone-a-volume"></a>Cloner un volume
 
 1. Accédez au panneau **Appareils**. Sélectionnez et cliquez sur votre appareil, puis cliquez sur **Volumes**. Sélectionnez le volume que vous souhaitez cloner, cliquez avec le bouton droit sur le volume pour appeler le menu contextuel. Sélectionnez **Cloner**.
    
-   ![Clonage d’un volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
+   ![Cloner un volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. Dans le panneau **Cloner**, cliquez sur **Sauvegarde**, puis procédez comme suit : 
    
    a.    Filtrez une sauvegarde sur cet appareil en fonction de l’intervalle de temps. Vous pouvez choisir **7 derniers jours**, **30 derniers jours** ou **Dernière année**. 
@@ -84,7 +84,7 @@ Pour effectuer un clonage à partir d’une sauvegarde, dans le portail Azure, 
    
    c.    Cliquez sur **OK**.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Cloner un volume 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. Dans le panneau **Cloner**, cliquez sur **Paramètres du volume cible**, puis procédez comme suit :
    
    a. Le nom de l’appareil est automatiquement renseigné.
@@ -95,16 +95,16 @@ Pour effectuer un clonage à partir d’une sauvegarde, dans le portail Azure, 
    
    d. En regard de **Hôtes connectés**, cliquez sur **Sélectionner**.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Cloner un volume 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. Dans le panneau **Hôtes connectés**, sélectionnez un ACR existant ou ajoutez un nouvel ACR. Pour ajouter un nouvel ACR, vous devez fournir un nom d’ACR et l’IQN hôte. Cliquez sur **Sélectionner**.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Cloner un volume 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Cliquez sur **Cloner** pour lancer le clonage.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Cloner un volume 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. Une fois la tâche de clonage créée, le clonage démarre. Une fois le clone créé, il est affiché dans le panneau Volumes sur votre appareil. Remarque : un volume à plusieurs niveaux est cloné comme un volume à plusieurs niveaux, et un volume épinglé localement comme un volume épinglé localement.
    
-   ![Cloner une sauvegarde](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Cloner un volume 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Une fois que le volume apparaît en ligne dans la liste des volumes, il est disponible pour utilisation. Sur l’hôte de l’initiateur iSCSI, actualisez la liste des cibles dans la fenêtre des propriétés de l’initiateur iSCSI. Une nouvelle cible qui contient le nom du volume cloné doit s’afficher comme « inactive » dans la colonne d’état.
 8. Sélectionnez la cible et cliquez sur **Se connecter**. Une fois l’initiateur connecté à la cible, son état doit indiquer **Connecté**.
 9. Dans la fenêtre **Gestion des disques** , les volumes montés s’affichent comme indiqué dans l’illustration suivante. Cliquez avec le bouton droit sur le volume détecté (cliquez sur le nom du disque), puis cliquez sur **En ligne**.

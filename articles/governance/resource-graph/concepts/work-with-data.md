@@ -1,15 +1,15 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005936"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578493"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -48,7 +48,7 @@ L’opérateur **First** a actuellement une valeur maximale autorisée de _5000_
 L’option suivante pour la manipulation de jeux de données volumineux est l’utilisation du contrôle **Skip**. Ce contrôle permet à votre requête d’omettre ou d’ignorer le nombre défini d’enregistrements avant de retourner les résultats. Le contrôle **Skip** est utile pour les requêtes qui trient les résultats de façon explicite lorsque l’intention est d’accéder à des enregistrements quelque part au milieu de jeu de résultats. Si les résultats nécessaires figurent à la fin du jeu de données retourné, il est plus efficace d’utiliser une configuration de tri différente afin de récupérer à la place les résultats à partir de la partie supérieure du jeu de données.
 
 > [!NOTE]
-> Lorsque vous utilisez **Skip**, il est recommandé d’ordonner les résultats sur au moins une colonne avec `asc` ou `desc`. À défaut de tri, les résultats retournés sont aléatoires et non reproductibles.
+> Lorsque vous utilisez **Skip**, il est recommandé d’ordonner les résultats sur au moins une colonne avec `asc` ou `desc`. À défaut de tri, les résultats retournés sont aléatoires et non reproductibles. Si `limit` ou `take` sont utilisés dans la requête, **Skip** (Ignorer) est ignoré.
 
 Les exemples suivants montrent comment ignorer les _10_ premiers enregistrements qu’une requête retournerait, en retournant le jeu de résultats à partir du 11e enregistrement :
 

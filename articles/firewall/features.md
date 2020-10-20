@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095544"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850589"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -62,7 +62,7 @@ Le service Pare-feu Azure peut évoluer en fonction de vos besoins pour prendre 
 
 ## <a name="application-fqdn-filtering-rules"></a>Règles de filtrage des noms de domaine complets de l’application
 
-Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure (préversion) vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt TLS.
+Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Règles de filtrage du trafic réseau
 
@@ -101,7 +101,11 @@ Cela donne accès aux scénarios suivants :
 
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
-Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor. Pour plus d’informations, consultez [Didacticiel : superviser les journaux du Pare-feu Azure et les métriques](tutorial-diagnostics.md).
+Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor. Pour obtenir des exemples de journaux Azure Monitor, consultez [Journaux Azure Monitor pour le Pare-feu Azure](log-analytics-samples.md).
+
+Pour plus d’informations, consultez [Didacticiel : superviser les journaux du Pare-feu Azure et les métriques](tutorial-diagnostics.md). 
+
+Le classeur Pare-feu Azure constitue un canevas flexible pour l’analyse de données du Pare-feu Azure. Il permet de créer des rapports visuels enrichis au sein du Portail Azure. Pour plus d’informations, consultez [Monitoring des journaux avec un classeur Pare-feu Azure](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Tunneling forcé
 

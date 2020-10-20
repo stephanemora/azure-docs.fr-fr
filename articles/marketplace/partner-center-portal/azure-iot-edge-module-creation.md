@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815774"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708337"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -78,9 +78,9 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
 
 Voici des ressources de gestion des prospects supplémentaires :
 
-- [Vue d’ensemble de la gestion des prospects](commercial-marketplace-get-customer-leads.md)
-- [Questions fréquentes sur la gestion des prospects](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Erreurs courantes de configuration des prospects](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Prospects de votre offre de marketplace commercial](commercial-marketplace-get-customer-leads.md)
+- [Questions courantes sur la gestion des prospects](../lead-management-faq.md#common-questions-about-lead-management)
+- [Résolution des erreurs de configuration des prospects](../lead-management-faq.md#publishing-config-errors)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
@@ -194,7 +194,7 @@ Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
@@ -242,7 +242,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche de la Place de marché Azure :
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de la Place de marché Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -252,7 +252,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -263,7 +263,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans les résultats de la recherche du portail Azure :
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans les résultats de la recherche de Portail Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -362,7 +362,7 @@ Sélectionnez **Enregistrer le brouillon** après avoir renseigné ces champs.
 
 Voici un exemple de détails du plan dans la Place de marché Azure (les prix répertoriés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustre des détails du plan dans la Place de marché Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -372,7 +372,7 @@ Voici un exemple de détails du plan dans la Place de marché Azure (les prix r�
 
 <br>Voici un exemple de détails du plan dans le portail Azure (les prix répertoriés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustre les détails du plan dans le portail Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -393,7 +393,7 @@ Ce champ est couramment utilisé dans les cas suivants :
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique**, vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur du [registre de conteneurs Azure](https://azure.microsoft.com/services/container-registry/) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
+Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique**, vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
 
 Une fois l’offre publiée, votre image conteneur IoT Edge est copiée sur la Place de marché Azure dans un registre de conteneurs public spécifique. Toutes les demandes des utilisateurs Azure pour utiliser votre module sont traitées à partir du registre de conteneurs publics de la Place de marché Azure, et non pas depuis votre registre de conteneurs privé.
 
@@ -413,7 +413,7 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 
 **Nom d’utilisateur administrateur pour le registre de conteneurs Azure** : indiquez le [nom de l’utilisateur administrateur](../../container-registry/container-registry-authentication.md#admin-account)) associé au registre de conteneurs Azure contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustre la boîte de dialogue Mettre à jour le registre de conteneurs.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-description"></a>Description de légende
 
@@ -421,7 +421,7 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 
 <br>**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustre l’écran des clés d’accès dans le portail Azure.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -429,7 +429,7 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 2. Nom d’utilisateur
 3. Mot de passe
 
-**Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Vous spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](../../container-registry/container-registry-repositories.md). Notez qu’une fois le nom défini, il ne peut pas être changé. Utilisez un nom unique pour chaque offre dans votre compte.
+**Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Vous spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](../../container-registry/container-registry-repositories.md). Une fois le nom défini, il ne peut plus être modifié. Utilisez un nom unique pour chaque offre dans votre compte.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Étiquettes d’image pour les nouvelles versions de votre offre
 

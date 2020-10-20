@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483743"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91566990"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Comment généraliser SQL Server sur une machine virtuelle Azure et l’utiliser pour déployer de nouvelles machines virtuelles ?**
 
-   Vous pouvez déployer une machine virtuelle Windows Server (dépourvue de SQL Server), puis utiliser le processus [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) pour généraliser SQL Server sur machine virtuelle Azure (Windows) avec le support d’installation SQL Server. Les clients qui disposent de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d’installation d’une image de machine virtuelle SQL Server de la Place de marché Azure correspondant à l’édition souhaitée.
+   Vous pouvez déployer une machine virtuelle Windows Server (dépourvue de SQL Server), puis utiliser le processus [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) pour généraliser SQL Server sur machine virtuelle Azure (Windows) avec le support d’installation SQL Server. Les clients qui disposent de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d’installation d’une image de machine virtuelle SQL Server de la Place de marché Azure correspondant à l’édition souhaitée.
 
    Vous pouvez également utiliser une des images SQL Server de la Place de marché Azure pour généraliser SQL Server sur des machines virtuelles Azure. Notez que vous devez supprimer la clé de Registre suivante dans l'image source avant de créer votre propre image. Si vous ne la supprimez pas, un ballonnement du dossier de démarrage de l'installation SQL Server et/ou de l'extension SQL IaaS peut survenir en état d'échec.
 
@@ -179,13 +179,21 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    
    Oui, si l’instance nommée est la seule instance sur SQL Server et si l’instance par défaut d’origine a été [désinstallé correctement](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). En l’absence d’instance par défaut et si plusieurs instances nommées sont présentes sur une même machine virtuelle SQL Server, l’extension de l’agent IaaS SQL Server échoue à l’installation. 
 
-1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL Server ?**
+1. **Puis-je supprimer SQL Server et la facturation de licence associée d’une machine virtuelle SQL Server ?**
 
-   Oui, mais vous serez toujours facturé pour votre machine virtuelle SQL Server de la manière décrite dans [Tarification des machines virtuelles SQL Server Azure](pricing-guidance.md). Si vous n’avez plus besoin de SQL Server, vous pouvez déployer une nouvelle machine virtuelle et y migrer les données et les applications. Vous pouvez ensuite supprimer la machine virtuelle SQL Server.
+   Oui, mais vous devrez prendre des mesures supplémentaires pour éviter d’être facturé pour votre instance de SQL Server, comme décrit dans le [Guide des prix de SQL Server sur machines virtuelles Azure](pricing-guidance.md). Si vous souhaitez supprimer complètement l’instance SQL Server, vous pouvez migrer vers une autre machine virtuelle Azure dans laquelle SQL Server n’est pas pré-installé, puis supprimer la machine virtuelle SQL Server actuelle. Si vous souhaitez conserver la machine virtuelle mais arrêter la facturation de SQL Server, procédez comme suit : 
+
+   1. Le cas échéant, sauvegardez toutes vos données, y compris les bases de données système. 
+   1. Désinstallez SQL Server complètement, y compris l’extension IaaS SQL (si elle est installée).
+   1. Installez l’édition gratuite [SQL Express](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Inscrivez-vous auprès du fournisseur de ressources de machine virtuelle SQL en [mode léger](sql-vm-resource-provider-register.md).
+   1. (Facultatif) désactivez le service Express SQL Server en désactivant le démarrage du service. 
 
 1. **Puis-je utiliser le portail Azure pour gérer plusieurs instances sur la même machine virtuelle ?**
+
    Non. La gestion du portail est assurée par le fournisseur de ressources de machine virtuelle SQL qui s’appuie sur l’extension de l’agent IaaS SQL Server. Par conséquent, les mêmes limitations s’appliquent au fournisseur de ressources qu’à l’extension. Le portail peut uniquement gérer une instance par défaut, ou une instance nommée, à condition qu’elle soit correctement configurée. Pour plus d’informations, consultez [Extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
-   
+
+
 ## <a name="updating-and-patching"></a>Mise à jour et mise à jour corrective
 
 1. **Comment faire pour passer à une autre version/édition de SQL Server dans une machine virtuelle Azure ?**

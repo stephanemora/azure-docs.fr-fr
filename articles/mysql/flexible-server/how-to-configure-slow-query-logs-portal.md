@@ -1,17 +1,17 @@
 ---
 title: Configurer les journaux des requêtes lentes – Portail Azure – Azure Database pour MySQL – Serveur flexible
-description: Cet article décrit comment configurer et consulter les journaux lentes dans un serveur flexible Azure Database pour MySQL à partir du portail Azure.
+description: Cet article décrit comment configurer et consulter les journaux des requêtes lentes dans un serveur flexible Azure Database pour MySQL à partir du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930726"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565699"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurer et consulter des journaux des requêtes lentes pour Azure Database pour MySQL – Serveur flexible à l’aide du portail Azure
 
@@ -31,15 +31,16 @@ Configurer l’accès au journal des requêtes lentes de MySQL.
 1. Sélectionnez votre serveur flexible.
 
 1. Dans la section **Paramètres** dans l’encadré, sélectionnez **Paramètres du serveur**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Page Paramètres du serveur.":::
 
 1. Mettez à jour le paramètre **slow_query_log** en le définissant sur **ACTIVÉ**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Page Paramètres du serveur.":::
 
 1. Changez tous les autres paramètres nécessaires (par exemple, `long_query_time`, `log_slow_admin_statements`). Pour plus de paramètres, consultez la documentation sur les [journaux des requêtes lentes](./concepts-slow-query-logs.md#configure-slow-query-logging).  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Page Paramètres du serveur.":::
 
 1. Sélectionnez **Enregistrer**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Page Paramètres du serveur.":::
 
 À partir de la page **Paramètres du serveur**, vous pouvez revenir à la liste des journaux en fermant la page.
 
@@ -49,21 +50,21 @@ Les journaux de requêtes lentes sont intégrés avec les paramètres de diagnos
 
 1. En dessous de la section **Supervision** dans la barre latérale, sélectionnez **Paramètres de diagnostic** > **Ajouter des paramètres de diagnostic**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Page Paramètres du serveur.":::
 
 1. Entrez un nom de paramètre de diagnostic.
 
 1. Spécifiez les destinations auxquelles envoyer les journaux des requêtes lentes (compte de stockage, hub d’événements ou espace de travail Log Analytics).
 
 1. Sélectionnez **MySqlSlowLogs** comme type de journal.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Page Paramètres du serveur.":::
 
 1. Après avoir configuré les récepteurs de données auxquels envoyer les journaux des requêtes lentes, sélectionnez **Enregistrer**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Page Paramètres du serveur.":::
 
 1. Accédez aux journaux des requêtes lentes en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
 
-Si vous avez canalisé vos journaux d’audit vers les journaux Azure Monitor (Log Analytics), consultez les [exemples de requêtes](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) que vous pouvez utiliser à des fins d’analyse. 
+Si vous avez canalisé vos journaux vers les journaux Azure Monitor (Log Analytics), consultez les [exemples de requêtes](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) que vous pouvez utiliser à des fins d’analyse. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

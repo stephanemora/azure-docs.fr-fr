@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090191"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761547"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Référence SDK JavaScript du lecteur immersif (v1.1)
 
@@ -135,7 +135,7 @@ Options de rendu des boutons du Lecteur immersif.
 | ------- | ---- | ----------- |
 | elements | HTMLDivElement[] | Éléments dans lesquels afficher les boutons du Lecteur immersif. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -210,14 +210,14 @@ Contient le contenu à afficher dans le lecteur immersif.
 | title | String | Texte de titre affiché en haut du Lecteur immersif (facultatif) |
 | segments | [Chunk[]](#chunk) | Tableau de segments |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -246,21 +246,21 @@ Bloc de données unique qui est passé dans le contenu du Lecteur immersif.
 | lang | Chaîne | Langue du texte. La valeur est au format d’étiquette d’identification de langue de la recommandation BCP 47 de l’IETF, par exemple en, es-ES. La langue est détectée automatiquement si elle n’est pas spécifiée. Voir [Langues prises en charge](#supported-languages). |
 | mimeType | string | Les formats de texte brut, MathML, HTML et Microsoft Word DOCX sont pris en charge. Pour plus d’informations, consultez [Types MIME pris en charge](#supported-mime-types). |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -323,38 +323,38 @@ Contient les propriétés qui configurent certains comportements du lecteur imme
 | onPreferencesChanged | Fonction | S’exécute lorsque les préférences de l’utilisateur ont changé. Pour plus d’informations, consultez [Procédure – Stocker les préférences de l’utilisateur](./how-to-store-user-preferences.md). |
 | customDomain | Chaîne | Réservé à un usage interne. Domaine personnalisé dans lequel l’application web Lecteur immersif est hébergée (la valeur par défaut est null). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **IMPORTANT** N’essayez pas de modifier par programmation les valeurs de la chaîne `-preferences` envoyée à destination et en provenance de l’application Lecteur immersif, car cela peut provoquer un comportement inattendu entraînant une dégradation de l’expérience utilisateur pour vos clients.
+> **IMPORTANT** N’essayez pas de modifier par programmation les valeurs de la chaîne `-preferences` envoyée à destination et en provenance de l’application Lecteur immersif, car cela peut provoquer un comportement inattendu entraînant une dégradation de l’expérience utilisateur pour vos clients. Les applications hôtes ne doivent jamais assigner de valeur personnalisée ou manipuler la chaîne `-preferences`. Quand vous utilisez l’option de chaîne `-preferences`, utilisez uniquement la valeur exacte qui a été retournée à partir de l’option de rappel de `-onPreferencesChanged`.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -396,7 +396,7 @@ type ReadAloudOptions = {
 | speed | Numéro | Vitesse de lecture. Doit être comprise entre 0,5 et 2,5, bornes incluses. |
 | autoPlay | Boolean | Démarrer automatiquement la lecture à voix haute au chargement du Lecteur immersif. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -435,7 +435,7 @@ type TranslationOptions = {
 | autoEnableDocumentTranslation | Boolean | Traduire automatiquement le document complet. |
 | autoEnableWordTranslation | Boolean | Activer automatiquement la traduction des mots. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -463,7 +463,7 @@ type DisplayOptions = {
 | increaseSpacing | Boolean | Définit si l’espacement du texte est activé ou désactivé. |
 | fontFamily | Chaîne | Définit la police choisie (« Calibri », « ComicSans » ou « Sitka »). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -514,7 +514,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="supported-languages"></a>Langues prises en charge
 
-La fonctionnalité de traduction du Lecteur immersif prend en charge de nombreuses langues. Consultez [cet article](https://www.onenote.com/learningtools/languagesupport) pour plus de détails.
+La fonctionnalité de traduction du Lecteur immersif prend en charge de nombreuses langues. Pour en savoir plus, consultez l’article [Prise en charge linguistique pour le Lecteur immersif](./language-support.md).
 
 <br>
 

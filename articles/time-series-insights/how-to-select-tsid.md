@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289876"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91595530"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -23,7 +23,7 @@ Cet article résume l’importance de l’identifiant de l’ID de série chrono
 
 ## <a name="choose-a-time-series-id"></a>Choisir un ID Time Series
 
-Il est essentiel de sélectionner un ID de série chronologique approprié. Le choix d’un ID de série chronologie est identique au choix d’une clé de partition pour une base de données. Cela est requis lorsque vous créez un environnement Azure Time Series Insights Gen2. 
+Il est essentiel de sélectionner un ID de série chronologique approprié. Le choix d’un ID de série chronologie est identique au choix d’une clé de partition pour une base de données. Cela est requis lorsque vous créez un environnement Azure Time Series Insights Gen2.
 
 > [!IMPORTANT]
 > Les ID des séries chronologiques sont les suivants :
@@ -40,7 +40,7 @@ Les bonnes pratiques principales à suivre sont les suivantes :
 * L’ID de série chronologique doit être unique au niveau du nœud de feuille de votre [modèle de série chronologique](./concepts-model-overview.md).
 * La limite de caractères pour la chaîne de nom de propriété de l’ID de série chronologie est 128. Pour la valeur de propriété de l’ID de série chronologie, la limite de caractères est de 1 024.
 * Si une valeur de propriété unique pour l'ID de série chronologique est manquante, elle est traitée comme une valeur nulle et suit la même règle de la contrainte d'unicité.
-* Si votre ID de série chronologique est imbriqué dans un objet JSON complexe, veillez à suivre les [règles d’aplanissement](./concepts-json-flattening-escaping-rules.md) d’entrée quand vous fournissez votre nom de propriété. Consultez l’exemple [B](concepts-json-flattening-escaping-rules.md#example-b). 
+* Si votre ID de série chronologique est imbriqué dans un objet JSON complexe, veillez à suivre les [règles d’aplanissement](./concepts-json-flattening-escaping-rules.md) d’entrée quand vous fournissez votre nom de propriété. Consultez l’exemple [B](concepts-json-flattening-escaping-rules.md#example-b).
 * Vous pouvez également sélectionner jusqu'à *trois* propriétés clés comme ID de série chronologique. Leur combinaison sera une clé composite qui représente l'ID de série chronologique.  
   > [!NOTE]
   > Vos trois propriétés de clé doivent être des chaînes.
@@ -75,7 +75,7 @@ Exemple d’événement brut :
 ```
 
 Dans le portail Azure, vous pouvez ensuite saisir cette clé composite sous la forme :
- 
+
 [![Configurez l’ID de la série chronologique de l’environnement](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

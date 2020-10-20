@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567931"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567076"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -70,7 +70,7 @@ Live Video Analytics sur IoT Edge prend en charge les types de nœuds suivants d
 
 #### <a name="rtsp-source"></a>Source RTSP 
 
-Un nœud source RTSP vous permet d’ingérer des médias à partir d’un serveur [RTSP](https://tools.ietf.org/html/rfc2326 ). Les caméras de surveillance et les caméras IP transmettent leurs données dans le cadre d’un protocole dit RTSP (real-time-streaming-protocol ; protocole de diffusion en continu et en temps réel), au contraire d’autres types d’appareils comme les téléphones et les caméras vidéo. Ce protocole est utilisé pour établir et contrôler les sessions multimédias entre un serveur (la caméra) et un client. Le nœud source RTSP dans un graphe multimédia agit comme un client et peut établir une session avec un serveur RTSP. De nombreux appareils, par exemple la plupart des [caméras IP](https://en.wikipedia.org/wiki/IP_camera), disposent d’un serveur RTSP intégré. [ONVIF](https://www.onvif.org/) exige la prise en charge de RTSP dans sa définition des appareils conformes aux [profils G, S et T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). Le nœud source RTSP vous oblige à spécifier une URL RTSP, ainsi que les informations d’identification permettant une connexion authentifiée.
+Un nœud source RTSP vous permet d’ingérer des médias à partir d’un [RTSP](https://tools.ietf.org/html/rfc2326 server). Les caméras de surveillance et les caméras IP transmettent leurs données dans le cadre d’un protocole dit RTSP (real-time-streaming-protocol ; protocole de diffusion en continu et en temps réel), au contraire d’autres types d’appareils comme les téléphones et les caméras vidéo. Ce protocole est utilisé pour établir et contrôler les sessions multimédias entre un serveur (la caméra) et un client. Le nœud source RTSP dans un graphe multimédia agit comme un client et peut établir une session avec un serveur RTSP. De nombreux appareils, par exemple la plupart des [caméras IP](https://en.wikipedia.org/wiki/IP_camera), disposent d’un serveur RTSP intégré. [ONVIF](https://www.onvif.org/) exige la prise en charge de RTSP dans sa définition des appareils conformes aux [profils G, S et T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). Le nœud source RTSP vous oblige à spécifier une URL RTSP, ainsi que les informations d’identification permettant une connexion authentifiée.
 
 #### <a name="iot-hub-message-source"></a>Source de messages IoT Hub 
 

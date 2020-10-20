@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119529"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91660902"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
@@ -114,4 +114,4 @@ Une fois votre solution référencée dans Microsoft AppSource ou la Place de ma
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’achat d’une solution intégrée sur la marketplace, consultez [Solutions intégrées](./integrated-solutions.md).
+- [Formulaire de nomination des solutions intégrées](https://aka.ms/AA5qicu)

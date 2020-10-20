@@ -1,27 +1,30 @@
 ---
 title: 'Azure Virtual WAN : Créer une appliance virtuelle réseau (NVA) dans le hub'
-description: Dans ce didacticiel, vous allez apprendre à déployer une appliance virtuelle réseau dans le hub Virtual WAN.
+description: Apprenez à déployer une appliance virtuelle réseau dans le hub Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: c5f120d6d9d80db4eaa9cf6f68e8dd27d45c8aea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094261"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077301"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Comment créer une appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
 
-Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une **appliance virtuelle réseau** (NVA) dans Azure. Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d’ensemble d’Azure Virtual WAN](virtual-wan-about.md).
+Cet article vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une **appliance virtuelle réseau** (NVA) dans Azure. Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur Virtual WAN, consultez la [présentation de Virtual WAN](virtual-wan-about.md).
 
 Les étapes décrites dans cet article vous aident à créer une appliance virtuelle réseau **Barracuda CloudGen WAN** dans le hub Virtual WAN. Pour effectuer cet exercice, vous devez disposer d’un appareil Barracuda Cloud Premise Device (CPE) et d’une licence pour l’appliance Barracuda CloudGen WAN que vous déployez dans le hub avant de commencer.
 
-## <a name="before-you-begin"></a>Avant de commencer
+Pour obtenir de la documentation sur le déploiement de **Cisco SD-WAN** au sein d’Azure Virtual WAN, envoyez un e-mail à Cisco à l’adresse e-mail suivante : vwan_public_preview@external.cisco.com
+
+
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
@@ -63,14 +66,14 @@ Dans cette étape, vous allez créer une appliance virtuelle réseau dans le hub
 
 1. Recherchez le hub Virtual WAN que vous avez créé à l’étape précédente et ouvrez-le.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Hub virtuel":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Concepts de base":::
 1. Recherchez la vignette Appliances virtuelles réseau et sélectionnez le lien **Créer**.
 1. Dans le panneau **Appliance virtuelle réseau**, sélectionnez **Barracuda CloudGen WAN**, puis cliquez sur le bouton **Créer**.
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Sélectionner NVA":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Concepts de base":::
 1. Cela vous mène à l’offre de Place de marché Azure pour la passerelle Barracuda CloudGen WAN. Lisez les conditions, puis sélectionnez le bouton **Créer** lorsque vous êtes prêt.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Notions de base sur la NVA Barracuda":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Concepts de base":::
 1. Sur la page **Notions de base**, vous devez fournir les informations suivantes :
 
    * **Abonnement** : choisissez l’abonnement que vous avez utilisé pour déployer le réseau étendu virtuel et le hub.
@@ -80,7 +83,7 @@ Dans cette étape, vous allez créer une appliance virtuelle réseau dans le hub
    * **Groupe de ressources managées** : il s’agit du nom du groupe de ressources managées dans lequel Barracuda déploie les ressources qu’il gère. Le nom doit être pré-rempli.
 1. Sélectionnez le bouton **Suivant : Passerelle CloudGen WAN**.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Passerelle CloudGen WAN":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Concepts de base":::
 1. Fournissez les informations suivantes :
 
    * **Hub Virtual WAN** : hub Virtual WAN dans lequel vous souhaitez déployer cette NVA.
@@ -95,5 +98,5 @@ Dans cette étape, vous allez créer une appliance virtuelle réseau dans le hub
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).
+* Pour plus d’informations sur Virtual WAN, consultez la page de [présentation de Virtual WAN](virtual-wan-about.md).
 * Pour en savoir plus sur les NVA dans un hub Virtual WAN, consultez [À propos de l’appliance virtuelle réseau dans le hub Virtual WAN (préversion)](about-nva-hub.md).

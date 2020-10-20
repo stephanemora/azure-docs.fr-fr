@@ -2,24 +2,24 @@
 title: Concepts de forêt de ressources pour Azure AD Domain Services | Microsoft Docs
 description: Découvrez ce que sont les forêts de ressources dans Azure Active Directory Domain Services et la manière dont elles bénéficient à votre organisation dans un environnement hybride avec des options d’authentification utilisateur limitées ou des problèmes de sécurité.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480405"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962511"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Concepts et fonctionnalités de la forêt de ressources pour Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) fournit une expérience de connexion pour les applications métier héritées locales. Les utilisateurs, groupes et hachages de mot de passe des utilisateurs locaux et du cloud sont synchronisés avec le domaine géré Azure AD DS. Ces hachages de mot de passe synchronisés fournissent aux utilisateurs un ensemble unique d’informations d’identification qu’ils peuvent utiliser localement pour AD DS, Office 365 et Azure Active Directory.
+Azure Active Directory Domain Services (AD DS) fournit une expérience de connexion pour les applications métier héritées locales. Les utilisateurs, groupes et hachages de mot de passe des utilisateurs locaux et du cloud sont synchronisés avec le domaine géré Azure AD DS. Ces hachages de mot de passe synchronisés fournissent aux utilisateurs un ensemble unique d’informations d’identification qu’ils peuvent utiliser localement pour AD DS, Microsoft 365 et Azure Active Directory.
 
 Bien qu’ils soient sécurisés et offrent des avantages supplémentaires en matière de sécurité, certaines organisations ne peuvent pas synchroniser les hachages des mots de passe utilisateur pour Azure AD ou Azure AD DS. Les utilisateurs d’une organisation peuvent ne pas connaître leur mot de passe, car ils utilisent uniquement l’authentification par carte à puce. Ces limitations empêchent certaines organisations d’utiliser Azure AD DS pour déplacer des applications classiques locales vers Azure.
 

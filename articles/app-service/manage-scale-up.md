@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962483"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743911"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Montez une application en puissance dans Azure App Service
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 ## <a name="scale-up-your-pricing-tier"></a>Montée en puissance de votre niveau de tarification
 
 > [!NOTE]
-> Pour savoir comment monter en puissance jusqu’au niveau **PremiumV2**, voir [Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md).
+> Pour savoir comment effectuer un scale-up jusqu’au niveau **PremiumV3**, consultez [Configurer le niveau PremiumV3 pour App Service](app-service-configure-premium-tier.md).
 >
 
 1. Dans votre navigateur, ouvrez le [portail Azure][portal].
@@ -78,7 +78,7 @@ Pour un tableau des limites, quotas et contraintes du service, ainsi que des fon
 ## <a name="more-resources"></a>Plus de ressources
 
 [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-monitor/platform/autoscale-get-started.md)  
-[Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md)
+[Configurer le niveau PremiumV3 pour App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

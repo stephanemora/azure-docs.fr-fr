@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183222"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742245"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sauvegarde de partages ou de volumes sur votre StorSimple Virtual Array
 
@@ -76,7 +76,7 @@ Outre les sauvegardes planifiées, vous pouvez à tout moment effectuer une sauv
    
     Une sauvegarde à la demande démarre ; vous constatez qu’un travail de sauvegarde a démarré.
    
-    ![démarrage de sauvegarde](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![démarrage de sauvegarde 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Une fois le travail terminé, vous être de nouveau averti. Le processus de sauvegarde peut démarrer.
    

@@ -7,27 +7,27 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 08ede149c24d8ba4921c0e0b75f5e6eff3f2250f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669407"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565137"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée v2 pour les machines virtuelles Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 +](automated-backup.md)
 
-La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant les éditions Standard, Entreprise ou Développeur de SQL Server 2016/2017. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée v2 dépend de l’[extension de l’agent IaaS (infrastructure as a service) SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant les éditions Standard, Entreprise ou Développeur de SQL Server 2016 ou version ultérieure. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée v2 dépend de l’[extension de l’agent IaaS (infrastructure as a service) SQL Server](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -42,17 +42,14 @@ Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditio
 
 - SQL Server 2016 ou version ultérieure : Développeur, Standard ou Entreprise
 
-> [!IMPORTANT]
-> La sauvegarde automatisée v2 fonctionne avec SQL Server 2016 ou une version ultérieure. Si vous utilisez SQL Server 2014, vous pouvez utiliser la sauvegarde automatisée version 1 pour sauvegarder vos bases de données. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server 2014 dans les machines virtuelles Azure](automated-backup-sql-2014.md).
+> [!NOTE]
+> Pour SQL Server 2014, consultez l’article [Sauvegarde automatisée pour les machines virtuelles SQL Server 2014](automated-backup-sql-2014.md).
 
 **Configuration de la base de données**:
 
-- Les bases de données cibles doivent utiliser le modèle de récupération complète. Pour plus d’informations sur l’impact du mode de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
-- Les bases de données système n’ont pas besoin d’utiliser le mode de récupération complète. Toutefois, si vous avez besoin de sauvegardes de fichier journal pour un modèle ou MSDB, vous devez utiliser le mode de récupération complète.
-- Les bases de données cibles doivent se trouver sur l’instance SQL Server par défaut ou sur une instance nommée [correctement installée](frequently-asked-questions-faq.md#administration). 
-
-> [!NOTE]
-> La sauvegarde automatisée utilise l’**extension de l’agent IaaS de SQL Server**. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md)(Extension de l’agent IaaS SQL Server).
+- Les bases de données _utilisateur_ cibles doivent utiliser le modèle de récupération complète. Les bases de données système n’ont pas besoin d’utiliser le mode de récupération complète. Toutefois, si vous avez besoin de sauvegardes de fichier journal pour un modèle ou MSDB, vous devez utiliser le mode de récupération complète. Pour plus d’informations sur l’impact du mode de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx). 
+- La machine virtuelle SQL Server a été enregistrée avec le fournisseur de ressources de machines virtuelles SQL en [mode de gestion complet](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  La sauvegarde automatisée utilise l’[extension complète de l’agent IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Par conséquent, la sauvegarde automatisée est uniquement prise en charge sur les bases de données cibles de l’instance par défaut ou sur une instance nommée unique. S’il n’existe aucune instance par défaut et plusieurs instances nommées, l’extension IaaS SQL échoue et la sauvegarde automatisée ne fonctionnera pas. 
 
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée v2. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure ou Azure Windows PowerShell.
@@ -159,9 +156,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
-Si l’extension de l’agent IaaS SQL Server est installée, elle devrait être listée sous la forme « SqlIaaSAgent » ou « SQLIaaSExtension ». La propriété **ProvisioningState** de l’extension devrait également indiquer « Réussie ». 
+Si l’extension de l’agent IaaS SQL Server est installée, elle devrait être listée sous la forme « SqlIaaSAgent » ou « SQLIaaSExtension ». La propriété **ProvisioningState** de l’extension devrait également indiquer « Succeeded » (Réussie). 
 
-Si elle n’est pas installée ou n’a pas pu être approvisionnée, vous pouvez l’installer avec la commande suivante. Outre le nom de la machine virtuelle et le groupe de ressources, vous devez également spécifier la région ( **$region**) où se trouve votre machine virtuelle.
+Si elle n’est pas installée ou n’a pas pu être provisionnée, vous pouvez l’installer avec la commande suivante. Outre le nom de la machine virtuelle et le groupe de ressources, vous devez également spécifier la région ( **$region**) où se trouve votre machine virtuelle.
 
 ```powershell
 $region = "EASTUS2"

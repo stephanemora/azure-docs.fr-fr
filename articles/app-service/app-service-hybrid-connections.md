@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962415"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742602"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
@@ -42,7 +42,7 @@ La fonctionnalité de connexions hybrides offre un certain nombre d’avantages,
 - Normalement, elle ne nécessite pas de trous de pare-feu. Les connexions sont toutes sortantes via des ports web standard.
 - la fonctionnalité se situant au niveau du réseau, elle n’est pas spécifique au langage utilisé par votre application et à la technologie utilisée par le point de terminaison ;
 - elle peut être utilisée pour fournir un accès à plusieurs réseaux à partir d’une même application. 
-- Elle est prise en charge dans GA pour les applications Windows et est disponible en préversion pour les applications Linux.
+- Elle est prise en charge en disponibilité générale pour les applications natives Windows et en préversion pour les applications Linux. Elle n’est pas prise en charge pour les applications de conteneurs Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Ce que vous ne pouvez pas faire avec les connexions hybrides ###
 

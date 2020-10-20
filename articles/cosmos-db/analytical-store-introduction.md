@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900271"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567143"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
 
@@ -52,7 +52,7 @@ Le magasin analytique, qui est un magasin de colonnes, est mieux adapté à ce t
 
 L’image suivante représente le magasin de lignes transactionnelles et le magasin de colonnes analytiques dans Azure Cosmos DB :
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Magasin de lignes transactionnelles et magasin de lignes analytiques dans Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Exemple de table opérationnelle" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Performances découplées pour les charges de travail analytiques
 
@@ -60,7 +60,7 @@ Les requêtes analytiques n’ont aucune incidence sur les performances de vos c
 
 ### <a name="auto-sync"></a>Synchronisation automatique
 
-La synchronisation automatique fait référence à la fonctionnalité complètement managée d’Azure Cosmos DB où les insertions, les mises à jour, les suppressions de données opérationnelles sont automatiquement synchronisées à partir du magasin transactionnel vers le magasin analytique en temps quasi-réel en moins de 5 minutes.
+La synchronisation automatique fait référence à la fonctionnalité complètement managée d’Azure Cosmos DB où les insertions, les mises à jour, les suppressions de données opérationnelles sont automatiquement synchronisées à partir du magasin transactionnel vers le magasin analytique en temps quasi-réel en temps quasi-réel. La latence de synchronisation automatique est généralement en moins de 2 minutes. Dans le cas d’une base de données de débit partagé avec un grand nombre de conteneurs, la latence de la synchronisation automatique des conteneurs individuels peut être supérieure et prendre jusqu’à 5 minutes. Nous aimerions en savoir plus, pour savoir si cette latence est adaptée à vos scénarios. Pour cela, contactez l’équipe [Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 La fonctionnalité de synchronisation automatique et le magasin analytique offrent les principaux avantages suivants :
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-La propriété de nœud terminal `streetName` dans l’objet imbriqué `address` sera représentée dans le schéma de magasin analytique en tant que colonne `address.object.streetName.int32`. Le type de données est ajouté en tant que suffixe à la colonne. De cette façon, si un autre document est ajouté au magasin transactionnel où la valeur de la propriété de nœud terminal `streetNo` est « 123 » (notez qu’il s’agit d’une chaîne), le schéma du magasin analytique évolue automatiquement sans modification du type d’une colonne écrite précédemment. Nouvelle colonne ajoutée au magasin analytique en tant que `address.object.streetName.string` où cete valeur « 123 » est stockée.
+La propriété de nœud terminal `streetNo` dans l’objet imbriqué `address` sera représentée dans le schéma de magasin analytique en tant que colonne `address.object.streetNo.int32`. Le type de données est ajouté en tant que suffixe à la colonne. De cette façon, si un autre document est ajouté au magasin transactionnel où la valeur de la propriété de nœud terminal `streetNo` est « 123 » (notez qu’il s’agit d’une chaîne), le schéma du magasin analytique évolue automatiquement sans modification du type d’une colonne écrite précédemment. Nouvelle colonne ajoutée au magasin analytique en tant que `address.object.streetNo.string` où cete valeur « 123 » est stockée.
 
 **Mappage de type de données au suffixe**
 
@@ -171,7 +171,7 @@ Si vous avez un compte Azure Cosmos DB distribué globalement, une fois que vous
 
 ### <a name="security"></a>Sécurité
 
-L’authentification auprès du magasin analytique est identique à celle du magasin transactionnel pour une base de données particulière. Vous pouvez utiliser des clés principales ou en lecture seule pour l’authentification. Vous pouvez tirer parti du service lié dans Synapse Studio pour empêcher le collage des clés Azure Cosmos DB dans les notebooks Spark. L’accès à ce service lié est accessible à toute personne ayant accès à l’espace de travail.
+L’authentification auprès du magasin analytique est identique à celle du magasin transactionnel pour une base de données particulière. Vous pouvez utiliser des clés primaires ou en lecture seule pour l’authentification. Vous pouvez tirer parti du service lié dans Synapse Studio pour empêcher le collage des clés Azure Cosmos DB dans les notebooks Spark. L’accès à ce service lié est accessible à toute personne ayant accès à l’espace de travail.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Support de plusieurs runtimes Azure Synapse Analytics
 

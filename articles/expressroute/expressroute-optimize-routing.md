@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395228"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653381"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.
@@ -27,7 +27,7 @@ Il est important de s’assurer que lors de l’utilisation du peering Microsoft
 
 Examinez l’exemple de scénario suivant :
 
-![Scénario ExpressRoute n° 1 : routage non optimal entre le client et Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagramme illustrant le scénario ExpressRoute n° 1 : routage non optimal entre le client et Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 Dans l’exemple ci-dessus, pour préférer les chemins ExpressRoute, configurez la préférence locale comme suit. 
 

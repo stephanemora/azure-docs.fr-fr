@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312556"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850870"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutoriel : Configurer Flock pour l’attribution automatique d’utilisateurs
 
@@ -54,15 +54,15 @@ Avant de configurer Flock pour l’approvisionnement automatique d’utilisateur
 
 1. Connectez-vous à [Flock](https://web.flock.com/?). Cliquez sur **Icône Paramètres** > **Gérer votre équipe**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Capture d’écran du site web Flock. L’icône des paramètres est mise en surbrillance et son menu contextuel est visible. Dans ce menu, Gérer votre équipe est mis en surbrillance." border="false":::
 
 2. Sélectionnez **Authentification et approvisionnement**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Capture d’écran du site web Flock. L’icône des paramètres est mise en surbrillance et son menu contextuel est visible. Dans ce menu, Gérer votre équipe est mis en surbrillance." border="false":::
 
 3. Copiez le jeton d’API (**API Token**). Vous devrez entrer ces valeurs dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Flock dans le portail Microsoft Azure.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Capture d’écran du site web Flock. L’icône des paramètres est mise en surbrillance et son menu contextuel est visible. Dans ce menu, Gérer votre équipe est mis en surbrillance." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Ajouter Flock à partir de la galerie
