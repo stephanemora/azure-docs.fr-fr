@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c840f123d74222770f1d044e085cf131f5ab708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cf2ac8cda9df18bf02b93446605ed2283562cf6b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547958"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Didacticiel : Intégration d’Azure Active Directory avec OneTrust Privacy Management Software
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec OneTrust Privacy Manag
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL OneTrust Privacy Management Software](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec les zones de texte « Identificateur » et « URL de réponse » mises en évidence, et le bouton « Enregistrer » sélectionné.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.onetrust.com/saml2`
 

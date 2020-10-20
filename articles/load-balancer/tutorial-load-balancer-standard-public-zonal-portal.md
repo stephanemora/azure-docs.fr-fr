@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251906"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044953"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
@@ -38,6 +38,10 @@ Ce tutoriel crée une instance publique [Azure Standard Load Balancer](https://a
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
 Si vous préférez, utilisez [Azure CLI](load-balancer-standard-public-zonal-cli.md) pour effectuer ce tutoriel.
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -228,5 +232,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’éq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).
-- [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Passez maintenant à l’article suivant pour savoir comment équilibrer la charge des machines virtuelles entre les zones de disponibilité.
+> [!div class="nextstepaction"]
+> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

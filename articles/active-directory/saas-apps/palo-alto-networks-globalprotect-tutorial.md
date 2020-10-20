@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286928"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855206"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Palo Alto Networks - GlobalProtect
 
@@ -117,7 +117,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Configurer l’authentification unique pour Palo Alto Networks - GlobalProtect
 
-1. Ouvrez Palo Alto Networks Firewall GlobalProtect en tant qu’administrateur dans une autre fenêtre de navigateur.
+1. Ouvrez Palo Alto Networks – GlobalProtect en tant qu’administrateur dans une autre fenêtre de navigateur.
 
 2. Cliquez sur **Appareil**.
 

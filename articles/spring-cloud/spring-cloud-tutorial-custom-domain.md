@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326148"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945768"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapper un domaine personnalisé existant à Azure Spring Cloud
 
@@ -28,9 +28,53 @@ Les certificats chiffrent le trafic web. Ces certificats TLS/SSL peuvent être s
 * Un certificat privé (autrement dit, votre certificat auto-signé) d’un fournisseur tiers. Le certificat doit correspondre au domaine.
 * Une instance déployée d’[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
-## <a name="import-certificate"></a>Importation d’un certificat 
-La procédure d’importation d’un certificat exige la présence du fichier PEM ou PFX encodé sur le disque, et vous devez disposer de la clé privée. 
+## <a name="import-certificate"></a>Importation d’un certificat
+### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Préparer votre fichier de certificat en PFX (facultatif)
+Azure Key Vault prend en charge l’importation d’un certificat privé au format PEM et PFX. Si le fichier PEM que vous avez obtenu de votre fournisseur de certificats ne fonctionne pas dans la section ci-dessous : [Enregistrez le certificat dans Key Vault](#save-certificate-in-key-vault), suivez les étapes indiquées ici pour générer un fichier PFX pour Azure Key Vault.
 
+#### <a name="merge-intermediate-certificates"></a>Fusionner les certificats intermédiaires
+
+Si votre autorité de certification vous donne plusieurs certificats dans la chaîne, vous devez les fusionner dans l’ordre.
+
+Pour ce faire, ouvrez chaque certificat reçu dans un éditeur de texte.
+
+Créez un fichier pour le certificat fusionné, appelé _mergedcertificate.crt_. Dans un éditeur de texte, copiez le contenu de chaque certificat dans ce fichier. L’ordre de vos certificats devrait suivre l’ordre dans la chaîne d’approbation, commençant par votre certificat et finissant par le certificat racine. Cela ressemble à l’exemple suivant :
+
+```
+-----BEGIN CERTIFICATE-----
+<your entire Base64 encoded SSL certificate>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 1>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 2>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded root certificate>
+-----END CERTIFICATE-----
+```
+
+#### <a name="export-certificate-to-pfx"></a>Exportation du certificat vers PFX
+
+Exportez votre certificat TLS/SSL fusionné avec la clé privée ayant servi à générer votre demande de certificat.
+
+Si vous avez généré votre demande de certificat à l’aide d’OpenSSL, vous avez créé un fichier de clé privée. Pour exporter votre certificat au format PFX, exécutez la commande suivante : Remplacez les espaces réservés _&lt;fichier de clé privée>_ et _&lt;fichier de certificat fusionné>_ par les chemins d’accès menant à votre clé privée et à votre fichier de certificat fusionné.
+
+```bash
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
+```
+
+Lorsque vous y êtes invité, définissez un mot de passe d’exportation. Vous utiliserez par la suite ce mot de passe au moment de charger votre certificat TLS/SSL dans Azure Key Vault.
+
+Si vous avez utilisé IIS ou _Certreq.exe_ pour générer votre demande de certificat, installez le certificat sur votre ordinateur local, puis [exportez le certificat au format PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+
+### <a name="save-certificate-in-key-vault"></a>Enregistrer le certificat dans Key Vault
+La procédure d’importation d’un certificat exige la présence du fichier PEM ou PFX encodé sur le disque, et vous devez disposer de la clé privée. 
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 Pour charger votre certificat dans le coffre de clés :
 1. Accédez à votre instance de coffre de clés.
 1. Dans le volet de navigation gauche, cliquez sur **Certificats**.
@@ -42,7 +86,17 @@ Pour charger votre certificat dans le coffre de clés :
 
     ![Importation du certificat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
-Pour accorder à Azure Spring Cloud l’accès à votre coffre de clés avant d’importer le certificat :
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
+
+```azurecli
+az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
+```
+---
+
+### <a name="grant-azure-spring-cloud-access-to-your-key-vault"></a>Accorder à Azure Spring Cloud un accès à votre coffre de clés
+
+Vous devez accorder à Azure Spring Cloud un accès à votre coffre de clés avant d’importer le certificat :
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 1. Accédez à votre instance de coffre de clés.
 1. Dans le volet de navigation gauche, cliquez sur **Stratégies d’accès**.
 1. Dans le menu supérieur, cliquez sur **Ajouter une stratégie d’accès**.
@@ -54,50 +108,41 @@ Pour accorder à Azure Spring Cloud l’accès à votre coffre de clés avant d�
 
 ![Importation du certificat 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
-Vous pouvez utiliser Azure CLI pour accorder à Azure Spring Cloud un accès au coffre de clés.
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
 
-Récupérez l’ID de l’objet à l’aide de la commande suivante.
+À l’aide de la commande suivante, accordez à Azure Spring Cloud un accès en lecture au coffre de clés (remplacez `<key vault resource group>` et `<key vault name>`).
 ```
-az ad sp show --id <service principal id> --query objectId
-```
-
-À l’aide de la commande suivante, accordez à Azure Spring Cloud un accès en lecture au coffre de clés (remplacez l’ID de l’objet).
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 
+---
 
-Pour importer le certificat dans Azure Spring Cloud :
+### <a name="import-certificate-to-azure-spring-cloud"></a>Importer le certificat dans Azure Spring Cloud
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 1. Accédez à votre instance de service. 
 1. Dans le volet de navigation gauche de votre application, sélectionnez **Paramètres TLS/SSL**.
 1. Cliquez ensuite sur **Importer un certificat Key Vault**.
 
     ![Importation d’un certificat](./media/custom-dns-tutorial/import-certificate.png)
 
-Ou bien, vous pouvez utiliser Azure CLI pour importer le certificat :
+1. Une fois votre certificat importé, il apparaît dans la liste des **certificats à clé privé**.
+
+    ![Certificat à clé privée](./media/custom-dns-tutorial/key-certificates.png)
+
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
 
 ```
 az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
 
-> [!IMPORTANT] 
-> Veillez à accorder à Azure Spring Cloud l’accès à votre coffre de clés avant d’exécuter la commande précédente d’importation du certificat. Si vous ne l’avez pas fait, vous pouvez exécuter la commande suivante pour accorder les droits d’accès.
-
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
-``` 
-
-Une fois votre certificat importé, il apparaît dans la liste des **certificats à clé privé**.
-
-![Certificat à clé privée](./media/custom-dns-tutorial/key-certificates.png)
-
-Ou bien, vous pouvez utiliser Azure CLI pour afficher une liste de certificats :
+Pour afficher la liste des certificats importés :
 
 ```
 az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!IMPORTANT] 
-> Pour sécuriser un domaine personnalisé avec ce certificat, vous devez quand même lier le certificat à un domaine spécifique. Suivez les étapes détaillées dans la section **Ajouter une liaison SSL** de ce document.
+> Pour sécuriser un domaine personnalisé avec ce certificat, vous devez quand même lier le certificat à un domaine spécifique. Suivez les étapes décrites dans cette section : [Ajouter une liaison SSL](#add-ssl-binding).
 
 ## <a name="add-custom-domain"></a>Ajouter un domaine personnalisé
 Vous pouvez utiliser un enregistrement CNAME pour mapper un nom DNS personnalisé à Azure Spring Cloud. 
@@ -113,6 +158,7 @@ Accédez à votre fournisseur DNS et ajoutez un enregistrement CNAME pour mapper
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Mapper votre domaine personnalisé à l’application Azure Spring Cloud
 Si vous n’avez pas d’application dans Azure Spring Cloud, suivez les instructions du [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
 
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 Accédez à la page de l’application.
 
 1. Sélectionner **Domaine personnalisé**.
@@ -126,34 +172,38 @@ Accédez à la page de l’application.
 
     ![Ajouter un domaine personnalisé](./media/custom-dns-tutorial/add-custom-domain.png)
 
-Ou bien, vous pouvez utiliser Azure CLI pour ajouter un domaine personnalisé :
-```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
-```
-
 Une application peut avoir plusieurs domaines, mais seul un domaine peut être mappé à une même application. Une fois que vous avez mappé votre domaine personnalisé à l’application, il apparaît dans le tableau du domaine personnalisé.
 
 ![Tableau du domaine personnalisé](./media/custom-dns-tutorial/custom-domain-table.png)
 
-Ou bien, vous pouvez utiliser Azure CLI pour afficher une liste de domaines personnalisés :
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+```
+
+Pour afficher la liste des domaines personnalisés :
 ```
 az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!NOTE]
 > Si votre domaine personnalisé présente le libellé **Non sécurisé**, cela signifie que n’est pas encore lié à un certificat SSL. Toute requête HTTPS d’un navigateur à votre domaine personnalisé générera une erreur ou un avertissement.
 
 ## <a name="add-ssl-binding"></a>Ajouter une liaison SSL
+
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 Dans le tableau du domaine personnalisé, sélectionnez **Ajouter une liaison SSL** comme illustré dans la figure précédente.  
 1. Sélectionnez votre **Certificat** ou importez-le.
 1. Cliquez sur **Enregistrer**.
 
     ![Ajout d’une liaison SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
-Ou bien, vous pouvez utiliser Azure CLI pour **ajouter une liaison SSL** :
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 Une fois la liaison SSL ajoutée, le domaine passe à un état sécurisé : **Intègre**. 
 
@@ -161,16 +211,16 @@ Une fois la liaison SSL ajoutée, le domaine passe à un état sécurisé : **I
 
 ## <a name="enforce-https"></a>Appliquer le protocole HTTPS
 Par défaut, n’importe qui peut accéder à votre application en HTTP, mais vous pouvez rediriger toutes les requêtes HTTP vers le port HTTPS.
-
+#### <a name="portal"></a>[Portail](#tab/Azure-portal)
 Dans la page de votre application, dans le volet de navigation gauche, sélectionnez **Domaine personnalisé**. Ensuite, définissez **HTTPS uniquement** sur *Vrai*.
 
 ![Ajout d’une liaison SSL 3](./media/custom-dns-tutorial/enforce-http.png)
 
-Ou bien, vous pouvez utiliser Azure CLI pour appliquer le protocole HTTPS :
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring-cloud app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
-
+---
 Une fois l’opération terminée, accédez à une des URL HTTPS qui pointent vers votre application. Notez que les URL HTTP ne fonctionnent pas.
 
 ## <a name="see-also"></a>Voir aussi

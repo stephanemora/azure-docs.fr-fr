@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850377"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -29,8 +29,9 @@ Pour effectuer toutes les étapes de ce tutoriel, vous devez avoir accès à un 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et, en haut, recherchez **Synapse**.
 1. Dans les résultats de la recherche, sous **Services**, sélectionnez **Azure Synapse Analytics (préversion des espaces de travail)** .
 1. Sélectionnez **Ajouter** pour créer un espace de travail.
-1. Dans **De base**, entrez les champs requis et choisissez un nom d’espace de travail. Dans ce tutoriel, nous utiliserons **myworkspace**.
-1. Un compte ADLS Gen2 est nécessaire pour créer un espace de travail. Le choix le plus simple consiste à en créer un. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
+1. Dans **Informations de base**, entrez vos **Abonnement**, **Groupe de ressources** et **Région** préférés, puis choisissez un nom d’espace de travail. Dans ce tutoriel, nous utiliserons **myworkspace**.
+1. Un compte ADLSGEN2 et un conteneur sont nécessaires dans ce compte pour créer un espace de travail. Le choix le plus simple consiste à en créer un. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
+    1. L’espace de travail Synapse utilise ce conteneur comme emplacement par défaut pour stocker les journaux Spark et les données des tables Spark.
 1. OPTION 1 Création d’un nouveau compte ADLS Gen2 : 
     1. Accédez à **Sélectionner Data Lake Storage Gen2**. 
     1. Cliquez sur **Créer**, puis nommez-le **contosolake**.

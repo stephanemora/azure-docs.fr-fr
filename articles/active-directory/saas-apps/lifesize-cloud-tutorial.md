@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540067"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
 
@@ -137,15 +137,15 @@ Pour configurer l’authentification unique Azure AD avec Lifesize Cloud, effect
 
 2. Dans le coin supérieur droit, cliquez sur votre nom, puis cliquez sur **Paramètres avancés**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Capture d’écran montrant l’élément de menu Advanced Settings.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. Dans les Paramètres avancés, cliquez maintenant sur le lien **Configuration de l’authentification unique**. La page Configuration SSO de l’instance s’ouvre.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Capture d’écran montrant la zone des paramètres avancés dans laquelle vous pouvez sélectionner « SSO configuration ».](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Maintenant, configurez les valeurs suivantes dans l’interface utilisateur de configuration de l’authentification unique.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Capture d’écran montrant la page SSO Configuration dans laquelle vous pouvez indiquer les valeurs décrites.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Dans la zone de texte **Identity Provider Issuer** (Émetteur du fournisseur d’identité), collez la valeur de **l’identificateur Azure AD** que vous avez copié à partir du portail Azure.
 

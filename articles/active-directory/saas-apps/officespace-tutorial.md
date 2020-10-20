@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554156"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à OfficeSpace Software
 
@@ -150,11 +150,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à **Paramètres** et cliquez sur **Connecteurs**.
 
-    ![Configurer l’authentification unique côté application](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Capture d’écran montrant la liste déroulante « Settings » avec l’option « Connectors » sélectionnée.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Cliquez sur **Authentication SAML**.
 
-    ![Configurer l’authentification unique côté application](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Capture d’écran montrant la section « Authentication » avec l’action « SAML Authentication » sélectionnée.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Dans la section **SAML Authentication** , procédez comme suit :
 

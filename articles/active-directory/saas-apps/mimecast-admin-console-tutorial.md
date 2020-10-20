@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528469"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Mimecast Admin Console
 
@@ -155,23 +155,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à **Administration** > **Services** > **Applications**.
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/services.png)
+    ![Capture d’écran montrant la fenêtre Mimecast avec l’élément Applications sélectionné.](./media/mimecast-admin-console-tutorial/services.png)
 
 1. Cliquez sur l’onglet **Authentication Profiles** (Profils d’authentification).
     
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![Capture d’écran montrant l’onglet Application avec les profils d’authentification sélectionnés.](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. Cliquez sur l’onglet **New Authentication Profile** (Nouveau profil d’authentification).
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+    ![Capture d’écran montrant l’élément New Authentication Profile sélectionné.](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. Entrez une description valide dans la zone de texte **Description** et cochez la case **Enforce SAML Authentication for Administration Console** (Appliquer l’authentification SAML pour Administration Console).
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![Capture d’écran montrant l’emplacement où sélectionner Enforce SAML Authentication for Administration Console.](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. Dans la page **SAML Configuration for Administration Console** (Configuration SAML pour Administration Console), effectuez les étapes suivantes :
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![Capture d’écran montrant la page SAML Configuration for Administration Console dans laquelle vous pouvez indiquer les valeurs décrites.](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
     a. Pour **Provider** (Fournisseur), sélectionnez **Azure Active Directory** dans la liste déroulante.
 
@@ -189,19 +189,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à **Administration** > **Directories** > **Internal Directories** (Administration > Répertoires > Répertoires internes).
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![Capture d’écran montrant la fenêtre Mimecast avec l’élément Internal Directories sélectionné.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. Sélectionnez votre domaine, s’il est mentionné ci-dessous. Sinon, créez-en un en cliquant sur **New Domain** (Nouveau domaine).
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![Capture d’écran montrant le domaine sélectionné.](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. Cliquez sur l’onglet **New Address** (Nouvelle adresse).
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![Capture d’écran montrant l’élément New Address sélectionné.](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. Fournissez les informations utilisateur requises dans la page suivante :
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![Capture d’écran montrant la page dans laquelle vous pouvez indiquer les valeurs décrites.](./media/mimecast-admin-console-tutorial/user-information.png)
 
     a. Dans la zone de texte **Email Address**, entrez l’adresse e-mail de l’utilisateur, par exemple `B.Simon@yourdomainname.com`.
 
@@ -215,7 +215,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Pour attribuer des rôles à l’utilisateur, cliquez sur **Role Edit** (Modification du rôle) et attribuez le rôle requis à l’utilisateur conformément aux exigences de votre organisation.
 
-    ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![Capture d’écran montrant la zone Address Settings où vous pouvez sélectionner Role Edit.](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

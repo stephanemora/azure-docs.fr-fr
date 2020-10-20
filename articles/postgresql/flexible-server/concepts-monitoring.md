@@ -1,19 +1,19 @@
 ---
 title: Supervision et métriques - Azure Database pour PostgreSQL - Serveur flexible
 description: Cet article décrit les fonctionnalités de supervision et de métriques disponibles dans Azure Database pour PostgreSQL - Serveur flexible.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707844"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Superviser les métriques dans Azure Database pour PostgreSQL - Serveur flexible
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Superviser les métriques dans Azure Database pour PostgreSQL - Serveur flexible
 
 > [!IMPORTANT]
 > Azure Database pour PostgreSQL – Serveur flexible est en préversion
@@ -29,13 +29,14 @@ Les métriques suivantes sont disponibles pour le serveur flexible PostgreSQL :
 
 |Métrique|Nom d’affichage de la métrique|Unité|Description|
 |---|---|---|---|
+| active_connections | Connexions actives | Count | Le nombre de connexions à votre serveur. | 
 | backup_storage_used | Stockage de sauvegarde utilisé | Octets | Quantité de stockage de sauvegarde utilisée. La métrique représente le total du stockage consommé par l’ensemble des sauvegardes de base de données complètes, sauvegardes différentielles et sauvegardes de journaux conservées en fonction de la période de rétention de sauvegarde définie pour le serveur. La fréquence des sauvegardes est gérée par le service. Pour le stockage géo-redondant, l’utilisation du stockage de sauvegarde est le double de celle du stockage localement redondant. |
 | connections_failed | Connexions ayant échoué | Count | Connexions ayant échoué. |
 | connections_succeeded | Connexions ayant abouti | Count | Connexions ayant abouti. |
 | cpu_credits_consumed | Crédits de processeur consommés | Count | Nombre de crédits utilisés par le serveur flexible. Applicable au niveau Expansible. |
 | cpu_credits_remaining | Crédits de processeurs restants | Count | Nombre total de crédits disponibles pour l’expansion. Applicable au niveau Expansible. |
 | cpu_percent | Pourcentage d’UC | Pourcentage | Pourcentage de processeur en cours d’utilisation. | 
-| disk_queue_depth | Longueur de file d’attente de disque | Nombre | Nombre d’opérations d’E/S en attente sur le disque de données. |
+| disk_queue_depth | Longueur de file d’attente de disque | Count | Nombre d’opérations d’E/S en attente sur le disque de données. |
 | iops | E/S par seconde | Count | Nombre d’opérations d’E/S sur disque par seconde. |
 | maximum_used_transactionIDs | Nombre maximal d’ID de transaction utilisés | Count | ID de transaction maximal en cours d’utilisation. |
 | memory_percent | Pourcentage de mémoire | Pourcentage | Pourcentage de mémoire en cours d’utilisation. |

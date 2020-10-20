@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint SWIFT CSP-CSCF v2020
 description: Étapes de déploiement pour l’exemple de blueprint SWIFT CSP-CSCF v2020 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: b65dc9cdd601f9fd2d7972b74435702a00244e8e
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 973cd0076ae03fd32db5fc9be262b2c5300fdf16
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612722"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949409"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Déployer l’exemple de blueprint SWIFT CSP-CSCF v2020
 
@@ -93,7 +93,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [catégories de journaux de ressources Azure Monitor](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|ID d’espaces de travail connectés|Liste délimitée par des points-virgules des ID d’espaces de travail auxquels l’agent Log Analytics doit être connecté|
 |\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des utilisateurs qui doivent être inclus dans le groupe Administrateurs de machines virtuelles Windows|Liste séparée par des points-virgules des membres qui doivent être inclus dans le groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|
 |\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Nom de domaine (FQDN)|Nom de domaine complet (FQDN) auquel les machines virtuelles Windows doivent être jointes|

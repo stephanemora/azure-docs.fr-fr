@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544058"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Didacticiel : Intégration d’Azure Active Directory avec OnTrack
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces �
 
 5. Votre application OnTrack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Attributs d’utilisateur » avec l’icône « Modifier » sélectionnée en haut à droite.](common/edit-attribute.png)
 
 6. En plus de ce qui précède, l’application OnTrack s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
@@ -132,7 +132,7 @@ Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces �
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Revendications des utilisateurs » avec la sélection des actions « Ajouter une nouvelle revendication » et « Enregistrer ».](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

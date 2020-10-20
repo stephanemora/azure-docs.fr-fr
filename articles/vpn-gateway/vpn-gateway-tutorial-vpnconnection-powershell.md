@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420555"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048285"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutoriel : Créer et gérer des connexions VPN S2S à l’aide de PowerShell
 
@@ -33,7 +33,7 @@ Le diagramme suivant montre la topologie de ce tutoriel :
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>Spécifications
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez le premier tutoriel intitulé [Créer une passerelle VPN avec Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) pour créer les ressources suivantes :
 
@@ -242,8 +242,7 @@ Dans ce tutoriel, vous avez appris à créer et à gérer des connexions VPN S2S
 > * Ajouter d’autres connexions VPN
 > * Supprimer une connexion VPN
 
-Pour en savoir plus sur les connexions S2S, P2S et de réseau virtuel à réseau virtuel, accédez aux tutoriels suivants.
+Ensuite, vous pouvez ajouter une connexion point à site (P2S) :
 
 > [!div class="nextstepaction"]
-> * [Créer des connexions de réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Créer des connexions P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

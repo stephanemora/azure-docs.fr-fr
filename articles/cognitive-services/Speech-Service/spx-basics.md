@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854900"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893813"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
@@ -69,6 +69,51 @@ Dans cette commande, vous spécifiez à la fois la langue source (**avant** trad
 
 > [!NOTE]
 > Pour connaître la liste de toutes les langues prises en charge avec le code de paramètres régionaux correspondant, consultez l’article [Langues et paramètres régionaux](language-support.md).
+
+### <a name="configuration-files-in-the-datastore"></a>Fichiers de configuration dans le magasin de données
+
+L’interface CLI Speech peut lire et écrire plusieurs paramètres dans les fichiers de configuration, qui sont stockés dans le magasin de données local de l’interface et sont nommés dans les appels de celle-ci au moyen d’un symbole @. L’interface CLI Speech tente d’enregistrer un nouveau paramètre dans un sous-répertoire `./spx/data` qu’elle crée dans le répertoire de travail actuel.
+Lors de la recherche d’une valeur de configuration, l’interface CLI Speech recherche dans votre répertoire de travail actuel, puis dans le chemin `./spx/data`.
+Avant, comme vous utilisiez le magasin de données pour enregistrer vos valeurs `@key` et `@region`, vous n’aviez pas besoin de les spécifier avec chaque appel de ligne de commande.
+Vous pouvez également utiliser des fichiers de configuration pour stocker vos propres paramètres de configuration, voire même pour transmettre des URL ou d’autres contenus dynamiques générés au moment de l’exécution.
+
+Cette section montre comment utiliser un fichier de configuration dans le magasin de données local pour stocker et extraire des paramètres de commande à l’aide de `spx config`, et comment stocker la sortie de l’interface CLI Speech à l’aide de l’option `--output`.
+
+L’exemple suivant efface le fichier de configuration `@my.defaults`, ajoute des paires clé-valeur pour **key** et **region** dans le fichier et utilise la configuration dans un appel à `spx recognize`.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+Vous pouvez également écrire du contenu dynamique dans un fichier de configuration. Par exemple, la commande suivante crée un modèle vocal personnalisé et stocke l’URL du nouveau modèle dans un fichier de configuration. La commande suivante attend que le modèle défini à cette URL soit prêt à être utilisé pour passer la main.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+L’exemple suivant écrit deux URL dans le fichier de configuration `@my.datasets.txt`.
+Dans ce scénario, `--output` peut inclure un mot clé **add** facultatif pour créer un fichier de configuration ou compléter l’existant.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Pour plus d’informations sur les fichiers de magasin de données, notamment sur l’utilisation des fichiers de configuration par défaut (`@spx.default`, `@default.config`et `@*.default.config` pour les paramètres par défaut propres à une commande), entrez la commande suivante :
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Opérations de traitement par lots
 

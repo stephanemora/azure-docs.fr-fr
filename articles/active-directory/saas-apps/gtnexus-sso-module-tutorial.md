@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544296"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutoriel : Intégration d’Azure Active Directory à GTNexus SSO System
 
@@ -101,11 +101,11 @@ Pour configurer l’authentification unique Azure AD auprès de GTNexus SSO Syst
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
-    ![image](common/upload-metadata.png)
+    ![Capture d’écran montrant la page « Configuration SAML de base » avec la sélection de l’action « Charger un fichier de métadonnées ».](common/upload-metadata.png)
 
     b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Capture d’écran montrant le champ « Sélectionner un fichier » avec le logo « dossier » et le bouton « Charger » sélectionnés.](common/browse-upload-metadata.png)
 
     c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la zone de texte de la section GTNexus SSO System :
 

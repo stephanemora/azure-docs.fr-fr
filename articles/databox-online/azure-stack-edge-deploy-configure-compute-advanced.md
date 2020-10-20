@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903691"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951789"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro pour un flux de déploiement avancé
 
@@ -58,7 +58,7 @@ Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez cr
 
 2. Sur la vignette **Configurer le computing en périphérie**, sélectionnez **Configurer le calcul**.
 
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Bien démarrer avec le calcul 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. Sur le panneau **Configurer le computing en périphérie**, entrez ce qui suit :
 
@@ -68,11 +68,11 @@ Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez cr
     |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
     |Nom     |Entrez un nom pour votre ressource IoT Hub.         |
 
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Bien démarrer avec le calcul 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
 4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le computing en périphérie** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Configuration de la vue** sur la vignette **Configurer le calcul**.
     
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge.
 
@@ -136,17 +136,17 @@ Pour le déploiement avancé dans ce tutoriel, vous aurez besoin de deux partage
     |Type de déclencheur     | Sélectionnez le déclencheur **Fichier**. Un déclencheur de fichier est activé chaque fois qu’un événement de fichier se produit, tel que l’écriture d’un fichier sur le partage d’entrée. Un déclencheur planifié, quant à lui, se déclenche en fonction d’une planification définie par vos soins. Pour cet exemple, nous avons besoin d’un déclencheur de fichier.    |
     |Partage d’entrée     | Sélectionnez un partage d’entrée. Dans ce cas, le partage local Edge est le partage d’entrée. Le module utilisé ici déplace les fichiers depuis le partage local Edge vers un partage Edge où ils sont chargés sur le cloud.        |
 
-    ![Ajouter un déclencheur](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Ajouter un déclencheur 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Un message vous informe que le déclencheur a bien été créé. La liste des déclencheurs est mise à jour pour afficher le nouveau déclencheur. Sélectionnez le déclencheur que vous venez de créer.
 
-    ![Ajouter un déclencheur](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Ajouter un déclencheur 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Copiez et enregistrez l’exemple de route. Vous le modifierez et l’utiliserez ultérieurement dans le hub IoT.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Ajouter un déclencheur](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Ajouter un déclencheur 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Ajouter un module
 
@@ -213,7 +213,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
  
     4. Si nécessaire, configurez les paramètres avancés du runtime Edge, puis cliquez sur **Suivant**.
 
-        ![Ajouter un module personnalisé](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Ajouter un module personnalisé 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Sous **Spécifier des routes**, définissez des routes entre les modules.  
    
@@ -229,11 +229,11 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
 
 6. Sous **Passer en revue le déploiement**, passez en revue tous les paramètres et, si vous êtes satisfait, sélectionnez **Soumettre** pour soumettre le module pour déploiement.
 
-   ![Page Définir des modules](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Page Définir des modules 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Cette action démarre le déploiement de module. Une fois le déploiement terminé, l’**État du runtime** du module est **En cours d’exécution**.
 
-    ![Ajouter un module personnalisé](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Ajouter un module personnalisé 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Vérifier la transformation des données et transférer
 
@@ -247,15 +247,15 @@ Effectuez les étapes suivantes pour vérifier la transformation des données et
  
 1. Ajoutez des données au partage local.
 
-   ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Vérifier la transformation des données 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Les données sont déplacées vers le partage cloud.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Vérifier la transformation des données 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Les données sont ensuite envoyées du partage cloud vers le compte de stockage. Pour voir les données, accédez à votre compte de stockage, puis sélectionnez **Explorateur de stockage**. Vous pouvez voir les données chargées dans votre compte de stockage.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Vérifier la transformation des données 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Vous avez terminé le processus de validation.
 

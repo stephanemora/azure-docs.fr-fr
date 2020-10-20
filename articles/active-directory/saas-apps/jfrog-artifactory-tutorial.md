@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 07ac0ac4d7b86b644ca5d1876b1332fee7358cac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 826ce780fd9196d67adba5bb148a795d3fe4f0f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850351"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutoriel : Intégrer JFrog Artifactory à Azure Active Directory
 
@@ -92,15 +92,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Votre application JFrog Artifactory s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant Attributs utilisateur avec le contrôle d’édition activé.](common/edit-attribute.png)
 
 1. En plus de ce qui précède, l’application JFrog Artifactory s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe (préversion)** , effectuez les étapes suivantes :
 
     a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
-    ![image](./media/jfrog-artifactory-tutorial/config04.png)
+    ![Capture d’écran montrant User Attributes & Claims avec l’icône Edit sélectionnée.](./media/jfrog-artifactory-tutorial/config04.png)
 
-    ![image](./media/jfrog-artifactory-tutorial/config05.png)
+    ![Capture d’écran montrant la section Revendications de groupe avec l’option Tous les groupes sélectionnée.](./media/jfrog-artifactory-tutorial/config05.png)
 
     b. Sélectionnez **Tous les groupes** dans la liste d’options.
 

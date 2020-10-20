@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot avec peu de code, invites multitours
-ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776780"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874422"
 ---
 # <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
 
@@ -83,9 +83,9 @@ QnA Maker offre des fonctionnalités de création, d’entraînement et de publi
 
 Nous proposons des guides de démarrage rapide pour la plupart des langages de programmation. Chaque guide est conçu pour vous montrer des modèles de conception de base et vous permettre d’exécuter du code en moins de 10 minutes. Consultez la liste suivante pour connaître le guide de démarrage rapide de chaque fonctionnalité.
 
-* [Bien démarrer avec la bibliothèque de client LUIS](../quickstarts/quickstart-sdk.md)
-* [Bien démarrer avec le portail LUIS](../quickstarts/create-publish-knowledge-base.md)
-* [Bien démarrer avec les API REST LUIS](../quickstarts/quickstart-rest-curl.md)
+* [Démarrer avec la bibliothèque de client QnA Maker](../quickstarts/quickstart-sdk.md)
+* [Démarrer avec le portail QnA Maker](../quickstarts/create-publish-knowledge-base.md)
+* [Démarrer avec les API REST QnA Maker](../quickstarts/quickstart-rest-curl.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

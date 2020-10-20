@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31e05e45713100c321440d63fe51586204d07231
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543745"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Pavaso Digital Close](common/idp-intiated.png)
+    ![Capture d’écran montrant la « Configuration SAML de base » avec les zones de texte « Identificateur » et « URL de réponse » mises en évidence, et l’action « Enregistrer » sélectionnée.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.pavaso.com/AuthServices`
 

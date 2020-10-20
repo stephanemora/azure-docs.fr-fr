@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552571"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Tutoriel : Intégration d’Azure Active Directory à Meta4 Global HR
 
@@ -103,13 +103,13 @@ Pour configurer l’authentification unique Azure AD avec Meta4 Global HR, proc�
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
-    ![Informations d’authentification unique dans Domaine et URL Meta4 Global HR](common/both-replyurl.png)
+    ![Capture d’écran montrant la section Configuration SAML de base, dans laquelle vous pouvez entrer l’URL de réponse et sélectionner Enregistrer.](common/both-replyurl.png)
 
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Meta4 Global HR](common/both-signonurl.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/both-signonurl.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.meta4globalhr.com`
 

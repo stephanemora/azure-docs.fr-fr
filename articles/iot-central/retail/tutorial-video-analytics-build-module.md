@@ -1,5 +1,5 @@
 ---
-title: Tutoriel – Modifier les modules d’analytique vidéo en direct IoT Edge
+title: 'Tutoriel : Modifier les modules d’analytique vidéo en direct Azure IoT Edge'
 description: Ce tutoriel explique comment modifier et créer les modules de passerelle d’analytique vidéo en direct qu’utilise le modèle d’application d’analytique vidéo pour la détection d’objet et de mouvement.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037899"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873470"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutoriel : Modifier et créer des modules de passerelle d’analytique vidéo en direct
 
@@ -50,7 +50,7 @@ Ouvrez le dossier du référentiel *live-video-analytics* local avec VS Code.
 1. Modifiez la section du module `LvaEdgeGatewayModule` pour ajouter le nom de votre image et le nom de votre compte AMS dans `env:amsAccountName:value`.
 1. Modifiez la section du module `lvaYolov3` et ajoutez le nom de votre image.
 1. Modifiez la section du module `lvaEdge` et ajoutez le nom de votre image.
-1. Pour plus d’informations sur la façon d’effectuer la configuration, consultez [Créer une application d’analytique vidéo dans Azure IoT Central](tutorial-video-analytics-create-app.md).
+1. Pour plus d’informations sur la façon d’effectuer la configuration, consultez [Créer une application d’analytique vidéo dans Azure IoT Central](tutorial-video-analytics-create-app-yolo-v3.md).
 
 ## <a name="build-the-code"></a>Générer le code
 

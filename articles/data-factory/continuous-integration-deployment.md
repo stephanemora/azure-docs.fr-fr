@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531217"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616889"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -30,10 +30,6 @@ Dans Azure Data Factory, l’intégration et la livraison continues (CI/CD) impl
 
 -    Déploiement automatisé grâce à l’intégration de Data Factory avec [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
 -    Chargement manuel d’un modèle Resource Manager en tirant parti de l’intégration de l’expérience utilisateur de Data Factory avec Azure Resource Manager.
-
-Pour une présentation de neuf minutes de cette fonctionnalité, regardez cette vidéo :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -212,13 +208,17 @@ Si votre fabrique de développement dispose d’un dépôt Git associé, vous po
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
 
-Pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé **arm-template-parameters-definition.json** dans le dossier racine de votre branche Git. Vous devez utiliser ce nom de fichier exact.
+Pour remplacer le modèle de paramétrage par défaut, accédez au hub de gestion et sélectionnez **Modèle de paramétrage** dans la section de contrôle de code source. Sélectionnez **Modifier le modèle** pour ouvrir l’éditeur de code du modèle de paramétrage. 
 
-   ![Fichier des paramètres personnalisé](media/continuous-integration-deployment/custom-parameters.png)
+![Gérer les paramètres personnalisés](media/author-management-hub/management-hub-custom-parameters.png)
+
+La création d’un modèle de paramétrage personnalisé, crée un fichier nommé **arm-template-parameters-definition.json** dans le dossier racine de votre branche Git. Vous devez utiliser ce nom de fichier exact.
+
+![Fichier des paramètres personnalisé](media/continuous-integration-deployment/custom-parameters.png)
 
 Lors de la publication à partir de la branche de collaboration, Data Factory lit ce fichier et utilise sa configuration pour générer les propriétés qui sont paramétrées. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
 
-Lors de l’exportation d’un modèle Resource Manager, Data Factory lit ce fichier à partir de la branche sur laquelle vous travaillez actuellement, pas seulement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration.
+Lors de l’exportation d’un modèle Resource Manager, Data Factory lit ce fichier à partir de la branche sur laquelle vous travaillez actuellement, et pas de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration.
 
 > [!NOTE]
 > Un modèle de paramétrage personnalisé ne change pas la limite de 256 paramètres du modèle ARM. Il vous permet de choisir et de diminuer le nombre de propriétés paramétrées.
@@ -461,7 +461,13 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exemple : paramétrage d’un ID de cluster interactif Azure Databricks existant
@@ -553,7 +559,7 @@ L’exemple suivant montre comment ajouter une valeur unique au modèle de param
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 -   **Script de pré-déploiement et de post-déploiement**. Avant l’étape de déploiement Resource Manager dans CI/CD, vous devez effectuer certaines tâches, telles que l’arrêt et le redémarrage des déclencheurs, et le nettoyage. Nous vous recommandons d’utiliser des scripts PowerShell avant et après la tâche de déploiement. Pour plus d’informations, consultez [Mettre à jour des déclencheurs actifs](#updating-active-triggers). L’équipe Data Factory a [fourni un script](#script) à utiliser, qui se trouve en bas de cette page.
 
 -   **Runtimes d’intégration et partage**. Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si vous voulez partager les runtimes d’intégration dans toutes les phases, envisagez d’utiliser une fabrique ternaire qui contiendra uniquement les runtimes d’intégration partagés. Vous pouvez utiliser cette fabrique partagée dans tous vos environnements en tant que type de runtime d’intégration lié.
+
+-   **Déploiement du point de terminaison privé managé**. Si un point de terminaison privé existe déjà dans une fabrique et que vous essayez de déployer un modèle ARM qui contient un point de terminaison privé portant le même nom mais dont les propriétés sont modifiées, le déploiement échoue. En d’autres termes, vous pouvez déployer avec succès un point de terminaison privé, à condition qu’il ait les mêmes propriétés que celui qui existe déjà dans la fabrique. Si une propriété est différente d’un environnement à un autre, vous pouvez la remplacer en paramétrant cette propriété et en fournissant la valeur correspondante pendant le déploiement.
 
 -   **Key Vault**. Lorsque vous utilisez des services liés dont les informations de connexion sont stockées dans Azure Key Vault, il est recommandé de conserver des coffres de clés distincts pour les différents environnements. Vous pouvez également configurer des niveaux d’autorisation distincts pour chaque coffre de clés. Par exemple, vous ne souhaitez peut-être pas que les membres de votre équipe disposent d’autorisations sur les secrets de production. Si vous suivez cette approche, nous vous recommandons de conserver les mêmes noms de secrets dans toutes les phases. Si vous conservez les mêmes noms secrets, vous n’avez pas besoin de paramétrer chaque chaîne de connexion dans les environnements d’intégration et de livraison continues, car la seule chose qui change est le nom du coffre de clés, qui est un paramètre distinct.
 

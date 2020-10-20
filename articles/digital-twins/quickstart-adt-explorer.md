@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372610"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048506"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
 Avec Azure Digital Twins, vous pouvez créer et interagir avec les modèles de vos environnements réels. Pour cela, vous pouvez modéliser des éléments sous la forme de **jumeaux numériques**, puis les connecter à un**graphe** de connaissances qui peut répondre aux événements en direct et être interrogé.
 
-Dans ce guide de démarrage rapide, vous allez explorer un graphe Azure Digital Twins prédéfini, à l’aide d’un exemple d’application appelé [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer vous permet de charger un scénario, d’afficher les représentations visuelles de vos jumeaux et de votre graphe, ainsi que d’effectuer d’autres activités de gestion par le biais d’une expérience visuelle basée sur un navigateur.
+Dans ce guide de démarrage rapide, vous allez explorer un graphe Azure Digital Twins prédéfini, à l’aide d’un exemple d’application appelé [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer vous permet de charger une représentation numérique d’un environnement, d’afficher des images visuelles des jumeaux et du graphe qui sont créées pour représenter l’environnement dans Azure Digital Twins et d’effectuer d’autres activités de gestion par le biais d’une expérience visuelle basée sur un navigateur.
 
 Le guide de démarrage rapide contient les étapes importantes qui suivent :
 
@@ -38,8 +38,8 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure.
 Vous avez également besoin de **Node.js** sur votre machine. Vous pouvez vous procurer la dernière version à partir de ce lien : [Node.js](https://nodejs.org/).
 
 Enfin, vous devez également télécharger deux exemples que vous utiliserez dans le cadre du guide de démarrage rapide :
-* L’exemple d’application **ADT Explorer**. Cet exemple contient l’application principale que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Pour accéder à l’application, cliquez sur le lien suivant : [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code : _**Azure_Digital_Twins__ADT__explorer.zip**_. Décompressez le dossier et extrayez les fichiers.
-* L’**exemple de scénario Azure Digital Twins**. Celui-ci comprend un graphe Azure Digital Twins prédéfini que vous allez charger dans ADT Explorer en vue de l’utiliser. Pour accéder au scénario, cliquez sur le lien suivant : [Exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur sous la forme d’un dossier .ZIP le fichier *.ZIP* de cet exemple de code : **Azure_Digital_Twins_samples.zip**. Décompressez le dossier et extrayez les fichiers.
+* L’exemple d’application **ADT Explorer**. Cet exemple contient l’application principale que vous utiliserez dans le guide de démarrage rapide pour charger et explorer un scénario Azure Digital Twins. Pour accéder à l’application, cliquez sur le lien suivant : [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code. Cette opération téléchargera un dossier .ZIP sur votre machine : _**Azure_Digital_Twins__ADT__explorer.zip**_. Décompressez le dossier et extrayez les fichiers.
+* L’**exemple de scénario Azure Digital Twins**. Celui-ci comprend un graphe Azure Digital Twins prédéfini que vous allez charger dans ADT Explorer en vue de l’utiliser. Pour accéder au scénario, cliquez sur le lien suivant : [Exemples Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Cliquez sur le bouton *Télécharger le zip* pour télécharger sur votre ordinateur le fichier *.ZIP* de cet exemple de code. Cette opération téléchargera un dossier .ZIP sur votre machine : _**Azure_Digital_Twins_samples.zip**_. Décompressez le dossier et extrayez les fichiers.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurer Azure Digital Twins et ADT Explorer
 
@@ -307,7 +307,7 @@ Dans ce guide de démarrage rapide, vous avez créé une instance Azure Digital 
 Vous avez ensuite exploré le graphe en...
 1. Utilisant une requête pour répondre à une question relative au scénario
 2. Modifiant une propriété d’un jumeau numérique
-    * Réexécutant la requête pour voir comment la réponse a changé après la modification
+3. Réexécutant la requête pour voir comment la réponse a changé après la modification
 
 L’objectif de cet exercice est de montrer comment vous pouvez utiliser le graphe Azure Digital Twins pour répondre à des questions sur votre environnement, même si celui-ci change continuellement. 
 

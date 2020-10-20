@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446098"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048353"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -40,6 +40,10 @@ Pour plus d’informations sur l’utilisation des zones de disponibilité avec 
 Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -231,8 +235,10 @@ Pour visualiser la distribution du trafic par l’équilibreur de charge entre l
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur **Supprimer**.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge et sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).
+Découvrez-en plus sur l’équilibrage de la charge d’une machine virtuelle dans une zone de disponibilité spécifique.
+> [!div class="nextstepaction"]
+> [Équilibrer la charge de machines virtuelles dans une zone de disponibilité](tutorial-load-balancer-standard-public-zonal-portal.md)

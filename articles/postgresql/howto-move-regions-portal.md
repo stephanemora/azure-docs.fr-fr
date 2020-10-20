@@ -1,18 +1,18 @@
 ---
 title: Déplacer des régions Azure - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Déplacer un serveur Azure Database pour PostgreSQL d’une région Azure vers une autre à l’aide d’un réplica en lecture et du Portail Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567276"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707657"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Déplacer une base de données Azure pour Azure Database pour PostgreSQL - Serveur unique vers une autre région à l’aide du portail Azure Database pour PostgreSQL
 
@@ -47,11 +47,11 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
 1. Sélectionnez **Ajouter un réplica**.
 1. Entrez un nom pour le serveur de réplica.
-1. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
+1. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur principal. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
 1. Sélectionnez **OK** pour confirmer la création du réplica. Pendant la création de réplica, les données sont copiées depuis le serveur source vers le réplica. Le temps de création peut durer plusieurs minutes ou plus, proportionnellement à la taille du serveur source.
 
 >[!NOTE]
-> Lorsque vous créez un réplica, il n’hérite pas des règles de pare-feu ni des points de terminaison de service Vnet du serveur maître. Ces règles doivent être configurés indépendamment pour le réplica.
+> Lorsque vous créez un réplica, il n’hérite pas des règles de pare-feu ni des points de terminaison de service Vnet du serveur principal. Ces règles doivent être configurés indépendamment pour le réplica.
 
 ## <a name="move"></a>Déplacer
 

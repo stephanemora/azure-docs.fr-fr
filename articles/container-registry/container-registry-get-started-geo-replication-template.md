@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/26/2020
-ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/06/2020
+ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649599"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827007"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Démarrage rapide : Créer un registre de conteneurs géorépliqué à l’aide d’un modèle Resource Manager
 
@@ -48,19 +48,22 @@ Vous trouverez d’autres exemples de modèles Azure Container Registry dans la 
 
     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
- 2. Sélectionnez ou entrez les valeurs suivantes.
+ 1. Sélectionnez ou entrez les valeurs suivantes.
 
     * **Abonnement** : sélectionnez un abonnement Azure.
     * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis sélectionnez **OK**.
-    * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources. Exemple : **USA Centre**.
+    * **Région** : sélectionnez un emplacement pour le groupe de ressources. Exemple : **USA Centre**.
     * **Nom d’ACR** : acceptez le nom généré pour le registre ou entrez un nom. Il doit être globalement unique.
+    * **Utilisateur administrateur ACR activé** : acceptez la valeur par défaut.
     * **Emplacement** : acceptez l’emplacement généré pour le réplica de base du registre ou entrez un emplacement comme **USA Centre**. 
+    * **Référence SKU ACR** : acceptez la valeur par défaut.
     * **Emplacement du réplica d’ACR** : entrez un emplacement pour le réplica du registre en utilisant le nom abrégé de la région. Il doit être différent de l’emplacement du registre de base. Exemple : **Europe Ouest**.
-    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Propriétés du modèle":::
 
- 3. Si vous acceptez les termes et conditions, sélectionnez **Acheter**. Une fois le registre créé avec succès, vous recevez une notification :
+1. Sélectionnez **Vérifier + créer**, puis passez en revue les conditions générales. Si vous acceptez, sélectionnez **Créer**.
+
+1. Une fois le registre créé avec succès, vous recevez une notification :
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriétés du modèle":::
 
@@ -84,6 +87,8 @@ Utilisez le portail Azure ou un outil tel que l’interface de ligne de commande
 
 Supprimez le groupe de ressources, le registre et le réplica de registre quand vous n’en avez plus besoin. Pour ce faire, sélectionnez le groupe de ressources qui contient le registre dans le portail Azure, puis sélectionnez **Supprimer le groupe de ressources**.
 
+Supprimer le groupe de ressources
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans le cadre de ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec un modèle Resource Manager et vous avez configuré un réplica de registre dans un autre emplacement. Passez à présent au tutoriel sur Azure Container Registry (ACR) pour approfondir vos connaissances.
@@ -94,4 +99,4 @@ Dans le cadre de ce guide de démarrage rapide, vous avez créé un registre Azu
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> Créer et déployer votre premier modèle Resource Manager[

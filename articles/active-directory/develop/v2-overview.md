@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627123"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056410"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Présentation de la plateforme d’identités Microsoft
 
@@ -74,8 +74,7 @@ Découvrez dans ces quelques articles conseillés comment l’authentification d
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) – Invitez des utilisateurs externes en tant qu’utilisateurs « invités » dans votre locataire Azure AD, et affectez des autorisations qui leur permettent d’utiliser leurs informations d’identification existantes pour l’authentification.
 
-> [!TIP]
-> Vous recherchez de la documentation relative à la *plateforme de développement Azure Active Directory (v1.0)*  ? Consultez la [Présentation d’Azure Active Directory pour les développeurs (v1.0)](../azuread-dev/v1-overview.md).
+[Azure Active Directory pour les développeurs (v1.0)](../azuread-dev/v1-overview.md) – Affiché ici pour les développeurs dont les applications utilisent l’ancien point de terminaison v1.0. **N’utilisez pas** v1.0 pour les nouveaux projets.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 8/11/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459995"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963514"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -28,7 +28,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
-* Vous devez déjà avoir configuré un pool de capacité.  
+* Vous devez déjà avoir créé un pool de capacités.  
     Consultez [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
 * Un sous-réseau doit être délégué à Azure NetApp Files.  
     Consultez [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
@@ -38,6 +38,19 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 * Veillez à respecter la [configuration requise pour les connexions Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
+* Assurez-vous que le serveur LDAP Active Directory (AD) est en cours d’exécution sur AD. Vous pouvez le faire en installant et en configurant le rôle [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) sur l’ordinateur AD.
+* Assurez-vous qu’une autorité de certification (CA) est créée sur l’annuaire Active Directory à l’aide du rôle [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour générer et exporter le certificat d’autorité de certification racine autosigné.   
+* Pour le moment, les volumes à deux protocoles ne prennent pas en charge Azure Active Directory Domain Services (AADDS).  
+* La version de NFS utilisée par un volume à deux protocoles est NFSv3. Par conséquent, les considérations suivantes s'appliquent :
+    * Le double protocole ne prend pas en charge les attributs étendus des ACL Windows `set/get` provenant des clients NFS.
+    * Les clients NFS ne peuvent pas modifier les autorisations pour le style de sécurité NTFS, et les clients Windows ne peuvent pas modifier les autorisations pour les volumes à deux protocoles de type UNIX.   
+
+    Le tableau suivant décrit les styles de sécurité et leurs effets :  
+    
+    | Style de sécurité    | Clients pouvant modifier des autorisations   | Autorisations que les clients peuvent utiliser  | Style de sécurité effectif obtenu    | Clients pouvant accéder aux fichiers     |
+    |-  |-  |-  |-  |-  |
+    | UNIX  | NFS   | Bits en mode NFSv3   | UNIX  | NFS et Windows   |
+    | NTFS  | Windows   | ACL NTFS     | NTFS  |NFS et Windows|
 
 ## <a name="create-a-dual-protocol-volume"></a>Créer un volume à deux protocoles
 
@@ -51,7 +64,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
         Un nom de volume doit être unique au sein de chaque pool de capacité. Il doit comprendre au moins trois caractères. Vous pouvez utiliser tous les caractères alphanumériques.   
 
-        Vous ne pouvez pas utiliser `default` comme nom de volume.
+        Vous ne pouvez pas utiliser `default` ni `bin` comme nom de volume.
 
     * **Pool de capacités**  
         Spécifiez le pool de capacité dans lequel vous souhaitez que le volume soit créé.
@@ -60,6 +73,11 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
         Spécifiez la quantité de stockage logique allouée au volume.  
 
         Le champ **Quota disponible** indique la quantité d’espace inutilisé dans le pool de capacités choisi, que vous pouvez utiliser pour créer un volume. La taille du nouveau volume ne doit pas dépasser le quota disponible.  
+
+    * **Débit (Mio/s)**    
+        Si le volume est créé dans un pool de capacité avec Qualité de service manuelle, spécifiez le débit souhaité pour le volume.   
+
+        Si le volume est créé dans un pool de capacité avec Qualité de service automatique, la valeur affichée dans ce champ est (quota x débit du niveau de service).   
 
     * **Réseau virtuel**  
         Spécifiez le réseau virtuel Azure (VNet) à partir duquel vous voulez accéder au volume.  
@@ -105,9 +123,9 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 
 ## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Charger le certificat racine public de l’autorité de certification Active Directory  
 
-1.  Suivez [Installer l’autorité de certification](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour installer et configurer l’autorité de certification AD DS. 
+1.  Suivez [Installer l’autorité de certification](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour installer et configurer l’autorité de certification AD DS. 
 
-2.  Suivez [Afficher les certificats avec le composant logiciel enfichable MMC](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) pour utiliser le composant logiciel enfichable MMC et l’outil Gestionnaire de certificats.  
+2.  Suivez [Afficher les certificats avec le composant logiciel enfichable MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) pour utiliser le composant logiciel enfichable MMC et l’outil Gestionnaire de certificats.  
     Utilisez le composant logiciel enfichable Gestionnaire de certificats pour localiser le certificat racine ou d’émission pour l’appareil local. Vous devez exécuter les commandes du composant logiciel enfichable Gestion des certificats à partir de l’un des paramètres suivants :  
     * Un client Windows joint au domaine et sur lequel le certificat racine est installé 
     * un autre ordinateur du domaine contenant le certificat racine.  
@@ -131,6 +149,11 @@ Vous pouvez gérer les attributs POSIX, tels que l’identificateur d’utilisat
 
 ![Éditeur d’attributs Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+Vous devez définir les attributs suivants pour les utilisateurs LDAP et les groupes LDAP : 
+* Attributs requis pour les utilisateurs LDAP :   
+    `uid` : Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* Attributs requis pour les groupes LDAP :   
+    `objectClass` : "posixGroup", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Configurer le client NFS 
 
@@ -139,4 +162,4 @@ Suivez les instructions de [Configurer un client NFS pour Azure NetApp Files](co
 ## <a name="next-steps"></a>Étapes suivantes  
 
 * [FAQ sur le double protocole](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md) 
+* [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: d598017c8b41dffc486bfef4b9af63c6942cef58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fde0bcdb70384e791d7337d212d7353b6ea168bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549788"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856379"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à LinkedIn Learning
 
@@ -141,19 +141,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans le **Centre des comptes**, cliquez sur **Paramètres globaux** sous **Paramètres**. Sélectionnez aussi **Apprentissage - Par défaut** dans la liste déroulante.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Capture d’écran montrant les paramètres globaux pour lesquels vous pouvez sélectionner l’option Default.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Cliquez sur  **OU cliquez ici pour charger et copier les champs individuels du formulaire**, puis copiez l’**ID d’entité** et l’**URL ACS (Assertion Consumer Service)** et copiez-les dans la section **Configuration SAML de base** du portail Azure.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Capture d’écran montrant l’authentification unique pour laquelle vous pouvez entrer les valeurs décrites.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Chargez le fichier XML que vous avez téléchargé à partir du portail Azure en cliquant sur l’option **Télécharger fichier XML**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Capture d’écran montrant la section Configure the LinkedIn service provider SSO settings, dans laquelle vous pouvez charger un fichier XML.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Capture d’écran montrant l’authentification unique pour laquelle vous pouvez activer l’option Authenticate users with SSO.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-learning-test-user"></a>Créer un utilisateur de test LinkedIn Learning
 

@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête d’API REST'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’appeler le point de terminaison Resource Graph pour l’API REST et exécutez votre première requête.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802566"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057210"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’API REST
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Remplacez `{subscriptionId}` dans la variable **$restUri** ci-dessus pour obtenir des informations sur votre abonnement. La variable $response contient le résultat de l’applet de commande `Invoke-RestMethod` que vous pouvez analyser avec des applets de commande tels que [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Si le point de terminaison de service de l’API REST attend un **corps de demande**, fournissez une variable au format JSON au paramètre `-Body` de `Invoke-RestMethod`.
+Remplacez `{subscriptionId}` dans la variable `$restUri` pour obtenir des informations sur votre abonnement.
+La variable `$response` contient le résultat de l’applet de commande `Invoke-RestMethod` que vous pouvez analyser avec des applets de commande telles que [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Si le point de terminaison de service de l’API REST attend un **corps de demande**, fournissez une variable au format JSON au paramètre `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Exécuter votre première requête Resource Graph
 

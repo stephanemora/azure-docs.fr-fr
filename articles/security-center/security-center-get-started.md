@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447175"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946013"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Démarrage rapide : Configuration d’Azure Security Center
 
@@ -33,7 +33,7 @@ Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à 
 Pour activer Azure Defender dans le cadre d’un abonnement, vous devez avoir le rôle de propriétaire de l’abonnement, de collaborateur de l’abonnement ou d’administrateur de la sécurité.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Ouvrir Security Center pour la première fois
+## <a name="enable-security-center-on-your-azure-subscription"></a>Activer Security Center sur votre abonnement Azure
 
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ Quelques minutes après le premier lancement de Security Center peuvent s’affi
 
 Pour tirer pleinement parti de Security Center, vous devez suivre les étapes ci-dessous afin d’activer Azure Defender et d’installer l’agent Log Analytics.
 
+> [!TIP]
+> Pour activer Security Center sur tous les abonnements au sein d’un groupe d’administration, consultez [Activer Security Center sur plusieurs abonnements Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Activer Azure Defender
 

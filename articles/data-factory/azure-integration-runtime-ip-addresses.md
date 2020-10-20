@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523330"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619045"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresses IP Azure Integration Runtime
 
@@ -27,7 +27,7 @@ Les adresses IP qu’Azure Integration Runtime utilise dépendent de la région
 > [!IMPORTANT]  
 > Les flux de données et Azure Integration Runtime qui activent le réseau virtuel géré ne prennent pas en charge l’utilisation de plages d’adresses IP fixes.
 >
-> Vous pouvez utiliser ces plages d’adresses IP pour le déplacement des données, le pipeline et les exécutions d’activités externes. Ces plages d’adresses IP peuvent être utilisées pour la mise en liste verte dans les magasins de données/groupes de sécurité réseau (NSG)/pare-feu pour l’accès entrant à partir du runtime d’intégration Azure. 
+> Vous pouvez utiliser ces plages d’adresses IP pour le déplacement des données, le pipeline et les exécutions d’activités externes. Ces plages d’adresses IP peuvent être utilisées pour le filtrage dans les magasins de données/groupes de sécurité réseau (NSG)/pare-feu pour l’accès entrant à partir du runtime d’intégration Azure. 
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Adresses IP d’Azure Integration Runtime : Régions spécifiques
 

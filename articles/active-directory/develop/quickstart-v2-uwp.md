@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2019
+ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630523"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824398"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
-Ce guide de démarrage rapide contient un exemple de code qui montre comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs avec des comptes personnels ou des comptes professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
+Ce démarrage rapide s’appuie sur un exemple de code pour démontrer comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs dotés de comptes personnels ou de comptes professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph. Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prérequis
@@ -49,16 +49,17 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 > 1. Accédez à la page [Inscriptions des applications](https://aka.ms/MobileAppReg) de la plateforme d’identité Microsoft pour les développeurs.
 > 1. Sélectionnez **Nouvelle inscription**.
-> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+> 1. Dans **Inscrire une application**, entrez les informations d’inscription de votre application :
 >      - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `UWP-App-calling-MsGraph`.
 >      - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
->      - Sélectionnez **Inscrire** pour créer l’application.
-> 1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
-> 1. Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)** , cochez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
-> 1. Sélectionnez **Enregistrer**.
+> 1. Sélectionnez **Inscrire** pour créer l’application, puis consignez l’**ID d’application (client)** en vue de son utilisation dans une étape ultérieure.
+> 1. Sous **Gérer**, sélectionnez **Authentification**.
+> 1. Sélectionnez **Ajouter une plateforme** > **Applications de bureau et mobiles**.
+> 1. Sous **URI de redirection**, sélectionnez `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Sélectionnez **Configurer**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
+> #### <a name="step-1-configure-the-application"></a>Étape 1 : Configurer l’application
 > Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez ajouter une URI de redirection comme **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
@@ -66,14 +67,14 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-uwp/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
+#### <a name="step-2-download-the-visual-studio-project"></a>Étape 2 : Télécharger le projet Visual Studio
 
 > [!div renderon="docs"]
 > [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Téléchargez l’exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip).
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -85,33 +86,39 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+> #### <a name="step-3-configure-the-visual-studio-project"></a>Étape 3 : Configurer le projet Visual Studio
 >
-> 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
-> 1. Ouvrez le projet dans Visual Studio. Vous pouvez être invité à installer un SDK UWP. Si c’est le cas, acceptez.
-> 1. Modifiez **MainPage.Xaml.cs** en remplaçant les valeurs du champ `ClientId` :
+> 1. Extrayez l’archive .zip dans un dossier local proche de la racine de votre lecteur. Par exemple, dans **C:\Azure-Samples**.
+> 1. Ouvrez le projet dans Visual Studio. Si vous y êtes invité, installez la charge de travail **Développement pour la plateforme Windows universelle** et éventuellement des composants individuels du kit SDK.
+> 1. Dans *MainPage.Xaml.cs*, remplacez la valeur de la variable `ClientId` par l’**ID d’application (client)**  de l’application que vous avez inscrite précédemment.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
-> Où :
-> - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
 >
-> > [!TIP]
-> > Pour connaître la valeur du champ *ID d’application*, accédez à la section **Vue d’ensemble** du portail.
+>    Vous pouvez trouver l’**ID d’application(client)** dans le volet **Vue d’ensemble** de l’application sur le portail Azure (**Azure Active Directory** > **Inscriptions des applications** >  *{Inscription de votre application}* ).
+> 1. Créez un certificat auto-signé de test pour le package et sélectionnez-le :
+>     1. Dans l’**Explorateur de solutions**, double-cliquez sur le fichier *Package.appxmanifest*.
+>     1. Sélectionnez **Empaquetage** > **Choisir un certificat...**  > **Créer...** .
+>     1. Entrez un mot de passe, puis sélectionnez **OK**.
+>     1. Choisissez **Sélectionner dans un fichier...** , sélectionnez le fichier *Native_UWP_V2_TemporaryKey.pfx* que vous venez de créer, puis cliquez sur **OK**.
+>     1. Fermez le fichier *Package.appxmanifest* (sélectionnez **OK** si vous êtes invité à enregistrer le fichier).
+>     1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **Native_UWP_V2**, puis sélectionnez **Propriétés**.
+>     1. Choisissez **Signature**, puis sélectionnez le fichier .pfx que vous avez créé dans la liste déroulante **Choisir un fichier de clé de nom fort**.
 
-#### <a name="step-4-run-your-application"></a>Étape 4 : Exécuter votre application
+#### <a name="step-4-run-the-application"></a>Étape 4 : Exécuter l’application
 
-Si vous voulez suivre le guide de démarrage rapide sur votre ordinateur Windows :
+Pour exécuter l’exemple d’application sur votre ordinateur local :
 
-1. Dans la barre d’outils Visual Studio, choisissez la bonne plateforme (probablement **x64** ou **x86**, mais pas ARM). Vous pourrez noter que l’appareil cible passe de *Appareil* à *Machine locale*
-1. Sélectionnez Déboguer | **Démarrer sans débogage**.
+1. Dans la barre d’outils Visual Studio, choisissez la bonne plateforme (probablement **x64** ou **x86**, mais pas ARM). L’appareil cible doit passer de *Appareil* à *Machine locale*.
+1. Sélectionnez **Déboguer** > **Démarrer sans débogage**
+    
+    Si vous êtes invité à le faire, vous devrez peut-être d’abord activer **Mode développeur**, puis à nouveau **Démarrer sans débogage** pour lancer l’application.
 
-## <a name="more-information"></a>Informations complémentaires
+Quand la fenêtre de l’application s’affiche, vous pouvez sélectionner le bouton **Appeler l’API Microsoft Graph**, entrer vos informations d’identification, puis donner votre consentement aux autorisations demandées par l’application. En cas de réussite, l’application affiche des informations de jeton ainsi que les données obtenues de l’appel à l’API Microsoft Graph.
 
-Cette section fournit plus d’informations sur le démarrage rapide.
+## <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
 
-### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
 ![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -139,9 +146,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Où : | Description |
-> |---------|---------|
-> | `ClientId` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
+La valeur de `ClientId` est l’**ID d’application (client)** de l’application que vous avez inscrite sur le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure.
 
 ### <a name="requesting-tokens"></a>Demande de jetons
 
@@ -161,9 +166,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Où :| Description |
-> |---------|---------|
-> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+Le paramètre `scopes` contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées.
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -176,10 +179,8 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Où : | Description |
-> |---------|---------|
-> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées |
-> | `firstAccount` | Spécifie le compte du premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une même application) |
+* `scopes` contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées.
+* `firstAccount` spécifie le compte du premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une même application).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

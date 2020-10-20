@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542272"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -53,7 +53,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
 * Utiliser l’authentification mutuelle TLS telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
-* Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de Gestion des API, sauf le niveau relatif à la consommation, l’adresse IP de la passerelle reste constante, avec quelques mises en garde dans l’[article de la documentation IP](api-management-howto-ip-addresses.md).
+* Utiliser le filtrage des adresses IP sur votre service principal. Dans tous les niveaux de Gestion des API, sauf le niveau relatif à la consommation, l’adresse IP de la passerelle reste constante, avec quelques mises en garde dans l’[article de la documentation IP](api-management-howto-ip-addresses.md).
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?

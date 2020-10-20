@@ -1,5 +1,5 @@
 ---
-title: Créer des mots clés personnalisés – Service Speech
+title: Guide de démarrage rapide sur la création de mot clé - Service de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
 description: Votre appareil est toujours à l’écoute d’un mot (ou d’une phrase) clé. Quand l’utilisateur prononce le mot clé, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot clé.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919010"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667691"
 ---
-# <a name="custom-keyword-basics"></a>Principes de base des mots clés personnalisés
+# <a name="get-started-with-custom-keyword"></a>Bien démarrer avec Mot clé personnalisé
 
-Dans cet article, vous allez découvrir les principes de base de l’utilisation des mots clés personnalisés, en utilisant Speech Studio et le kit SDK Speech. Un mot clé est un mot ou une expression courte qui permet d’activer la fonction vocale de votre produit. Vous créez des modèles de mots clés dans Speech Studio, puis vous exportez un fichier de modèle que vous utilisez avec le kit SDK Speech dans vos applications.
+Dans ce guide de démarrage rapide, vous allez découvrir les principes de base de l’utilisation des mots clés personnalisés, en utilisant Speech Studio et le kit SDK Speech. Un mot clé est un mot ou une expression courte qui permet d’activer la fonction vocale de votre produit. Vous créez des modèles de mots clés dans Speech Studio, puis vous exportez un fichier de modèle que vous utilisez avec le kit SDK Speech dans vos applications.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les étapes décrites dans cet article nécessitent un abonnement Speech et le kit SDK Speech. Si vous n’avez pas encore d’abonnement, [essayez gratuitement le service Speech](get-started.md). Pour obtenir le kit SDK, consultez le [guide d’installation](quickstarts/setup-platform.md) pour votre plateforme.
+Les étapes décrites dans cet article nécessitent un abonnement Speech et le kit SDK Speech. Si vous n’avez pas encore d’abonnement, [essayez gratuitement le service Speech](overview.md#try-the-speech-service-for-free). Pour obtenir le kit SDK, consultez le [guide d’installation](quickstarts/setup-platform.md) pour votre plateforme.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Créer un mot clé dans Speech Studio
 

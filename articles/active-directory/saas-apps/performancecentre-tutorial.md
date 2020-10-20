@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553965"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Didacticiel : Intégration d’Azure Active Directory à PerformanceCentre
 
@@ -128,19 +128,19 @@ Pour configurer l’authentification unique Azure AD avec PerformanceCentre, eff
 
 2. Dans l’onglet sur le côté gauche, cliquez sur **Configure**.
    
-    ![Authentification unique Azure AD][10]
+    ![Capture d’écran montrant le menu « PerformanceCenter » avec l’élément « Configure » sélectionné.][10]
 
 3. Dans l’onglet sur le côté gauche, cliquez sur **Miscellaneous**, puis cliquez sur **Single Sign On**.
    
-    ![Authentification unique Azure AD][11]
+    ![Capture d’écran montrant l’onglet « Configure » avec l’élément « Single Sign-On » sélectionné dans le menu « Miscellaneous ».][11]
 
 4. Pour **Protocol**, sélectionnez **SAML**.
    
-    ![Authentification unique Azure AD][12]
+    ![Capture d’écran montrant la section « Single Sign-On Configuration » avec l’élément « SAML » sélectionné dans le menu « Protocol ».][12]
 
 5. Ouvrez votre fichier de métadonnées téléchargé dans le Bloc-notes, copiez son contenu, collez-le dans la zone de texte **Identity Provider Metadata**, puis cliquez sur **Save**.
    
-    ![Authentification unique Azure AD][13]
+    ![Capture d’écran montrant la zone de texte « Identity Provider Metadata ».][13]
 
 6. Vérifiez que les valeurs **Entity Base URL** et **Entity ID URL** sont correctes.
     
@@ -207,7 +207,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Dans le menu de gauche, cliquez sur **Interrelate**, puis cliquez sur **Create Participant**.
    
-    ![Create User][400]
+    ![Capture d’écran montrant la page « Interrelate - Participants » du site d’entreprise « PerformanceCenter » avec le bouton « Create Participant » sélectionné.][400]
 
 3. Dans la boîte de dialogue **Interrelate - Create Participant** , effectuez les opérations suivantes :
    

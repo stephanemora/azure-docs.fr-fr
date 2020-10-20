@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549935"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858113"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutoriel : Intégrer Knowledge Anywhere LMS à Azure Active Directory
 
@@ -111,19 +111,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Sélectionnez l’onglet **Site**.
 
-    ![Configuration de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Capture d’écran montrant l’onglet Site.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Sélectionnez l’onglet **Paramètres SAML**.
 
-    ![Configuration de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Capture d’écran montrant la page Knowledge Anywhere avec les paramètres SAML sélectionnés.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Cliquez sur **Ajouter un nouveau**.
 
-    ![Configuration de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Capture d’écran montrant le bouton Add New dans les paramètres du fournisseur de services.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. Dans la page **Add/Update SAML Settings**, effectuez les étapes suivantes :
 
-    ![Configuration de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Capture d’écran montrant la page Add/Update SAML Settings dans laquelle vous pouvez apporter les modifications décrites ici.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Entrez le nom IDP en fonction de votre organisation. Exemple : - `Azure`.
 

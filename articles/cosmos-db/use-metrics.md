@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568010"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 
@@ -51,13 +51,13 @@ Pour commencer, accédez au [portail Azure](https://portal.azure.com), puis acc�
 
 Le code d’état d’erreur le plus courant est 429 (limitation du débit). Cette erreur signifie que les requêtes envoyées à Azure Cosmos DB sont supérieures au débit provisionné. Dans ce cas, la solution la plus courante consiste à [effectuer une montée en puissance des unités de requête](./set-throughput.md) pour une collection donnée.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Nombre de requêtes par minute":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Déterminer la distribution du débit entre les partitions
 
 Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit**, la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partition unique fortement utilisée":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
 Une distribution inégale du débit peut aboutir à une *forte utilisation* de certaines partitions. Dans ce cas, une limitation des requêtes peut se produire et nécessiter un repartitionnement. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
 
@@ -65,11 +65,11 @@ Une distribution inégale du débit peut aboutir à une *forte utilisation* de c
 
 Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du stockage au sein d’un conteneur partitionné, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Dans l’onglet Stockage, la répartition du stockage est indiquée dans le graphe Stockage de données + d’index consommé par les premières clés de partition. Le graphe suivant montre une mauvaise distribution du stockage des données, mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exemple de mauvaise distribution des données":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
 Vous pouvez connaître la clé de partition à l’origine du déséquilibre de la distribution en cliquant sur la partition du graphique.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Clé de partition provoquant un déséquilibre de la distribution":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
 Une fois que vous avez identifié la clé de partition qui est à l’origine du déséquilibre, il est possible que vous deviez repartitionner votre conteneur avec une clé de partition mieux distribuée. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006412"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045344"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Déplacer des machines virtuelles vers une autre région Azure
 
@@ -100,8 +100,8 @@ Les étapes suivantes montrent comment préparer la machine virtuelle en vue du 
 1. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 1. Créez le groupe de ressources **ContosoRG**.
 1. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique dans la page de [détails de tarification Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Dans **Coffres Recovery Services**, sélectionnez **Vue d’ensemble** > **ContosoVMVault** > **Éléments répliqués** >  **+Répliquer**.
-1. Dans **Source**, sélectionnez **Azure**.
+1. Dans **Coffres Recovery Services**, sélectionnez **ContosoVMVault** > **Éléments répliqués** >  **+Répliquer**.
+1. Dans la liste déroulante, sélectionnez **Machines virtuelles Azure**.
 1. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 1. Sélectionnez le modèle de déploiement Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
 1. Sélectionnez **OK** pour enregistrer les paramètres.

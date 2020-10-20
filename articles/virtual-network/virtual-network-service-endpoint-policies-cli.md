@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708210"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91666770"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gérer l’exfiltration de données vers des comptes Stockage Azure avec des stratégies de points de terminaison de service de réseau virtuel à l’aide d’Azure CLI
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 Les stratégies de points de terminaison de service Azure sont uniquement disponibles pour le Stockage Azure. Pour cet exemple de configuration, nous allons donc activer le point de terminaison de service pour *Microsoft.Storage* sur ce sous-réseau.
 
-Les stratégies de points de terminaison de service sont appliquées sur les points de terminaison de service. Nous allons commencer par créer une stratégie de points de terminaison de service. Après quoi, nous allons créer les définitions de stratégie dans le cadre de cette stratégie pour les comptes Stockage Azure à ajouter à la liste verte pour ce sous-réseau.
+Les stratégies de points de terminaison de service sont appliquées sur les points de terminaison de service. Nous allons commencer par créer une stratégie de points de terminaison de service. Après quoi, nous allons créer les définitions de stratégie dans le cadre de cette stratégie pour les comptes Stockage Azure à approuver pour ce sous-réseau.
 
 Créer une stratégie de point de terminaison de service
 

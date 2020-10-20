@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: abb692f71a3ed69c6779b6141c9098dc94c75c4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567365"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542425"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Déplacer un serveur Azure Database for MariaDB vers une autre région à l’aide du portail Azure
 
@@ -31,18 +31,18 @@ Vous pouvez utiliser un [réplica en lecture entre région](concepts-read-replic
 
 ## <a name="prepare-to-move"></a>Préparer le déplacement
 
-Pour créer un serveur de réplica en lecture interrégional dans la région cible à l’aide du portail Azure, procédez comme suit :
+Pour créer un serveur de réplica en lecture interrégional dans la région cible à l’aide du portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez le serveur Azure Database for MariaDB que vous souhaitez utiliser comme serveur source. Cette action ouvre la page **Vue d’ensemble**.
 1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
 1. Sélectionnez **Ajouter un réplica**.
 1. Entrez un nom pour le serveur de réplica.
-1. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
+1. Sélectionnez l’emplacement du serveur de réplica. L'emplacement par défaut est le même que celui du serveur source. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
 1. Sélectionnez **OK** pour confirmer la création du réplica. Pendant la création de réplica, les données sont copiées depuis le serveur source vers le réplica. Le temps de création peut durer plusieurs minutes ou plus, proportionnellement à la taille du serveur source.
 
 >[!NOTE]
-> Lorsque vous créez un réplica, il n’hérite pas des points de terminaison de service VNet du serveur maître. Ces règles doivent être configurés indépendamment pour le réplica.
+> Lorsque vous créez un réplica, il n'hérite pas des points de terminaison de service VNet du serveur source. Ces règles doivent être configurés indépendamment pour le réplica.
 
 ## <a name="move"></a>Déplacer
 
@@ -50,7 +50,7 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 > Le serveur autonome ne peut pas être retransformé en réplica.
 > Avant d’arrêter la réplication sur un réplica en lecture, vérifiez que celui-ci contient toutes les données nécessaires.
 
-Si vous arrêtez la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
+En arrêtant la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database for MariaDB. 
 1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
@@ -72,5 +72,5 @@ Vous pourriez vouloir supprimer le serveur source Azure Database for MariaDB. Po
 Dans ce tutoriel, vous avez déplacé un serveur Azure Database for MariaDB d’une région à une autre en utilisant le portail Azure et vous avez ensuite nettoyé les ressources sources inutiles. 
 
 - Découvrir plus en détail les [réplicas en lecture](concepts-read-replicas.md)
-- En savoir plus sur la [gestion des réplicas en lecture dans le portail Azure](howto-read-replicas-portal.md)
+- Découvrir plus en détail la [gestion des réplica en lecture dans le portail Azure](howto-read-replicas-portal.md)
 - En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

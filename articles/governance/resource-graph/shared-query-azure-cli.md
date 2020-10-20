@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer une requête partagée avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer l’extension Resource Graph pour Azure CLI et vous créez une requête partagée.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667518"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057193"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure CLI
 
@@ -84,7 +84,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
    ```
 
 1. Exécutez la requête partagée dans Azure CLI à l’aide de la syntaxe `{{shared-query-uri}}` dans une commande [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query).
-   Tout d’abord, copiez le champ `id` à partir du résultat de la commande `show` ci-dessus. Remplacez le texte `shared-query-uri` de l’exemple par la valeur provenant du champ `id`, mais laissez les caractères `{{` et `}}` autour.
+   Tout d’abord, copiez le champ `id` à partir du résultat de la commande `show` précédente. Remplacez le texte `shared-query-uri` de l’exemple par la valeur provenant du champ `id`, mais laissez les caractères `{{` et `}}` autour.
 
    ```azurecli-interactive
    # Run a Azure Resource Graph shared query

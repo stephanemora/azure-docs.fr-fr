@@ -1,18 +1,18 @@
 ---
 title: 'Configurer le chiffrement ExpressRoute : IPsec sur ExpressRoute pour Azure Virtual WAN'
-description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN site à site par Peering privé ExpressRoute.
+description: Découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN site à site par peering privé ExpressRoute.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827954"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079052"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Chiffrement ExpressRoute : IPsec sur ExpressRoute pour Virtual WAN
 

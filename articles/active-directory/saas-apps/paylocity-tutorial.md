@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543650"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995948"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Paylocity
 
@@ -106,7 +106,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’**icône Modifier**.
 
-    ![Modifier le certificat de signature SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Capture d’écran montrant le « Certificat de signature SAML », avec l’action « Télécharger » sélectionnée pour « XML de métadonnées de fédération ».](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Sélectionnez **Option de signature** pour **Signer la réponse et l’assertion SAML**, puis cliquez sur **Enregistrer**.
 

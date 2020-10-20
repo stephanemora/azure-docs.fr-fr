@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448231"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044460"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -41,10 +41,7 @@ Pour modifier les propriétés de l’application :
 
 1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez configurer.
 2. Dans la section **Gérer**, sélectionnez **Propriétés** pour ouvrir le volet **Propriétés** à des fins de modification.
-
-    ![Capture d’écran de l’écran Propriétés affichant les propriétés modifiables de l’application.](media/add-application-portal/edit-properties.png)
-
-3. Prenez un moment afin de comprendre les options disponibles pour la configuration :
+3. Prenez le temps de comprendre les options disponibles. Les options disponibles dépendent de la façon dont l’application est intégrée à Azure AD. Par exemple, une application qui utilise l’authentification unique basée sur SAML disposera de champs comme *URL de l’accès utilisateur*, au contraire d’une application qui utilise l’authentification unique basée sur OIDC. De même, notez que les applications ajoutées via **Azure Active Directory > Inscriptions des applications** sont par défaut des applications basées sur OIDC. En revanche, les applications ajoutées via **Azure Active Directory > Applications d’entreprise** peuvent utiliser un des différents standards d’authentification unique. Toutes les applications disposeront de champs permettant de configurer à quel moment une application apparaît et quand elle peut être utilisée. Ces champs sont les suivants :
     - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
     - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
     - **Visible par les utilisateurs ?** détermine si les utilisateurs affectés à une application peuvent la voir dans [Mes applications](https://myapps.microsoft.com) et le lanceur d’applications Microsoft 365. (Voir le menu Gaufre en haut à gauche d’un site web Microsoft 365.)

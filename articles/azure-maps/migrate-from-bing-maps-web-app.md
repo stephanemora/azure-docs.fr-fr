@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Migrer une application web à partir de Bing Cartes | Microsoft Azure Maps'
-description: Guide pratique pour migrer une application web de Bing Cartes vers Microsoft Azure Maps.
+description: Tutoriel sur la migration d’une application web de Bing Cartes vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319734"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876513"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Migrer une application web à partir de Bing Cartes
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutoriel – Migrer une application web à partir de Bing Cartes
 
 Les applications web qui utilisent Bing Cartes utilisent souvent le kit SDK JavaScript Bing Cartes V8. Le Kit de développement logiciel (SDK) web Azure Maps est le kit de développement logiciel (SDK) Azure approprié vers lequel migrer. Le Kit de développement logiciel (SDK) web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres pour les afficher dans vos applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le kit de développement logiciel (SDK) à l’aide de JavaScript ou de TypeScript.
 

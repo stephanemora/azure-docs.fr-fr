@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258522"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91611654"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -202,7 +202,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
 Vous pouvez également afficher les journaux d’activité de chaîne de responsabilité qui incluent les journaux d’audit et les fichiers de nomenclature.
 
-![Journaux d’activité dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Journaux d’activité dans les comptes de stockage 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>Afficher l’état de la commande
 

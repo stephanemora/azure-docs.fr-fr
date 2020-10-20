@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987361"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812435"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -50,14 +50,21 @@ Vous pouvez déployer rapidement une nouvelle application IoT Central, puis la p
 
 En tant que créateur de solution, vous utilisez les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint qui définit les caractéristiques et le comportement d’un type d’appareils tel que :
 
-- Les données de télémétrie qu’il envoie.
-- Les propriétés commerciales qu’un opérateur peut modifier.
-- Les propriétés d’appareil qui sont définies par un appareil et en lecture seule dans l’application.
-- Les propriétés définies par un opérateur, qui déterminent le comportement de l’appareil.
+- Les données de télémétrie qu’il envoie. Par exemple, la température et l’humidité. La télémétrie se présente sous la forme de données en streaming.
+- Les propriétés commerciales qu’un opérateur peut modifier. Par exemple, une adresse de client et une date de dernier entretien.
+- Les propriétés d’appareil qui sont définies par un appareil et en lecture seule dans l’application. Par exemple, l’état d’une vanne : ouvert ou fermé.
+- Les propriétés définies par un opérateur, qui déterminent le comportement de l’appareil. Par exemple, une température cible pour l’appareil.
+- Les commandes, qu’un opérateur peut appeler, qui s’exécutent sur un appareil. Par exemple, une commande pour redémarrer un appareil à distance.
 
 Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivants :
 
-- Un _modèle de fonctionnalité d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter, telles que la télémétrie qu’il envoie et les propriétés qu’il signale.
+- Un _modèle de fonctions d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter. Les fonctionnalités de l’appareil sont les suivantes :
+
+  - La télémétrie qu’il diffuse à IoT Central.
+  - Les propriétés en lecture seule qu’il utilise pour signaler l’état à IoT Central.
+  - Les propriétés accessibles en écriture qu’il reçoit d’IoT Central pour définir l’état de l’appareil.
+  - Les commandes appelées à partir d’IoT Central.
+
 - Propriétés cloud qui ne sont pas stockées sur l’appareil.
 - Personnalisations, tableaux de bord et formulaires qui font partie de votre application IoT Central.
 
@@ -144,7 +151,6 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 - Les types de schémas de tableaux ne sont pas pris en charge.
 - Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
 - IoT Central est disponible aux États-Unis, en Europe, en Asie-Pacifique, en Australie, au Royaume-Uni et au Japon.
-- Vous ne pouvez pas utiliser le modèle d’application **Application personnalisée (hérité)** au Royaume-Uni et au Japon.
 - Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
