@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5a3488be3fdc0eb3bc8956db66c06df25ff18c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296619"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707708"
 ---
 # <a name="monitor-media-services-metrics"></a>Surveiller les mesures Media Services
 
@@ -48,7 +48,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
     Sélectionnez la ressource puis appuyez sur **Appliquer**. Pour plus d’informations sur les ressources prises en charge et les mesures, consultez [Surveiller les mesures Media Services](media-services-metrics-diagnostic-logs.md).
 
-    ![Mesures](media/media-services-metrics/metrics02.png)
+    ![Capture d’écran qui montre la ressource sélectionnée et met en surbrillance le bouton Appliquer.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > Pour basculer entre les ressources pour lesquelles vous souhaitez surveiller les mesures, cliquez sur la case **RESSOURCE** à nouveau et répétez cette étape.

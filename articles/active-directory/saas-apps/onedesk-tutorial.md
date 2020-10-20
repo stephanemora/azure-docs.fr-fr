@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c3eb3706858bd2bfd2160e58698c0f5136c41f3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3e8ed59783a6a714434b17a1d1abbb22fbe30939
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547906"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944024"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à OneDesk
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Cliquez sur l’onglet **Integrations**.
 
-    ![Onglet Paramètres](./media/onedesk-tutorial/img-integration.png)
+    ![Capture d’écran montrant l’onglet « Integrations » sélectionné.](./media/onedesk-tutorial/img-integration.png)
 
 1. Cliquez sur **Single Sign On** (Authentification unique), sélectionnez **Upload Metadata File** (Charger un fichier de métadonnées), puis cliquez sur **Choose File** (Choisir un fichier) pour charger le fichier de métadonnées que vous avez téléchargé sur le portail Azure.
 

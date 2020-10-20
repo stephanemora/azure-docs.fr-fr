@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544007"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997046"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Onit
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
    
-    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
+    ![Capture d’écran montrant le menu en haut de la page « MS SSO Test » avec l’action « Administration » sélectionnée.](./media/onit-tutorial/IC791174.png "Administration")
 
 3. Cliquez sur **Edit Corporation**.
    

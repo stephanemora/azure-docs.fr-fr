@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251879"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842765"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 La capture d’écran suivante montre le résultat de l’application d’appareil simulé et comment celle-ci gère une mise à jour de la propriété souhaitée **maxTemperature**. Vous pouvez voir de quelle manière le gestionnaire de niveau supérieur et les gestionnaires du composant climat s’exécutent :
 
-![Appareil simulé](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Capture d’écran qui montre comment s’exécutent le gestionnaire de niveau supérieur et les gestionnaires du composant climat.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 La capture d’écran suivante montre le résultat de l’application back-end et comment celle-ci envoie une mise à jour de la propriété souhaitée **maxTemperature** :
 
-![Application back-end](./media/tutorial-device-twins/BackEnd1.png)
+![Capture d’écran qui montre la sortie de l’application back-end et comment celle-ci envoie une mise à jour.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>Recevoir des informations d’état
 

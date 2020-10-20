@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799058"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538838"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -157,7 +157,7 @@ Vous pouvez utiliser les [Journaux d’audit AD Azure](../reports-monitoring/con
 
 Voici un exemple de modifications récentes de licence groupe, avec des détails :
 
-![Capture d’écran de modifications de licence de groupe](./media/licensing-group-advanced/audit-group-license-change.png)
+![Capture d’écran montrant la page « journaux d’audit » avec un élément de liste sélectionné et le volet « journal d’audit des détails d’activité » ouvert.](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Déterminer quand le traitement de modifications de groupe a commencé et s’est terminé
 

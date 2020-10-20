@@ -9,19 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c4f6124227f5dd5c7735d300f71d5ae7d0c06b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852971"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975771"
 ---
 # <a name="client-application-registration"></a>Inscription d’une application cliente
 Dans le tutoriel précédent, vous avez déployé et configuré votre API Azure pour FHIR. Maintenant que votre API Azure pour FHIR est configurée, nous allons inscrire une application cliente publique. Vous pouvez parcourir entièrement le guide pratique qui explique comment [inscrire une application cliente publique](register-public-azure-ad-client-app.md) ou comment résoudre les problèmes, mais nous en avons extrait les principales étapes dans le tutoriel ci-dessous.
 
 1. Accéder à Azure Active Directory
 1. Sélectionnez **Inscription des applications** --> **Nouvelle inscription**.
-1. Nommez votre application et configurez l’URI de redirection sur https://www.getpostman.com/oauth2/callback.
+1. Nommer votre application et définir l’URI
+1. Sélectionnez **Client public/natif (Bureau et mobile)** et définissez l’URI de redirection sur https://www.getpostman.com/oauth2/callback.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Capture d’écran du volet Inscrire une application avec des exemples de nom d’application et d’URL de redirection":::
 
@@ -29,7 +30,7 @@ Dans le tutoriel précédent, vous avez déployé et configuré votre API Azure 
 
 Une fois l’application cliente inscrite, copiez l’ID d’application (client) et l’ID de locataire à partir de la page Vue d’ensemble. Vous aurez besoin de ces deux valeurs par la suite, quand vous accéderez au client.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Capture d’écran du volet de paramètres de l’application cliente avec les ID d’application et d’annuaire mis en évidence":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Capture d’écran du volet Inscrire une application avec des exemples de nom d’application et d’URL de redirection":::
 
 ### <a name="connect-with-web-app"></a>Se connecter à une application web
 
@@ -43,7 +44,7 @@ Si vous avez [écrit votre application web](tutorial-web-app-write-web-app.md) p
 
 1. Activez les cases à cocher **Jeton d’accès** et **Jeton d’ID**.
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Capture d’écran du panneau de paramètres d’authentification d’application avec les étapes d’ajout de plateforme mises en évidence":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Capture d’écran du volet Inscrire une application avec des exemples de nom d’application et d’URL de redirection":::
 
 ## <a name="add-api-permissions"></a>Ajouter des autorisations d’API
 
@@ -53,7 +54,7 @@ Vous avez configuré l’authentification appropriée. Vous allez à présent d�
 1. Sous **API utilisées par mon organisation**, effectuez une recherche sur Azure Healthcare APIs.
 1. Sélectionnez **user_impersonation**, puis cliquez sur **Ajouter des autorisations**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Capture d’écran du panneau d’ajout d’autorisations d’API avec les étapes d’ajout d’autorisations d’API mises en évidence":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Capture d’écran du volet Inscrire une application avec des exemples de nom d’application et d’URL de redirection":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous disposez à présent d’une application cliente publique. Dans le prochain tutoriel, nous allons voir en détail comment tester et accéder à cette application via Postman.

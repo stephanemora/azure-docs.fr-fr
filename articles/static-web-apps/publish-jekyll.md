@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797698"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000221"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Jekyll dans Azure Static Web Apps (préversion)
 
@@ -118,7 +118,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Pour _Branch_ (Branche), sélectionnez **master** (principale).
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Champs GitHub renseignés":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Champs renseignés":::
 
 ### <a name="build"></a>Build
 
@@ -146,12 +146,9 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Ouvrez l’application Jekyll dans un éditeur de texte et ouvrez le fichier _.github/workflows/azure-pages-<NOM_WORKFLOW>.yml_.
 
-1. Ajoutez des lignes au bloc de configuration suivant après le bloc `- uses: actions/checkout@v2`.
+1. Après la ligne `- uses: actions/checkout@v2`, ajoutez le bloc de configuration suivant.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
@@ -174,7 +171,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Dans la fenêtre _Vue d’ensemble_ du portail Azure, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Application déployée":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Champs renseignés":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

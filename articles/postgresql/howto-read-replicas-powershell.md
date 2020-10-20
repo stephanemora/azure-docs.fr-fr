@@ -1,18 +1,18 @@
 ---
 title: Gérer des réplicas en lecture - Azure PowerShell - Azure Database pour PostgreSQL
 description: Découvrez comment configurer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à l’aide de PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0caa8e2911046e18e63748fe5bde4b4c965eb965
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502532"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91704784"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à l’aide de PowerShell
 
@@ -38,7 +38,7 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour PostgreSQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
+> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour PostgreSQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur principal se trouve dans l’un de ces niveaux tarifaires.
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
@@ -65,14 +65,14 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md).
 
-Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître, sauf si le paramètre **Sku** est spécifié.
+Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur principal, sauf si le paramètre **Sku** est spécifié.
 
 > [!NOTE]
-> Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur maître pour garantir que le serveur réplica est à la hauteur du serveur maître.
+> Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur principal pour garantir que le serveur réplica est à la hauteur du serveur principal.
 
-### <a name="list-replicas-for-a-master-server"></a>Répertorier les réplicas d'un serveur maître
+### <a name="list-replicas-for-a-primary-server"></a>Répertorier les réplicas d'un serveur principal
 
-Pour afficher tous les réplicas d'un serveur maître donné, exécutez la commande suivante :
+Pour afficher tous les réplicas d'un serveur principal donné, exécutez la commande suivante :
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -83,7 +83,7 @@ La commande `Get-AzMariaDReplica` requiert les paramètres suivants :
 | Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
-| ServerName | mydemoserver | Nom ou ID du serveur maître. |
+| ServerName | mydemoserver | Nom ou ID du serveur principal. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 
@@ -93,12 +93,12 @@ La suppression d’un serveur réplica en lecture peut être effectuée en exéc
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Supprimer un serveur maître
+### <a name="delete-a-primary-server"></a>Supprimer un serveur principal
 
 > [!IMPORTANT]
-> La suppression d’un serveur maître arrête la réplication vers tous les serveurs réplicas et supprime le serveur maître lui-même. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
+> La suppression d’un serveur principal arrête la réplication vers tous les serveurs réplicas et supprime le serveur principal proprement dit. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
 
-Pour supprimer un serveur maître, vous pouvez exécuter la cmdlet `Remove-AzPostgreSqlServer`.
+Pour supprimer un serveur principal, vous pouvez exécuter la cmdlet `Remove-AzPostgreSqlServer`.
 
 ```azurepowershell-interactive
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

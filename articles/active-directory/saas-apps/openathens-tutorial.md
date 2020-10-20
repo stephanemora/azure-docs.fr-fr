@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543939"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à OpenAthens
 
@@ -134,15 +134,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Sélectionnez **Connexions** dans la liste sous l’onglet **Gestion**.
 
-    ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Capture d’écran montrant la page de site d’entreprise « OpenAthens » avec l’élément « Connections » sélectionné dans l’onglet « Management ».](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Sélectionnez **SAML 1.1/2.0**, puis le bouton **Configurer**.
 
-    ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Capture d’écran montrant la boîte de dialogue « Select local authentication system type. » avec l’option « SAML 1.1/2.0 » et le bouton « Configure » sélectionnés.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. Pour ajouter la configuration, sélectionnez le bouton **Parcourir** pour charger le fichier .xml de métadonnées que vous avez téléchargé à partir du portail Azure, puis sélectionnez **Ajouter**.
 
-    ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Capture d’écran montrant la boîte de dialogue « Add SAML authentication system. » avec l’action « Browse » et le bouton « Add » sélectionnés.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Effectuez les étapes suivantes sous l’onglet **Détails**.
 
@@ -164,7 +164,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     h. Sous l’onglet **</> Relying Party** (Partie de confiance), copiez l’**URL des métadonnées** et ouvrez-la dans le navigateur pour télécharger le **fichier XML de métadonnées du fournisseur de services**. Chargez ce fichier de métadonnées du fournisseur de services dans la section **Configuration SAML de base** dans Azure AD.
 
-    ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Capture d’écran montrant l’onglet « Relying party » sélectionné et l’option « Metadata URL » mise en évidence.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Créer un utilisateur de test OpenAthens
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540579"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944216"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix NetScaler (authentification par en-tête)
 
@@ -392,7 +392,7 @@ Pour lier une stratégie de réécriture à un serveur virtuel à l’aide de l�
 
 1. Dans le volet **Serveur virtuel d’équilibrage de charge**, sous **Paramètres avancés**, sélectionnez **Stratégies**. Toutes les stratégies configurées pour votre instance de NetScaler figurent dans la liste.
  
-    ![Configuration de Citrix NetScaler - volet Serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Capture d’écran montrant l’onglet « Configuration » avec les champs « Nom », « Action » et « Expression » mis en évidence, et le bouton « Créer » sélectionné.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Configuration de Citrix NetScaler - volet Serveur virtuel d’équilibrage de charge](./media/header-citrix-netscaler-tutorial/header06.png)
 

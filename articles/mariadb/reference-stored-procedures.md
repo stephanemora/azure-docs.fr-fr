@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2f6d1e20db64cb0c2a64771ea26b971b22031fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529988"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91539841"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Procédures stockées de gestion Azure Database for MariaDB
 
@@ -21,17 +21,17 @@ Des procédures stockées sont disponibles sur les serveurs Azure Database for M
 
 La réplication des données entrantes permet de synchroniser les données à partir d’un serveur MariaDB qui s’exécute en local, dans des machines virtuelles ou des services de base de données hébergés par d’autres fournisseurs cloud dans le service Azure Database for MariaDB.
 
-Les procédures stockées suivantes sont utilisées pour définir ou supprimer la réplication des données entrantes entre un serveur maître et un réplica.
+Les procédures stockées suivantes sont utilisées pour définir ou supprimer la réplication des données entrantes entre un serveur source et un réplica.
 
 |**Nom de la procédure stockée**|**Paramètres d’entrée**|**Paramètres de sortie**|**Remarque sur l’utilisation**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Pour transférer des données en mode SSL, passez le contexte du certificat d’autorité de certification dans le paramètre master_ssl_ca. </br><br>Pour transférer des données sans SSL, transmettez une chaîne vide dans le paramètre master_ssl_ca.|
 |*mysql.az_replication _start*|N/A|N/A|Lance la réplication.|
 |*mysql.az_replication _stop*|N/A|N/A|Arrête la réplication.|
-|*mysql.az_replication _remove_master*|N/A|N/A|Supprime la relation de réplication entre le serveur maître et le réplica.|
+|*mysql.az_replication _remove_master*|N/A|N/A|Supprime la relation de réplication entre le serveur source et le réplica.|
 |*mysql.az_replication_skip_counter*|N/A|N/A|Ignore une erreur de réplication.|
 
-Pour configurer la réplication des données entrantes entre un serveur maître et un réplica dans Azure Database for MariaDB, consultez [Guide pratique pour configurer la réplication des données entrantes](howto-data-in-replication.md).
+Pour configurer la réplication des données entrantes entre un serveur source et un réplica dans Azure Database for MariaDB, consultez [Guide pratique pour configurer la réplication des données entrantes](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Autres procédures stockées
 

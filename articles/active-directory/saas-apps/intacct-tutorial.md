@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535838"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850572"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutoriel : Intégrer Sage Intacct à Azure Active Directory
 
@@ -189,7 +189,7 @@ Pour configurer les utilisateurs Azure AD de sorte qu’ils puissent se connecte
 
 1. Dans la section **User Information** , procédez comme suit :
 
-    ![Informations utilisateur](./media/intacct-tutorial/ic790043.png "User Information")
+    ![Capture d’écran montrant la section User Information, où vous pouvez entrer les informations à cette étape](./media/intacct-tutorial/ic790043.png "User Information").
 
     a. Tapez **l’ID utilisateur**, le **nom**, le **prénom**, **l’adresse de messagerie**, le **titre** et le **numéro de téléphone** d’un compte Azure AD que vous souhaitez approvisionner dans la section **Informations utilisateur**.
 
@@ -204,7 +204,7 @@ Pour configurer les utilisateurs Azure AD de sorte qu’ils puissent se connecte
 
 1. Cliquez sur l’onglet **Authentification unique** et vérifiez que l’**ID d’utilisateur de l’authentification unique fédérée** dans la capture d’écran ci-dessus soit identique à la valeur **Attribut source** mappée avec `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` dans la section **Attributs de l’utilisateur** du portail Azure.
 
-    ![Informations utilisateur](./media/intacct-tutorial/ic790044.png "User Information")
+    ![Capture d’écran montrant la section User Information, où vous pouvez entrer l’ID d’utilisateur de l’authentification unique fédérée.](./media/intacct-tutorial/ic790044.png "User Information")
 
 > [!NOTE]
 > Pour approvisionner des comptes d’utilisateurs Azure AD, vous pouvez utiliser d’autres outils de création de compte utilisateur Sage Intacct ou des API fournies par Sage Intacct.

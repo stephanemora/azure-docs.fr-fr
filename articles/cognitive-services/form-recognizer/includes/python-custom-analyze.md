@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 262774233871a46cf971d95a6cf5d810adf9746a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723489"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961785"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analyser des formulaires afin d’en extraire des tableaux et des paires clé-valeur
 
 À présent, vous allez utiliser le modèle nouvellement entraîné pour analyser un document et en extraire des tableaux et des paires clé-valeur. Appelez l’API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** (Analyser un formulaire) en exécutant le code suivant dans un nouveau script Python. Avant d’exécuter le script, apportez les modifications suivantes :
 
-1. Remplacez `<file path>` par le chemin d’accès du fichier de votre formulaire (par exemple, C:\temp\file.pdf). Il peut également s’agir de l’URL d’un fichier distant. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Test** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Remplacez `<file path>` par le chemin d’accès du fichier de votre formulaire (par exemple, C:\temp\file.pdf). Il peut également s’agir de l’URL d’un fichier distant. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Test** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*).
 1. Remplacez `<model_id>` par l’ID de modèle que vous avez reçu à la section précédente.
 1. Remplacez `<endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<file type>` par le type de fichier. Types pris en charge : `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.

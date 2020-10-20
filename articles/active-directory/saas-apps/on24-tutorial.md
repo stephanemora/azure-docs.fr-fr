@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554262"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Didacticiel : intégration d’Azure Active Directory avec ON24 Virtual Environment SAML Connection
 
@@ -147,7 +147,7 @@ Pour configurer Azure AD avec ON24 Virtual Environment SAML Connection, effectu
 
 5.  Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    ![Informations d’authentification unique dans Domaine et URL ON24 Virtual Environment SAML Connection](common/both-signonurl.png)
+    ![Capture d’écran montrant la section « Définir des URL supplémentaires » avec la zone de texte « URL de connexion » mise en évidence.](common/both-signonurl.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://vshow.on24.com/vshow/<INSTANCENAME>`.
 

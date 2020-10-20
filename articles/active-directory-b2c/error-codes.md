@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388525"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91664849"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codes d’erreur : Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ Les erreurs suivantes peuvent être retournées par le service Azure Active Dire
 | `AADB2C90086` | Le type d’octroi (grant_type) fourni [{0}] n’est pas pris en charge. |
 | `AADB2C90087` | L’octroi fourni n’a pas été émis pour cette version du point de terminaison de protocole. |
 | `AADB2C90088` | L’octroi fourni n’a pas été émis pour ce point de terminaison. Valeur réelle : {0} et Valeur attendue : {1} |
+| `AADB2C90091` | Annulation par l’utilisateur. |
 | `AADB2C90092` | L’application fournie, dont l’ID est « {0} », est désactivée pour le locataire « {1} ». Activez l’application, puis réessayez. |
 | `AADB2C90107` | L’application avec l’ID « {0} » ne peut pas obtenir un jeton d’ID parce que l’étendue openid n’a pas été fournie dans la requête ou que l’application n’est pas autorisée. |
 | `AADB2C90108` | L’étape d’orchestration « {0} » ne spécifie pas la valeur attendue de CpimIssuerTechnicalProfileReferenceId. |

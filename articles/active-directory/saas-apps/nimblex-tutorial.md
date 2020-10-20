@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554373"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutoriel : Intégration d’Azure Active Directory à Nimblex
 
@@ -132,19 +132,19 @@ Pour configurer l’authentification unique Azure AD avec Nimblex, effectuez les
 
 2. À droite de la page, cliquez sur le logo **Paramètres**.
 
-    ![Paramètres de Nimblex](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![Capture d’écran montrant l’icône Settings.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. Dans la page **Panneau de configuration**, sous la section **Sécurité**, cliquez sur **Authentification unique**.
 
-    ![Paramètres de Nimblex](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![Capture d’écran montrant l’élément Single Sign-on sélectionné dans le menu Security.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. Dans la page **Gérer l’authentification unique**, sélectionnez le nom de votre instance, puis cliquez sur **Modifier**.
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![Capture d’écran montrant la zone Manage Single Sign-On dans laquelle vous pouvez sélectionner Edit.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. Dans la page **Modifier le fournisseur SSO**, effectuez les étapes suivantes :
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![Capture d’écran montrant la zone Edit SSO Provider dans laquelle vous pouvez entrer les valeurs décrites.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. Dans la zone de texte **Description**, tapez le nom de votre instance.
 

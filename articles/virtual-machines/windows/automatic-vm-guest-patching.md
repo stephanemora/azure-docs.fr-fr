@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669057"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842867"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Aperçu : Mise à jour corrective automatique de l’invité de machine virtuelle pour les machines virtuelles Windows dans Azure
 
@@ -251,8 +251,10 @@ Les résultats de l’installation des patchs pour votre machine virtuelle peuve
 ## <a name="on-demand-patch-assessment"></a>Évaluation des patchs à la demande
 Si la mise à jour corrective automatique de l’invité de machine virtuelle est déjà activée pour votre machine virtuelle, une évaluation périodique des patchs est effectuée sur la machine virtuelle pendant ses heures creuses. Ce processus est automatique et les résultats de l’évaluation la plus récente peuvent être examinés par le biais de la vue d’instance de la machine virtuelle, comme décrit précédemment dans ce document. Vous pouvez également déclencher une évaluation des patchs à la demande pour votre machine virtuelle à tout moment. L’évaluation des patchs peut prendre quelques minutes et l’état de l’évaluation la plus récente est mis à jour dans la vue d’instance de la machine virtuelle.
 
+L’activation de la fonctionnalité en préversion requiert une inscription unique à la fonctionnalité *InGuestPatchVMPreview* par abonnement. La préversion des fonctionnalités pour l’évaluation des correctifs à la demande peut être activée à la suite du [processus d’activation de la préversion](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) décrit précédemment pour la mise à jour corrective de l’invité de machine virtuelle.
+
 > [!NOTE]
->L’évaluation des patchs à la demande ne déclenche pas automatiquement l’installation des patchs. Les patchs évalués et en vigueur pour la machine virtuelle seront installés uniquement pendant les heures creuses de la machine virtuelle, en suivant le processus de mise à jour corrective selon la première disponibilité décrit précédemment dans ce document.
+>L’évaluation des correctifs à la demande ne déclenche pas automatiquement l’installation des correctifs. Les patchs évalués et en vigueur pour la machine virtuelle seront installés uniquement pendant les heures creuses de la machine virtuelle, en suivant le processus de mise à jour corrective selon la première disponibilité décrit précédemment dans ce document.
 
 ### <a name="rest-api"></a>API REST
 ```

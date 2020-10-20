@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546829"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850708"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Kanbanize
 
@@ -153,7 +153,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. Dans la page du volet Administration, à gauche du menu, cliquez sur **Integrations**, puis activez l’option **Single Sign-On** (Authentification unique).
 
-    ![Intégrations Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Capture d’écran montrant le volet Administration avec l’option Integrations sélectionnée.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. Dans la section Integrations, cliquez sur **CONFIGURE** (Configurer) pour ouvrir la page **Single Sign-On Integration** (Intégration de l’authentification unique).
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 7. Dans la page **Single Sign-On Configuration** (Configuration de l’authentification unique), sous **Configurations**, effectuez les étapes suivantes :
 
-    ![Intégrations Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Capture d’écran montrant la page Edit Single Sign-On Integration dans laquelle vous pouvez entrer les valeurs de cette étape.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. Dans la zone de texte **Idp Entity ID** (Identificateur d’entité du fournisseur d’identité), collez l’**Identificateur Azure AD** que vous avez copié dans le portail Azure.
 

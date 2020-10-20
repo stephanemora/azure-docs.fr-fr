@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950117"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776134"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 
@@ -104,6 +104,8 @@ Envoyez cet en-tête en tant que requête à l’URL de l’API suivante : `http
 La réponse, en cas de réussite, consiste en une collection de détections de risques concernant l’identité ainsi que les données associées au format JSON OData, qui peuvent être analysées et gérées selon vos besoins.
 
 ### <a name="sample"></a>Exemple
+
+Cet exemple montre l’utilisation d’un secret partagé pour l’authentification. Dans un environnement de production, le stockage des secrets dans du code est généralement mal vu. Les organisations peuvent utiliser des identités gérées pour les ressources Azure pour sécuriser ces informations d’identification. Pour en savoir plus sur les identités managées, consultez l’article [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md)
 
 Voici un exemple de code pour l’authentification et l’appel de l’API par le biais de PowerShell.  
 Il suffit d’ajouter l’ID client, la clé secrète, ainsi que le domaine du locataire.

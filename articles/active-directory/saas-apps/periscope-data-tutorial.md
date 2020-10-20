@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553909"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutoriel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -123,7 +123,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
 2. Ouvrez le menu engrenage en bas à gauche, puis ouvrez le menu **Billing** (Facturation) > **Security** (Sécurité) et effectuez les étapes suivantes. Seuls les administrateurs ont accès à ces paramètres.
 
-    ![Informations de configuration de Periscope Data](./media/periscope-data-tutorial/configure01.png)
+    ![Capture d’écran montrant la boîte de dialogue « Security » avec les paramètres sélectionnés.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copiez l’**URL des métadonnées de fédération de l’application** que vous avez récupérée à l’étape 5 **Certificat de signature SAML** et ouvrez-la dans un navigateur. Un document XML s’ouvre.
 
@@ -143,7 +143,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
     i. Pour terminer, cliquez sur **Save** (Enregistrer) et **confirmez** la modification apportée aux paramètres d’authentification unique en tapant **Logout** (Déconnexion).
 
-    ![Informations de configuration de Periscope Data](./media/periscope-data-tutorial/configure02.png)
+    ![Capture d’écran montrant la boîte de dialogue « Update SSO Configuration » avec le mot « logout » tapé dans la zone de texte mise en évidence, et le bouton « Confirm » sélectionné.](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -206,7 +206,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Periscope Data, vous
 
 2. Cliquez sur l’icône **Settings** (Paramètres) dans le bas du menu à gauche et accédez à **Permissions** (Autorisations).
 
-    ![Informations de configuration de Periscope Data](./media/periscope-data-tutorial/configure03.png)
+    ![Capture d’écran montrant le menu « Settings » avec l’élément « Permissions » sélectionné.](./media/periscope-data-tutorial/configure03.png)
 
 3. Cliquez sur **ADD USER** (Ajouter un utilisateur) et effectuez les étapes suivantes :
 

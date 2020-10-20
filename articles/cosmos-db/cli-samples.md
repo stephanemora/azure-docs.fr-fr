@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498461"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840334"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemples de CLI pour Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |---|---|
 | [Créer un compte, une base de données et un conteneur Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, une base de données et un conteneur Azure Cosmos DB pour l’API Core (SQL). |
 | [Créer un compte, une base de données et un conteneur Azure Cosmos avec mise à l’échelle automatique](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, une base de données et un conteneur Azure Cosmos DB avec mise à l’échelle automatique pour l’API Core (SQL). |
-| [Changer le débit](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s pour une base de données et un conteneur.|
+| [Opérations de débit](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et un conteneur, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||
 
@@ -50,7 +50,7 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |---|---|
 | [Créer un compte, une base de données et une collection Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, une base de données et une collection Azure Cosmos DB pour l’API MongoDB. |
 | [Créer un compte et une base de données avec mise à l’échelle automatique et deux collections Azure Cosmos avec débit partagé](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte et une base de données avec mise à l’échelle automatique et deux collections Azure Cosmos DB avec débit partagé pour l’API MongoDB. |
-| [Changer le débit](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s pour une base de données et une collection.|
+| [Opérations de débit](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et une collection, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||
 
@@ -60,7 +60,7 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |---|---|
 | [Créer un compte, un espace de clés et une table Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, un espace de clés et une table Azure Cosmos pour l’API Cassandra. |
 | [Créer un compte, un espace de clés et une table Azure Cosmos avec mise à l’échelle automatique](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, un espace de clés et une table Azure Cosmos DB avec mise à l’échelle automatique pour l’API Cassandra. |
-| [Changer le débit](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s dans un espace de clés et une table.|
+| [Opérations de débit](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une table et un espace de clés, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||
 
@@ -70,7 +70,7 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |---|---|
 | [Créer un compte, une base de données et un graphe Azure Cosmos](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, une base de données et un graphe Azure Cosmos DB pour l’API Gremlin. |
 | [Créer un compte, une base de données et un graphe Azure Cosmos avec mise à l’échelle automatique](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, une base de données et un graphe Azure Cosmos DB avec mise à l’échelle automatique pour l’API Gremlin. |
-| [Changer le débit](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s pour une base de données et un graphe.|
+| [Opérations de débit](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et un graphe, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||
 
@@ -80,6 +80,6 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |---|---|
 | [Créer un compte et une table Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte et une table Azure Cosmos DB pour l’API Table. |
 | [Créer un compte et une table Azure Cosmos avec mise à l’échelle automatique](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte et une table Azure Cosmos DB avec mise à l’échelle automatique pour l’API Table. |
-| [Changer le débit](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Mettez à jour les unités de requête/s pour une table.|
+| [Opérations de débit](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une table, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||

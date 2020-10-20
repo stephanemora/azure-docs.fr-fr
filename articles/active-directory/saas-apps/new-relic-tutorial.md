@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554460"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à New Relic by Account
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans le menu situé en haut, cliquez sur **Account Settings**.
    
-    ![Paramètres du compte](./media/new-relic-tutorial/ic797036.png "Account Settings")
+    ![Capture d’écran montrant la page d’accueil avec l’élément Account settings sélectionné.](./media/new-relic-tutorial/ic797036.png "Account Settings")
 
 3. Cliquez sur l’onglet **Security and authentication**, puis sur l’onglet **Single sign on**.
    
@@ -158,11 +158,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans le menu situé en haut, cliquez sur **Account Settings**.
    
-    ![Paramètres du compte](./media/new-relic-tutorial/ic797040.png "Account Settings")
+    ![Capture d’écran montrant l’élément Account settings sélectionné dans la page d’accueil.](./media/new-relic-tutorial/ic797040.png "Account Settings")
 
 3. Dans le volet **Account** situé sur le côté gauche, cliquez sur **Summary**, puis sur **Add user**.
    
-    ![Paramètres du compte](./media/new-relic-tutorial/ic797041.png "Account Settings")
+    ![Capture d’écran montrant le volet Summary dans lequel vous pouvez sélectionner Add user.](./media/new-relic-tutorial/ic797041.png "Account Settings")
 
 4. Dans la boîte de dialogue **Active users** , procédez comme suit :
    

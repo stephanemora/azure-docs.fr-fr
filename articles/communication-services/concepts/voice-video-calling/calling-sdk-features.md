@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665189"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977865"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -34,7 +34,8 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Passer un appel de groupe avec plus de deux utilisateurs (jusqu’à 350 utilisateurs)                                                       | ✔️   | ✔️            | ✔️ 
 |                   | Promouvoir un appel un-à-un avec deux utilisateurs en un appel de groupe avec plus de deux utilisateurs                                 | ✔️   | ✔️            | ✔️ 
 |                   | Rejoindre un appel de groupe après son démarrage                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️            | ✔️ 
+|                   | Inviter un autre participant VoIP à rejoindre un appel de groupe en cours                                                       | ✔️   | ✔️            | ✔️
+|                   | Activer/désactiver la vidéo                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Désactiver/réactiver le micro                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Basculer entre les caméras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Mettre en attente/reprendre                                                                                                  | ✔️   | ✔️            | ✔️           

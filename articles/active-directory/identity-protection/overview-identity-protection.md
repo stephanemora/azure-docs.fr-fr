@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265270"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996533"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -113,6 +113,8 @@ Les administrateurs d’accès conditionnel peuvent également créer des strat�
 | Notifications | Alertes Utilisateurs à risque détectés  | Non | Non |Oui |
 | Notifications | Synthèse hebdomadaire| Non | Non | Oui | 
 | | Stratégie d'inscription MFA | Non | Non | Oui |
+
+Vous trouverez des informations supplémentaires sur ces rapports détaillés dans l’article [Procédure : Examiner les risques](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

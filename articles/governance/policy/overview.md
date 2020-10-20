@@ -1,14 +1,14 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538954"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873912"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -72,16 +72,16 @@ Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux f
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations.
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations. Un **Administrateur de l’accès utilisateur** est nécessaire pour accorder les autorisations nécessaires à l’identité managée sur les affectations **deployIfNotExists** ou **modify**.
 
 Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> L’identité managée d’une affectation de stratégie **deployIfNotExists** a besoin d’autorisations suffisantes pour créer ou mettre à jour les ressources incluses dans le modèle. Pour plus d’informations, consultez [Configurer une définition de stratégie pour la correction](./how-to/remediate-resources.md#configure-policy-definition).
+> L’identité managée d’une affectation de stratégie **deployIfNotExists** ou **modify** a besoin d’autorisations suffisantes pour créer ou mettre à jour les ressources ciblées. Pour plus d’informations, consultez [Configurer une définition de stratégie pour la correction](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Ressources couvertes par Azure Policy
 
-Azure Policy évalue toutes les ressources dans Azure. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/general/overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
+Azure Policy évalue toutes les ressources dans Azure et toutes les ressources Arc. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/general/overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies
 
@@ -94,7 +94,7 @@ Voici quelques conseils et astuces à garder à l’esprit :
 - Nous vous recommandons de créer et d’affecter des définitions d’initiative même pour une définition de stratégie unique.
   Par exemple, vous avez la définition de stratégie _policyDefA_ et la créez sous la définition d’initiative _initiativeDefC_. Si vous créez une autre définition de stratégie ultérieurement pour _policyDefB_ avec des objectifs similaires à _policyDefA_, vous pouvez l’ajouter sous _initiativeDefC_ et les suivre ensemble.
 
-- Une fois que vous avez créé une affectation d’initiative, les définitions de stratégie ajoutées à l’initiative font également partie des affectations d’initiatives.
+- Une fois que vous avez créé une affectation d’initiative, les définitions de stratégie ajoutées à l’initiative font également partie des affectations de cette initiative.
 
 - Lors de l’évaluation d’une affectation d’initiative, toutes les stratégies dans l’initiative sont également évaluées.
   Si vous devez évaluer une stratégie individuellement, il est préférable de ne pas l’inclure dans une initiative.
@@ -112,7 +112,6 @@ Dans Azure Policy, nous proposons plusieurs stratégies intégrées qui sont dis
 - **Emplacements autorisés** (Refuser) : Restreint les emplacements disponibles pour les nouvelles ressources. Son effet permet d’appliquer vos exigences de conformité géographique.
 - **Références SKU de machine virtuelle autorisées** (Refuser) : Spécifie un ensemble de références SKU de machine virtuelle que vous pouvez déployer.
 - **Ajouter une étiquette aux ressources** (Modifier) : Applique une balise requise et sa valeur par défaut si elle n’est pas spécifiée par la requête de déploiement.
-- **Ajouter l’étiquette et sa valeur par défaut** (Ajouter) : Applique une balise requise et sa valeur à une ressource.
 - **Types de ressources non autorisés** (Refuser) : Empêche une liste de types de ressources d’être déployés.
 
 Pour implémenter ces définitions de stratégie (définitions intégrées et personnalisées), vous devez les affecter. Vous pouvez affecter l’une de ces stratégies par le biais du portail Azure, de PowerShell ou d’Azure CLI.

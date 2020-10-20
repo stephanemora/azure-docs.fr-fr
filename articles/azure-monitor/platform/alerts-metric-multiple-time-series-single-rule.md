@@ -4,14 +4,14 @@ description: Alerte à l’échelle à l’aide d’une règle d’alerte unique
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186752"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91704478"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Surveiller plusieurs séries chronologiques dans une seule règle d’alerte de métrique
 
@@ -174,6 +174,11 @@ La tarification des règles d’alerte de métrique est disponible sur la [page 
 Lors de la création d’une règle d’alerte de métrique, l’estimation de prix fournie est basée sur les fonctionnalités sélectionnées et le nombre de séries chronologiques analysées, qui est déterminé à partir de la configuration de la règle et des valeurs actuelles des métriques. Toutefois, les frais mensuels sont basés sur les évaluations réelles de la série chronologique et peuvent donc différer de l’estimation d’origine si certaines séries chronologiques n’ont pas de données à évaluer ou si la règle d’alerte utilise des fonctionnalités qui peuvent la faire évoluer dynamiquement.
 
 Par exemple, une règle d’alerte peut afficher une estimation de prix élevée si elle s’appuie sur la fonctionnalité à plusieurs dimensions et qu’un grand nombre de combinaisons de valeurs de dimension sont sélectionnées, ce qui entraîne la surveillance de nombreuses séries chronologiques. Toutefois, les frais réels de cette règle d’alerte peuvent être inférieurs si toutes les séries chronologiques résultant des combinaisons de valeurs de dimension n’ont pas réellement de données à évaluer.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Nombre de séries chronologiques analysées par une règle d’alerte unique
+
+Pour éviter les coûts excessifs, chaque règle d’alerte peut surveiller jusqu’à 5 000 séries chronologiques par défaut. Pour lever cette limite à partir de votre abonnement, ouvrez un ticket de support.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

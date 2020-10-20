@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: sample
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889747"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074598"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exemples de jeux de données et de pipelines pour le concepteur Azure Machine Learning
 
@@ -67,8 +67,8 @@ Explorez ces exemples de régression intégrés.
 
 | Exemple de titre | Description | 
 | --- | --- |
-| [Régression – Prédiction du prix des véhicules automobiles (simple)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Prédit le prix des véhicules à l’aide d’une régression linéaire. |
-| [Régression – Prédiction du prix des véhicules automobiles (avancé)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Prédit le prix des véhicules à l’aide des régresseurs de la forêt de décision et de l’arbre de décision optimisé. Compare les modèles pour trouver le meilleur algorithme.
+| [Régression – Prédiction du prix des véhicules automobiles (simple)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Prédit le prix des véhicules à l’aide d’une régression linéaire. |
+| [Régression – Prédiction du prix des véhicules automobiles (avancé)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Prédit le prix des véhicules à l’aide des régresseurs de la forêt de décision et de l’arbre de décision optimisé. Compare les modèles pour trouver le meilleur algorithme.
 
 ## <a name="classification"></a>classification ;
 
@@ -76,19 +76,17 @@ Explorez ces exemples de classification intégrés. Pour plus d’information su
 
 | Exemple de titre | Description | 
 | --- | --- |
-| [Classification binaire avec sélection des caractéristiques – Prédiction des revenus](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Prédit des revenus comme étant élevés ou faibles à l’aide d’un arbre de décision optimisé à deux classes. Utilisez la corrélation de Pearson pour sélectionner les caractéristiques.
-| [Classification binaire avec un script Python personnalisé – Prédiction du risque de crédit](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classe les demandes de crédit comme présentant un risque élevé ou faible. Utilisez le module Exécuter un script Python pour pondérer vos données.
-| [Classification binaire – Prédiction de la relation client](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Prédit l’attrition clients à l’aide d’arbres de décision optimisés à deux classes. Utilisez SMOTE pour échantillonner des données biaisées.
-| [Classification de texte – Jeu de données Wikipédia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classifie des types de sociétés à partir d’articles Wikipédia avec la régression logistique multiclasse. |
+| [Classification binaire avec sélection des caractéristiques – Prédiction des revenus](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Prédit des revenus comme étant élevés ou faibles à l’aide d’un arbre de décision optimisé à deux classes. Utilisez la corrélation de Pearson pour sélectionner les caractéristiques.
+| [Classification binaire avec un script Python personnalisé – Prédiction du risque de crédit](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classe les demandes de crédit comme présentant un risque élevé ou faible. Utilisez le module Exécuter un script Python pour pondérer vos données.
+| [Classification binaire – Prédiction de la relation client](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Prédit l’attrition clients à l’aide d’arbres de décision optimisés à deux classes. Utilisez SMOTE pour échantillonner des données biaisées.
+| [Classification de texte – Jeu de données Wikipédia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Classifie des types de sociétés à partir d’articles Wikipédia avec la régression logistique multiclasse. |
 | Classification multiclasse - Reconnaissance des lettres | Crée un ensemble de classifieurs binaires pour classifier les lettres écrites. |
 
 ## <a name="computer-vision"></a>Vision par ordinateur
 
 Explorez ces exemples de vision par ordinateur intégrée. Pour plus d’information sur ces exemples sans passer par les liens de la documentation, ouvrez les exemples et affichez les commentaires des modules.
 
-| Exemple de titre | Description | 
-| --- | --- |
-| Recommandation basée sur Wide & Deep – Prédiction d’évaluation de restaurant | Créez un moteur de recommandation de restaurant à partir des fonctionnalités et évaluations d’un restaurant/utilisateur.|
+| Classification d’images à l’aide de DenseNet | Utilisez les modules de vision par ordinateur pour générer un modèle de classification d’images basé sur PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Générateur de recommandations
 
@@ -96,7 +94,8 @@ Explorez ces exemples de générateur de recommandations intégrés. Pour plus d
 
 | Exemple de titre | Description | 
 | --- | --- |
-| Classification d’images à l’aide de DenseNet | Utilisez les modules Vision par ordinateur pour créer un modèle de classification d’image basé sur PyTorch DenseNet.| 
+| Recommandation basée sur Wide & Deep – Prédiction d’évaluation de restaurant | Créez un moteur de recommandation de restaurant à partir des fonctionnalités et évaluations d’un restaurant/utilisateur.|
+| Recommandation - Tweets d’évaluation des films | Créez un moteur de recommandations de films à partir des fonctionnalités et évaluations d’un film/utilisateur.|
 
 ## <a name="utility"></a>Utilitaire
 
@@ -105,7 +104,7 @@ Découvrez les exemples qui montrent les utilitaires et les caractéristiques de
 | Exemple de titre | Description | 
 | --- | --- |
 | Classification binaire à l’aide du modèle Vowpal Wabbit – Prédiction Adult Income | Vowpal Wabbit est un système de Machine Learning qui repousse les limites de l’apprentissage automatique grâce à des techniques telles que l’apprentissage en ligne, par hachage, par allreduce, par réductions, par learning2search, mais aussi l’apprentissage actif et interactif. Cet exemple montre comment utiliser le modèle Vowpal Wabbit pour générer un modèle de classification binaire. 
-| [Utiliser un script R personnalisé – Prédiction de retard des vols](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Utilisez un script R personnalisé pour prédire si un vol de passagers planifié est retardé de plus de 15 minutes.
+| [Utiliser un script R personnalisé – Prédiction de retard des vols](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Utilisez un script R personnalisé pour prédire si un vol de passagers planifié est retardé de plus de 15 minutes.
 | Validation croisée pour la classification binaire - Prédiction des revenus des adultes | Utilise la validation croisée afin de créer un classifieur binaire pour les revenus des adultes.
 | Importance de la fonctionnalité de permutation | Utilise l’importance d’une caractéristique de permutation pour calculer les scores d’importance du jeu de données de test. 
 | Réglage des paramètres pour la classification binaire - Prédiction des revenus des adultes | Utilise Optimiser les hyperparamètres du modèle afin de trouver des hyperparamètres optimaux pour la création d’un classifieur binaire. |
@@ -119,7 +118,7 @@ Les exemples de jeux de données sont disponibles dans la catégorie **Jeux de d
 | Nom du&nbsp;jeu de données&nbsp;&nbsp;&nbsp;&nbsp;| Description du jeu de données |
 |-------------|:--------------------|
 | Jeu de données Adult Census Income Binary Classification | Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.<br/>**Utilisation**: classifier des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.<br/> **Recherche associée :** Kohavi, R., Becker, B., (1996). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science|
-|Données sur le prix des véhicules automobiles (brutes)|Informations sur les véhicules automobiles par marque et modèle, incluant le prix, des caractéristiques telles que le nombre de cylindres et de litres au 100, et une note de risque d'assurance.<br/> La note de risque est initialement associée au prix de l’automobile. Elle est ensuite ajustée en fonction du risque réel selon un processus que les actuaires connaissent sous le nom de symbolisation. La valeur +3 indique que le véhicule est à risque et la valeur -3 qu’il est plutôt sûr.<br/>**Utilisation** :</b> prédire le score de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariée.<br/>**Recherche associée :** </b> Schlimmer, J.C. (1987). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
+|Données sur le prix des véhicules automobiles (brutes)|Informations sur les véhicules automobiles par marque et modèle, incluant le prix, des caractéristiques telles que le nombre de cylindres et de litres au 100, et une note de risque d'assurance.<br/> La note de risque est initialement associée au prix de l’automobile. Elle est ensuite ajustée en fonction du risque réel selon un processus que les actuaires connaissent sous le nom de symbolisation. La valeur +3 indique que le véhicule est à risque et la valeur -3 qu’il est plutôt sûr.<br/>**Utilisation**: prédire le score de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariée.<br/>**Recherche associée :** Schlimmer, J.C. (1987). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
 | Étiquettes de l'appétence CRM partagées |Étiquettes provenant du KDD Cup 2009 Customer Relationship Prediction Challenge ([orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |Étiquettes de l'attrition CRM partagées|Étiquettes provenant du KDD Cup 2009 Customer Relationship Prediction Challenge ([orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |Jeu de données CRM partagé | Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Challenge ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Le jeu de données contient 50 000 clients de la société de télécoms française Orange. Chaque client possède 230 caractéristiques rendues anonymes, dont 190 sont numériques et 40 sont catégorielles. Elles sont très fragmentées. |
@@ -130,7 +129,9 @@ Les exemples de jeux de données sont disponibles dans la catégorie **Jeux de d
 |Classifications des films|Ce jeu de données est une version étendue du jeu de données Movie Tweetings. Il contient 170 000 évaluations de film, tirées de tweets structurés publiés sur Twitter. Chaque instance correspond à un tweet et constitue un tuple : ID utilisateur, ID IMDB, évaluation, horodatage, nombre de favoris pour ce tweet et nombre de retweets pour ce tweet. Ce jeu de données a été fourni par A. Said, S. Dooms, B. Loni et D. Tikk dans le cadre du Recommender Systems Challenge 2014.|
 |Jeu de données météorologiques|Observations météorologiques terrestres effectuées toutes les heures par la NOAA ([données fusionnées, de 201304 à 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son chargement dans le concepteur, le jeu de données a été traité comme suit :    <br/> - Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants    <br/> - Les stations météo non associées à l’un des 70 aéroports les plus fréquentés ont été supprimées    <br/> - La colonne Date a été divisée en plusieurs colonnes distinctes indiquant l’année, le mois et le jour    <br/> - Les colonnes suivantes ont été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter|
 |Jeu de données Wikipedia concernant le SP 500|Les données sont extraites de Wikipédia (https://www.wikipedia.org/) ), notamment d’articles sur chaque société cotée au S&P 500 et sont stockées sous forme de données XML.    <br/>Avant son chargement dans le concepteur, le jeu de données a été traité comme suit :    <br/> - Extraction du contenu textuel de chaque société particulière    <br/> - Suppression de la mise en forme wiki    <br/> - Suppression des caractères non alphanumériques    <br/> - Conversion de tout le texte en minuscule    <br/> - Ajout d’autres catégories de sociétés connues    <br/>Notez que pour certaines sociétés, aucun article n’a pu être trouvé, donc le nombre d’enregistrements est inférieur à 500.|
-
+|Données des caractéristiques des restaurants| Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le type de gastronomie, le style de lieu et l'emplacement. <br/>**Utilisation**: utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation.<br/> **Recherche associée :** Bache, K. and Lichman, M. (2013). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.|
+|Evaluations des restaurants| Contient les notes attribuées par les consommateurs à des restaurants sur une échelle de 0 à 2.<br/>**Utilisation**: utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <br/>**Recherche associée :** Bache, K. and Lichman, M. (2013). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.|
+|Données des clients des restaurants| Jeu de données sur les clients, comprenant des données démographiques et des préférences. <br/>**Utilisation**: utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <br/> **Recherche associée :** Bache, K. and Lichman, M. (2013). [Dépôt Machine Learning UCI](https://archive.ics.uci.edu/ml) Irvine, Californie : University of California, School of Information and Computer Science.|
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

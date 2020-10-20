@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-ms.openlocfilehash: daef8a91c2f31379ebf50d1e8ec66d0b33ebb2cc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 081c61610c4134917ffa90cf45fb096f3df4bcbe
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534811"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console
 
@@ -148,19 +148,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’onglet **Settings** dans le volet de navigation de gauche.
 
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné dans le volet de navigation.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Cliquez sur l’onglet **Administration**.
 
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Capture d’écran montrant l’élément Administration sélectionné à partir de la section Settings.](./media/netskope-cloud-security-tutorial/config-administration.png)
 
 1. Cliquez sur l’onglet **SSO**.
 
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Capture d’écran montrant l’option SSO sélectionnée dans Administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
 
 1. Dans la section **Network Settings**, effectuez les étapes suivantes :
     
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Capture d’écran montrant la zone Network Settings dans laquelle vous pouvez indiquer les valeurs décrites.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
     a. Copiez la valeur **Assertion Consumer Service URL**, puis collez-la dans la zone **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
@@ -168,11 +168,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **EDIT SETTINGS** sous la section **SSO/SLO Settings**.
 
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Capture d’écran montrant la section SSO/SLO Settings, dans laquelle vous pouvez sélectionner EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
 
 1. Dans la fenêtre contextuelle **Settings**, effectuez les étapes suivantes :
 
-    ![Configuration de Netskope Administrator Console](./media/netskope-cloud-security-tutorial/configuration.png)
+    ![Capture d’écran montrant la boîte de dialogue Settings où vous pouvez entrer les valeurs décrites.](./media/netskope-cloud-security-tutorial/configuration.png)
 
     a. Sélectionnez **Enable SSO**.
 
@@ -194,23 +194,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’onglet **Settings** dans le volet de navigation de gauche.
 
-    ![Création d’un utilisateur Netskope Administrator Console](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Cliquez sur l’onglet **Active Platform**.
 
-    ![Création d’un utilisateur Netskope Administrator Console](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-cloud-security-tutorial/user1.png)
 
 1. Cliquez sur l’onglet **Users** (Utilisateurs).
 
-    ![Création d’un utilisateur Netskope Administrator Console](./media/netskope-cloud-security-tutorial/add-user.png)
+    ![Capture d’écran montrant l’option Users sélectionnée à partir de Active Platform.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. Cliquez sur **ADD USERS**.
 
-    ![Création d’un utilisateur Netskope Administrator Console](./media/netskope-cloud-security-tutorial/user-add.png)
+    ![Capture d’écran montrant la boîte de dialogue Users dans laquelle vous pouvez sélectionner ADD USERS.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. Entrez l’adresse e-mail de l’utilisateur à ajouter, puis cliquez sur **ADD**.
 
-    ![Création d’un utilisateur Netskope Administrator Console](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+    ![Capture d’écran montrant la zone Add Users dans laquelle vous pouvez entrer une liste d’utilisateurs.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

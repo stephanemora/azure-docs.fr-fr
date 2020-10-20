@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528843"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutoriel : Intégration d’Azure Active Directory à Meta Networks Connector
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL Meta Networks Connector](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Meta Networks Connector](common/both-advanced-urls.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/both-advanced-urls.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`.
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
 6. L’application Meta Networks Connector attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant User Attributes avec l’icône Edit sélectionnée.](common/edit-attribute.png)
     
 7. En plus de ce qui précède, l’application Meta Networks Connector s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
@@ -134,9 +134,9 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant User claims avec l’option permettant d’ajouter une nouvelle revendication.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Capture d’écran montrant la boîte de dialogue Manage user claims où vous pouvez entrer les valeurs décrites.](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -173,19 +173,19 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     
 2. Accédez à **Administrator** (Administrateur) et sélectionnez **Settings** (Paramètres).
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné dans le menu Administration.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Assurez-vous que les options **Log Internet Traffic** (Journaliser le trafic Internet) et **Force VPN MFA** (Forcer l’authentification multifacteur VPN) sont désactivées.
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Capture d’écran montrant la désactivation de ces paramètres.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Accédez à **Administrator** (Administrateur) et sélectionnez **SAML** (SAML).
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Capture d’écran montrant l’élément SAML sélectionné dans le menu Administration.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Effectuez les étapes suivantes dans la page **DETAILS** (DÉTAILS) :
     
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Capture d’écran montrant la page DETAILS dans laquelle vous pouvez indiquer les valeurs décrites.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copiez la valeur de **SSO URL** (URL SSO) et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Meta Networks Connector**.
     
@@ -197,7 +197,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     
 6. Sous l’onglet **GENERAL**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Capture d’écran montrant la page GENERAL dans laquelle vous pouvez indiquer les valeurs décrites.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. Dans la zone **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 

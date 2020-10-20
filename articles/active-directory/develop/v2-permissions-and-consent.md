@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705688"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842680"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -48,15 +48,15 @@ Dans OAuth 2.0, ces types d’autorisations sont appelés des *étendues*. Ils 
 * Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
 * Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
 
-Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les demandes dirigées vers le point de terminaison d’autorisation de la plateforme d’identités Microsoft. Toutefois, certaines autorisations à privilèges élevés peuvent uniquement être accordées par le biais du consentement de l’administrateur. Elles sont demandées/accordées à l’aide du [point de terminaison de consentement de l’administrateur](v2-permissions-and-consent.md#admin-restricted-permissions). Lisez la suite pour en savoir plus.
+Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les demandes dirigées vers le point de terminaison d’autorisation de la plateforme d’identités Microsoft. Toutefois, certaines autorisations à privilèges élevés peuvent uniquement être accordées par le biais du consentement de l’administrateur. Elles sont demandées/accordées à l’aide du [point de terminaison de consentement de l’administrateur](#admin-restricted-permissions). Lisez la suite pour en savoir plus.
 
 ## <a name="permission-types"></a>Types d'autorisations
 
 La plateforme d’identité Microsoft prend en charge deux types d’autorisations : les **autorisations déléguées** et les **autorisations d’application**.
 
-* Les **autorisations déléguées** sont utilisées par les applications pour lesquelles un utilisateur est connecté et présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir pour le compte de l’utilisateur connecté lors des appels à une ressource cible. Certaines autorisations déléguées peuvent être accordées par des utilisateurs non administrateurs, mais certaines autorisations à privilèges élevés requièrent le [consentement de l’administrateur](v2-permissions-and-consent.md#admin-restricted-permissions). Pour connaître les rôles administrateur habilités à donner leur consentement pour les autorisations déléguées, consultez [Autorisations du rôle administrateur dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* Les **autorisations déléguées** sont utilisées par les applications pour lesquelles un utilisateur est connecté et présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir pour le compte de l’utilisateur connecté lors des appels à une ressource cible. Certaines autorisations déléguées peuvent être accordées par des utilisateurs non administrateurs, mais certaines autorisations à privilèges élevés requièrent le [consentement de l’administrateur](#admin-restricted-permissions). Pour connaître les rôles administrateur habilités à donner leur consentement pour les autorisations déléguées, consultez [Autorisations du rôle administrateur dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* Les **autorisations d’application** sont utilisées par les applications qui s’exécutent sans qu’un utilisateur soit connecté et présent (les applications qui s’exécutent en tant que services ou démons en arrière-plan, par exemple).  Les autorisations de l’application peuvent uniquement être [accordées par un administrateur](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* Les **autorisations d’application** sont utilisées par les applications qui s’exécutent sans qu’un utilisateur soit connecté et présent (les applications qui s’exécutent en tant que services ou démons en arrière-plan, par exemple).  Les autorisations de l’application peuvent uniquement être [accordées par un administrateur](#requesting-consent-for-an-entire-tenant).
 
 Les _autorisations effectives_ correspondent aux autorisations accordées à votre application lorsqu’elle envoie des requêtes à une ressource cible. Vous devez comprendre la différence entre les autorisations déléguées, les autorisations d’application et les autorisations effectives que votre application reçoit lorsqu’elle interroge la ressource cible.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Cela génère un écran de consentement pour toutes les autorisations inscrites (si cela est applicable en fonction des descriptions ci-dessus du consentement et de `/.default`), puis retourne un jeton id_token, plutôt qu’un jeton d’accès.  Ce comportement existe pour certains clients hérités qui passent de la bibliothèque ADAL à la bibliothèque MSAL et **ne doit pas** être utilisé par les nouveaux clients ciblant le point de terminaison de la plateforme d’identités Microsoft.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Flux d’octroi des informations d’identification du client et /.default
+
+Une autre utilisation de `./default` consiste à demander des autorisations d’application (ou des *rôles*) dans une application non interactive telle qu’une application démon qui utilise le flux d’octroi des [informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) pour appeler une API Web.
+
+Pour créer des autorisations d’application (rôles) pour une API Web, consultez [Procédure : Ajouter des rôles d’application dans votre application](howto-add-app-roles-in-azure-ad-apps.md).
+
+Les demandes d’informations d’identification du client dans votre application cliente **doivent** inclure `scope={resource}/.default`, où `{resource}` est l’API Web que votre application envisage d’appeler. L’émission d’une demande d’informations d’identification du client avec des autorisations d’application individuelles (rôles) n’est **pas** prise en charge. Toutes les autorisations d’application (rôles) qui ont été accordées pour cette API Web seront incluses dans le jeton d’accès retourné.
+
+Pour accorder l’accès aux autorisations d’application que vous définissez, y compris l’octroi du consentement administrateur pour l’application, consultez [Démarrage rapide : Configurer une application cliente pour accéder à une API Web](quickstart-configure-app-access-web-apis.md).
+
 ### <a name="trailing-slash-and-default"></a>Barre oblique de fin et /.default
 
 Certains URI de ressource sont dotés d'une barre oblique de fin (`https://contoso.com/` par opposition à `https://contoso.com`), ce qui peut entraîner des problèmes de validation des jetons.  Cela survient principalement en cas de demande de jeton pour la gestion des ressources Azure (`https://management.azure.com/`), qui présente une barre oblique de fin dans leur URI de ressource et dont la présence est requise lorsque le jeton est demandé.  Ainsi, en cas de demande de jeton pour `https://management.azure.com/` et à l'aide de `/.default`, vous devez demander `https://management.azure.com//.default` (notez de la double barre oblique).
@@ -311,3 +321,8 @@ En général, si vous avez validé l'émission du jeton et que celui-ci est reje
 ## <a name="troubleshooting-permissions-and-consent"></a>Résolution des problèmes d’autorisations et de consentement
 
 Si vous, ou les utilisateurs de votre application, constatez des erreurs inattendues au cours du processus de consentement, consultez cet article pour connaître les étapes de dépannage : [Erreur inattendue lors du consentement à une application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Jetons d’ID | Plateforme d’identités Microsoft](id-tokens.md)
+* [Jetons d’accès | Plateforme d’identités Microsoft](access-tokens.md)

@@ -3,18 +3,18 @@ title: Virtual Network
 titleSuffix: Azure Cognitive Services
 description: Configurez une sécurité réseau multiniveau pour vos ressources Cognitive Services.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 10/07/2020
+ms.author: aahi
+ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505025"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843139"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -40,40 +40,29 @@ Les règles de réseau sont appliquées sur tous les protocoles réseau vers Azu
 
 ## <a name="supported-regions-and-service-offerings"></a>Régions et offres de services prises en charge
 
-Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les services Cognitive Services sont disponibles](https://azure.microsoft.com/global-infrastructure/services/). Si le service Cognitive Service n’est pas listé, il ne prend pas actuellement en charge les réseaux virtuels.
+Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les services Cognitive Services sont disponibles](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services prend en charge les balises de service pour la configuration des règles de réseau. Les services répertoriés ci-dessous sont inclus dans la balise de service **CognitiveServicesManagement**.
 
 > [!div class="checklist"]
-> * [Détecteur d’anomalies](./anomaly-detector/index.yml)
-> * [Vision par ordinateur](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Visage](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Analyse de texte](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Lecteur immersif](./immersive-reader/index.yml)
+> * Détecteur d’anomalies
+> * Vision par ordinateur
+> * Content Moderator
+> * Vision personnalisée
+> * Face
+> * Form Recognizer
+> * Language Understanding (LUIS)
+> * Personalizer
+> * Analyse de texte
+> * QnA Maker
+> * Traduction de texte Translator Text
+> * Lecteur immersif
 
-## <a name="service-tags"></a>Étiquettes de service
+> [!NOTE]
+> Si vous utilisez LUIS, la balise **CognitiveServicesManagement** vous permet uniquement d’utiliser le service à l’aide du kit de développement logiciel (SDK) ou de l’API REST. Pour accéder au portail LUIS et l’utiliser à partir d’un réseau virtuel, vous devez utiliser les balises suivantes :  
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
 
-Cognitive Services prend en charge les balises de service pour la configuration des règles de réseau. Les services répertoriés ci-dessous sont inclus dans la balise de service **CognitiveServicesManagement**.
-
-> [!div class="checklist"]
-> * [Détecteur d’anomalies](./anomaly-detector/index.yml)
-> * [Vision par ordinateur](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Visage](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding (LUIS)](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Analyse de texte](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator](./translator/index.yml)
-> * [Speech Service](./speech-service/index.yml)
-> * [Lecteur immersif](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Changer la règle d’accès réseau par défaut
 

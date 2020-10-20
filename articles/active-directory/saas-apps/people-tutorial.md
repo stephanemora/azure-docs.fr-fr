@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552388"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à People
 
@@ -142,11 +142,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
    
 4. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+    ![Capture d’écran montrant le menu de gauche avec l’élément « Settings » sélectionné.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Cliquez sur **Company**.
 
-    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+    ![Capture d’écran montrant l’élément « Company » sélectionné dans le menu « Settings ».](./media/people-tutorial/tutorial_people_002.png)
 
 6. Dans **Importer le fichier de métadonnées SAML « Authentification unique »** , cliquez sur **Parcourir** pour importer le fichier de métadonnées téléchargé.
 

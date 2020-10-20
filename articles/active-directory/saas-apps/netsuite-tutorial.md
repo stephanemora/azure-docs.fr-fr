@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554513"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940784"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à NetSuite
 
@@ -96,7 +96,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
     * Vous obtiendrez la valeur **<`Instance ID`>** dans la section Configuration de NetSuite, qui est expliquée plus loin dans le tutoriel à l’étape 8 sous Configuration de NetSuite. Vous trouverez le domaine exact (par exemple, system.na0.netsuite.com dans le cas présent).
 
-        ![Configurer l’authentification unique](./media/NetSuite-tutorial/domain-value.png)
+        ![Capture d’écran affichant la page Configuration SAML dans laquelle vous pouvez obtenir les valeurs.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Les valeurs des URL précédentes ne sont pas réelles. Mettez-les à jour avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
@@ -164,31 +164,31 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
 2. Dans la barre de navigation supérieure, sélectionnez **Setup** (Configuration), puis **Company** > **Enable Features** (Société>Activer des fonctionnalités).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Capture d’écran affichant l’élément Enable Features sélectionné à partir de Company.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. Dans la barre d’outils située au milieu de la page, sélectionnez sur **SuiteCloud**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Capture d’écran montrant la sélection de SuiteCloud.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. Dans la section **Manage Authentication** (Gérer l’authentification), cochez la case **SAML Single Sign-on** (Authentification unique SAML) pour activer l’option du même nom dans NetSuite.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Capture d’écran montrant la section Manage Authentication dans laquelle vous pouvez sélectionner SAML Single Sign-on.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. Dans la barre de navigation supérieure, sélectionnez **Setup**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-setup.png)
+    ![Capture d’écran montrant l’élément Setup sélectionné dans la barre de navigation de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Dans la liste **Setup Tasks** (Tâches de configuration), sélectionnez **Integration**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-integration.png)
+    ![Capture d’écran montrant l’élément Integration sélectionné dans SETUP TASKS.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. Sous **Manage Authentication**, sélectionnez **SAML Single Sign-on**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-saml.png)
+    ![Capture d’écran montrant l’option SAML Single Sign-on sélectionnée à partir de l’élément Integration dans SETUP TASKS.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. Dans le volet **SAML Setup** (Configuration SAML), sous **NetSuite Configuration** (Configuration de NetSuite), effectuez les étapes suivantes :
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Capture d’écran montrant la section SAML Setup dans laquelle vous pouvez indiquer les valeurs décrites.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Cochez la case **Primary Authentication Method** (Méthode d’authentification principale).
 
@@ -198,9 +198,9 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
 9. Dans la barre de navigation supérieure de NetSuite, sélectionnez **Setup**, puis **Company** > **Company Information** (Informations sur la société).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-com.png)
+    ![Capture d’écran montrant l’option Company Information sélectionnée à partir de Company.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Capture d’écran montrant le volet dans lequel vous pouvez entrer les valeurs décrites.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. Dans le volet **Company Information**, dans la colonne de droite, copiez la valeur du champ **Account ID** (ID de compte).
 
@@ -210,23 +210,23 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
     a. Dans la barre de navigation supérieure, sélectionnez **Setup**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-setup.png)
+    ![Capture d’écran montrant l’élément Setup sélectionné dans la barre de navigation de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. Dans le volet gauche, sélectionnez **Users/Roles** (Utilisateurs/rôles), puis **Manage Roles** (Gérer les rôles).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Capture d’écran montrant le volet Manage Roles dans lequel vous pouvez sélectionner New Role.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Sélectionnez **New Role** (Nouveau rôle).
 
     d. Entrez un nom (**Name**) pour le nouveau rôle.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Capture d’écran montrant l’élément Setup Manager dans lequel vous pouvez indiquer le nom du rôle.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Sélectionnez **Enregistrer**.
 
     f. Dans la barre de navigation supérieure, sélectionnez **Permissions** (Autorisations). Ensuite, sélectionnez **Setup**.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-sso.png)
+    ![Capture d’écran affichant l’onglet Setup dans lequel vous pouvez indiquer les valeurs décrites.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. Sélectionnez **SAML Single Sign-on**, puis **Add** (Ajouter).
 
@@ -234,19 +234,19 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
     i. Dans la barre de navigation supérieure, sélectionnez **Setup**, puis **Setup Manager** (Gestionnaire de configuration).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-setup.png)
+    ![Capture d’écran montrant l’élément Setup sélectionné dans la barre de navigation de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. Dans le volet gauche, sélectionnez **Users/Roles**, puis **Manage Users** (Gérer les utilisateurs).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Capture d’écran montrant le volet Manage Users dans lequel vous pouvez sélectionner Suite Demo Team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Sélectionnez un utilisateur de test, sélectionnez **Edit** (Modifier), puis sélectionnez l’onglet **Access** (Accès).
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Capture d’écran montrant le volet Manage Users dans lequel vous pouvez sélectionner Edit.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. Dans le volet **Roles**, attribuez le rôle que vous avez créé.
 
-    ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Capture d’écran montrant l’option Administrator sélectionnée dans la section Employee.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Sélectionnez **Enregistrer**.
 

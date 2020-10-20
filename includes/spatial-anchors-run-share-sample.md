@@ -4,17 +4,22 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50e4799f09322eab05b4f8ddf7004c2e0078fdab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358760"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971381"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 L’exemple Android Java prend en charge le partage entre appareils.
-Ouvrez le fichier `SharedActivity.java` se trouvant dans le dossier d’exemples d’Android Studio. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+Dans Android Studio, ouvrez le fichier *SharedActivity.java* à partir du dossier d’exemples. 
+
+Entrez l’URL que vous avez copiée à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur de `SharingAnchorsServiceUrl` dans le fichier *SharedActivity.java*. 
+
+Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -23,16 +28,28 @@ Ouvrez le fichier `SharedActivity.java` se trouvant dans le dossier d’exemples
 ## <a name="ios"></a>[iOS](#tab/iOS)
 
 L’exemple iOS Objective-C prend en charge le partage entre appareils.
-Ouvrez le fichier `SharedDemoViewController.m` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedDemoViewController.m`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Déployer l’application sur votre appareil Une fois l’application démarrée, choisissez l’option **Appuyez pour démarrer la démonstration partagée**. Suivez les instructions de l’application. Vous pouvez sélectionner **Appuyez pour localiser l’ancre par son numéro** ou **Appuyez pour créer l’ancre et l’enregistrer dans le service**.
+Ouvrez le fichier *SharedDemoViewController.m* dans le dossier d’exemples. 
+
+Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur de `SharingAnchorsServiceUrl` dans le fichier *SharedDemoViewController.m*. 
+
+Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+Déployer l’application sur votre appareil 
+
+Une fois l’application démarrée, sélectionnez l’option **Tap to start Shared Demo** (Appuyez pour démarrer la démonstration partagée), puis suivez les instructions dans l’application. Vous pouvez sélectionner **Appuyez pour localiser l’ancre par son numéro** ou **Appuyez pour créer l’ancre et l’enregistrer dans le service**.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Les exemples Xamarin Android et iOS prennent en charge le partage entre appareils.
-Ouvrez le fichier `AccountDetails.cs` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `AnchorSharingServiceUrl` dans le fichier `AccountDetails.cs`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+
+Ouvrez le fichier *AccountDetails.cs* dans le dossier d’exemples. 
+
+Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur de `AnchorSharingServiceUrl` dans le fichier *AccountDetails.cs*. 
+
+Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -52,21 +69,23 @@ Ouvrez le fichier `AccountDetails.cs` se trouvant dans le dossier d’exemples. 
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-Dans le volet **Projet**, accédez à `Assets\AzureSpatialAnchors.Examples\Resources`. Sélectionnez `SpatialAnchorSamplesConfig`. Ensuite, dans le volet **Inspector** (Inspecteur), entrez `Sharing Anchors Service url` (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `Base Sharing Url`, en remplaçant `index.html` par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
+Dans le volet **Project** (Projet), accédez à `Assets\AzureSpatialAnchors.Examples\Resources`. 
+
+Sélectionnez **SpatialAnchorSamplesConfig**. Ensuite, dans le volet **Inspector** (Inspecteur), entrez l’URL `Sharing Anchors Service` (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `Base Sharing Url`. Remplacez `index.html` par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 Enregistrez la scène en sélectionnant **File** > **Save**.
 
 ## <a name="deploy-to-your-device"></a>Déployer sur votre appareil
 
-### <a name="deploy-to-android-device"></a>Déployer sur un appareil Android
+### <a name="deploy-to-an-android-device"></a>Déployer sur un appareil Android
 
-Connectez-vous sur votre appareil Android et reliez-le à votre ordinateur à l’aide d’un câble USB.
+Connectez-vous à votre appareil Android et reliez-le à votre ordinateur à l’aide d’un câble USB.
 
 Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** (Fichier) > **Build Settings** (Paramètres de build).
 
-Sous **Scenes In Build** (Scènes dans la build), assurez-vous que toutes les scènes ont une coche à côté d’elles.
+Sous **Scenes In Build** (Scènes dans la build), vérifiez que toutes les scènes présentent une coche en regard.
 
-Assurez-vous que la case **Export Project** (Exporter le projet) n’est pas cochée. Sélectionnez **Build And Run** (Générer et exécuter). Vous êtes invité à enregistrer votre fichier `.apk`. Vous pouvez choisir n’importe quel nom pour celui-ci.
+Vérifiez que la case **Export Project** (Exporter le projet) n’est pas cochée. Sélectionnez **Build And Run** (Générer et exécuter). Vous êtes invité à enregistrer votre fichier *.apk*. Vous pouvez choisir n’importe quel nom pour celui-ci.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -74,7 +93,7 @@ Assurez-vous que la case **Export Project** (Exporter le projet) n’est pas coc
 
 Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** (Fichier) > **Build Settings** (Paramètres de build).
 
-Sous **Scenes In Build** (Scènes dans la build), assurez-vous que toutes les scènes ont une coche à côté d’elles.
+Sous **Scenes In Build** (Scènes dans la build), vérifiez que toutes les scènes présentent une coche en regard.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 

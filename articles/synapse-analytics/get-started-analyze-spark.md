@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f03f98a1a1f36900d65e132a3420ac037214aaff
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017912"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893538"
 ---
 # <a name="analyze-with-apache-spark"></a>Analyser avec Apache Spark
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017912"
 
 Dans ce tutoriel, vous allez découvrir les étapes de base permettant de charger et d’analyser des données avec Apache Spark pour Azure Synapse.
 
-1. Dans le hub **Données** situé sous **Liées**, cliquez avec le bouton droit sur **Stockage Blob Azure > Exemples de jeux de données > nyc_tlc_yellow**, puis sélectionnez **Nouveau notebook**.
+1. Dans le hub **Données**, cliquez sur **Ajouter une nouvelle ressource**(bouton plus situé au-dessus de **Lié**) >> **Parcourir les exemples**. Recherchez **NYC Taxi & Limousine Commission - yellow taxi trip records**, puis cliquez dessus. Au bas de la page, appuyez sur **Continuer**, puis sur **Ajouter un jeu de données**. Maintenant, dans le hub **Données** situé en dessous de **Lié**, cliquez avec le bouton droit sur **Stockage Blob Azure >> Exemples de jeux de données >> nyc_tlc_yellow**, puis sélectionnez **Nouveau notebook**.
 1. Un notebook sera créé avec le code suivant :
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -119,6 +119,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Analyser des données dans un stockage](get-started-analyze-storage.md)
+> [Analyser des données avec SQL à la demande](get-started-analyze-sql-on-demand.md)
 
 

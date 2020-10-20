@@ -1,14 +1,14 @@
 ---
 title: Nouvelle affectation de stratégie à l’aide du portail
 description: Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
-ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651968"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875306"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Création d’une affectation de stratégie pour identifier les ressources non conformes.
 
@@ -58,7 +58,7 @@ Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et
 1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, conservez _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
    Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
-1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative inclut une stratégie avec l’effet [deployIfNotExists](./concepts/effects.md#deployifnotexists). La stratégie utilisée dans ce guide de démarrage rapide n'étant pas concernée, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Laissez la case **Créer une identité managée** non cochée. Cette case _doit_ être cochée quand la stratégie ou l’initiative inclut une stratégie avec l’effet [deployIfNotExists](./concepts/effects.md#deployifnotexists) ou [modify](./concepts/effects.md#modify). La stratégie utilisée dans ce guide de démarrage rapide n'étant pas concernée, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Sélectionnez **Attribuer**.
 
@@ -74,15 +74,15 @@ Si des ressources existantes ne sont pas conformes à cette nouvelle affectation
 
 Si une condition est évaluée par rapport à vos ressources existantes et génère la valeur true, ces ressources sont marquées comme non conformes à la stratégie. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant. Même si vous ne voyez pas la logique d’évaluation dans le portail Azure, les résultats de l’état de conformité sont affichés. Le résultat d’état de conformité est soit conforme, soit non conforme.
 
-| **État de la ressource** | **Effet** | **Évaluation de la stratégie** | **État de conformité** |
+| État de la ressource | Résultat | Évaluation de a stratégie | État de conformité |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nouveau | Audit, AuditIfNotExist\* | True | Non conforme |
-| Nouveau | Audit, AuditIfNotExist\* | False | Conforme |
+| Nouveauté ou mise à jour | Audit, Modify, AuditIfNotExist | True | Non conforme |
+| Nouveauté ou mise à jour | Audit, Modify, AuditIfNotExist | False | Conforme |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non conforme |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Conforme |
 
-\* Les effets Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE.
-Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
+> [!NOTE]
+> Les effets DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait pour valeur TRUE et que la condition d’existence ait pour valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

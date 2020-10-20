@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91704546"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -159,7 +159,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
     a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs et revendications de l’utilisateur**.
 
-      ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Capture d’écran mettant en évidence l’icône Modifier qui sert à ouvrir la boîte de dialogue Attributs et revendications de l’utilisateur.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. Dans la boîte de dialogue **Gérer les revendications des utilisateurs**, ajoutez l’attribut de jeton SAML en cliquant sur **Ajouter une nouvelle revendication**.
 

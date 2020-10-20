@@ -1,24 +1,24 @@
 ---
 title: Réplication logique et décodage logique - Serveur flexible Azure Database pour PostgreSQL
 description: Découvrez comment utiliser la réplication logique et le décodage logique dans le serveur flexible Azure Database pour PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fd0826ad11a153d72ee47f35930d25f0df498418
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930767"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707861"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Réplication logique et décodage logique dans le serveur flexible Azure Database pour PostgreSQL
 
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour PostgreSQL est en préversion
 
-La réplication logique et le décodage logique de PostgreSQL sont pris en charge dans le serveur flexible Azure Database pour PostgreSQL.
+La réplication logique et le décodage logique de PostgreSQL sont pris en charge dans le serveur flexible Azure Database pour PostgreSQL version 11.
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparaison de la réplication logique et du décodage logique
 La réplication logique et le décodage logique ont plusieurs similitudes. Les deux
@@ -43,7 +43,11 @@ Décodage logique
 1. Définissez le paramètre du serveur `wal_level` sur `logical`.
 2. Redémarrez le serveur pour appliquer les modifications `wal_level`.
 3. Vérifiez que votre instance PostgreSQL autorise le trafic réseau à partir de votre ressource de connexion.
-4. Servez-vous de l’utilisateur administrateur lors de l’exécution des commandes de réplication.
+4. Accordez les autorisations de réplication de l’utilisateur administrateur.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Utilisation de la réplication logique et du décodage logique
 
@@ -54,7 +58,7 @@ La réplication logique utilise les termes « éditeur » et « abonné ».
 
 Voici quelques exemples de code que vous pouvez utiliser pour tester la réplication logique.
 
-1. Connectez-vous à l’éditeur. Créez une table et ajoutez des données.
+1. Connectez-vous à la base de données de publication. Créez une table et ajoutez des données.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -66,14 +70,14 @@ Voici quelques exemples de code que vous pouvez utiliser pour tester la réplica
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Connectez-vous à l’abonné. Créez une table avec le même schéma que sur l’éditeur.
+3. Connectez-vous à la base de données de l’abonné. Créez une table avec le même schéma que sur l’éditeur.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Créez un abonnement qui se connectera à la publication que vous avez créée plut tôt.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. Vous pouvez maintenant interroger la table sur l’abonné. Vous verrez qu’il a reçu des données de l’éditeur.
@@ -170,8 +174,9 @@ SELECT * FROM pg_replication_slots;
 
 [Définissez les alertes](howto-alert-on-metrics.md) sur le **nombre maximal d’ID de transactions utilisés** et le **stockage utilisé** des métriques de serveur flexible pour vous avertir lorsque les valeurs augmentent au-delà des seuils normaux. 
 
-## <a name="read-replicas"></a>Réplicas en lecture
-Les réplicas en lecture d’Azure Database pour PostgreSQL ne sont pas pris en charge pour les serveurs flexibles.
+## <a name="limitations"></a>Limites
+* **Réplicas en lecture** - Les réplicas en lecture d’Azure Database pour PostgreSQL ne sont pas pris en charge pour les serveurs flexibles.
+* **Emplacements et basculement à haute disponibilité** -Les emplacements de réplication logique sur le serveur principal ne sont pas disponibles sur le serveur de secours de votre serveur secondaire AZ. Cela s’applique si votre serveur utilise l’option haute disponibilité redondante interzone. En cas de basculement vers le serveur de secours, les emplacements de réplication logique ne sont pas disponibles sur le serveur de secours.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [options de mise en réseau](concepts-networking.md)

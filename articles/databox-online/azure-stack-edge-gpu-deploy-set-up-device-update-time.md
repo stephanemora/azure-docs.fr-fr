@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976065"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Configurer les paramètres de l’appareil pour Azure Stack Edge Pro avec GPU
+# <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Configurer les paramètres de l’appareil pour Azure Stack Edge Pro avec GPU
 
 Ce tutoriel explique comment configurer les paramètres liés aux appareils pour votre appareil Azure Stack Edge Pro avec GPU embarqué. Vous pouvez configurer le nom de votre appareil, le serveur de mise à jour et le serveur de temps via l’interface utilisateur web locale.
 
@@ -67,7 +67,7 @@ Procédez comme suit pour configurer les paramètres liés aux appareils :
 
     5. Une fois les paramètres appliqués, sélectionnez **Suivant : Mettre à jour le serveur**.
 
-        ![Page « Appareil » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Page « Appareil » de l’interface utilisateur web locale 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>Configurer la mise à jour
 
@@ -79,7 +79,7 @@ Procédez comme suit pour configurer les paramètres liés aux appareils :
 
         Vous pouvez également choisir de déployer des mises à jour à partir de **WSUS (Windows Server Update Services)** . Indiquez le chemin d’accès au serveur WSUS.
         
-        ![Page « Mettre à jour le serveur » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Page « Mettre à jour le serveur » de l’interface utilisateur web locale 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > Si un serveur Windows Update distinct est configuré et si vous choisissez de vous connecter via *https* (au lieu de *http*), les certificats de chaîne de signature requis pour se connecter au serveur de mise à jour sont nécessaires. Pour plus d’informations sur la façon de créer et télécharger des certificats, consultez [Gérer les certificats](azure-stack-edge-j-series-manage-certificates.md). 

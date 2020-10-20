@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543973"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Didacticiel : Intégration d’Azure Active Directory avec Optimizely
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Optimizely, effectuez
 
 5. Votre application Optimizely s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Attributs d’utilisateur » avec la sélection de l’icône « Modifier » en haut à droite.](common/edit-attribute.png)
 
 6. En plus de ce qui précède, l’application Optimizely s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec Optimizely, effectuez
     
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant la boîte de dialogue « Revendications des utilisateurs » avec les actions « Ajouter une nouvelle revendication » et « Enregistrer » mises en évidence.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Pour configurer l’authentification unique Azure AD avec Optimizely, effectuez
 
 4. Cliquez sur le nom de votre compte dans l’angle supérieur droit, puis sur **Paramètres du compte**.
 
-    ![Authentification unique Azure AD](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Capture d’écran montrant le nom de compte sélectionné dans l’angle supérieur droit, avec l’élément « Account Settings » sélectionné dans le menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. Sous l’onglet Compte, cochez la case **Activer l’authentification unique** sous Authentification unique dans la section **Vue d’ensemble**.
   
@@ -231,7 +231,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans O
 
 2. Pour ajouter un nouveau collaborateur au projet, cliquez sur **Nouveau collaborateur**.
    
-    ![Création d’un utilisateur de test Azure AD](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Capture d’écran montrant la page d’accueil Optimizely avec l’onglet « Collaborators » et le bouton « New Collaborator » sélectionnés.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Renseignez l’adresse de messagerie et assignez un rôle au nouveau collaborateur. Cliquez sur **Invite**.
 

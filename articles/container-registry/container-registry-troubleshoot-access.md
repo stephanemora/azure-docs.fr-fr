@@ -2,13 +2,13 @@
 title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/01/2020
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226871"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743367"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -22,6 +22,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 * Impossibilité d’envoyer ou d’extraire des images et affichage de l’erreur Azure CLI `Could not connect to the registry login server`.
 * Impossibilité d’extraire des images du registre vers Azure Container Service ou un autre service Azure.
 * Impossibilité d’accéder au registre derrière un proxy HTTPS et réception de l’erreur `Error response from daemon: login attempt failed with status: 403 Forbidden`.
+* Impossibilité de configurer les paramètres de réseau virtuel et réception de l’erreur `Failed to save firewall and virtual network settings for container registry`
 * Impossibilité de consulter ou d’afficher des paramètres du registre dans le portail Azure ou de gérer le registre à l’aide d’Azure CLI.
 * Impossibilité d’ajouter ou de modifier des paramètres de réseau virtuel ou des règles d’accès public.
 * La solution ACR Tasks ne peut pas envoyer ou extraire des images.
@@ -32,7 +33,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 * Un pare-feu ou proxy de client empêche l’accès : [solution](#configure-client-firewall-access).
 * Les règles d’accès au réseau public dans le registre empêchent l’accès : [solution](#configure-public-access-to-registry).
 * La configuration du réseau virtuel empêche l’accès : [solution](#configure-vnet-access).
-* Vous tentez d’intégrer Azure Security Center avec un registre qui a un point de terminaison privé ou un point de terminaison de service : [solution](#configure-image-scanning-solution).
+* Vous tentez d’intégrer Azure Security Center ou certains autres services Azure avec un registre qui a un point de terminaison privé, un point de terminaison de service ou des règles d’accès aux IP publiques : [solution](#configure-service-access).
 
 ## <a name="further-diagnosis"></a>Diagnostics plus poussés 
 
@@ -47,7 +48,7 @@ Consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](contai
 
 ### <a name="configure-client-firewall-access"></a>Configurer l’accès au pare-feu du client
 
-Pour accéder à un registre à partir d’un serveur proxy ou d’un emplacement situé derrière un pare-feu de client, configurez des règles de pare-feu pour accéder aux points de terminaison REST et de données du registre. Si des [points de terminaison de données dédiés](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sont activés, vous avez besoin de règles pour accéder aux éléments suivants :
+Pour accéder à un registre à partir d’un serveur proxy ou d’un emplacement situé derrière un pare-feu de client, configurez des règles de pare-feu pour accéder aux points de terminaison REST public et de données du registre. Si des [points de terminaison de données dédiés](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sont activés, vous avez besoin de règles pour accéder aux éléments suivants :
 
 * Point de terminaison REST : `<registryname>.azurecr.io`
 * Point de terminaison de données : `<registry-name>.<region>.data.azurecr.io`
@@ -86,7 +87,11 @@ Examinez les règles de groupe de sécurité réseau et les balises de service u
 
 Si un point de terminaison de service est configuré pour le registre, vérifiez qu’une règle de réseau est ajoutée au registre qui autorise l’accès à partir de ce sous-réseau. Le point de terminaison de service prend uniquement en charge l’accès à partir des machines virtuelles et de clusters AKS dans le réseau.
 
+Si vous souhaitez restreindre l’accès au registre à l’aide d’un réseau virtuel dans un autre abonnement Azure, veillez à inscrire le fournisseur de ressources `Microsoft.ContainerRegistry` dans cet abonnement. [Inscrivez le fournisseur de ressources](../azure-resource-manager/management/resource-providers-and-types.md) pour Azure Container Registry à l’aide du portail Azure, de l’interface de ligne de commande Azure ou d’autres outils Azure.
+
 Si le Pare-feu Azure ou une solution similaire sont configurés dans le réseau, vérifiez que le trafic sortant à partir d’autres ressources telles qu’un cluster AKS est activé pour atteindre les points de terminaison du registre.
+
+Si un point de terminaison privé est configuré, vérifiez que DNS résout le nom de domaine complet public du registre, par exemple *myregistry.azurecr.io* à l’adresse IP privée du registre. Utilisez un utilitaire réseau comme `dig` ou `nslookup` pour la recherche DNS.
 
 Liens connexes :
 
@@ -96,17 +101,22 @@ Liens connexes :
 * [Kubernetes: Débogage de résolution DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Balises de service du réseau virtuel](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configurer la solution d’analyse d’images
+### <a name="configure-service-access"></a>Configurer l’accès au service
 
-Si votre registre est configuré avec un point de terminaison privé ou un point de terminaison de service, vous ne pouvez actuellement pas effectuer d’intégration avec Azure Security Center pour l’analyse d’images. Si vous le souhaitez, configurez d’autres solutions d’analyse d’images disponibles dans la Place de marché Azure, à savoir :
+Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
 
-* [Plateforme de sécurité native Cloud Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Azure Container Instances
+* Tâches Azure Container Registry
+
+Si l’accès ou l’intégration de ces services Azure à votre registre de conteneurs est nécessaire, supprimez la restriction réseau. Par exemple, supprimez les points de terminaison privés du registre, ou supprimez ou modifiez les règles d’accès publiques du registre.
 
 Liens connexes :
 
 * [Analyse d’images Azure Container Registry par Security Center](../security-center/azure-container-registry-integration.md)
 * Fournir des [commentaires](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configurer des règles de réseau IP public](container-registry-access-selected-networks.md)
+* [Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Dépannage avancé

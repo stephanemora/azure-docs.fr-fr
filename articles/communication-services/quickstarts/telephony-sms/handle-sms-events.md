@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756746"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976927"
 ---
 # <a name="quickstart-handle-sms-events"></a>Démarrage rapide : Gérer les événements SMS
 
@@ -98,7 +98,7 @@ Une fois que vous avez effectué l’une des actions ci-dessus, vous remarquerez
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Capture d’écran montrant la sélection du bouton d’abonnement aux événements dans la page des événements d’une ressource.":::
 
-En savoir plus sur les [schémas d’événements et d’autres concepts liés aux événements](../../concepts/event-handling.md)
+Découvrez-en plus sur les [schémas d’événements et d’autres concepts liés aux événements](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

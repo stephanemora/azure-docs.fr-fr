@@ -9,24 +9,23 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bbed5899a860f3ba8ac7047a283966536f6c8a87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978847"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
 Testez Azure IoT Edge dans ce guide de démarrage rapide en déployant du code conteneurisé sur un appareil IoT Edge Linux virtuel. IoT Edge vous permet de gérer à distance du code sur vos appareils afin que vous puissiez envoyer plus de charges de travail à la périphérie. Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser une machine virtuelle Azure pour votre appareil IoT Edge, ce qui vous permet de créer rapidement une machine de test avec le service IoT Edge installé, puis de la supprimer une fois que vous avez terminé.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
-> [!div class="checklist"]
->
-> * Créez un IoT Hub.
-> * Inscrivez un appareil IoT Edge dans votre IoT Hub.
-> * Installez et démarrez le runtime IoT Edge sur votre appareil virtuel.
-> * Déployez à distance un module vers un appareil IoT Edge.
+
+* Créez un IoT Hub.
+* Inscrivez un appareil IoT Edge dans votre IoT Hub.
+* Installez et démarrez le runtime IoT Edge sur votre appareil virtuel.
+* Déployez à distance un module vers un appareil IoT Edge.
 
 ![Diagramme - Démarrage rapide : architecture pour appareil et cloud](./media/quickstart-linux/install-edge-full.png)
 
@@ -110,7 +109,7 @@ Pendant la configuration du runtime, vous fournissez une chaîne de connexion d�
 
 ### <a name="deploy-the-iot-edge-device"></a>Déployer l’appareil IoT Edge
 
-Cette section utilise un modèle Azure Resource Manager pour créer une machine virtuelle et y installer le runtime IoT Edge. Si vous souhaitez utiliser votre propre appareil Linux à la place, vous pouvez suivre les étapes d’installation indiquées dans [Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md), puis revenir à ce guide de démarrage rapide.
+Cette section utilise un modèle Azure Resource Manager pour créer une machine virtuelle et y installer le runtime IoT Edge. Si vous souhaitez utiliser votre propre appareil Linux à la place, vous pouvez suivre les étapes d’installation indiquées dans [Installer le runtime Azure IoT Edge](how-to-install-iot-edge.md), puis revenir à ce guide de démarrage rapide.
 
 Utilisez la commande CLI suivante pour créer votre appareil IoT Edge en fonction du modèle [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) prégénéré.
 

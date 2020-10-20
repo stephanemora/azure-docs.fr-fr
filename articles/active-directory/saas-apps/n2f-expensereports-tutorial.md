@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552556"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Didacticiel : Intégration d’Azure Active Directory à N2F - Note de frais
 
@@ -99,11 +99,11 @@ Pour configurer l’authentification unique Azure AD avec N2F - Note de frais, e
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, l’utilisateur n’a rien à faire, car l’application est pré-intégrée à Azure.
 
-    ![Informations d’authentification unique dans Domaine et URL N2F - Note de frais](common/preintegrated.png)
+    ![Capture d’écran montrant la page Authentification basée sur SAML, avec la configuration SAML de base.](common/preintegrated.png)
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL N2F - Note de frais](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant la page Intégrations dans laquelle vous pouvez ajouter l’authentification unique Azure AD.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://www.n2f.com/app/`
 
@@ -127,23 +127,23 @@ Pour configurer l’authentification unique Azure AD avec N2F - Note de frais, e
 
 2. Cliquez sur **Paramètres**, puis sélectionnez **Paramètres avancés** dans la liste déroulante.
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Capture d’écran montrant l’élément Advanced Settings sélectionné.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Sélectionnez l’onglet **Paramètres du compte**.
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/configure2.png)
+    ![Capture d’écran montrant l’élément Account settings sélectionné.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. Sélectionnez **Authentification**, puis sélectionnez l’onglet **+ Add an authentication method** (Ajouter une méthode d’authentification).
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/configure3.png)
+    ![Capture d’écran montrant la section Account Setting Authentication dans laquelle vous pouvez ajouter une méthode d’authentification.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. Sélectionnez **SAML Microsoft Office 365** comme méthode d’authentification.
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/configure4.png)
+    ![Capture d’écran montrant la zone Authentication method avec l’option SAML Microsoft Office 365 sélectionnée.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. Dans la section **Méthode d’authentification** , procédez comme suit :
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/configure5.png)
+    ![Capture d’écran montrant la section Authentication method dans laquelle vous pouvez entrer les valeurs décrites.](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. Dans la zone de texte **ID d’entité**, collez l’**Identificateur Azure AD** que vous avez copié sur le portail Azure.
 
@@ -212,19 +212,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à N2F - Note de frais,
 
 2. Cliquez sur **Paramètres**, puis sélectionnez **Paramètres avancés** dans la liste déroulante.
 
-    ![Ajout d’un utilisateur N2F - Note de frais](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Capture d’écran montrant l’élément Advanced Settings sélectionné.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Sélectionnez l’onglet **Utilisateurs** dans le volet de navigation de gauche.
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/user1.png)
+    ![Capture d’écran montrant l’élément Users sélectionné.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. Sélectionnez l’onglet **+ Nouvel utilisateur**.
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/user2.png)
+    ![Capture d’écran montrant l’option New user.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. Dans la section **Utilisateur**, procédez comme suit :
 
-    ![Configuration de N2F - Note de frais](./media/n2f-expensereports-tutorial/user3.png)
+    ![Capture d’écran affichant la section dans laquelle vous pouvez indiquer les valeurs décrites.](./media/n2f-expensereports-tutorial/user3.png)
 
     a. Dans la zone de texte **Email address** (Adresse e-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
