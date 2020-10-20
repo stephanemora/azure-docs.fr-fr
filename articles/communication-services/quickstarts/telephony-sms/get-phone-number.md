@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756913"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044766"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Démarrage rapide : Obtenir un numéro de téléphone à l’aide du portail Azure
 
@@ -103,7 +103,7 @@ Sélectionnez le panneau Phone Numbers (Numéros de téléphone) dans le menu po
 > [!NOTE]
 > L’affichage des numéros provisionnés sur cette page peut prendre quelques minutes.
 
-### <a name="customizing-phone-number-plans"></a>Personnalisation des forfaits de numéros de téléphone
+### <a name="customizing-phone-number-features"></a>Personnalisation des fonctionnalités de numéros de téléphone
 Dans la page `Numbers`, cliquez sur le numéro de téléphone dont vous souhaitez personnaliser le forfait.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::

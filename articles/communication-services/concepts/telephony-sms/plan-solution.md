@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767143"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048217"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planifier votre solution de téléphonie et SMS
 
@@ -74,7 +74,9 @@ Le tableau suivant vous montre où vous pouvez acquérir les différents types d
 
 ## <a name="azure-subscriptions-eligibility"></a>Éligibilité des abonnements Azure
 
-Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai. 
+Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. 
+
+La disponibilité des numéros de téléphone est limitée aux abonnements Azure dont l’adresse de facturation se trouve aux États-Unis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

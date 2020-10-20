@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802206"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055084"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -104,7 +104,7 @@ Pour accéder à votre cloud privé Azure VMware Solution, le circuit ExpressRou
 Le circuit ExpressRoute d’Azure VMware Solution se connecte à une passerelle ExpressRoute dans le réseau virtuel Azure que vous définissez dans cette étape.  
 
 >[!IMPORTANT]
->Si vous choisissez un réseau virtuel existant, vous devez en sélectionner un qui ne dispose pas d’un sous-réseau de passerelle préexistant.  
+>Vous pouvez utiliser une passerelle ExpressRoute existante pour vous connecter à Azure VMware Solution, à condition qu’elle ne dépasse pas la limite de quatre circuits ExpressRoute par réseau virtuel.  Toutefois, pour accéder à Azure VMware Solution à partir d’un site local via ExpressRoute, vous devez disposer de ExpressRoute Global Reach, car la passerelle ExpressRoute ne fournit pas de routage transitif entre ses circuits connectés.  
 
 Si vous souhaitez connecter le circuit ExpressRoute à partir d’Azure VMware Solution à une passerelle ExpressRoute existante, vous pouvez le faire après le déploiement.  
 

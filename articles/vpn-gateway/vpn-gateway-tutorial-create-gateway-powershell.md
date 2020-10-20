@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420651"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048268"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide de PowerShell
 
@@ -28,7 +28,7 @@ Le diagramme suivant illustre le réseau virtuel et la passerelle VPN créés da
 
 ![Réseau virtuel et passerelle VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Utilisation d’Azure Cloud Shell et Azure PowerShell
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ Ce tutoriel vous a montré les tâches de base de création et de gestion d’un
 > * Redimensionner une passerelle VPN
 > * Réinitialiser une passerelle VPN
 
-Pour en savoir plus sur les connexions S2S, P2S et de réseau virtuel à réseau virtuel, accédez aux tutoriels suivants.
+Passez ensuite au tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> * [Créer des connexions S2S](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Créer des connexions de réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Créer des connexions P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Créer une connexion](vpn-gateway-tutorial-vpnconnection-powershell.md)

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API Détecteur d’anomalies et Azure Databricks pour superviser les anomalies dans vos données.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: mbullwin
+ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245602"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017656"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
@@ -63,7 +63,7 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** >  **Analytique** > **Azure Databricks**.
 
-    ![Databricks sur le portail Azure](../media/tutorials/azure-databricks-on-portal.png "Databricks sur le portail Azure")
+    ![Azure Databricks sur le portail](../media/tutorials/azure-databricks-on-portal.png "Databricks sur le portail Azure")
 
 3. Sous **Service Azure Databricks**, renseignez les valeurs suivantes pour créer un espace de travail Databricks :
 
@@ -115,7 +115,7 @@ Pour recevoir un flux de tweets, vous devez créer une application dans Twitter.
 
 3. Sur la page de l’application, sélectionnez l’onglet **Clés et jetons d’accès** et copiez les valeurs de **Clé de consommation** et **Secret de consommation**. Sélectionnez aussi **Créer mon jeton d’accès** pour générer des jetons d’accès. Copiez les valeurs de **Jeton d’accès** et **Secret du jeton d’accès**.
 
-    ![Détails de l’application Twitter](../media/tutorials/twitter-app-key-secret.png "Détails de l’application Twitter")
+    ![Détails de l’application Twitter (2)](../media/tutorials/twitter-app-key-secret.png "Détails de l’application Twitter")
 
 Enregistrez les valeurs que vous avez récupérées pour l’application Twitter. Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 
@@ -193,7 +193,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 2. Dans la boîte de dialogue **Créer un notebook**, entrez **SendTweetsToEventHub** comme nom, sélectionnez **Scala** comme langage, puis sélectionnez le cluster Spark que vous avez créé.
 
-    ![Créer un notebook dans Databricks](../media/tutorials/databricks-notebook-details.png "Créer un notebook dans Databricks")
+    ![Détails du notebook](../media/tutorials/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
     Sélectionnez **Create** (Créer).
 

@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316424"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058197"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutoriel : Utiliser un Web App Bot activé avec Language Understanding dans C#
 
@@ -27,7 +27,7 @@ ms.locfileid: "91316424"
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Émulateur de bot](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Créer une ressource bot d’application web
@@ -314,18 +314,18 @@ Dans Visual Studio 2019, démarrez le bot. Une fenêtre de navigateur s’ouvre
 
 ![Une page d’accueil s’affiche avec des informations sur votre bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Utiliser l’émulateur de bot pour tester le bot
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Utiliser Bot Framework Emulator pour tester le bot
 
-1. Lancez l’émulateur de bot et sélectionnez **Ouvrir le bot**.
+1. Démarrez Bot Framework Emulator, puis sélectionnez **Open Bot** (Ouvrir le bot).
 1. Dans la boîte de dialogue **Ouvrir le bot**, entrez l’URL de votre bot, par exemple `http://localhost:3978/api/messages`. L’itinéraire `/api/messages` est l’adresse web du bot.
 1. Entrez l’**ID d’application Microsoft** et le **mot de passe d’application Microsoft** figurant dans le fichier **appsettings.json** à la racine du code du bot que vous avez téléchargé, puis sélectionnez **Se connecter**.
 
-1. Dans l’émulateur de bot, entrez `Book a flight from Seattle to Berlin tomorrow` et obtenez la même réponse pour le bot de base que celle que vous avez reçue dans le **Test dans le Chat Web** effectué dans une section précédente.
+1. Dans Bot Framework Emulator, entrez `Book a flight from Seattle to Berlin tomorrow` et obtenez la même réponse pour le bot de base que celle que vous avez reçue dans le **Test dans le Chat Web** effectué dans une section précédente.
 
     [![Capture d’écran montrant Bot Framework Emulator bot avec une réponse de bot de base.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Sélectionnez **Oui**. Le bot répond par un résumé de ses actions.
-1. Dans le journal de l’émulateur de bot, sélectionnez la ligne qui contient `<- trace LuisV3 Trace`. Cela affiche la réponse JSON de LUIS pour l’intention et les entités de l’énoncé.
+1. Dans le journal de Bot Framework Emulator, sélectionnez la ligne qui contient `<- trace LuisV3 Trace`. Cela affiche la réponse JSON de LUIS pour l’intention et les entités de l’énoncé.
 
     [![Capture d’écran montrant une réponse de bot de base avec la trace LuisV3 sélectionnée et la réponse JSON mise en évidence.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

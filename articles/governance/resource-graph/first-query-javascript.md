@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête JavaScript'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer la bibliothèque Resource Graph pour JavaScript et vous exécutez votre première requête.
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91251964"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057414"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de JavaScript
 
@@ -23,11 +23,11 @@ Au terme de ce processus, vous aurez ajouté les bibliothèques à votre install
 
 - **Node.JS** : La version 12 ou supérieure de [Node.js](https://nodejs.org/) est nécessaire.
 
-## <a name="application-setup"></a>Configuration des applications
+## <a name="application-initialization"></a>Initialisation d’applications
 
 Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnement doit être configuré. Cette configuration fonctionne partout où vous pouvez utiliser JavaScript, y compris [bash sur Windows 10](/windows/wsl/install-win10).
 
-1. Configurez un nouveau projet Node.js en exécutant la commande suivante.
+1. Initialisez un nouveau projet Node.js en exécutant la commande suivante.
 
    ```bash
    npm init -y

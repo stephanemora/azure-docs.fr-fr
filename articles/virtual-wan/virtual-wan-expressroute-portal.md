@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une connexion ExpressRoute avec Azure Virtual WAN'
+title: 'Tutoriel : Créer des connexions ExpressRoute à l’aide d’Azure Virtual WAN'
 description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour établir des connexions ExpressRoute à des environnements Azure et locaux.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821887"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054812"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Modifier la taille d’une passerelle
 > * Publier un itinéraire par défaut
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
@@ -40,7 +40,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
 
-* Pour se connecter à la passerelle hub, le circuit ExpressRoute doit être un circuit Premium/Standard.
+* Le circuit ExpressRoute doit être un circuit Premium ou Standard pour pouvoir se connecter à la passerelle du hub.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -153,6 +153,17 @@ Si vous souhaitez que le hub virtuel Azure publie l’itinéraire par défaut 0.
 
    ![Propager l’itinéraire par défaut](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propager l’itinéraire par défaut")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Supprimer des ressources
+
+Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).
+Ensuite, pour en savoir plus sur Virtual WAN, consultez :
+
+> [!div class="nextstepaction"]
+> * [FAQ sur Virtual WAN](virtual-wan-faq.md)

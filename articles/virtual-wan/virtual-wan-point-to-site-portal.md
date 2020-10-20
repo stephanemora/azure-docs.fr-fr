@@ -1,5 +1,5 @@
 ---
-title: Créer une connexion point à site vers Azure à l’aide d’Azure Virtual WAN | Microsoft Docs
+title: 'Tutoriel : Utiliser Azure Virtual WAN pour créer une connexion de point à site vers Azure'
 description: Dans ce didacticiel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN point à site vers Azure.
 services: virtual-wan
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84f8563a6b03f10f4cbc647426c350d9fac52780
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812682"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056580"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de VPN utilisateur à l’aide d’Azure Virtual WAN
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
@@ -82,4 +82,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).
+Ensuite, pour en savoir plus sur Virtual WAN, consultez :
+
+> [!div class="nextstepaction"]
+> * [FAQ sur Virtual WAN](virtual-wan-faq.md)

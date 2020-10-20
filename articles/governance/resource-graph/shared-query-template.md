@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer une requête partagée avec des modèles'
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer une requête partagée Resource Graph qui compte les machines virtuelles par système d’exploitation.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685525"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057006"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Démarrage rapide : Créer une requête partagée à l’aide d’un modèle ARM
 
@@ -53,9 +53,9 @@ La ressource définie dans le modèle est :
    | Abonnement | Sélectionnez votre abonnement Azure. |
    | Resource group | Sélectionnez **Créer**, spécifiez un nom, puis sélectionnez **OK**. |
    | Emplacement | Sélectionnez une région. Par exemple, **USA Centre**. |
-   | Nom de la requête | Laissez la valeur par défaut **Compter les VM par OS**. |
-   | Code de la requête | Laissez la valeur par défaut `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Description de la requête | Laissez la valeur par défaut **Cette requête partagée compte toutes les ressources de machine virtuelle et les classe par type de système d’exploitation.** |
+   | Nom de la requête | Laissez la valeur par défaut : **Count VMs by OS**. |
+   | Code de la requête | Laissez la valeur par défaut : `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Description de la requête | Laissez la valeur par défaut : **This shared query counts all virtual machine resources and summarizes by the OS type.** |
    | J’accepte les termes et conditions mentionnés ci-dessus | (Sélectionner) |
 
 1. Sélectionnez **Achat**.
@@ -83,7 +83,7 @@ Vous pouvez aussi ouvrir la requête partagée depuis l’Explorateur Resource G
 
 1. Remplacez le **Type** par _Requêtes partagées_. Si vous ne voyez pas **Compter les VM par OS** dans la liste, utilisez la zone de filtre pour limiter les résultats. Une fois que la requête partagée **Compter les VM par OS** est visible, sélectionnez son nom.
 
-1. Une fois que la requête est chargée, sélectionnez le bouton **Exécuter la requête**. Les résultats s’affichent sous l’onglet **Résultats** ci-dessous.
+1. Une fois que la requête est chargée, sélectionnez le bouton **Exécuter la requête**. Les résultats s’affichent sous l’onglet **Résultats**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

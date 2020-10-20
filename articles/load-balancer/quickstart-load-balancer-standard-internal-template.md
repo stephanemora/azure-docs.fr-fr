@@ -1,6 +1,6 @@
 ---
-title: Créer un équilibreur de charge interne à l’aide d’un modèle Azure Resource Manager
-description: Découvrez comment créer un équilibreur de charge Azure interne à l’aide d’un modèle Azure Resource Manager.
+title: 'Démarrage rapide : Créer un équilibreur de charge interne à l’aide d’un modèle'
+description: Ce guide de démarrage rapide montre comment créer un équilibreur de charge Azure interne avec un modèle Azure Resource Manager (modèle ARM).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 287afc51aa15ed4cadba7e2d6cd389e4869d7d61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532827"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047758"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 

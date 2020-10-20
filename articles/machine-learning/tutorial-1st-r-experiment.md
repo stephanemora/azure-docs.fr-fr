@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906727"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019373"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning (préversion)
 
@@ -68,11 +68,11 @@ Utilisez RStudio sur une instance de calcul ML Azure pour exécuter ce tutoriel.
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Cloner les exemples de vignettes 
 
-Clonez le référentiel GitHub https://github.com/azure/azureml-sdk-for-r pour obtenir une copie des fichiers de vignettes que vous allez exécuter dans ce tutoriel.
+Clonez le référentiel GitHub https://github.com/Azure/azureml-sdk-for-r pour obtenir une copie des fichiers de vignettes que vous allez exécuter dans ce tutoriel.
 
 1. Dans RStudio, accédez à l’onglet « Terminal » et exécutez une commande cd dans le répertoire où vous souhaitez cloner le référentiel.
 
-1. Exécutez « git clone https://github.com/Azure/azureml-sdk-for-r  » dans le terminal pour cloner le référentiel.
+1. Exécutez `git clone https://github.com/Azure/azureml-sdk-for-r` dans le terminal pour cloner le dépôt.
 
 1. Dans RStudio, accédez au dossier *vignettes* du dossier *azureml-sdk-for-r* cloné.  Sous *vignettes*, sélectionnez le fichier *train-and-deploy-first-model.Rmd* pour trouver la vignette utilisée dans ce tutoriel. Les fichiers supplémentaires utilisés pour la vignette se trouvent dans le sous-dossier *train-and-deploy-first-model*. Une fois que vous avez ouvert la vignette, définissez le répertoire de travail sur l’emplacement du fichier via **Session > Définir le répertoire de travail > Sur l’emplacement du fichier source**. 
 
