@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547101"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850745"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Jive
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le menu du haut, cliquez sur **SAML**.
 
-    ![Configurer l’authentification unique côté application](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Capture d’écran montrant l’onglet SAML avec l’élément Enabled sélectionné.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Sélectionnez **Activé** sous l’onglet **Général**.
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à l’onglet **IDP METADATA**(Métadonnées du fournisseur d’identité).
 
-    ![Configurer l’authentification unique côté application](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Capture d’écran montrant l’onglet SAML avec l’élément IDP METADATA sélectionné.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Copiez le contenu du fichier XML de métadonnées téléchargé et collez-le dans la zone de texte **Métadonnées du fournisseur d'identité (IDP)** .
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Sélectionnez l’onglet **USER ATTRIBUTE MAPPING** (Mappage d’attributs utilisateur).
 
-    ![Configurer l’authentification unique côté application](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Capture d’écran montrant l’onglet SAML avec l’élément USER ATTRIBUTE MAPPING sélectionné.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. Dans la zone de texte **E-mail**, copiez et collez le nom de la valeur **mail**.
 

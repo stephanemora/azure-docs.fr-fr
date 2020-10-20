@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550710"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : intégration d’Azure Active Directory dans HappyFox
 
@@ -132,19 +132,19 @@ Pour configurer l’authentification unique Azure AD avec HappyFox, effectuez l
 
 2. Accédez à **Manage** (Gérer), cliquez sur l’onglet **Integrations**.
 
-    ![Configure Single Sign-On](./media/happyfox-tutorial/header.png) 
+    ![Capture d’écran montrant la page « Manage » ainsi que l’onglet « Integrations » sélectionnés.](./media/happyfox-tutorial/header.png) 
 
 3. Sous l’onglet Integrations, cliquez sur **Configure** sous **SAML Integration** (Intégration SAML) pour ouvrir les paramètres d’authentification unique.
 
-    ![Configure Single Sign-On](./media/happyfox-tutorial/configure.png)
+    ![Capture d’écran montrant le paramètre « SAML Integration » avec l’action « Configure » sélectionnée.](./media/happyfox-tutorial/configure.png)
 
 4. Dans la section de configuration SAML, collez la valeur de l’**URL de connexion**, que vous avez copiée à partir du portail Azure, dans la zone de texte **SSO Target URL** (URL cible d’authentification unique).
 
-    ![Configure Single Sign-On](./media/happyfox-tutorial/targeturl.png)
+    ![Capture d’écran montrant la section « SAML Configuration » avec la zone de texte « SSO Target URL » mise en évidence.](./media/happyfox-tutorial/targeturl.png)
 
 5. Ouvrez le certificat téléchargé à partir du portail Azure dans le Bloc-notes et collez son contenu dans la section **IdP Signature** (Signature IdP).
 
-    ![Configure Single Sign-On](./media/happyfox-tutorial/cert.png)
+    ![Capture d’écran montrant la section « IdP Signature » mise en évidence.](./media/happyfox-tutorial/cert.png)
 
 6. Cliquez sur le bouton **Enregistrer les paramètres**.
 

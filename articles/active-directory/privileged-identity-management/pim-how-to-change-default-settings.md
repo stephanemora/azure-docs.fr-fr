@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055484"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541133"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -196,7 +196,7 @@ Si vous souhaitez déléguer l’approbation exigée pour activer un rôle, suiv
 
 1. Réglez le commutateur **Exiger l'approbation** sur **Activé**. Le volet affiche les options permettant de sélectionner des approbateurs.
 
-    ![Rôles Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Capture d’écran montrant le bouton « Exiger l’approbation » sur « Activer ».](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Si vous ne spécifiez aucun approbateur, l’administrateur de rôle privilégié devient l’approbateur par défaut, et c’est alors lui qui doit approuver toutes les demandes d’activation pour ce rôle.
 

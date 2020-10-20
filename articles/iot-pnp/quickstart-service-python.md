@@ -3,17 +3,17 @@ title: Interagir avec un appareil IoT Plug-and-Play connecté à une solution Az
 description: Utilisez Python pour vous connecter à un appareil IoT Plug-and-Play connecté à votre solution Azure IoT et pour interagir avec lui.
 author: elhorton
 ms.author: elhorton
-ms.date: 7/13/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574962"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946074"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play connecté à votre solution (Python)
 
@@ -73,95 +73,96 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple d’appareil à the
 
 Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en Python pour interagir avec l’exemple d’appareil que vous venez de configurer.
 
-1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**. 
+1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**.
 
 1. Accédez au dossier */azure-iot-sdk-python/azure-iot-hub/samples* du référentiel du SDK Python cloné.
 
-1. Dans le dossier Samples, il y a quatre exemples de fichiers illustrant les opérations avec la classe Digital Twin Manager : *get_digital_twin_sample.py, update_digitial_twin_sample.py, invoke_command_sample.py et invoke_component_command_sample-.py*.  Ces exemples montrent comment utiliser chaque API pour interagir avec les appareils IoT Plug-and-Play :
+1. Ouvrez le fichier *registry_manager_pnp_sample.py* et passez en revue le code. Cet exemple montre comment utiliser la classe **IoTHubRegistryManager** pour interagir avec votre appareil IoT Plug-and-Play.
 
-### <a name="get-digital-twin"></a>Obtenir le jumeau numérique
+> [!NOTE]
+> Ces exemples de services utilisent la classe **IoTHubRegistryManager** à partir du **client du service IoT Hub**. Pour en savoir plus sur les API, y compris l’API Digital Twins, consultez le [Guide du développeur sur les services](concepts-developer-guide-service.md).
 
-Dans [Configurer votre environnement pour les guides de démarrages rapides et tutoriels IoT Plug-and-Play](set-up-environment.md), vous avez créé deux variables d’environnement pour configurer l’exemple afin qu’il se connecte à votre IoT Hub et à votre appareil :
+### <a name="get-the-device-twin"></a>Obtenir le jumeau d’appareil
 
-* **IOTHUB_CONNECTION_STRING** : la chaîne de connexion que vous avez notée précédemment.
+Dans [Configurer votre environnement pour les guides de démarrage rapide et tutoriels IoT Plug-and-Play](set-up-environment.md), vous avez créé deux variables d’environnement pour configurer l’exemple afin qu’il se connecte à votre hub IoT et à votre appareil :
+
+* **IOTHUB_CONNECTION_STRING** : la chaîne de connexion de hub IoT que vous avez notée précédemment.
 * **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
 Utilisez la commande suivante dans le terminal **service** pour exécuter cet exemple :
 
 ```cmd/sh
-python get_digital_twin_sample.py
+set IOTHUB_METHOD_NAME="getMaxMinReport"
+set IOTHUB_METHOD_PAYLOAD="hello world"
+python registry_manager_pnp_sample.py
 ```
 
-La sortie affiche le jumeau numérique de l’appareil et son ID de modèle :
+> [!NOTE]
+> Si vous exécutez cet exemple sur Linux, utilisez `export` à la place de `set`.
+
+La sortie affiche le jumeau d’appareil et son ID de modèle :
 
 ```cmd/sh
-{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
-Model Id: dtmi:com:example:Thermostat;1
+The Model ID for this device is:
+dtmi:com:example:Thermostat;1
 ```
 
-L’extrait de code suivant montre l’exemple de code de *get_digital_twin_sample.py* :
+L’extrait de code suivant montre l’exemple de code de *registry_manager_pnp_sample.py* :
 
 ```python
-    # Get digital twin and retrieve the modelId from it
-    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
-    if digital_twin:
-        print(digital_twin)
-        print("Model Id: " + digital_twin["$metadata"]["$model"])
-    else:
-        print("No digital_twin found")
+    # Create IoTHubRegistryManager
+    iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
+
+    # Get device twin
+    twin = iothub_registry_manager.get_twin(device_id)
+    print("The device twin is: ")
+    print("")
+    print(twin)
+    print("")
+
+    # Print the device's model ID
+    additional_props = twin.additional_properties
+    if "modelId" in additional_props:
+        print("The Model ID for this device is:")
+        print(additional_props["modelId"])
+        print("")
 ```
 
-### <a name="update-a-digital-twin"></a>Mettre à jour un jumeau numérique
+### <a name="update-a-device-twin"></a>Mettre à jour un jumeau d’appareil
 
-Cet exemple montre comment utiliser un *correctif* pour mettre à jour les propriétés par le biais du jumeau numérique de votre appareil. L’extrait de code suivant de *update_digital_twin_sample.py* montre comment construire le patch :
+Cet exemple montre comment mettre à jour la propriété `targetTemperature` accessible en écriture dans l’appareil :
 
 ```python
-# If you already have a component thermostat1:
-# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-iothub_digital_twin_manager.update_digital_twin(device_id, patch)
-print("Patch has been succesfully applied")
-```
-
-Utilisez la commande suivante dans le terminal **service** pour exécuter cet exemple :
-
-```cmd/sh
-python update_digital_twin_sample.py
+    # Update twin
+    twin_patch = Twin()
+    twin_patch.properties = TwinProperties(
+        desired={"targetTemperature": 42}
+    )  # this is relevant for the thermostat device sample
+    updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
+    print("The twin patch has been successfully applied")
+    print("")
 ```
 
 Vous pouvez vérifier que la mise à jour est appliquée dans le terminal **device** qui affiche la sortie suivante :
 
 ```cmd/sh
 the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
-previous values
-42
 ```
 
 Le terminal **service** confirme que le correctif a réussi :
 
 ```cmd/sh
-Patch has been successfully applied
+The twin patch has been successfully applied
 ```
 
 ### <a name="invoke-a-command"></a>Appeler une commande
 
-Pour appeler une commande, exécutez l’exemple *invoke_command_sample.py*. Cet exemple montre comment appeler une commande dans un appareil à thermostat simple. Avant d’exécuter cet exemple, définissez les variables d’environnement `IOTHUB_COMMAND_NAME` et `IOTHUB_COMMAND_PAYLOAD` dans le terminal **service**  :
-
-```cmd/sh
-set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-```
-
-Dans le terminal **service**, utilisez la commande suivante pour exécuter l’exemple :
-  
-```cmd/sh
-python invoke_command_sample.py
-```
+L’exemple appelle ensuite une commande :
 
 Le terminal **service** affiche un message de confirmation de l’appareil :
 
 ```cmd/sh
-{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+The device method has been successfully invoked
 ```
 
 Dans le terminal **device**, vous voyez que l’appareil reçoit la commande :
@@ -172,7 +173,6 @@ hello world
 Will return the max, min and average temperature from the specified time hello to the current time
 Done generating
 {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-Sent message
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

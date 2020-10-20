@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554636"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration de Azure Active Directory à MobileIron
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec MobileIron, effectuez
 
 4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode démarré par **IDP** :
 
-    ![Informations d’authentification unique dans Domaine et URL MobileIron](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec MobileIron, effectuez
 
     c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL MobileIron](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Pour configurer l’authentification unique Azure AD avec MobileIron, effectuez
 
 2. Accédez à **Admin** > **Identity** (Administrateur>Identité) et sélectionnez l’option **AAD** dans le champ **Info on Cloud IDP Setup** (Informations sur la configuration de fournisseur d’identité cloud).
 
-    ![Bouton Administrateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Capture d’écran montrant l’onglet Admin du site MobileIron avec l’option Identity sélectionnée.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copiez les valeurs de la **clé** et de l’**hôte** et collez-les pour renseigner les URL dans la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Bouton Administrateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/key.png)
+    ![Capture d’écran montrant l’option de configuration de SAML avec une valeur de clé et une valeur d’hôte.](./media/mobileiron-tutorial/key.png)
 
 4. Dans le champ **Exporter le fichier de métadonnées de AAD et l’importer dans MobileIron Cloud**, cliquez sur **Choisir un fichier** pour charger les métadonnées téléchargées à partir du portail Azure. Cliquez sur **Fait** une fois le chargement terminé.
 

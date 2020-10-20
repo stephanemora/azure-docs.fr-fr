@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 230613cc103cc851d1173f867b551af028ea898b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b22bb16c583c0385b31bde89f30763cd4fb478a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546846"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique pour le domaine et les URL de Kantega SSO pour JIRA](common/idp-intiated.png)
+    ![Capture d’écran montrant la « Configuration SAML de base » avec les zones de texte « Identificateur » et « URL de réponse » mises en évidence, et le bouton « Enregistrer » sélectionné.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon1.png)
+    ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée, et l’option « Add-ons » sélectionnée dans la liste déroulante.](./media/kantegassoforjira-tutorial/addon1.png)
 
 1. Sous l’onglet Modules complémentaires, cliquez sur **Find new add-ons** (Trouver de nouveaux modules complémentaires). Recherchez **Kantega SSO for JIRA (SAML & Kerberos)** , puis cliquez sur le bouton **Installer** pour installer le nouveau plug-in SAML.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon2.png)
+    ![Capture d’écran montrant la section « Find new Add-ons », avec « Kantego SSO for JIRA (SAML & Kerberos) » dans la zone de recherche et le bouton « Install » sélectionné.](./media/kantegassoforjira-tutorial/addon2.png)
 
 1. L’installation du plug-in démarre.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon3.png)
+    ![Capture d’écran montrant la boîte de dialogue « Installing » du plug-in.](./media/kantegassoforjira-tutorial/addon3.png)
 
 1. Une fois l’installation terminée. Cliquez sur **Fermer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon33.png)
+    ![Capture d’écran montrant la boîte de dialogue « Installed and ready to go! » avec l’action « Close » sélectionnée.](./media/kantegassoforjira-tutorial/addon33.png)
 
 1.  Cliquez sur **Gérer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon34.png)
+    ![Capture d’écran affichant la page de l’application « Kantega SSO » avec le bouton « Manage » sélectionné.](./media/kantegassoforjira-tutorial/addon34.png)
     
 1. Le nouveau plug-in est répertorié sous **INTÉGRATIONS**. Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon35.png)
+    ![Capture d’écran montrant l’élément « INTEGRATIONS » mis en évidence dans le menu de navigation de gauche, et le bouton « Configure » sélectionné dans la section « Manage add-ons ».](./media/kantegassoforjira-tutorial/addon35.png)
 
-1. Dans la section **SAML**. Dans le menu déroulant **Ajouter le fournisseur d’identité**, sélectionnez **Azure Active Directory (Azure AD)** .
+1. Dans la section **SAML**. Dans le menu déroulant **Ajouter le fournisseur d’identité**, sélectionnez **Azure Active Directory (Azure AD)**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Capture d’écran montrant la liste déroulante « Add identity provider » avec l’option « Azure Active Directory (Azure AD) » sélectionnée.](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. Sélectionnez le niveau d’abonnement **De base**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon5.png)       
+    ![Capture d’écran montrant la section « Preparing Azure AD » avec l’option « Basic » sélectionnée.](./media/kantegassoforjira-tutorial/addon5.png)     
 
 1. Dans la section **Propriétés de l’application**, procédez comme suit : 
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Capture d’écran montrant la section « App properties » avec la zone de texte « App ID URL » et l’icône de copie mises en évidence ; le bouton « Next » est sélectionné.](./media/kantegassoforjira-tutorial/addon6.png)
 
     a. Copiez la valeur de **URI ID d’application** et utilisez-la en tant que **Identificateur, URL de réponse et URL de connexion** dans la section **Configuration SAML de base** du portail Azure.
 
@@ -174,7 +174,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 1. Dans la section **Metadata import** (Importation des métadonnées), procédez comme suit : 
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Capture d’écran montrant la section « Metadata import » avec l’option « Metadata file on my computer » sélectionnée.](./media/kantegassoforjira-tutorial/addon7.png)
 
     a. Sélectionnez **Metadata file on my computer** (Fichier de métadonnées sur mon ordinateur), puis chargez le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
 
@@ -182,7 +182,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 1. Dans la section **Name and SSO location** (Nom et emplacement de l’authentification unique), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Capture d’écran montrant la section « Name and SSO location », avec la zone de texte « Identity provider name » mise en évidence et le bouton « Next » sélectionné.](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. Ajoutez le nom du fournisseur d’identité dans la zone de texte **Identity provider name** (Nom du fournisseur d’identité) (par exemple, Azure AD).
 
@@ -190,11 +190,11 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 1. Vérifiez le certificat de signature, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Capture d’écran montrant la section « Signature verification » avec le bouton « Next » sélectionné.](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. Dans la section **JIRA user accounts** (Comptes d’utilisateur JIRA), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Capture d’écran montrant la section « JIRA user accounts », avec l’option « Create users in JIRA’s Internal Directory if needed » mise en évidence et le bouton « Next » sélectionné.](./media/kantegassoforjira-tutorial/addon10.png)
 
     a. Sélectionnez **Create users in JIRA’s internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de JIRA si nécessaire) et saisissez le nom de groupe approprié pour les utilisateurs (il peut s’agir de plusieurs groupes séparés par des virgules).
 
@@ -202,7 +202,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour JIRA,
 
 1. Cliquez sur **Terminer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Capture d’écran montrant la section « Summary » avec le bouton « Finish » sélectionné.](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. Dans la section **Known domains for Azure AD** (Domaines connus pour Azure AD), procédez comme suit :
 
@@ -274,11 +274,11 @@ Pour se connecter à JIRA, les utilisateurs Azure AD doivent être provisionnés
 
 1. Pointez sur la roue dentée, puis cliquez sur **Gestion des utilisateurs**.
 
-    ![Ajouter un employé](./media/kantegassoforjira-tutorial/user1.png) 
+    ![Capture d’écran montrant l’icône « Roue dentée » mise en évidence et l’option « User management » sélectionnée dans la liste déroulante.](./media/kantegassoforjira-tutorial/user1.png) 
 
 1. Sous l’onglet **User management** (Gestion des utilisateurs), cliquez sur **Create user** (Créer un utilisateur).
 
-    ![Ajouter un employé](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Capture d’écran montrant la section « User management » avec le bouton « Create User » sélectionné.](./media/kantegassoforjira-tutorial/user2.png) 
 
 1. Dans la page de boîte de dialogue **Create New User** (Créer un utilisateur), procédez comme suit :
 

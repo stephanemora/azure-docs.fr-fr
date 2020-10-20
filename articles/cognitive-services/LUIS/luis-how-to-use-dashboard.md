@@ -3,20 +3,18 @@ title: Tableau de bord - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
 description: Corriger les intentions et les entités avec le tableau de bord de votre application entraînée. Le tableau de bord affiche des informations sur l’application globale, en soulignant les intentions qui doivent être corrigées.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345238"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541405"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
 
@@ -130,11 +128,11 @@ Le graphique suivant montre une application bien équilibrée avec presque aucun
 
 Le graphique suivant montre une application mal équilibrée avec de nombreux problèmes à résoudre.
 
-![Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![La capture d’écran montre les prédictions par intention avec plusieurs résultats pas clairs ou prédits de manière incorrecte.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Placez le curseur sur la barre de chaque intention pour obtenir des informations sur l’intention.
 
-![Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![La capture d’écran montre les prédictions par intention avec les détails des résultats pas clairs ou prédits de manière incorrecte.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Utilisez la fonctionnalité **Trier par** pour organiser les intentions par type de problème et vous concentrer sur les intentions les plus problématiques.
 

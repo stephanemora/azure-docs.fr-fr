@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308263"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842816"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
@@ -184,7 +184,7 @@ La capture d’écran suivante montre le résultat de l’application d’appare
 
 La capture d’écran suivante montre le résultat de l’application back-end et comment celle-ci crée la configuration pour mettre à jour les propriétés souhaitées du microprogramme :
 
-![Application back-end](./media/tutorial-firmware-update/BackEnd1.png)
+![Capture d’écran montrant la sortie de l’application back-end.](./media/tutorial-firmware-update/BackEnd1.png)
 
 La capture d’écran suivante montre le résultat de l’application back-end et comment celle-ci surveille les métriques de mises à jour du microprogramme à partir de l’appareil simulé :
 

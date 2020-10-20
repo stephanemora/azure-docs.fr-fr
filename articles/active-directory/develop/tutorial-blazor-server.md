@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611469"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873181"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutoriel : Créer une application Blazor Server qui utilise la plateforme d’identité Microsoft pour l’authentification
 
@@ -84,7 +84,7 @@ Dans votre navigateur, accédez à `https://localhost:5001`et connectez-vous à 
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Récupération de données à partir de Microsoft Graph
 
-[Microsoft Graph](/graph/overview) propose un éventail d’API qui permettent d’accéder aux données Microsoft 365 de vos utilisateurs. En utilisant la plateforme d’identité Microsoft comme fournisseur d’identité pour votre application, vous avez plus facilement accès à ces informations puisque Microsoft Graph prend directement en charge les jetons émis par la plateforme d’identité Microsoft. Dans cette section, vous ajoutez du code qui peut afficher les e-mails de l’utilisateur connecté sur la page « Extraire les données » de l’application.
+[Microsoft Graph](/graph/overview) propose un éventail d’API qui permettent d’accéder aux données Microsoft 365 de vos utilisateurs. En utilisant la plateforme d’identité Microsoft comme fournisseur d’identité pour votre application, vous avez plus facilement accès à ces informations puisque Microsoft Graph prend directement en charge les jetons émis par la plateforme d’identité Microsoft. Dans cette section, vous ajoutez du code pour afficher les e-mails de l’utilisateur connecté sur la page « Extraire les données » de l’application.
 
 Avant de commencer, déconnectez-vous de votre application, car vous allez apporter des modifications aux autorisations requises et votre jeton actuel ne fonctionnera pas. Si vous ne l’avez pas encore fait, exécutez à nouveau votre application et sélectionnez **Se déconnecter** avant de mettre à jour le code ci-dessous.
 

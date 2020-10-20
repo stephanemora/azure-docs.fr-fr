@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554598"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940614"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec monday.com
 
@@ -88,14 +88,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
 
-    ![image](common/idp-intiated.png)
+    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
 
     > [!Note]
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement. L’**Identificateur** et l’**URL de réponse** sont identiques et la valeur figure dans le modèle suivant : `https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application monday.com attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
+    ![Capture d’écran montrant Attributs utilisateur et revendications avec des valeurs par défaut telles que Givenname user.givenname et Emailaddress User.mail.](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application monday.com s’attend à ce que quelques attributs supplémentaires, indiqués ci-dessous, soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -166,15 +166,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à **Profile** en haut à droite de la page et cliquez sur **Admin**.
 
-    ![Configuration de monday.com](./media/mondaycom-tutorial/configuration01.png)
+    ![Capture d’écran montrant le profil d’administrateur sélectionné.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Sélectionnez **Sécurité** et cliquez sur **Ouvrir** en regard de SAML.
 
-    ![Configuration de monday.com](./media/mondaycom-tutorial/configuration02.png)
+    ![Capture d’écran montrant l’onglet Security avec l’option permettant d’ouvrir qui est située en regard de SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Remplissez les détails ci-dessous à partir de votre fournisseur d’identité.
 
-    ![Configuration de monday.com](./media/mondaycom-tutorial/configuration03.png)
+    ![Capture d’écran montrant la zone du fournisseur SAML dans laquelle vous pouvez entrer des informations à partir de votre fournisseur d’identité.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > Pour plus d’informations, consultez [cet](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article.

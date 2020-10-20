@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555928"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Datadog
 
@@ -141,6 +141,22 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans Datadog. Tra
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Datadog dans le volet d’accès, vous devez vous connecter automatiquement à l’application Datadog pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Autoriser tous les utilisateurs de votre locataire à s’authentifier auprès de l’application
+
+Dans cette section, vous permettez à tous les membres de votre locataire d’accéder à Datadog s’ils disposent d’un compte côté Datadog.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Datadog**.
+1. Dans la page vue d’ensemble de l’application, sous **Gérer**, sélectionnez **Propriétés**.
+
+    ![Lien « Propriétés »](common/properties.png)
+
+1. Pour **Affectation utilisateur requise ?** , sélectionnez **Non**.
+
+    ![Assignation de l’utilisateur non exigée](common/user-assignment-not-required.png)
+
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761326"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046483"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play connecté à votre solution (Java)
 
@@ -27,7 +27,7 @@ IoT Plug-and-Play simplifie l’IoT en vous permettant d’interagir avec les fo
 
 Pour suivre ce démarrage rapide sur Windows, installez les logiciels suivants sur votre environnement Windows local :
 
-* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
+* Java SE Development Kit 8. Dans [Prise en charge à long terme de Java pour Azure et Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), sous **Prise en charge à long terme**, sélectionnez **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Clonez le référentiel SDK avec l’exemple de code
@@ -76,7 +76,7 @@ Dans [Configurer votre environnement pour les guides de démarrage rapide et tut
 Dans ce démarrage rapide, vous utilisez un exemple de solution IoT écrit en Java pour interagir avec l’exemple d’appareil que vous venez de configurer.
 
 > [!NOTE]
-> Cet exemple utilise l’espace de noms **com.microsoft.azure.sdk.iot.service.*;** à partir du **client du service IoT Hub**. Pour en savoir plus sur la récupération de l’ID de modèle, consultez le [Guide du développeur](concepts-developer-guide-service.md).
+> Cet exemple utilise l’espace de noms **com.microsoft.azure.sdk.iot.service** à partir du **client du service IoT Hub**. Pour en savoir plus sur les API, y compris l’API Digital Twins, consultez le [Guide du développeur sur les services](concepts-developer-guide-service.md).
 
 1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**.
 
@@ -88,7 +88,7 @@ Dans ce démarrage rapide, vous utilisez un exemple de solution IoT écrit en Ja
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>Obtenir le jumeau numérique
+### <a name="get-device-twin"></a>Obtenir un jumeau d’appareil
 
 L’extrait de code suivant montre comment récupérer le jumeau d’appareil dans le service :
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>Mettre à jour un jumeau numérique
+### <a name="update-a-device-twin"></a>Mettre à jour un jumeau d’appareil
 
-L’extrait de code suivant montre comment utiliser un *correctif* pour mettre à jour les propriétés par le biais du jumeau numérique :
+L’extrait de code suivant vous montre comment utiliser un *correctif* pour mettre à jour les propriétés par le biais du jumeau d’appareil :
 
 ```java
 String propertyName = "targetTemperature";

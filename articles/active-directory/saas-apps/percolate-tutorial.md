@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553980"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutoriel : Intégration d’Azure Active Directory à Percolate
 
@@ -103,7 +103,7 @@ Pour configurer l’authentification unique Azure AD avec Percolate, procédez c
 
 5. Pour configurer l’application en mode lancée par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** puis, dans la zone **URL de connexion**, entrez **https://percolate.com/app/login** :
 
-   ![Informations d’authentification unique dans Domaine et URL Percolate](common/metadata-upload-additional-signon.png)
+   ![Capture d’écran montrant la sélection de « Définir des URL supplémentaires » avec la zone de texte « URL de connexion » mise en évidence.](common/metadata-upload-additional-signon.png)
 6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML** , sélectionnez l’icône **Copier** pour copier l’**URL des métadonnées de fédération d’application**. Enregistrez cette URL.
 
     ![Copier l'URL des métadonnées de fédération d'application](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes** :
 
-    ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
+    ![Capture d’écran montrant la sélection de « Utilisateurs et groupes » dans le volet gauche.](common/users-groups-blade.png)
 
 4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 

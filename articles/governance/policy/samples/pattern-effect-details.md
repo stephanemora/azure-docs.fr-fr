@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Effets d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple d’utilisation des différents effets d’une définition de stratégie.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565737"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073034"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modèle Azure Policy : Effets
 
@@ -24,7 +24,7 @@ Cette définition de stratégie vérifie si l’étiquette définie dans le para
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Un effet **modify** exige le bloc **policyRule.then.details** qui définit **roleDefinitionIds** et **operations**. Ces paramètres indiquent à Azure Policy quels rôles sont nécessaires pour ajouter l’étiquette et corriger la ressource, et quelle opération **modify** effectuer. Dans cet exemple, **operation** est _add_, et les paramètres servent à définir l’étiquette et sa valeur.
+Un effet **modify** exige le bloc **policyRule.then.details** qui définit **roleDefinitionIds** et **operations**. Ces paramètres indiquent à Azure Policy quels rôles sont nécessaires pour ajouter l’étiquette et corriger la ressource, et quelle opération **modify** utiliser. Dans cet exemple, l’_opération_ **add** et les paramètres servent à définir l’étiquette et sa valeur.
 
 ## <a name="sample-2-complex-effect"></a>Exemple 2 : Effet complexe
 

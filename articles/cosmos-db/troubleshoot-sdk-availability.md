@@ -3,17 +3,17 @@ title: Diagnostiquer et résoudre les problèmes de disponibilité des Kits de d
 description: Découvrez tout ce qu’il y a à savoir sur le comportement de disponibilité du Kit de développement logiciel (SDK) Azure Cosmos lors de son utilisation dans des environnements multirégionaux.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/16/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0c717aca88095df05fc7927f3c3d6e2d481925d2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708339"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743962"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostiquer et résoudre les problèmes de disponibilité des Kits de développement logiciel (SDK) Azure Cosmos dans les environnements multirégionaux
 
@@ -25,14 +25,36 @@ Tous les Kits de développement logiciel (SDK) Azure Cosmos vous donnent la poss
 * Les propriétés [CosmosClientOptions.ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) ou [CosmosClientOptions.ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) dans le Kit de développement logiciel (SDK) .NET v3.
 * La méthode [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) dans le Kit de développement logiciel (SDK) Java v4.
 * Le paramètre [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) dans le Kit de développement logiciel (SDK) Python.
+* Le paramètre [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) dans le Kit de développement logiciel (SDK) JS.
 
-Pour les comptes à une seule région d’écriture, toutes les opérations d’écriture sont toujours effectuées dans la région d’écriture, de sorte que la liste des régions préférées s’applique uniquement aux opérations de lecture. Pour les comptes à plusieurs régions d’écriture, la liste de préférences s’applique aux opérations de lecture et d’écriture.
+Lorsque vous définissez la préférence régionale, le client se connecte à une région comme indiqué dans le tableau suivant :
 
-Si vous ne définissez pas de région par défaut, l’ordre de préférence régional est défini par l’[ordre de la liste des régions d’Azure Cosmos DB](distribute-data-globally.md).
+|Type de compte |Lectures |Écritures |
+|------------------------|--|--|
+| Région d’écriture unique | Région recommandée | Région primaire  |
+| Régions d’écriture multiples | Région recommandée | Région recommandée  |
 
-Lorsque l’un des scénarios suivants se produit, le client qui utilise le Kit de développement logiciel (SDK) Azure Cosmos expose les journaux et inclut les informations relatives aux nouvelles tentatives dans le cadre des **informations de diagnostic de l’opération**.
+Si vous ne définissez pas de préférence régionale :
 
-## <a name="removing-a-region-from-the-account"></a><a id="remove region"></a>Suppression d’une région du compte
+|Type de compte |Lectures |Écritures |
+|------------------------|--|--|
+| Région d’écriture unique | Région primaire | Région primaire |
+| Régions d’écriture multiples | Région primaire  | Région primaire  |
+
+> [!NOTE]
+> La région primaire fait référence à la première région de la [liste des régions du compte Azure Cosmos](distribute-data-globally.md)
+
+Lorsque l’un des scénarios suivants se produit, le client qui utilise le Kit de développement logiciel (SDK) Azure Cosmos expose les journaux et inclut les informations relatives aux nouvelles tentatives dans le cadre des **informations de diagnostic de l’opération** :
+
+* La propriété *RequestDiagnosticsString* incluse dans les réponses dans le Kit de développement logiciel (SDK) .NET V2.
+* La propriété *Diagnostics* incluse dans les réponses et les exceptions dans le Kit de développement logiciel (SDK) .NET V3.
+* La méthode *getDiagnostics ()* incluse dans réponses et les exceptions dans le Kit de développement logiciel (SDK) Java V4.
+
+Lors de la détermination de la région suivante par ordre de préférence, le client du Kit de développement logiciel (SDK) utilise la liste des régions du compte, en hiérarchisant les régions préférées (le cas échéant).
+
+Pour obtenir des informations complètes sur les garanties de contrat SLA au cours de ces événements, consultez la section [Contrats SLA pour la disponibilité](high-availability.md#slas-for-availability).
+
+## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Suppression d’une région du compte
 
 Lorsque vous supprimez une région d’un compte Azure Cosmos, tout client SDK qui utilise activement le compte détectera la suppression de la région grâce à un code de réponse principale. Le client marque ensuite le point de terminaison régional comme non disponible. Le client réitère l’opération en cours et toutes les opérations ultérieures sont acheminées de manière permanente vers la région suivante par ordre de préférence.
 
@@ -40,7 +62,7 @@ Lorsque vous supprimez une région d’un compte Azure Cosmos, tout client SDK q
 
 Toutes les cinq minutes, le client SDK Azure Cosmos lit la configuration du compte et actualise les régions dont il a connaissance.
 
-Si vous supprimez une région et la rajoutez ultérieurement au compte, si la région ajoutée a un ordre de préférence plus élevé, le Kit de développement logiciel (SDK) reviendra à l’utilisation de cette région de façon permanente. Une fois la région ajoutée détectée, toutes les requêtes ultérieures sont dirigées vers elle.
+Si vous supprimez une région et la rajoutez ultérieurement au compte, si la région ajoutée a un ordre de préférences régionales plus élevé dans le Kit de développement logiciel (SDK) de configuration que la région sélectionnée, le Kit de développement logiciel (SDK) reviendra à l’utilisation de cette région de façon permanente. Une fois la région ajoutée détectée, toutes les requêtes ultérieures sont dirigées vers elle.
 
 Si vous configurez le client pour qu’il se connecte de préférence à une région que le compte Azure Cosmos ne possède pas, la région par défaut est ignorée. Si vous ajoutez cette région ultérieurement, le client la détecte et bascule définitivement vers cette région.
 
@@ -50,7 +72,7 @@ Si vous initiez un basculement de la région d’écriture actuelle, la demande 
 
 ## <a name="regional-outage"></a>Panne régionale
 
-Si le compte dispose d’une seule région d’écriture et que la panne régionale se produit pendant une opération d’écriture, le comportement est similaire à un [basculement manuel](#manual-failover-single-region). Pour les demandes de lecture ou les comptes à plusieurs régions d’écriture, le comportement est similaire à la [suppression d’une région](#remove region).
+Si le compte dispose d’une seule région d’écriture et que la panne régionale se produit pendant une opération d’écriture, le comportement est similaire à un [basculement manuel](#manual-failover-single-region). Pour les demandes de lecture ou les comptes à plusieurs régions d’écriture, le comportement est similaire à la [suppression d’une région](#remove-region).
 
 ## <a name="session-consistency-guarantees"></a>Garanties de cohérence de session
 
@@ -64,6 +86,7 @@ Si l’utilisateur a configuré une liste de régions par défaut avec plusieurs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Examinez les [Contrats SLA pour la disponibilité](high-availability.md#slas-for-availability).
 * Utiliser la version la plus récente du [Kit de développement logiciel (SDK) .NET](sql-api-sdk-dotnet-standard.md)
 * Utiliser la version la plus récente du [Kit de développement logiciel (SDK) Java](sql-api-sdk-java-v4.md)
 * Utiliser la version la plus récente du [Kit de développement logiciel (SDK) Python](sql-api-sdk-python.md)

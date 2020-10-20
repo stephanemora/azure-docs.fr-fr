@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ce5572c4c5aca6f48496250c942d50b90551f36f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6742253ad815ab8058a9c05d82200e77d9d18a43
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546907"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour FishEye/Crucible
 
@@ -99,7 +99,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique pour le domaine et les URL de Kantega SSO pour FishEye/Crucible](common/idp-intiated.png)
+    ![Capture d’écran montrant la section « Configuration SAML de base » avec les zones de texte « Identificateur » et « URL de réponse » mises en évidence, et le bouton « Enregistrer » sélectionné.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,43 +134,43 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+    ![Capture d’écran montrant l’icône « Roue dentée » et l’option « Add-ons » sélectionnée.](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. Dans la section Paramètres système, cliquez sur **Find new add-ons (Rechercher de nouveaux modules complémentaires)** . 
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+    ![Capture d’écran montrant la section « System Settings » avec l’option « Find New Add-ons » sélectionnée.](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. Recherchez **Kantega SSO pour Crucible**, puis cliquez sur le bouton **Installer** pour installer le nouveau plug-in SAML.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+    ![Capture d’écran montrant la page « Attlasian Marketplace for FishEye », avec « Kantega SSO for Crucible » dans la zone de recherche et le bouton « Install » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. L’installation du plug-in démarre. 
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+    ![Capture d’écran montrant la boîte de dialogue « Installing » du plug-in.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. Une fois l’installation terminée. Cliquez sur **Fermer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+    ![Capture d’écran montrant la boîte de dialogue « Installed and ready to go » et le bouton « Close » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.  Cliquez sur **Gérer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+    ![Capture d’écran montrant la page d’application « Kantega SSO for Crucible SAML & Kerberos » et le bouton « Manage » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. Cliquez sur **Configurer** pour configurer le nouveau plug-in. 
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+    ![Capture d’écran montrant la page « User-installed add-ons » et le bouton « Configure » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. Dans la section **SAML**. Dans le menu déroulant **Ajouter le fournisseur d’identité**, sélectionnez **Azure Active Directory (Azure AD)** .
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+    ![Capture d’écran montrant la page « Add-ons - Kantega Single Sign-on » avec la liste déroulante « Add identity provider » et l’option « Azure Active Directory (Azure AD) » sélectionnées. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. Sélectionnez le niveau d’abonnement **De base**.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+    ![Capture d’écran montrant la section « Preparing Azure AD » avec l’option « Basic » sélectionnée.](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. Dans la section **Propriétés de l’application**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+    ![Capture d’écran montrant la section « App properties » avec la zone de texte « App ID URI » et l’icône de copie sélectionnées.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
     a. Copiez la valeur de **URI ID d’application** et utilisez-la en tant que **Identificateur, URL de réponse et URL de connexion** dans la section **Configuration SAML de base** du portail Azure.
 
@@ -178,7 +178,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 1. Dans la section **Metadata import** (Importation des métadonnées), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+    ![Capture d’écran montrant la section « Metadata import » avec l’option « Metadata file on my computer » sélectionnée.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
     a. Sélectionnez **Metadata file on my computer** (Fichier de métadonnées sur mon ordinateur), puis chargez le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
 
@@ -186,7 +186,7 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 1. Dans la section **Name and SSO location** (Nom et emplacement de l’authentification unique), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+    ![Capture d’écran montrant la section « Name and SSO location », avec la zone de texte « Identity provider name » mise en évidence et le bouton « Next » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
     a. Ajoutez le nom du fournisseur d’identité dans la zone de texte **Identity provider name** (Nom du fournisseur d’identité) (par exemple, Azure AD).
 
@@ -194,11 +194,11 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 1. Vérifiez le certificat de signature, puis cliquez sur **Suivant**.   
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+    ![Capture d’écran montrant les détails de la section « Signature verification » avec le bouton « Next » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. Dans la section **FishEye user accounts** (Comptes d’utilisateur FishEye), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+    ![Capture d’écran montrant la section « FishEye user accounts », avec l’option « Create users in FishEye’s Internal Directory if needed » et le bouton « Next » sélectionnés.](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
     a. Sélectionnez **Create users in FishEye's internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de FishEye si nécessaire) et entrez le nom de groupe approprié pour les utilisateurs (peut être plusieurs groupes séparés par des virgules).
 
@@ -206,11 +206,11 @@ Pour configurer l’authentification unique Azure AD avec Kantega SSO pour FishE
 
 1. Cliquez sur **Terminer**.
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+    ![Capture d’écran montrant la section « Summary » avec le bouton « Finish » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. Dans la section **Known domains for Azure AD** (Domaines connus pour Azure AD), procédez comme suit :  
 
-    ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+    ![Capture d’écran montrant la section « Known domains for Azure AD » avec le bouton « Save » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
     a. Sélectionnez **Known domains** (Domaines connus) dans le volet gauche de la page.
 
@@ -278,11 +278,11 @@ Pour se connecter à FishEye/Crucible, les utilisateurs d’Azure AD doivent êt
 
 1. Pointez sur le roue dentée, puis cliquez sur **Users** (Utilisateurs).
 
-    ![Ajouter un employé](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée, et l’option « Users » sélectionnée dans la liste déroulante.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. Dans la section de l’onglet **Users** (Utilisateurs), cliquez sur **Add user** (Ajouter un utilisateur).
 
-    ![Ajouter un employé](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    ![Capture d’écran montrant la section « Users » avec le bouton « Add User » sélectionné.](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. Dans la page de boîte de dialogue **Add New User** (Ajouter un utilisateur), procédez comme suit :
 

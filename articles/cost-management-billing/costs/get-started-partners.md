@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372253"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827577"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -151,9 +151,11 @@ Pour afficher les coûts d’un abonnement, ouvrez **Cost Management + Facturati
 
 L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues Azure RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
 
-Les vues amorties et les coûts réels pour les instances réservées dans les étendues Azure RBAC indiquent des frais nuls. Les coûts des instances réservées sont indiqués uniquement dans les étendues de facturation dans lesquelles les achats ont été effectués.
+Les vues amorties et les coûts réels pour les instances réservées dans les étendues Azure RBAC indiquent des frais nuls. Les frais d’achat des droits, tels que les frais relatifs aux instances réservées ou à la Place de marché, s’affichent uniquement dans les étendues de facturation du locataire du partenaire au sein duquel les achats ont été effectués.
 
 Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mêmes que ceux indiqués dans la calculatrice de prix Azure pour tous les clients. Les coûts indiqués n’incluent pas les remises ni les crédits que le partenaire peut avoir, comme les crédits partenaires, les remises de niveau et les remises globales sur les services.
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analyser les coûts dans la vue d’analyse des coûts
 

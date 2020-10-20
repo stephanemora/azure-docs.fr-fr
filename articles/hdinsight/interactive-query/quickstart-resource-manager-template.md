@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: f08b7a49d961c3408af6e5360344bdf500a8ac07
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 969aadbe342dbfd345930082d56e0af93eea37d8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542323"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854373"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Interactive Query dans Azure HDInsight à l’aide d’un modèle Resource Manager
 
@@ -59,13 +59,13 @@ Deux ressources Azure sont définies dans le modèle :
     |Nom d’utilisateur SSH|Indiquez le nom d’utilisateur. La valeur par défaut est sshuser|
     |Mot de passe SSH|Indiquez le mot de passe.|
 
-    ![Cluster HBase basé sur un modèle Resource Manager](./media/quickstart-resource-manager-template/resource-manager-template-hive.png)
+    ![Déployer un cluster HBase basé sur un modèle Resource Manager](./media/quickstart-resource-manager-template/resource-manager-template-hive.png)
 
 1. Passez en revue les **CONDITIONS GÉNÉRALES**. Sélectionnez ensuite **J’accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**. Vous recevez une notification indiquant que votre déploiement est en cours. La création d’un cluster prend environ 20 minutes.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
-Une fois le cluster créé, vous recevez une notification **Déploiement réussi** avec un lien **Accéder à la ressource**. La page Groupe de ressources liste votre nouveau cluster HDInsight ainsi que le stockage par défaut associé au cluster. Chaque cluster a une dépendance de [compte de stockage Azure](../hdinsight-hadoop-use-blob-storage.md) ou une dépendance de [compte Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Elle est désignée comme compte de stockage par défaut. Le cluster HDInsight et son compte de stockage par défaut doivent figurer dans la même région Azure. La suppression de clusters n’a pas pour effet de supprimer le compte de stockage.
+Une fois le cluster créé, vous recevez une notification **Déploiement réussi** avec un lien **Accéder à la ressource**. La page Groupe de ressources liste votre nouveau cluster HDInsight ainsi que le stockage par défaut associé au cluster. Chaque cluster a une dépendance de compte de [Stockage Blob Azure](../hdinsight-hadoop-use-blob-storage.md), [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) ou [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Elle est désignée comme compte de stockage par défaut. Le cluster HDInsight et son compte de stockage par défaut doivent figurer dans la même région Azure. La suppression de clusters n’a pas pour effet de supprimer le compte de stockage.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -73,7 +73,7 @@ Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être su
 
 Dans le portail Azure, accédez à votre cluster, puis sélectionnez **Supprimer**.
 
-![La capture d’écran montre un cluster HDInsight avec le groupe de ressources à supprimer.](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
+[Supprimer le cluster HBase basé sur un modèle Resource Manager](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight et le compte de stockage par défaut.
 

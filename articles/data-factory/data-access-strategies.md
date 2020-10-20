@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484950"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616854"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données
 
@@ -38,10 +38,10 @@ Cela devrait fonctionner dans de nombreux scénarios et nous savons bien qu’un
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Stratégies d’accès aux données via Azure Data Factory
 
 * **[Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)**  : vous pouvez créer un runtime d’intégration Azure au sein d’un réseau virtuel géré Azure Data Factory et il tirera parti des points de terminaison privés pour se connecter en toute sécurité aux magasins de données pris en charge. Le trafic entre le réseau virtuel géré et les sources de données transite par le réseau principal de Microsoft et n’est pas exposé au réseau public.
-* **[Service approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)**  : le Stockage Azure (BLOB, ADLS Gen2) prend en charge une configuration de pare-feu qui permet à certains services de plateforme Azure approuvés d’accéder au compte de stockage en toute sécurité . Les services approuvés appliquent une authentification d’identité gérée, qui garantit qu’aucune autre fabrique de données ne peut se connecter à ce stockage, sauf en cas de mise en liste verte l’autorisant à le faire à l’aide de son identité gérée. Pour plus d’informations, lisez **[ce blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Cette solution est donc extrêmement sécurisée et recommandée. 
+* **[Service approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)**  : le Stockage Azure (BLOB, ADLS Gen2) prend en charge une configuration de pare-feu qui permet à certains services de plateforme Azure approuvés d’accéder au compte de stockage en toute sécurité . Les services approuvés appliquent une authentification d’identité gérée, qui garantit qu’aucune autre fabrique de données ne peut se connecter à ce stockage, sauf si elle est autorisée à le faire à l’aide de son identité gérée. Pour plus d’informations, lisez **[ce blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Cette solution est donc extrêmement sécurisée et recommandée. 
 * **Adresse IP statique unique** : vous devez configurer un runtime d’intégration auto-hébergé pour obtenir une adresse IP statique pour les connecteurs Data Factory. Ce mécanisme garantit que vous pouvez bloquer l’accès à partir de toutes les autres adresses IP. 
 * **[Plage d’adresses IP statiques](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)**  : vous pouvez utiliser les adresses IP d’Azure Integration Runtime pour les autoriser par mise en liste verte dans votre stockage (par exemple, S3, Salesforce, etc.). Cela restreint certainement les adresses IP qui peuvent se connecter aux magasins de données, mais dépend également des règles d’authentification/autorisation.
-* **[Balise de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)**  : une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné (comme Azure Data Factory). Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Cette solution est utile lors de la mise en liste verte de l’accès aux données sur des magasins de données hébergés par IaaS dans un réseau virtuel.
+* **[Balise de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)**  : une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné (comme Azure Data Factory). Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Cette solution est utile lors du filtrage de l’accès aux données sur des magasins de données hébergés par IaaS dans un réseau virtuel.
 * **Autoriser les services Azure** : certains services vous permettent d’autoriser tous les services Azure à s’y connecter si vous choisissez cette option. 
 
 Pour plus d’informations sur les mécanismes de sécurité réseau pris en charge sur les banques de données dans Azure Integration Runtime et le runtime d’intégration auto-hébergé, voir les deux tableaux ci-dessous.  

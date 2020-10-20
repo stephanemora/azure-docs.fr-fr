@@ -8,18 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930908"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015922"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
+
+## <a name="october-2020"></a>Octobre 2020
+
+* Prise en charge de la langue Hindi pour la fonctionnalité Analyse des sentiments v3.x, à partir de la version `2020-04-01` du modèle. 
+* La version `2020-09-01` du modèle pour le point de terminaison /languages de la v3 améliore la détection de la langue et renforce la précision.
+
+## <a name="september-2020"></a>Septembre 2020
+
+### <a name="general-api-updates"></a>Mises à jour générales de l’API
+
+* Publication d’une nouvelle URL pour la préversion publique de l’API Analyse de texte v3.1 permettant la prise en charge des mises à jour des points de terminaison suivants de l’API Reconnaissance d'entité nommée v3 : 
+    * Le point de terminaison `/pii` comprend désormais la nouvelle propriété `redactedText` dans la réponse JSON où les entités PII détectées dans le texte d’entrée sont remplacées par un `*` pour chaque caractère de ces entités.
+    * Le point de terminaison `/linking` comprend désormais la propriété `bingID` dans la réponse JSON pour les entités liées.
+* Les points de terminaison de l’API Analyse de texte (préversion) suivants ont été retirés le 4 septembre 2020 :
+    * v2.1-preview
+    * v3.0-preview
+    * v3.0-preview.1
+    
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’API Analyse de texte v3.1-Preview.2](quickstarts/text-analytics-sdk.md)
+
+### <a name="text-analytics-for-health-container-updates"></a>Mises à jour du conteneur Analyse de texte pour la santé
+
+Les mises à jour suivantes sont spécifiques à la version du mois de septembre du conteneur Analyse de texte pour la santé uniquement.
+* Une nouvelle image conteneur avec la balise `1.1.013530001-amd64-preview` avec la nouvelle version `2020-09-03` du modèle a été publiée dans le référentiel containerpreview. 
+* Cette version de modèle apporte des améliorations en matière de reconnaissance d’entités, de détection d’abréviation et de latence.
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’API Analyse de texte pour la santé](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -31,7 +60,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 * Une erreur HTTP 400 est désormais retournée pour les demandes d’API v3 qui dépassent les [limites de données](concepts/data-limits.md) publiées. 
 * Les points de terminaison qui retournent un offset prennent désormais en charge le paramètre facultatif `stringIndexType`, qui ajuste les valeurs `offset` et `length` retournées pour qu’elles correspondent à un schéma d’index de chaîne [ pris en charge](concepts/text-offsets.md).
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Analyse de texte pour le conteneur d’intégrité - Mises à jour du mois d’août
+### <a name="text-analytics-for-health-container-updates"></a>Mises à jour du conteneur Analyse de texte pour la santé
 
 Les mises à jour suivantes sont spécifiques à la version du mois d’août de l’Analyse de texte pour le conteneur d’intégrité uniquement.
 
@@ -163,9 +192,9 @@ D’autres types d’entités sont désormais disponibles dans le service Reconn
 
 #### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 
-* Un [nouveau point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) pour reconnaître les types d’entités d’informations personnelles (en anglais uniquement)
+* Un [nouveau point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) pour reconnaître les types d’entités d’informations personnelles (en anglais uniquement)
 
-* Points de terminaison distincts pour la [reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) et la [liaison d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Points de terminaison distincts pour la [reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) et la [liaison d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Modèle version](concepts/model-versioning.md) `2019-10-01`, qui inclut :
     * Détection et catégorisation élargies des entités trouvées dans le texte. 
@@ -177,7 +206,7 @@ La liaison d’entités prend en charge l’anglais et l’espagnol. Le support 
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments v3 - Préversion publique
 
-* Un [nouveau point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) pour l’analyse des sentiments.
+* Un [nouveau point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) pour l’analyse des sentiments.
 * [Modèle version](concepts/model-versioning.md) `2019-10-01`, qui inclut :
 
     * Améliorations significatives en matière d’exactitude et de détail du score et de la catégorisation du texte de l’API.

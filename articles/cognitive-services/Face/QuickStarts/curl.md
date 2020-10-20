@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539336"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858266"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de cURL
 
@@ -34,9 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
  
 Vous allez utiliser une commande similaire à ce qui suit pour appeler l’API Visage et obtenir les données d’attribut de visage d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>Clé d’abonnement
 Remplacez `<Subscription Key>` par votre clé d’abonnement Visage valide.
@@ -46,14 +44,6 @@ Remplacez `<Subscription Key>` par votre clé d’abonnement Visage valide.
 L’URL `https://<My Endpoint String>.com/face/v1.0/detect` indique le point de terminaison Visage Azure à interroger. Vous devrez peut-être changer la première partie de cette URL pour qu’elle corresponde au point de terminaison associé à votre clé d’abonnement.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>Chaîne de requête d’URL
-
-La chaîne de requête de l’URL du point de terminaison Visage spécifie les attributs de visage à récupérer. Vous pouvez changer cette chaîne en fonction de votre utilisation prévue.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>URL source de l’image
 L’URL source indique l’image à utiliser comme entrée. Vous pouvez la faire pointer vers n’importe quelle image à analyser.
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>Exécutez la commande.
 
 Après avoir apporté vos changements, ouvrez une invite de commandes et entrez la nouvelle commande. Les informations de visage doivent apparaître en tant que données JSON dans la fenêtre de console. Par exemple :
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>Extraire des attributs de visage
+ 
+Pour extraire des attributs de visage, utilisez le modèle de détection 1 et ajoutez le paramètre de requête `returnFaceAttributes`. La commande doit maintenant ressembler à ce qui suit. Comme précédemment, insérez la clé et le point de terminaison de votre abonnement au service Visage.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+Les informations de visage retournées incluent désormais des attributs de visage. Par exemple :
 
 ```json
 [

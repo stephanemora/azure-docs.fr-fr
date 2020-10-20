@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554823"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Didacticiel : Intégration d’Azure AD à M-Files
 
@@ -133,11 +133,11 @@ Pour configurer l’authentification unique Azure AD avec M-Files, effectuez le
 
 1. Ouvrez la fenêtre **Paramètres de bureau M-Files**. Cliquez ensuite sur **Ajouter**.
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Capture d’écran montrant la zone Paramètres de bureau M-Files dans laquelle vous pouvez sélectionner Ajouter.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. Dans la fenêtre **Propriétés de connexion au coffre de documents**, procédez comme suit :
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Capture d’écran montrant la zone Propriétés de connexion au coffre de documents, dans laquelle vous pouvez entrer les valeurs décrites.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     Sous la section Serveur, saisissez les valeurs comme suit :  
 

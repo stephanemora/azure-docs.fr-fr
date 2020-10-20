@@ -4,15 +4,15 @@ description: Décrit le schéma d’événements pour chaque catégorie dans le 
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829507"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612759"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 
@@ -23,6 +23,17 @@ Le schéma varie selon votre mode d’accès au journal :
 - Consultez la section finale [Schéma du compte de stockage et des hubs d’événements](#schema-from-storage-account-and-event-hubs) pour connaître le schéma utilisé quand vous envoyez le journal d’activité à Stockage Azure ou Azure Event Hubs à l’aide d’un [paramètre de diagnostic](diagnostic-settings.md).
 - Consultez [Informations de référence sur Azure Monitor](/azure/azure-monitor/reference/) pour connaître le schéma utilisé quand vous envoyez le journal d’activité vers un espace de travail Log Analytics à l’aide d’un [paramètre de diagnostic ](diagnostic-settings.md).
 
+## <a name="severity-level"></a>Niveau de gravité
+Chaque entrée du journal d’activité a un niveau de gravité. Un niveau de gravité peut être défini sur l’une des valeurs suivantes :  
+
+| Gravité | Description |
+|:---|:---|
+| Critique | Événements qui demandent l’attention immédiate d’un administrateur système. Peut indiquer qu’une application ou un système a échoué ou a cessé de répondre.
+| Erreur | Événements qui indiquent un problème, mais ne nécessitent pas d’attention immédiate.
+| Avertissement | Événements qui indiquent des problèmes potentiels, bien qu’il ne s’agisse pas d’une erreur réelle. Indique qu’une ressource n’est pas dans un état idéal et risque de se dégrader plus tard en générant des erreurs ou des événements critiques.  
+| Informationnel | Événements qui transmettent des informations non critiques à l’administrateur. Semblable à une note qui indique : « Pour votre information ». 
+
+Le développeurs de chaque fournisseur de ressources choisissent les niveaux de gravité pour leurs entrées de ressources. Par conséquent, le niveau de gravité réel peut varier en fonction de la façon dont votre application est générée. Par exemple, il est possible que des éléments qui sont « critiques » pour une ressource particulière considérée de façon isolée ne soient pas aussi graves que des « erreurs » dans un type de ressource essentielle pour votre application Azure. N’oubliez pas de tenir compte de ce fait lorsque vous décidez des événements pour lesquels générer des alertes.  
 
 ## <a name="categories"></a>Catégories
 Chaque événement dans le journal d’activité est associé à l’une des catégories décrites dans le tableau suivant. Consultez les sections ci-dessous pour obtenir des détails supplémentaires sur chaque catégorie et sur le schéma qu’elles utilisent quand vous accédez au journal d’activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](./resource-logs.md#send-to-azure-event-hubs). Un mappage des propriétés au [schéma des journaux de ressources](./resource-logs-schema.md) est fourni dans la dernière section de l’article.
