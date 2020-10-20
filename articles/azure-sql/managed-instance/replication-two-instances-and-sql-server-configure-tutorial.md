@@ -1,6 +1,6 @@
 ---
 title: Configurer la réplication transactionnelle entre Azure SQL Managed Instance et SQL Server
-description: Tutoriel expliquant comment configurer la réplication entre une instance managée de serveur de publication, une instance managée de serveur de distribution et un abonné SQL Server sur une machine virtuelle Azure, ainsi que les composants réseau nécessaires, tels que la zone DNS privée et l’appairage VPN.
+description: Tutoriel expliquant comment configurer la réplication entre une instance managée de serveur de publication, une instance managée de serveur de distribution et un abonné SQL Server sur une machine virtuelle Azure, ainsi que les composants réseau nécessaires, tels que la zone DNS privée et VNET Peering.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283188"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058554"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutoriel : Configurer la réplication transactionnelle entre Azure SQL Managed Instance et SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Ce tutoriel s’adresse à un public expérimenté et suppose que l’utilisateu
 
 
 > [!NOTE]
-> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
+> Cet article décrit l’utilisation de la [réplication transactionnelle](/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,10 +48,10 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 - Savoir comment déployer deux instances managées au sein d’un même réseau virtuel
 - Disposer d’un abonné SQL Server, localement ou sur une machine virtuelle Azure. Ce tutoriel utilise une machine virtuelle Azure  
 - [SQL Server Management Studio (SSMS) 18.0 ou version ultérieure](/sql/ssms/download-sql-server-management-studio-ssms)
-- La version la plus récente [d’Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- La version la plus récente [d’Azure PowerShell](/powershell/azure/install-az-ps).
 - Les ports 445 et 1433 autorisent le trafic SQL via le pare-feu Azure et le pare-feu Windows.
 
-## <a name="1---create-the-resource-group"></a>1 - Créer le groupe de ressources
+## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
 Utilisez l’extrait de code PowerShell suivant pour créer un groupe de ressources :
 
@@ -64,7 +64,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - Créer deux instances managées
+## <a name="create-two-managed-instances"></a>Créer deux instances managées
 
 Créez deux instances managées dans ce nouveau groupe de ressources à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ Créez deux instances managées dans ce nouveau groupe de ressources à l’aide
 Pour plus d’informations sur la création d’une instance managée, consultez [Créer une instance managée dans le portail](instance-create-quickstart.md).
 
   > [!NOTE]
-  > Par souci de simplicité, et parce qu’il s’agit de la configuration la plus courante, ce tutoriel suggère de placer l’instance managée du serveur de distribution dans le même réseau virtuel que le serveur de publication. Toutefois, il est possible de créer le serveur de distribution dans un autre réseau virtuel. Pour ce faire, vous devez configurer l’appairage VPN entre les réseaux virtuels du serveur de publication et du serveur de distribution, puis configurer l’appairage VPN entre les réseaux virtuels du serveur de distribution et de l’abonné.
+  > Par souci de simplicité, et parce qu’il s’agit de la configuration la plus courante, ce tutoriel suggère de placer l’instance managée du serveur de distribution dans le même réseau virtuel que le serveur de publication. Toutefois, il est possible de créer le serveur de distribution dans un autre réseau virtuel. Pour ce faire, vous devez configurer VNET Peering entre les réseaux virtuels du serveur de publication et du serveur de distribution, puis configurer VNET Peering entre les réseaux virtuels du serveur de distribution et de l’abonné.
 
-## <a name="3---create-a-sql-server-vm"></a>3 - Créer une machine virtuelle SQL Server
+## <a name="create-a-sql-server-vm"></a>Créer une machine virtuelle SQL Server
 
 Créez une machine virtuelle SQL Server dans le [portail Azure](https://portal.azure.com). La machine virtuelle SQL Server doit présenter les caractéristiques suivantes :
 
@@ -89,9 +89,9 @@ Créez une machine virtuelle SQL Server dans le [portail Azure](https://porta
 
 Pour plus d’informations sur le déploiement d’une machine virtuelle SQL Server sur Azure, consultez [Guide de démarrage rapide : Créer une machine virtuelle SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## <a name="4---configure-vpn-peering"></a>4 - Configurer l’appairage VPN
+## <a name="configure-vnet-peering"></a>Configurer VNET Peering
 
-Configurez l’appairage VPN pour permettre la communication entre le réseau virtuel des deux instances managées et le réseau virtuel de SQL Server. Pour cela, utilisez cet extrait de code PowerShell :
+Configurez VNET Peering pour permettre la communication entre le réseau virtuel des deux instances managées et le réseau virtuel de SQL Server. Pour cela, utilisez cet extrait de code PowerShell :
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,11 +136,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Une fois l’appairage VPN effectué, testez la connectivité en lançant SQL Server Management Studio (SSMS) sur SQL Server et en vous connectant aux deux instances managées. Pour plus d’informations sur la connexion à une instance managée à l’aide de SSMS, consultez [Utiliser SSMS pour se connecter à SQL Managed Instance](point-to-site-p2s-configure.md#connect-with-ssms).
+Une fois l’appairage VNet établi, testez la connectivité en lançant SQL Server Management Studio (SSMS) sur SQL Server et en vous connectant aux deux instances managées. Pour plus d’informations sur la connexion à une instance managée à l’aide de SSMS, consultez [Utiliser SSMS pour se connecter à SQL Managed Instance](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Tester la connectivité aux instances managées](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 - Créer une zone DNS privée
+## <a name="create-a-private-dns-zone"></a>Créer une zone DNS privée
 
 Une zone DNS privée autorise le routage DNS entre les instances managées et SQL Server.
 
@@ -180,7 +180,7 @@ Une zone DNS privée autorise le routage DNS entre les instances managées et 
 1. Sélectionnez **OK** pour créer une liaison de réseau virtuel.
 1. Répétez ces étapes afin d’ajouter une liaison pour le réseau virtuel de l’abonné, avec un nom tel que `Sub-link`.
 
-## <a name="6---create-an-azure-storage-account"></a>6 - Créer un compte de stockage Azure
+## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
 [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail, puis créez un [partage de fichiers](../../storage/files/storage-how-to-create-file-share.md) au sein du compte de stockage.
 
@@ -194,7 +194,7 @@ Exemple : `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT
 
 Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
-## <a name="7---create-a-database"></a>7 - Créer une base de données
+## <a name="create-a-database"></a>Création d'une base de données
 
 Créez une base de données sur l’instance managée de serveur de publication. Pour ce faire, procédez comme suit :
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - Configurer la distribution
+## <a name="configure-distribution"></a>Configurer la distribution
 
 Une fois que la connectivité est établie et que vous disposez d’un exemple de base de données, vous pouvez configurer la distribution sur votre instance managée `sql-mi-distributor`. Pour ce faire, procédez comme suit :
 
@@ -277,7 +277,7 @@ Une fois que la connectivité est établie et que vous disposez d’un exemple d
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 - Créer la publication
+## <a name="create-the-publication"></a>Créer la publication
 
 Une fois la distribution configurée, vous pouvez créer la publication. Pour ce faire, procédez comme suit :
 
@@ -298,7 +298,7 @@ Une fois la distribution configurée, vous pouvez créer la publication. Pour ce
 1. Dans la page **Terminer l’Assistant**, nommez votre publication `ReplTest`, puis sélectionnez **Suivant** pour créer votre publication.
 1. Une fois votre publication créée, actualisez le nœud **Réplication** dans l’**Explorateur d’objets**, puis développez **Publications locales** pour voir votre nouvelle publication.
 
-## <a name="10---create-the-subscription"></a>10 - Créer l’abonnement
+## <a name="create-the-subscription"></a>Créer l’abonnement
 
 Une fois la publication créée, vous pouvez créer l’abonnement. Pour ce faire, procédez comme suit :
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - Tester la réplication
+## <a name="test-replication"></a>Tester la réplication
 
 Une fois que la réplication a été configurée, vous pouvez la tester en insérant de nouveaux éléments sur la base de données du serveur de publication et en observant les modifications se propager vers la base de données de l’abonné.
 
@@ -393,7 +393,7 @@ Solutions possibles :
 - Vérifiez que le nom DNS a été utilisé lors de la création de l’abonné.
 - Vérifiez que vos réseaux virtuels sont correctement liés dans la zone DNS privée.
 - Vérifiez que votre enregistrement A est configuré correctement.
-- Vérifiez que l’appairage VPN est configuré correctement.
+- Vérifiez que VNET Peering est configuré correctement.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Il n’existe aucune publication à laquelle vous pouvez vous abonner
 

@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853383"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612118"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
-La plateforme d’identités Microsoft permet à une application d’utiliser ses propres informations d’identification pour l’authentification, par exemple, le [flux d’octroi d’informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 et le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) (OBO).
+La plateforme d’identités Microsoft permet à une application d’utiliser ses propres informations d’identification pour l’authentification partout où une clé secrète client pourrait être utilisée, par exemple, dans le [flux d’octroi d’informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 et le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Parmi les types d’informations d’identification qu’une application peut utiliser pour l’authentification figure l’assertion [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) signée avec un certificat dont est propriétaire l’application.
 
 ## <a name="assertion-format"></a>Format d’assertion
 
-Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliothèques JWT dans la langue de votre choix. Les informations sont transmises par le jeton dans son [En-tête ](#header), ses [Revendications](#claims-payload) et sa [Signature](#signature).
+Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliothèques JWT dans la langue de votre choix. Pour permettre cela, [MSAL utilise `.WithCertificate()`](msal-net-client-assertions.md). Les informations sont transmises par le jeton dans son [En-tête ](#header), ses [Revendications](#claims-payload) et sa [Signature](#signature).
 
 ### <a name="header"></a>En-tête
 
@@ -40,14 +40,14 @@ Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliot
 
 ### <a name="claims-payload"></a>Revendications (charge utile)
 
-| Paramètre |  Notes |
-| --- | --- |
-| `aud` | Audience: Doit être `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | Date d’expiration : La date d’expiration du jeton. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton. Nous vous recommandons d’utiliser un délai d’expiration court, de 10 minutes à une heure.|
-| `iss` | Émetteur : Doit être le paramètre client_id (*ID de l’application (client)* du service client) |
-| `jti` | GUID : L’ID JWT |
-| `nbf` | Pas avant : La date avant laquelle le jeton ne peut pas être utilisé. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de la création de l’assertion. |
-| `sub` | Objet : Pour `iss`, doit être le paramètre client_id (*ID de l’application (client)* du service client) |
+Type de revendication | Valeur | Description
+---------- | ---------- | ----------
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La revendication « AUD » (audience) identifie les destinataires auxquels le JWT est destiné (ici Azure AD) consultez [RFC 7519, section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  Dans ce cas, ce destinataire est le serveur de connexion (login.microsoftonline.com).
+exp | 1601519414 | La revendication « exp » (délai d'expiration) indique le délai d'expiration à partir duquel le JWT ne doit PAS être accepté pour être traité. Consultez [RFC 7519, section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Cela permet à l’instruction d’être utilisée jusqu’à ce moment-là. Réduisez-la donc au minimum : 5 à 10 minutes après `nbf` au maximum.  Azure AD ne détermine actuellement pas de restrictions sur l’heure de `exp`. 
+iss | {ClientID} | La revendication « ISS » (émetteur) identifie le principal qui a émis le jeton JWT ; le cas échéant, votre application cliente.  Utilisez l’ID d’application GUID.
+jti | (un guid) | La revendication « JTI » (ID JWT) fournit un identificateur unique pour le jeton JWT. La valeur de l’identificateur DOIT être assignée de manière à garantir qu’il y a une probabilité négligeable que la même valeur soit affectée par accident à un objet de données différent ; si l’application utilise plusieurs émetteurs, les collisions doivent également être évitées parmi les valeurs générées par différents émetteurs. La valeur « JTI » est une chaîne qui respecte la casse. [RFC 7519, section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | La revendication « nbf » (pas avant) indique le délai avant lequel le JWT ne doit PAS être accepté pour être traité. [RFC 7519, section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  L’utilisation de l’heure actuelle est appropriée. 
+sub | {ClientID} | La revendication « SUB » (objet) identifie l’objet du jeton JWT ; le cas échéant, votre application également. Utilisez la même valeur que `iss`. 
 
 ### <a name="signature"></a>Signature
 
@@ -126,7 +126,18 @@ Dans l’inscription d’application Azure pour l’application cliente :
 3. Enregistrez les modifications du manifeste de l’application, puis chargez-le dans la Plateforme d’identités Microsoft.
 
    La propriété `keyCredentials` peut avoir plusieurs valeurs. Vous pouvez donc charger plusieurs certificats pour une gestion plus élaborée des clés.
+   
+## <a name="using-a-client-assertion"></a>Utilisation d’une assertion de client
+
+Les assertions de client peuvent être utilisées partout où une clé secrète client est utilisée.  Par exemple, dans le [flux du code d’autorisation](v2-oauth2-auth-code-flow.md), vous pouvez transmettre une `client_secret` pour prouver que la requête provient de votre application. Vous pouvez remplacer ceci par les paramètres `client_assertion` et `client_assertion_type`. 
+
+| Paramètre | Valeur | Description|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Il s’agit d’une valeur fixe, indiquant que vous utilisez les informations d’identification d’un certificat. |
+|`client_assertion`| JWT |Il s’agit du JWT créé ci-dessus. |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+La [bibliothèque MSAL.NET gère ce scénario](msal-net-client-assertions.md) dans une seule ligne de code.
 
 L’exemple de code [Application console de démon .NET Core utilisant la plateforme d’identité Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sur GitHub montre comment une application utilise ses propres informations d’identification pour l’authentification. Il montre également comment vous pouvez [créer un certificat auto-signé](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) à l’aide de la cmdlet PowerShell `New-SelfSignedCertificate`. Vous pouvez également utiliser les [scripts de création d’application](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) dans le référentiel d’échantillons pour créer des certificats, calculer l’empreinte, etc.
