@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256252"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357214"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -106,7 +106,7 @@ Vous pouvez également utiliser Service Fabric Explorer pour créer des instance
 ## <a name="event-store"></a>EventStore
 EventStore est une fonctionnalité proposée par la plateforme qui fournit les événements de la plateforme Service Fabric disponibles dans Service Fabric Explorer et via l’API REST. Vous pouvez obtenir une vue de capture de ce qui se passe dans votre cluster pour chaque entité (nœud, service, application et requête) basée sur l’heure de l’événement. Pour plus d’informations sur EventStore, consultez [Vue d’ensemble d’EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Capture d’écran montrant le volet Nœuds avec ÉVÉNEMENTS sélectionné.][sfx-eventstore]
 
 >[!NOTE]
 >Depuis Service Fabric version 6.4, EventStore n’est pas activé par défaut et doit être activé dans le modèle Resource Manager

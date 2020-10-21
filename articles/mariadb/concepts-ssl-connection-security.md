@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: a108459985f235f0280354ef7b4fa0cb181f5dda
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054243"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91444958"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Connectivité SSL/TLS dans Azure Database for MariaDB
 Azure Database for MariaDB prend en charge la connexion de votre serveur de base de données aux applications clientes via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -56,6 +56,17 @@ Par exemple, la définition de la valeur du paramètre de version minimale du pr
 > Après avoir appliqué une version TLS minimale, vous ne pouvez plus la désactiver.
 
 Pour découvrir comment définir le paramètre TLS pour Azure Database for MariaDB, consultez le [guide pratique pour configurer le paramètre TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mariadb"></a>Prise en charge du chiffrement par Azure Database for MariaDB
+
+Dans le cadre de la communication SSL/TLS, les suites de chiffrement sont validées et seules les suites de chiffrement prises en charge sont autorisées à communiquer avec le serveur de la base de données. La validation de la suite de chiffrement est contrôlée dans la [couche passerelle](concepts-connectivity-architecture.md#connectivity-architecture) et non pas explicitement sur le nœud lui-même. Si les suites de chiffrement ne correspondent pas à l’une des suites listées ci-dessous, les connexions client entrantes seront rejetées.
+
+### <a name="cipher-suite-supported"></a>Suite de chiffrement prise en charge
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [règles de pare-feu du serveur](concepts-firewall-rules.md)

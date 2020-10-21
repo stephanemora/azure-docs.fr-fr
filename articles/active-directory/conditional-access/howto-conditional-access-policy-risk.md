@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049041"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628262"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accès conditionnel : Accès conditionnel basé sur les risques de connexion
 
@@ -37,7 +37,7 @@ Il y a deux emplacements où cette stratégie peut être affectée. Les organisa
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
-1. Sous **Conditions** > **Risque de l’utilisateur**, définissez **Configurer** sur **Oui**. Sous **Sélectionner le niveau de risque de connexion auquel cette stratégie s’applique** 
+1. Dans **Conditions** > **Risque de connexion**, définissez **Configurer** sur **Oui**. Sous **Sélectionner le niveau de risque de connexion auquel cette stratégie s’applique** 
    1. Sélectionnez **Haut** et **Moyen**.
    1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.

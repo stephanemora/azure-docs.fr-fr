@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288119"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400755"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps
 
@@ -40,7 +40,7 @@ Dans le cadre de cette stratégie, lorsque vous utilisez un compte Gmail grand p
 
 * Services Google : Gmail, Google Agenda, Google Contacts, Google Drive, Google Sheets et Google Tasks
 
-* Services Microsoft approuvés : Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive et SharePoint Online
+* Services Microsoft approuvés : Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive et SharePoint Online
 
 * Connecteurs pour les sources de données gérées par le client : FTP, RSS, SFTP, SMTP et SQL Server
 

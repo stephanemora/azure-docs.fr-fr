@@ -10,12 +10,14 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 95f35c2734e0a8dbc39d409847976b8b31716f81
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935583"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998776"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profiler votre modèle pour déterminer l’utilisation des ressources
 
@@ -24,6 +26,10 @@ Cet article explique comment profiler un modèle Machine Learning afin de déter
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez entraîné et inscrit un modèle à l’aide d’Azure Machine Learning. Consultez [cet exemple de tutoriel](how-to-train-scikit-learn.md) pour obtenir un exemple d’entraînement et d’inscription d’un modèle scikit-learn avec Azure Machine Learning.
+
+## <a name="limitations"></a>Limites
+
+* Le profilage ne fonctionnera pas lorsque le compte Azure Container Registry (ACR) de votre espace de travail se trouve derrière un réseau virtuel.
 
 ## <a name="run-the-profiler"></a>Exécuter le profileur
 

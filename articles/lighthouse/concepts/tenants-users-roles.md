@@ -3,12 +3,12 @@ title: Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 855f6a39abc99f07e5847a01896ef864473358c4
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163303"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399242"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 
@@ -43,7 +43,7 @@ Lorsque vous créez vos autorisations, nous vous recommandons de suivre ces meil
 - Assurez-vous que tous les utilisateurs qui ont besoin [d’afficher la page Mes clients dans le portail Azure](../how-to/view-manage-customers.md) possèdent le rôle de [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
 
 > [!IMPORTANT]
-> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Appeler une API web à partir d’une application démon - Plateforme d’identités Microsoft | Azure
-description: Découvrez comment générer une application démon appelant des API web
+description: Découvrez comment générer une application démon appelant une API web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7319aacabd2c479c578fbb71ae0bc9fbb2dee9f2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 576eaf2ad9350651e4400d980e6fedce236dfa57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119128"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91257603"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Application démon appelant des API web - appeler une API web à partir de l’application
 

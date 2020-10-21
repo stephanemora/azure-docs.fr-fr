@@ -2,15 +2,13 @@
 title: Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 description: Cette documentation explique comment créer une fonction Azure avec TrackAvailability() pour qu’elle s’exécute régulièrement selon la configuration spécifiée dans la fonction TimerTrigger. Les résultats de ce test sont envoyés à votre ressource Application Insights, où vous pouvez rechercher et signaler des données sur les résultats de disponibilité. Les tests personnalisés vous permettent d’écrire des tests de disponibilité plus complexes qu’avec l’IU du portail, de superviser une application dans votre réseau virtuel Azure, de changer l’adresse du point de terminaison ou de créer un test de disponibilité, si ce dernier n’est pas disponible dans votre région.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320627"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945649"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 
@@ -135,7 +133,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -183,7 +181,7 @@ Vous pouvez utiliser les journaux (Analytics) pour voir les résultats de la dis
 >![Résultats de disponibilité](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dépendances](media/availability-azure-functions/dependencies.png)
+>![Screenshot shows New Query tab with dependencies limited to 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

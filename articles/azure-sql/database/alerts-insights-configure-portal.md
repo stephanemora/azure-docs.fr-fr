@@ -1,22 +1,22 @@
 ---
-title: Configurer des alertes et des notifications (le Portail Azure)
+title: Configurer des alertes et des notifications dans le portail Azure
 description: Utilisez le Portail Azure pour créer des alertes qui peuvent déclencher des notifications ou l’automation lorsque les conditions spécifiées sont remplies.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442664"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91444905"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse Analytics à l’aide du Portail Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

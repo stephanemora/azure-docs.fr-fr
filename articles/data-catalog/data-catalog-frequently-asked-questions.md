@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409017"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397298"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -55,7 +55,7 @@ Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vo
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Pourquoi l’erreur *Catalog already exists (Ce catalogue existe déjà)* s’affiche-t-elle quand j'essaie de créer un catalogue ?
 
-Lorsque vous achetez Office 365 E5 avec une licence Power BI Pro, Microsoft crée automatiquement un catalogue par défaut dans la région de l'abonnement. Ce catalogue utilise la référence SKU gratuite. La licence utilisateur Office 365 / Power BI est gérée dans la page Administration d'Office 365. 
+Lorsque vous achetez Office 365 E5 avec une licence Power BI Pro, Microsoft crée automatiquement un catalogue par défaut dans la région de l'abonnement. Ce catalogue utilise la référence SKU gratuite. La licence utilisateur Office 365 / Power BI est gérée dans la page Administration. 
 
 Cependant, ce type de catalogue de données n’inclut pas d'option **Administrateur** et n'est pas visible dans le portail **Azure**. Vous ne pouvez pas supprimer ce type de catalogue de données. De même, vous n'êtes pas autorisé à renommer le catalogue de données et vous ne pouvez pas le déplacer vers une autre région. 
 

@@ -2,17 +2,14 @@
 title: Données de télémétrie Application Insights dans Visual Studio CodeLens | Microsoft Docs
 description: Accédez rapidement à vos données de télémétrie des requêtes et des exceptions Application Insights à l’aide de CodeLens dans Visual Studio.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 2a562378ae626351922e43d33f38e62331ab58de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323483"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932649"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens
 Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](./app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.
@@ -68,9 +65,6 @@ Pour plus d’informations, cliquez sur l’indicateur CodeLens de requêtes :
 * Choisissez le nom de la ressource Application Insights dans le coin supérieur gauche du mode Détails de CodeLens pour modifier la ressource qui est source de données CodeLens.
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
-|  |  |
-| --- | --- |
-| **[Utilisation d’Application Insights dans Visual Studio](./visual-studio.md)**<br/>Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. |![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/visual-studio-codelens/34.png) |
-| **[Ajouter des données](./asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[Utilisation du portail Application Insights](./overview-dashboard.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+* **[Utilisation d’Application Insights dans Visual Studio](./visual-studio.md)** . Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. 
+* **[Utilisation du portail Application Insights](./overview-dashboard.md)** . Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. 
 

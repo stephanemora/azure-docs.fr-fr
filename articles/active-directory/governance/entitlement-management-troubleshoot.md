@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979422"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446994"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -146,7 +146,7 @@ Vous pouvez uniquement annuler une requête en attente qui n’a pas encore ét�
     | P1 | Utilisateurs et groupes spécifiques du répertoire OU Organisations connectées spécifiques |
     | P2 | Tous les membres du répertoire (à l’exception des invités) |
     | P3 | Tous les utilisateurs du répertoire (y compris les invités) OU Organisations connectées spécifiques |
-    | P4 | Toutes les organisations connectées OU Tous les utilisateurs (toutes les organisations connectées + tous les nouveaux utilisateurs externes) |
+    | P4 | Toutes les organisations connectées configurées OU Tous les utilisateurs (toutes les organisations connectées + tous les nouveaux utilisateurs externes) |
     
     Si une stratégie se trouve dans une catégorie de priorité plus élevée, les catégories de priorité inférieure sont ignorées. Pour savoir par le biais d’un exemple comment plusieurs stratégies de même priorité sont présentées au demandeur, voir [Sélectionner une stratégie](entitlement-management-request-access.md#select-a-policy).
 

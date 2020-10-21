@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088527"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91404899"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -43,7 +43,7 @@ Ce problème peut se produire lorsque la machine virtuelle ne peut pas localiser
 
 ## <a name="solution"></a>Solution
 
-Pour résoudre ce problème, arrêtez et libérez la machine virtuelle, et puis redémarrez-la. Cette opération force la machine virtuelle à récupérer le fichier BEK à partir d’Azure Key Vault, puis à la placer sur le disque chiffré. 
+Pour résoudre ce problème, arrêtez et libérez la machine virtuelle, et puis démarrez-la. Cette opération force la machine virtuelle à récupérer le fichier BEK à partir d’Azure Key Vault, puis à la placer sur le disque chiffré. 
 
 Si cette méthode ne résout pas le problème, effectuez les étapes suivantes pour restaurer le fichier BEK manuellement :
 

@@ -1,18 +1,18 @@
 ---
 title: Étapes d’optimisation post-migration avec l’API Azure Cosmos DB pour MongoDB
 description: Ce document fournit les techniques d’optimisation post-migration de MongoDB vers l’API Azure Cosmos DB pour Mongo DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
-ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409695"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Étapes d’optimisation post-migration lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
 
@@ -35,7 +35,7 @@ Dans ce guide, vous allez apprendre à :
 2. Dans le [portail Azure](https://www.portal.azure.com/), dans le volet gauche, ouvrez le menu **Toutes les ressources** et recherchez le compte Azure Cosmos DB vers lequel vous avez migré vos données.
 3. Ouvrez le panneau **Chaîne de connexion**. Le volet droit contient toutes les informations dont vous avez besoin pour vous connecter à votre compte.
 4. Utilisez les informations de connexion dans la configuration de votre application (ou d’autres emplacements pertinents) afin de refléter la connexion de l’API Azure Cosmos DB pour MongoDB dans votre application.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Chaîne-de-connexion":::
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Capture d’écran montrant les paramètres d’une chaîne de connexion.":::
 
 Pour plus d’informations, consultez la page [Connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md).
 

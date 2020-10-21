@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005427"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361062"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Utiliser Azure Log Analytics pour examiner les journaux du pare-feu d’applications web (WAF) sur Application Gateway
 
@@ -79,7 +79,7 @@ AzureDiagnostics
 
 Une fois que vous créez une requête, vous pouvez l’ajouter à votre tableau de bord.  Sélectionnez **Épingler au tableau de bord** dans le coin supérieur droit de l’espace de travail Log Analytics. Avec les quatre requêtes précédentes épinglées à un exemple de tableau de bord, voici les données que vous pouvez voir en un coup d’œil :
 
-![tableau de bord](../media/log-analytics/dashboard.png)
+![Capture d’écran montrant un tableau de bord Azure dans lequel vous pouvez ajouter votre requête.](../media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

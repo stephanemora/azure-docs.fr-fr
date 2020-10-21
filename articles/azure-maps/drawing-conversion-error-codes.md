@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682013"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361532"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erreurs et avertissements liés à la conversion de dessin
 
@@ -35,9 +35,9 @@ Le service de conversion ne peut pas créer une caractéristique de carte à par
 
 * Les deux images ci-dessous présentent des exemples de polygones avec auto-intersection.
 
-     ![Exemple de polygone avec auto-intersection](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Exemple de polygone avec auto-intersection, exemple un.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Exemple de polygone avec auto-intersection](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Exemple de polygone avec auto-intersection, exemple deux.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Vous trouverez ci-dessous une image illustrant une polyligne non fermée. Supposons que le calque ne prend en charge qu’une géométrie fermée.
 

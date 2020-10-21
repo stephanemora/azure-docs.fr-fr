@@ -8,17 +8,17 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293048"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360784"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Sauvegarde et restauration pour SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -129,23 +129,23 @@ Le tableau ci-dessous récapitule les fonctionnalités de chaque option de sauve
 
 | Option | Sauvegarde automatisée | Sauvegarde Azure pour SQL | Sauvegarde manuelle |
 |---|---|---|---|
-| Service Azure supplémentaire nécessaire |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Configuration d’une stratégie de sauvegarde dans le portail Azure | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) |   |
-| Restauration des bases de données dans le portail Azure |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Gestion de plusieurs serveurs dans un tableau de bord |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Restauration dans le temps | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) |
-| Objectif de point de récupération (RPO) de 15 minutes | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) |
-| Stratégie de conservation de sauvegarde à court terme (jours) | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) |   |
-| Stratégie de conservation de sauvegarde à long terme (mois, années) |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Prise en charge intégrée de SQL Server Always On |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Sauvegarde vers des comptes de stockage Azure | ![Oui](./media/backup-restore/yes.png)(automatique) | ![Oui](./media/backup-restore/yes.png)(automatique) | ![Oui](./media/backup-restore/yes.png)(gérée par le client) |
-| Gestion des fichiers de sauvegarde et de stockage | | ![Oui](./media/backup-restore/yes.png) |  |
-| Sauvegarde sur des disques attachés sur la machine virtuelle |   |   | ![Oui](./media/backup-restore/yes.png) |
-| Rapports de sauvegarde personnalisables établis de façon centralisée |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Alertes par e-mail consolidées pour informer des défaillances |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Personnaliser la supervision basée sur les journaux Azure Monitor |   | ![Oui](./media/backup-restore/yes.png) |   |
-| Surveillance des travaux de sauvegarde avec SSMS ou des scripts Transact-SQL | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) | ![Oui](./media/backup-restore/yes.png) |
-| Restauration des bases de données avec SSMS ou des scripts Transact-SQL | ![Oui](./media/backup-restore/yes.png) |   | ![Oui](./media/backup-restore/yes.png) |
+| Service Azure supplémentaire nécessaire |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Configuration d’une stratégie de sauvegarde dans le portail Azure | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Restauration des bases de données dans le portail Azure |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Gestion de plusieurs serveurs dans un tableau de bord |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Restauration dans le temps | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) |
+| Objectif de point de récupération (RPO) de 15 minutes | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) |
+| Stratégie de conservation de sauvegarde à court terme (jours) | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Stratégie de conservation de sauvegarde à long terme (mois, années) |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Prise en charge intégrée de SQL Server Always On |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Sauvegarde vers des comptes de stockage Azure | ![Coche verte.](./media/backup-restore/yes.png)(automatique) | ![Coche verte.](./media/backup-restore/yes.png)(automatique) | ![Coche verte.](./media/backup-restore/yes.png)(gérée par le client) |
+| Gestion des fichiers de sauvegarde et de stockage | | ![Coche verte.](./media/backup-restore/yes.png) |  |
+| Sauvegarde sur des disques attachés sur la machine virtuelle |   |   | ![Coche verte.](./media/backup-restore/yes.png) |
+| Rapports de sauvegarde personnalisables établis de façon centralisée |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Alertes par e-mail consolidées pour informer des défaillances |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Personnaliser la supervision basée sur les journaux Azure Monitor |   | ![Coche verte.](./media/backup-restore/yes.png) |   |
+| Surveillance des travaux de sauvegarde avec SSMS ou des scripts Transact-SQL | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) | ![Coche verte.](./media/backup-restore/yes.png) |
+| Restauration des bases de données avec SSMS ou des scripts Transact-SQL | ![Coche verte.](./media/backup-restore/yes.png) |   | ![Coche verte.](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251163"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409581"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Créer, configurer et gérer des travaux élastiques (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Dans cet article, vous allez apprendre à créer, configurer et gérer des travaux élastiques.

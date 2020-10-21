@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959789"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044528"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -58,7 +58,7 @@ Vous pouvez augmenter ou supprimer les quotas dans votre application en procéda
 ## <a name="understand-metrics"></a>Comprendre les métriques
 
 > [!NOTE]
-> **Utilisation de systèmes de fichiers** est une nouvelle métrique déployée à l’échelle mondiale. Vous n’avez aucune donnée à attendre, sauf si vous avez accès à la préversion privée.
+> **Utilisation de systèmes de fichiers** est une nouvelle métrique déployée à l’échelle mondiale. Vous n’avez aucune donnée à attendre, sauf si votre application est hébergée dans une environnement App Service Environment.
 > 
 
 > [!IMPORTANT]

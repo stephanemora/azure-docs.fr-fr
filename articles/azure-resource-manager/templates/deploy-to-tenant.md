@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/24/2020
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468553"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372389"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
@@ -24,7 +24,7 @@ Pour les stratégies Azure, utilisez :
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Pour le contrôle d’accès en fonction du rôle, utilisez :
+Pour le contrôle d’accès en fonction du rôle Azure (RBAC Azure), utilisez :
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
@@ -42,7 +42,7 @@ Pour la gestion des coûts, utilisez :
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### <a name="schema"></a>schéma
+## <a name="schema"></a>schéma
 
 Le schéma que vous utilisez pour les déploiements au niveau du locataire est différent de celui utilisé pour les déploiements de groupes de ressources.
 
@@ -64,7 +64,7 @@ Le principal déployant le modèle doit être autorisé à créer des ressources
 
 L’administrateur général d'Azure Active Directory n'est pas automatiquement autorisé à attribuer des rôles. Pour activer les déploiements de modèles au niveau du locataire, l’Administrateur général doit procéder comme suit :
 
-1. Élever l’accès au compte de manière à permettre à l'Administrateur général d'attribuer des rôles. Pour plus d'informations, consultez [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md).
+1. Élever l’accès au compte de manière à permettre à l'Administrateur général d'attribuer des rôles. Pour plus d’informations, consultez [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 1. Attribuer le rôle Propriétaire ou Contributeur au principal devant déployer les modèles.
 
@@ -78,11 +78,23 @@ L’administrateur général d'Azure Active Directory n'est pas automatiquement 
 
 Le principal dispose désormais des autorisations requises pour déployer le modèle.
 
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement sur un locataire, vous pouvez cibler le locataire ou les groupes d’administration, les abonnements et les groupes de ressources dans le locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Les ressources définies dans la section Ressources du modèle sont appliquées au locataire.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
 Les commandes utilisées pour les déploiements de locataires sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
-Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create) :
+Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -109,56 +121,6 @@ Pour les déploiements au niveau du locataire, vous devez fournir un emplacement
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
-
-## <a name="deployment-scopes"></a>Étendues de déploiement
-
-Lors du déploiement sur un locataire, vous pouvez cibler le locataire ou les groupes d’administration, les abonnements et les groupes de ressources dans le locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
-
-Les ressources définies dans la section Ressources du modèle sont appliquées au locataire.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
 
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 

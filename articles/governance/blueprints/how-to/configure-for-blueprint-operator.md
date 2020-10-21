@@ -3,18 +3,18 @@ title: Configurer votre environnement pour l’opérateur Blueprint
 description: Découvrez comment configurer votre environnement Azure pour l’utiliser avec le rôle intégré Azure « Opérateur Blueprint ».
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051455"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535779"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurer votre environnement pour un opérateur Blueprint
 
 La gestion de vos définitions et affectations de blueprint peut être attribuée à différentes équipes. Il arrive souvent qu'une équipe d'architectes ou de gouvernance soit en charge de la gestion du cycle de vie de vos définitions de blueprint, et une équipe d’exploitation en charge de la gestion des affectations de ces définitions de blueprint contrôlées de manière centralisée.
 
-Le Contrôle d'accès en fonction du rôle intégré d'**opérateur Blueprint** est spécifiquement conçu pour ce type de scénario. Ce rôle permet aux équipes des opérations de gérer l’affectation des définitions de blueprint, sans possibilité de les modifier. Cela implique une configuration de votre environnement Azure et cet article détaille les étapes nécessaires.
+Le rôle intégré **Opérateur blueprint** est spécifiquement conçu pour être utilisé dans ce type de scénario. Ce rôle permet aux équipes des opérations de gérer l’affectation des définitions de blueprint, sans possibilité de les modifier. Cela implique une configuration de votre environnement Azure et cet article détaille les étapes nécessaires.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Accorder l’autorisation à l’opérateur Blueprint
 

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917990"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403634"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -45,7 +45,7 @@ Vous aurez besoin du nom du compte de stockage, du nom du conteneur et d’une c
 
 Dans la page Vue d’ensemble de votre service de recherche, vous pouvez [démarrer l’Assistant](search-import-data-portal.md) à partir de la barre de commandes.
 
-   ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Commande Importer des données dans le portail" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3 - Définissez la source de données
 
@@ -63,7 +63,7 @@ Dans la page **Source de données**, la source doit être **Stockage Blob Azure*
    
 + **Conteneur de stockage** doit spécifier votre compte de stockage et votre conteneur, ou une chaîne de connexion dont la résolution aboutit au conteneur. Vous pouvez obtenir des chaînes de connexion sur la page du portail Service Blob.
 
-   ![Définition de la source de données des objets blob](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Commande Importer des données dans le portail" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – Ignorer la page « Enrichir le contenu » de l’Assistant
 
@@ -81,7 +81,7 @@ Pour plus d’informations, passez en revue la description des [attributs d’in
 
 Prenez un moment pour passer en revue vos sélections. Une fois que vous exécutez l’Assistant, des structures de données physiques sont créées : vous ne pourrez donc plus modifier ces champs sans supprimer et recréer tous les objets.
 
-   ![Définition de l’index d’objets blob](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Commande Importer des données dans le portail" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Créez un indexeur
 
@@ -89,7 +89,7 @@ Une fois que tout est spécifié, l’Assistant crée trois objets distincts dan
 
 Si vous n’êtes pas familiarisé avec les indexeurs, en voici une définition : un *indexeur* est une ressource dans Recherche cognitive Azure qui analyse une source de données externe et son contenu avec possibilité de recherche. La sortie de l’Assistant **Importation de données** est un indexeur qui analyse votre source de données JSON, extrait le contenu avec possibilité de recherche et l’importe dans un index sur Recherche cognitive Azure.
 
-   ![Définition de l’indexeur d’objets blob](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Commande Importer des données dans le portail" border="false":::
 
 Cliquez sur **OK** pour exécuter l’Assistant et créer tous les objets. L’indexation commence immédiatement.
 
@@ -280,10 +280,10 @@ La création de l’indexeur sur Recherche cognitive Azure déclenche l’import
 
 Le Kit de développement logiciel (SDK) .NET est totalement identique à l’API REST. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
++ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
++ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="parsing-modes"></a>
 
@@ -451,9 +451,11 @@ Vous pouvez également faire référence à des éléments de tableau en utilisa
 > [!NOTE]
 > Si un nom de champ source dans un chemin de mappage de champ fait référence à une propriété qui n’existe pas dans JSON, ce mappage est ignoré sans erreur. Cela nous permet de prendre en charge les documents avec un schéma différent (cas fréquent). Comme il n’y a aucune validation, vous devez veiller à éviter les fautes de frappe dans la spécification du mappage de champ.
 >
->
 
-## <a name="see-also"></a>Voir aussi
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer Recherche cognitive Azure
+Si vous avez des suggestions de fonctionnalités ou des idées d’amélioration, faites-le-nous savoir [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Si vous avez besoin d’aide pour utiliser la fonctionnalité existante, publiez votre question sur [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="see-also"></a>Voir également
 
 + [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
 + [Indexation de Stockage Blob Azure avec Recherche cognitive Azure](search-howto-index-json-blobs.md)

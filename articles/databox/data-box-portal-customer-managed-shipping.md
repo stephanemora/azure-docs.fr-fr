@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142534"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951908"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box dans le Portail Azure
 
@@ -41,7 +41,7 @@ Quand vous passez une commande de Data Box, vous pouvez choisir l’option d’e
 2. Lorsque vous choisissez le type d’expédition, sélectionnez l’option **expédition autogérée**. Cette option est disponible uniquement si vous êtes dans une des régions prises en charge, comme cela est décrit dans les prérequis.
 
 3. Une fois que vous avez fourni votre adresse de livraison, vous devez la valider et terminer votre commande.
-   ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Self-managed shipping 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Quand l’appareil a été préparé et que vous en avez été informé par e-mail, vous pouvez planifier un prélèvement.
 
@@ -78,7 +78,7 @@ Quand vous passez une commande de Data Box, vous pouvez choisir l’option d’e
 
 9. Si vous avez reçu une date de rendez-vous pour le dépôt, la commande doit se trouver à l’état **Prêt à être reçu au centre de données Azure** sur le Portail Azure. Suivez les instructions sous **Planifier le dépôt** pour renvoyer l’appareil.
 
-   ![Affichage de votre code d’autorisation](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Affichage de votre code d’autorisation 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Une fois que votre pièce d’identité et votre code d’autorisation ont été vérifiés et que vous avez déposé l’appareil dans le centre de données, l’état de la commande passe à **Reçu**.
 

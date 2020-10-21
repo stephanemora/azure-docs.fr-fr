@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089970"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928977"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Redémarrer des machines virtuelles pour des clusters HDInsight
 
@@ -31,8 +31,8 @@ Pendant le redémarrage d’un nœud, le cluster peut devenir non sain et les tr
 - Le disque temporaire est plein sur le nœud.
 - Le tableau de processus sur la machine virtuelle a de nombreuses entrées pour lesquelles le processus est terminé, mais qui sont répertoriées sous « État arrêté ».
 
-> [!WARNING]
-> Soyez prudent lorsque vous redémarrez les machines virtuelles pour des clusters **HBase** et **Kafka**, car le redémarrage peut entraîner la perte de données.
+> [!NOTE]
+> Le redémarrage des machines virtuelles n’est pas pris en charge pour les clusters **HBase** et **Kafka**, car il peut entraîner la perte de données.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Utiliser PowerShell pour redémarrer des machines virtuelles
 

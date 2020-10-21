@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549702"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361568"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutoriel : Configurer LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs
 
@@ -71,12 +71,12 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
     > [!NOTE]
     > Si l’affectation automatique de licences n’est pas activée, cela signifie que seules les données utilisateur sont synchronisées.
 
-    ![Approvisionnement LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![Capture d’écran montrant les paramètres globaux du Centre des comptes LinkedIn.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > Quand l’affectation automatique de licences est activée, vous devez noter l’instance d’application et le type de licence. Les licences sont toutes affectées sur le principe du « premier arrivé, premier servi ».
 
-    ![Approvisionnement LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![Capture d’écran montrant la page de configuration de SCIM.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. Cliquez sur **Générer un jeton**. Un jeton d’accès doit s’afficher sous le champ **Jeton d’accès**.
 
@@ -90,7 +90,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 10. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Approvisionnement LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![Capture d’écran montrant la page Approvisionnement LinkedIn Elevate.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. Renseignez les champs suivants sous **Informations d’identification de l’administrateur** :
 
@@ -106,7 +106,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 14. Dans la section **Mappages d’attributs**, passez en revue les attributs d’utilisateur et de groupe qui seront synchronisés d’Azure AD vers LinkedIn Sales Navigator. Notez que les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur et les groupes dans LinkedIn Sales Navigator pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-    ![Approvisionnement LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![Capture d’écran montrant les mappages, y compris les mappages d’attributs.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Pour activer le service d’approvisionnement Azure AD pour LinkedIn Sales Navigator, définissez l’**État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
