@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893631"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945587"
 ---
 # <a name="select-columns-transform"></a>Transformation de sélection de colonnes
 
@@ -46,8 +46,14 @@ Ce scénario suppose que vous souhaitez utiliser la sélection de caractéristiq
 
    *Ne connectez pas le jeu de données d’entrée.* Au lieu de cela, ajoutez le module [Appliquer une transformation](apply-transformation.md) et connectez la sortie de la transformation de sélection de caractéristiques.
 
+   La structure du pipeline doit être similaire à ce qui suit :
+
+   > [!div class="mx-imgBorder"]
+   > ![Exemple de pipeline](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Vous ne pouvez pas escompter les mêmes résultats si vous appliquez le module [Sélection de caractéristiques par filtrage](filter-based-feature-selection.md) au jeu de données de scoring. Comme la sélection des caractéristiques est basée sur des valeurs, elle peut choisir un autre ensemble de colonnes, ce qui entraînerait l’échec de l’opération de scoring.
+    
 7. Envoyez le pipeline.
 
 Ce processus d’enregistrement, puis d’application d’une sélection de colonnes garantit que le même schéma de données est disponible pour l’entraînement et le scoring.

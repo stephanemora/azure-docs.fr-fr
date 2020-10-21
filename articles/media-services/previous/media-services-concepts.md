@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258025"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333764"
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services
 
@@ -103,12 +103,11 @@ Media Services fournit l’empaquetage dynamique qui permet de distribuer un con
 
 Pour tirer parti de l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md), vous devez encoder votre fichier mezzanine (source) en un ensemble de fichiers MP4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif et avoir au moins un point de terminaison de streaming standard ou premium à l’état Démarré.
 
-Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
+Media Services prend en charge les éléments suivants sur l'encodeur à la demande décrit dans cet article :
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Pour plus d’informations sur les encodeurs pris en charge, consultez la page [Encodeurs](media-services-encode-asset.md).
+Pour plus d'informations sur l'encodeur pris en charge, consultez [Encodeur](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Vidéo en flux continu
 Dans Azure Media Services, un canal représente un pipeline de traitement du contenu de diffusion en direct. Un canal reçoit des flux d’entrée en direct de l’une des deux manières suivantes :

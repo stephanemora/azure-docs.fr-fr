@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079568"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400127"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -30,7 +30,7 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 * [Termes de cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Termes généraux liés aux technologies cloud.
 
 ## <a name="account"></a>account
-Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant, ou encore d’un nom d’utilisateur et d’un mot de passe Office 365. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
+Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
 Consultez les pages [Souscrire un abonnement Azure avec un compte Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) et [Comptes utilisables pour l’inscription](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>application API

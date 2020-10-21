@@ -2,21 +2,30 @@
 title: Fonction Azure en tant que gestionnaire d’événements pour des événements Azure Event Grid
 description: Décrit comment utiliser des fonctions Azure en tant que gestionnaires d’événements pour des événements Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8e48949bb5fecdf370fdf23146209ad757ffa062
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/18/2020
+ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105759"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873725"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Fonction Azure en tant que gestionnaire d’événements pour des événements Event Grid
 
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Functions** est l’un d’eux. 
 
-Utilisez **Azure Functions** dans une architecture sans serveur pour répondre aux événements d’Event Grid. Quand vous utilisez une fonction Azure en tant que gestionnaire, utilisez le déclencheur Event Grid au lieu du déclencheur HTTP générique. Event Grid valide automatiquement les déclencheurs Event Grid. Dans le cas des déclencheurs HTTP génériques, vous devez implémenter vous-même la [réponse de validation](webhook-event-delivery.md).
 
-Pour plus d’informations, consultez [Déclencheur Event Grid pour Azure Functions](../azure-functions/functions-bindings-event-grid.md) pour obtenir une vue d’ensemble de l’utilisation du déclencheur Event Grid dans les fonctions.
+Pour utiliser une fonction Azure comme gestionnaire d’événements, suivez l’une des approches suivantes : 
+
+-   Utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Spécifiez **Fonction Azure** pour le **type de point de terminaison**. Ensuite, spécifiez l’application Azure Functions et la fonction qui gérera les événements. 
+-   Utilisez un [déclencheur HTTP](../azure-functions/functions-bindings-http-webhook.md).  Spécifiez **Webhook** comme **Type de point de terminaison**. Ensuite, spécifiez l’URL de la fonction Azure qui gérera les événements. 
+
+Nous vous recommandons d’utiliser la première approche (déclencheur Event Grid), car elle présente les avantages suivants par rapport à la deuxième approche :
+-   Event Grid valide automatiquement les déclencheurs Event Grid. Dans le cas des déclencheurs HTTP génériques, vous devez implémenter vous-même la [réponse de validation](webhook-event-delivery.md).
+-   Event Grid ajuste automatiquement la vitesse à laquelle les événements sont transmis à une fonction déclenchée par un événement Event Grid en fonction de la vitesse perçue à laquelle la fonction peut traiter les événements. Cette fonctionnalité de correspondance de vitesse permet d’éviter les erreurs de remise qui résultent de l’incapacité d’une fonction à traiter les événements, car la vitesse de traitement des événements de la fonction peut varier dans le temps. Pour améliorer l’efficacité à un débit élevé, activez le traitement par lot sur l’abonnement aux événements. Pour plus d’informations, consultez [Activer le traitement par lot](#enable-batching).
+
+    > [!NOTE]
+    > Actuellement, vous ne pouvez pas utiliser un déclencheur Event Grid pour une application Azure Functions quand l’événement est remis dans le schéma **CloudEvents**. Utilisez à la place un déclencheur HTTP.
 
 ## <a name="tutorials"></a>Tutoriels
 
@@ -39,14 +48,37 @@ Pour plus d’informations, consultez [Déclencheur Event Grid pour Azure Functi
             "properties": 
             {
                 "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64
+                "maxEventsPerBatch": 10,
+                "preferredBatchSizeInKilobytes": 6400
             }
         },
         "eventDeliverySchema": "EventGridSchema"
     }
 }
 ```
+
+## <a name="enable-batching"></a>Activer le traitement par lot
+Pour obtenir un débit plus élevé, activez le traitement par lot sur l’abonnement. Si vous utilisez le portail Azure, vous pouvez définir le nombre maximal d’événements par lot et la taille de lot par défaut en kilo-octets au moment de la création d’un abonnement ou après sa création. 
+
+Pour configurer les paramètres de lot, vous pouvez utiliser le portail Azure, PowerShell, CLI ou le modèle Resource Manager. 
+
+### <a name="azure-portal"></a>Portail Azure
+Lors de la création d’un abonnement dans l’interface utilisateur, sur la page **Créer un abonnement aux événements**, basculez sur l’onglet **Fonctionnalités avancées** et définissez des valeurs pour **Nb max. d’événements par lot** et **Taille de lot par défaut en kilo-octets**. 
+    
+:::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Activer le traitement par lot au moment de la création d’un abonnement":::
+
+Vous pouvez mettre à jour ces valeurs pour un abonnement existant sous l’onglet **Fonctionnalités** de la page **Rubrique Event Grid**. 
+
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Activer le traitement par lot au moment de la création d’un abonnement":::
+
+### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
+Vous pouvez définir **maxEventsPerBatch** et **preferredBatchSizeInKilobytes** dans un modèle Resource Manager. Pour plus d’informations, consultez [Référence sur le modèle Microsoft.EventGrid eventSubscriptions](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
+
+### <a name="azure-cli"></a>Azure CLI
+Vous pouvez utiliser la commande [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes`.
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Vous pouvez utiliser la cmdlet [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md). 

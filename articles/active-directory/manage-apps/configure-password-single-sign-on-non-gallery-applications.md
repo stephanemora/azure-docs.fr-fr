@@ -1,25 +1,25 @@
 ---
-title: Comment configurer l’authentification unique par mot de passe pour des applications Azure AD
-description: Comment configurer l’authentification unique (SSO) par mot de passe sur vos applications Azure AD dans Plateforme d’identités Microsoft (Azure AD)
+title: Comprendre l’authentification unique par mot de passe pour les applications dans Azure Active Directory
+description: Comprendre l’authentification unique par mot de passe pour les applications dans Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049058"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598330"
 ---
-# <a name="configure-password-based-single-sign-on"></a>Configurer l’authentification unique par mot de passe
+# <a name="understand-password-based-single-sign-on"></a>Comprendre l’authentification unique par mot de passe
 
-Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Dans le guide de démarrage rapide, vous configurez l’authentification unique SAML. Une autre option est l’authentification unique par mot de passe. Cet article décrit plus en détail l’option d’authentification unique par mot de passe. 
+Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Dans le guide de démarrage rapide, vous configurez l’authentification unique par SAML ou OIDC. Une autre option est l’authentification unique par mot de passe. Cet article décrit plus en détail l’option d’authentification unique par mot de passe. 
 
 Cette option est disponible pour tout site web doté d’une page de connexion HTML. L’authentification unique par mot de passe est également connue sous le nom d’archivage des mots de passe. L’authentification unique par mot de passe vous permet de gérer l’accès utilisateur et les mots de passe pour les applications web qui ne prennent pas en charge la fédération d’identité. Elle est également utile lorsque plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de réseaux sociaux de votre organisation.
 
@@ -39,7 +39,7 @@ L’authentification unique par mot de passe (SSO) est un excellent moyen pour c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée et que vous devez utiliser l’authentification unique par mot de passe, cet article vous concerne.
+L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées en quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée et que vous devez utiliser l’authentification unique par mot de passe, cet article vous concerne.
 
 > [!IMPORTANT] 
 > Dans certains cas, l’option **Authentification unique** n’est pas accessible pour une application sous **Applications d’entreprise**. 

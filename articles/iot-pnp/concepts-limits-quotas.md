@@ -1,26 +1,26 @@
 ---
-title: Limites et quotas de la préversion d’IoT Plug-and-Play | Microsoft Docs
-description: Comprenez les limites, les quotas et les limitations qui s’appliquent lorsque vous utilisez la préversion d’IoT Plug-and-Play.
+title: Limites et quotas d’IoT Plug-and-Play | Microsoft Docs
+description: Comprenez les limites, les quotas et les limitations qui s’appliquent lorsque vous utilisez IoT Plug-and-Play.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d965d9cb8b87ce0b67f4fe0c07b660fdfd69cc07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337396"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91577983"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, quotas et limitations de la préversion d’IoT Plug-and-Play
+# <a name="iot-plug-and-play-limits-quotas-and-throttles"></a>Limites, quotas et limitations d’IoT Plug-and-Play
 
-Cet article explique les limites, quotas et limitations spécifiques à la préversion publique d’IoT Plug-and-Play. Il existe des [quotas et des limitations IOT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) qui s’appliquent également.
+Cet article explique les limites, quotas et limitations spécifiques à IoT Plug-and-Play. Il existe des [quotas et des limitations IOT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) qui s’appliquent également.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Pour la préversion publique, les limites et quotas suivants s’appliquent à un hub IoT :
+Les limites et quotas suivants s’appliquent à un hub IoT :
 
 | Limites, restrictions et limitations | Valeur | Notes |
 |-----|-----|-----|

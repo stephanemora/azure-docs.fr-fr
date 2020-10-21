@@ -4,21 +4,21 @@ description: Découvrez Defender pour les configurations locales de l’agent po
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 7cc6886b5341d8bc8a82288ad8a2a699381a953c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929933"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851252"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Fonctionnement du fichier LocalConfiguration.json - Agent C
 
@@ -40,9 +40,9 @@ Les modifications apportées au fichier de configuration ont lieu au redémarrag
 | ConnectionTimeout | Chaîne ISO8601 | Période avant l’expiration de la connexion à IoThub |
 | Authentification | JsonObject | Configuration de l'authentification. Cet objet contient toutes les informations nécessaires pour l’authentification avec IoTHub |
 | Identité | « DPS », « SecurityModule », « Device » | Identité d’authentification - DPS si l’authentification est effectuée via DPS, SecurityModule si l’authentification est effectuée via les informations d’identification du module de sécurité ou Device si l’authentification est effectuée avec les informations d’identification de l’appareil |
-| AuthenticationMethod | « SasToken », « SelfSignedCertificate » | le secret de l’utilisateur pour l’authentification : choisissez SasToken si le secret utilisé est une clé symétrique, choisissez SelfSignedCertificate si le secret est un certificat auto-signé.  |
+| AuthenticationMethod | « SasToken », « SelfSignedCertificate » | Secret de l’utilisateur pour l’authentification : choisissez SasToken si le secret de l’utilisateur est une clé symétrique ou SelfSignedCertificate si le secret est un certificat auto-signé  |
 | FilePath | Chemin au fichier (chaîne) | Chemin d’accès au fichier qui contient le secret d’authentification |
-| HostName | string | Nom d'hôte u hub IoT Azure. en général, <mon-hub>.azure-devices.net |
+| HostName | string | Nom d’hôte du hub Azure IoT, en général, <mon-hub>.azure-devices.net |
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub) |
 | DPS | JsonObject | Configurations relatives à DPS |
 | IDScope | string | Étendue de l’ID de DPS. |

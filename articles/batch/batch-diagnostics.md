@@ -2,17 +2,17 @@
 title: Métriques, alertes et journaux de diagnostic
 description: Enregistrez et analysez les événements du journal de diagnostic pour des ressources de compte Azure Batch telles que des pools et des tâches.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145096"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848685"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
- 
+
 Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée.
 
 ## <a name="batch-metrics"></a>Métriques Batch
@@ -57,7 +57,7 @@ Vous pouvez configurer des *alertes de métriques* en temps quasi-réel qui se d
 
 Les alertes se déclenchant sur un point de données unique ne sont pas recommandées, car les métriques sont soumises à des remises non ordonnées, à la duplication et/ou à la pertes de données. Lorsque vous créez vos alertes, vous pouvez utiliser des seuils pour tenir compte de ces incohérences.
 
-Par exemple, vous souhaiterez peut-être configurer une alerte de métrique lorsque votre nombre de cœurs en priorité basse descend à un certain niveau, pour vous permettre ainsi d’ajuster la composition de vos pools. Pour obtenir de meilleurs résultats, définissez une période de 10 minutes ou plus, pendant laquelle des alertes se déclenchent si le nombre moyen de cœurs en priorité basse se situe sous la valeur du seuil pendant toute cette période. Cela permet de disposer de plus de temps pour l’agrégation des métriques afin d’obtenir des résultats plus précis. 
+Par exemple, vous souhaiterez peut-être configurer une alerte de métrique lorsque votre nombre de cœurs en priorité basse descend à un certain niveau, pour vous permettre ainsi d’ajuster la composition de vos pools. Pour obtenir de meilleurs résultats, définissez une période de 10 minutes ou plus, pendant laquelle des alertes se déclenchent si le nombre moyen de cœurs en priorité basse se situe sous la valeur du seuil pendant toute cette période. Cela permet de disposer de plus de temps pour l’agrégation des métriques afin d’obtenir des résultats plus précis.
 
 Pour configurer une alerte de métrique dans le Portail Azure :
 
@@ -87,11 +87,11 @@ Un scénario courant consiste à sélectionner un compte de stockage Azure en ta
 
 Vous pouvez également :
 
-- Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-about.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
+- Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-about.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel.
 - Envoyez les journaux de diagnostic aux [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
 
 > [!NOTE]
-> Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 
+> Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Activer la collecte des journaux de diagnostic Batch
 
@@ -155,7 +155,7 @@ Les journaux d’activité de service Azure Batch, s’ils sont collectés, cont
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Les événements de journal de service émis par le service Batch incluent les �
 - [Fin de suppression de pool](batch-pool-delete-complete-event.md)
 - [Début de redimensionnement de pool](batch-pool-resize-start-event.md)
 - [Fin de redimensionnement de pool](batch-pool-resize-complete-event.md)
+- [Mise à l’échelle automatique de pool](batch-pool-autoscale-event.md)
 - [Début de tâche](batch-task-start-event.md)
 - [Fin de tâche](batch-task-complete-event.md)
 - [Échec de tâche](batch-task-fail-event.md)
+- [Échec de planification de tâche](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

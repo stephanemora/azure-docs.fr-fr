@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370876"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874830"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -260,6 +260,10 @@ Si vous utilisez des valeurs littérales dans vos conditions de jointure ou si v
 #### <a name="sorting-before-joins"></a>Tri avant les jointures
 
 Contrairement à la jointure de fusion dans les outils tels que SSIS, la transformation de jointure n’est pas une opération de jointure de fusion obligatoire. Les clés de jointure ne nécessitent pas de tri avant la transformation. L’équipe Azure Data Factory ne recommande pas l’utilisation de transformations de tri (Sort) dans le mappage des flux de données.
+
+### <a name="window-transformation-performance"></a>Performances de la transformation de fenêtre
+
+La [transformation de fenêtre](data-flow-window.md) partitionne vos données par valeur dans les colonnes que vous sélectionnez dans le cadre de la clause ```over()``` dans les paramètres de transformation. Il existe un certain nombre de fonctions d’analyse et d’agrégation très populaires qui sont exposées dans la transformation Windows. Toutefois, si votre cas d’usage consiste à générer une fenêtre sur l’ensemble de votre jeu de données pour le classement ```rank()``` ou le numéro de ligne ```rowNumber()```, il est recommandé d’utiliser à la place la [transformation de classement (Rank)](data-flow-rank.md) et la [transformation de clé de substitution (Surrogate Key)](data-flow-surrogate-key.md). Ces transformations seront plus efficaces que les opérations sur des jeux de données complets utilisant ces fonctions.
 
 ### <a name="repartitioning-skewed-data"></a>Repartitionnement de données asymétriques
 

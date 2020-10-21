@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015830"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400687"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -306,7 +306,7 @@ Pour plus d'informations sur la gestion des rôles et des autorisations dans le 
 
 ## <a name="manage-tenants"></a>Gérer les locataires
 
-Un locataire Azure Active Directory (AD), également appelé « compte professionnel » dans cette documentation, est une représentation de la configuration de votre organisation dans le Portail Azure et vous aide à gérer une instance spécifique de services de cloud Microsoft pour les utilisateurs internes et externes. Si votre organisation est abonnée à un service de cloud Microsoft, tel que Azure, Microsoft Intune ou Office 365, un locataire Azure AD a été établi pour vous.
+Un locataire Azure Active Directory (AD), également appelé « compte professionnel » dans cette documentation, est une représentation de la configuration de votre organisation dans le Portail Azure et vous aide à gérer une instance spécifique de services de cloud Microsoft pour les utilisateurs internes et externes. Si votre organisation est abonnée à un service cloud Microsoft comme Azure, Microsoft Intune ou Microsoft 365, un locataire Azure AD a été établi pour vous.
 
 Vous pouvez configurer plusieurs locataires à utiliser avec l’Espace partenaires. Les utilisateurs disposant du rôle **Manager** dans le compte de l’Espace partenaires peuvent ajouter et supprimer des locataires Azure AD du compte.  
 

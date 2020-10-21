@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536883"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Utiliser votre numéro de téléphone comme nom d’utilisateur (préversion)
 
@@ -52,7 +52,7 @@ Si vous utilisez déjà un numéro de téléphone avec une organisation et si vo
 
 1. Quand la connexion par SMS est disponible, une bannière s’affiche pour vous demander si vous souhaitez activer le numéro de téléphone pour la connexion par SMS :
 
-    [![Bannière pour activer la connexion par SMS pour un numéro de téléphone](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Capture d’écran montrant la bannière permettant d’activer la connexion SMS pour un numéro de téléphone avec l’action « Activer » sélectionnée." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. En outre, un bouton **Activer** apparaît si vous sélectionnez le caret sur la vignette de la méthode par téléphone :
 

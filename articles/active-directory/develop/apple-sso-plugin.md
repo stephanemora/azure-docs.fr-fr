@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561344"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530695"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO pour les appareils Apple (préversion)
 
@@ -93,7 +93,7 @@ Vous n’avez pas besoin d’ajouter les applications qui utilisent MSAL ou ASWe
 
 Par défaut, le plug-in Microsoft Enterprise SSO fournit l’authentification unique pour les applications autorisées uniquement lorsque le plug-in SSO dispose déjà d’informations d’identification partagées. Le plug-in plug-in Microsoft Enterprise SSO peut acquérir des informations d’identification partagées lorsqu’il est appelé par une autre application ADAL ou MSAL lors de l’acquisition de jetons. La plupart des applications Microsoft utilisent déjà Microsoft Authenticator ou le plug-in SSO. Cela signifie que par défaut, l’authentification unique en dehors des flux d’application natifs est recommandée.  
 
-L’activation de l’indicateur `browser_sso_interaction_enabled` permet aux applications non MSAL et au navigateur Safari d’effectuer l’amorçage initial et d’obtenir des informations d’identification partagées. Si le plug-in plug-in Microsoft Enterprise SSO ne dispose pas encore d’informations d’identification partagées, il essaiera d’en obtenir chaque fois qu’une connexion est demandée à partir d’une URL Azure AD dans le navigateur Safari, ASWebAuthenticationSession, SafariViewController ou une autre application native.  
+L’activation de l’indicateur `browser_sso_interaction_enabled` permet aux applications non MSAL et au navigateur Safari d’effectuer l’amorçage initial et d’obtenir des informations d’identification partagées. Si le plug-in plug-in Microsoft Enterprise SSO ne dispose pas encore d’informations d’identification partagées, il essaiera d’en obtenir chaque fois qu’une connexion est demandée à partir d’une URL Azure AD dans le navigateur Safari, ASWebAuthenticationSession, SafariViewController ou une autre application native autorisée.  
 
 - **Clé** : `browser_sso_interaction_enabled`
 - **Type** : `Integer`

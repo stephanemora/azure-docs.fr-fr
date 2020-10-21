@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607496"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91369907"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -28,7 +28,7 @@ Vous pouvez continuer à travailler dans l’Espace partenaires :
 | Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](partner-center-portal/update-existing-offer.md). |
 | Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la place de marché commerciale, elle restera active. |
 | Nouveaux achats et déploiements | Aucun changement. Vos clients peuvent continuer à acheter et à déployer vos offres sans interruption. |
-| Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](partner-center-portal/get-paid.md). |
+| Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Intégrations d’API avec des [API du portail Cloud Partner existantes](cloud-partner-portal-api-overview.md) | Les API du portail Cloud Partner existantes sont toujours prises en charge et vos intégrations existantes fonctionnent toujours. En savoir plus dans [Les API REST du portail Cloud Partner seront-elles prises en charge ?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, la fonctionnalité **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que, dans l’Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
 |||
@@ -162,7 +162,9 @@ Les informations que vous fournissiez précédemment pour les références SKU d
 - Page de configuration du plan
 - Page de référencement du plan
 - Page de disponibilité du plan
-- Page de configuration technique du plan, comme indiqué ici : ![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Page de configuration technique du plan, comme illustré ici :
+
+![! [Capture d’écran montrant la page de configuration technique de l’Espace partenaires.] (media/cpp-pc-faq/technical-configuration.png « Affiche la page de configuration technique de l’Espace partenaires »)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de l’offre :
 

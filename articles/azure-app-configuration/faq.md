@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587342"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074955"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -43,9 +43,13 @@ Vous pouvez créer des valeurs App Configuration qui font référence à des sec
 
 Oui. App Configuration chiffre toutes les valeurs de clés qu’il renferme, de même que les communications réseau. Les noms de clés et les étiquettes servent d’index pour récupérer les données de configuration et ne sont pas chiffrés.
 
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>Où résident les données stockées dans App Configuration ? 
+
+Les données client stockées dans App Configuration résident dans la région où le magasin App Configuration du client a été créé. App Configuration peut répliquer des données vers des [régions jumelées](../best-practices-availability-paired-regions.md) pour la résilience des données, mais il ne réplique pas ni ne déplace les données client en dehors de leur zone géographique, comme défini par [la résidence des données dans Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Les clients et les utilisateurs finaux peuvent déplacer leurs données client, les copier ou y accéder à partir de n’importe quel emplacement dans le monde.
+
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>En quoi App Configuration est-il différent des paramètres Azure App Service ?
 
-Azure App Service vous permet de définir des paramètres d’application pour chaque instance App Service. Ces paramètres sont transmis en tant que variables d’environnement au code de l’application. Vous pouvez associer un paramètre à un emplacement de déploiement spécifique, si vous le souhaitez. Pour plus d’informations, consultez [Configuration des paramètres de l’application](/azure/app-service/configure-common#configure-app-settings).
+Azure App Service vous permet de définir des paramètres d’application pour chaque instance App Service. Ces paramètres sont transmis en tant que variables d’environnement au code de l’application. Vous pouvez associer un paramètre à un emplacement de déploiement spécifique, si vous le souhaitez. Pour plus d’informations, consultez [Configuration des paramètres de l’application](../app-service/configure-common.md#configure-app-settings).
 
 En revanche, Azure App Configuration vous permet de définir des paramètres qui peuvent être partagés entre plusieurs applications. Cela comprend les applications qui s’exécutent dans App Service, de même que d'autres plateformes. Votre code d'application accède à ces paramètres via les fournisseurs de configuration pour .NET et Java, par le biais du kit de développement logiciel (SDK) Azure, ou directement via les API REST.
 
@@ -90,7 +94,7 @@ Voici quelques considérations relatives au choix d'un niveau.
     Pour les magasins du niveau Standard, les 200 000 premières requêtes quotidiennes sont comprises dans les frais journaliers. Les requêtes supplémentaires sont facturées en tant que dépassement.
 
 - **Contrat de niveau de service** : Le niveau Standard présente un contrat de niveau de service garantissant une disponibilité de 99,9 %. Le niveau Gratuit ne présente aucun contrat de niveau de service.
-- **Fonctionnalités de sécurité** : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés managées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge de RBAC et l’identité managée. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.
+- **Fonctionnalités de sécurité** : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés gérées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge d’Azure RBAC et l’identité managée. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.
 - **Coût** : Au niveau Standard, les magasins génèrent des frais d’utilisation quotidiens. Au-delà de l'allocation quotidienne, les requêtes génèrent aussi des frais de dépassement. Au niveau Gratuit, l'utilisation d'un magasin ne génère pas de frais.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Puis-je passer un magasin du niveau Gratuit au niveau Standard ? Puis-je passer un magasin du niveau Standard au niveau Gratuit ?

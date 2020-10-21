@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904456"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992765"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Limites d’Azure Stack Edge Pro
 
@@ -27,12 +27,16 @@ Tenez compte de ces limites quand vous déployez et utilisez votre solution Micr
 
 Le tableau suivant décrit les limites de l’appareil Azure Stack Edge Pro. 
 
+Le tableau suivant décrit les limites de l’appareil Azure Stack Edge.
+
 | Description | Valeur |
 |---|---|
 |Non. de fichiers par appareil |100 millions |
-|Non. de partages par appareil |24 |
 |Non. de partages par conteneur |1 |
+|Nombre maximal de points de terminaison de partage et de points de terminaison REST par appareil| 24 |
+|Nombre maximal de comptes de stockage hiérarchisé par appareil| 24|
 |Taille de fichier maximale écrite sur un partage| 5 To |
+|Nombre maximal de groupes de ressources par appareil| 800 |
 
 ## <a name="azure-storage-limits"></a>Limites du stockage Azure
 

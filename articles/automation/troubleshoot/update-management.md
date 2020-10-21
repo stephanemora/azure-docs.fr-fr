@@ -2,15 +2,15 @@
 title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
-ms.date: 06/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003352"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070331"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -57,27 +57,25 @@ Des mises à jour anciennes apparaissent pour un compte Automation comme étant 
 
 ### <a name="cause"></a>Cause
 
-Les mises à jour remplacées ne sont pas correctement indiquées comme étant refusées de façon à être considérées comme non applicables.
+Les mises à jour remplacées ne sont pas refusées dans Windows Server Update Services (WSUS) de façon à être considérées comme non applicables.
 
 ### <a name="resolution"></a>Résolution
 
-Lorsqu’une mise à jour remplacée devient 100 % non applicable, vous devez modifier l’état d’approbation de cette mise à jour sur `Declined`. Pour modifier l’état d’approbation de toutes vos mises à jour :
+Lorsqu’une mise à jour remplacée devient 100 % non applicable, vous devez modifier l’état d’approbation de cette mise à jour sur `Declined` dans WSUS. Pour modifier l’état d’approbation de toutes vos mises à jour :
 
 1. Dans le compte Automation, sélectionnez **Update Management** pour afficher l’état de vos machines. Consultez [Voir les évaluations des mises à jour](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Vérifiez la mise à jour remplacée pour vous assurer qu’elle est 100 % non applicable. 
+2. Vérifiez la mise à jour remplacée pour vous assurer qu’elle est 100 % non applicable.
 
-3. Marquez la mise à jour comme refusée, sauf si vous avez une question la concernant. 
+3. Sur le serveur WSUS sur lequel les ordinateurs sont rapportés, [refusez la mise à jour](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Sélectionnez **Ordinateurs** et, dans la colonne **Conformité**, forcez une nouvelle analyse de la conformité. Consultez [Gérer les mises à jour pour les machines virtuelles](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Répétez les étapes ci-dessus pour les autres mises à jour remplacées.
 
-6. Exécutez l’Assistant nettoyage pour supprimer les fichiers des mises à jour refusées. 
+6. Pour WSUS (Windows Server Update Services), nettoyez toutes les mises à jour remplacées de façon à actualiser l’infrastructure à l’aide de l’[Assistant de nettoyage du serveur](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard) WSUS.
 
-7. Pour WSUS (Windows Server Update Services), nettoyez manuellement toutes les mises à jour remplacées de façon à actualiser l’infrastructure.
-
-8. Répétez cette procédure régulièrement pour corriger le problème d’affichage et limiter l’espace disque utilisé à des fins de gestion des mises à jour.
+7. Répétez cette procédure régulièrement pour corriger le problème d’affichage et limiter l’espace disque utilisé à des fins de gestion des mises à jour.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Scénario : Les machines ne s’affichent pas dans le portail sous Update Management
 
@@ -112,9 +110,9 @@ Cela peut provenir de problèmes de configuration locaux ou d’une configuratio
    | summarize by Computer, Solutions
    ```
 
-4. Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Si votre ordinateur figure dans les résultats de la requête, recherchez d’éventuels problèmes de configuration de l’étendue. La [configuration de l’étendue](../update-management/update-mgmt-scope-configuration.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. 
+5. Si votre ordinateur figure dans les résultats de la requête, recherchez d’éventuels problèmes de configuration de l’étendue. La [configuration de l’étendue](../update-management/update-mgmt-scope-configuration.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management.
 
 6. Si votre ordinateur figure dans votre espace de travail, mais pas dans Update Management, vous devez définir la configuration de l’étendue de sorte qu’elle cible l’ordinateur. Pour savoir comment procéder, consultez [Activer des machines dans l’espace de travail](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +178,7 @@ Si votre abonnement n’est pas configuré pour le fournisseur de ressources Aut
 
 1. Sur le [portail Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), accédez à la liste des services Azure.
 
-2. Sélectionnez **Tous les services**, puis **Abonnements** dans le groupe de services généraux. 
+2. Sélectionnez **Tous les services**, puis **Abonnements** dans le groupe de services généraux.
 
 3. Recherchez l’abonnement défini dans l’étendue de votre déploiement.
 
@@ -226,7 +224,7 @@ Voici les causes possibles de ce problème :
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Accès incorrect sur les étendues sélectionnées
 
-Le portail Azure présente uniquement les machines pour lesquelles vous disposez d’un accès en écriture dans une étendue donnée. Si vous ne disposez pas de l’accès approprié pour une étendue, consultez [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+Le portail Azure présente uniquement les machines pour lesquelles vous disposez d’un accès en écriture dans une étendue donnée. Si vous ne disposez pas de l’accès approprié pour une étendue, consultez [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>La requête ARG ne retourne pas les machines attendues
 
@@ -251,7 +249,7 @@ Suivez les étapes ci-dessous pour déterminer si vos requêtes fonctionnent cor
     | project id, location, name, tags
     ```
 
-2. Vérifiez si les machines que vous recherchez sont listées dans les résultats de la requête. 
+2. Vérifiez si les machines que vous recherchez sont listées dans les résultats de la requête.
 
 3. Si ce n’est pas le cas, il est probable que le filtre sélectionné dans le groupe dynamique présente un problème. Ajustez la configuration du groupe selon les besoins.
 
@@ -325,7 +323,7 @@ Si vous utilisez une image clonée, des noms d’ordinateur différents ont le m
 
 3. Exécutez `Restart-Service HealthService` pour redémarrer le service de contrôle d’intégrité. Cette opération recrée la clé et génère un nouvel UUID.
 
-4. Si cette approche ne fonctionne pas, commencez par exécuter Sysprep sur l’image, puis installez MMA.
+4. Si cette approche ne fonctionne pas, commencez par exécuter Sysprep sur l’image, puis installez l’agent Log Analytics pour Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scénario : Vous recevez une erreur d’abonnement lié lorsque vous créez un déploiement de mise à jour pour les ordinateurs d’un autre locataire Azure.
 
@@ -343,7 +341,7 @@ Cette erreur se produit lorsque vous créez un déploiement de mise à jour dans
 
 ### <a name="resolution"></a>Résolution
 
-Utilisez la solution de contournement suivante pour planifier ces éléments. Vous pouvez utiliser la cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) avec le paramètre `ForUpdateConfiguration` pour créer une planification. Ensuite, utilisez l’applet de commande [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) et transférez les ordinateurs de l’autre locataire vers le paramètre `NonAzureComputer`. L’exemple suivant vous montre comment procéder :
+Utilisez la solution de contournement suivante pour planifier ces éléments. Vous pouvez utiliser la cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) avec le paramètre `ForUpdateConfiguration` pour créer une planification. Ensuite, utilisez l’applet de commande [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) et transférez les ordinateurs de l’autre locataire vers le paramètre `NonAzureComputer`. L’exemple suivant vous montre comment procéder :
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +384,15 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 * La machine n’existe plus.
 * La machine est éteinte et injoignable.
 * Le Worker hybride sur l’ordinateur n’est pas joignable, car l’ordinateur a un problème de connectivité réseau.
-* MMA a été mis à jour, ce qui a modifié l’ID d’ordinateur source.
+* L’agent Log Analytics a été mis à jour, ce qui a modifié l’ID d’ordinateur source.
 * L’exécution de votre mise à jour a été limitée si vous avez atteint la limite de 200 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche, et chaque ordinateur dans un déploiement de mise à jour est également considéré comme une tâche. Toutes les autres tâches d’automatisation ou de déploiement de mise à jour en cours d’exécution dans votre compte Automation comptent dans la limite des tâches qu’il est possible d’effectuer simultanément.
 
 ### <a name="resolution"></a>Résolution
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../update-management/update-mgmt-groups.md) pour vos déploiements de mise à jour. Vous pouvez en outre effectuer les étapes suivantes.
 
-1. Vérifiez que l’ordinateur existe toujours et qu’il est accessible. 
-2. Si la machine n’existe pas, modifiez votre déploiement et supprimez-la.
-3. Pour obtenir une liste des ports et adresses requis pour Update Management et savoir comment vérifier si votre ordinateur répond à ces exigences, consultez la section [Planification réseau](../update-management/update-mgmt-overview.md#ports).
-4. Vérifiez la connectivité au Runbook Worker hybride à l’aide de l’utilitaire de résolution des problèmes de l’agent Runbook Worker hybride. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md).
-5. Exécutez la requête suivante dans Log Analytics pour rechercher les machines de votre environnement dont l’ID d’ordinateur source a été modifié. Recherchez les ordinateurs présentant la même valeur `Computer`, mais une valeur `SourceComputerId` différente.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Une fois les ordinateurs affectés identifiés, modifiez les déploiements de mises à jour ciblant ces ordinateurs, puis supprimez et rajoutez-les de sorte que `SourceComputerId` affiche la bonne valeur.
+1. Vérifiez que votre ordinateur ou serveur est conforme à la [configuration requise](../update-management/update-mgmt-overview.md#client-requirements).
+2. Vérifiez la connectivité au Runbook Worker hybride à l’aide de l’utilitaire de résolution des problèmes de l’agent Runbook Worker hybride. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scénario : Les mises à jour sont installées sans déploiement
 
@@ -466,7 +455,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Cause
 
-Un proxy, une passerelle ou un pare-feu bloquent peut-être la communication réseau. 
+Un proxy, une passerelle ou un pare-feu bloquent peut-être la communication réseau.
 
 ### <a name="resolution"></a>Résolution
 
@@ -497,6 +486,8 @@ Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData
 La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes.
 
 ### <a name="resolution"></a>Résolution
+
+Pour comprendre pourquoi cela s’est produit pendant l’exécution d’une mise à jour après qu’elle a démarré avec succès, [vérifiez la sortie du travail](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) de la machine affectée dans l’exécution. Vous trouverez peut-être des messages d’erreur spécifiques provenant de votre machine, effectuer des recherches sur ces erreurs et entreprendre des actions pour les résoudre.  
 
 Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
 

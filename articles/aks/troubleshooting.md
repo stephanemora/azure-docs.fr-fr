@@ -4,12 +4,12 @@ description: Découvrir comment résoudre les problèmes courants liés à l’u
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068827"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074411"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -184,11 +184,36 @@ Essayez les solutions de contournement suivantes pour résoudre le problème :
 
 Cela est généralement dû à l’expiration des informations d’identification du principal de service. [Mettez à jour les informations d’identification d’un cluster AKS.](update-credentials.md)
 
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Je ne peux pas accéder à mon API de cluster depuis mon système d’automatisation/de développement/d’outils lorsque j’utilise des plages d’adresses IP autorisées par le serveur d’API. Comment résoudre ce problème ?
+
+Pour cela, `--api-server-authorized-ip-ranges` doit inclure les adresses IP ou les plages d’adresses IP des systèmes d’automatisation/de développement/d’outils utilisés. Reportez-vous à la section « Comment trouver mon adresse IP » dans [Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées](api-server-authorized-ip-ranges.md).
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Je ne parviens pas à consulter les ressources dans la visionneuse de ressources Kubernetes du portail Azure pour mon cluster configuré avec des plages d’adresses IP autorisées par le serveur d’API. Comment résoudre ce problème ?
+
+La [visionneuse de ressources Kubernetes](kubernetes-portal.md) requiert que `--api-server-authorized-ip-ranges` inclue l’accès pour l’ordinateur client local ou la plage d’adresses IP (à partir desquels le portail est parcouru). Reportez-vous à la section « Comment trouver mon adresse IP » dans [Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées](api-server-authorized-ip-ranges.md).
+
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Je reçois des erreurs après avoir restreint mon trafic de sortie.
 
 Lors de la restriction du trafic sortant d’un cluster AKS, il existe des règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application [obligatoires et facultatives recommandées](limit-egress-traffic.md) pour AKS. Si vos paramètres sont en conflit avec l’une de ces règles, certaines commandes `kubectl` ne fonctionneront pas correctement. Vous pouvez également voir des erreurs lors de la création d’un cluster AKS.
 
 Vérifiez que vos paramètres ne sont pas en conflit avec l’une règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application obligatoires ou facultatives recommandées.
+
+## <a name="im-receiving-429---too-many-requests-errors"></a>Je reçois des erreurs « 429 Trop de requêtes » 
+
+Lorsqu’un cluster Kubernetes sur Azure (AKS ou non) effectue fréquemment un scale up ou scale-down ou utilise la mise à l’échelle automatique de cluster, ces opérations peuvent entraîner un grand nombre d’appels HTTP qui, à leur tour, dépassent le quota d’abonnement attribué, ce qui conduit à l’échec. Les erreurs se présentent comme suit
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+Ces erreurs de limitation sont décrites en détail [ici](../azure-resource-manager/management/request-limits-and-throttling.md) et [ici](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+
+La recommandation de l’équipe d’ingénieurs d’AKS est de vous assurer que vous utilisez au moins la version 1.18.x, qui contient de nombreuses améliorations. Vous trouverez plus d’informations sur ces améliorations [ici](https://github.com/Azure/AKS/issues/1413) et [ici](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Étant donné que ces erreurs de limitation sont mesurées au niveau de l’abonnement, elles peuvent encore se produire dans les cas suivants :
+- Il existe des applications tierces qui effectuent des requêtes GET (par exemple, des applications de surveillance, etc.). La recommandation est de réduire la fréquence de ces appels.
+- Le groupe de machines virtuelles identiques contient un grand nombre de pool de nœuds/clusters AKS. La recommandation habituelle consiste à avoir moins de 20 à 30 clusters dans un abonnement donné.
+
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Résolution des problèmes de stockage Azure et AKS
 

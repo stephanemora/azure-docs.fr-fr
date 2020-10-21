@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899028"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839943"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Spécifications techniques et conformité pour Azure Stack Edge Pro avec GPU 
 
@@ -79,20 +79,20 @@ Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris 
 
 ## <a name="storage-specifications"></a>Spécifications de stockage
 
-Les appareils Azure Stack Edge Pro ont 5 disques SSD NVMe DC P4610 de 2,5", chacun d’une capacité de 1,6 To. Le lecteur de démarrage est un disque SSD SATA de 240 Go. La capacité utilisable totale pour l’appareil est d’environ 8,28 To. Le tableau suivant répertorie la capacité de stockage de l’appareil.
+Les appareils Azure Stack Edge Pro ont 5 disques SSD NVMe DC P4610 de 2,5", chacun d’une capacité de 1,6 To. Le lecteur de démarrage est un disque SSD SATA de 240 Go. La capacité utilisable totale pour l’appareil est d’environ 4,19 To. Le tableau suivant répertorie la capacité de stockage de l’appareil.
 
 |     Caractéristique                          |     Valeur             |
 |--------------------------------------------|-----------------------|
-|    SSD SATA de démarrage      |    1                  |
 |    Nombre de SSD NVMe                     |    5                  |
-|    Capacité de SSD de démarrage                       |    240 Go             |
 |    Capacité d’un SSD NVMe                |    1,6 To             |
-|    Capacité totale                          |    8,28 To            |
-|    Capacité utilisable totale*                  |    ~ 7,95 To          |
+|    SSD SATA de démarrage      |    1                  |
+|    Capacité de SSD de démarrage                       |    240 Go             |
+|    Capacité totale                          |    8,0 To             |
+|    Capacité utilisable totale*                  |    ~4,19 To          |
 |    Contrôleur SAP                          |    HBA330 12 Gbits/s     |
 
 
-**Une partie de l’espace est réservé à un usage interne.*
+**Après la résilience de parité et la réservation d’espace pour un usage interne.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

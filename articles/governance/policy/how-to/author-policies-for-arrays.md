@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies pour les propriétés de tableau sur des ressources
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048480"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576895"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -194,12 +194,24 @@ Les résultats suivants viennent de la combinaison de la condition et de l’exe
 |`{<field>,"Equals":"127.0.0.1"}` |Rien |Tous correspondent |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme true (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
 |`{<field>,"Equals":"10.0.4.1"}` |Rien |Tous correspondent |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
 
-## <a name="the-append-effect-and-arrays"></a>L’effet Append et les tableaux
+## <a name="modifying-arrays"></a>Modification de tableaux
 
-L’[effet Append](../concepts/effects.md#append) se comporte différemment selon que **details.field** est un alias **\[\*\]** ou non.
+Les effets [append](../concepts/effects.md#append) et [modify](../concepts/effects.md#modify) modifient les propriétés d’une ressource lors de sa création ou de sa mise à jour. Lorsque vous utilisez des propriétés de tableau, le comportement de ces effets varie selon que l’opération tente de modifier ou non l’alias **\[\*\]**  :
 
-- Lorsqu’il ne s’agit pas d’un alias **\[\*\]** , Append remplace le tableau entier avec la propriété **value**
-- Lorsqu’il s’agit d’un alias **\[\*\]** , Append ajoute la propriété **value** au tableau existant ou crée le nouveau tableau
+> [!NOTE]
+> L’utilisation de l’effet `modify` avec des alias est actuellement disponible en **préversion**.
+
+|Alias |Résultat | Résultat |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy ajoute l’ensemble du tableau spécifié dans les détails de l’effet le cas échéant. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` avec l’opération `add` | Azure Policy ajoute l’ensemble du tableau spécifié dans les détails de l’effet le cas échéant. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` avec l’opération `addOrReplace` | Azure Policy ajoute l’ensemble du tableau spécifié dans les détails de l’effet le cas échéant ou remplace le tableau existant. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy ajoute le membre du tableau spécifié dans les détails de l’effet. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` avec l’opération `add` | Azure Policy ajoute le membre du tableau spécifié dans les détails de l’effet. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` avec l’opération `addOrReplace` | Azure Policy supprime tous les membres de tableau existants et ajoute le membre de tableau spécifié dans les détails de l’effet. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy ajoute une valeur à la propriété `action` de chaque membre du tableau. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` avec l’opération `add` | Azure Policy ajoute une valeur à la propriété `action` de chaque membre du tableau. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` avec l’opération `addOrReplace` | Azure Policy ajoute ou remplace la propriété `action` de chaque membre du tableau. |
 
 Pour plus d’informations, consultez ces [exemples Append](../concepts/effects.md#append-examples).
 

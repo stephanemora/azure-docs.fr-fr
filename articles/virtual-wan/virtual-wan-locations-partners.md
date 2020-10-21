@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801458"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014022"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Localisation des partenaires et hub virtuel Virtual WAN
 
@@ -40,7 +40,7 @@ Certains partenaires de connectivité peuvent étendre l’automation pour inclu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Les partenaires suivants sont prévus prochainement sur notre feuille de route : 128 Technology, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN et SharpLink.
+Les partenaires suivants sont inscrits sur notre feuille de route selon une feuille de conditions signée entre les entreprises indiquant l’étendue des travaux d’automatisation de la connectivité IPsec entre le dispositif partenaire et les passerelles VPN Azure Virtual WAN : 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) et SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Partenaires disposant d’offres Hub virtuel intégrées
 En plus de disposer d’une connectivité IPSec de filiale automatisée, certains partenaires proposent des **appliances virtuelle réseau** (Network Virtual Appliances, NVA) qui peuvent être intégrése directement dans le hub Azure Virtual WAN.  Cela permet aux clients d’arrêter leurs connexions de filiale dans une appliance tierce compatible dans le Hub virtuel.  

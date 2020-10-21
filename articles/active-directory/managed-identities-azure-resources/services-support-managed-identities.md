@@ -4,19 +4,19 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/09/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006778"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072167"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -212,6 +212,14 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Modèle Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+
+Pour plus d’informations, consultez [Utiliser les identités managées avec Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -252,6 +260,12 @@ Reportez-vous à la liste suivante pour configurer l’identité managée pour l
 
 Pour plus d’informations, consultez [Activer une identité managée affectée par le système pour une application Azure Spring Cloud](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
+### <a name="azure-stack-edge"></a>Azure Stack Edge
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Attribuée par le système | Disponible dans la région où le service Azure Stack Edge est disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Groupes de machines virtuelles identiques Azure
 

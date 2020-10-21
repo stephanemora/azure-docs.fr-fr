@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279431"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978932"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distributions Linux approuvées sur Azure
 
@@ -37,9 +37,9 @@ L’agent Linux Azure est pré-installé sur les images de la Place de marché A
 | CentOS par Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3 : [Téléchargement de LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+ : Dans le noyau |Package : dans le [dépôt](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> Coreos est désormais en [fin de vie](https://coreos.com/os/eol/) à compter du 26 mai 2020. |Plus disponible | | |
 | Debian par Credativ |8.x, 9.x |Dans le noyau |Package : dans le dépôt sous « waagent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Conteneur flatcar Linux par Kinvolk| Stable, Bêta| Dans le noyau | wa-linux-agent est déjà installé dans/usr/share/oem/bin/waagent |
+|Conteneur flatcar Linux par Kinvolk| Pro, Stable, Bêta| Dans le noyau | wa-linux-agent est déjà installé dans/usr/share/oem/bin/waagent |
 | Oracle Linux par Oracle |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux par Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux par Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise par SUSE |SLES/SLES pour SAP 11.x, 12.x, 15.x <br/> [Cycle de vie d’une image de cloud public SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Dans le noyau |Package :<p> pour 11 dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>pour 12 inclus dans le module « Cloud public » sous « python-azure-agent »<br/>Code source : [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE par SUSE |openSUSE Leap 15.x |Dans le noyau |Package : dans le dépôt [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sous « python-azure-agent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu par Canonical |Ubuntu Server et Pro. 16.x, 18.x, 20.x<p>Pour plus d’informations sur la prise en charge étendue pour Ubuntu 12.04 et 14.04, consultez : [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |Dans le noyau |Package : dans le dépôt sous « walinuxagent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -58,6 +58,7 @@ Dans la plupart des cas, vous trouverez ces kernels préinstallés sur les image
 - [Kernel de cloud Debian - Disponible avec les images « backports » Debian 10 et Debian 9 sur Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [Kernel SLES optimisé pour Azure](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
 - [Kernel Ubuntu optimisé pour Azure](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Flatcar Container Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Partenaires
 

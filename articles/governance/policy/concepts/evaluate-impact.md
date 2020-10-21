@@ -1,18 +1,18 @@
 ---
 title: Évaluer l’impact d’une nouvelle définition Azure Policy
 description: Découvrez le processus à suivre quand vous introduisez une nouvelle définition de stratégie dans votre environnement Azure.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544700"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873865"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Évaluer l’impact d’une nouvelle définition Azure Policy
 
-Azure Policy est un outil puissant qui permet de gérer vos ressources Azure en respectant les standards du secteur et en répondant aux exigences de conformité. Lorsque des personnes, des processus ou des pipelines créent ou mettent à jour des ressources, Azure Policy examine la requête impliquée. Lorsque l’effet de la définition de stratégie est [Append](./effects.md#deny) ou [DeployIfNotExists](./effects.md#deployifnotexists), Azure Policy modifie la requête ou y ajoute des éléments. Lorsque l’effet de la définition de stratégie est [Audit](./effects.md#audit) ou [AuditIfNotExists](./effects.md#auditifnotexists), Azure Policy provoque la création d’une entrée dans le journal d’activité. Enfin, lorsque l’effet de la définition de stratégie est [Deny](./effects.md#deny), Azure Policy arrête la création ou la modification de la requête.
+Azure Policy est un outil puissant qui permet de gérer vos ressources Azure en respectant les standards du secteur et en répondant aux exigences de conformité. Lorsque des personnes, des processus ou des pipelines créent ou mettent à jour des ressources, Azure Policy examine la requête impliquée. Lorsque l’effet de la définition de stratégie est [Modify](./effects.md#modify), [Append](./effects.md#deny) ou [DeployIfNotExists](./effects.md#deployifnotexists), Azure Policy modifie la requête ou y ajoute des éléments. Lorsque l’effet de la définition de stratégie est [Audit](./effects.md#audit) ou [AuditIfNotExists](./effects.md#auditifnotexists), Azure Policy provoque la création d’une entrée dans le journal d’activité pour les nouvelles ressources et celles mises à jour. Enfin, lorsque l’effet de la définition de stratégie est [Deny](./effects.md#deny), Azure Policy arrête la création ou la modification de la requête.
 
 Ces résultats sont exactement ceux que vous souhaitez lorsque vous savez que la stratégie est définie correctement. Toutefois, il est important de vérifier qu’une nouvelle stratégie fonctionne comme prévu avant de l’autoriser à modifier ou à bloquer un travail. Cette vérification vise à garantir que seules les ressources prévues sont déterminées comme non conformes et qu’aucune ressource conforme n’a été incluse dans les résultats (c’est ce qu’on appelle un _faux positif_).
 

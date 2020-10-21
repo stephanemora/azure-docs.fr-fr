@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303942"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989554"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -22,6 +22,8 @@ Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twi
 | Jumeaux numériques | Nombre de jumeaux dans une instance Azure Digital Twins | 200 000 | Oui |
 | Jumeaux numériques | Nombre de relations entrantes à un seul jumeau | 5 000 | Non |
 | Jumeaux numériques | Nombre de relations sortantes à partir d’un seul jumeau | 5 000 | Non |
+| Jumeaux numériques | Taille maximale d’un seul jumeau | 32 Ko | Non |
+| API Digital Twins | Taille maximale de la charge utile de requête | 32 Ko | Non | 
 | Routage | Nombre de points de terminaison pour une même instance Azure Digital Twins | 6 | Non |
 | Routage | Nombre d’itinéraires pour une même instance Azure Digital Twins | 6 | Oui |
 | Modèles | Nombre de modèles dans une même instance Azure Digital Twins | 10 000 | Oui |

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 06/15/2020
-ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 10/12/2020
+ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836681"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945989"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Chiffrement transparent des données pour SQL Database, SQL Managed Instance et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au nivea
 > Toutes les bases de données SQL Database nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance existantes créées avant février 2019 ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance créées par le biais de la restauration héritent de l’état de chiffrement de la source.
 
 > [!NOTE]
-> TDE ne permet pas de chiffrer la base de données **MASTER** dans SQL Database.  La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur.
+> TDE ne peut pas être utilisé pour chiffrer la base de données **MASTER** dans Azure SQL Database et Azure SQL Managed Instance. La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur.
 
 ## <a name="service-managed-transparent-data-encryption"></a>Chiffrement transparent des données géré par le service
 

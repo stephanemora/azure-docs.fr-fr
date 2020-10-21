@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206633"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999281"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Liaison Twilio pour Azure Functions
 
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’exemple suivant indique comment envoyer un SMS à l’aide de la liaison de sortie telle que définie dans *function.js* ci-après.
+L’exemple suivant indique comment envoyer un SMS à l’aide de la liaison de sortie telle que définie dans le fichier *function.json* suivant.
 
 ```json
     {

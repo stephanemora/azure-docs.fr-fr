@@ -2,21 +2,21 @@
 title: Présentation des specs de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227880"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91728469"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
 
-Une spec de modèle est un nouveau type de ressource pour le stockage d’un modèle Resource Manager dans Azure en vue d’un déploiement ultérieur. Ce type de ressource vous permet de partager des modèles Ressource Manager avec d’autres utilisateurs de votre organisation. Comme toute autre ressource Azure, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager la spec de modèle.
+Une spec de modèle est un type de ressource permettant de stocker un modèle Resource Manager dans Azure en vue d’un déploiement ultérieur. Ce type de ressource vous permet de partager des modèles Ressource Manager avec d’autres utilisateurs de votre organisation. Comme toute autre ressource Azure, vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour partager la spec de modèle.
 
-**Microsoft.Resources/templateSpecs** est le nouveau type de ressource pour les specs de modèle. Il se compose d’un modèle principal et d’un nombre quelconque de modèles liés. Azure stocke en toute sécurité les specs de modèle dans des groupes de ressources. Specs de modèle prend en charge le [contrôle de version](#versioning).
+**Microsoft.Resources/templateSpecs** est le type de ressource pour les specs de modèle. Il se compose d’un modèle principal et d’un nombre quelconque de modèles liés. Azure stocke en toute sécurité les specs de modèle dans des groupes de ressources. Specs de modèle prend en charge le [contrôle de version](#versioning).
 
 Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels que PowerShell, Azure CLI, Portail Azure, REST et d’autres Kits de développement logiciel (SDK) et clients pris en charge. Vous utilisez les mêmes commandes que pour le modèle.
 
@@ -27,7 +27,7 @@ Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels 
 
 Si vous avez actuellement vos modèles dans un GitHub référentiel ou un compte de stockage, vous rencontrez plusieurs défis quand vous essayez de partager et d’utiliser les modèles. Pour qu’un utilisateur le déploie, le modèle doit être local ou l’URL du modèle doit être accessible publiquement. Pour contourner cette limitation, vous pouvez partager des copies du modèle avec les utilisateurs qui ont besoin de le déployer, ou ouvrir l’accès au référentiel ou au compte de stockage. Lorsque les utilisateurs possèdent des copies locales d’un modèle, ces copies peuvent éventuellement séparer le modèle d’origine. Quand vous rendez un référentiel ou un compte de stockage accessible publiquement, des utilisateurs indésirables pourraient accéder au modèle.
 
-L’avantage de l’utilisation de spécifications de modèle est que vous pouvez créer des modèles canoniques et les partager avec des équipes de votre organisation. Les spécifications de modèle sont sécurisées, car elles sont disponibles pour Azure Resource Manager pour le déploiement, mais ne sont pas accessibles aux utilisateurs sans l’autorisation RBAC. Les utilisateurs ont uniquement besoin d’un accès en lecture à la spec de modèle pour en déployer le modèle, de sorte que vous pouvez partager le modèle sans permettre à d’autres utilisateurs de le modifier.
+L’avantage de l’utilisation de spécifications de modèle est que vous pouvez créer des modèles canoniques et les partager avec des équipes de votre organisation. Les specs de modèle sont sécurisées, car elles sont disponibles pour Azure Resource Manager pour le déploiement, mais ne sont pas accessibles aux utilisateurs sans autorisation Azure RBAC. Les utilisateurs ont uniquement besoin d’un accès en lecture à la spec de modèle pour en déployer le modèle, de sorte que vous pouvez partager le modèle sans permettre à d’autres utilisateurs de le modifier.
 
 Les modèles que vous incluez dans une spec de modèle doivent être vérifiés par les administrateurs de votre organisation afin de respecter les exigences et les directives de l’organisation.
 
@@ -73,7 +73,7 @@ Créez une spec de modèle en utilisant :
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
@@ -165,7 +165,7 @@ Dans la pratique, vous exécutez généralement `Get-AzTemplateSpec` pour obteni
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `

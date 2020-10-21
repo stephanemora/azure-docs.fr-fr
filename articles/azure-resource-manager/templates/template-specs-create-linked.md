@@ -3,12 +3,12 @@ title: Créer une spec de modèle avec des modèles liés
 description: Découvrez comment créer une spec de modèle avec des modèles liés.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: f1808be73981c3ab4d53fd2a651822b93b5fb790
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227999"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91728537"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutoriel : Créer une spec de modèle avec des modèles liés (préversion)
 
@@ -176,7 +176,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
@@ -223,7 +223,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

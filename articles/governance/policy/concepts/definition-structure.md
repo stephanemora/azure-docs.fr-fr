@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330279"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074258"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -104,17 +104,17 @@ Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer 
 
 ### <a name="resource-provider-modes"></a>Modes Fournisseur de ressources
 
-Le nœud Fournisseur de ressources suivant est entièrement pris en charge :
+Le mode Fournisseur de ressources suivant est entièrement pris en charge :
 
 - `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge en **préversion** :
 
 - `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les définitions utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
-- `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md). Pour plus d’informations sur ces définitions de stratégie, consultez [Intégrer Azure Key Vault à Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Les modes Fournisseur de ressources ne prennent en charge que les définitions de stratégie intégrées.
+> Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et non les [exemptions](./exemption-structure.md).
 
 ## <a name="metadata"></a>Métadonnées
 
@@ -226,7 +226,7 @@ Dans le bloc **then**, vous définissez l’effet qui se produit lorsque les con
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -306,6 +306,9 @@ Les champs suivants sont pris en charge :
 - `type`
 - `location`
   - Utilisez **global** pour les ressources indépendantes de l’emplacement.
+- `id`
+  - Retourne l’ID de la ressource qui est évaluée.
+  - Exemple : `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Renvoie le type d'[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activé sur la ressource.
 - `tags`
@@ -606,8 +609,20 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+    - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+
+    Retourne une valeur indiquant si la plage d’adresses IP donnée contient la plage d’adresses IP cible. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
+
+    Formats pris en charge :
+    - Adresse IP unique (exemples : `10.0.0.0`, `2001:0DB8::3:FFFE`)
+    - Plage CIDR (exemples : `10.0.0.0/24`, `2001:0DB8::/110`)
+    - Plage définie par les adresses IP de début et de fin (exemples : `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+
+
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
 Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name**, combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320725"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996407"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Configuration système exigée pour Azure Stack Edge Pro avec GPU 
 
@@ -32,21 +32,29 @@ La configuration système requise pour Azure Stack Edge Pro inclut ce qui suit�
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
+## <a name="supported-azure-storage-accounts"></a>Comptes Stockage Azure pris en charge
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Comptes de stockage hiérarchisé pris en charge
+## <a name="supported-edge-storage-accounts"></a>Comptes de stockage Edge pris en charge
 
-Lorsqu’ils sont gérés à partir d’Azure Stack, les comptes de stockage hiérarchisé suivants sont pris en charge avec les interfaces SMB/NFS/REST.
+Les comptes de stockage Edge suivants sont pris en charge avec l’interface REST de l’appareil. Les comptes de stockage Edge sont créés sur l’appareil. Pour plus d’informations, consultez [Comptes de stockage Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Compte de stockage  |Commentaires  |
 |---------|---------|---------|
 |standard     |GPv1 : Objet blob de blocs         |         |
-|    |  Stockage Blob : Objet blob de blocs       | Pris en charge uniquement pour NAS     |
 
-*Les objets blob de pages et Azure Files ne sont actuellement pas pris en charge dans Azure Stack.
-**Les niveaux chaud et froid n’existent pas dans Azure Stack. Utilisez l’environnement Azure PowerShell pour déplacer les données vers le niveau Archive une fois les données chargées. Pour obtenir des instructions détaillées, consultez [Utiliser Azure PowerShell pour définir le niveau des objets blob]()
+*Les objets blob de pages et Azure Files ne sont actuellement pas pris en charge.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Comptes de stockage Azure Resource Manager locaux pris en charge
+
+Ces comptes de stockage sont créés via les API locales de l’appareil lorsque vous vous connectez à une instance Azure Resource Manager locale. Les comptes de stockage suivants sont pris en charge :
+
+|Type  |Compte de stockage  |Commentaires  |
+|---------|---------|---------|
+|standard     |GPv1 : Objet blob de blocs, Objet blob de pages        | Le type SKU est Standard_LRS       |
+|Premium     |GPv1 : Objet blob de blocs, Objet blob de pages        | Le type SKU est Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge
 

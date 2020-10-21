@@ -1,22 +1,22 @@
 ---
 title: Présentation des jumeaux d’appareil Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Utiliser des jumeaux d’appareil pour synchroniser les données d’état et de configuration entre IoT Hub et vos appareils
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ef1d6787ab3d4083ee6418694d1965ea0f90f730
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996118"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -250,7 +250,7 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
 
 * **Clés** : Toutes les clés des objets JSON sont encodées en UTF-8, respectent la casse et mesurent jusqu’à 1 Ko. Les caractères autorisés excluent les caractères de contrôle UNICODE (segments C0 et C1), ainsi que `.`, `$` et SP.
 
-* **Valeurs** : Toutes les valeurs figurant dans les objets JSON peuvent être des types JSON suivants : booléen, nombre, chaîne, objet. Les tableaux ne sont pas autorisés.
+* **Valeurs** : Toutes les valeurs figurant dans les objets JSON peuvent être des types JSON suivants : booléen, nombre, chaîne, objet. Les tableaux sont également pris en charge.
 
     * Les entiers peuvent avoir une valeur minimale de 4503599627370496 et une valeur maximale de 4503599627370495.
 

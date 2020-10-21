@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252689"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652611"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -73,11 +73,21 @@ Tous les déclencheurs et liaisons ont une propriété `direction` dans le fichi
 
 Lorsque vous utilisez des [attributs dans une bibliothèque de classes](functions-dotnet-class-library.md) pour configurer les déclencheurs et les liaisons, la direction est fournie dans un constructeur d’attribut ou déduite du type du paramètre.
 
+## <a name="add-bindings-to-a-function"></a>Ajouter des liaisons à une fonction
+
+Vous pouvez connecter votre fonction à d’autres services en utilisant des liaisons d’entrée ou de sortie. Ajoutez une liaison en ajoutant ses définitions spécifiques à votre fonction. Pour savoir comment procéder, consultez [Ajouter des liaisons à une fonction existante dans Azure Functions](add-bindings-existing-function.md).  
+
 ## <a name="supported-bindings"></a>Liaisons prises en charge
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Pour plus d’informations sur les liaisons en préversion ou approuvées pour la production, consultez [Langages pris en charge](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Exemples de code de liaison
+
+Utilisez le tableau suivant pour trouver des exemples de types de liaisons spécifiques qui vous montrent comment utiliser des liaisons dans vos fonctions. Tout d’abord, choisissez l’onglet du langage qui correspond à votre projet. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Ressources
 - [Modèles et expressions de liaison](./functions-bindings-expressions-patterns.md)

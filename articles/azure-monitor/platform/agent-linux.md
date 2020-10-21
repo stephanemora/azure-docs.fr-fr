@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294526"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013744"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -215,7 +215,7 @@ La mise à niveau à partir d'une version antérieure, à compter de la version 
 ## <a name="cache-information"></a>Informations sur le cache
 Les données de l’agent Log Analytics pour Linux sont mises en cache sur l’ordinateur local dans *%STATE_DIR_WS%/out_oms_common*.buffer* avant leur envoi à Azure Monitor. Les données de journal personnalisées sont mises en mémoire tampon dans *% STATE_DIR_WS%/out_oms_blob*.buffer*. Le chemin d’accès peut être différent pour certains [types de données et solutions](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-L’agent tente de charger toutes les 20 secondes. En cas d’échec, il met un temps de plus en plus longtemps pour réussir. Il attend 30 secondes avant la deuxième tentative, 60 secondes avant la suivante, puis 120 secondes, et ainsi de suite jusqu’à un maximum de 9 minutes entre les nouvelles tentatives avant que la reconnexion aboutisse. L’agent n’effectue que 10 nouvelles tentatives pour un segment de données particulier avant de l’écarter et de passer au suivant. Cela se poursuit jusqu’à ce que l’agent puisse à nouveau charger correctement. Cela signifie que les données peuvent être mises en mémoire tampon jusqu’à 8,5 heures avant d’être écartées.
+L’agent tente de charger toutes les 20 secondes. En cas d’échec, il met un temps de plus en plus long pour réussir : 30 secondes avant la deuxième tentative, 60 secondes avant la troisième, puis 120 secondes, et ainsi de suite jusqu’à un maximum de 16 minutes entre les nouvelles tentatives avant que la reconnexion aboutisse. L’agent effectue jusqu’à six nouvelles tentatives pour un bloc de données particulier avant de l’ignorer et de passer au suivant. Cela se poursuit jusqu’à ce que l’agent puisse à nouveau charger correctement. Cela signifie que les données peuvent être mises en mémoire tampon pendant environ 30 minutes au maximum avant d’être ignorées.
 
 La taille de cache par défaut est de 10 Mo, mais elle peut être modifiée dans le [fichier omsagent.conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

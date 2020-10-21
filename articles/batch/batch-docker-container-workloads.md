@@ -2,26 +2,28 @@
 title: Charges de travail de conteneur
 description: Découvrez comment exécuter et mettre à l’échelle des applications à partir d’images conteneur sur Azure Batch. Créez un pool de nœuds de calcul prenant en charge l’exécution de tâches de conteneur.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018507"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843445"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
 Azure Batch vous permet d’exécuter et de mettre à l’échelle de nombreux travaux informatiques par lots sur Azure. Les tâches Batch peuvent être exécutées directement sur des machines virtuelles (nœuds) dans un pool Batch, mais vous pouvez également configurer un pool Batch pour exécuter des tâches dans des conteneurs compatibles Docker sur les nœuds. Cet article vous montre comment créer un pool de nœuds de calcul prenant en charge les tâches en cours d’exécution du conteneur, puis exécuter des tâches du conteneur dans le pool.
 
-Vous devez être familiarisé avec les concepts de conteneur et savoir comment créer un pool et une tâche Batch. Les exemples de code utilisent les Kits de développement logiciel (SDK) .NET Batch et Python. Vous pouvez également utiliser d’autres kits de développement logiciel (SDK) et outils Batch, notamment le portail Azure, pour créer des pools Batch pour conteneur et pour exécuter des tâches du conteneur.
+Les exemples de code repris ici utilisent les Kits de développement logiciel (SDK) .NET Batch et Python. Vous pouvez également utiliser d’autres kits de développement logiciel (SDK) et outils Batch, notamment le portail Azure, pour créer des pools Batch pour conteneur et pour exécuter des tâches du conteneur.
 
 ## <a name="why-use-containers"></a>Pourquoi utiliser des conteneurs ?
 
 L’utilisation de conteneurs permet de lancer simplement des tâches par lot sans avoir à gérer un environnement et des dépendances pour exécuter des applications. Les conteneurs déploient les applications sous la forme d’unités légères, portables et autonomes pouvant s’exécuter dans différents environnements. Par exemple, générez et testez localement un conteneur, puis chargez l’image conteneur dans un registre dans Azure ou ailleurs. Le modèle de déploiement de conteneur permet de s’assurer que l’environnement d’exécution de votre application est toujours correctement installé et configuré, où que votre application soit hébergée. Les tâches basées sur le conteneur dans Batch peuvent également tirer parti des fonctionnalités des tâches non basées sur le conteneur, notamment les packages d’applications et la gestion des fichiers de ressources et des fichiers de sortie.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
+
+Vous devez être familiarisé avec les concepts de conteneur et savoir comment créer un pool et une tâche Batch.
 
 - **Versions du SDK** : le SDK prend en charge des images conteneur dans les versions suivantes :
   - API REST (version : 6.0 du 01/09/2017)
@@ -282,6 +284,12 @@ Pour exécuter une tâche de conteneur sur un pool prenant en charge les contene
 - Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Notez que l’option de conteneur `--rm` ne nécessite pas d’option `--runtime` supplémentaire, car elle est prise en charge par Batch.
 
 - Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
+
+- Pour Windows, les tâches doivent être exécutées avec [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) défini sur `admin`. 
+
+- Pour Linux, Batch mappera l’autorisation utilisateur/groupe au conteneur. Si l’accès à un dossier au sein du conteneur nécessite une autorisation d’administrateur, vous devrez peut-être exécuter la tâche en tant qu’étendue de pool avec le niveau d’élévation administrateur. Cela permet de s’assurer que Batch exécute la tâche en tant que racine dans le contexte du conteneur. Dans le cas contraire, un utilisateur non administrateur n’aura peut-être pas accès à ces dossiers.
+
+- Pour les pools de conteneurs avec un matériel compatible GPU, Batch active automatiquement le GPU pour les tâches de conteneur. Vous ne devez donc pas inclure l’argument `–gpus` .
 
 ### <a name="container-task-command-line"></a>Ligne de commande de la tâche de conteneur
 

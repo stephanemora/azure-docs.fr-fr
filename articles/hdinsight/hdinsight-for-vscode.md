@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876782"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530151"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -199,11 +199,11 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
 4. L’invite d’installation du noyau PySpark s’affiche en bas à droite de la fenêtre. Vous pouvez cliquer sur le bouton **Installer** pour continuer l’installation de PySpark, ou sur le bouton **Ignorer** pour ignorer cette étape.
 
-   ![Installation du noyau PySpark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Capture d’écran montrant une option permettant d’ignorer l’installation de PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Si vous avez besoin de l’installer ultérieurement, vous pouvez accéder à **Fichier** > **Préférence** > **Paramètres**, puis décocher **HDInsight : Activer Ignorer l’installation de PySpark** dans les paramètres. 
     
-    ![Installation du noyau PySpark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Capture d’écran montrant l’option permettant d’activer l’installation de Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Si l’installation réussit à l’étape 4, la zone de message « PySpark a été installé » s’affiche en bas à droite de la fenêtre. Cliquez sur le bouton **Recharger** pour recharger la fenêtre.
     ![PySpark a été installé](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)

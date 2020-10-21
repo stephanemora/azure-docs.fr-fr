@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934580"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532515"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
 En guise d’alternative au [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser. L’API REST est très limitée et ne doit être utilisée que dans les cas où le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne peut pas l’être.
 
-Avant d’utiliser l’API REST de reconnaissance vocale, tenez compte des points suivants :
+Avant d’utiliser l’API REST de reconnaissance vocale, prenez en compte les aspects suivants :
 
 * Les demandes qui utilisent l’API REST et transmettent directement l’audio peuvent contenir jusqu’à 60 secondes d’audio.
 * L’API REST de reconnaissance vocale retourne uniquement les résultats finaux. Les résultats partiels ne sont pas fournis.
 
 Si vous devez envoyer un contenu audio plus long pour votre application, vous pouvez utiliser le [SDK Speech](speech-sdk.md) ou une API REST basée sur un fichier, comme une [transcription par lot](batch-transcription.md).
+
+> [!TIP]
+> Consultez la [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) Azure Government pour les points de terminaison Government Cloud (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

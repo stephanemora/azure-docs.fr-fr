@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286000"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91404780"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurer un laboratoire avec des machines virtuelles GPU
 
@@ -38,6 +38,9 @@ Les tailles de GPU pour la *visualisation* sont destinées aux applications néc
 | ---- | ----- | --- | ----------- | 
 | GPU de petite taille (visualisation) | -&nbsp;6&nbsp;cœurs<br>-&nbsp;56&nbsp;Go de&nbsp;RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
 | GPU de taille moyenne (visualisation) | -&nbsp;12&nbsp;cœurs<br>-&nbsp;112&nbsp;Go de&nbsp;RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est plus appropriée pour la visualisation, le streaming, les jeux et l'encodage à distance à l'aide d’infrastructures tels qu'OpenGL et DirectX. |
+
+> [!NOTE]
+> Il se peut que certaines de ces tailles de machine virtuelle ne s’affichent pas dans la liste lors de la création d’un laboratoire de classe. La liste est remplie en fonction de la capacité actuelle de l’emplacement du laboratoire. Si le créateur du compte lab [permet aux créateurs de laboratoire de choisir un emplacement pour le laboratoire](allow-lab-creator-pick-lab-location.md), vous pouvez essayer de choisir un autre emplacement pour le laboratoire et voir si la taille de la machine virtuelle est disponible. Pour connaître la disponibilité des machines virtuelles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## <a name="ensure-that-the-appropriate-gpu-drivers-are-installed"></a>Vérifier que les pilotes GPU appropriés sont installés
 Pour tirer parti des fonctionnalités GPU de vos machines virtuelles de labo, assurez-vous que les pilotes GPU appropriés sont installés.  Dans l’Assistant de création de laboratoire, lorsque vous sélectionnez une taille de machine virtuelle GPU, vous pouvez choisir l’option **Installer les pilotes GPU**.  

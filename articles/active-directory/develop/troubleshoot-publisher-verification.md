@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256889"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073731"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Résoudre les problèmes de vérification de l’éditeur
 Si vous ne parvenez pas à finaliser le processus ou si vous êtes confronté à un comportement inattendu lors de la [vérification de l’éditeur](publisher-verification-overview.md), procédez comme suit si voyez s’afficher des erreurs ou constatez un comportement inattendu : 
@@ -33,7 +33,7 @@ Si vous ne parvenez pas à finaliser le processus ou si vous êtes confronté à
 ## <a name="common-issues"></a>Problèmes courants
 Vous trouverez ci-dessous quelques problèmes courants qui peuvent survenir au cours du processus. 
 
-- **Je ne connais pas mon identifiant Microsoft Partner Network (ID MPN) ou j'ignore qui est le contact principal du compte**. 
+- **Je ne connais pas mon identifiant Microsoft Partner Network (ID MPN) ou j’ignore qui est le contact principal du compte**. 
     1. Accédez à la [page d'inscription MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
     1. Connectez-vous à l'aide d'un compte d'utilisateur du locataire Azure AD principal de l'organisation. 
     1. Si un compte MPN existe déjà, il sera reconnu et vous y serez ajouté. 
@@ -58,7 +58,7 @@ Vous trouverez ci-dessous quelques problèmes courants qui peuvent survenir au c
     Vos inscriptions d’applications ont peut-être été créées à l’aide d’un autre compte d’utilisateur dans ce locataire, d’un compte personnel/client ou dans un autre locataire. Vérifiez que vous êtes connecté avec le compte approprié dans le locataire où les inscriptions d'applications ont été créées.
 
 - **J’obtiens une erreur liée à l’authentification multifacteur. Que dois-je faire ?** 
-    Assurez-vous que l’[authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) est activée et requise pour l’utilisateur avec lequel vous vous connectez et pour ce scénario. Par exemple, l’authentification multifacteur peut être :
+    Assurez-vous que l’[authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) est activée et **obligatoire** pour l’utilisateur avec lequel vous vous connectez et pour ce scénario. Par exemple, l’authentification multifacteur peut être :
     - Toujours requise pour l’utilisateur avec lequel vous vous connectez.
     - [Requise pour la gestion Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Requise pour le type d’administrateur](../conditional-access/howto-conditional-access-policy-admin-mfa.md) avec lequel vous vous connectez.
@@ -226,7 +226,9 @@ Cette fonctionnalité n'est pas prise en charge pour les comptes clients Microso
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Erreur due au fait que l’authentification multifacteur n’a pas été effectuée avant la tentative d’ajout d’un éditeur vérifié à l’application. Pour plus d’informations, voyez les [problèmes courants](#common-issues).
+Erreur due au fait que l’authentification multifacteur n’a pas été effectuée avant la tentative d’ajout d’un éditeur vérifié à l’application. Pour plus d’informations, voyez les [problèmes courants](#common-issues). Remarque : L’authentification multifacteur doit être exécutée dans la même session lors de la tentative d’ajout d’un éditeur vérifié. Si l’authentification multifacteur est activée, mais que son exécution n’est pas obligatoire dans la session, la demande échoue.   
+
+Le message d’erreur affiché sera le suivant : « En raison d’un changement de configuration effectué par votre administrateur ou parce que vous avez changé d’endroit, vous devez utiliser l’authentification multifacteur pour continuer. »
 
 ## <a name="next-steps"></a>Étapes suivantes
 

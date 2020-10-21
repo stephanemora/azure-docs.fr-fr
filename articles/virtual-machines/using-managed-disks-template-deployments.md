@@ -1,6 +1,6 @@
 ---
-title: Disques managés - modèles Azure Resource Manager
-description: Explique comment utiliser des disques managés dans des modèles Resource Manager pour les machines virtuelles Azure.
+title: Déployer des disques à l’aide de modèles Azure Resource Manager
+description: Explique comment utiliser des disques managés et non managés dans des modèles Azure Resource Manager pour les machines virtuelles Azure.
 documentationcenter: ''
 author: jboeshart
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854333"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976659"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
+# <a name="using-disks-in-azure-resource-manager-templates"></a>Utilisation de disques dans les modèles Azure Resource Manager
 
 Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
 
@@ -266,5 +266,4 @@ Pour obtenir des informations complètes sur les spécifications de l’API REST
 * Consultez le document [Vue d’ensemble d’Azure Disques managés](managed-disks-overview.md) pour en savoir plus sur les disques managés.
 * Passez en revue la documentation de référence sur les modèles pour les ressources de machine virtuelle en consultant le document [de référence sur le modèle Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Passez en revue la documentation de référence sur les modèles pour les ressources de disque en consultant le document [de référence sur le modèle Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
-* Pour plus d’informations sur l’utilisation de disques managés dans des groupes de machines virtuelles Azure identiques, consultez le document [Utiliser des disques de données avec des groupes identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).
-
+* Pour plus d’informations sur l’utilisation de disques managés dans des groupes de machines virtuelles Azure identiques, consultez le document [Utiliser des disques de données avec des groupes identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md).

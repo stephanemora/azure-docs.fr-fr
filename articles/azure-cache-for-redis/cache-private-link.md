@@ -5,38 +5,72 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 09/22/2020
+ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421652"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838651"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure Cache pour Redis avec Azure Private Link (préversion)
+# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache pour Redis avec Azure Private Link (Préversion publique)
+Dans cet article, vous allez apprendre à créer un réseau virtuel et une instance Azure Cache pour Redis avec un point de terminaison privé à l’aide du portail Azure. Vous apprendrez également à ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante.
+
 Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à Azure Cache pour Redis optimisé par Azure Private Link. 
-
-Cet article explique comment créer un cache Azure, un réseau virtuel Azure et un point de terminaison privé à l’aide du portail Azure.  
-
-> [!IMPORTANT]
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> 
 
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure -  [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion - [contactez-nous](mailto:azurecache@microsoft.com) si vous êtes intéressé.
+> Pour utiliser des points de terminaison privés, votre instance Azure Cache pour Redis doit avoir été créée après le 28 juillet 2020.
+>
 >
 
-## <a name="create-a-cache"></a>Création d'un cache
-1. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Créer une ressource**. 
+## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Créer un point de terminaison privé avec une nouvelle instance Azure Cache pour Redis 
+
+Dans cette section, vous allez créer une instance Azure Cache pour Redis avec un point de terminaison privé.
+
+### <a name="create-a-virtual-network"></a>Créez un réseau virtuel 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Créer une ressource**.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Sélectionnez Créer une ressource.":::
+
+2. Dans la page **Nouvelle**, sélectionnez **Mise en réseau**, puis sélectionnez **Réseau virtuel**.
+
+3. Sélectionnez **Ajouter** pour créer un réseau virtuel.
+
+4. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
+
+   | Paramètre      | Valeur suggérée  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement dans lequel créer ce réseau virtuel. | 
+   | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre réseau virtuel et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
+   | **Nom** | Entrez un nom de réseau virtuel. | Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement, et il ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. | 
+   | **Région** | Dans la liste déroulante, sélectionnez une région. | Choisissez une [région](https://azure.microsoft.com/regions/) proche d’autres services qui utiliseront votre réseau virtuel. |
+
+5. Sélectionnez l’onglet **Adresses IP** ou cliquez sur le bouton **Suivant : Adresses IP** au bas de la page.
+
+6. Dans l’onglet **Adresses IP**, spécifiez l’**espace d’adressage IPv4** comme un ou plusieurs préfixes d’adresse en notation CIDR (par exemple, 192.168.1.0/24).
+
+7. Sous **Nom du sous-réseau**, cliquez sur **Par défaut** pour modifier les propriétés du sous-réseau.
+
+8. Dans le volet **Modifier le sous-réseau**, spécifiez un **nom de sous-réseau** ainsi que la **plage d’adresses du sous-réseau**. La plage d’adresses du sous-réseau doit être en notation CIDR (par exemple, 192.168.1.0/24). Elle doit être contenue dans l’espace d’adressage du réseau virtuel.
+
+9. Sélectionnez **Enregistrer**.
+
+10. Sélectionnez l’onglet **Vérifier + créer** cliquez sur le bouton **Vérifier + créer**.
+
+11. Vérifiez que toutes les informations sont correctes, puis cliquez sur **Créer** pour approvisionner le réseau virtuel.
+
+### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Créer une instance Azure Cache pour Redis avec un point de terminaison privé
+Pour créer une instance de cache, procédez comme suit.
+
+1. Revenez à la page d’accueil du portail Azure ou ouvrez le menu latéral, puis sélectionnez **Créer une ressource**. 
    
 1. Dans la page **Nouvelle**, sélectionnez **Bases de données**, puis **Azure Cache pour Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Sélectionnez Azure Cache pour Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Sélectionnez Créer une ressource.":::
    
 1. Dans la page **Nouveau cache Redis**, configurez les paramètres du nouveau cache.
    
@@ -47,114 +81,114 @@ Cet article explique comment créer un cache Azure, un réseau virtuel Azure et 
    | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre cache et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
    | **Lieu** | Dans la liste déroulante, sélectionnez un emplacement. | Choisissez une [Région](https://azure.microsoft.com/regions/) proche d’autres services qui utiliseront votre cache. |
    | **Niveau tarifaire** | Sélectionnez un [Niveau tarifaire](https://azure.microsoft.com/pricing/details/cache/). |  Le niveau tarifaire détermine la taille, les performances et les fonctionnalités disponibles pour le cache. Pour plus d’informations, consultez [Présentation du cache Azure pour Redis](cache-overview.md). |
-   
-1. Sélectionnez **Create** (Créer). 
-   
-    :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Créez Azure Cache pour Redis.":::
-   
-   La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation.
+
+1. Sélectionnez l’onglet **Réseau** ou cliquez sur le bouton **Réseau** au bas de la page.
+
+1. Sous l’onglet **Réseau**, sélectionnez **Point de terminaison privé** comme méthode de connectivité.
+
+1. Cliquez sur le bouton **Ajouter** pour créer votre point de terminaison privé.
+
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Sélectionnez Créer une ressource.":::
+
+1. Dans la page **Créer un point de terminaison privé**, configurez les paramètres de votre point de terminaison privé avec le réseau virtuel et le sous-réseau que vous avez créés dans la dernière section, puis sélectionnez **OK**. 
+
+1. Sélectionnez le bouton **Suivant : Avancé** ou cliquez sur le bouton **Suivant : Avancé** en bas de la page.
+
+1. Sous l’onglet **Avancé** d’une instance de cache de base ou standard, sélectionnez Activer/désactiver si vous souhaitez activer un port non-TLS.
+
+1. Sous l’onglet **Avancé** d’une instance de cache premium, configurez les paramètres pour le port non-TLS, le clustering et la persistance des données.
+
+
+1. Sélectionnez le bouton **Suivant : Étiquettes** ou cliquez sur le bouton **Suivant : Étiquettes** au bas de la page.
+
+1. Si vous le voulez, sous l’onglet **Étiquettes**, entrez le nom et la valeur si vous souhaitez catégoriser la ressource. 
+
+1. Sélectionnez **Vérifier + créer**. Vous êtes redirigé vers l’onglet Vérifier + créer où Azure valide votre configuration.
+
+1. Une fois que le message vert Validation réussie s’affiche, sélectionnez **Créer**.
+
+La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** d’Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution**, le cache est prêt pour utilisation. 
     
-    :::image type="content" source="media/cache-private-link/4-status.png" alt-text="Azure Cache pour Redis créé.":::
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Créer un point de terminaison privé avec une instance Azure Cache pour Redis existante 
 
-Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
+Dans cette section, vous allez ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante. 
 
-1. Sélectionnez **Créer une ressource**.
+### <a name="create-a-virtual-network"></a>Créez un réseau virtuel 
+Pour créer un réseau virtuel, procédez comme suit.
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Sélectionnez Créer une ressource.":::
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Créer une ressource**.
 
 2. Dans la page **Nouvelle**, sélectionnez **Mise en réseau**, puis sélectionnez **Réseau virtuel**.
 
-    :::image type="content" source="media/cache-private-link/5-select-vnet.png" alt-text="Créez un réseau virtuel.":::
+3. Sélectionnez **Ajouter** pour créer un réseau virtuel.
 
-3. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
+4. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
-    | **Paramètre**          | **Valeur**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Détails du projet**  |                                                                 |
-    | Abonnement     | Dans la liste déroulante, sélectionnez votre abonnement.                                  |
-    | Groupe de ressources   | Déroulez la liste et sélectionnez un groupe de ressources. |
-    | **Détails de l’instance** |                                                                 |
-    | Nom             | Entrez **\<virtual-network-name>**                                    |
-    | Région           | Sélectionnez **\<region-name>** |
+   | Paramètre      | Valeur suggérée  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement dans lequel créer ce réseau virtuel. | 
+   | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre réseau virtuel et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
+   | **Nom** | Entrez un nom de réseau virtuel. | Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement, et il ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. | 
+   | **Région** | Dans la liste déroulante, sélectionnez une région. | Choisissez une [région](https://azure.microsoft.com/regions/) proche d’autres services qui utiliseront votre réseau virtuel. |
 
-4. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
+5. Sélectionnez l’onglet **Adresses IP** ou cliquez sur le bouton **Suivant : Adresses IP** au bas de la page.
 
-5. Sous l’onglet **Adresses IP**, entrez les informations suivantes :
+6. Dans l’onglet **Adresses IP**, spécifiez l’**espace d’adressage IPv4** comme un ou plusieurs préfixes d’adresse en notation CIDR (par exemple, 192.168.1.0/24).
 
-    | Paramètre            | Valeur                      |
-    |--------------------|----------------------------|
-    | Espace d’adressage IPv4 | Entrez **\<IPv4-address-space>** |
+7. Sous **Nom du sous-réseau**, cliquez sur **Par défaut** pour modifier les propriétés du sous-réseau.
 
-6. Sous **Nom de sous-réseau**, sélectionnez le mot **par défaut**.
+8. Dans le volet **Modifier le sous-réseau**, spécifiez un **nom de sous-réseau** ainsi que la **plage d’adresses du sous-réseau**. La plage d’adresses du sous-réseau doit être en notation CIDR (par exemple, 192.168.1.0/24). Elle doit être contenue dans l’espace d’adressage du réseau virtuel.
 
-7. Dans **Modifier le sous-réseau**, entrez les informations suivantes :
+9. Sélectionnez **Enregistrer**.
 
-    | Paramètre            | Valeur                      |
-    |--------------------|----------------------------|
-    | Nom du sous-réseau | Entrez **\<subnet-name>** |
-    | Plage d’adresses de sous-réseau | Entrez **\<subnet-address-range>**
+10. Sélectionnez l’onglet **Vérifier + créer** cliquez sur le bouton **Vérifier + créer**.
 
-8. Sélectionnez **Enregistrer**.
+11. Vérifiez que toutes les informations sont correctes, puis cliquez sur **Créer** pour approvisionner le réseau virtuel.
 
-9. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer**.
+### <a name="create-a-private-endpoint"></a>Créer un Private Endpoint 
 
-10. Sélectionnez **Create** (Créer).
+Pour créer un point de terminaison privé, procédez comme suit.
 
+1. Dans le portail Azure, recherchez **Azure Cache pour Redis** et appuyez sur Entrée ou sélectionnez l’élément correspondant dans les suggestions de recherche.
 
-## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint 
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Sélectionnez Créer une ressource.":::
 
-Dans cette section, vous allez créer un point de terminaison privé et le connecter au cache que vous avez créé précédemment.
+2. Sélectionnez l’instance de cache à laquelle vous souhaitez ajouter un point de terminaison privé.
 
-1. Recherchez **Liaison privée**, puis appuyez sur Entrée ou sélectionnez l’option dans les suggestions de recherche.
+3. Sur le côté gauche de l’écran, sélectionnez **(PRÉVERSION) Point de terminaison privé**.
 
-    :::image type="content" source="media/cache-private-link/7-create-private-link.png" alt-text="Recherchez une liaison privée.":::
+4. Cliquez sur le bouton **Point de terminaison privé** pour créer votre point de terminaison privé.
 
-2. Sur le côté gauche de l’écran, sélectionnez **Points de terminaison privés**.
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Sélectionnez Créer une ressource.":::
 
-    :::image type="content" source="media/cache-private-link/8-select-private-endpoint.png" alt-text="Sélectionnez une liaison privée.":::
+5. Dans la page **Créer un point de terminaison privé**, configurez les paramètres de votre point de terminaison privé.
 
-3. Sélectionnez le bouton **+ Ajouter** pour créer votre point de terminaison privé. 
+   | Paramètre      | Valeur suggérée  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Abonnement** | Dans la liste déroulante, sélectionnez votre abonnement. | Abonnement dans lequel créer ce point de terminaison privé. | 
+   | **Groupe de ressources** | Dans la liste déroulante, sélectionnez un groupe de ressources ou choisissez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources. | Nom du groupe de ressources dans lequel créer votre point de terminaison privé et d’autres ressources. En plaçant toutes les ressources de votre application dans un seul groupe de ressources, vous pouvez facilement les gérer ou les supprimer ensemble. | 
+   | **Nom** | Entrez un nom de point de terminaison privé. | Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement, et il ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. | 
+   | **Région** | Dans la liste déroulante, sélectionnez une région. | Choisissez une [région](https://azure.microsoft.com/regions/) proche d’autres services qui utiliseront votre point de terminaison privé. |
 
-    :::image type="content" source="media/cache-private-link/9-add-private-endpoint.png" alt-text="Ajoutez une liaison privée.":::
+6. Cliquez sur le bouton **Next: Ressource** en bas de la page.
 
-4. Dans la page **Créer un point de terminaison privé**, configurez les paramètres de votre point de terminaison privé.
+7. Sous l’onglet **Ressources**, sélectionnez votre abonnement, choisissez le type de ressource `Microsoft.Cache/Redis`, puis sélectionnez le cache auquel vous souhaitez connecter le point de terminaison privé.
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | **DÉTAILS DU PROJET** | |
-    | Abonnement | Dans la liste déroulante, sélectionnez votre abonnement. |
-    | Resource group | Déroulez la liste et sélectionnez un groupe de ressources. |
-    | **DÉTAILS DE L’INSTANCE** |  |
-    | Nom |Entrez un nom pour votre point de terminaison privé.  |
-    | Région |Dans la liste déroulante, sélectionnez un emplacement. |
-    |||
+8. Cliquez sur le bouton **Next: Configuration** en bas de la page.
 
-5. Sélectionnez le bouton **Suivant : Ressource** en bas de la page.
+9. Sous l’onglet **Configuration**, sélectionnez le réseau virtuel et le sous-réseau que vous avez créés dans la section précédente.
 
-6. Sous l’onglet **Ressources**, sélectionnez votre abonnement, choisissez le type de ressource Microsoft.Cache/Redis, puis sélectionnez le cache que vous avez créé dans la section précédente.
+10. Cliquez sur le bouton **Next: Étiquettes** au bas de la page.
 
-    :::image type="content" source="media/cache-private-link/10-resource-private-endpoint.png" alt-text="Ressources pour liaison privée.":::
+11. Si vous le voulez, sous l’onglet **Étiquettes**, entrez le nom et la valeur si vous souhaitez catégoriser la ressource.
 
-7. Sélectionnez le bouton **Suivant : Configuration** en bas de la page.
+12. Sélectionnez **Vérifier + créer**. Vous êtes redirigé vers l’onglet  **Vérifier + créer** où Azure valide votre configuration.
 
-8. Sous l’onglet **Configuration**, sélectionnez le réseau virtuel et le sous-réseau que vous avez créés dans la section précédente.
-
-    :::image type="content" source="media/cache-private-link/11-configuration-private-endpoint.png" alt-text="Configuration de liaison privée.":::
-
-9. Sélectionnez le bouton **Suivant : Étiquettes** au bas de la page.
-
-10. Sous l’onglet **Balises**, entrez le nom et la valeur si vous souhaitez catégoriser la ressource. Cette étape est facultative.
-
-    :::image type="content" source="media/cache-private-link/12-tags-private-endpoint.png" alt-text="Balises pour liaison privée.":::
-
-11. Sélectionnez **Vérifier + créer**. Vous êtes redirigé vers l’onglet  **Vérifier + créer** où Azure valide votre configuration.
-
-12. Une fois le message vert **Validation réussie** s’affiche, sélectionnez **Créer**.
+13. Une fois que le message vert **Validation réussie** s’affiche, sélectionnez **Créer**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Liaison privée, consultez la [documentation d’Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+Pour en savoir plus sur Azure Private Link, consultez la [documentation d’Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 

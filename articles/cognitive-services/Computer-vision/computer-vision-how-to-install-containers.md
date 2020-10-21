@@ -1,32 +1,51 @@
 ---
-title: Guide pratique pour installer et exécuter des conteneurs – Vision par ordinateur
+title: Installer des conteneurs Docker OCR Read à partir de Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Vision par ordinateur.
+description: Utilisez les conteneurs Docker OCR Read de Vision par ordinateur pour extraire du texte à partir d'images et de documents, en local.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: seodec18
-ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: local, OCR, Docker, conteneur
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982066"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536373"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
+# <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Vision par ordinateur.
+Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter des conteneurs Vision par ordinateur.
 
-Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’API [Read](concept-recognizing-text.md#read-api).
+Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à partir d'images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](concept-recognizing-text.md#read-api).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+## <a name="read-3x-containers"></a>Lire des conteneurs 3.x
+Deux versions de conteneurs 3.x sont disponibles en préversion. Les deux versions offrent une précision et des fonctionnalités supplémentaires par rapport au conteneur précédent.
+
+Le conteneur Read 3.0-preview offre ce qui suit :
+* Nouveaux modèles pour une précision accrue.
+* Prise en charge de plusieurs langues dans le même document
+* Prise en charge des langues suivantes : néerlandais, anglais, français, allemand, italien, portugais et espagnol.
+* Une seule opération pour les documents et les images.
+* Prise en charge des documents et des images de grande taille.
+* Scores de confiance compris entre 0 et 1.
+* Prise en charge des documents contenant à la fois du texte imprimé et du texte manuscrit
+
+Le conteneur Read 3.1-preview offre les mêmes avantages que la version 3.0-preview, avec des fonctionnalités supplémentaires :
+
+* Prise en charge du chinois simplifié et du japonais.
+* Scores de confiance et étiquettes pour texte imprimé et texte manuscrit. 
+* Possibilité d'extraire le texte de la page ou des pages sélectionnées dans un document.
+
+Lors du choix de la version du conteneur, notez que la version 3.1-preview correspond à un état antérieur de la préversion. Si vous utilisez actuellement des conteneurs Read 2.0, consultez le [guide de migration](read-container-migration-guide.md) pour en savoir plus sur les modifications apportées aux nouvelles versions.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,9 +57,11 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs 
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
 |Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+
 ## <a name="request-approval-to-run-the-container"></a>Demande d’approbation pour l’exécution du conteneur
 
-Complétez le [formulaire de demande](https://aka.ms/cognitivegate) et envoyez-le afin d’obtenir l’approbation d’exécuter le conteneur. 
+Complétez le [formulaire de demande](https://aka.ms/csgate) et envoyez-le afin d’obtenir l’approbation d’exécuter le conteneur. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -71,6 +92,7 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
+| Read 2.0 (préversion) | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
@@ -88,6 +110,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+```
+
+# <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -142,6 +170,23 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
+# <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Cette commande :
+
+* Exécute un conteneur Lire à partir de l’image conteneur.
+* Alloue 8 cœurs de processeur et 16 gigaoctets (Go) de mémoire.
+* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
+* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
 ---
 
 
@@ -172,11 +217,15 @@ Le conteneur fournit des API de point de terminaison de prédiction de requête 
 
 # <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
 
 # <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
+
+# <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
+
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
 
 ---
 
@@ -330,6 +379,67 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 }
 ```
 
+# <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
+
+Vous pouvez utiliser conjointement les opérations `POST /vision/v2.0/read/core/asyncBatchAnalyze` et `GET /vision/v2.0/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
+
+À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
+
+![Tabulations et espaces](media/tabs-vs-spaces.png)
+
+Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d’état **HTTP 202**. Dans la réponse, un en-tête `operation-location` contient le point de terminaison de résultat de la requête.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+`operation-location` est l’URL complète qui est accessible via HTTP GET. Voici la réponse JSON à l’exécution de l’URL `operation-location` à partir de l’image précédente :
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ---
 
 > [!IMPORTANT]
@@ -345,7 +455,11 @@ Vous pouvez utiliser l’opération suivante pour lire une image en mode synchro
 
 # <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
+
+# <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
+
+`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

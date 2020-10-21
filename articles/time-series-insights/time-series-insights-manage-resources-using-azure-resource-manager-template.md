@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3e9075014863e653a986dc4dbec7b9bc5e9f31bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91597858"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Créer des ressources Azure Time Series Insights Gen1 à l’aide de modèles Resource Manager
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article explique comment créer et déployer des ressources Azure Time Series Insights à l’aide de [modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), de PowerShell et du fournisseur de ressources Azure Time Series Insights.
 
@@ -29,7 +32,7 @@ Azure Time Series Insights prend en charge les ressources suivantes :
    | Environnement | Un environnement Azure Time Series Insights est un regroupement logique d’événements lus à partir de répartiteurs, stockés et rendus interrogeables. Pour plus d’informations, consultez [Planifier votre environnement Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Source de l’événement | Une source d’événement est une connexion à un répartiteur d’événements à partir duquel Azure Time Series Insights lit et ingère des événements dans l’environnement. Sont actuellement pris en charge IoT Hub et Event Hub. |
    | Jeu de données de référence | Les jeux de données de référence fournissent des métadonnées sur les événements de l’environnement. Les métadonnées des jeux de données de référence seront jointes à des événements au cours de l’entrée. Les jeux de données de référence sont définis comme des ressources par leurs propriétés de clé d’événement. Les métadonnées qui composent le jeu de données de référence sont chargées ou modifiées par le biais d’API de plan de données. |
-   | Stratégie d’accès | Les stratégies d’accès accordent l’autorisation de générer des requêtes de données, de manipuler les données de référence dans l’environnement et de partager des requêtes enregistrées et des perspectives associées à l’environnement. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Azure Time Series Insights en utilisant le portail Azure](time-series-insights-data-access.md). |
+   | Stratégie d’accès | Les stratégies d’accès accordent l’autorisation de générer des requêtes de données, de manipuler les données de référence dans l’environnement et de partager des requêtes enregistrées et des perspectives associées à l’environnement. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Azure Time Series Insights à l’aide du portail Azure](time-series-insights-data-access.md). |
 
 Un modèle Resource Manager est un fichier JSON qui définit l’infrastructure et la configuration de ressources dans un groupe de ressources. Les documents suivants décrivent plus en détail les fichiers modèles :
 
@@ -49,7 +52,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Clonez ou copiez le modèle [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) sur GitHub.
 
-   * Créer un fichier de paramètres
+   - Créer un fichier de paramètres
 
      Pour créer un fichier de paramètres, copiez le fichier [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
@@ -57,7 +60,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
     <div id="required-parameters"></div>
 
-   * Paramètres obligatoires
+   - Paramètres obligatoires
 
      | Paramètre | Description |
      | --- | --- |
@@ -69,7 +72,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
     <div id="optional-parameters"></div>
 
-   * Paramètres facultatifs
+   - Paramètres facultatifs
 
      | Paramètre | Description |
      | --- | --- |
@@ -84,7 +87,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
      | accessPolicyReaderObjectIds | Liste des ID objet des utilisateurs et des applications d’Azure AD qui doivent avoir l’accès Lecteur à l’environnement. L’ID objet du principal du service s’obtient en appelant la cmdlet **Get-AzADUser** ou la cmdlet **Get-AzADServicePrincipal**. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
      | accessPolicyContributorObjectIds | Liste des ID objet des utilisateurs ou des applications d’Azure AD qui doivent avoir l’accès Collaborateur à l’environnement. L’ID objet du principal du service s’obtient en appelant la cmdlet **Get-AzADUser** ou la cmdlet **Get-AzADServicePrincipal**. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
 
-   * Par exemple, le fichier de paramètres suivant serait utilisé pour créer un environnement et une source d’événement qui lirait les événements à partir d’un hub d’événements existant. Il crée également deux stratégies qui accordent l’accès Collaborateur à l’environnement.
+   - Par exemple, le fichier de paramètres suivant serait utilisé pour créer un environnement et une source d’événement qui lirait les événements à partir d’un hub d’événements existant. Il crée également deux stratégies qui accordent l’accès Collaborateur à l’environnement.
 
      ```JSON
      {
@@ -114,12 +117,12 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * Pour plus d’informations, consultez l’article [Paramètres](../azure-resource-manager/templates/parameter-files.md).
+   - Pour plus d’informations, consultez l’article [Paramètres](../azure-resource-manager/templates/parameter-files.md).
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Déployer le modèle de démarrage rapide localement avec PowerShell
 
@@ -128,19 +131,19 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Dans PowerShell, connectez-vous à votre compte Azure.
 
-    * À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
+    - À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * Vous êtes invité à ouvrir une session sur votre compte Azure. Une fois connecté, exécutez la commande suivante pour afficher vos abonnements disponibles :
+    - Vous êtes invité à ouvrir une session sur votre compte Azure. Une fois connecté, exécutez la commande suivante pour afficher vos abonnements disponibles :
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * Cette commande renvoie la liste des abonnements Azure disponibles. Choisissez un abonnement pour la session en cours en exécutant la commande suivante. Remplacez `<YourSubscriptionId>` par le GUID de l’abonnement Azure que vous souhaitez utiliser :
+    - Cette commande renvoie la liste des abonnements Azure disponibles. Choisissez un abonnement pour la session en cours en exécutant la commande suivante. Remplacez `<YourSubscriptionId>` par le GUID de l’abonnement Azure que vous souhaitez utiliser :
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,13 +151,13 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Créez un groupe de ressources s'il n'en existe pas.
 
-   * Si vous n’avez pas de groupe de ressources, créez-en un avec la commande **New-AzResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
+   - Si vous n’avez pas de groupe de ressources, créez-en un avec la commande **New-AzResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * En cas de réussite, un résumé du nouveau groupe de ressources s’affiche.
+   - En cas de réussite, un résumé du nouveau groupe de ressources s’affiche.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -166,7 +169,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Testez le déploiement.
 
-   * Validez votre déploiement en exécutant l’applet de commande `Test-AzResourceGroupDeployment`. Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement.
+   - Validez votre déploiement en exécutant l’applet de commande `Test-AzResourceGroupDeployment`. Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,27 +177,27 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Créer le déploiement
 
-    * Pour créer le déploiement, exécutez l’applet de commande `New-AzResourceGroupDeployment` et indiquez les paramètres nécessaires quand vous y êtes invité. Les paramètres incluent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d’accès ou l’URL du fichier de modèle. Si le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour plus d’informations, consultez [Déploiements incrémentiels et complets](../azure-resource-manager/templates/deployment-modes.md).
+    - Pour créer le déploiement, exécutez l’applet de commande `New-AzResourceGroupDeployment` et indiquez les paramètres nécessaires quand vous y êtes invité. Les paramètres incluent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d’accès ou l’URL du fichier de modèle. Si le paramètre **Mode** n’est pas spécifié, la valeur par défaut **Incremental** est utilisée. Pour plus d’informations, consultez [Déploiements incrémentiels et complets](../azure-resource-manager/templates/deployment-modes.md).
 
-    * La commande suivante vous invite à entrer les cinq paramètres requis dans la fenêtre PowerShell :
+    - La commande suivante vous invite à entrer les cinq paramètres requis dans la fenêtre PowerShell :
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * Pour spécifier un fichier de paramètres à la place, utilisez la commande suivante :
+    - Pour spécifier un fichier de paramètres à la place, utilisez la commande suivante :
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * Vous pouvez également utiliser des paramètres inclus lorsque vous exécutez l'applet de commande de déploiement. La commande est la suivante :
+    - Vous pouvez également utiliser des paramètres inclus lorsque vous exécutez l'applet de commande de déploiement. La commande est la suivante :
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Pour exécuter un déploiement [complet](../azure-resource-manager/templates/deployment-modes.md), affectez la valeur **Complet** au paramètre **Mode** :
+    - Pour exécuter un déploiement [complet](../azure-resource-manager/templates/deployment-modes.md), affectez la valeur **Complet** au paramètre **Mode** :
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -202,7 +205,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Vérifier le déploiement
 
-    * Si les ressources sont déployées avec succès, un résumé du déploiement s’affiche dans la fenêtre PowerShell :
+    - Si les ressources sont déployées avec succès, un résumé du déploiement s’affiche dans la fenêtre PowerShell :
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -243,7 +246,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Déployer le modèle de démarrage rapide sur le Portail Azure
 
-   * La page d’accueil du modèle de démarrage rapide sur GitHub comporte également un bouton **Déployer sur Azure**. Il ouvre une page Déploiement personnalisé sur le Portail Azure. Sur cette page, vous pouvez entrer ou sélectionner des valeurs pour chacun des paramètres des tables [Paramètres requis](#required-parameters) et [Paramètres facultatifs](#optional-parameters). Après avoir rempli les paramètres, cliquez sur le bouton **Acheter** pour lancer le déploiement du modèle.
+   - La page d’accueil du modèle de démarrage rapide sur GitHub comporte également un bouton **Déployer sur Azure**. Il ouvre une page Déploiement personnalisé sur le Portail Azure. Sur cette page, vous pouvez entrer ou sélectionner des valeurs pour chacun des paramètres des tables [Paramètres requis](#required-parameters) et [Paramètres facultatifs](#optional-parameters). Après avoir rempli les paramètres, cliquez sur le bouton **Acheter** pour lancer le déploiement du modèle.
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

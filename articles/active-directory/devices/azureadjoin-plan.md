@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268225"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653211"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -184,9 +184,10 @@ Les appareils joints à AD Azure ne prennent pas en charge les applications loca
 
 La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
-À partir de la mise à jour de Windows 10 2004, les utilisateurs peuvent utiliser le Bureau à distance à partir d’un appareil Azure AD enregistré sous Windows 10 joint à un appareil Azure AD. 
+À partir de la mise à jour de Windows 10 2004, les utilisateurs peuvent également utiliser le Bureau à distance à partir d’un appareil Windows 10 inscrit auprès d’Azure AD pour se connecter à un appareil joint à Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
+**Remarque** : Les appareils joints à Azure AD ne peuvent pas être déployés à l’aide de l’outil de préparation du système (Sysprep) ou d’outils d’imagerie similaires.
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
 

@@ -1,6 +1,6 @@
 ---
 title: Copier des données à partir de MongoDB
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory hérité pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558182"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331979"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copier des données à partir de MongoDB à l’aide d’Azure Data Factory (hérité)
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056164"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072303"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -73,6 +73,8 @@ L’exemple suivant montre le schéma d’un événement de connexion d’appare
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>Schéma de télémétrie d’appareil
 
@@ -163,6 +165,10 @@ L’exemple suivant montre le schéma d’un événement de création d’appare
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> Les *données de jumeaux* associées à un événement de création d’appareil sont une configuration par défaut et *ne doivent pas* être utilisées pour la propriété `authenticationType` réelle et autres propriétés d’appareil dans un appareil nouvellement créé. Pour `authenticationType` et les autres propriétés d’un appareil nouvellement créé, utilisez l’API de gestionnaire d’inscription fournie dans les Kits de développement logiciel (SDK) Azure IoT.
 
 Pour obtenir une description détaillée de chaque propriété, consultez [Schéma d’événement Azure Event Grid pour IoT Hub](../event-grid/event-schema-iot-hub.md).
 

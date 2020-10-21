@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072762"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
 Key Vault vous permet d’accéder en toute sécurité aux informations sensibles à l’intérieur de vos applications :
 
 - Les clés, secrets et certificats sont protégés sans que vous deviez écrire de code et vous pouvez facilement les utiliser dans vos applications.
-- Vous pouvez faire en sorte que vos clients possèdent et gèrent leurs propres clés, secrets et certificats afin que vous puissiez vous concentrer sur la fourniture des principales fonctionnalités du logiciel. Ainsi, vos applications ne vous exposent à aucune responsabilité en relation avec les clés, secrets et certificats de vos clients.
+- Vous pouvez autoriser les clients à posséder et gérer leurs propres clés, secrets et certificats afin que vous puissiez vous concentrer sur la fourniture des principales fonctionnalités du logiciel. Ainsi, vos applications ne vous exposent à aucune responsabilité en relation avec les clés, secrets et certificats de vos clients.
 - Votre application peut utiliser des clés pour la signature et le chiffrement, tandis que la gestion des clés s’effectue à l’extérieur de votre application. Pour plus d'informations sur les clés, consultez [À propos des clés](../keys/about-keys.md)
 - Vous pouvez gérer les informations d’identification telles que les mots de passe, les clés d’accès, les jetons SAS en les stockant dans Key Vault en tant que secrets, consultez [À propos des secrets](../secrets/about-secrets.md)
 - Gérer des certificats. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md)
@@ -52,17 +52,27 @@ Pour plus d’informations sur le plan de gestion de Key Vault, consultez [Plan 
 Key Vault utilise l’authentification Azure AD qui nécessite que le principal de sécurité Azure AD accorde l’accès. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un principal de service d’application ou à [une identité managée](../../active-directory/managed-identities-azure-resources/overview.md) ou à un groupe de tout type de principaux de sécurité.
 
 ### <a name="authentication-best-practices"></a>Bonnes pratiques pour l'authentification
+
 Il est recommandé d’utiliser l’identité gérée pour les applications déployées sur Azure. Si vous utilisez des services Azure qui ne prennent pas en charge l’identité gérée ou si les applications sont déployées localement, le [principal de service avec un certificat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) est une alternative possible. Dans ce scénario, le certificat doit être stocké dans Key Vault et faire l’objet d’une rotation fréquente. Le principal de service avec secret peut être utilisé pour les environnements de développement et de test, et l’utilisation locale ou dans Cloud Shell du principal d’utilisateur est recommandée.
 
-Les scénarios d’authentification ci-dessus sont pris en charge par la bibliothèque de client d’identité Azure et intégrés aux kits de développement logiciel (SDK) Key Vault. La bibliothèque d’identité Azure peut être utilisée dans différents environnements et plateformes sans modifier votre code. L’identité Azure récupère également automatiquement le jeton d’authentification de la connexion à l’utilisateur Azure avec Azure CLI, Visual Studio, Visual Studio Code et d’autres. 
+Principaux de sécurité recommandés par environnement :
+- **Environnement de production** :
+  - Identité managée ou principal du service avec un certificat
+- **Environnements de test et de développement** :
+  - Identité managée, principal du service avec certificat ou principal du service avec secret
+- **Développement local** :
+  - Principal d’utilisateur ou principal du service avec secret
 
-Pour plus d'informations, voir : 
+Les scénarios d’authentification ci-dessus sont pris en charge par la **bibliothèque cliente d’identité Azure** et intégrés aux kits de développement logiciel (SDK) Key Vault. La bibliothèque d’identité Azure peut être utilisée dans différents environnements et plateformes sans modifier votre code. L’identité Azure récupère également automatiquement le jeton d’authentification de la connexion à l’utilisateur Azure avec Azure CLI, Visual Studio, Visual Studio Code et d’autres. 
 
+Pour plus d’informations sur la bibliothèque cliente d’identité Azure, consultez :
+
+### <a name="azure-identity-client-libraries"></a>Bibliothèques clientes d’identité Azure
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[SDK de l’identité Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[SDK de l’identité Azure Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[SDK de l’identité Azure Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[SDK de l’identité Azure Javascript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-S’authentifier auprès de Key Vault dans les applications :
+Pour obtenir des didacticiels sur la façon de s’authentifier auprès de Key Vault dans les applications, consultez :
 - [S’authentifier auprès de Key Vault dans l’application hébergée dans la machine virtuelle .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [S’authentifier auprès de Key Vault dans l’application hébergée dans la machine virtuelle dans Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [S’authentifier auprès de Key Vault avec App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

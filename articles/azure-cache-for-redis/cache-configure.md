@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009611"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000160"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -141,9 +141,9 @@ La **stratégie MaxMemory** configure la stratégie d’éviction pour le cache,
 
 Pour plus d’informations sur les stratégies `maxmemory`, voir [Stratégies d’éviction](https://redis.io/topics/lru-cache#eviction-policies).
 
-Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets) réservée à des opérations non cache telles que la réplication pendant le basculement. La définition de ce paramètre vous permet d’avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
+Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets par instance dans un cluster) réservée à des opérations non cache telles que la réplication pendant le basculement. La définition de ce paramètre vous permet d’avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
 
-Le paramètre **maxfragmentationmemory réservés** détermine la quantité de mémoire en Mo réservée pour la fragmentation de la mémoire. La définition de ce paramètre vous permet d’avoir un serveur Redis plus cohérent lorsque le cache est plein ou presque, et que le taux de fragmentation est élevé. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
+Le paramètre **maxfragmentationmemory-reserved** détermine la quantité de mémoire (en mégaoctets par instance dans un cluster) réservée pour la fragmentation de la mémoire. La définition de ce paramètre vous permet d’avoir un serveur Redis plus cohérent lorsque le cache est plein ou presque, et que le taux de fragmentation est élevé. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
 
 Un aspect à prendre en compte lors du choix d’une nouvelle valeur de réservation de mémoire (**maxmemory-reserved** ou **maxfragmentationmemory-reserved**) est la manière dont cette modification peut affecter un cache déjà en cours d’exécution, qui contient de grandes quantités de données. Par exemple, si vous disposez d’un cache de 53 Go avec 49 Go de données, modifiez la valeur de réservation en la définissant sur 8 Go. Cette modification aura pour effet de réduire la mémoire maximale disponible pour le système à 45 Go. Si vos valeurs `used_memory` ou `used_memory_rss` actuelles sont supérieures à la nouvelle limite de 45 Go, le système doit supprimer des données jusqu’à ce que les valeurs `used_memory` et `used_memory_rss` soient toutes deux inférieures à 45 Go. La suppression de données peut augmenter la fragmentation de la charge et de la mémoire du serveur. Pour plus d’informations sur les métriques de cache, telles que `used_memory` et `used_memory_rss`, voir [Mesures disponibles et intervalles de création des rapports](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -169,11 +169,11 @@ Pour plus d’informations, voir [Notifications de keyspace Redis](https://redis
 ## <a name="azure-cache-for-redis-advisor"></a>Cache Azure pour Redis Advisor
 Le panneau **Cache Azure pour Redis Advisor** affiche des recommandations pour votre cache. Pendant les opérations normales, aucune recommandation n’est affichée.
 
-![Recommandations](./media/cache-configure/redis-cache-no-recommendations.png)
+![Capture d’écran montrant où les recommandations sont affichées.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Si une condition se produit pendant les opérations de votre cache (notamment l’utilisation élevée de la mémoire, la bande passante réseau ou la charge du serveur), une alerte s’affiche dans le panneau **Cache Azure pour Redis**.
 
-![Recommandations](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Capture d’écran montrant où les alertes sont affichées dans la section Azure Cache pour Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Des informations complémentaires sont disponibles dans le panneau **Recommandations** .
 
@@ -214,7 +214,7 @@ Pour modifier la taille du cluster, utilisez le curseur ou entrez un nombre comp
 
 
 ### <a name="redis-data-persistence"></a>Persistance des données Redis
-Cliquez sur **Persistance des données** pour activer, désactiver ou configurer la persistance des données de votre cache Premium. Le cache Azure pour Redis offre la persistance Redis grâce à la [persistance RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) et à la [persistance AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Cliquez sur **Persistance des données** pour activer, désactiver ou configurer la persistance des données de votre cache Premium. Le cache Azure pour Redis offre la persistance Redis grâce à la persistance RDB et à la persistance AOF.
 
 Pour plus d’informations, consultez la page [Comment configurer la persistance pour un Cache Azure pour Redis Premium](cache-how-to-premium-persistence.md).
 
@@ -314,7 +314,7 @@ Le panneau **Redémarrer** permet de redémarrer les nœuds de votre cache. Cett
 
 Si vous avez un cache premium avec activation du clustering, vous pouvez sélectionner les partitions du cache à redémarrer.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Capture d’écran montrant où sélectionner les partitions du cache à redémarrer.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds souhaités, puis cliquez sur **Reboot**. Si vous avez un cache premium avec activation du clustering, sélectionnez les partitions à redémarrer, puis cliquez sur **Reboot**. Après quelques minutes, les nœuds sélectionnés sont redémarrés et sont de nouveau en ligne.
 
@@ -474,11 +474,11 @@ Vous pouvez émettre en toute sécurité des commandes aux instances de cache Az
 
 Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Azure pour Redis**.
 
-![Console Redis](./media/cache-configure/redis-console-menu.png)
+![Capture d’écran mettant en évidence le bouton Console.](./media/cache-configure/redis-console-menu.png)
 
 Pour émettre des commandes sur votre instance de cache, tapez la commande souhaitée dans la console.
 
-![Console Redis](./media/cache-configure/redis-console.png)
+![Capture d’écran montrant la console Redis avec la commande d’entrée et les résultats.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Utilisation de la Console Redis avec un cache premium en cluster

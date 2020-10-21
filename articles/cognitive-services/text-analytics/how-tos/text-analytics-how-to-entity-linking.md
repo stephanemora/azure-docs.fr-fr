@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 10/09/2020
 ms.author: aahi
-ms.openlocfilehash: 457be5ac014fda6b4984ed7af3dcc89780b16379
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f37828d5561ef382f572c1fdd4917a71f8a00407
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141615"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930167"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -34,7 +34,7 @@ La reconnaissance d’entités nommées (NER) est la capacité d’identifier di
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Fonctionnalité                                                         | NER v3.0 | NER v3.1-preview.1 |
+| Fonctionnalité                                                         | NER v3.0 | NER v3.1-preview.2 |
 |-----------------------------------------------------------------|--------|----------|
 | Méthodes pour les requêtes uniques et de lots                          | X      | X        |
 | Reconnaissance d’entité étendue dans plusieurs catégories           | X      | X        |
@@ -47,7 +47,7 @@ Pour plus d’informations, consultez [Prise en charge linguistique](../language
 
 La reconnaissance d’entité nommée v3 fournit une détection étendue sur plusieurs types. Actuellement, NER v3.0 peut reconnaître des entités dans la [catégorie d’entité générale](../named-entity-types.md).
 
-La Reconnaissance d’entité nommée v3.1-preview.1 comprend les fonctionnalités de détection de v3.0 et la possibilité de détecter les informations personnelles (`PII`) à l’aide du point de terminaison `v3.1-preview.1/entities/recognition/pii`. Vous pouvez utiliser le paramètre facultatif `domain=phi` pour détecter les informations médicales confidentielles (`PHI`). Pour plus d’informations, consultez l’article sur les [catégories d’entité](../named-entity-types.md) et la section sur les [points de terminaison de demande](#request-endpoints) ci-dessous.
+La Reconnaissance d’entité nommée v3.1-preview.2 comprend les capacités de détection de v3.0 et la possibilité de détecter les informations personnelles (`PII`) à l’aide du point de terminaison `v3.1-preview.2/entities/recognition/pii`. Vous pouvez utiliser le paramètre facultatif `domain=phi` pour détecter les informations médicales confidentielles (`PHI`). Pour plus d’informations, consultez l’article sur les [catégories d’entité](../named-entity-types.md) et la section sur les [points de terminaison de demande](#request-endpoints) ci-dessous.
 
 
 ## <a name="sending-a-rest-api-request"></a>Envoie d’une requête d’API REST
@@ -68,6 +68,30 @@ Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-c
 
 ### <a name="request-endpoints"></a>Points de terminaison de requête
 
+#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-preview)
+
+La reconnaissance d’entité nommée `v3.1-preview.2` utilise des points de terminaison distincts pour les demandes NER et de liaison d’entités. Utilisez un format d’URL ci-dessous en fonction de votre demande :
+
+Liaison d’entités
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+
+[Référence Reconnaissance d’entité nommée version 3.1-preview.2 pour `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+
+NER
+* Entités générales - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+
+[Référence Reconnaissance d’entité nommée version 3.1-preview.2 pour `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+
+* Informations personnelles (`PII`) - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+
+Vous pouvez aussi utiliser le paramètre facultatif `domain=phi` pour détecter les informations médicales (`PHI`) dans le texte. 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+Notez l’ajout de la propriété `redactedText` dans la réponse JSON qui contient le texte d’entrée modifié où les entités PII détectées sont remplacées par un * pour chaque caractère des entités.
+
+[Référence Reconnaissance d’entité nommée version 3.1-preview.2 pour `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
 La reconnaissance d’entité nommée v3 utilise des points de terminaison distincts pour les demandes de liaison d’entité et NER. Utilisez un format d’URL ci-dessous en fonction de votre demande :
@@ -75,24 +99,12 @@ La reconnaissance d’entité nommée v3 utilise des points de terminaison disti
 Liaison d’entités
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
+[Référence Reconnaissance d’entité nommée version 3.0 pour `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-#### <a name="version-31-preview1"></a>[Version 3.1-preview.1](#tab/version-3-preview)
-
-La reconnaissance d’entité nommée `v3.1-preview.1` utilise des points de terminaison distincts pour les demandes NER et de liaison d’entités. Utilisez un format d’URL ci-dessous en fonction de votre demande :
-
-Liaison d’entités
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
-
-NER
-* Entités générales - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
-
-* Informations personnelles (`PII`) - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
-
-Vous pouvez aussi utiliser le paramètre facultatif `domain=phi` pour détecter les informations médicales (`PHI`) dans le texte. 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+[Référence Reconnaissance d’entité nommée version 3.0 pour `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
 ---
 
@@ -127,12 +139,103 @@ Toutes les demandes POST retournent une réponse au format JSON avec les ID et l
 
 La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages de texte](../concepts/text-offsets.md).
 
-### <a name="example-v3-responses"></a>Exemples de réponses NER v3
+### <a name="example-responses"></a>Exemples de réponses
 
-La version 3 fournit des points de terminaison distincts pour la liaison d’entités et NER. Les réponses pour les deux opérations figurent ci-dessous. 
+La version 3 fournit des points de terminaison distincts pour Reconnaissance d’entité nommée, les informations d’identification personnelle et la liaison d’entités. Les réponses pour les deux opérations figurent ci-dessous. 
 
-#### <a name="example-ner-response"></a>Exemple de réponse NER
+#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-preview)
 
+Exemple de réponse PII :
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+
+Exemple de réponse de liaison d’entités :
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
+        },
+        {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-02-01"
+}
+```
+
+
+#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+Exemple de réponse NER générale :
 ```json
 {
   "documents": [
@@ -185,53 +288,7 @@ La version 3 fournit des points de terminaison distincts pour la liaison d’en
 }
 ```
 
-
-#### <a name="example-entity-linking-response"></a>Exemple de réponse de liaison d’entités
-
-```json
-{
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
-        {
-          "name": "Space Needle",
-          "matches": [
-            {
-              "text": "Space Needle",
-              "offset": 30,
-              "length": 12,
-              "confidenceScore": 0.4
-            }
-          ],
-          "language": "en",
-          "id": "Space Needle",
-          "url": "https://en.wikipedia.org/wiki/Space_Needle",
-          "dataSource": "Wikipedia"
-        },
-        {
-          "name": "Seattle",
-          "matches": [
-            {
-              "text": "Seattle",
-              "offset": 62,
-              "length": 7,
-              "confidenceScore": 0.25
-            }
-          ],
-          "language": "en",
-          "id": "Seattle",
-          "url": "https://en.wikipedia.org/wiki/Seattle",
-          "dataSource": "Wikipedia"
-        }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-02-01"
-}
-```
+---
 
 
 ## <a name="summary"></a>Résumé

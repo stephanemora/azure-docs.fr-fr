@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923022"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530559"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Se connecter à du contenu Azure SQL et l’indexer à l’aide d’un indexeur Recherche cognitive Azure
 
@@ -39,7 +39,7 @@ Un indexeur unique peut utiliser une seule table ou une seule vue, mais vous pou
 Vous pouvez installer et configurer un indexeur SQL Azure avec les outils suivants :
 
 * Assistant Importation de données sur le [Portail Azure](https://portal.azure.com)
-* [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.indexer) de Recherche cognitive Azure
 * [API REST](/rest/api/searchservice/indexer-operations) de Recherche cognitive Azure
 
 Dans cet article, nous allons utiliser l’API REST pour créer des **indexeurs** et des **sources de données**.
@@ -74,7 +74,9 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
     }
    ```
 
-   Vous pouvez obtenir la chaîne de connexion auprès du [portail Azure](https://portal.azure.com). Utilisez l’option `ADO.NET connection string`.
+   La chaîne de connexion peut suivre l’un des formats suivants :
+    1. Vous pouvez obtenir la chaîne de connexion auprès du [portail Azure](https://portal.azure.com). Utilisez l’option `ADO.NET connection string`.
+    1. Une chaîne de connexion d’identité managée qui n’inclut pas de clé de compte, au format suivant : `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`. Pour utiliser cette chaîne de connexion, suivez les instructions fournies dans [Configurer une connexion d’indexeur à une base de données Azure SQL Database à l’aide d’une identité managée](search-howto-managed-identities-sql.md).
 
 2. Créez l’index Recherche cognitive Azure cible si vous n’en avez pas encore. Pour créer un index, utilisez le [portail](https://portal.azure.com) ou l’[API Créer un index](/rest/api/searchservice/Create-Index). Vérifiez que le schéma de votre index cible est compatible avec le schéma de la table source. Consultez [Mappage entre les types de données SQL et les types de données de Recherche cognitive Azure](#TypeMapping).
 

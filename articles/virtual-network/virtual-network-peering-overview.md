@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265158"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531868"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
-L’appairage de réseaux virtuels vous permet de connecter en toute transparence des réseaux dans [Réseau virtuel Microsoft Azure](virtual-networks-overview.md). Les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles utilise l’infrastructure principale de Microsoft. À l’instar du trafic entre les machines virtuelles du même réseau, le trafic est acheminé via le réseau *privé* de Microsoft uniquement.
+L'appairage de réseaux virtuels vous permet de connecter en toute transparence deux ou plusieurs [réseaux virtuels](virtual-networks-overview.md) dans Azure. Les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles des réseaux virtuels appairés utilise l'infrastructure principale de Microsoft. À l’instar du trafic entre les machines virtuelles du même réseau, le trafic est acheminé via le réseau *privé* de Microsoft uniquement.
 
 Azure prend en charge les types de Peering suivants :
 

@@ -7,24 +7,24 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987128"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91577507"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurer un groupe de basculement pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Cette rubrique explique comment configurer un [groupe de basculement automatique](auto-failover-group-overview.md) pour Azure SQL Database et Azure SQL Managed Instance.
 
-## <a name="single-database-in-azure-sql-database"></a>Base de données unique dans Azure SQL Database
+## <a name="single-database"></a>Base de données unique
 
 Créez le groupe de basculement et ajoutez-y une base de données unique à l’aide du portail Azure ou de PowerShell.
 
@@ -192,7 +192,7 @@ Rétablir le groupe de basculement sur le serveur principal :
 > [!IMPORTANT]
 > Si vous devez supprimer la base de données secondaire, retirez-la du groupe de basculement avant de la supprimer. La suppression d’une base de données secondaire avant son retrait du groupe de basculement peut entraîner un comportement imprévisible.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Pools élastiques dans Azure SQL Database
+## <a name="elastic-pool"></a>Pool élastique
 
 Créez le groupe de basculement et ajoutez-y un pool élastique en utilisant le portail Azure ou PowerShell.  
 
@@ -346,7 +346,9 @@ Basculez vers le serveur secondaire :
 
 Créez un groupe de basculement entre deux instances gérées dans Azure SQL Managed Instance à l’aide du portail Azure ou de PowerShell.
 
-Vous devrez soit configurer [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), soit créer une passerelle pour le réseau virtuel de chaque instance gérée SQL, connecter les deux passerelles, puis créer le groupe de basculement.
+Vous devrez soit configurer [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), soit créer une passerelle pour le réseau virtuel de chaque instance gérée SQL, connecter les deux passerelles, puis créer le groupe de basculement. 
+
+Déployez les deux instances gérées dans des [régions appairées](../../best-practices-availability-paired-regions.md) pour des raisons de performances. Les instances managées résidant dans des régions appairées géographiquement offrent des performances sensiblement meilleures que celles résidant dans des régions non appairées. 
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -360,6 +362,9 @@ Prenez en compte les prérequis suivants :
 ### <a name="create-primary-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel principal
 
 Si vous n’avez pas configuré [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), vous pouvez créer la passerelle de réseau virtuel principal avec le portail Azure ou PowerShell.
+
+> [!NOTE]
+> La référence SKU de la passerelle affecte les performances de débit. Cet article déploie une passerelle avec la référence SKU la plus basique (`HwGw1`). Pour obtenir un débit plus élevé, déployez une référence (SKU) supérieure (par exemple, `VpnGw3`). Pour toutes les options disponibles, consultez [Références (SKU) de passerelle](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

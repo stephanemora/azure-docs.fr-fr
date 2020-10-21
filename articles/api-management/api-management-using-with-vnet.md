@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fbff4cc067ce831e9d9f69a457f348a94257e86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489620"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076910"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 <a name="required-ports"> </a> Quand une instance de service Gestion des API est hébergée dans un réseau virtuel, les ports du tableau suivant sont utilisés.
 
-| Port(s) source / de destination | Sens          | Protocole de transfert |   [Balises de service](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Objectif (\*)                                                 | Type de réseau virtuel |
+| Port(s) source / de destination | Sens          | Protocole de transfert |   [Balises de service](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Objectif (\*)                                                 | Type de réseau virtuel |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Trafic entrant            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communication client avec Gestion des API                      | Externe             |
 | * / 3443                     | Trafic entrant            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Point de terminaison de gestion pour le Portail Azure et PowerShell         | Externe et interne  |
@@ -153,7 +153,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 + **Azure Load Balancer** : le fait d’autoriser les demandes entrantes à partir de la balise de service `AZURE_LOAD_BALANCER` n’est pas obligatoire pour la référence SKU `Developer`, puisque nous déployons une seule unité de calcul derrière elle. Toutefois, le trafic entrant à partir de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) devient critique lors de la mise à l’échelle vers une référence SKU supérieure comme `Premium`, car la défaillance de la sonde d’intégrité de Load Balancer fait échouer un déploiement.
 
-+ **Application Insights** : Si la surveillance d’[Azure Application Insights](api-management-howto-app-insights.md) est activée sur Gestion des API, nous devons autoriser la connectivité sortante vers le [point de terminaison de télémétrie](/azure/azure-monitor/app/ip-addresses#outgoing-ports) à partir du réseau virtuel. 
++ **Application Insights** : Si la surveillance d’[Azure Application Insights](api-management-howto-app-insights.md) est activée sur Gestion des API, nous devons autoriser la connectivité sortante vers le [point de terminaison de télémétrie](../azure-monitor/app/ip-addresses.md#outgoing-ports) à partir du réseau virtuel. 
 
 + **Tunneling forcé du trafic vers le pare-feu local à l’aide d’ExpressRoute ou de l’appliance virtuelle réseau** : une configuration cliente courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force tout le trafic du sous-réseau délégué de Gestion des API à traverser un pare-feu local ou une appliance virtuelle réseau. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution vous oblige à faire deux choses :
 
@@ -203,7 +203,7 @@ Chaque unité d’échelle supplémentaire de Gestion des API requiert deux adre
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Adresses IP du plan de contrôle
 
-Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez des requêtes entrantes, l’adresse IP marquée comme **globale** doit être ajoutée à la liste verte, ainsi que l’adresse IP spécifique de la **région**.
+Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez des requêtes entrantes, l’adresse IP marquée comme **globale** doit être autorisée, ainsi que l’adresse IP spécifique de la **région**.
 
 | **Environnement Azure**|   **Région**|  **Adresse IP**|
 |-----------------|-------------------------|---------------|
@@ -223,6 +223,7 @@ Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez
 | Azure (public)| Est du Canada| 52.139.80.117|
 | Azure (public)| Émirats arabes unis Nord| 20.46.144.85|
 | Azure (public)| Brésil Sud| 191.233.24.179|
+| Azure (public)| Brésil Sud-Est| 191.232.18.181|
 | Azure (public)| Asie Sud-Est| 40.90.185.46|
 | Azure (public)| Afrique du Sud Nord| 102.133.130.197|
 | Azure (public)| Centre du Canada| 52.139.20.34|
@@ -271,7 +272,7 @@ Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez
 * [Connexion d’un réseau virtuel utilisant des modèles de déploiement différents](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure](api-management-howto-api-inspector.md)
 * [Questions fréquentes (FAQ) sur les réseaux virtuels](../virtual-network/virtual-networks-faq.md)
-* [Balises de service](../virtual-network/security-overview.md#service-tags)
+* [Balises de service](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -284,6 +285,6 @@ Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330330"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893745"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitations et problèmes de migration en ligne vers Azure Database pour MySQL avec Azure Database Migration Service
 
@@ -82,12 +82,12 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour MySQL, les ty
 
     **Solution de contournement** : remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
 
-- **Limitation** : Si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
+- **Limitation** : si la longueur de la colonne LOB (Large Object) est supérieure au paramètre « Limiter la taille LOB » (ne doit pas dépasser 64 Ko), les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solution de contournement** : si vous avez un objet LOB d’une taille supérieure à 64 Ko, utilisez le paramètre « Autoriser une taille LOB illimitée ». Notez que les migrations utilisant le paramètre « Autoriser une taille LOB illimitée » sont plus lentes que les migrations qui utilisent le paramètre « Limiter la taille LOB ».
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitations lors de la migration en ligne depuis AWS RDS MySQL
 

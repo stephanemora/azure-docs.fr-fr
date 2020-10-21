@@ -1,17 +1,15 @@
 ---
 title: Vue d’ensemble d’Azure et des clusters Service Fabric autonomes
 description: Vous pouvez créer des cluster Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans tout environnement dans lequel vous avez des ordinateurs Windows Server ou Linux interconnectés, que ce soit en local sur Microsoft Azure ou à l’aide d’un fournisseur de cloud.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751145"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842595"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparaison entre Azure et des clusters Service Fabric autonomes sur Windows Server et Linux
 
@@ -28,7 +26,7 @@ Dans Azure, nous intégrons d’autres fonctionnalités et services Azure qui re
 * **Cluster Service Fabric en tant que ressource Azure :** un cluster Service Fabric est une ressource Azure, que vous pouvez modeler comme d’autres ressources dans Azure.
 * **Intégration à l’infrastructure Azure :** Service Fabric se coordonne avec l’infrastructure Azure sous-jacente pour que le système d’exploitation, le réseau et d’autres mises à niveau améliorent la disponibilité et la fiabilité de vos applications.  
 * **Diagnostics :** dans Azure, nous proposons l’intégration de Diagnostics Azure et des journaux Azure Monitor.
-* **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée en raison de la présence de groupes de machines virtuelles identiques. Dans des environnements locaux ou d’autres environnements cloud, vous devez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
+* **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée par le biais des groupes de machines virtuelles identiques. Dans des environnements locaux ou d’autres environnements cloud, vous devez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
 
 ## <a name="benefits-of-standalone-clusters"></a>Avantages des clusters autonomes
 

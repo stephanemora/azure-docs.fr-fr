@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825319"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839688"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
@@ -73,7 +73,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
     Vous pouvez également voir l’état du lien dans le panneau **Vue d’ensemble** des caches principal et secondaire.
 
-    ![État du cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Capture d’écran montrant comment afficher l’état de liaison pour les caches principal et secondaire.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Une fois le processus de réplication terminé, l’**État du lien** devient **Réussi**.
 

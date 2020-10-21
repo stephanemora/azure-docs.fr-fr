@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/20/2020
+ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578102"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -37,7 +37,9 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Automation/automationAccounts | Oui| Non | [Comptes Automation](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | Non | Non | |
 |Microsoft.Batch/batchAccounts | Oui | Non | [Comptes Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Oui | Non | [Cache Azure pour Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Oui | Oui | [Cache Azure pour Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Non | Non | [Services cloud (classiques)](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | Non | Non | [Machines virtuelles classiques](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Oui | Non | [Comptes de stockage (classiques)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Oui | Non | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Oui | Non | |

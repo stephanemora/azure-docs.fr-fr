@@ -5,24 +5,24 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 94d970390f62107a82dc586605d34dd61cae0c26
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/26/2020
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992557"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91597782"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des flux de travail avec état ou sans état dans Visual Studio Code avec l’extension Azure Logic Apps (préversion)
 
 > [!IMPORTANT]
 > Cette fonctionnalité en préversion publique est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pour créer des flux de travail d’application logique qui s’intègrent à l’ensemble des applications, données, services cloud et systèmes, vous pouvez utiliser Visual Studio Code et l’extension Azure Logic Apps (préversion) pour générer et exécuter des flux de travail d’application logique [*avec état* et *sans état*](#stateful-stateless).
+Pour créer des workflows d’application logique qui s’intègrent à l’ensemble des applications, données, services cloud et systèmes, vous pouvez utiliser Visual Studio Code et l’extension Azure Logic Apps (préversion) pour générer et exécuter localement des [workflows d’application logique *avec état* et *sans état*](#stateful-stateless) dans votre environnement de développement.
 
 ![Capture d’écran montrant Visual Studio Code et un flux de travail d’application logique.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Les applications logiques que vous créez avec l’extension en préversion publique utilisent le nouveau type de ressource **Logic Apps (préversion)** , et sont optimisées par le runtime [Azure Functions](../azure-functions/functions-overview.md). Ce nouveau type de ressource peut inclure plusieurs flux de travail et présente à certains égards des similitudes avec le type de ressource **Application de fonction**, qui peut inclure plusieurs fonctions.
+Les applications logiques que vous créez avec l’extension en préversion publique utilisent le nouveau type de ressource **Application logique (préversion)** et sont gérées par le runtime [Azure Functions](../azure-functions/functions-overview.md) dans votre environnement local. Ce nouveau type de ressource peut inclure plusieurs flux de travail et présente à certains égards des similitudes avec le type de ressource **Application de fonction**, qui peut inclure plusieurs fonctions.
 
 En même temps, le type de ressource **Logic Apps** reste disponible. Vous pouvez l’utiliser pour créer des applications dans Visual Studio Code et le portail Azure. Toutefois, l’interface du type de ressource d’origine est distincte de celle du nouveau type de ressource. À ce stade, les deux types de ressources, **Logic Apps** et **Logic Apps (préversion)** , peuvent coexister dans Visual Studio Code et le portail Azure. Vous pouvez afficher toutes les applications logiques déployées dans votre abonnement Azure, ainsi qu’y accéder, mais elles apparaissent et sont conservées séparément dans leurs propres catégories et sections.
 
@@ -34,6 +34,8 @@ Cet article fournit une [vue d’ensemble de cette préversion publique](#whats-
 
 * génération de nouveaux flux de travail **Logic Apps (préversion)** en [créant un projet et en sélectionnant un modèle de flux de travail](#create-project) ;
 
+* exécution et débogage locaux de vos nouvelles applications logiques dans Visual Studio Code ;
+
 * publications des nouvelles applications logiques directement à partir de Visual Studio Code [vers Azure](#publish-azure) ou [vers un conteneur Docker](#deploy-docker) que vous pouvez exécuter en tout lieu. Pour plus d’informations sur Docker, consultez [Qu’est-ce que Docker ?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 <a name="whats-new"></a>
@@ -42,18 +44,18 @@ Cet article fournit une [vue d’ensemble de cette préversion publique](#whats-
 
 L’extension Azure Logic Apps (préversion) apporte de nombreuses fonctionnalités Logic Apps actuelles et supplémentaires à votre expérience de développement local dans Visual Studio Code, par exemple :
 
-* Générez des applications logiques pour des flux de travail d’intégration et d’automatisation à partir de [plus de 300 connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que de connecteurs pour les systèmes locaux.
+* Générez des applications logiques pour des workflows d’intégration et d’automatisation à partir de [plus de 390 connecteurs](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que de connecteurs pour les systèmes locaux.
 
   * Certains connecteurs managés, tels Azure Service Bus, Azure Event Hubs et SQL Server, s’exécutent de la même façon que les actions et déclencheurs natifs intégrés, telle l’action HTTP.
 
   * Créez et déployez des applications logiques pouvant s’exécuter en tout lieu, car le service Azure Logic Apps génère des chaînes de connexion avec signature d’accès partagé (SAP) que ces applications logiques peuvent utiliser pour envoyer des demandes au point de terminaison du runtime de connexion cloud. Le service Logic Apps enregistre ces chaînes de connexion avec d’autres paramètres de l’application pour vous permettre de stocker facilement ces valeurs dans Azure Key Vault quand vous opérez un déploiement sur Azure.
 
     > [!NOTE]
-    > Par défaut, l’[identité attribuée par le système](../logic-apps/create-managed-service-identity.md) d’une ressource **Logic Apps (préversion)** est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution.
+    > Par défaut, l’[identité managée assignée par le système](../logic-apps/create-managed-service-identity.md) d’une ressource **Application logique (préversion)** est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution.
 
 * Créez des applications logiques sans état qui s’exécutent uniquement en mémoire, de sorte qu’elles opèrent plus rapidement, répondent plus promptement, présentent un débit plus élevé et réduisent le coût d’exécution, car les historiques et données d’exécution entre les actions ne sont pas conservés dans un stockage externe. Si vous le souhaitez, vous pouvez activer l’historique d’exécution pour faciliter le débogage. Pour plus d’informations, consultez [Applications logiques avec et sans état](#stateful-stateless).
 
-* Testez vos applications logiques localement dans l’environnement de développement de Visual Studio Code.
+* Exécutez et déboguez vos applications logiques localement dans l’environnement de développement de Visual Studio Code.
 
 * Publiez et déployez vos applications logiques à partir de Visual Studio Code directement dans différents environnements d’hébergement, par exemple, [Azure App Service](../app-service/environment/intro.md) et [Conteneurs Docker](/dotnet/core/docker/introduction).
 
@@ -70,11 +72,11 @@ L’extension Azure Logic Apps (préversion) apporte de nombreuses fonctionnalit
 
 * *Sans état*
 
-  Créez des applications logiques sans état lorsque vous ne devez pas enregistrer, examiner ou référencer des données d’événements précédents. Ces applications logiques conservent l’entrée et la sortie de chaque action, ainsi que les états de leurs flux de travail, uniquement en mémoire, au lieu de transférer ces informations vers un stockage externe. Par conséquent, les applications logiques sans état offrent des temps d’exécution plus courts généralement inférieurs à 5 minutes, des performances plus rapides avec des temps de réponse plus brefs, un débit plus élevé, et des coûts d’exécution réduits car les détails et l’historique d’exécution ne sont pas conservés dans un stockage externe. Toutefois, quand des interruptions se produisent, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues. Pour faciliter le débogage, vous pouvez [activer l’historique d’exécution](#run-history) pour les applications logiques sans état.
+  Créez des applications logiques sans état lorsque vous n’avez pas besoin d’enregistrer, de examiner ou de référencer des données d’événements antérieurs dans un stockage externe pour les consulter ultérieurement. Ces applications logiques conservent l’entrée et la sortie de chaque action, ainsi que les états de leurs flux de travail, uniquement en mémoire, au lieu de transférer ces informations vers un stockage externe. Par conséquent, les applications logiques sans état offrent des temps d’exécution plus courts généralement inférieurs à 5 minutes, des performances plus rapides avec des temps de réponse plus brefs, un débit plus élevé, et des coûts d’exécution réduits car les détails et l’historique d’exécution ne sont pas conservés dans un stockage externe. Toutefois, quand des interruptions se produisent, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues. Ces applications logiques peuvent uniquement s’exécuter de façon synchrone et, pour faciliter le débogage, vous pouvez [activer l’historique des exécutions](#run-history), ce qui a un certain impact sur les performances.
 
   Actuellement, les flux de travail sans état prennent uniquement en charge les actions pour des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), pas pour des déclencheurs. Pour démarrer votre flux de travail, sélectionnez le [déclencheur de demande, Event Hubs ou Service Bus intégré](../connectors/apis-list.md#built-ins). Pour plus d’informations sur les déclencheurs, actions et connecteurs non pris en charge, consultez [Fonctionnalités non prises en charge](#unsupported).
 
-Pour plus d’informations sur la façon dont les applications logiques imbriquées se comportent selon qu’elles sont avec et sans état, consultez [Différences de comportement entre les applications logiques imbriquées avec et sans état](#nested-behavior).
+Pour plus d’informations sur la façon dont les applications logiques imbriquées se comportent différemment selon qu’elles sont avec et sans état, consultez [Différences de comportement imbriqué entre les applications logiques avec et sans état](#nested-behavior).
 
 <a name="pricing-model"></a>
 
@@ -92,6 +94,24 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
 * [Détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/)
 * [Détails de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
 
+<a name="unsupported"></a>
+
+## <a name="unavailable-or-unsupported-capabilities"></a>Fonctionnalités non disponibles ou non prises en charge
+
+Pour cette préversion publique, ces fonctionnalités ne sont pas disponibles ou ne sont pas prises en charge :
+
+* La création de la ressource **Application logique (préversion)** n’est pas disponible actuellement sur macOS.
+
+* Toutes les régions Azure ne sont pas encore prises en charge. Pour les régions actuellement disponibles, consultez la [liste des régions](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
+* Pour démarrer votre workflow, utilisez le [déclencheur Request, HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Actuellement, les [connecteurs entreprise](../connectors/apis-list.md#enterprise-connectors), les [déclencheurs de passerelle de données locale](../connectors/apis-list.md#on-premises-connectors), les déclencheurs basés sur webhook, le déclencheur de fenêtre glissante, les [connecteurs personnalisés](../connectors/apis-list.md#custom-apis-and-connectors), les comptes d’intégration, leurs artefacts et [leurs connecteurs](../connectors/apis-list.md#integration-account-connectors) ne sont pas pris en charge dans cette préversion. La capacité « appeler une fonction Azure » n’est pas disponible. Pour l’instant, utilisez l’*action* HTTP pour appeler l’URL de requête pour la fonction Azure.
+
+  Les workflows d’application logique sans état peuvent uniquement utiliser des actions pour des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), pas pour des déclencheurs. À l’exception des déclencheurs spécifiés précédemment, les workflows avec état peuvent utiliser les déclencheurs et les actions pour les connecteurs managés.
+
+* Vous pouvez déployer le nouveau type de ressource **Application logique (préversion)** uniquement dans un [plan d’hébergement Premium ou App Service dans Azure](#publish-azure) ou dans un [conteneur Docker](#deploy-docker), et non dans des [environnements de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Les plans d’hébergement dits **de consommation** ne sont pas pris en charge ni disponibles pour le déploiement de ce type de ressource.
+
+* Dans le portail Azure, vous ne pouvez pas créer d’applications logiques avec le nouveau type de ressource **Application logique (préversion)** . Vous ne pouvez créer ces applications logiques que dans Visual Studio Code. Toutefois, une fois que vous avez déployé des applications logiques avec ce type de ressource à partir de Visual Studio Code vers Azure, vous pouvez [ajouter de nouveaux flux de travail à ces applications logiques](#add-workflows).
+
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="access-and-connectivity"></a>Accès et connectivité
@@ -103,6 +123,17 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
 * Pour générer le même exemple d’application logique que celui présenté dans cet article, vous avez besoin d’un compte de courrier Office 365 Outlook qui utilise un compte Microsoft professionnel ou scolaire pour se connecter.
 
   Si vous choisissez d’utiliser un autre [connecteur de messagerie pris en charge par Azure Logic Apps](/connectors/), tel qu’Outlook.com ou [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), vous pouvez toujours suivre l’exemple. Les étapes générales sont les mêmes, mais l’interface utilisateur et les options peuvent différer de plusieurs manières. Par exemple, si vous utilisez le connecteur Outlook.com, utilisez votre compte Microsoft personnel au lieu de vous connecter.
+
+### <a name="storage-requirements"></a>Exigences de stockage
+
+1. Téléchargez et installez l’[Émulateur de Stockage Azure 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+
+1. Pour exécuter l’émulateur, vous devez disposer d’une installation locale de SQL DB, telle que l’édition gratuite [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Pour plus d’informations, consultez [Utilisation de l’émulateur de Stockage Azure pour le développement et le test](../storage/common/storage-use-emulator.md).
+
+   > [!IMPORTANT]
+   > Avant d’ouvrir le Concepteur d’application logique pour créer votre flux de travail d’application logique, veillez à démarrer l’émulateur. Dans le cas contraire, vous recevez le message suivant : `Workflow design time could not be started`.
+   >
+   > ![Capture d’écran montrant l’Émulateur de stockage Azure en cours d’exécution.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ### <a name="tools"></a>Outils
 
@@ -119,7 +150,7 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
     >
     > Si vous souhaitez utiliser l’[action **Inline Code**](../logic-apps/logic-apps-add-run-inline-code.md) pour l’exécution de code JavaScript, vous devez utiliser la version 3x du runtime Azure Functions, car l’action ne prend pas en charge la version 2x. En outre, cette action n’est pas prise en charge actuellement sur les systèmes d’exploitation Linux.
 
-  * [Extension Azure Logic Apps (préversion) pour Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Cette extension en préversion publique offre la possibilité de créer des applications logiques avec et sans état, ainsi que de les tester localement dans Visual Studio Code.
+  * [Extension Azure Logic Apps (préversion) pour Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Cette extension en préversion publique offre la possibilité de créer des applications logiques avec et sans état et de les exécuter localement dans Visual Studio Code.
 
     À l’heure actuelle, vous pouvez avoir l’extension **Azure Logic Apps** d’origine et la nouvelle extension **Azure Logic Apps (préversion)** installées en même temps dans Visual Studio Code. En sélectionnant l’icône Azure dans la barre d’outils de Visual Studio Code, vous pouvez afficher toutes les applications logiques déployées dans Azure, mais chaque type de ressource apparaît dans ses propres sections d’extension, **Logic Apps** et **Azure Logic Apps (préversion)** .
 
@@ -130,13 +161,13 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
     >
     > * Le dossier **Microsoft.Azure.Functions.ExtensionBundle.Workflows** contenant les offres groupées d’extension précédentes, qui se trouve sur l’un des chemins d’accès suivants :
     >
-    >   * `C:\Users\<username>\AppData\Local\Temp\Functions\ExtensionBundles`
+    >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
     >
-    >   * `C:\Users\<username>.azure-functions-core-tools\Functions\ExtensionBundles`
+    >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
     >
     > * Le dossier **microsoft.azure.workflows.webjobs.extension**, qui est le cache [NuGet](/nuget/what-is-nuget) pour l’extension en préversion privée et se trouve sur dans le chemin d’accès suivant :
     >
-    >   `C:\Users\<username>\.nuget\packages`
+    >   `C:\Users\{userName}\.nuget\packages`
 
     Pour installer l’extension **Azure Logic Apps (préversion)** , procédez comme suit :
 
@@ -151,19 +182,6 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
 * Pour tester l’exemple d’application logique que vous créez dans cet article, vous avez besoin d’un outil capable d’envoyer des appels au déclencheur de demande, ce qui constitue la première étape de l’exemple d’application logique. Si vous n’avez pas d’outil de ce type, vous pouvez télécharger, installer et utiliser [Postman](https://www.postman.com/downloads/).
 
 * Pour faciliter la journalisation des diagnostics et la fonctionnalité de suivi, vous pouvez ajouter et utiliser une ressource [Application Insights](../azure-monitor/app/app-insights-overview.md). Vous pouvez créer cette ressource pendant le déploiement de l’application logique, ou dans le portail Azure après le déploiement de celle-ci.
-
-### <a name="storage-requirements"></a>Exigences de stockage
-
-Actuellement, la création d’une ressource **Logic Apps (préversion)** n’est pas disponible sur Mac OS. Toutefois, pour Windows ou tout autre système d’exploitation, configurez cette exigence de stockage.
-
-1. Téléchargez et installez l’[Émulateur de Stockage Azure 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
-
-1. Pour exécuter l’émulateur, vous devez disposer d’une installation locale de SQL DB, telle que l’édition gratuite [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Pour plus d’informations, consultez [Utilisation de l’émulateur de Stockage Azure pour le développement et le test](../storage/common/storage-use-emulator.md).
-
-   > [!IMPORTANT]
-   > Avant d’ouvrir le Concepteur d’application logique pour créer votre flux de travail d’application logique, veillez à démarrer l’émulateur. Dans le cas contraire, vous recevez le message suivant : `Workflow design time could not be started`.
-   >
-   > ![Capture d’écran montrant l’Émulateur de stockage Azure en cours d’exécution.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 <a name="set-up"></a>
 
@@ -209,7 +227,9 @@ Actuellement, la création d’une ressource **Logic Apps (préversion)** n’es
 
    ![Capture d’écran montrant le volet Azure et le lien sélectionné pour la connexion à Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Une fois que vous être connecté, le volet Azure affiche les abonnements dans votre compte Azure. Si les abonnements attendus n’apparaissent pas, ou si vous souhaitez que le volet affiche uniquement des abonnements spécifiques, procédez comme suit :
+   Une fois que vous être connecté, le volet Azure affiche les abonnements dans votre compte Azure. Si vous disposez de l’extension Logic Apps publiée publiquement, vous pouvez trouver toutes les ressources Logic Apps originales que vous avez créées à l’aide de l’extension d’origine dans la section **Logic Apps** de l’extension publiée, et non dans la section **Applications logiques (préversion)** de l’extension en préversion.
+   
+   Si les abonnements attendus n’apparaissent pas, ou si vous souhaitez que le volet affiche uniquement des abonnements spécifiques, procédez comme suit :
 
    1. Dans la liste des abonnements, positionnez votre pointeur en regard du premier abonnement jusqu’à ce que le bouton **Sélectionner les abonnements** (icône de filtre) s’affiche. Sélectionnez l’icône de filtre.
 
@@ -223,7 +243,7 @@ Actuellement, la création d’une ressource **Logic Apps (préversion)** n’es
 
 ## <a name="create-a-local-project"></a>Créer un projet local
 
-Avant de pouvoir créer votre application logique, créez un projet local afin de pouvoir gérer et déployer votre application logique à partir de Visual Studio Code. Le projet sous-jacent est très similaire à un projet Azure Functions, également appelé projet d’application de fonction.
+Avant de pouvoir créer votre application logique, créez un projet local afin de pouvoir gérer et déployer votre application logique à partir de Visual Studio Code. Le projet sous-jacent est similaire à un projet Azure Functions, également appelé projet d’application de fonction. Toutefois, ces types de projets sont distincts les uns des autres. Par conséquent, les workflows et les fonctions d’application logique ne peuvent pas exister dans le même projet.
 
 1. Sur votre ordinateur, créez un dossier local *vide* à utiliser pour le projet que vous créerez par la suite dans Visual Studio Code.
 
@@ -251,15 +271,32 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
 
    ![Capture d’écran montrant une liste avec l’option « Ouvrir dans la fenêtre active » sélectionnée.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code se recharge, ouvre le volet de l’Explorateur, et affiche votre projet qui comprend désormais les fichiers de projet générés automatiquement. Par exemple, le projet contient un dossier qui affiche le nom du flux de travail de votre application logique. À l’intérieur de ce dossier, le fichier `workflow.json` contient la définition JSON sous-jacente du flux de travail de votre application logique.
+   Visual Studio Code se recharge, ouvre le volet de l’Explorateur, et affiche votre projet qui comprend désormais les fichiers de projet générés automatiquement. Par exemple, le projet contient un dossier qui affiche le nom du flux de travail de votre application logique. À l’intérieur de ce dossier, le fichier **workflow.json** contient la définition JSON sous-jacente du workflow de votre application logique.
 
    ![Capture d’écran montrant la fenêtre Explorateur avec le dossier de projet, le dossier de flux de travail et le fichier « workflow.json ».](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
 
-Ensuite, ouvrez le fichier **workflow.json** dans le Concepteur d’application logique.
+<a name="open-workflow-definition-designer"></a>
 
-### <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Ouvrir le fichier de définition de flux de travail dans le Concepteur d’application logique
+## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Ouvrir le fichier de définition de flux de travail dans le Concepteur d’application logique
 
-Avant d’essayer d’ouvrir votre fichier de définition de flux de travail dans le concepteur, si Visual Studio Code est en cours d’exécution sur Windows ou Linux, assurez-vous que l’Émulateur de stockage Azure est en cours d’exécution. Pour plus d’informations, consultez les [Prérequis](#prerequisites).
+1. Vérifiez les versions installées sur votre ordinateur en exécutant la commande suivante :
+
+   `..\Users\{yourUserName}\dotnet --list-sdks`
+
+   Si vous disposez du kit SDK .NET Core 5.x, cette version peut vous empêcher d’ouvrir la définition de workflow sous-jacente de l’application logique dans le concepteur. Au lieu de désinstaller cette version, à l’emplacement racine de votre projet, créez un fichier **global.json** qui fait référence à la version 3.x du runtime .NET Core que vous avez et qui est postérieure à la version 3.1.201, par exemple :
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   Assurez-vous d’ajouter explicitement ce fichier **global.json** à votre projet à l’emplacement racine à partir de Visual Studio Code. Sinon, le concepteur ne s’ouvre pas.
+
+1. Si Visual Studio Code est en cours d’exécution sur Windows ou Linux, assurez-vous que l’émulateur Stockage Azure est en cours d’exécution. Pour plus d’informations, consultez les [Prérequis](#prerequisites).
 
 1. Développez le dossier du projet pour votre flux de travail. Ouvrez le menu contextuel du fichier **workflow.json**, puis sélectionnez **Ouvrir dans le concepteur**.
 
@@ -278,8 +315,8 @@ Avant d’essayer d’ouvrir votre fichier de définition de flux de travail dan
    1. Examinez la sortie et vérifiez si ce message d’erreur s’affiche :
 
       ```text
-      A host error has occurred during startup operation '<operation-ID>'.
-      System.Private.CoreLib: The file 'C:\Users\<your-username>\AppData\Local\Temp\Functions\
+      A host error has occurred during startup operation '{operationID}'.
+      System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
       ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
       DurableTask.AzureStorage.dll' already exists.
       Value cannot be null. (Parameter 'provider')
@@ -303,10 +340,10 @@ Avant d’essayer d’ouvrir votre fichier de définition de flux de travail dan
 
    ![Capture d’écran montrant le volet de l’Explorateur et la zone du nom du groupe de ressources.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. Dans la liste des emplacements, recherchez et sélectionnez une région Azure à utiliser pour la création de votre groupe de ressources et de vos ressources. Cet exemple utilise la région **USA Centre-Ouest**.
+1. Dans la liste des emplacements, recherchez et sélectionnez une [région Azure prise en charge](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) à utiliser pour la création de votre groupe de ressources et de vos ressources. Cet exemple utilise la région **USA Centre-Ouest**.
 
-   > [!NOTE]
-   > Actuellement, certaines régions ne sont pas prises en charge, bien que des mises à jour soient en cours. Pour plus d’informations, consultez la [page GitHub Problèmes connus](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md) de l’extension en préversion.
+   > [!IMPORTANT]
+   > Toutes les régions ne sont pas prises en charge actuellement, mais les mises à jour visant à ajouter d’autres régions sont en cours. La sélection d’une région non prise en charge peut entraîner des problèmes, tels que la création de connexions. Pour connaître les régions actuellement prises en charge, consultez la [page GitHub Problèmes connus](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) de l’extension en préversion.
 
    ![Capture d’écran montrant le volet de l’Explorateur avec la liste des emplacements et la région « USA Centre-Ouest » sélectionnée.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
 
@@ -352,9 +389,11 @@ Dans cet exemple, le flux de travail de l’application logique utilise le décl
 
 1. Si vous devez supprimer un élément du concepteur, procédez comme suit :
 
-   1. Dans le concepteur, sélectionnez l’élément.
+   1. Dans le concepteur, sélectionnez l’élément, ce qui ouvre le volet d’informations de l’élément sur le côté droit.
 
-   1. Dans le volet d’informations de l’élément qui s’ouvre sur le côté droit, sélectionnez le bouton ( **...** ) **>** **Supprimer**. Sélectionnez **OK** pour confirmer la suppression.
+   1. Agrandissez suffisamment la fenêtre de Visual Studio Code pour qu’à côté du nom du déclencheur ou de l’action, le bouton de sélection ( **…** ) apparaisse dans le coin supérieur droit. 
+
+   1. Ouvrez le menu de sélection ( **…** ), puis sélectionnez **Supprimer**. Sélectionnez **OK** pour confirmer la suppression.
 
       ![Capture d’écran montrant l’élément sélectionné dans le concepteur avec le volet d’informations ouvert, le bouton des points de suspension sélectionné et l’option « Supprimer ».](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -373,6 +412,9 @@ Dans cet exemple, le flux de travail de l’application logique utilise le décl
 1. Dans le volet d’informations de l’action, sélectionnez **Se connecter** pour pouvoir créer une connexion à votre compte de courrier.
 
    ![Capture d’écran montrant le Concepteur d’application logique et le volet **Envoyer un e-mail (V2)** avec l’option « Se connecter » sélectionnée.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
+
+   > [!NOTE]
+   > Si vous recevez l’erreur `Failed to create connection...`, vous avez peut-être choisi une région actuellement non prise en charge pour votre application logique. Les mises à jour visant à ajouter d’autres régions sont en cours. En attendant, pour connaître les régions actuellement prises en charge, consultez la [page GitHub Problèmes connus](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) de l’extension en préversion.
 
 1. Lorsque Visual Studio Code vous invite à donner votre consentement pour l’accès à votre compte de courrier, sélectionnez **Ouvrir**.
 
@@ -393,6 +435,8 @@ Dans cet exemple, le flux de travail de l’application logique utilise le décl
    > [!TIP]
    > Pour éviter les invites futures, sélectionnez **Ne plus demander cette extension**.
 
+   Une fois que Visual Studio Code a créé votre connexion, certains connecteurs affichent le message `The connection will be valid for {n} days only.`. Cette limite de temps s’applique uniquement à la durée pendant laquelle vous créez votre application logique dans Visual Studio Code. Après le déploiement, cette limite ne s’applique plus, car votre application logique peut s’authentifier au moment de l’exécution à l’aide de son [identité managée affectée par le système](../logic-apps/create-managed-service-identity.md) qui est activée automatiquement. Cette identité managée diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité managée affectée par le système, les connexions ne fonctionneront pas au moment de l’exécution.
+
 1. Dans le concepteur, si l’action **Envoyer un e-mail** n’est pas sélectionnée, sélectionnez-la.
 
 1. Dans le volet d’informations de l’action, sous l’onglet **Paramètres**, fournissez les informations requises pour l’action, par exemple :
@@ -411,11 +455,13 @@ Dans cet exemple, le flux de travail de l’application logique utilise le décl
 
 1. Dans le concepteur, sélectionnez **Enregistrer**.
 
-Ensuite, déboguez et testez votre flux de travail localement dans Visual Studio Code.
+Ensuite, exécutez et déboguez votre workflow localement dans Visual Studio Code.
 
 <a name="debug-test-locally"></a>
 
-## <a name="debug-and-test-your-logic-app"></a>Déboguer et tester votre application logique
+## <a name="run-and-debug-locally"></a>Exécuter et déboguer localement
+
+Pour tester votre application logique, procédez comme suit pour démarrer une session de débogage et rechercher l’URL du point de terminaison créé par le déclencheur de requête. Vous avez besoin de cette URL pour pouvoir envoyer ultérieurement une requête à ce point de terminaison.
 
 1. Pour faciliter le débogage d’un flux de travail d’application logique sans état, vous pouvez [activer l’historique d’exécution pour ce flux de travail](#run-history).
 
@@ -551,7 +597,7 @@ Une fois que vous avez mis à jour votre application logique, vous pouvez effect
 * [Effectuer un scale-up d’application dans Azure App Service](../app-service/manage-scale-up.md)
 * [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md)
 
-Vous pouvez publier votre application logique en tant que nouvelle ressource, ce qui a pour effet de créer automatiquement toute ressource supplémentaire nécessaire, par exemple, un [compte de stockage Azure, similaire à la configuration requise des applications de fonction](../azure-functions/storage-considerations.md). Vous pouvez également publier votre application logique sur une ressource **Logic Apps (préversion)** précédemment déployée, que le processus de déploiement remplace dans Azure.
+Vous pouvez publier votre application logique en tant que nouvelle ressource, ce qui a pour effet de créer automatiquement toute ressource supplémentaire nécessaire, par exemple, un [compte de stockage Azure, similaire à la configuration requise des applications de fonction](../azure-functions/storage-considerations.md). Vous pouvez également publier votre application logique sur une ressource **Application logique (préversion)** précédemment déployée, ce qui remplace cette application logique.
 
 ### <a name="publish-as-a-new-logic-app-preview-resource"></a>Publier en tant que nouvelle ressource Logic Apps (préversion)
 
@@ -573,7 +619,7 @@ Vous pouvez publier votre application logique en tant que nouvelle ressource, ce
 
 1. Pour créer votre ressource **Logic Apps (préversion)** , procédez comme suit :
 
-   1. Fournissez un nom global unique pour votre nouvelle application logique, qui est le nom à utiliser pour la ressource **Logic Apps (préversion)** .
+   1. Fournissez un nom global unique pour votre nouvelle application logique, qui est le nom à utiliser pour la ressource **Logic Apps (préversion)** . Cet exemple utilise `example-logic-app-preview`.
 
       ![Capture d’écran montrant le volet « Azure : Logic Apps (préversion) » et une invite à fournir un nom pour la nouvelle application logique à créer.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
@@ -639,21 +685,13 @@ Vous pouvez publier votre application logique en tant que nouvelle ressource, ce
 
    Félicitations, votre application logique est maintenant active dans Azure et activée par défaut.
 
-Ensuite, découvrez [comment trouver votre application logique déployée dans le portail Azure](#find-manage-deployed-workflows-portal) ou [dans Visual Studio Code](#find-manage-deployed-workflows-vs-code).
+Ensuite, vous pouvez apprendre à effectuer ces tâches :
 
-### <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>Activer l’analyse des ressources Logic Apps (préversion) déployées
+* [Rechercher votre application logique déployée dans le portail Azure](#find-manage-deployed-workflows-portal) ou [dans Visual Studio Code](#find-manage-deployed-workflows-vs-code).
 
-Pour activer l’historique d’exécution et la surveillance sur une ressource **Logic Apps (préversion)** déployée, procédez comme suit :
+* [Activer l’historique des exécutions pour les workflows d’application logique sans état](#run-history).
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource **Logic Apps (préversion)** déployée.
-
-1. Dans le menu de cette ressource, sous **API**, sélectionnez **CORS**.
-
-1. Dans le volet **CORS**, sous **Origines autorisées**, ajoutez le caractère générique (*).
-
-1. Lorsque c’est chose faite, dans la barre d’outils **CORS**, sélectionnez **Enregistrer**.
-
-   ![Capture d’écran montrant le portail Azure avec une ressource Logic Apps (préversion) déployée. Dans le menu de ressources, « CORS » est sélectionné avec une nouvelle entrée pour « Origines autorisées » définie sur le caractère générique « * ».](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+* [Activer l’analyse sur une ressource **Application logique (préversion)** déployée](#enable-monitoring).
 
 <a name="find-manage-deployed-workflows-vs-code"></a>
 
@@ -669,7 +707,17 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
    ![Capture d’écran montrant Visual Studio Code avec le volet d’extension « Azure Logic Apps (préversion) » ouvert et le flux de travail déployé.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. Pour ouvrir l’application logique déployée dans le portail Azure, dans Visual Studio Code, ouvrez le menu contextuel de l’application logique, puis sélectionnez **Ouvrir dans portail**.
+1. Pour afficher tous les workflows de l’application logique, développez votre application logique, puis développez le nœud **Workflows**.
+
+1. Pour afficher un workflow spécifique, ouvrez le menu contextuel du workflow, puis sélectionnez **Ouvrir dans le concepteur**, ce qui ouvre le workflow en mode lecture seule.
+
+   Pour modifier le workflow, vous disposez des options suivantes :
+
+   * Dans Visual Studio Code, ouvrez le fichier **workflow.json** de votre projet dans le concepteur d’applications logiques, apportez vos modifications, puis redéployez votre application logique dans Azure.
+
+   * Dans le portail Azure, [recherchez et ouvrez votre application logique](#find-manage-deployed-workflows-portal). Recherchez, modifiez et enregistrez le workflow.
+
+1. Pour ouvrir l’application logique déployée dans le portail Azure, ouvrez le menu contextuel de l’application logique, puis sélectionnez **Ouvrir dans le portail**.
 
    Le portail Azure s’ouvre dans votre navigateur, vous connecte automatiquement au portail si vous êtes connecté à Visual Studio Code, et affiche votre application logique.
 
@@ -724,7 +772,7 @@ Pour rechercher les applications logiques dont le type de ressource est **Logic 
 
 ## <a name="add-a-workflow-to-deployed-logic-apps"></a>Ajouter un flux de travail à des applications logiques déployées
 
-Le portail Azure vous permet d’ajouter des flux de travail vides à une ressource **Logic Apps (préversion)** que vous avez déployée à partir de Visual Studio Code, ainsi que de créer ces flux de travail.
+Le portail Azure vous permet d’ajouter des workflows vides à une ressource **Application logique (préversion)** que vous avez déployée à partir de Visual Studio Code et de créer ces workflows.
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre ressource **Logic Apps (préversion)** déployée.
 
@@ -741,6 +789,73 @@ Le portail Azure vous permet d’ajouter des flux de travail vides à une ressou
    Par exemple, l’ouverture du concepteur pour un nouveau flux de travail a pour effet d’afficher un canevas vide. Vous pouvez maintenant générer ce flux de travail dans le portail Azure.
 
    ![Capture d’écran montrant le Concepteur d’application logique et un flux de travail vide.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
+
+<a name="run-history"></a>
+
+## <a name="run-history-for-stateless-logic-app-workflows"></a>Historique des exécutions pour les flux de travail d’application logique sans état
+
+Pour déboguer plus facilement un workflow d’application logique sans état, vous pouvez activer l’historique des exécutions de ce workflow dans Visual Studio Code ou dans le portail Azure, puis le désactiver lorsque vous avez terminé.
+
+### <a name="for-a-stateless-logic-app-workflow-in-visual-studio-code"></a>Pour un flux de travail d’application logique sans état dans Visual Studio Code
+
+Si vous travaillez sur le flux de travail d’application logique sans état et l’exécutez localement dans Visual Studio Code, procédez comme suit :
+
+1. Dans votre projet, recherchez et développez le dossier **workflow-designtime**. Recherchez et ouvrez le fichier **local.settings.json**.
+
+1. Ajoutez la propriété `Workflows.{yourWorkflowName}.operationOptions` et définissez la valeur sur `WithStatelessRunHistory`, par exemple :
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
+      }
+   }
+   ```
+
+1. Pour désactiver l’historique des exécutions lorsque vous avez terminé, supprimez la propriété `Workflows.{yourWorkflowName}.OperationOptions` et sa valeur, ou définissez-la sur `None`.
+
+### <a name="for-a-stateless-logic-app-workflow-in-the-azure-portal"></a>Pour un flux de travail d’application logique sans état dans le portail Azure
+
+Si vous avez déjà déployé votre projet sur le portail Azure, procédez comme suit :
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre ressource **Logic Apps (préversion)** .
+
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Configuration**.
+
+1. Sous l’onglet **Paramètres de l’application**, sélectionnez **Nouveau paramètre d’application**.
+
+1. Dans le volet **Ajouter/modifier un paramètre d’application**, dans la zone **Nom**, entrez le nom de l’option d’opération : 
+
+   `Workflows.{yourWorkflowName}.OperationOptions`
+
+1. Dans la zone **Valeur**, entrez la valeur suivante : `WithStatelessRunHistory`
+
+   Par exemple :
+
+   ![Capture d’écran montrant le portail Azure et la ressource Application logique (préversion) avec le volet « Configuration » > « Nouveau paramètre d’application » > « Ajouter/modifier un paramètre d’application » ouvert et l’option « Workflows.{yourWorkflowName}.OperationOptions » définie sur « WithStatelessRunHistory ».](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
+
+1. Quand vous avez terminé, sélectionnez **OK**. Dans le volet **Configuration**, sélectionnez **Enregistrer**.
+
+Pour activer l’analyse sur votre ressource Application logique (préversion) déployée, passez à la section suivante.
+
+<a name="enable-monitoring"></a>
+
+## <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>Activer l’analyse des ressources Logic Apps (préversion) déployées
+
+Pour activer l’analyse sur une ressource **Application logique (préversion)** déployée, procédez comme suit :
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource **Logic Apps (préversion)** déployée.
+
+1. Dans le menu de cette ressource, sous **API**, sélectionnez **CORS**.
+
+1. Dans le volet **CORS**, sous **Origines autorisées**, ajoutez le caractère générique (*).
+
+1. Lorsque c’est chose faite, dans la barre d’outils **CORS**, sélectionnez **Enregistrer**.
+
+   ![Capture d’écran montrant le portail Azure avec une ressource Logic Apps (préversion) déployée. Dans le menu de ressources, « CORS » est sélectionné avec une nouvelle entrée pour « Origines autorisées » définie sur le caractère générique « * ».](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="deploy-docker"></a>
 
@@ -769,9 +884,16 @@ L’[outil interface de ligne de commande (CLI) .NET Core](/dotnet/core/tools/) 
 
    `docker build --tag local/workflowcontainer .`
 
-   Voici un exemple de fichier Docker pour un flux de travail.NET. Remplacez simplement la valeur <*storage-account-connection-string*> par la chaîne de connexion de votre compte de stockage Azure que vous avez enregistrée précédemment, qui ressemble à l’exemple suivant :
+   Par exemple, voici un exemple de fichier Docker qui déploie une application logique avec état et spécifie la chaîne de connexion pour le compte de stockage Azure qui a été utilisée pour publier l’application logique sur le portail Azure. Pour rechercher et copier la chaîne de connexion du compte de stockage dans le portail Azure, consultez [Gérer les clés de compte de stockage](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+   ![Capture d’écran montrant le portail Azure avec les clés d’accès au compte de stockage et la chaîne de connexion copiées.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+   La chaîne de connexion ressemble à cet exemple :
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey={access-key};EndpointSuffix=core.windows.net`
+
+   Voici le format du fichier Docker :
+
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
@@ -786,6 +908,8 @@ L’[outil interface de ligne de commande (CLI) .NET Core](/dotnet/core/tools/) 
    ```
 
    Pour plus d’informations, consultez [docker build](https://docs.docker.com/engine/reference/commandline/build/).
+
+1. Enregistrez la chaîne dans un endroit sûr afin de pouvoir l’ajouter ultérieurement aux fichiers **local.settings.json** dans le projet que vous utilisez pour créer votre application logique dans Visual Studio Code.
 
 1. Exécutez le conteneur localement à l’aide de la commande suivante :
 
@@ -811,60 +935,11 @@ L’[outil interface de ligne de commande (CLI) .NET Core](/dotnet/core/tools/) 
    }
    ```
 
-<a name="run-history"></a>
-
-## <a name="run-history-for-stateless-logic-app-workflows"></a>Historique des exécutions pour les flux de travail d’application logique sans état
-
-Pour déboguer plus facilement un flux de travail d’application logique sans état, vous pouvez activer l’historique des exécutions de ce flux de travail, puis le désactiver lorsque vous avez terminé.
-
-### <a name="for-a-stateless-logic-app-workflow-in-visual-studio-code"></a>Pour un flux de travail d’application logique sans état dans Visual Studio Code
-
-Si vous travaillez sur le flux de travail d’application logique sans état et l’exécutez localement dans Visual Studio Code, procédez comme suit :
-
-1. Dans votre projet, recherchez et développez le dossier **workflow-designtime**. Recherchez et ouvrez le fichier **local.settings.json**.
-
-1. Ajoutez la propriété `Workflow.<yourWorkflowName>.operationOptions` et définissez la valeur sur `WithStatelessRunHistory`, par exemple :
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-         "Workflow.<yourWorkflowName>.OperationOptions": "WithStatelessRunHistory"
-      }
-   }
-   ```
-
-1. Pour désactiver l’historique des exécutions lorsque vous avez terminé, supprimez la propriété `Workflow.<yourWorkflowName>.OperationOptions` et sa valeur, ou définissez-la sur `None`.
-
-### <a name="for-a-stateless-logic-app-workflow-in-the-azure-portal"></a>Pour un flux de travail d’application logique sans état dans le portail Azure
-
-Si vous avez déjà déployé votre projet sur le portail Azure, procédez comme suit :
-
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre ressource **Logic Apps (préversion)** .
-
-1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Configuration**.
-
-1. Sous l’onglet **Paramètres de l’application**, sélectionnez **Nouveau paramètre d’application**.
-
-1. Dans le volet **Ajouter/modifier un paramètre d’application**, dans la zone **Nom**, entrez le nom de l’option d’opération : 
-
-   `Workflow.<yourWorkflowName>.OperationOptions`
-
-1. Dans la zone **Valeur**, entrez la valeur suivante : `WithStatelessRunHistory`
-
-   Par exemple :
-
-   ![Capture d’écran montrant le portail Azure et la ressource Logic Apps (préversion) avec le volet « Configuration » > « Nouveau paramètre d’application » > « Ajouter/modifier un paramètre d’application », et l’option « Workflow.<yourWorkflowName>OperationOptions » définie sur « WithStatelessRunHistory ».](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
-
-1. Quand vous avez terminé, sélectionnez **OK**. Dans le volet **Configuration**, sélectionnez **Enregistrer**.
-
 <a name="nested-behavior"></a>
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Différences de comportement imbriqué entre les applications logiques avec et sans état
 
-Vous pouvez [faire en sorte qu’un flux de travail d’application logique puis être appelé](../logic-apps/logic-apps-http-endpoint.md) à partir d’autres flux de travail d’application logique à l’aide du déclencheur de [demande](../connectors/connectors-native-reqres.md), du déclencheur de [Webhook HTTP](../connectors/connectors-native-webhook.md) ou de déclencheurs de connecteur managé de [type ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) pouvant recevoir des requêtes HTTPS.
+Vous pouvez [faire en sorte qu’un workflow d’application logique puisse être appelé](../logic-apps/logic-apps-http-endpoint.md) à partir d’autres workflows d’application logique qui existent dans la même ressource **Application logique (préversion)** à l’aide du déclencheur [Request](../connectors/connectors-native-reqres.md), du déclencheur [HTTP Webhook](../connectors/connectors-native-webhook.md) ou de déclencheurs de connecteur managé de [type ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) pouvant recevoir des requêtes HTTPS.
 
 Voici les modèles de comportement que les flux de travail d’application logique imbriquée peuvent suivre après qu’un flux de travail parent a appelé un flux de travail enfant :
 
@@ -876,7 +951,7 @@ Voici les modèles de comportement que les flux de travail d’application logiq
 
   Le flux de travail enfant accuse réception de l’appel en retournant immédiatement une réponse `202 ACCEPTED`, et le flux de travail parent continue jusqu’à l’action suivante sans attendre les résultats du flux de travail enfant. Au lieu de cela, le flux de travail parent reçoit les résultats lorsque le flux de travail enfant termine son exécution. Les flux de travail enfants avec état qui n’incluent pas d’action Réponse suivent toujours le modèle synchrone. Pour les flux de travail enfants avec état, vous pouvez consulter l’historique des exécutions.
 
-  Pour activer ce comportement, dans la définition JSON du flux de travail, définissez la propriété `OperationOptions` sur la valeur `DisableAsyncPattern`. Pour plus d’informations, consultez [Types d’action et de déclencheur – Options d’opération](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Pour activer ce comportement, dans la définition JSON du flux de travail, définissez la propriété `operationOptions` sur la valeur `DisableAsyncPattern`. Pour plus d’informations, consultez [Types d’action et de déclencheur – Options d’opération](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Déclencher et attendre
 
@@ -886,7 +961,7 @@ Ce tableau spécifie le comportement du flux de travail enfant selon que les flu
 
 | Flux de travail parent | Flux de travail enfant | Comportement du flux de travail enfant |
 |-----------------|----------------|----------------|
-| Avec état | Avec état | Asynchrone ou synchrone avec le paramètre `operationOptions=DisableSynPattern` |
+| Avec état | Avec état | Asynchrone ou synchrone avec le paramètre `"operationOptions": "DisableAsyncPattern"` |
 | Avec état | Sans état | Déclencher et attendre |
 | Sans état | Avec état | Synchrone |
 | Sans état | Sans état | Déclencher et attendre |
@@ -903,22 +978,6 @@ Si de nombreuses [limites existantes pour Azure Logic Apps](../logic-apps/logic-
   * La limite de caractères de code augmente, passant de 1 024 caractères à 100 000 caractères.
 
   * La limite de temps pour exécuter le code augmente, passant de cinq à 15 secondes.
-
-<a name="unsupported"></a>
-
-## <a name="unavailable-or-unsupported-capabilities"></a>Fonctionnalités non disponibles ou non prises en charge
-
-Pour cette préversion publique, ces fonctionnalités ne sont pas disponibles ou ne sont pas prises en charge :
-
-* La création de la ressource **Logic Apps (préversion)** n’est pas disponible actuellement sur Mac OS.
-
-* Les connecteurs personnalisés, les déclencheurs basés sur webhook et le déclencheur de fenêtre glissante ne sont pas pris en charge dans cette préversion.
-
-* Pour les flux de travail d’application logique sans état, vous pouvez ajouter des actions uniquement pour des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), pas pour des déclencheurs. Pour démarrer votre flux de travail, utilisez les [déclencheurs de demande, d’Event Hubs ou de Service Bus](../connectors/apis-list.md#built-ins).
-
-* Dans le portail Azure, vous ne pouvez pas créer d’applications logiques avec le nouveau type de ressource **Logic Apps (préversion)** . Vous ne pouvez créer ces applications logiques que dans Visual Studio Code. Toutefois, une fois que vous avez déployé des applications logiques avec ce type de ressource à partir de Visual Studio Code vers Azure, vous pouvez [ajouter de nouveaux flux de travail à ces applications logiques](#add-workflows).
-
-* les plans d’hébergement de **consommation** ne sont pas pris en charge pour le déploiement d’applications logiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

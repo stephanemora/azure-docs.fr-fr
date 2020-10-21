@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930741"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628192"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procédure : Déployer une application web de comptage de personnes
 
@@ -127,14 +127,13 @@ Maintenant que le [manifeste de déploiement](https://go.microsoft.com/fwlink/?l
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 Renseignez les paramètres requis.
 
-* Nom du déploiement : Choisissez un nom pour ce déploiement.
 * Nom de l’IoT Hub : Nom de votre Azure IoT Hub.
-* Deployment.json : Nom de votre fichier de déploiement.
+* DeploymentManifest.json : Nom de votre fichier de déploiement.
 * Nom de l’appareil IoT Edge : Nom de l’appareil IoT Edge de votre ordinateur hôte
 * Abonnement : ID ou nom de votre abonnement.
 
@@ -181,8 +180,8 @@ Après avoir entré les paramètres ci-dessus, cliquez sur **Vérifier + créer*
 
 Attendez que l’installation se termine, puis accédez à votre ressource depuis le portail Azure. Accédez à la section **Configuration** et ajoutez les deux **paramètres d’application** suivants.
 
-* `EventHubConsumerGroup` : nom de chaîne du groupe de consommateurs de votre Azure IoT Hub. Vous pouvez créer un groupe de consommateurs dans votre IoT Hub ou utiliser le groupe par défaut. 
-* `IotHubConnectionString` : chaîne de connexion à votre Azure IoT Hub, qui peut être récupérée à partir de la section clés de votre ressource Azure IoT Hub ![Configurer les paramètres](./media/spatial-analysis/solution-app-config-page.png).
+* `EventHubConsumerGroup` : nom de chaîne du groupe de consommateurs de votre compte Azure IoT Hub. Vous pouvez créer un groupe de consommateurs dans votre compte IoT Hub ou utiliser le groupe par défaut. 
+* `IotHubConnectionString` : chaîne de connexion à votre compte Azure IoT Hub, qui peut être récupérée à partir de la section Clés de votre ressource Azure IoT Hub. ![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
 Une fois ces 2 paramètres ajoutés, cliquez sur **Enregistrer**. Cliquez ensuite sur **Authentification/autorisation** dans le menu de navigation de gauche et mettez le niveau d’authentification souhaité à jour. Nous vous recommandons l’option Express d’Azure Active Directory (Azure AD). 
 

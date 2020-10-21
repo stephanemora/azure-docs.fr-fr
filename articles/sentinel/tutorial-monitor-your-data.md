@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826554"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843071"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
@@ -62,7 +62,7 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 ## <a name="create-new-workbook"></a>Créer un classeur
 
 1. Accédez à **Classeurs**, puis sélectionnez **Ajouter un classeur** pour créer un classeur entièrement nouveau.
-  ![accéder aux classeurs](./media/tutorial-monitor-data/create-workbook.png)
+  ![Screenshot that shows the New workbook screen.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Pour modifier le classeur, sélectionnez **Modifier**, puis ajoutez du texte, des requêtes et des paramètres selon vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 
 1. Si vous voulez autoriser d’autres personnes de votre organisation à utiliser le classeur, sous **Enregistrer dans**, sélectionnez **Rapports partagés**. Si vous souhaitez restreindre l’usage de ce classeur à vous-seul, sélectionnez **Mes rapports**.
 
-1. Pour passer d’un classeur à un autre dans votre espace de travail, vous pouvez sélectionner **Ouvrir** ![Basculer vers le classeur](./media/tutorial-monitor-data/switch.png) dans le volet supérieur d’un classeur. Dans la fenêtre qui s’ouvre sur la droite, accédez au classeur souhaité.
+1. Pour passer d’un classeur à un autre dans votre espace de travail, vous pouvez sélectionner **Ouvrir** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) dans le volet supérieur d’un classeur. Dans la fenêtre qui s’ouvre sur la droite, accédez au classeur souhaité.
 
    ![Basculer vers le classeur](./media/tutorial-monitor-data/switch-workbooks.png)
 

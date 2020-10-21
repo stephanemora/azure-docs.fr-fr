@@ -86,7 +86,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
 - name: Concepts
   items:
     - name: Comparaison des bases de données NoSQL et relationnelles
@@ -99,31 +99,17 @@
         - name: Niveaux de cohérence
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: consistency-levels.md
-        - name: Choisir le bon niveau de cohérence
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: consistency-levels-choosing.md
-        - name: Niveaux de cohérence et API Azure Cosmos DB
-          href: consistency-levels-across-apis.md
-        - name: 'Cohérence, disponibilité et compromis sur les performances'
-          href: consistency-levels-tradeoffs.md
         - name: Haute disponibilité
           href: high-availability.md
-        - name: Mettre à l’échelle le débit provisionné au niveau global
-          displayName: 'request units, RUs, RU'
-          href: scaling-throughput.md
         - name: Types de conflits et stratégies de résolution
           displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Diffusion mondiale - sous le capot
           href: global-dist-under-the-hood.md
-        - name: Présence régionale
-          href: regional-presence.md
     - name: Partitionnement
       items:
-        - name: Vue d’ensemble du partitionnement
-          href: partitioning-overview.md
         - name: Partitionnement et mise à l’échelle horizontale
-          href: partition-data.md
+          href: partitioning-overview.md
         - name: Clé de partition synthétique
           href: synthetic-partition-keys.md
     - name: Capacité
@@ -208,9 +194,9 @@
                 - name: Fonctions système
                   displayName: 'functions, system functions, built-in functions'
                   href: sql-query-system-functions.md
-                - name: Fonctions de tableau
+                - name: Fonctions Tableau
                   items:
-                    - name: Fonctions de tableau
+                    - name: Fonctions Tableau
                       displayName: 'array functions, array, system functions, built-in functions'
                       href: sql-query-array-functions.md
                     - name: ARRAY_CONCAT
@@ -360,9 +346,9 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Fonctions de chaîne
+                - name: Fonctions de chaînes
                   items:
-                    - name: Fonctions de chaîne
+                    - name: Fonctions de chaînes
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
                     - name: CONCAT
@@ -389,6 +375,9 @@
                     - name: LTRIM
                       displayName: 'LTRIM, left trim, built-in functions'
                       href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
@@ -486,13 +475,11 @@
         - name: LINQ to SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-    - name: Utiliser un compte Azure Cosmos
-      href: account-overview.md
+    - name: "Modèle de ressource Azure Cosmos\_DB"
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: Conteneurs et éléments
       items:
-        - name: 'Utiliser des bases de données, des conteneurs et des éléments'
-          displayName: 'collection, document'
-          href: databases-containers-items.md
         - name: Données de document de modèle
           displayName: document
           href: modeling-data.md
@@ -564,12 +551,11 @@
         - name: Optimiser le coût du débit provisionné
           displayName: 'request units, RUs, RU'
           href: optimize-cost-throughput.md
-        - name: Optimiser le coût de requête
-          href: optimize-cost-queries.md
+        - name: Optimiser le coût des requêtes
+          displayName: 'request, cost, read, write, query, queries, RUs, RU'
+          href: optimize-cost-reads-writes.md
         - name: Optimiser le coût de stockage
           href: optimize-cost-storage.md
-        - name: Optimiser le coût des lectures et des écritures
-          href: optimize-cost-reads-writes.md
         - name: Optimiser le coût multirégion
           href: optimize-cost-regions.md
         - name: Optimiser le coût de développement/test
@@ -586,11 +572,6 @@
         - name: Sécuriser l’accès aux données
           displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
-        - name: Pare-feu IP
-          href: firewall-support.md
-        - name: Accès à partir de réseaux virtuels
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: Balises de service
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Contrôle d’accès en fonction du rôle
@@ -605,8 +586,6 @@
           href: security-baseline.md
     - name: Préparation pour l’entreprise
       items:
-        - name: Sauvegarde en ligne et restauration à la demande
-          href: online-backup-and-restore.md
         - name: Conformité
           href: compliance.md
         - name: Prise en charge d’Azure Policy
@@ -663,6 +642,8 @@
               href: cassandra-partitioning.md
             - name: Index secondaires
               href: cassandra-secondary-index.md
+            - name: Correspondance des niveaux de cohérence
+              href: cassandra-consistency.md
         - name: Guides pratiques
           items:
             - name: Effectuer une migration vers l’API Cassandra
@@ -675,6 +656,14 @@
                   href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Modifier le flux
               href: cassandra-change-feed.md
+            - name: Créer un conteneur - API Cassandra
+              href: how-to-create-container-cassandra.md
+            - name: Provisionner le débit - API Cassandra
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-cassandra.md
+            - name: Rechercher des frais d’unités de requête
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-cassandra.md
             - name: Stocker et gérer Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra et Spark
@@ -700,12 +689,12 @@
                 - name: Copier les données de la table
                   href: cassandra-spark-table-copy-ops.md
             - name: Gérer avec des modèles Resource Manager
-              href: manage-cassandra-with-resource-manager.md
+              href: templates-samples-cassandra.md
               displayName: ARM
             - name: Gérer à l’aide de PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-cassandra.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples.md
+              href: cli-samples-cassandra.md
     - name: API MongoDB
       items:
         - name: Vue d’ensemble
@@ -760,6 +749,8 @@
               href: mongodb-feature-support.md
             - name: Questions fréquentes (FAQ)
               href: mongodb-api-faq.md
+            - name: Correspondance des niveaux de cohérence
+              href: mongodb-consistency.md
         - name: Guides pratiques
           items:
             - name: Effectuer une migration vers l’API MongoDB
@@ -793,18 +784,28 @@
               href: mongodb-change-streams.md
             - name: Gérer l’indexation des données
               href: mongodb-indexing.md
+            - name: Créer un conteneur - API MongoDB
+              href: how-to-create-container-mongodb.md
+            - name: Provisionner le débit - API MongoDB
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-mongodb.md
+            - name: Rechercher des frais d’unités de requête
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-mongodb.md
+            - name: Dépannage de la performance des requêtes
+              href: mongodb-troubleshoot-query.md
             - name: Stocker et gérer Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Commandes d’extension MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: Gérer avec des modèles Resource Manager
-              href: manage-mongodb-with-resource-manager.md
+              href: templates-samples-mongodb.md
               displayName: ARM
             - name: Gérer à l’aide de PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-mongodb.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples.md
+              href: cli-samples-mongodb.md
             - name: Résolution des problèmes courants
               href: mongodb-troubleshoot.md
     - name: API Gremlin
@@ -838,6 +839,10 @@
           items:
             - name: Questions fréquentes (FAQ)
               href: gremlin-api-faq.md
+            - name: En-têtes de réponse
+              href: gremlin-headers.md
+            - name: limites
+              href: gremlin-limits.md
         - name: Guides pratiques
           items:
             - name: Modélisation des données de graphe
@@ -848,6 +853,14 @@
               href: bulk-executor-graph-dotnet.md
             - name: Optimiser des requêtes Gremlin
               href: graph-execution-profile.md
+            - name: Créer un conteneur - API Gremlin
+              href: how-to-create-container-gremlin.md
+            - name: Provisionner le débit - API Gremlin
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-gremlin.md
+            - name: Rechercher des frais d’unités de requête
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-gremlin.md
             - name: Utiliser des jetons de ressource
               href: how-to-use-resource-tokens-gremlin.md
             - name: Utiliser des points de terminaison régionaux
@@ -859,12 +872,12 @@
             - name: Stocker et gérer Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Gérer avec des modèles Resource Manager
-              href: manage-gremlin-with-resource-manager.md
+              href: templates-samples-gremlin.md
               displayName: ARM
             - name: Gérer à l’aide de PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-gremlin.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples.md
+              href: cli-samples-gremlin.md
         - name: Informations de référence
           items:
             - name: En-têtes de réponse
@@ -927,15 +940,20 @@
           items:
             - name: Générer des applications avec l’API Table
               href: table-support.md
+            - name: Créer un conteneur - API Table
+              href: how-to-create-container-table.md
+            - name: Rechercher des frais d’unités de requête
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-table.md
             - name: Guide de conception du stockage de tables
               href: table-storage-design-guide.md
             - name: Gérer avec des modèles Resource Manager
-              href: manage-table-with-resource-manager.md
+              href: templates-samples-table.md
               displayName: ARM
             - name: Gérer à l’aide de PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-table.md
             - name: Gérer à l’aide d’Azure CLI
-              href: cli-samples.md
+              href: cli-samples-table.md
         - name: Informations de référence
           items:
             - name: .NET
@@ -971,7 +989,7 @@
         - name: Utilisation de l’interface de ligne de commande Azure
           href: manage-with-cli.md
         - name: Utilisation de modèles Resource Manager
-          href: manage-sql-with-resource-manager.md
+          href: manage-with-templates.md
           displayName: ARM
         - name: Déplacer d’une région à l’autre
           href: how-to-move-regions.md
@@ -1018,7 +1036,7 @@
               href: storage-explorer.md
             - name: Utiliser des données à l’aide d’Azure Cosmos Explorer
               href: data-explorer.md
-        - name: Créez un conteneur.
+        - name: Créer un conteneur - API SQL
           href: how-to-create-container.md
         - name: Créer un conteneur avec une grande clé de partition
           href: large-partition-keys.md
@@ -1038,6 +1056,8 @@
           href: how-to-define-unique-keys.md
     - name: Performances
       items:
+        - name: Modes de connectivité
+          href: sql-sdk-connection-modes.md
         - name: Requête
           items:
             - name: Obtenir les métriques d’exécution des requêtes
@@ -1102,16 +1122,12 @@
               href: troubleshoot-java-async-sdk.md
     - name: Modifier le flux
       items:
-        - name: Journaux de déclencheur Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-logs.md
-        - name: Stratégie de connexion de déclencheur Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-connection-policy.md
+        - name: "Configuration avancée des déclencheurs Azure Cosmos\_DB"
+          href: how-to-configure-cosmos-db-trigger.md
         - name: Plusieurs déclencheurs Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Résoudre les problèmes des déclencheurs Azure Cosmos DB
           href: troubleshoot-changefeed-functions.md
-        - name: Heure de début du processeur de flux de modification
-          href: how-to-configure-change-feed-start-time.md
         - name: Utilisation de l’estimateur de flux de modification
           href: how-to-use-change-feed-estimator.md
         - name: Migrer depuis la bibliothèque du processeur de flux de modification
@@ -1180,8 +1196,8 @@
           href: how-to-setup-cmk.md
     - name: Préparation pour l’entreprise
       items:
-        - name: Restauration des données à partir d’une sauvegarde
-          href: how-to-backup-and-restore.md
+        - name: Sauvegarde en ligne et restauration à la demande
+          href: online-backup-and-restore.md
         - name: Demander une augmentation de quota
           href: create-support-request-quota-increase.md
     - name: Superviser

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255113"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071385"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
-Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès
 
@@ -94,6 +94,9 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 > [!CAUTION]
 > En raison de la nature distribuée de l’architecture de limitation, la limitation du débit n’est jamais totalement exacte. La différence entre le nombre configuré et le nombre réel de requêtes autorisées varie en fonction du volume et du débit des requêtes, de la latence du backend et d’autres facteurs.
 
+> [!NOTE]
+> Pour comprendre la différence entre les limites de taux et les quotas, consultez [Limites de taux et quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
+
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
@@ -124,7 +127,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Élément racine.                                                                                                                                                                                                                                                                                            | Oui      |
 | api        | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
-| opération  | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
+| operation  | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
@@ -153,6 +156,9 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez la pa
 
 > [!CAUTION]
 > En raison de la nature distribuée de l’architecture de limitation, la limitation du débit n’est jamais totalement exacte. La différence entre le nombre configuré et le nombre réel de requêtes autorisées varie en fonction du volume et du débit des requêtes, de la latence du backend et d’autres facteurs.
+
+> [!NOTE]
+> Pour comprendre la différence entre les limites de taux et les quotas, consultez [Limites de taux et quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -259,7 +265,10 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 > [!IMPORTANT]
 > Cette stratégie ne peut être utilisée qu’une seule fois par document de stratégie.
 >
-> Les [expressions de stratégie](api-management-policy-expressions.md) ne peuvent être utilisées dans aucun attribut de cette stratégie.
+> Des [expressions de stratégie](api-management-policy-expressions.md) ne peuvent pas être utilisées dans les attributs de stratégie pour cette stratégie.
+
+> [!NOTE]
+> Pour comprendre la différence entre les limites de taux et les quotas, consultez [Limites de taux et quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -291,7 +300,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Élément racine.                                                                                                                                                                                                                                                                                | Oui      |
 | api       | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
-| opération | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
+| operation | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
@@ -317,6 +326,9 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota. Si plusieurs stratégies incrémentent la même valeur de clé, celle-ci est incrémentée une seule fois par demande. Quand la limite d’appels est atteinte, l’appelant reçoit le code d’état de réponse `403 Forbidden`.
 
 Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](./api-management-sample-flexible-throttling.md).
+
+> [!NOTE]
+> Pour comprendre la différence entre les limites de taux et les quotas, consultez [Limites de taux et quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -546,4 +558,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 -   [Stratégies dans Gestion des API](api-management-howto-policies.md)
 -   [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 -   [Référence de stratégie](./api-management-policies.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
--   [Exemples de stratégie](policy-samples.md)
+-   [Exemples de stratégie](./policy-reference.md)

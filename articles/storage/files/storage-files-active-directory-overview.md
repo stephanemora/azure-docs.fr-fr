@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561821"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716067"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,7 +46,7 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
 
 -   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**
 
-    Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. À l’aide de RBAC, vous pouvez gérer l’accès aux ressources en accordant aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail. Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) dans Azure ?](../../role-based-access-control/overview.md).
+    Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. Grâce à Azure RBAC, vous pouvez gérer l’accès aux ressources en accordant aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail. Pour plus d’informations sur Azure RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md)
 
 ## <a name="common-use-cases"></a>Cas d’utilisation courants
 
@@ -114,7 +114,7 @@ Le diagramme suivant illustre le flux de travail de l’authentification Azure A
 
 - Tout d’abord, vous n’avez pas besoin de créer l’identité dans Azure AD DS pour représenter le compte de stockage. Cette opération est effectuée par le processus d’activation en arrière-plan.
 
-- Deuxièmement, tous les utilisateurs présents dans Azure AD peuvent être authentifiés et autorisés. L’utilisateur peut être de type cloud uniquement ou hybride. La synchronisation depuis Azure AD vers Azure AD DS est gérée par la plateforme sans nécessiter de configuration utilisateur. Toutefois, le client doit être joint à un domaine Azure AD DS ; il ne peut pas être inscrit ou joint à Azure AD. 
+- Ensuite, tous les utilisateurs présents dans Azure AD peuvent être authentifiés et autorisés. L’utilisateur peut être de type cloud uniquement ou hybride. La synchronisation depuis Azure AD vers Azure AD DS est gérée par la plateforme sans nécessiter de configuration utilisateur. Toutefois, le client doit être joint à un domaine Azure AD DS ; il ne peut pas être inscrit ou joint à Azure AD. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagramme":::
 

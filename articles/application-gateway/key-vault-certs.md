@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282345"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993651"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Arrêt TLS avec certificats Key Vault
 
@@ -32,7 +32,7 @@ L’intégration d’Application Gateway avec Key Vault offre de nombreux avanta
 - Prendre en charge l’importation de certificats existants dans votre coffre de clés. Ou utiliser les API Key Vault pour créer et gérer de nouveaux certificats avec un partenaire Key Vault approuvé.
 - Prise en charge du renouvellement automatique des certificats stockés dans votre coffre de clés.
 
-À l’heure actuelle, Application Gateway prend uniquement en charge les certificats validés par logiciel. Les certificats validés par module de sécurité matériel ne sont pas pris en charge. Une fois qu'Application Gateway est configurée pour utiliser des certificats Key Vault, ses instances récupèrent le certificat dans Key Vault et l'installent localement pour l'arrêt TLS. Les instances interrogent également Key Vault à des intervalles de 24 heures pour récupérer une version renouvelée du certificat, le cas échéant. Si un certificat mis à jour est trouvé, le certificat TLS/SSL associé à l'écouteur HTTPS est automatiquement remplacé.
+À l’heure actuelle, Application Gateway prend uniquement en charge les certificats validés par logiciel. Les certificats validés par module de sécurité matériel ne sont pas pris en charge. Une fois qu'Application Gateway est configurée pour utiliser des certificats Key Vault, ses instances récupèrent le certificat dans Key Vault et l'installent localement pour l'arrêt TLS. Les instances interrogent également Key Vault à des intervalles de quatre heures pour récupérer une version renouvelée du certificat, le cas échéant. Si un certificat mis à jour est trouvé, le certificat TLS/SSL associé à l'écouteur HTTPS est automatiquement remplacé.
 
 > [!NOTE]
 > Le portail Azure prend en charge seulement les certificats KeyVault Certificate, pas les secrets. Application Gateway prend néanmoins toujours en charge le référencement des secrets KeyVault, mais seulement via des ressources autres que celles du portail, comme PowerShell, l’interface CLI, les API, les modèles ARM, etc. 

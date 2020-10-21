@@ -11,59 +11,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894552"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946216"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
-> [!TIP]
-> À partir de mars 2020, vous retrouverez les recommandations sur les identités et les accès d’Azure Security Center dans tous les abonnements au niveau tarifaire gratuit. Si vous avez des abonnements sur le niveau gratuit, leur degré de sécurisation est affecté, car la sécurité de leur identité et de leur accès n’a pas été évaluée. 
+Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. Avec ce développement, la sécurité se résume moins à la protection de votre réseau et plus à la gestion de la sécurité de vos applications, données et utilisateurs.
 
-Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
+Le fait de surveiller les activités et les paramètres de configuration liés à l’identité vous permet de prendre des mesures proactives avant qu’un incident ne survienne, ou des mesures réactives pour contrer des tentatives d’attaques.
 
-Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. La sécurité se résume moins à la protection de votre réseau et plus à la défense de vos données, ainsi qu'à la gestion de la sécurité de vos applications et de vos utilisateurs. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
+## <a name="what-identity-and-access-safeguards-does-security-center-provide"></a>Quelles sont les mesures de protection des identités et des accès proposées par le Centre de sécurité ? 
 
-Le fait de surveiller vos activités d’identité vous permet de prendre des mesures avant qu’un événement ne survienne, ou des mesures réactives, pour contrer une tentative d’attaque. Par exemple, Security Center peut marquer des comptes dépréciés (comptes qui ne sont plus nécessaires et dont l'accès est bloqué par Azure Active Directory) en vue de leur suppression. 
+Le Centre de sécurité Azure dispose de deux contrôles de sécurité dédiés pour vous assurer de respecter les exigences en matière d’identité et de sécurité de votre organisation : 
 
-Voici des exemples de recommandations que vous pouvez voir dans la section sur la sécurité des ressources **Identité et accès** d’Azure Security Center :
+ - **Gérer l’accès et les autorisations** : nous vous encourageons à adopter le [modèle d’accès Privilège minimum](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et à accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour effectuer leur travail. Ce contrôle comprend également des recommandations pour implémenter le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) pour contrôler l’accès à vos ressources.
+ 
+ - **Activer la MFA** : lorsque [MFA](https://www.microsoft.com/security/business/identity/mfa) est activée, vos comptes sont plus sûrs et les utilisateurs peuvent toujours s’authentifier auprès de presque n’importe quelle application avec l’authentification unique.
+
+### <a name="example-recommendations-for-identity-and-access"></a>Exemples de recommandations relatives à l’identité et à l’accès
+
+Voici des exemples de recommandations que vous pouvez voir dans ces deux contrôles sur la page **Recommandations** du Centre de sécurité :
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
-- Les comptes déconseillés doivent être supprimés de votre abonnement
+- Vous devez supprimer les comptes dépréciés de votre abonnement. (Un compte déprécié est un compte qui n’est plus nécessaire et qui n’est pas autorisé à se connecter par Azure Active Directory.)
 
-Pour plus d’informations sur ces recommandations et obtenir la liste complète des recommandations que vous pouvez y voir, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identity).
+> [!TIP]
+> Pour plus d’informations sur ces recommandations et sur les autres que vous pouvez voir dans ces contrôles, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identity).
 
-> [!NOTE]
-> Si votre abonnement comporte plus de 600 comptes, Security Center n’est pas en mesure d’exécuter les recommandations d’identité dans votre abonnement. Les recommandations qui ne sont pas exécutées sont listées sous « Évaluations non disponibles » ci-dessous.
-Security Center ne peut pas exécuter les recommandations d’identité sur des agents d’administration d’un partenaire fournisseur de solutions Cloud.
->
+### <a name="limitations"></a>Limites
 
+Il existe certaines limitations à la protection de l’identité et de l’accès du Centre de sécurité :
 
-Toutes les recommandations sur les identités et les accès sont disponibles dans les deux contrôles de sécurité dans la page **Recommandations** :
+- Les recommandations d’identité ne sont pas disponibles pour les abonnements avec plus de 600 comptes. Dans ce cas, ces recommandations sont répertoriées sous « évaluations non disponibles ».
+- Les recommandations d’identité ne sont pas disponibles pour les agents d’administration du partenaire fournisseur de solutions Cloud (CSP).
+- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations**.
 
-- Gérer l’accès et les autorisations 
-- Activer la MFA
+## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Authentification multifacteur (MFA) et Azure Active Directory 
 
-![Les deux contrôles de sécurité avec les recommandations sur les identités et les accès](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
-
-
-## <a name="enable-multi-factor-authentication-mfa"></a>Activer l’authentification multifacteur (MFA)
-
-L’activation de MFA nécessite des [autorisations de locataire Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+L’activation de MFA nécessite des [autorisations de locataire Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 - Si vous disposez d’une édition Premium d’AD, activez MFA à l’aide de l’[accès conditionnel](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- Si vous utilisez l’édition gratuite d’AD, activez les **paramètres de sécurité par défaut** comme décrit dans la [documentation d’Azure Active Directory](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
-- Si vous utilisez l’édition gratuite d’AD, activez les **paramètres de sécurité par défaut** dans Azure Active Directory, comme décrit dans la [documentation AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identifier les comptes sans authentification multifacteur (MFA) activée
+
+Pour connaître les comptes pour lesquels la MFA n’est pas activée, utilisez la requête Azure Resource Graph suivante. La requête retourne toutes les ressources défectueuses (comptes) de la recommandation « la MFA doit être activée sur les comptes avec des autorisations de propriétaire sur votre abonnement ». 
+
+1. Ouvrez l’**Explorateur Azure Resource Graph**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Lancement de la page de recommandations de l’Explorateur Azure Resource Graph**" :::
+
+1. Entrez la requête suivante et sélectionnez **Exécuter la requête**.
+
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. La propriété `additionalData` révèle la liste des ID d’objet de compte pour les comptes auxquels la MFA n’est pas appliquée. 
+
+    > [!NOTE]
+    > Les comptes sont représentés par un ID d’objet plutôt qu’un nom de compte pour garantir la confidentialité des titulaires de compte.
+
+> [!TIP]
+> Vous pouvez également utiliser la méthode [Assessments - Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get) de l’API REST du Centre de sécurité.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les articles suivants :
+Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez l’article suivant :
 
 - [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)

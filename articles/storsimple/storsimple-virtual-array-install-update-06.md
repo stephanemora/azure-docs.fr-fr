@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33563d12ac31679eb3b658e7625d95581988536d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295683"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977474"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installation d’Update 0.6 sur StorSimple Virtual Array
 
@@ -97,26 +97,26 @@ Cette méthode permet d’installer les mises à jour sur un appareil exécutant
 
 1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Mise à jour logicielle**. Prenez note de la version du logiciel que vous exécutez. Si vous exécutez la version **10.0.10290.0**, vous n’avez pas besoin de mettre à jour l’agent MDS à l’étape 6.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![mettre à jour l’appareil 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. Dans le **chemin d’accès au fichier de mise à jour**, entrez le nom du fichier de mise à jour ou de correctif. Vous pouvez également accéder au fichier d'installation de la mise à jour ou du correctif si celui-ci est placé sur un partage réseau. Cliquez sur **Appliquer**.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![mettre à jour l’appareil 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Un avertissement s’affiche. Puisque la baie virtuelle est un appareil à nœud unique, l’application de la mise à jour entraîne le redémarrage de l’appareil et provoque un temps d’arrêt. Cliquez sur l’icône en forme de coche.
    
-   ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![mettre à jour l’appareil 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il est redémarré. L’interface utilisateur locale n’est pas accessible pendant cet intervalle.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![mettre à jour l’appareil 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. La version du logiciel doit être **10.0.0.0.0.10293** pour Update 0.6.
    
    > [!NOTE]
    > L’affichage des versions logicielles diffère légèrement entre l’interface utilisateur web locale et le portail Azure. Par exemple, la même version est signalée par **10.0.0.0.0.10293** dans l’interface utilisateur web locale et par **10.0.10293.0** sur le portail Azure.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![mettre à jour l’appareil 5](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Ignorez cette étape si vous exécutiez StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) avant d’appliquer cette mise à jour. Vous avez noté la version du logiciel à l’étape 1 avant de commencer la mettre à jour. Si vous exécutiez Update 0.5, votre agent MDS est déjà à jour.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955953"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449313"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtres dans les vues d’Azure Monitor
 Un **filtre** dans une [vue d’Azure Monitor](view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -19,12 +19,12 @@ Un **filtre** dans une [vue d’Azure Monitor](view-designer.md) permet aux util
 ## <a name="using-a-filter"></a>Utilisation d’un filtre
 Cliquez sur l’intervalle de temps des dates en haut de la vue pour ouvrir la liste déroulante où vous pouvez changer l’intervalle de temps des dates pour la vue.
 
-![Exemple de filtre](media/view-designer-filters/filters-example-time.png)
+![Capture d’écran du menu déroulant Intervalle de temps pour un affichage dans Azure Monitor, montrant la case d’option pour les 7 derniers jours sélectionnée.](media/view-designer-filters/filters-example-time.png)
 
 Cliquez sur le **+** pour ajouter un filtre à l’aide des filtres personnalisés définis pour la vue. Sélectionner une valeur pour le filtre dans la liste déroulante ou tapez une valeur. Continuez à ajouter des filtres en cliquant sur le **+** . 
 
 
-![Exemple de filtre](media/view-designer-filters/filters-example-custom.png)
+![Capture d’écran de la boîte de dialogue permettant d’ajouter un filtre personnalisé dans Azure Monitor. La propriété Ordinateurs est sélectionnée dans le menu déroulant Sélectionner une propriété.](media/view-designer-filters/filters-example-custom.png)
 
 Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliqué.
 
@@ -50,8 +50,8 @@ Le tableau suivant présente quelques exemples de filtres communs.
 | Nom du champ | Requêtes pour des valeurs | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
-| EventLevelName | Event &#124; distinct EventLevelName | severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | severity |
+| EventLevelName | Event &#124; distinct EventLevelName | Gravité |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravité |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

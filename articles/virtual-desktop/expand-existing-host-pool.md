@@ -3,15 +3,15 @@ title: Développer un pool d’hôtes existant avec de nouveaux hôtes de sessio
 description: Comment développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002445"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929589"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -56,7 +56,7 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
 8. Entrez le nombre d’hôtes de session que vous souhaitez ajouter à votre pool d’hôtes dans **Nombre de machines virtuelles**. Par exemple, si vous étendez votre pool d’hôte avec cinq hôtes, entrez **5**.
 
     >[!NOTE]
-    >Vous ne pouvez pas modifier la taille ou l’image des machines virtuelles, car il est important que toutes les machines virtuelles du pool d’hôtes aient la même taille.
+    >Bien qu’il soit possible de modifier l’image et le préfixe des machines virtuelles, nous vous déconseillons de les modifier si vous avez des machines virtuelles ayant des images différentes dans le même pool d’hôtes. Modifiez l’image et le préfixe uniquement si vous envisagez de supprimer des machines virtuelles ayant des images antérieures du pool d’hôtes concerné.
 
 9. Pour les **informations sur le réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau auxquels vous souhaitez joindre les machines virtuelles. Vous pouvez sélectionner le même réseau virtuel que vos machines existantes, ou en choisir un autre qui est plus adapté à la région que vous avez sélectionnée à l’étape 7.
 

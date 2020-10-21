@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747237"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537031"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurer l’envoi de SMS comme méthode de vérification
 
@@ -52,7 +52,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser la
 
 4. Sur la page **Téléphone**, entrez le numéro de téléphone de votre appareil mobile, choisissez **M’envoyer un code par SMS**, puis sélectionnez **Suivant**.
 
-    ![Ajouter le numéro de téléphone et choisir la méthode de l'envoi de SMS](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Capture d'écran représentant la page « Téléphone », sur laquelle l'option « M'envoyer un code par SMS » est sélectionnée.](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Entrez le code qui vous a été envoyé par SMS sur votre appareil mobile, puis sélectionnez **Suivant**.
 

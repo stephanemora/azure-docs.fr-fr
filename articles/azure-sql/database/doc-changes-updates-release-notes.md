@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236571"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079205"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,7 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 
 | Fonctionnalité | Détails |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transactions distribuées</a> | Transactions distribuées sur les instances managées. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pools d’instances</a> | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Principaux de serveur (connexions) Azure AD au niveau de l’instance</a> | Créez des connexions de niveau instance avec l’instruction <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
 | [Réplication transactionnelle](../managed-instance/replication-transactional-overview.md) | Répliquez les modifications de vos tableaux dans d’autres bases de données dans SQL Managed Instance, SQL Database ou SQL Server. Ou mettez à jour vos tableaux lorsque certaines lignes sont modifiées dans d’autres instances de SQL Managed Instance ou SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
@@ -72,7 +73,7 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Managed Instance : nouvelles fonctionnalités et problèmes connus
+## <a name="new-features"></a>Nouvelles fonctionnalités
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Mises à jour de SQL Managed Instance (deuxième partie de l’exercice 2019)
 
@@ -93,10 +94,13 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
   - Le nouveau [rôle Contributeur d’instance intégré](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) permet la conformité de la séparation des tâches aux principes de sécurité et le respect des normes d’entreprise.
   - SQL Managed Instance est en disponibilité générale dans les régions Azure Government suivantes (US Gov Texas, US Gov Arizona) ainsi que dans les régions Chine Nord 2 et Chine Est 2. Elle est également disponible dans les régions publiques suivantes : Australie Centre, Australie Centre 2, Brésil Sud, France Sud, Émirats arabes unis Centre, Émirats arabes unis Nord, Afrique du Sud Nord, Afrique du Sud Ouest.
 
-### <a name="known-issues"></a>Problèmes connus
+## <a name="known-issues"></a>Problèmes connus
 
 |Problème  |Date de la détection  |Statut  |Date de la résolution  |
 |---------|---------|---------|---------|
+|[Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octobre 2020|Solution de contournement||
+|[Les transactions distribuées ne peuvent pas être exécutées après l'opération de mise à l'échelle de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octobre 2020|Solution de contournement||
+|L'instruction [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) d'Azure SQL et l'instruction `BACKUP`/`RESTORE` de Managed Instance ne peuvent pas utiliser Azure AD Manage Identity pour s'authentifier auprès du service Stockage Azure|Septembre 2020|Solution de contournement||
 |[Le principal du service ne peut pas accéder à Azure AD et à AKV](#service-principal-cannot-access-azure-ad-and-akv)|Août 2020|Solution de contournement||
 |[La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer](#restoring-manual-backup-without-checksum-might-fail)|Mai 2020|Résolu|Juin 2020|
 |[L’agent ne répond plus lors de la modification, la désactivation ou l’activation de travaux existants](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mai 2020|Résolu|Juin 2020|
@@ -125,11 +129,34 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |Fonctionnalité Database Mail avec des serveurs de messagerie externes (non Azure) utilisant une connexion sécurisée||Résolu|Octobre 2019|
 |Bases de données autonomes non prises en charge dans SQL Managed Instance||Résolu|août 2019|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs
+
+Les [groupes d'approbation de serveurs](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) sont utilisés pour établir une relation de confiance entre les instances gérées, condition préalable à l'exécution de [transactions distribuées](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Après avoir supprimé Managed Instance du groupe d'approbation de serveurs ou supprimé le groupe, vous pourrez peut-être encore exécuter des transactions distribuées. Il existe une solution de contournement que vous pouvez appliquer pour vous assurer que les transactions distribuées sont désactivées : le [basculement manuel initié par l'utilisateur](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) sur Managed Instance.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Les transactions distribuées ne peuvent pas être exécutées après l'opération de mise à l'échelle de Managed Instance
+
+Les opérations de mise à l'échelle de Managed Instance qui incluent la modification du niveau de service ou du nombre de vCores réinitialisent les paramètres du groupe d'approbation de serveurs sur le back-end et désactivent les [transactions distribuées](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) en cours d'exécution. Pour contourner ce problème, supprimez le [groupe d'approbation de serveurs](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) et créez-en un nouveau sur le portail Azure.
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Les instructions BULK INSERT et BACKUP/RESTORE ne peuvent pas utiliser Managed Identity pour accéder au service Stockage Azure
+
+L'instruction BULK INSERT ne peut pas utiliser `DATABASE SCOPED CREDENTIAL` avec Managed Identity pour s'authentifier auprès du service Stockage Azure. Pour contourner ce problème, basculez vers l'authentification par SIGNATURE D'ACCÈS PARTAGÉ. L'exemple suivant ne fonctionne pas sur SQL Azure (Database et Managed Instance) :
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Solution de contournement** : Utilisez la [signature d'accès partagé pour vous authentifier auprès du service de stockage](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Le principal du service ne peut pas accéder à Azure AD et à AKV
 
 Dans certains cas, il existe peut exister un problème avec le principal de service utilisé pour accéder aux services Azure AD et Azure Key Vault (AKV). Par conséquent, ce problème a un impact sur l’utilisation de l’authentification Azure AD et le chiffrement transparent de base de données (TDE) avec SQL Managed Instance. Cela peut être vécu comme un problème de connectivité intermittente ou l’impossibilité d’exécuter des instructions telles que CREATE LOGIN/USER FROM EXTERNAL PROVIDER ou EXECUTE AS LOGIN/USER. La configuration de TDE avec une clé gérée par le client sur un nouveau service Azure SQL Managed Instance peut également ne pas fonctionner dans certaines circonstances.
 
-**Solution de contournement** : Pour éviter que ce problème se produise sur votre service SQL Managed Instance avant d’exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l’exécution de commandes de mise à jour, accédez au portail Azure, puis au [panneau d’administration Active Directory](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal du service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
+**Solution de contournement** : Pour éviter que ce problème ne se produise sur votre service SQL Managed Instance avant d'exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l'exécution de commandes de mise à jour, accédez au portail Azure, puis au [panneau d'administration Active Directory](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal du service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 60e621b34250b036888b233b084ba1ddff939048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087796"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91739933"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box
 
@@ -61,7 +61,7 @@ La configuration de la clé gérée par le client pour Azure Data Box est facult
 
     Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans le panneau **Créer un coffre de clés**, saisissez le groupe de ressources et le nom du coffre de clés. Assurez-vous que les options **Soft delete** (Suppression réversible) et **Purge protection** (Protection contre le vidage) sont activées. Acceptez toutes les autres valeurs par défaut. Sélectionnez **Vérifier + créer**.
 
-    ![Créer un coffre Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Créer un coffre Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
 7. Passez en revue les informations associées à votre coffre de clés, puis sélectionnez **Créer**. Patientez quelques minutes avant la fin de la création du coffre de clés.
 
@@ -69,11 +69,11 @@ La configuration de la clé gérée par le client pour Azure Data Box est facult
 
 8. Dans **Sélectionner une clé dans Azure Key Vault**, vous pouvez sélectionner une clé dans le coffre de clés existant.
 
-    ![Créer une nouvelle clé dans Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Créer une nouvelle clé dans Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
 9. Si vous voulez créer un coffre de clés, sélectionnez **Create new** (Créer) pour créer une clé. La taille de la clé RSA peut être supérieure ou égale à 2048.
 
-    ![Créer une nouvelle clé dans Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Créer une nouvelle clé dans Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
 10. Indiquez le nom de votre clé, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**. 
 

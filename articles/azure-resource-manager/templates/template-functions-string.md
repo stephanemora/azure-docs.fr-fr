@@ -3,12 +3,12 @@ title: Fonctions de modèle – Chaîne
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962065"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874711"
 ---
 # <a name="string-functions-for-arm-templates"></a>Fonctions de chaîne pour les modèles Resource Manager
 
@@ -27,6 +27,7 @@ Resource Manager fournit les fonctions ci-dessous pour vous permettre d'utiliser
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -894,6 +895,12 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Convertit une chaîne JSON valide en un type de données JSON. Pour plus d’informations, consultez la [fonction json](template-functions-object.md#json).
 
 ## <a name="last"></a>last
 

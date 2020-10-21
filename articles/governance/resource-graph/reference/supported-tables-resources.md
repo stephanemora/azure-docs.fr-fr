@@ -1,15 +1,15 @@
 ---
 title: Types de ressources Azure Resource Manager prises en charge
 description: Fournit la liste des types de ressources Azure Resource Manager prises en charge par Azure Resource Graph et l’historique des modifications.
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600600"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91740001"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informations de référence sur le type de ressource et la table Azure Resource Graph
 
@@ -119,6 +119,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.cdn/profiles
 - microsoft.cdn/profiles/endpoints
 - microsoft.certificateregistration/certificateorders
+- microsoft.chaos/chaosexperiments
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
@@ -400,6 +401,8 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
+- microsoft.orbital/contactprofiles
+- microsoft.orbital/spacecrafts
 - microsoft.peering/peerings
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
@@ -420,6 +423,10 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft.scvmm/clouds
+- microsoft.scvmm/virtualmachines
+- microsoft.scvmm/virtualmachinetemplates
+- microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
@@ -436,6 +443,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/connectors
 - microsoft.signalrservice/signalr
+- microsoft.singularity/accounts
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
 - microsoft.solutions/applicationdefinitions
@@ -531,6 +539,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 - wandisco.fusion/migrators
+- wandisco.fusion/migrators/livedatamigrations
 - wandisco.fusion/migrators/targets
 
 ## <a name="securityresources"></a>securityresources

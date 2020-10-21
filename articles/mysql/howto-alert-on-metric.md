@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: b7054b520d31c6c5363c8784bb9a4839e9249c88
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902876"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91740052"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database pour MySQL 
 
@@ -40,19 +40,19 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
 4. La page **Créer une règle** s’ouvre, comme illustré ci-dessous. Entrez les informations obligatoires :
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulaire Ajouter une alerte Métrique":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Sélectionner des règles d’alerte":::
 
 5. Dans la section **Condition**, sélectionnez **Ajouter une condition**.
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner la métrique":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Sélectionner des règles d’alerte":::
 
 7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner la métrique":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Sélectionner des règles d’alerte":::
 
 8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
@@ -66,11 +66,11 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
     Sélectionnez **OK** lorsque vous avez terminé.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Groupe d’actions":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Sélectionner des règles d’alerte":::
 
 11. Spécifiez un nom de règle d’alerte, une description et une gravité.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Groupe d’actions"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Sélectionner des règles d’alerte"::: 
 
 12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 

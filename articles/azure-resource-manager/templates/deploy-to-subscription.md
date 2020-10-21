@@ -2,13 +2,13 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/05/2020
+ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605173"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91729115"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
@@ -37,7 +37,7 @@ Pour les stratégies Azure, utilisez :
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Pour le contrôle d’accès en fonction du rôle, utilisez :
+Pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC), utilisez :
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -52,7 +52,9 @@ Pour la création de groupes de ressources, utilisez :
 
 Pour la gestion de votre abonnement, utilisez :
 
+* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
+* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [balises](/azure/templates/microsoft.resources/tags)
 
@@ -62,7 +64,7 @@ Les autres types pris en charge sont les suivants :
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>schéma
+## <a name="schema"></a>schéma
 
 Le schéma que vous utilisez pour les déploiements au niveau de l’abonnement est différent de celui utilisé pour les déploiements de groupes de ressources.
 
@@ -77,6 +79,20 @@ Le schéma d’un fichier de paramètres est le même pour toutes les étendues 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement sur un abonnement, vous pouvez cibler un abonnement et des groupes de ressources au sein de l’abonnement. Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Les ressources définies dans la section Ressources du modèle sont appliquées à l’abonnement.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Pour cibler un groupe de ressources au sein de l’abonnement, ajoutez un déploiement imbriqué et incluez la propriété `resourceGroup`. Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressources nommé `rg2`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Dans cet article, vous trouverez des modèles qui montrent comment déployer des ressources sur différentes étendues. Pour un modèle qui crée un groupe de ressources et y déploie un compte de stockage, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources). Pour un modèle qui crée un groupe de ressources, lui applique un verrou et lui affecte un rôle, consultez [Contrôle d’accès](#access-control).
 
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
@@ -112,49 +128,6 @@ Pour les déploiements au niveau de l’abonnement, vous devez fournir un emplac
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
-
-## <a name="deployment-scopes"></a>Étendues de déploiement
-
-Lors du déploiement sur un abonnement, vous pouvez cibler un abonnement et des groupes de ressources au sein de l’abonnement. Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
-
-Les ressources définies dans la section Ressources du modèle sont appliquées à l’abonnement.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Pour cibler un groupe de ressources au sein de l’abonnement, ajoutez un déploiement imbriqué et incluez la propriété `resourceGroup`. Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressources nommé `rg2`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Dans cet article, vous trouverez des modèles qui montrent comment déployer des ressources sur différentes étendues. Pour un modèle qui crée un groupe de ressources et y déploie un compte de stockage, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources). Pour un modèle qui crée un groupe de ressources, lui applique un verrou et lui affecte un rôle, consultez [Contrôle d’accès](#access-control).
 
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 

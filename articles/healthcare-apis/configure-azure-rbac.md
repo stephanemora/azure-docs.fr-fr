@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: c4a78168f2759f9d7bb9e50165b8cf03c71ecab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845935"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839909"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurer un RBAC Azure pour FHIR 
 
@@ -31,11 +31,11 @@ L’**Autorité** définie doit être le locataire Azure Active Directory associ
 
 Pour accorder à des utilisateurs, à des principaux de service ou à des groupes l’accès au plan de données FHIR, cliquez sur **Contrôle d’accès (IAM)** , sur **Attributions de rôles**, puis sur **+ Ajouter** :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Ajouter une attribution de rôle Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Confirmer le mode RBAC Azure":::
 
 Dans la sélection **Rôle**, recherchez l’un des rôles intégrés pour le plan de données FHIR :
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Rôles de données FHIR intégrés":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Confirmer le mode RBAC Azure":::
 
 Vous pouvez choisir entre les rôles suivants :
 
@@ -54,7 +54,7 @@ L’API Azure pour FHIR met en cache les décisions pendant jusqu’à 5 minute
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a expliqué comment attribuer des rôles Azure pour le plan de données FHIR. Découvrez ensuite les paramètres supplémentaires pour l’API Azure pour FHIR :
+Cet article vous a expliqué comment attribuer des rôles Azure pour le plan de données FHIR. Pour en savoir plus sur les paramètres supplémentaires pour l’API Azure pour FHIR :
  
 >[!div class="nextstepaction"]
 >[Paramètres supplémentaires de l’API Azure pour FHIR](azure-api-for-fhir-additional-settings.md)

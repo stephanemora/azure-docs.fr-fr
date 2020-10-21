@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927179"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91741803"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway
 
@@ -36,7 +36,7 @@ Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter l
  
 2. Une fois les tests terminés, les résultats correspondants s’affichent. Si un test échoue, l’URL de l’action recommandée vous est présentée. Vous pouvez cliquer sur cette URL pour visualiser l’action recommandée. 
  
-    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Cliquez sur Ajouter l’utilisateur 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Collecter un package de support
@@ -47,11 +47,11 @@ Pour collecter un package de support, procédez comme suit.
 
 1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Support**. Cliquez sur **Créer un package de support**. Le système commence à collecter le package de support. La collection du package peut nécessiter plusieurs minutes.
 
-    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Cliquer sur Ajouter un utilisateur 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Une fois le package de support créé, cliquez sur **Télécharger le package de support**. Un package compressé est téléchargé dans le chemin d’accès que vous avez choisi. Vous pouvez décompresser le package.
 
-    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Cliquer sur Ajouter un utilisateur 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Utiliser les journaux d’activité pour résoudre les problèmes
 
@@ -59,7 +59,7 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
 
 1. Pour visualiser les fichiers d’erreurs, accédez à votre partage, puis cliquez sur ce dernier pour afficher le contenu. 
 
-      ![Ajout d’une planification](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Cliquer sur Ajouter un utilisateur 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Cliquez sur le _dossier Microsoft Data Box Gateway_. Ce dossier comporte deux sous-dossiers :
 

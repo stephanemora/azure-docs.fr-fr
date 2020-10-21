@@ -1,52 +1,71 @@
 ---
 title: Vue d’ensemble du stockage - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Découvrez le stockage des données dans Azure Time Series Insights Gen2.
-author: esung22
-ms.author: elsung
-manager: diviso
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483267"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460826"
 ---
 # <a name="data-storage"></a>Stockage des données
 
-Lorsque vous créez un environnement Azure Time Series Insights Gen2, vous créez deux ressources Azure :
+Cet article décrit le stockage des données dans Azure Time Series Insights Gen2. Il aborde le stockage à chaud et à froid, la disponibilité des données et les meilleures pratiques.
 
-* Un environnement Azure Time Series Insights Gen2 qui peut être configuré pour un stockage chaud des données.
-* Un compte Stockage Azure pour le stockage de données à froid.
+## <a name="provisioning"></a>Approvisionnement
 
-Les données de votre magasin chaud sont disponibles uniquement via les [API Time Series Query](./time-series-insights-update-tsq.md) et l’[Explorateur Time Series Insights](./time-series-insights-update-explorer.md). Votre magasin chaud contiendra les données récentes soumises à la [période de rétention](./time-series-insights-update-plan.md#the-preview-environment) sélectionnée lors de la création de l’environnement Azure Time Series Insights Gen2.
+Lorsque vous créez un environnement Azure Time Series Insights Gen2, vous disposez des deux options suivantes :
 
-Azure Time Series Insights Gen2 enregistre les données de votre magasin froid dans le stockage Blob Azure au [format de fichier Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 gère ces données de magasin froid en exclusivité, mais vous pouvez les lire directement en tant que fichiers Parquet standard.
+* Stockage de données à froid :
+  * Créez une ressource de stockage Azure dans l’abonnement et la région que vous avez choisie pour votre environnement.
+  * Joignez un compte de stockage Azure existant. Cette option n’est disponible que si vous opérez un déploiement à partir d’un [modèle](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions) Azure Resource Manager, et n’est pas visible dans le portail Azure.
+* Stockage de données à chaud :
+  * Un magasin de stockage à chaud est facultatif et peut être activé ou désactivé pendant ou après l’exécution de l’approvisionnement. Si vous décidez d’activer le magasin de stockage à chaud ultérieurement et qu’il existe déjà des données dans votre magasin de stockage à froid, consultez [cette](concepts-storage.md#warm-store-behavior) section ci-dessous pour comprendre le comportement attendu. La durée de conservation des données du magasin de stockage à chaud peut être définie entre 7 et 31 jours, et peut être ajustée en fonction des besoins.
+
+Lors de l’ingestion d’un événement, celui-ci est indexé tant dans le magasin de stockage à chaud (s’il est activé) et dans le magasin de stockage à froid.
+
+[![Vue d’ensemble du stockage](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
 
 > [!WARNING]
 > En tant que propriétaire du compte de stockage Blob Azure où résident les données du magasin froid, vous avez un accès total à toutes les données du compte. Cet accès comprend des autorisations d’écriture et de suppression. Ne modifiez pas ni ne supprimez les données qu’Azure Time Series Insights Gen2 écrit, car cela peut entraîner une perte de données.
 
 ## <a name="data-availability"></a>Disponibilité des données
 
-Azure Time Series Insights Gen2 partitionne et indexe les données pour optimiser les performances des requêtes. Il est possible d’interroger les données après les avoir indexées à la fois depuis un magasin chaud (s’il est activé) et un magasin froid. La quantité de données en cours d’ingestion peut avoir une incidence sur cette disponibilité.
+Azure Time Series Insights Gen2 partitionne et indexe les données pour optimiser les performances des requêtes. Il est possible d’interroger les données après les avoir indexées à la fois depuis un magasin chaud (s’il est activé) et un magasin froid. La quantité de données ingérées et le débit par partition peuvent affecter la disponibilité. Pour obtenir des performances optimales, examinez les [limites de débit](./concepts-streaming-ingress-throughput-limits.md) de la source de l’événement et les [meilleures pratiques](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices). Vous pouvez également configurer une [alerte](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de latence pour être notifié si votre environnement rencontre des problèmes de traitement des données.
 
 > [!IMPORTANT]
 > Il peut s’écouler jusqu’à 60 secondes avant que les données ne soient disponibles. Si vous constatez une latence significative supérieure à 60 secondes, veuillez envoyer un ticket de support par le biais du Portail Azure.
 
-## <a name="azure-storage"></a>Stockage Azure
+## <a name="warm-store"></a>Magasin de stockage à chaud
+
+Les données de votre magasin de stockage à chaud sont disponibles uniquement via les [API Time Series Query](./time-series-insights-update-tsq.md), l’[Explorateur Azure Time Series Insights TSI](./time-series-insights-update-explorer.md) ou le [Connecteur Power BI](./how-to-connect-power-bi.md). Les requêtes de magasin de stockage à chaud sont gratuites et il n’y a pas de quota, mais il existe une [limite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) requêtes simultanées.
+
+### <a name="warm-store-behavior"></a>Comportement du magasin de stockage à chaud
+
+* Lorsque cette option est activée, toutes les données diffusées dans votre environnement sont routées vers votre magasin de stockage à chaud, quel que soit l’horodateur de l’événement. Notez que le pipeline d’ingestion de diffusion en continu est conçu pour la diffusion en quasi temps réel et que l’ingestion d’événements historiques n’est [pas prise en charge](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
+* La période de rétention est calculée en fonction du moment où l’événement a été indexé dans le magasin de stockage à chaud, et non de l’horodateur de l’événement. Cela signifie que les données ne sont plus disponibles dans le magasin de stockage à chaud après l’expiration de la période de rétention, même si l’horodateur de l’événement est défini pour l’avenir.
+  * Exemple : un événement dont les prévisions météorologiques à 10 jours sont ingérées et indexées dans un conteneur de stockage à chaud configuré avec une période de rétention de 7 jours. Après 7 jours, la prédiction n’est plus accessible dans le magasin de stockage à chaud, mais peut être interrogée à partir du magasin de stockage à froid.
+* Si vous activez le magasin de stockage à chaud sur un environnement existant qui contient déjà des données récentes indexées dans le stockage froid, notez que votre magasin de stockage à chaud ne sera pas rempli avec ces données.
+* Si vous venez d’activer le magasin de stockage à chaud et que vous rencontrez des problèmes lors de l’affichage de vos données récentes dans l’Explorateur, vous pouvez désactiver temporairement les requêtes du magasin de stockage à chaud :
+
+   [![Désactiver les requêtes du magasin de stockage à chaud](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
+
+## <a name="cold-store"></a>Magasin de stockage à froid
 
 Cette section décrit les détails du stockage Azure relatifs à Azure Time Series Insights Gen2.
 
 Pour obtenir une description complète du stockage Blob Azure, lisez l’[introduction aux objets blob de stockage](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="your-storage-account"></a>Votre compte de stockage
-
-Lorsque vous créez un environnement pour Azure Time Series Insights Gen2, un compte Stockage Azure est créé en tant que magasin froid à long terme.  
+### <a name="your-cold-storage-account"></a>Votre compte de stockage à froid
 
 Azure Time Series Insights Gen2 conserve jusqu’à deux copies de chaque événement dans votre compte Stockage Azure. Une copie stocke les événements classés par heure d’ingestion, autorisant toujours l’accès aux événements dans un ordre chronologique. Au fil du temps, Azure Time Series Insights Gen2 crée également une copie repartitionnée des données à optimiser pour des requêtes performantes.
 

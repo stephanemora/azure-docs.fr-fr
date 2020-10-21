@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321944"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874541"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -79,10 +79,12 @@ Ces erreurs se produisent quand l’application à laquelle un utilisateur tente
     -   Ajout de l’application à partir de la galerie d’applications Azure AD
 
 ## <a name="risky-app-error-and-warning"></a>Erreur et avertissement : application à risque
+* **AADSTS900941 :** Le consentement de l’administrateur est obligatoire. L’application est considérée comme risquée. (AdminConsentRequiredDueToRiskyApp)
 * Cette application peut présenter un risque. Si vous faites confiance à cette application, demandez à votre administrateur de vous accorder l’accès.
+* **AADSTS900981 :** Une demande de consentement administrateur a été reçue pour une application risquée. (AdminConsentRequestRiskyAppWarning)
 * Cette application peut présenter un risque. Continuez uniquement si vous faites confiance à cette application.
 
-Ces deux messages s’affichent lorsque Microsoft a déterminé que la demande de consentement peut présenter un risque. Parmi d’autres facteurs, cela peut se produire si aucun [éditeur vérifié](../develop/publisher-verification-overview.md) n’a été ajouté à l’inscription de l’application. Les utilisateurs finaux verront le premier message lorsque le [workflow de consentement administrateur](configure-admin-consent-workflow.md) est désactivé. Les administrateurs ainsi que les utilisateurs finaux verront le second message lorsque le workflow de consentement administrateur est activé. 
+Ces deux messages s’affichent lorsque Microsoft a déterminé que la demande de consentement peut présenter un risque. Parmi d’autres facteurs, cela peut se produire si aucun [éditeur vérifié](../develop/publisher-verification-overview.md) n’a été ajouté à l’inscription de l’application. Les utilisateurs finaux verront le premier code d’erreur et le premier message lorsque le [workflow de consentement administrateur](configure-admin-consent-workflow.md) est désactivé. Les administrateurs ainsi que les utilisateurs finaux verront le second code et le second message lorsque le workflow de consentement administrateur est activé. 
 
 Les utilisateurs finaux ne pourront pas donner leur consentement aux applications qui ont été détectées comme présentant un risque. Les administrateurs peuvent le faire, mais ils doivent évaluer l’application avec beaucoup de soin et procéder avec prudence. Si l’application semble suspecte après un examen plus approfondi, elle peut être signalée à Microsoft sur l’écran de consentement. 
 

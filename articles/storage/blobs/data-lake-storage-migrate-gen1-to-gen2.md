@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fcd59cb3bf42dc843387043d982e6c43d665784d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486839"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716145"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrer Azure Data Lake Storage de Gen1 vers Gen2
 
@@ -98,7 +98,7 @@ Ce tableau compare les fonctionnalités de Gen1 à celles de Gen2.
 |Organisation des données|[Espace de noms hiérarchique](data-lake-storage-namespace.md)<br>Prise en charge des fichiers et des dossiers|[Espace de noms hiérarchique](data-lake-storage-namespace.md)<br>Prise en charge des conteneurs, des fichiers et des dossiers |
 |Géo-redondance| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |Authentification|[Identité managée AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principaux de service](../../active-directory/develop/app-objects-and-service-principals.md)|[Identité managée AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principaux de service](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Clé d’accès partagé](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
-|Autorisation|Gestion - [RBAC](../../role-based-access-control/overview.md)<br>Données - [Listes ACL](data-lake-storage-access-control.md)|Gestion - [RBAC](../../role-based-access-control/overview.md)<br>Données - [Listes ACL](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
+|Autorisation|Gestion : [Azure RBAC](../../role-based-access-control/overview.md)<br>Données - [Listes ACL](data-lake-storage-access-control.md)|Gestion : [Azure RBAC](../../role-based-access-control/overview.md)<br>Données : [Listes ACL](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Chiffrement - Données au repos|Côté serveur - Avec des clés [managées par Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [gérées par le client](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Côté serveur - Avec des clés [managées par Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [gérées par le client](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Prise en charge du réseau virtuel|[Intégration au réseau virtuel](../../data-lake-store/data-lake-store-network-security.md)|[Points de terminaison de service](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [points de terminaison privés](../common/storage-private-endpoints.md)|
 |Expérience développeur|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Disponibilité générale - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Préversion publique - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|

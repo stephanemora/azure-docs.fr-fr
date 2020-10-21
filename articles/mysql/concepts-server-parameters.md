@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258557"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627344"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -54,6 +54,12 @@ Pour améliorer les performances des requêtes courtes sur le pool de threads, A
 
 > [!IMPORTANT]
 > Testez le pool de threads avant de l’activer en production. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Dans Azure Database pour MySQL, les journaux binaires sont toujours activés (c.-à-d. que `log_bin` est défini sur ON). Si vous souhaitez utiliser des déclencheurs, vous obtiendrez une erreur similaire à *Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous pouvez utiliser la variable `log_bin_trust_function_creators` moins sécurisée)* . 
+
+Le format de journalisation binaire est toujours **ROW** et toutes les connexions au serveur utilisent **TOUJOURS** la journalisation binaire basée sur les lignes. Avec la journalisation binaire basée sur les lignes, les problèmes de sécurité n’existent pas et la journalisation binaire ne peut pas s’arrêter, ce qui vous permet de définir [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) sur **TRUE** de manière sécurisée.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -214,7 +220,7 @@ Si vous recevez une erreur semblable à « Taille de ligne trop grande (> 8126)
 Ce paramètre peut être défini au niveau de la session à l’aide de `init_connect`. Pour définir **innodb_strict_mode** au niveau de la session, reportez-vous à [Définition des paramètres non listés](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 > [!NOTE]
-> Si vous avez un serveur de réplica en lecture, la désactivation de **innodb_strict_mode** au niveau de la session sur un serveur maître interrompt la réplication. Nous vous suggérons de conserver le paramètre activé si vous avez des réplicas en lecture.
+> Si vous avez un serveur de réplica en lecture, la désactivation de **innodb_strict_mode** au niveau de la session sur un serveur source interrompt la réplication. Nous vous suggérons de conserver le paramètre activé si vous avez des réplicas en lecture.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

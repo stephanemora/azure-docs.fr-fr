@@ -4,21 +4,21 @@ description: En savoir plus sur les alertes de sécurité et les actions de corr
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 09ee0f9d5bd6e789d8acd4c70db866983beb1119
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: c4c92bfa25d9c43d3c654fbd1f23e242effc7577
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930806"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851201"
 ---
 # <a name="defender-for-iot-security-alerts"></a>Alertes de sécurité Defender pour IoT
 
@@ -26,9 +26,9 @@ Defender pour IoT analyse continuellement votre solution IoT à l’aide d’ana
 En outre, vous pouvez créer des alertes personnalisées en fonction de votre connaissance du comportement attendu de l’appareil.
 Une alerte sert d’indicateur de compromission potentielles et doit être examinée et corrigée.
 
-Dans cet article, vous trouverez une liste d’alertes intégrées qui peuvent être déclenchées sur votre IoT Hub et/ou appareils IoT.
+Dans cet article, vous trouverez une liste d’alertes intégrées qui peuvent être déclenchées sur votre hub IoT et/ou vos appareils IoT.
 Outre les alertes intégrées, Defender pour IoT vous permet de définir des alertes personnalisées basées sur le comportement attendu d’un IoT Hub et/ou d’un appareil.
-Pour en savoir plus, consultez la section [Alertes personnalisées](concept-customizable-security-alerts.md).
+Pour plus d’informations, consultez [Alertes personnalisables](concept-customizable-security-alerts.md).
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertes intégrées pour appareils IoT
 

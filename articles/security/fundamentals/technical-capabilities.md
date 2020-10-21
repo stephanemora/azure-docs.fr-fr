@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071594"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399531"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -84,7 +84,7 @@ Voici les principales fonctionnalités de gestion des identités Azure :
 
 Avec l’[authentification unique (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/), vous pouvez accéder à toutes les applications et à toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte d’utilisateur. Une fois connecté, vous accédez à toutes les applications qui vous sont indispensables, sans avoir besoin de vous réauthentifier (par exemple, en tapant un mot de passe).
 
-De nombreuses organisations s’appuient sur des applications SaaS, comme Office 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
+De nombreuses organisations s'appuient sur des applications SaaS telles que Microsoft 365, Box et Salesforce pour accroître la productivité des utilisateurs finaux. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
 
 [Azure AD étend Active Directory local dans le cloud](../../active-directory/manage-apps/what-is-single-sign-on.md), ce qui permet aux utilisateurs d’utiliser leur compte professionnel principal, non seulement pour se connecter à leurs appareils liés au domaine et aux ressources de l’entreprise, mais aussi à toutes les applications SaaS et web nécessaires à leur travail.
 
@@ -126,15 +126,15 @@ Quand ils sont associés à une solution de [gestion des appareils mobiles (MDM)
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Le service [Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) vous permet de gérer, de contrôler et de surveiller vos identités privilégiées et l’accès aux ressources dans Azure AD et dans d’autres services en ligne Microsoft, tels qu’Office 365 ou Microsoft Intune.
+Le service [Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) vous permet de gérer, de contrôler et de surveiller vos identités privilégiées et l'accès aux ressources dans Azure AD et dans d'autres services en ligne Microsoft, tels que Microsoft 365 ou Microsoft Intune.
 
-Les utilisateurs doivent parfois effectuer des opérations privilégiées dans des ressources Azure ou Office 365, ou dans d'autres applications SaaS. Cela signifie souvent que les entreprises doivent leur donner un accès privilégié permanent à Azure AD. C’est un risque de sécurité croissant pour les ressources hébergées dans le cloud, car les entreprises ne peuvent pas suffisamment surveiller ce que ces utilisateurs font avec leurs privilèges d'administrateur. En outre, si un compte d’utilisateur disposant d’un accès privilégié est compromis, cette seule faille peut affecter sa sécurité globale sur le cloud. Azure AD Privileged Identity Management contribue à minimiser ce risque.
+Les utilisateurs doivent parfois effectuer des opérations privilégiées dans des ressources Azure ou Microsoft 365, ou dans d'autres applications SaaS. Cela signifie souvent que les entreprises doivent leur donner un accès privilégié permanent à Azure AD. C’est un risque de sécurité croissant pour les ressources hébergées dans le cloud, car les entreprises ne peuvent pas suffisamment surveiller ce que ces utilisateurs font avec leurs privilèges d'administrateur. En outre, si un compte d’utilisateur disposant d’un accès privilégié est compromis, cette seule faille peut affecter sa sécurité globale sur le cloud. Azure AD Privileged Identity Management contribue à minimiser ce risque.
 
 Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 - Identifier les utilisateurs qui ont un rôle d’administrateur dans Azure AD
 
-- Activer à la demande un accès administrateur « juste à temps » aux services Microsoft Online Services comme Office 365 et Intune
+- Activer à la demande un accès administrateur « juste à temps » aux services Microsoft Online Services comme Microsoft 365 et Intune
 
 - Obtenir des rapports sur l'historique des accès administrateur et sur les modifications apportées aux affectations de l'administrateur
 

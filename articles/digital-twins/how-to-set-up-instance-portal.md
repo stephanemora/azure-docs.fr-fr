@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280024"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047401"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -36,7 +36,7 @@ Une fois dans le portail, commencez par sélectionner _Créer une ressource_ dan
 
 Recherchez *Azure Digital Twins* dans la zone de recherche, puis choisissez le service **Azure Digital Twins (préversion)** dans les résultats. Sélectionnez le bouton _Créer_ pour créer une instance du service.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Sélection de l’option « Créer » dans la page du service Azure Digital Twins":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Sur la page *Créer une ressource*, renseignez les valeurs ci-dessous :
 * **Abonnement**: Abonnement Azure que vous utilisez.
@@ -44,7 +44,7 @@ Sur la page *Créer une ressource*, renseignez les valeurs ci-dessous :
 * **Emplacement** : Région prenant en charge Azure Digital Twins pour le déploiement. Pour plus d’informations sur la prise en charge régionale, visitez [*Produits Azure disponibles par région (Azure Digital Twins)* ](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Nom de la ressource** : Nom de votre instance Azure Digital Twins. Le nom de la nouvelle instance doit être unique dans la région pour votre abonnement (ce qui signifie que si votre abonnement a une autre instance Azure Digital Twins dans cette région, qui utilise déjà le nom que vous choisissez, vous devrez choisir un autre nom).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Remplissage des valeurs décrites pour créer une ressource Azure Digital Twins":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Quand vous avez terminé, sélectionnez _Vérifier + créer_. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés et appuyer sur _Créer_. 
 
@@ -52,7 +52,7 @@ Quand vous avez terminé, sélectionnez _Vérifier + créer_. Une page de résum
 
 Après avoir appuyé sur *Créer*, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indique quand le déploiement a réussi, et vous pourrez sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vue des notifications Azure montrant un déploiement réussi et mettant en surbrillance le bouton « Accéder à la ressource »":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Autrement, si le déploiement échoue, la notification indique pourquoi. Lisez le conseil du message d’erreur, puis réessayez de créer l’instance.
 
@@ -61,7 +61,7 @@ Autrement, si le déploiement échoue, la notification indique pourquoi. Lisez l
 
 À partir de la page *Vue d’ensemble* de l’instance, notez son *Nom*, son *Groupe de ressources* et son *Nom d’hôte*. Il s’agit de toutes les valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Mise en surbrillance des valeurs importantes de la page de présentation de l’instance":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Vous disposez maintenant d’une instance Azure Digital Twins opérationnelle. Ensuite, vous allez accorder les autorisations utilisateur Azure appropriées pour la gérer.
 
@@ -71,7 +71,7 @@ Vous disposez maintenant d’une instance Azure Digital Twins opérationnelle. E
 
 Commencez par ouvrir la page de votre instance Azure Digital Twins dans le portail Azure. Dans le menu de l’instance, sélectionnez *Contrôle d’accès (IAM)* . Sélectionnez le bouton *Ajouter* sous *Ajouter une attribution de rôle*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Sélection de l’ajout d’une attribution de rôle à partir de la page « Contrôle d’accès (IAM) »":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Sur la page *Ajouter une attribution de rôle* ci-dessous, renseignez les valeurs (elles doivent être complétées par un utilisateur disposant des [autorisations suffisantes](#prerequisites-permission-requirements) dans l’abonnement Azure) :
 * **Rôle** : Sélectionnez *Azure Digital Twins Owner (préversion)* dans le menu déroulant.
@@ -80,7 +80,7 @@ Sur la page *Ajouter une attribution de rôle* ci-dessous, renseignez les valeur
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Remplissage des champs répertoriés dans la boîte de dialogue « Ajouter une attribution de rôle »":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -92,7 +92,7 @@ Lorsque vous avez fini d’entrer les détails, cliquez sur le bouton *Enregistr
 
 Vous pouvez afficher l’attribution de rôle que vous avez configurée sous *Contrôle d’accès (IAM) > Attributions de rôle*. L’utilisateur doit s’afficher dans la liste avec un rôle de *Propriétaire Azure Digital Twins (préversion)* . 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Vue des attributions de rôles pour une instance Azure Digital Twins dans le portail Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Vous disposez maintenant d’une instance Azure Digital Twins prête à l’emploi et des autorisations pour la gérer. Ensuite, vous allez configurer des autorisations pour qu’une application cliente y accède.
 
@@ -102,7 +102,7 @@ Vous disposez maintenant d’une instance Azure Digital Twins prête à l’empl
 
 Commencez par accéder à [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) dans le portail Azure (vous pouvez utiliser ce lien ou le trouver à l’aide de la barre de recherche du portail). Sélectionnez *Inscriptions d’applications* dans le menu service, puis *+ Nouvelle inscription*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vue de la page du service Azure AD dans le portail Azure, mettant en surbrillance l’option de menu « inscriptions d’applications » et le bouton « + Nouvelle inscription »":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Dans la page *Inscrire une application* qui suit, renseignez les valeurs demandées :
 * **Name** : Nom d’affichage d’application Azure AD à associer à l’inscription.
@@ -111,7 +111,7 @@ Dans la page *Inscrire une application* qui suit, renseignez les valeurs demand�
 
 Lorsque vous avez terminé, cliquez sur le bouton *S’inscrire*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Vue de la page « inscrire une application » avec les valeurs décrites renseignées":::
+:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Une fois la configuration de l’inscription terminée, le portail vous redirige vers la page de détails correspondante.
 
@@ -121,18 +121,19 @@ Ensuite, configurez l’inscription d’application que vous avez créée avec l
 
 À partir de la page du portail pour l’inscription de votre application, sélectionnez *Autorisations des API* dans le menu. Sur la page d’autorisations suivantes, cliquez sur le bouton *+ Ajouter une autorisation*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Vue de l’inscription de l’application dans le portail Azure, mettant en surbrillance l’option de menu « Autorisations des API » et le bouton « + Ajouter une autorisation »":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
-Dans la page *Demander des autorisations d’API* qui suit, basculez vers l’onglet *API utilisées par mon organisation* et recherchez *Azure Digital Twins*. Sélectionnez *Azure Digital Twins* dans les résultats de la recherche pour continuer à attribuer des autorisations pour les API Azure Digital Twins.
+Dans la page *Demander des autorisations d’API* qui suit, basculez vers l’onglet *API utilisées par mon organisation* et recherchez *Azure Digital Twins*. Sélectionnez _**Azure Digital Twins**_ dans les résultats de la recherche pour continuer à attribuer des autorisations pour les API Azure Digital Twins.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Vue du résultat de recherche de la page « Demander des autorisations d’API » montrant Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 >[!NOTE]
-> Si vous disposez d’une instance Azure Digital Twins de la préversion publique précédente du service (antérieure au mois de juillet 2020) dans votre abonnement, vous devez rechercher *Azure Smart Spaces Services* à la place. Il s’agit d’un nom plus ancien pour le même ensemble d’API, qui ne modifie en rien votre expérience au-delà de cette étape.
+> Si votre abonnement dispose encore d’une instance Azure Digital Twins de la préversion publique précédente du service (avant juillet 2020), vous devez rechercher et sélectionner _**Azure Smart Spaces Services**_ à la place. Il s’agit d’un ancien nom pour le même ensemble d’API (notez que l’*ID d’application (client)* est le même que dans la capture d’écran ci-dessus), et votre expérience ne sera pas modifiée au-delà de cette étape.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Ensuite, vous allez sélectionner les autorisations à accorder pour ces API. Développez l’autorisation **Lecture (1)** , et activez la case *lecture.Écriture* pour accorder cette inscription d’application et les autorisations de lecture et d’écriture.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vue de la page « Demander des autorisations d’API » en sélectionnant les autorisations « Lecture.Écriture » pour les API Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Lorsque vous avez terminé, appuyez sur *Ajouter des autorisations*.
 
@@ -140,19 +141,19 @@ Lorsque vous avez terminé, appuyez sur *Ajouter des autorisations*.
 
 De retour sur la page *Autorisations des API*, vérifiez qu’il existe désormais une entrée pour Azure Digital Twins reflétant les autorisations Lecture/Écriture :
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vue du portail des autorisations d’API pour l’inscription d’application Azure AD, affichant « Accès en lecture/écriture » pour Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Vous pouvez également vérifier la connexion à Azure Digital Twins dans le fichier *manifest.json* de l’inscription de l’application, qui a été automatiquement mise à jour avec les informations Azure Digital Twins lorsque vous avez ajouté les autorisations des API.
 
 Pour ce faire, sélectionnez *Manifeste* dans le menu pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code vers le bas et recherchez ces champs sous `requiredResourceAccess`. Les valeurs doivent correspondre à celles de la capture d’écran ci-dessous :
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Affichage du portail du manifeste pour l’inscription d’application Azure AD. Nested under ’requiredResourceAccess’, there’s a ’resourceAppId’ value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a ’resourceAccess > id’ value of 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 ### <a name="collect-important-values"></a>Collecter les valeurs importantes
 
 Ensuite, sélectionnez *Vue d’ensemble* dans la barre de menus pour afficher les détails de l’inscription de l’application :
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Vue du portail des valeurs importantes pour l’inscription de l’application":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
 Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (locataire)* affichés sur **votre** page. Ces valeurs seront requises ultérieurement pour [authentifier une application cliente par rapport aux API Azure Digital Twins](how-to-authenticate-client.md). Si vous n’êtes pas la personne chargée d’écrire du code pour de telles applications, vous devez partager ces valeurs avec la personne qui en sera chargée.
 
@@ -162,8 +163,8 @@ Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Testez les appels individuels de l’API REST sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
+* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
 
 Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :

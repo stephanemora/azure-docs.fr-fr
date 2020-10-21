@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258603"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841150"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services
 
@@ -421,11 +421,11 @@ Les captures d’écran ci-dessous présentent les différentes pages de connexi
 
 **Compte de domaine client Azure AD personnalisé** : page de connexion personnalisée du domaine client Azure AD.
 
-![compte de domaine client Azure personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Capture d’écran montrant la page de connexion personnalisée du domaine client Azure AD personnalisé.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Compte de domaine Microsoft avec carte à puce** : page de connexion personnalisée par l’informatique d’entreprise Microsoft avec authentification à deux facteurs.
 
-![compte de domaine client Azure personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Capture d’écran montrant la page de connexion personnalisée par l’informatique d’entreprise Microsoft avec authentification à deux facteurs.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Compte Microsoft** : page de connexion du compte Microsoft pour les consommateurs.
 

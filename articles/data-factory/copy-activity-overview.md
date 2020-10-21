@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440590"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995341"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -186,10 +186,11 @@ Pour plus d’informations sur la façon dont l’activité de copie met en corr
 En plus de copier des données d’une banque de données source vers un récepteur, vous pouvez également configurer l’ajout de colonnes de données supplémentaires à copier dans le récepteur. Par exemple :
 
 - Lors de la copie à partir d’une source basée sur un fichier, enregistrez le chemin d’accès relatif du fichier dans une colonne supplémentaire pour savoir de quel fichier proviennent les données.
+- Dupliquez la colonne source spécifiée comme une autre colonne. 
 - Ajoutez une colonne avec l’expression ADF, pour joindre des variables système ADF telles que le nom ou l’ID du pipeline, ou stocker une autre valeur dynamique provenant de la sortie de l’activité en amont.
 - Ajoutez une colonne avec une valeur statique pour répondre à votre besoin de consommation en aval.
 
-Vous pouvez trouver la configuration suivante dans l’onglet source de l’activité de copie : 
+Vous pouvez trouver la configuration suivante dans l’onglet source de l’activité de copie. Vous pouvez également mapper ces colonnes supplémentaires dans l’activité de copie [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping) comme d’habitude en utilisant les noms de colonne que vous avez définis. 
 
 ![Ajouter des colonnes supplémentaires dans l’activité de copie](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Pour le configurer par programmation, ajoutez la propriété `additionalColumns`
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| additionalColumns | Ajoutez des colonnes de données supplémentaires à copier dans le récepteur.<br><br>Chaque objet sous le tableau `additionalColumns` représente une colonne supplémentaire. `name` définit le nom de la colonne et `value` indique la valeur des données de cette colonne.<br><br>Les valeurs de données autorisées sont :<br>-  **`$$FILEPATH`**  : une variable réservée indique de stocker le chemin d’accès relatif des fichiers sources dans le chemin d’accès du dossier spécifié dans le jeu de données. Appliquer à la source basée sur un fichier.<br>- **Expression**<br>- **Valeur statique** | Non |
+| additionalColumns | Ajoutez des colonnes de données supplémentaires à copier dans le récepteur.<br><br>Chaque objet sous le tableau `additionalColumns` représente une colonne supplémentaire. `name` définit le nom de la colonne et `value` indique la valeur des données de cette colonne.<br><br>Les valeurs de données autorisées sont :<br>-  **`$$FILEPATH`**  : une variable réservée indique de stocker le chemin d’accès relatif des fichiers sources dans le chemin d’accès du dossier spécifié dans le jeu de données. Appliquer à la source basée sur un fichier.<br>-  **`$$COLUMN:<source_column_name>`**  : un modèle de variable réservée indique de dupliquer la colonne source spécifiée comme une autre colonne.<br>- **Expression**<br>- **Valeur statique** | Non |
 
 **Exemple :**
 
@@ -218,6 +219,10 @@ Pour le configurer par programmation, ajoutez la propriété `additionalColumns`
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

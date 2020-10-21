@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91269758"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocage des connexions créées par les connecteurs dans Azure Logic Apps
 
@@ -121,7 +121,7 @@ Pour bloquer complètement la création d’une connexion dans une application l
 
 1. Sous **Définition de stratégie**, indiquez les informations relatives à votre définition de stratégie, en fonction des propriétés décrites dans l’exemple :
 
-   ![Propriétés de la définition de stratégie](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Capture d’écran montrant les propriétés de « Définition de stratégie ».](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
@@ -180,7 +180,7 @@ Pour bloquer complètement la création d’une connexion dans une application l
 
    La zone **RÈGLE DE STRATÉGIE** s’affiche de la façon suivante :
 
-   ![Règle de la définition de stratégie](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Capture d’écran montrant la zone « RÈGLE DE STRATÉGIE » avec un exemple de règle de stratégie.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Pour plusieurs connecteurs, vous pouvez ajouter des conditions supplémentaires, par exemple :
 

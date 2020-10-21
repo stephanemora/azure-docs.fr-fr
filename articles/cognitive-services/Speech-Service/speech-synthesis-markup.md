@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 0eacddfa56e46363c926aa1e8b35865676209577
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055547"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058486"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -196,6 +196,8 @@ Par défaut, le service de synthèse vocale synthétise le texte à l’aide d�
 
 Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -228,6 +230,10 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="chat"`            | Exprime un ton informel et détendu                         |
 |                         | `style="cheerful"`        | Exprime un ton positif et joyeux                         |
 |                         | `style="empathetic"`      | Exprime une de la compassion et de la compréhension               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
+|                         | `style="chat"`            | Exprime un ton informel et détendu                         |
+|                         | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 |                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
 |                         | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
@@ -432,7 +438,7 @@ Pour définir le mode de lecture de plusieurs entités, vous pouvez créer un le
 
 L’élément `lexicon` contient au moins un élément `lexeme`. Chaque élément `lexeme` contient au moins un élément `grapheme` et un ou plusieurs éléments `grapheme`, `alias` et `phoneme`. L’élément `grapheme` contient le texte décrivant l’<a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthographe <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Les éléments `alias` sont utilisés pour indiquer la prononciation d’un acronyme ou d’un terme abrégé. L’élément `phoneme` fournit du texte décrivant la façon dont le `lexeme` est prononcé.
 
-Il est important de noter que vous ne pouvez pas définir directement la prononciation d’un mot à l’aide du lexique personnalisé. Si vous devez définir la prononciation d’un acronyme ou d’un terme abrégé, fournissez d’abord un `alias`, puis associez `phoneme` à `alias`. Par exemple :
+Il est important de noter que vous ne pouvez pas définir directement la prononciation d’une phrase à l’aide du lexique personnalisé. Si vous devez définir la prononciation d’un acronyme ou d’un terme abrégé, fournissez d’abord un `alias`, puis associez `phoneme` à `alias`. Par exemple :
 
 ```xml
   <lexeme>
@@ -442,6 +448,14 @@ Il est important de noter que vous ne pouvez pas définir directement la prononc
   <lexeme>
     <grapheme>ScotlandMV</grapheme> 
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
+
+Vous pouvez également fournir directement l’`alias` attendu pour l’acronyme ou le terme abrégé. Par exemple :
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>Scotland Media Wave</alias> 
   </lexeme>
 ```
 
@@ -524,7 +538,7 @@ L’élément `prosody` est utilisé pour spécifier des modifications apportée
 | `contour` |Le contour prend désormais en charge les voix neurales et standard. Le contour représente les changements de tonalité. Ces changements sont représentés sous la forme d’un tableau de cibles aux positions temporelles spécifiées dans la sortie vocale. Chaque cible est définie par des ensembles de paires de paramètres. Par exemple : <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>La première valeur dans chaque paire de paramètres spécifie l’emplacement du changement de tonalité sous la forme d’un pourcentage de la durée du texte. La deuxième valeur spécifie la quantité de hausse ou de baisse de la tonalité, à l’aide d’une valeur relative ou une valeur d’énumération pour la tonalité (voir `pitch`). | Facultatif |
 | `range` | Valeur représentant la plage de tonalités pour le texte. Vous pouvez exprimer `range` à l’aide des mêmes valeurs absolues, relatives ou d’énumération que celles utilisées pour décrire `pitch`. | Facultatif |
 | `rate` | Indique la cadence d’énonciation du texte. Vous pouvez exprimer `rate` comme suit :<ul><li>Valeur relative exprimée sous forme de nombre agissant comme multiplicateur de la valeur par défaut. Par exemple, la valeur *1* n’entraîne aucun changement de cadence. La valeur *0.5* entraîne une réduction de moitié de la cadence. La valeur *3* entraîne un triplement de la cadence.</li><li>Valeur constante :<ul><li>x-slow</li><li>slow</li><li>moyenne</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Facultatif |
-| `duration` | Période de temps qui doit s’écouler pendant que le service de synthèse vocale (TTS) lit le texte, exprimée en secondes ou millisecondes. Par exemple, *2 s* ou *1800 ms*. | Facultatif |
+| `duration` | Période de temps qui doit s’écouler pendant que le service de synthèse vocale (TTS) lit le texte, exprimée en secondes ou millisecondes. Par exemple, *2 s* ou *1800 ms*. La durée prend uniquement en charge les voix standard.| Facultatif |
 | `volume` | Indique le niveau de volume de la voix. Vous pouvez exprimer le volume comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre dans la plage de 0,0 à 100,0, du *plus bas* au *plus fort*. Par exemple, 75. La valeur par défaut est 100,0.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » spécifie une quantité de changement de volume. Par exemple, +10 ou -5.5.</li><li>Valeur constante :<ul><li>silent</li><li>x-soft</li><li>soft</li><li>moyenne</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Facultatif |
 
 ### <a name="change-speaking-rate"></a>Modifier le débit

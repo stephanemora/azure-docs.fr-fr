@@ -2,13 +2,13 @@
 title: Réduire les coûts de service grâce à Azure Advisor
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654036"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075907"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Réduire les coûts de service à l’aide d’Azure Advisor
 
@@ -20,7 +20,7 @@ Alors que certains scénarios d’application peuvent par définition entraîner
 
 Les actions recommandées sont l’arrêt ou le redimensionnement, en fonction de la ressource évaluée.
 
-Dans Advisor, le modèle d’évaluation avancée envisage l’arrêt des machines virtuelles lorsque ces deux affirmations sont vraies : 
+Dans Advisor, le modèle d’évaluation avancée envisage l’arrêt des machines virtuelles lorsque toutes ces affirmations sont vraies : 
 - Le 95e centile de la valeur maximale de l’utilisation du processeur est inférieur à 3 %. 
 - L’utilisation du réseau est inférieure à 2 % pendant une période de 7 jours.
 - La sollicitation de la mémoire est inférieure aux valeurs de seuil.
@@ -59,8 +59,8 @@ Advisor analyse les habitudes d’utilisation des 30 derniers jours pour les re
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Capacité de réserve Azure Cosmos DB
 Advisor analyse vos habitudes d’utilisation d’Azure Cosmos DB au cours des 30 derniers jours et recommande des achats de capacité de réserve afin d’optimiser les coûts. En utilisant la capacité de réserve, vous pouvez acheter à l’avance l’utilisation horaire d’Azure Cosmos DB et économiser sur vos coûts du paiement à l’utilisation. La capacité de réserve constitue un avantage de facturation et s’applique automatiquement aux déploiements nouveaux et existants. Advisor calcule les estimations d’économies pour les abonnements individuels en utilisant la tarification de réservation sur 3 ans et en extrapolant les habitudes d’utilisation observées au cours des 30 derniers jours. Les recommandations relatives aux étendues partagées sont disponibles pour les achats de capacité de réserve et peuvent accroître les économies.
 
-### <a name="sql-paas-reserved-capacity"></a>Capacité de réserve SQL PaaS
-Advisor analyse les pools de bases de données élastiques SQL PaaS et les habitudes d’utilisation des instances managées SQL au cours des 30 derniers jours. Il recommande ensuite des achats de capacité de réserve qui optimisent les coûts. En utilisant la capacité de réserve, vous pouvez acheter à l’avance l’utilisation horaire de la base de données SQL et économiser sur vos coûts de calcul SQL. Votre licence SQL est facturée séparément et ne bénéficie pas d’une remise avec la réservation. La capacité de réserve constitue un avantage de facturation et s’applique automatiquement aux déploiements nouveaux et existants. Advisor calcule les estimations d’économies pour les abonnements individuels en utilisant la tarification de réservation sur 3 ans et en extrapolant les habitudes d’utilisation observées au cours des 30 derniers jours. Les recommandations relatives aux étendues partagées sont disponibles pour les achats de capacité de réserve et peuvent accroître les économies.
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Capacité de réserve SQL Database et SQL Managed Instance
+Advisor analyse les habitudes d’utilisation de SQL Database et SQL Managed Instance au cours des 30 derniers jours. Il recommande ensuite des achats de capacité de réserve qui optimisent les coûts. En utilisant la capacité de réserve, vous pouvez acheter à l’avance l’utilisation horaire de la base de données SQL et économiser sur vos coûts de calcul SQL. Votre licence SQL est facturée séparément et ne bénéficie pas d’une remise avec la réservation. La capacité de réserve constitue un avantage de facturation et s’applique automatiquement aux déploiements nouveaux et existants. Advisor calcule les estimations d’économies pour les abonnements individuels en utilisant la tarification de réservation sur 3 ans et en extrapolant les habitudes d’utilisation observées au cours des 30 derniers jours. Les recommandations relatives aux étendues partagées sont disponibles pour les achats de capacité de réserve et peuvent accroître les économies. Pour plus d’informations, consultez [Capacité de réserve Azure SQL Database et SQL Managed Instance](../azure-sql/database/reserved-capacity-overview.md).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacité de réserve pour les frais de timbre App Service
 Advisor analyse le schéma d’utilisation des frais de timbre pour votre environnement isolé Azure App Service au cours des 30 derniers jours et recommande des achats de capacité de réserve qui optimisent les coûts. En utilisant la capacité de réserve, vous pouvez acheter à l’avance l’utilisation horaire pour les frais de timbre de l’environnement isolé et économiser sur les coûts du paiement à l’utilisation. Notez que la capacité de réserve s’applique uniquement aux frais de timbre et non aux instances App Service. La capacité de réserve constitue un avantage de facturation et s’applique automatiquement aux déploiements nouveaux et existants. Advisor calcule les estimations d’économies pour les abonnements individuels en utilisant la tarification de réservation sur 3 ans selon les habitudes d’utilisation au cours des 30 derniers jours.
@@ -111,6 +111,7 @@ Advisor identifie les ressources pour lesquelles la réduction de la période de
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller](advisor-overview.md)
+* [Score Advisor](azure-advisor-score.md)
 * [Prise en main d’Advisor](advisor-get-started.md)
 * [Recommandations d’Advisor en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations d’Advisor en matière de haute disponibilité](advisor-high-availability-recommendations.md)

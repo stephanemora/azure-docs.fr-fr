@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0add5001e2e62e26d448b06927210c14f17729f1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: d5016dbff30eb054e413acc66b1b2dfee62a5873
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804241"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070671"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
@@ -33,7 +33,7 @@ Actuellement, seule la classification d’autorisation ayant un « Faible impac
 
 Pour classifier les autorisations à l’aide du Portail Azure, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Se connecter au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [administrateur d’application](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) ou [administrateur d’application cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Classifications d’autorisations**.
 1. Choisissez **Ajouter des autorisations** pour classifier une autorisation autrement que comme ayant un « Faible impact ».
 1. Sélectionnez l’API, puis les autorisations déléguées.

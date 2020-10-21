@@ -4,17 +4,17 @@ description: Utilisation de fonctionnalités telles que l’analyse du stockage,
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031481"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854555"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,8 +23,6 @@ ms.locfileid: "90031481"
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou dans une combinaison de ces environnements. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser différentes technologies de stockage, comme Stockage Table, Stockage Blob, Stockage File d’attente ou Stockage Fichier de Microsoft Azure, en plus d’autres magasins de données, comme des bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
-
-Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting.md).
 
 * [Introduction]
   * [Organisation de ce guide]
@@ -68,7 +66,6 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
 * [Annexes]
   * [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]
   * [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau]
-  * [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau]
   * [Annexe 4 : Utilisation d’Excel pour afficher les métriques et les données de journalisation]
   * [Annexe 5 : Supervision avec Application Insights pour Azure DevOps]
 
@@ -92,7 +89,7 @@ La section «[Suivi de bout en bout]» explique comment mettre en corrélation l
 
 La section «[Instructions pour la résolution des problèmes]» fournit des instructions pour la résolution de certains des problèmes de stockage communs.
 
-La section «[Annexes]» inclut des informations concernant l'utilisation d'autres outils tels que Wireshark et Netmon pour l'analyse des données des paquets réseau, Fiddler pour l'analyse des messages HTTP/HTTPS, et l'analyseur de message Microsoft pour la mise en corrélation des données de journalisation.
+La section « [Annexes] » inclut des informations concernant l’utilisation d’autres outils tels que Wireshark et Netmon pour l’analyse des données des paquets réseau et Fiddler pour l’analyse des messages HTTP/HTTPS.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Analyse de votre service de stockage
 Si vous connaissez les outils d’analyse de performances Windows, vous pouvez considérer les métriques de stockage comme l’équivalent, dans Azure Storage, des compteurs de l’Analyseur de performances Windows. Les métriques de stockage incluent un vaste éventail de métriques (appelées compteurs dans la terminologie de l’Analyseur de performances Windows) telles que la disponibilité du service, le nombre total de requêtes du service ou le pourcentage de requêtes réussies envoyées au service. Pour obtenir une liste de toutes les métriques disponibles, consultez l’article [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Vous pouvez spécifier si vous désirez que le service de stockage collecte et agrège les métriques toutes les heures ou toutes les minutes. Pour plus d’informations sur la façon d’activer les métriques et d’analyser vos comptes de stockage, consultez la section [Activation de Storage Metrics et affichage des données de métriques](https://go.microsoft.com/fwlink/?LinkId=510865).
@@ -221,10 +218,9 @@ Vous pouvez capturer le trafic entre le client et le serveur afin d'obtenir des 
 
 * [Fiddler](https://www.telerik.com/fiddler) est un proxy de débogage web gratuit qui vous permet d’examiner les en-têtes et données de charge utile des messages de requête et de réponse HTTP et HTTPS. Pour plus d’informations, consultez [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS](#appendix-1).
 * Le [Moniteur réseau Microsoft (Netmon)](https://cnet-downloads.com/network-monitor) et [Wireshark](https://www.wireshark.org/) sont des analyseurs de protocole réseau gratuits qui vous permettent d’afficher des informations détaillées concernant les paquets pour de nombreux protocoles réseau. Pour plus d’informations sur Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau](#appendix-2) ».
-* L'analyseur de message Microsoft est un outil de Microsoft qui remplace Netmon et qui, en plus de capturer les données des paquets réseau, vous aide à afficher et analyser les données de journalisation capturées à partir d'autres outils. Pour plus d’informations, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau](#appendix-3) ».
 * Si vous souhaitez effectuer un test de connectivité de base pour vérifier que votre ordinateur client peut se connecter au service de stockage Azure via le réseau, vous ne pouvez pas le faire en utilisant l'outil **ping** standard sur le client. Mais l'outil [**tcping**](https://www.elifulkerson.com/projects/tcping.php) vous permet de vérifier la connectivité.
 
-Dans de nombreux cas, les données de journalisation issues de la journalisation du stockage et de la bibliothèque cliente de stockage seront suffisantes pour diagnostiquer un problème, mais dans certains scénarios, il se peut que vous ayez besoin de plus d’informations que celles fournies par ces outils de journalisation réseau. Par exemple, utiliser Fiddler pour afficher les messages HTTP et HTTPS vous permet d'afficher les données d'en-tête et de charge utile envoyées aux et par les services de stockage, ce qui vous permet de vérifier comment une application cliente effectue les nouvelles tentatives d'opérations de stockage. Les analyseurs de protocole tels que Wireshark fonctionnent au niveau des paquets et vous permettent d'afficher les données TCP afin de résoudre les problèmes de perte de paquets et de connectivité. L’analyseur de message est capable de fonctionner au niveau des couches HTTP et TCP.
+Dans de nombreux cas, les données de journalisation issues de la journalisation du stockage et de la bibliothèque cliente de stockage seront suffisantes pour diagnostiquer un problème, mais dans certains scénarios, il se peut que vous ayez besoin de plus d’informations que celles fournies par ces outils de journalisation réseau. Par exemple, utiliser Fiddler pour afficher les messages HTTP et HTTPS vous permet d'afficher les données d'en-tête et de charge utile envoyées aux et par les services de stockage, ce qui vous permet de vérifier comment une application cliente effectue les nouvelles tentatives d'opérations de stockage. Les analyseurs de protocole tels que Wireshark fonctionnent au niveau des paquets et vous permettent d'afficher les données TCP afin de résoudre les problèmes de perte de paquets et de connectivité. 
 
 ## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>Suivi de bout en bout
 Le suivi de bout en bout basé sur plusieurs fichiers journaux est une technique utile pour l’identification des problèmes potentiels. Vous pouvez utiliser les informations de date/heure de vos données métriques pour savoir où commencer à chercher des informations plus détaillées dans vos fichiers journaux afin de résoudre le problème.
@@ -255,6 +251,14 @@ Le service de stockage génère automatiquement les ID de demande serveur.
 > Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit. Par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
 >
 >
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+L’exemple de code ci-dessous montre comment utiliser un ID de demande client personnalisé. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Si la bibliothèque cliente de stockage génère une **StorageException** dans le client, la propriété **RequestInformation** contient un objet **RequestResult** qui inclut une propriété **ServiceRequestID**. Vous pouvez également accéder à un objet **RequestResult** à partir d’une instance **OperationContext**.
 
@@ -291,6 +295,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>Horodatages
 Vous pouvez également utiliser les horodatages pour trouver des entrées de journal associées, mais sans oublier les éventuelles variations d'horloges entre le client et le serveur. La recherche des entrées côté serveur correspondantes doit s’appliquer dans une plage de plus ou moins 15 minutes par rapport à l’horodatage sur le client. N’oubliez pas que les métadonnées des objets blob contenant des métriques indiquent l’intervalle de temps pour les métriques stockées dans l’objet blob. Cet intervalle de temps est utile si vous avez plusieurs objets blob de métriques pour une même minute ou heure.
@@ -358,22 +364,26 @@ Les raisons possibles à une réponse lente du client incluent un nombre limité
 
 Pour les services Table et File d’attente, l’algorithme Nagle peut également provoquer des valeurs élevées de la métrique **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez la publication [Nagle’s Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (L’algorithme Nagle n’est pas convivial pour les petites requêtes). Vous pouvez désactiver l’algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l’espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L’exemple suivant provient de la méthode **Application_Start** dans un rôle de travail.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
+---
+
 Vous devez consulter les journaux d’activité côté client pour savoir combien de demandes votre application cliente soumet, et vérifier la présence dans votre client de goulots d’étranglement au niveau des performances générales de .NET, telles que l’UC, .NET garbage collection, l’utilisation du réseau ou la mémoire. La première étape pour la résolution des problèmes des applications clientes .NET consiste à consulter la section [Débogage, suivi et profilage](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### <a name="investigating-network-latency-issues"></a>Enquête sur les problèmes de latence du réseau
-Une latence de bout en bout élevée, causée par le réseau, est généralement associée à des conditions provisoires. Vous pouvez enquêter sur les problèmes de réseau provisoires et permanents (par ex., les paquets perdus) à l'aide d'outils tels que Wireshark ou l'analyseur de message Microsoft.
+Une latence de bout en bout élevée, causée par le réseau, est généralement associée à des conditions provisoires. Vous pouvez enquêter sur les problèmes de réseau provisoires et permanents (par ex., les paquets perdus) à l’aide d’outils tels que Wireshark.
 
 Pour plus d’informations sur l’utilisation de Wireshark afin de résoudre des problèmes liés au réseau, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau] ».
-
-Pour plus d’informations sur l’utilisation de Microsoft Message Analyzer afin de résoudre des problèmes liés au réseau, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau] ».
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Les métriques indiquent une valeur AverageE2ELatency faible et une valeur AverageServerLatency faible, mais le client constate une latence élevée
 Dans ce scénario, la cause la plus probable est un retard des demandes de stockage à atteindre le service de stockage. Vous devez enquêter sur la raison pour laquelle les demandes envoyées par le client ne parviennent pas au service d'objet blob.
@@ -386,11 +396,9 @@ Vérifiez également si le client effectue plusieurs nouvelles tentatives et, si
 * Examiner les journaux d’activité du client. Les nouvelles tentatives apparaissent dans la journalisation documentée.
 * Déboguer votre code et vérifier les propriétés de l’objet **OperationContext** associé à la demande. Si l’opération a effectué une nouvelle tentative, la propriété **RequestResults** inclut plusieurs ID de demande d’un seul serveur. Vous pouvez également vérifier les heures de début et de fin de chaque demande. Pour plus d’informations, voir l’exemple de code de la section « [ID de la demande serveur]».
 
-En l’absence de problèmes au niveau du client, vous pouvez enquêter sur la présence de problèmes potentiels au niveau du réseau, tels que la perte de paquets. Vous pouvez utiliser des outils tels que Wireshark ou l’analyseur de message Microsoft pour enquêter sur les problèmes de réseau.
+En l’absence de problèmes au niveau du client, vous pouvez enquêter sur la présence de problèmes potentiels au niveau du réseau, tels que la perte de paquets. Vous pouvez utiliser des outils tels que Wireshark pour enquêter sur les problèmes de réseau.
 
 Pour plus d’informations sur l’utilisation de Wireshark afin de résoudre des problèmes liés au réseau, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau] ».
-
-Pour plus d’informations sur l’utilisation de Microsoft Message Analyzer afin de résoudre des problèmes liés au réseau, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau] ».
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>Les métriques indiquent une valeur AverageServerLatency élevée
 En présence d’une valeur **AverageServerLatency** élevée pour les demandes de téléchargement d’objet blob, vous devez utiliser les journaux d’activité de journalisation du stockage pour savoir si des demandes répétées ont été envoyées pour le même objet blob (ou ensemble d’objets blob). Pour les requêtes de chargement d’objet blob, vous devez examiner la taille des blocs utilisés par le client (par exemple, des blocs d’une taille inférieure à 64 K peuvent entraîner des charges plus lourdes, sauf si les lectures se font également par blocs de taille inférieure à 64 K) et savoir si plusieurs clients chargent des blocs sur le même objet blob en parallèle. Vous devez également vérifier dans les métriques par minute la présence de pics au niveau du nombre de demandes, provoquant un dépassement des valeurs cibles d’extensibilité par seconde : consultez également la section «[Les métriques indiquent une augmentation de la valeur PercentTimeoutError]».
@@ -460,7 +468,7 @@ Les délais d'expiration du serveur indiquent un problème au niveau du service 
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>Les métriques indiquent une augmentation de la valeur PercentNetworkError
 Vos métriques indiquent une augmentation de la valeur **PercentNetworkError** pour un de vos services de stockage. La métrique **PercentNetworkError** est une agrégation des métriques suivantes : **NetworkError**, **AnonymousNetworkError** et **SASNetworkError**. Cela se produit lorsque le service de stockage détecte une erreur de réseau associée à une demande de stockage du client.
 
-La cause la plus fréquente de cette erreur est une déconnexion du client avant l'expiration d'un délai dans le service de stockage. Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage. Vous pouvez également utiliser Wireshark, l'analyseur de message Microsoft ou Tcping pour enquêter sur les problèmes de connectivité réseau à partir du client. Ces outils sont décrits dans la section [Annexes].
+La cause la plus fréquente de cette erreur est une déconnexion du client avant l'expiration d'un délai dans le service de stockage. Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage. Vous pouvez également utiliser Wireshark ou Tcping pour enquêter sur les problèmes de connectivité réseau à partir du client. Ces outils sont décrits dans la section [Annexes].
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Le client reçoit des messages HTTP 403 (Forbidden)
 Si votre application client génère des erreurs HTTP403 (Forbidden), l'une des causes probables est l'utilisation par le client d'une signature d'accès partagé (SAS) arrivée à expiration lors de l'envoi d'une demande de stockage (d'autres causes possibles incluent les variations d'horloges, les clés non valides et les en-têtes vides). Si une clé SAS arrivée à expiration est la cause, aucune entrée ne s'affiche dans les données de journalisation du stockage côté serveur. Le tableau suivant inclut un exemple de journal côté client généré par la bibliothèque cliente de stockage, qui illustre ce type de problème :
@@ -594,6 +602,12 @@ Pour contourner le problème JavaScript, vous devez configurer le service Partag
 
 L'exemple de code suivant montre comment configurer votre service d'objet blob afin de permettre l'exécution de JavaScript dans le domaine Contoso pour accéder à un objet blob dans votre service de stockage d'objets blob :
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +623,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>Défaillance réseau
 Dans certaines circonstances, la perte de paquets réseau peut amener le service de stockage à renvoyer des messages HTTP 404 au client. Par exemple, lorsque l'application cliente supprime une entité du service de table, le client génère une exception de stockage avec un message d'état « HTTP 404 (Not Found) » du service de table. Lorsque vous recherchez la table dans le service de stockage de table, vous constatez que le service a supprimé l'entité comme prévu.
@@ -695,13 +711,11 @@ Si les sections de résolution des problèmes précédentes n’incluent pas le 
 
 * Consultez vos métriques afin d'identifier tout changement par rapport au comportement de base normal. Sur base des métriques, vous pouvez déterminer si le problème est provisoire ou permanent, ainsi que les opérations de stockage affectées par le problème.
 * Vous pouvez utiliser les informations des métriques afin de faciliter vos recherches dans vos données de journalisation côté serveur et obtenir des informations plus détaillées concernant les erreurs rencontrées. Ces informations peuvent vous aider à analyser et résoudre le problème.
-* Si les informations des journaux d’activité côté serveur ne suffisent pas pour résoudre le problème, vous pouvez utiliser les journaux d’activité côté client de la bibliothèque cliente de stockage pour enquêter sur le comportement de votre application cliente, ainsi que des outils tels que Fiddler, Wireshark et l’analyseur de message Microsoft pour enquêter sur votre réseau.
+* Si les informations des journaux côté serveur ne suffisent pas pour résoudre le problème, vous pouvez utiliser les journaux côté client de la bibliothèque de client de stockage pour enquêter sur le comportement de votre application cliente, ainsi que des outils tels que Fiddler, ou Wireshark pour enquêter sur votre réseau.
 
 Pour plus d’informations sur l’utilisation de Fiddler, consultez « [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]. »
 
 Pour plus d’informations sur l’utilisation de Wireshark, consultez « [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau] ».
-
-Pour plus d’informations sur l’utilisation de Microsoft Message Analyzer, consultez « [Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau] ».
 
 ## <a name="appendices"></a><a name="appendices"></a>Annexes
 Les annexes décrivent plusieurs outils qui peuvent s’avérer utiles lors du diagnostic et de la résolution des problèmes liés à Azure Storage (et aux autres services). Ces outils ne font pas partie de Azure Storage, et certains d'entre eux sont des produits tiers. En tant que tels, les outils décrits dans les annexes ne sont couverts par aucun contrat de support technique que vous pourriez avoir établi avec Microsoft Azure ou Azure Storage ; vous devez donc procéder à votre propre évaluation et examiner les options de licence et de support technique disponibles proposées par les fournisseurs de ces outils.
@@ -752,40 +766,6 @@ Vous pouvez également choisir d'afficher les données TCP telles que la couche 
 > Pour plus d’informations sur l’utilisation de Wireshark, consultez le [Guide d’utilisation de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
-
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau
-Vous pouvez utiliser l’analyseur de message Microsoft pour capturer le trafic HTTP et HTTPS de la même façon qu’avec Fiddler, et le trafic réseau de la même façon qu’avec Wireshark.
-
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configuration d'une nouvelle session de suivi Web à l'aide de l'analyseur de message Microsoft
-Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l’aide de l’analyseur de message Microsoft, exécutez l’application Analyseur de message Microsoft et, dans le menu **File**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le [portail Azure](https://portal.azure.com)). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> Un caractère espace sépare les noms d’hôte.
->
->
-
-Lorsque vous êtes prêt à commencer la collecte des données de suivi, cliquez sur le bouton **Start With** .
-
-Pour plus d’informations concernant le suivi **Web Proxy** de l’analyseur de message Microsoft, consultez la section [Fournisseur Microsoft-PEF-WebProxy](https://technet.microsoft.com/library/jj674814.aspx).
-
-Le suivi **Web Proxy** intégré de l'analyseur de message Microsoft est basé sur Fiddler ; il est capable de capturer le trafic HTTPS côté client et d'afficher les messages HTTPS non chiffrés. Le suivi **Web Proxy** fonctionne via la configuration d'un proxy local pour tout le trafic HTTP et HTTPS, lui permettant d'accéder aux messages non chiffrés.
-
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnostic des problèmes de réseau à l'aide de l'analyseur de message Microsoft
-En plus d’utiliser le suivi **Web Proxy** de l’analyseur de message Microsoft pour capturer le détail du trafic HTTP/HTTPS entre l’application cliente et le service de stockage, vous pouvez utiliser le suivi **Local Link Layer** intégré pour capturer les informations relatives aux paquets réseau. Cela vous permet de capturer des données similaires à celles que vous capturez avec Wireshark et de diagnostiquer les problèmes de réseau tels que les paquets perdus.
-
-La capture d’écran suivante illustre un exemple de suivi **Local Link Layer** avec des messages **d’information** dans la colonne **DiagnosisTypes**. Cliquer sur une icône dans la colonne **DiagnosisTypes** affiche les détails du message. Dans cet exemple, le serveur a retransmis le message no 305, car il n’a reçu aucun accusé de réception du client :
-
-![Capture d’écran illustrant un exemple de suivi Local Link Layer avec des messages d’information dans la colonne DiagnosisTypes][9]
-
-Lorsque vous créez la session de suivi dans l'analyseur de message Microsoft, vous pouvez spécifier des filtres afin de limiter le nombre de parasites dans le suivi. Sur la page **Capture / Trace** où vous définissez le suivi, cliquez sur le lien **Configure** à côté de **Microsoft-Windows-NDIS-PacketCapture**. La capture d'écran suivante illustre une configuration qui filtre le trafic TCP pour les adresses IP de trois services de stockage :
-
-![Capture d'écran illustrant une configuration qui filtre le trafic TCP pour les adresses IP de trois services de stockage.][10]
-
-Pour plus d’informations concernant le suivi Local Link Layer de l’analyseur de message Microsoft, consultez [Fournisseur Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Annexe 4 : Utilisation d’Excel pour afficher les métriques et les données de journalisation
 De nombreux outils vous permettent de télécharger les données métriques de stockage à partir du stockage de table Azure dans un format délimité, permettant leur chargement aisé dans Excel afin de les consulter ou les analyser. Les données de journalisation du stockage d’objets blob Azure sont déjà dans un format délimité qui peut être chargé dans Excel. Toutefois, vous devez ajouter des en-têtes de colonnes appropriés sur la base des informations des sections [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343259.aspx) et [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -873,7 +853,6 @@ Pour plus d’informations sur Analytics dans Stockage Azure, consultez ces ress
 [Annexes]: #appendices
 [Annexe 1 : Utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]: #appendix-1
 [Annexe 2 : Utilisation de Wireshark pour capturer le trafic réseau]: #appendix-2
-[Annexe 3 : Utilisation de Microsoft Message Analyzer pour capturer le trafic réseau]: #appendix-3
 [Annexe 4 : Utilisation d’Excel pour afficher les métriques et les données de journalisation]: #appendix-4
 [Annexe 5 : Supervision avec Application Insights pour Azure DevOps]: #appendix-5
 

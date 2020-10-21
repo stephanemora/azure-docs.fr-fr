@@ -1,14 +1,14 @@
 ---
 title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651360"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876326"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -17,12 +17,16 @@ Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists**
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
 Lorsque le logiciel Azure Policy exécute le modèle dans la définition de stratégie **deployIfNotExists**, il utilise une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Azure Policy accorde automatiquement à l’identité managée les rôles listés. La _localisation_ de l’identité managée n’impacte pas son fonctionnement avec Azure Policy.
+Azure Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, une erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Azure Policy accorde automatiquement à l’identité managée les rôles listés. Lorsque vous utilisez le kit de développement logiciel (SDK), les rôles doivent être accordés manuellement à l’identité managée. La _localisation_ de l’identité managée n’impacte pas son fonctionnement avec Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Capture d’écran d’une stratégie deployIfNotExists qui ne dispose pas d’une autorisation définie sur l’identité gérée." border="false":::
 
 > [!IMPORTANT]
-> Si une ressource modifiée par **deployIfNotExists** ou **modify** est en dehors de l’étendue de l’affectation de stratégie ou que le modèle accède à des propriétés sur des ressources en dehors de l’étendue de l’affectation de stratégie, l’identité managée de l’affectation doit se voir [manuellement accorder l’accès](#manually-configure-the-managed-identity), sinon le déploiement de la correction échoue.
+> Dans les scénarios suivants, l’autorisation d’accès à l’identité managée de l’affectation doit être [accordée manuellement](#manually-configure-the-managed-identity) sinon le déploiement de la correction échoue :
+>
+> - Si l’affectation est créée via le kit de développement logiciel (SDK)
+> - Si une ressource modifiée par **deployIfNotExists** ou **modify** est en dehors de l’étendue de l’affectation de stratégie
+> - Si le modèle accède à des propriétés sur des ressources en dehors de l’étendue de l’affectation de stratégie
 
 ## <a name="configure-policy-definition"></a>Configurer une définition de stratégie
 

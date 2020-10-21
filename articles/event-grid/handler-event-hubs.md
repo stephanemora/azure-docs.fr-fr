@@ -3,12 +3,12 @@ title: Event Hub en tant que gestionnaire d’événements pour les événements
 description: Décrit comment utiliser des concentrateurs d’événements en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105827"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629622"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Event Hubs** est l’un d’eux. 
@@ -24,7 +24,7 @@ Regardez les exemples suivants :
 | [Modèle Resource Manager : Créer une rubrique personnalisée Event Grid et envoyer des événements à un concentrateur d’événements](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Modèle Resource Manager qui crée un abonnement pour une rubrique personnalisée. Il envoie les événements vers Azure Event Hubs. |
 
 ## <a name="message-properties"></a>Propriétés de message
-Si vous utilisez un **concentrateur d’événements** en tant que gestionnaire d’événements pour des événements d’Event Grid, définissez les en-têtes de message suivants : 
+Si vous utilisez un **Event Hub** en tant que gestionnaire d’événements pour des événements issus d’Event Grid, voici les propriétés que vous recevez dans les en-têtes des messages : 
 
 | Nom de la propriété | Description |
 | ------------- | ----------- | 
