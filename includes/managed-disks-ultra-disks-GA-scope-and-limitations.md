@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225192"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441201"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -24,26 +24,30 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
 > [!NOTE]
 > Si l’une des régions de la liste suivante ne dispose pas de zones de disponibilité compatibles avec un disque Ultra, les machines virtuelles de cette région doivent être déployées sans option de redondance d’infrastructure pour pouvoir attacher un disque Ultra.
 
-|Régions  |Nombre de zones de disponibilité prenant en charge les disques Ultra  |
+|Régions  |Options de redondance  |
 |---------|---------|
-|Gouvernement américain - Virginie     |None         |
-|Gouvernement des États-Unis – Arizona     |None         |
-|États-Unis - partie centrale méridionale     |None         |
-|USA Centre     |Trois zones         |
-|USA Ouest     |None         |
-|USA Ouest 2    |Trois zones         |
-|USA Est     |Trois zones         |
-|USA Est 2     |Trois zones         |
-|Asie Sud-Est     |Trois zones         |
-|Asie Est     |Aucun         |
-|Europe Nord     |Trois zones          |
-|Europe Ouest     |Trois zones          |
-|Sud du Royaume-Uni     |Trois zones          |
-|Japon Est     |Trois zones         |
-|France Centre    |Deux zones        |
-|Brésil Sud    |Aucun        |
-|Australie Est    |Trois zones        |
-|Canada Centre*    |Trois zones        |
+|Brésil Sud     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Inde Centre     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Asie Est     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Allemagne Centre-Ouest     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Centre de la Corée     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|États-Unis - partie centrale méridionale    |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Gouvernement des États-Unis – Arizona     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Gouvernement américain - Virginie     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|USA Ouest     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)        |
+|Centre de l’Australie    |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Australie Est     |Trois zones de disponibilité         |
+|Asie Sud-Est    |Trois zones de disponibilité        |
+|Canada Centre*     |Trois zones de disponibilité          |
+|USA Centre     |Trois zones de disponibilité          |
+|USA Est     |Trois zones de disponibilité          |
+|USA Est 2     |Trois zones de disponibilité         |
+|France Centre    |Deux zones de disponibilité        |
+|Japon Est    |Trois zones de disponibilité        |
+|Europe Nord    |Trois zones de disponibilité        |
+|Sud du Royaume-Uni    |Trois zones de disponibilité        |
+|Europe Ouest    | Trois zones de disponibilité|
+|USA Ouest 2    |Trois zones de disponibilité|
 
 \* Contactez Support Azure pour obtenir l’accès à la fonctionnalité Zones de disponibilité pour cette région.
 
@@ -53,16 +57,20 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
     - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
     - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
+    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
+    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Les tailles de machines virtuelles ne sont pas toutes disponibles dans toutes les régions prises en charge avec des disques Ultra
-- Ils sont disponibles seulement comme des disques de données et prennent en charge uniquement une taille de secteur physique de 4 K. En raison de la taille native de secteur de 4 K des disques Ultra, certaines applications ne sont pas compatibles avec ces derniers. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques Ultra.  
-- Ils peuvent être créés seulement comme des disques vides  
-- Ils ne prennent pas en charge les instantanés de disque, les images de machine virtuelle, les groupes à haute disponibilité, les hôtes dédiés Azure ou Azure Disk Encryption
-- Ils ne prennent pas en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery
-- Prend uniquement en charge les lectures non mises en cache et les écritures non mises en cache
+- Toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions prises en charge avec des disques Ultra.
+- Ils sont disponibles uniquement comme disques de données. 
+- Ils prennent en charge la taille de secteur physique de 4k par défaut. La taille de secteur 512E est disponible en tant qu’offre généralement disponible mais vous devez [vous inscrire pour l’utiliser](https://aka.ms/ultradisk512e). La plupart des applications sont compatibles avec les tailles de secteur de 4k mais certaines nécessitent des tailles de secteur de 512 octets. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques natifs 4k. Pour les versions antérieures d’Oracle DB, la taille de secteur de 512 octets est requise.
+- Ils peuvent être créés seulement comme des disques vides.
+- Ils ne prennent pas en charge les instantanés de disque, les images de machine virtuelle, les groupes à haute disponibilité, les hôtes dédiés Azure ou Azure Disk Encryption.
+- Ils ne prennent pas en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery.
+- Ils prennent uniquement en charge les lectures non mises en cache et les écritures non mises en cache.
 - À l’heure actuelle, le nombre limite d’IOPS sur les machines virtuelles en disponibilité générale est de 80 000.
 
 Les disques Ultra Azure offrent jusqu’à 16 Tio par région et par abonnement par défaut, mais ils prennent en charge une plus grande capacité par demande. Pour demander une augmentation de la capacité, contactez le Support Azure.

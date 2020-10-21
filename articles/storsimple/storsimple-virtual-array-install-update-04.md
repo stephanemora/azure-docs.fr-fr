@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 529b93e7754df7aa0a981f4389108b8f53b4be2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 26890aaa7bc2d0ea70ff326e36a5767d1d468d5c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300562"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977542"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installation d’Update 0.4 sur StorSimple Virtual Array
 
@@ -76,26 +76,26 @@ Cette méthode permet d’installer les mises à jour sur un appareil exécutant
 
 1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Mise à jour logicielle**.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![mettre à jour l’appareil 1](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. Dans le **chemin d’accès au fichier de mise à jour**, entrez le nom du fichier de mise à jour ou de correctif. Vous pouvez également accéder au fichier d'installation de la mise à jour ou du correctif si celui-ci est placé sur un partage réseau. Cliquez sur **Appliquer**.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![mettre à jour l’appareil 2](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. Un avertissement s’affiche. Puisqu’il s’agit d’un appareil à nœud unique, l’application de la mise à jour entraîne le redémarrage de l’appareil et provoque un temps d’arrêt. Cliquez sur l’icône en forme de coche.
    
-   ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![mettre à jour l’appareil 3](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il est redémarré. L’interface utilisateur locale n’est pas accessible pendant cet intervalle.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![mettre à jour l’appareil 4](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. La version du logiciel affichée doit être **10.0.0.0.0.10289.0** pour Update 0.4.
    
    > [!NOTE]
    > L’affichage des versions logicielles diffère légèrement entre l’interface utilisateur web locale et le portail Azure. Par exemple, la même version est signalée par **10.0.0.0.0.10289** dans l’interface utilisateur web locale et par **10.0.10289.0** sur le portail Azure.
    
-    ![mettre à jour l'appareil](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![mettre à jour l’appareil 5](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 

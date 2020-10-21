@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487298"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568645"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Explorateur Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Il s’agit d’un article Gen1.
 
 Cet article décrit les fonctionnalités et options pour l’[application web Explorateur](https://insights.timeseries.azure.com/) Azure Time Series Insights Gen1. L’Explorateur Azure Time Series Insights fait preuve de puissantes capacités de visualisation de données fournies par le service et est accessible au sein de votre propre environnement.
 
@@ -41,7 +44,7 @@ Azure Time Series Insights est un service entièrement managé d’analyse, de s
 
 Avant de pouvoir utiliser l’Explorateur Azure Time Series Insights, vous devez :
 
-- Créer un environnement Azure Time Series Insights. Pour plus d’informations, consultez [Bien démarrer avec Azure Time Series Insights](./time-series-insights-get-started.md).
+- Créez un environnement Azure Time Series Insights. Pour plus d’informations, consultez [Bien démarrer avec Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Fournissez l’accès](time-series-insights-data-access.md) à votre compte dans l’environnement.
 - Ajoutez-y une source [hub IoT](time-series-insights-how-to-add-an-event-source-iothub.md) ou un [hub d’événement](time-series-insights-how-to-add-an-event-source-eventhub.md).
 
@@ -73,7 +76,7 @@ Quelques minutes après la connexion de votre source d’événements à votre e
 
          |Opération  |Types pris en charge  |Notes  |
          |---------|---------|---------|
-         |**<** , **>** , **<=** , **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
+         |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=** , **!=** , **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
          |**IN**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Tous les opérandes doivent être du même type ou être la constante **NULL**.        |
          |**HAS**     | **Chaîne**        |  Seuls les littéraux de chaîne constante sont autorisés à droite. Les chaînes vides et **NULL** ne sont pas autorisées.       |
@@ -108,7 +111,7 @@ Quelques minutes après la connexion de votre source d’événements à votre e
 
 1. Utilisez la **carte thermique** pour identifier rapidement les séries de données uniques ou anormales dans une requête donnée. Un seul terme de recherche peut être visualisé comme une carte thermique.
 
-    [![Graphique de la carte thermique dans l’Explorateur Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Graphiques de carte thermique d’exploration Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Lorsque vous explorez des événements en les sélectionnant ou en cliquant dessus, le panneau **ÉVÉNEMENTS** est affiché. Ici, vous pouvez passer en revue tous les événements bruts, et exporter vos événements sous forme de fichiers JSON ou CSV. Azure Time Series Insights stocke toutes les données brutes.
 

@@ -3,12 +3,12 @@ title: Ajouter un utilisateur en tant que créateur de laboratoire dans Azure La
 description: Cet article explique comment ajouter un utilisateur au rôle Créateur de laboratoire pour un compte lab dans Azure Lab Services. Les créateurs de laboratoire peuvent créer des labos au sein de ce compte lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444282"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399480"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Ajouter des créateurs de laboratoire à un compte lab dans Azure Lab Services
 Cet article explique comment ajouter des utilisateurs en tant que créateurs de laboratoire à un compte lab dans Azure Lab Services. Ces utilisateurs peuvent ensuite créer des labos de classe dans le compte lab. 
@@ -31,7 +31,7 @@ Pour donner aux formateurs l’autorisation de créer des laboratoires pour leur
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Ajouter un utilisateur de compte non Microsoft en tant que créateur de laboratoire
 Pour ajouter un utilisateur en tant que créateur de laboratoire, utilisez ses comptes de messagerie. Les types de comptes de messagerie suivants peuvent être utilisés :
 
-- Un compte de messagerie fourni par l’Office 365 Azure Active Directory (AAD) de votre université. 
+- Un compte de courrier fourni par l'instance Azure Active Directory (AAD) de votre université.
 - Un compte de messagerie Microsoft, tel que `@outlook.com`, `@hotmail.com`, `@msn.com` ou `@live.com`.
 - Un compte de messagerie non Microsoft, tel qu’un compte fourni par Yahoo ou Google. Cependant, ces types de comptes doivent être liés à un compte Microsoft.
 - Un compte GitHub. Ce compte doit être lié à un compte Microsoft.

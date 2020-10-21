@@ -1,14 +1,14 @@
 ---
 title: Gérer une infrastructure hybride à grande échelle avec Azure Arc
 description: Apprenez à gérer efficacement les machines et les clusters Kubernetes de vos clients en dehors d’Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605310"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336613"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gérer une infrastructure hybride à grande échelle avec Azure Arc
 
@@ -16,19 +16,16 @@ En tant que fournisseur de services, vous avez peut-être intégré les locatair
 
 [Azure Arc](../../azure-arc/overview.md) permet de simplifier les environnements complexes et distribués localement, en périphérie et sur différents clouds, ce qui vous permet de déployer des services Azure n’importe où et d’étendre la gestion Azure à n’importe quelle infrastructure.
 
-Grâce aux [serveurs avec Azure Arc (préversion)](../../azure-arc/servers/overview.md), les clients peuvent gérer toutes les machines Windows et Linux hébergées en dehors d’Azure sur leur réseau d’entreprise de la même façon qu’ils gèrent des machines virtuelles Azure natives. Dès lors qu’une machine hybride est liée à Azure, elle est connectée et traitée comme ressource dans Azure. Les fournisseurs de services peuvent ensuite gérer ces machines non Azure, ainsi que les ressources Azure de leurs clients.
+Grâce aux [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), les clients peuvent gérer toutes les machines Windows et Linux hébergées en dehors d'Azure sur leur réseau d'entreprise de la même façon qu'ils gèrent des machines virtuelles Azure natives. Dès lors qu’une machine hybride est liée à Azure, elle est connectée et traitée comme ressource dans Azure. Les fournisseurs de services peuvent ensuite gérer ces machines non Azure, ainsi que les ressources Azure de leurs clients.
 
 [Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md) permet aux clients de joindre et de configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure. Lorsqu’un cluster Kubernetes est joint à Azure Arc, il s’affiche dans le portail Azure, avec un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure.
 
-Cette rubrique fournit une vue d’ensemble de la façon dont les fournisseurs de services peuvent utiliser les serveurs avec Azure Arc (préversion) et Kubernetes avec Azure Arc (préversion) de manière évolutive pour gérer l’environnement hybride de leurs clients, avec une visibilité sur tous les locataires clients gérés.
+Cette rubrique fournit une vue d'ensemble de la façon dont les fournisseurs de services peuvent utiliser les serveurs avec Azure Arc et Kubernetes avec Azure Arc (préversion) de manière évolutive pour gérer l'environnement hybride de leurs clients, avec une visibilité sur tous les locataires clients managés.
 
 > [!TIP]
 > Bien que nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Gérer des serveurs hybrides à grande échelle à l’aide de serveurs avec Azure Arc (préversion)
-
-> [!NOTE]
-> Les serveurs avec Azure Arc sont actuellement disponibles en préversion. Nous ne recommandons pas cette fonctionnalité pour les charges de travail de production.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Gérer des serveurs hybrides à grande échelle à l'aide de serveurs avec Azure Arc
 
 En tant que fournisseur de services, vous pouvez gérer des machines Windows Server ou Linux locales en dehors d’Azure que vos clients ont connectées à leur abonnement à l’aide de l’[agent Azure Connected Machine](../../azure-arc/servers/agent-overview.md).
 

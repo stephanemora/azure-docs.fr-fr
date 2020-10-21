@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: a70f7ccd1c3ca078bab0ff473283b505c0ded316
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441559"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91440836"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Travail à distance à l’aide d’une connexion point à site par passerelle VPN Azure
 
@@ -30,13 +30,13 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 Le tableau ci-dessous présente les systèmes d’exploitation clients et les options d’authentification disponibles. Il serait utile de sélectionner la méthode d’authentification en fonction du système d’exploitation client déjà utilisé. Par exemple, sélectionnez OpenVPN avec l’authentification basée sur les certificats si vous avez plusieurs systèmes d’exploitation clients qui doivent se connecter. Notez également qu’un VPN point à site est pris en charge uniquement sur des passerelles VPN basées sur un itinéraire.
 
-![point à site](./media/working-remotely-support/ostable.png "Système d''exploitation")
+![Capture d'écran représentant les systèmes d'exploitation clients et les options d'authentification disponibles.](./media/working-remotely-support/ostable.png "Système d''exploitation")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scénario 1 : les utilisateurs doivent accéder à des ressources seulement dans Azure
 
 Dans ce scénario, les utilisateurs distants doivent accéder uniquement à des ressources qui se trouvent dans Azure.
 
-![point à site](./media/working-remotely-support/scenario1.png "Scénario 1")
+![Diagramme illustrant un scénario point à site pour des utilisateurs qui ont uniquement besoin d'accéder aux ressources disponibles dans Azure.](./media/working-remotely-support/scenario1.png "Scénario 1")
 
 À un niveau élevé, les étapes suivantes sont nécessaires pour permettre aux utilisateurs de se connecter aux ressources Azure en toute sécurité :
 
@@ -55,7 +55,7 @@ Dans ce scénario, les utilisateurs distants doivent accéder uniquement à des 
 
 Dans ce scénario, les utilisateurs distants doivent accéder à des ressources qui se trouvent dans Azure et dans des centres de données locaux.
 
-![point à site](./media/working-remotely-support/scenario2.png "Scénario 2")
+![Diagramme illustrant un scénario point à site pour des utilisateurs qui ont besoin d'accéder aux ressources disponibles dans Azure.](./media/working-remotely-support/scenario2.png "Scénario 2")
 
 À un niveau élevé, les étapes suivantes sont nécessaires pour permettre aux utilisateurs de se connecter aux ressources Azure en toute sécurité :
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c9751a303afc947fd682558236751c69f107dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567257"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542510"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Déplacer un serveur Azure Database pour MySQL vers une autre région à l’aide du Portail Azure
 
@@ -38,11 +38,11 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
 1. Sélectionnez **Ajouter un réplica**.
 1. Entrez un nom pour le serveur de réplica.
-1. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
+1. Sélectionnez l’emplacement du serveur de réplica. L'emplacement par défaut est le même que celui du serveur source. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
 1. Sélectionnez **OK** pour confirmer la création du réplica. Pendant la création de réplica, les données sont copiées depuis le serveur source vers le réplica. Le temps de création peut durer plusieurs minutes ou plus, proportionnellement à la taille du serveur source.
 
 >[!NOTE]
-> Quand vous créez un réplica, il n’hérite pas des règles de pare-feu ni du point de terminaison de service VNet du serveur maître. Ces règles doivent être configurés indépendamment pour le réplica.
+> Lorsque vous créez un réplica, il n'hérite pas des points de terminaison de service VNet du serveur source. Ces règles doivent être configurés indépendamment pour le réplica.
 
 ## <a name="move"></a>Déplacer
 

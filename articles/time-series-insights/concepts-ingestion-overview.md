@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33cafd058e55951f7da4e925a603c2c442d4aed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 57c23ba4acdbde1a5dfac39d89a09dfcef6b25a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077674"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460898"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Vue d’ensemble de l’ingestion de données dans Azure Time Series Insights Gen2
 
-Votre environnement Azure Time Series Insights Gen2 contient un *moteur d’ingestion* pour collecter, traiter et stocker des données de série chronologique de diffusion en continu. À mesure que les données arrivent dans vos sources d’événements, Azure Time Series Insights Gen2 consomme et stocke vos données en quasi-temps réel.
+Votre environnement Azure Time Series Insights Gen2 contient un *moteur d’ingestion* pour collecter, traiter et stocker des données de série chronologique de diffusion en continu. À mesure que les données arrivent dans vos sources d'événements, Azure Time Series Insights Gen2 consomme et stocke vos données en quasi-temps réel.
 
 [![Vue d’ensemble de l’ingestion](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
 
@@ -37,4 +37,4 @@ Les articles suivants décrivent en détail le traitement des données, notammen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Continuez pour en savoir plus sur les [sources d’événements](./concepts-streaming-ingestion-event-sources.md) pour votre environnement Azure Time Series Insights Gen2. 
+* Continuez pour en savoir plus sur les [sources d’événements](./concepts-streaming-ingestion-event-sources.md) pour votre environnement Azure Time Series Insights Gen2.

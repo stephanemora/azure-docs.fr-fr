@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521210"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961236"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ L’exemple suivant montre un profil technique pour `Saml2AssertionIssuer` :
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,7 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | --------- | -------- | ----------- |
 | IssuerUri | Non | Nom de l’émetteur qui apparaît dans la réponse SAML. La valeur doit être identique au nom configuré dans l’application par partie de confiance. |
 | XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer l’assertion SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. Pour configurer la réponse SAML, consultez les [métadonnées SAML de la partie de confiance](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| Non| Spécifie l’inclinaison, sous la forme d’un entier, pour l’horodatage qui marque le début de la période de validité. Plus ce nombre est élevé, plus la période de validité commence au plus tôt par rapport à l’émission des revendications pour la partie de confiance. Par exemple, lorsque TokenNotBeforeSkewInSeconds a la valeur 60 secondes, si le jeton est émis à 13:05:10 UTC, il est valide à partir de 13:04:10 UTC. La valeur par défaut est 0. La valeur maximale est 3600 (une heure). |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

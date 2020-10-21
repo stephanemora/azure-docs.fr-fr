@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/14/2020
+ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270438"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044069"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -31,7 +31,7 @@ L’activité Lookup lit et retourne le contenu d’une table ou d’un fichier 
 
 Les sources de données suivantes sont prises en charge pour l’activité Lookup. 
 
-L’activité de recherche peut retourner jusqu’à 5 000 lignes ; si le jeu de résultats contient plus d’enregistrements, les 5 000 premières lignes sont retournées. La sortie de l’activité de recherche prend en charge une taille maximale d’environ 4 Mo ; l’activité échoue si la taille dépasse la limite. Actuellement, la durée la plus longue pour l’activité Lookup avant l’expiration du délai d’attente est d’une heure.
+L’activité de recherche peut retourner jusqu’à 5 000 lignes ; si le jeu de résultats contient plus d’enregistrements, les 5 000 premières lignes sont retournées. La sortie de l’activité de recherche prend en charge une taille maximale d’environ 4 Mo ; l’activité échoue si la taille dépasse la limite. Actuellement, la durée la plus longue pour l’activité Lookup avant l’expiration du délai d’attente est de 24 heures.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

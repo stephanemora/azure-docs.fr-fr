@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326033"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441504"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
 
@@ -73,11 +73,11 @@ Pour configurer l’intégration de la fonctionnalité MAP d’Azure Monitor pou
 
 6. Facultatif : Sélectionnez le pool de ressources de l’ensemble des serveurs d’administration pour communiquer avec Log Analytics, puis cliquez sur **Ajouter un espace de travail**.
 
-    ![Pool de ressources de configuration d’Operations Manager](media/service-map-scom/scom-config-pool.png)
+    ![Capture de l'écran Pool de serveurs dans Ajouter un espace de travail Microsoft Operations Management Suite, avec l'option Pool de ressources de tous les serveurs de gestion sélectionnée.](media/service-map-scom/scom-config-pool.png)
 
     La configuration et l’inscription de l’espace de travail Log Analytics peuvent prendre quelques minutes. Une fois configuré, Operations Manager lance la première synchronisation de la fonctionnalité Map.
 
-    ![Pool de ressources de configuration d’Operations Manager](media/service-map-scom/scom-config-success.png)
+    ![Capture de l'écran Achèvement dans Ajouter un espace de travail Microsoft Operations Management Suite, avec confirmation que l'espace de travail a été ajouté.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Superviser l’intégration
 
@@ -98,11 +98,11 @@ Le dossier Service Map possède quatre nœuds :
 
 * **Vues de dépendance de groupe d’ordinateurs** : répertorie tous les groupes d’ordinateurs synchronisés à partir de la fonctionnalité Map. Vous pouvez cliquer sur n’importe quel groupe pour afficher son diagramme d’application distribuée.
 
-    ![Diagramme d’application distribuée Operations Manager](media/service-map-scom/scom-group-dad.png)
+    ![Capture d'écran de Service Map présentant un diagramme avec des images pour chaque groupe de machines et des lignes indiquant les dépendances entre eux.](media/service-map-scom/scom-group-dad.png)
 
 * **Vues de dépendance du serveur** : répertorie tous les serveurs synchronisés à partir de la fonctionnalité Map. Vous pouvez cliquer sur n’importe quel serveur pour afficher son diagramme d’application distribuée.
 
-    ![Diagramme d’application distribuée Operations Manager](media/service-map-scom/scom-dad.png)
+    ![Capture d'écran de Service Map présentant un diagramme avec des images pour chaque serveur et des lignes indiquant les dépendances entre eux.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Modification ou suppression de l’espace de travail
 

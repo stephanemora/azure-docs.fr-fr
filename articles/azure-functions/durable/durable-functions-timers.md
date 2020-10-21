@@ -4,12 +4,12 @@ description: Découvrez comment implémenter des minuteurs durables dans l’ext
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056223"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876445"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Minuteurs dans Fonctions durables (Azure Functions)
 
@@ -22,7 +22,7 @@ Vous créez un minuteur durable en appelant la méthode `CreateTimer` (.NET) ou 
 Lorsque vous créez un minuteur qui expire à 16:30, l’infrastructure des tâches durables sous-jacent empile un message qui devient uniquement visible à 16:30. Durant l’exécution dans le plan de consommation d’Azure Functions, le message de minuteur nouvellement visible garantit que l’application de fonction est activée sur une machine virtuelle appropriée.
 
 > [!NOTE]
-> * Les minuteurs durables sont actuellement limités à 7 jours. Si des délais plus longs sont nécessaires, ils peuvent être simulés à l’aide des API de minuteur dans une boucle `while`.
+> * À partir de la [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) de l’extension durable, les minuteurs durables sont illimités. Dans les versions antérieures de l’extension, les minuteurs durables sont limités à sept jours. Lorsque vous utilisez une version antérieure et que vous avez besoin d’un délai de plus de sept jours, utilisez les API de minuteur dans une boucle `while` pour simuler ce délai.
 > * Utilisez toujours `CurrentUtcDateTime` au lieu de `DateTime.UtcNow` en .NET ou `currentUtcDateTime` au lieu de `Date.now` ou de `Date.UTC` en JavaScript lors du calcul de l’heure de déclenchement pour les minuteurs durables. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
 
 ## <a name="usage-for-delay"></a>Utilisation des retards

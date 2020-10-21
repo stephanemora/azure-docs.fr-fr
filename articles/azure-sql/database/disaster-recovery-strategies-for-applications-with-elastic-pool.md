@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8ba9edc129cc169ccc146c7bc314d8f5ffe573b9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038770"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357780"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Je propose une application SaaS mature avec plusieurs offres de service et diff�
 
 Dans ce scénario, séparez les clients utilisant une version d’évaluation des clients utilisant une version payante en les plaçant dans des pools élastiques distincts. Les clients utilisant une version d’évaluation ont un nombre inférieur d’eDTU ou de vCore par client et un contrat SLA moins élevé avec un temps de récupération plus long. Les clients utilisant une version payante se trouvent dans un pool avec un nombre d’eDTU ou de vCore par client plus élevé et un contrat SLA plus élevé. Pour limiter au maximum le temps de récupération, les bases de données client des clients utilisant une version payante sont géorépliquées. Cette configuration est illustrée dans le schéma suivant.
 
-![Figure 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![Le diagramme montre une région primaire et une région DR qui utilisent une géoréplication entre la base de données de gestion et le pool principal de clients payants, ainsi que le pool secondaire sans réplication pour le pool de clients de la version d’évaluation.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Comme dans le premier scénario, les bases de données de gestion sont assez actives, d’où l’importance d’utiliser une base de données géorépliquée unique (1). Cela garantit la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région qui héberge les bases de données de gestion primaires est la région primaire. La région qui héberge les bases de données de gestion secondaires est la région de récupération d’urgence.
 
@@ -86,7 +86,7 @@ Les bases de données client des clients utilisant une version payante ont des b
 
 En cas de panne dans la région primaire, les étapes de récupération à suivre pour remettre votre application en ligne sont illustrées dans le schéma suivant :
 
-![Figure 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Le diagramme illustre une interruption de la région primaire, avec basculement vers la base de données de gestion, un pool secondaire de clients payants, et une création et restauration pour les clients de la version d’évaluation.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Basculez immédiatement les bases de données de gestion vers la région de récupération d’urgence (3).
 * Modifiez la chaîne de connexion de l’application pour la diriger vers la région de récupération d’urgence. Tous les nouveaux comptes et bases de données client sont désormais créés dans la région de récupération d’urgence. Les données des clients existants utilisant une version d’évaluation sont temporairement indisponibles.
@@ -99,7 +99,7 @@ En cas de panne dans la région primaire, les étapes de récupération à suivr
 
 Lorsque la région primaire est restaurée par Azure *après* que vous ayez restauré l’application dans la région de récupération d’urgence, vous pouvez continuer à exécuter l’application dans cette région ou restaurer l’application dans la région primaire. Si la région primaire est restaurée *avant* la fin du processus de basculement, envisagez de restaurer immédiatement l’application. Les étapes du processus de restauration sont illustrées dans le schéma suivant :
 
-![Figure 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![Le diagramme montre les étapes de restauration automatique à implémenter après la restauration de la région primaire.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Annulez toutes les requêtes de géo-restauration en attente.
 * Basculez les bases de données de gestion (8). Après la récupération de la région, l’ancienne base de données primaire est automatiquement devenue une base de données secondaire. Celles-ci redeviennent désormais les bases de données primaires.  
@@ -128,7 +128,7 @@ Dans ce scénario, vous devez configurer trois pools élastiques distincts. Conf
 
 Pour limiter au maximum le temps de récupération en cas de panne, les bases de données client des clients utilisant la version payante sont géorépliquées avec 50 % des bases de données primaires dans chacune des deux régions. De même, chaque région a 50 % des bases de données secondaires. Ainsi, si une région est hors connexion, seule la moitié des bases de données des clients utilisant la version payante est affectée et devra être basculée. Les autres bases de données ne sont pas affectées. Cette configuration est illustrée dans le schéma suivant :
 
-![Figure 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![Le diagramme montre une région primaire appelée Region A et une région secondaire appelée Region B qui utilisent une géoréplication entre la base de données de gestion et le pool principal de clients payants, ainsi que le pool secondaire sans réplication pour le pool de clients de la version d’évaluation.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Comme dans les scénarios précédents, les bases de données de gestion sont assez actives. Il est donc essentiel de les configurer en tant que bases de données uniques géorépliquées (1). Cela garantit la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région A est la région primaire pour les bases de données de gestion et la région B est utilisée pour la récupération des bases de données de gestion.
 
@@ -136,7 +136,7 @@ Les bases de données client des clients utilisant la version payante sont égal
 
 Le schéma suivant détaille la procédure de récupération à suivre en cas de panne dans la région A.
 
-![Figure 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Le diagramme illustre une interruption de la région primaire, avec basculement vers la base de données de gestion, un pool secondaire de clients payants, et une création et restauration pour les clients de la version d’évaluation vers la région B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Basculez immédiatement les bases de données de gestion vers la région B (3).
 * Modifiez la chaîne de connexion de l’application pour la diriger vers les bases de données de gestion dans la région B. Modifiez les bases de données de gestion pour vous assurer que les nouveaux comptes et bases de données client sont créés dans la région B et que les bases de données client existantes s’y trouvent également. Les données des clients existants utilisant une version d’évaluation sont temporairement indisponibles.
@@ -152,7 +152,7 @@ Le schéma suivant détaille la procédure de récupération à suivre en cas de
 
 Après la récupération de la région A, vous devez décider si vous souhaitez utiliser la région B pour les clients utilisant la version d’évaluation ou restaurer les bases de données dans le pool des clients d’évaluation de la région A. Pour prendre votre décision, vous pouvez par exemple tenir compte du pourcentage de bases de données client en version d’évaluation qui ont été modifiées depuis la récupération. Quelle que soit cette décision, vous devez répartir à nouveau les clients payants entre les deux pools. La figure suivante illustre le processus lorsque les bases de données concernant les clients non payants rebasculent vers la région A.  
 
-![Figure 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![Le diagramme montre les étapes de restauration automatique à implémenter après la restauration de la Region A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Annulez toutes les requêtes de géo-restauration en attente pour le pool de récupération d’urgence des bases de données en version d’évaluation.
 * Basculez la base de données de gestion (8). Après la récupération de la région, l’ancienne base de données primaire est automatiquement devenue une base de données secondaire. Celles-ci redeviennent désormais les bases de données primaires.  

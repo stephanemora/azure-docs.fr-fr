@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/19/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 20cbc9b33e567ffe306aae694bb835d95c2d861e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b2e597ff8fc761b66de6228063c471933a364144
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704975"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449648"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurer un client NFS pour Azure NetApp Files
 
@@ -46,6 +46,9 @@ Quelle que soit la version de Linux que vous utilisez, les configurations suivan
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
 ## <a name="ubuntu-configuration"></a>Configuration pour Ubuntu 
+Cette section décrit la configuration d'Ubuntu pour les clients NFS.  
+
+### <a name="if-you-are-using-nfsv41-kerberos-encryption"></a>Si vous utilisez le chiffrement Kerberos NFSv4.1 
 
 1. Installez les packages :  
     `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
@@ -55,6 +58,26 @@ Quelle que soit la version de Linux que vous utilisez, les configurations suivan
 
 3. Joignez le domaine Active Directory :  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+
+### <a name="if-you-are-using-dual-protocol"></a>Si vous utilisez le double protocole  
+
+1. Pour mettre à niveau les packages installés, exécutez la commande suivante :  
+    `sudo apt update && sudo apt install libnss-ldap libpam-ldap ldap-utils nscd`
+
+    Exemple :   
+
+    `base dc=hariscus,dc=com` `uri ldap://10.20.0.4:389/`
+    `ldap_version 3`
+    `rootbinddn cn=admin,cn=Users,dc=hariscus,dc=com`
+    `pam_password ad`
+ 
+2. Pour redémarrer et activer le service, exécutez la commande suivante :   
+    `sudo systemctl restart nscd && sudo systemctl enable nscd`
+
+L'exemple suivant interroge le serveur LDAP AD à partir du client LDAP Ubuntu pour un utilisateur LDAP `ldapu1` :   
+
+`root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
+`hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

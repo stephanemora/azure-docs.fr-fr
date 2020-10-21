@@ -6,18 +6,19 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716841"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91276449"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Vous pouvez désormais paramétrer un service lié et transmettre des valeurs dynamiques au moment de l’exécution. Par exemple, si vous souhaitez vous connecter à différentes bases de données sur le même serveur SQL logique, vous pouvez désormais paramétrer le nom de la base de données dans la définition du service lié. Ceci vous évite d’avoir à créer un service lié pour chaque base de données sur le serveur SQL logique. Vous pouvez également paramétrer les autres propriétés de la définition du service lié : par exemple, *Nom d’utilisateur.*
@@ -33,7 +34,8 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
-À ce stade, le paramétrage de service lié est pris en charge dans l’interface utilisateur de Data Factory pour les magasins de données suivants. Pour tous les autres magasins de données, vous pouvez paramétrer le service lié en sélectionnant l'icône **Code** dans l'onglet **Connexions** et à l'aide de l'éditeur JSON.
+Vous pouvez paramétrer n’importe quel type de service lié.
+Lors de la création d’un service lié sur l’interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de connecteurs suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique.
 
 - Amazon Redshift
 - Azure Cosmos DB (API SQL)
@@ -45,6 +47,13 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 - SQL Server
 - HTTP générique
 - REST générique
+
+Pour les autres types, vous pouvez paramétrer le service lié en modifiant le JSON sur l’interface utilisateur :
+
+- Dans le panneau de création/modification du service lié -> développez « Avancé » en bas -> activez la case à cocher « Spécifier un contenu dynamique au format JSON » -> spécifiez la charge utile du JSON du service lié. 
+- Ou bien, après avoir créé un service lié sans paramétrage, dans [Hub de gestion](author-visually.md#management-hub) -> Services liés-> recherchez le service lié spécifique -> cliquez sur « Code » (bouton « {} ») pour modifier le JSON. 
+
+Pour ajouter une section ` parameters` afin de définir des paramètres et de référencer le paramètre à l’aide de ` @{linkedService().paraName} `, reportez-vous à l’[exemple de JSON](#json).
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 

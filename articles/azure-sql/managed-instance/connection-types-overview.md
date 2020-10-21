@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070715"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356297"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Types de connexions Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Azure SQL Managed Instance prend en charge les deux types de connexion suivants�
 
 Avec le type de connexion redirigée, une fois la session TCP au moteur SQL établie, la session cliente obtient de l’équilibreur de charge l’adresse IP virtuelle de destination du nœud de cluster virtuel à partir. Les paquets suivants sont directement acheminés vers le nœud de cluster virtuel, en ignorant la passerelle. Le schéma suivant illustre ce flux de trafic :
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Diagramme représentant un réseau local où redirect-find-db est connectée à une passerelle dans un réseau virtuel Azure et où redirect-query est connectée à un nœud principal de base de données dans le réseau virtuel.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > Actuellement, le type de connexion redirigée ne fonctionne que pour un point de terminaison privé. Quel que soit le paramètre de type de connexion, les connexions entrantes par le biais du point de terminaison public s’effectuent via un proxy.
@@ -43,7 +43,7 @@ Avec le type de connexion redirigée, une fois la session TCP au moteur SQL éta
 
 Avec le type de connexion proxy, la session TCP est établie à l’aide de la passerelle et que tous les paquets suivants transitent par elle. Le schéma suivant illustre ce flux de trafic :
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Diagramme représentant un réseau local où un proxy est connecté à une passerelle dans un réseau virtuel Azure, avec connexion en regard d'un nœud principal de base de données dans le réseau virtuel.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>Modification du type de connexion
 

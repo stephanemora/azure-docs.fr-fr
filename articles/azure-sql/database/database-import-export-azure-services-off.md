@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9b34a2435486a905923e783153ccae97628193a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543756"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91443749"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importer ou exporter une instance Azure SQL Database sans autoriser les services Azure à accéder au serveur
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
 1. Une fois le déploiement terminé, accédez à la ressource de machine virtuelle.
 
-   ![Machine virtuelle](./media/database-import-export-azure-services-off/vm.png)  
+   ![Capture d'écran représentant la page de présentation d'une machine virtuelle avec un bouton Se connecter.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Sélectionnez **Connecter**.
 

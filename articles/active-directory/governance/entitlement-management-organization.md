@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783941"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449897"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -66,6 +66,8 @@ Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisati
 
     ![Bouton Ajouter une organisation connectée - Onglet De base](./media/entitlement-management-organization/organization-basics.png)
 
+1. L’état est automatiquement défini sur **Configuré** lorsque vous créez une organisation connectée. Pour plus d’informations sur les propriétés d’état, consultez [Propriétés d’état des organisations connectées](#state-properties-of-connected-organizations).
+
 1. Sélectionnez l’onglet **Annuaire + domaine**, puis sélectionnez **Ajouter un annuaire + domaine**.
 
     Le volet **Sélectionner des annuaires et des domaines** s’ouvre.
@@ -109,7 +111,7 @@ Si l’organisation connectée change de domaine, si le nom de l’organisation 
 
 1. Dans le volet de gauche, sélectionnez **Organisations connectées**, puis sélectionnez l’organisation connectée pour l’ouvrir.
 
-1. Dans la vue d’ensemble de l’organisation connectée, sélectionnez **Modifier** pour modifier le nom ou la description de l’organisation.  
+1. Dans la vue d’ensemble de l’organisation connectée, sélectionnez **Modifier** pour modifier le nom, la description ou l’état de l’organisation.  
 
 1. Dans la page **Annuaire + domaine**, sélectionnez **Mettre à jour l’annuaire + le domaine** pour basculer vers un autre annuaire ou domaine.
 
@@ -135,6 +137,23 @@ Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD extern
 ## <a name="managing-a-connected-organization-programmatically"></a>Gestion d’une organisation connectée par programmation
 
 Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) et définir des commanditaires pour eux.
+
+## <a name="state-properties-of-connected-organizations"></a>Propriétés d’état des organisations connectées
+
+Il existe actuellement deux types de propriétés d’état pour les organisations connectées dans la gestion des droits d’utilisation Azure AD, à savoir configurée et proposée : 
+
+- Une organisation connectée configurée est une organisation connectée entièrement fonctionnelle qui permet à ses utilisateurs d’accéder aux packages d’accès. Quand un administrateur crée une organisation connectée dans le portail Azure, celle-ci est en état **configuré** par défaut, car l’administrateur souhaite utiliser cette organisation connectée. En outre, quand une organisation connectée est créée par programme via l’API, l’état par défaut doit être **configuré** sauf si un autre état est explicitement défini. 
+
+    Les organisations connectées configurées s’afficheront dans les sélecteurs pour les organisations connectées, et s’inscriront dans l’étendue de toutes les stratégies ciblant « toutes » les organisations connectées.
+
+- Une organisation connectée proposée est une organisation connectée qui a été créée automatiquement, sans qu’un administrateur la crée ou l’approuve. Quand un utilisateur s’inscrit pour un package d’accès en dehors d’une organisation connectée configurée, toutes les organisations connectées créées automatiquement se trouvent dans l’état **proposé**, car aucun administrateur dans le locataire n’a configuré ce partenariat. 
+    
+    Les organisations connectées proposées ne s’affichent pas dans les sélecteurs pour les organisations connectées configurées, et ne s’inscrivent pas dans l’étendue du paramètre « toutes les organisations connectées configurées » d’aucune stratégie. 
+
+Seuls des utilisateurs d’organisations connectées configurées peuvent demander des packages d’accès disponibles pour les utilisateurs de toutes les organisations configurées. Les utilisateurs d’organisations connectées proposées ont une expérience comme s’il n’y avait pas d’organisation connectée pour ce domaine, et n’ont pas accès au package d’accès tant que l’état n’est pas modifié par un administrateur.
+
+> [!NOTE]
+> Dans le cadre du déploiement de cette nouvelle fonctionnalité, toutes les organisations connectées créées avant 09/09/20 ont été considérées comme **configurées**. Si vous aviez un package d’accès permettant aux utilisateurs de toute organisation de s’inscrire, vous devriez examiner votre liste d’organisations connectées créées avant cette date pour vous assurer qu’aucune n’est erronément catégorisée comme **configurée**.  Un administrateur peut mettre à jour la propriété **État** si nécessaire. Pour obtenir de l’aide, consultez [Mettre à jour une organisation connectée](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535975"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653313"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Prospects de votre offre de marketplace commercial
 
@@ -44,7 +44,7 @@ Voici les endroits où les prospects sont générés :
 
 ## <a name="connect-to-your-crm-system"></a>Connexion à votre système CRM
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
 
 ## <a name="understand-lead-data"></a>Comprendre les données de prospect
 
@@ -94,78 +94,8 @@ Voici quelques recommandations pour faire avancer les prospects dans le cycle de
 - **Suivi** : N’oubliez pas d’effectuer un suivi dans les 24 heures. Le prospect sera intégré au système CRM de votre choix juste après que le client aura déployé la version d’évaluation ; envoyez-lui un e-mail à chaud. Demandez à programmer un appel téléphonique afin de mieux comprendre si votre produit est une bonne solution pour résoudre le problème. Une transaction implique en général de nombreux appels de suivi.
 - **Soins** : Soignez vos prospects pour bénéficier d’une plus grande marge de profits. Restez en contact avec eux sans les harceler. Nous vous recommandons d’envoyer au moins quelques e-mails aux prospects avant de clore le dossier ; ne renoncez pas après la première tentative. N’oubliez pas que ces clients ont passé du temps à tester votre produit dans le cadre d’un essai gratuit : ce sont d’excellents prospects.
 
-## <a name="common-questions-about-lead-management"></a>Questions courantes sur la gestion des prospects
-
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Où puis-je obtenir de l’aide pour configurer la destination des prospects ?
-
-Suivez les étapes de la section [Connexion à votre système CRM](#connect-to-your-crm-system) ou soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://aka.ms/marketplacepublishersupport). Sélectionnez ensuite **Création d’offre** > **Votre type d’offre** > **Configuration de la gestion des prospects**.
-
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Dois-je obligatoirement configurer une destination de prospect pour publier une offre sur la place de marché commerciale ?
-
-La réponse dépend du type d’offre que vous publiez. Les offres de logiciel en tant que service (SaaS) et d’engagement client Dynamics 365 utilisent **Me contacter** pour lister toutes les offres Dynamics 365 pour la finance et les opérations, toutes les offres Dynamics 365 Business Central et toutes les offres de services de conseil. Par conséquent, elles nécessitent une connexion à une destination de prospect. Si votre type d’offre ne figure pas dans cette liste, une connexion à une destination de prospect n’est pas nécessaire. Nous vous recommandons de configurer une destination de prospect pour ne pas manquer d’opportunités commerciales.
-
-### <a name="how-can-i-find-the-test-lead"></a>Comment trouver le prospect test ?
-
-Recherchez `"MSFT_TEST"` dans votre destination de prospect. Vous trouverez ci-dessous un exemple de prospect test de Microsoft. Notez que le format du prospect test varie en fonction de la destination du prospect.
-
-```
-{
-    "UserDetails": {
-      "FirstName": "MSFT_TEST_636573304831318844",
-      "LastName": "MSFT_TEST_636573304831318844",
-      "Email": "MSFT_TEST_636573304831318844@test.com",
-      "Phone": "1234567890",
-      "Country": "US",
-      "Company": "MSFT_TEST_636573304831318844",
-      "Title": "MSFT_TEST_636573304831318844"
-    },
-    "LeadSource": "AzureMarketplace",
-    "ActionCode": "INS",
-    "OfferTitle": "Contoso Test"
-    "Description": "MSFT_TEST_636573304831318844"
-}
-```
-
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>J’ai une offre en ligne, mais je ne vois aucun prospect. Pourquoi ?
-
-Assurez-vous que votre connexion à la destination du prospect est valide. Nous vous enverrons un prospect test une fois que vous aurez sélectionné **Publier** dans votre offre, dans l’Espace partenaires. Si vous voyez le prospect test, la connexion est valide. Vous pouvez également tester votre connexion de prospect en essayant d’acquérir la préversion de l’offre au cours de l’étape de préversion. Sélectionnez **Obtenir maintenant**, **Me contacter** ou **Essai gratuit** dans la liste sur la Place de marché commerciale.
-
-De plus, vérifiez de rechercher les bonnes données. Le contenu de la section [Comprendre les données de prospect](#understand-lead-data) de cet article décrit les données de prospect que nous envoyons à votre destination de prospect.
-
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>J’ai configuré le stockage Blob Azure comme destination de prospect. Pourquoi le prospect n’est-il pas visible ?
-
-Le stockage Blob Azure n’est plus pris en charge comme destination de prospect et vous risquez de manquer les prospects générés par votre offre. Basculez vers l’une des autres options de [destination des prospects](./commercial-marketplace-get-customer-leads.md). 
-
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>J’ai reçu un e-mail de la Place de marché commerciale, mais pourquoi le prospect est-il introuvable dans mon système CRM ?
-
-Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas d’informations personnelles en provenance du domaine .edu. Soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://aka.ms/marketplacepublishersupport).
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>J’ai configuré une table Azure comme destination de prospect. Comment afficher les prospects ?
-
-Vous pouvez accéder aux données de prospect stockées dans la table Azure à partir du portail Azure. Vous pouvez également télécharger et installer gratuitement l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour afficher les données de table de votre compte de stockage Azure.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>J’ai configuré une table Azure comme destination de prospect. Puis-je recevoir une notification chaque fois qu’un nouveau prospect est envoyé par la Place de marché commerciale ?
-
-Oui. Suivez les instructions figurant dans [Configurer la gestion des prospects à l’aide d’une table Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) pour configurer un flux Microsoft Flow qui envoie un e-mail si un prospect est ajouté à la table Azure.
-
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>J’ai configuré Salesforce comme destination de prospect, mais pourquoi les prospects sont-ils introuvables ?
-
-Vérifiez si le formulaire Web-to-Lead est un champ obligatoire avec liste déroulante. Si c’est le cas, faites-en un champ de texte non obligatoire.
-
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Un problème s’est produit au niveau de ma destination des prospects, ce qui m’a fait manquer des prospects. Puis-je me les faire envoyer par e-mail ?
-
-En raison des stratégies relatives aux informations personnelles, nous ne pouvons pas partager les informations sur les prospects via un e-mail non sécurisé.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>J’ai configuré une table Azure comme destination de prospect. Combien cela va-t-il coûter ?
-
-Les données de génération de prospects sont peu volumineuses. Elles représentent moins de 1 Go pour presque tous les serveurs de publication. Le coût dépend du nombre de prospects reçus. Par exemple, si 1 000 prospects sont reçus en un mois, le coût est d’environ 50 cents. Pour plus d’informations sur la tarification du stockage, consultez [Vue d’ensemble de la tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
-
-Si vous n’avez pas trouvé de réponse à votre question, contactez le Support Microsoft via [Aide et support de l’Espace partenaires](https://aka.ms/marketplacepublishersupport). Sélectionnez ensuite **Création d’offre** > **Votre type d’offre** > **Configuration de la gestion des prospects**.
-
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Je reçois des notifications par e-mail lors de la réception de nouveaux prospects. Comment puis-je configurer un autre destinataire pour ces e-mails ?
-
-Accédez à votre offre dans l’Espace partenaires, puis accédez à la page **Configuration de l’offre** > **Gestion des prospects** > **Modifier**. Mettez à jour les adresses e-mail dans le champ **E-mail du contact**.
+Une fois les paramètres techniques configurés, incorporez ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous [communiquer vos commentaires](mailto:AzureMarketOnboard@microsoft.com) et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché commerciale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois les paramètres techniques configurés, incorporez ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous [communiquer vos commentaires](mailto:AzureMarketOnboard@microsoft.com) et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché commerciale.
+- [FAQ et résolution des problèmes liés à la gestion des prospects](../lead-management-faq.md)

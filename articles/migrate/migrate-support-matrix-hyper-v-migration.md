@@ -3,12 +3,12 @@ title: Prise en charge de la migration Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge de la migration Hyper-V avec Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051149"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91442307"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -38,12 +38,12 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 | :----------------------------- | :------------------- |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](../virtual-machines/linux/endorsed-distros.md) pris en charge par Azure. |
 **Windows Server 2003** | Pour les machines virtuelles exécutant Windows Server 2003, vous devez [installer Hyper-V Integration Services](prepare-windows-server-2003-migration.md) avant la migration. | 
-**Machines virtuelles Linux dans Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure.<br/><br/> Azure Migrate effectue automatiquement les modifications pour les systèmes d’exploitation Linux suivants :<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. Pour les autres systèmes d’exploitation, [modifications requises](prepare-for-migration.md#linux-machines) sont à faire manuellement.
+**Machines virtuelles Linux dans Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure.<br/><br/> Azure Migrate effectue automatiquement les modifications pour les systèmes d’exploitation Linux suivants :<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Pour les autres systèmes d’exploitation, [modifications requises](prepare-for-migration.md#verify-required-changes-before-migrating) sont à faire manuellement.
 | **Modifications nécessaires pour Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure. Effectuez les ajustements manuellement avant la migration. Les articles pertinents contiennent des instructions sur la façon de procéder. |
 | **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
-| **Démarrage UEFI**                  | Pris en charge. Assurez-vous que vous sélectionnez une taille de machine virtuelle prise en charge par la machine virtuelle Azure 2e génération  |
+| **Démarrage UEFI**                  | Pris en charge. Les machines virtuelles UEFI seront migrées vers des machines virtuelles Azure de 2e génération.  |
 | **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.|
-| **Taille du disque**                  | 2 To pour le disque du système d’exploitation ; 4 To pour les disques de données.|
+| **Taille du disque**                  | 2 To pour le disque du système d’exploitation (démarrage du BIOS) ; 4 To pour le disque du système d’exploitation (démarrage d'UEFI) ; 4 To pour les disques de données.|
 | **Nombre de disques** | Un maximum de 16 disques par machine virtuelle.|
 | **Disques/volumes chiffrés**    | Non pris en charge pour la migration.|
 | **RDM/disques directs**      | Non pris en charge pour la migration.|

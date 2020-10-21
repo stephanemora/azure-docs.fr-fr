@@ -1,14 +1,16 @@
 ---
 title: Conversations multitours dans QnA Maker
 description: Servez-vous des invites et du contexte pour gérer plusieurs tours (ou « multitour ») pour votre bot d’une question à l’autre. La conversation multitour est la possibilité d’avoir une conversation nourrie où le contexte de la question précédente influence la question et la réponse suivantes.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229344"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777798"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -52,7 +54,7 @@ Lorsque vous sélectionnez cette option, QnA Maker extrait la hiérarchie prése
 
 La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Exemple de structure dans un manuel utilisateur]\(../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Capture d'écran représentant un exemple de la structure dans un manuel d'utilisation." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Création de votre propre document multitour
 
@@ -92,7 +94,7 @@ Sélectionnez **Options d’affichage**, puis **Afficher le contexte**. La liste
 
 Le contexte multitour s’affiche dans la première colonne.
 
-![! [La colonne « Context (PREVIEW) »]\(../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Capture d'écran représentant un exemple de la structure dans un manuel d'utilisation." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Dans l’image précédente, **#1** désigne le texte en gras dans la colonne, qui représente la question actuelle. La question parente est le premier élément de la ligne. Les questions situées en dessous sont les paires de questions/réponses liées. Vous pouvez sélectionner ces éléments pour accéder immédiatement aux autres éléments contextuels.
 
@@ -167,7 +169,7 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
 
     La question parente affiche une nouvelle question parmi ses différents choix.
 
-    ![! [La colonne Context, pour ces deux questions, indique une relation d’invite de suivi]\(../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Capture d'écran représentant un exemple de la structure dans un manuel d'utilisation." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Une fois que vous avez ajouté l’invite de suivi, sélectionnez **Save and train** dans la barre de navigation supérieure.
 

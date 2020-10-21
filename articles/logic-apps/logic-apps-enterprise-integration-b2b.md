@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090380"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542374"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger et confirmer des messages B2B AS2 avec Azure Logic Apps et Enterprise Integration Pack
 
@@ -111,7 +111,7 @@ Pour informer le partenaire commercial de la réception du message, vous pouvez 
 
    La forme de condition s’affiche, qui inclut les chemins d’accès indiquant si la condition est remplie ou non.
 
-   ![Forme de condition avec chemins de décision](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Capture d'écran représentant la forme de condition, dans laquelle les chemins d'accès sont vides.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Spécifiez à présent la condition à évaluer. Dans la zone **Choisir une valeur**, entrez l’expression suivante :
 
@@ -119,7 +119,7 @@ Pour informer le partenaire commercial de la réception du message, vous pouvez 
 
    Dans la zone centrale, assurez-vous que l’opération de comparaison est définie sur `is equal to`. Dans la zone de droite, entrez la valeur `Expected`. Pour obtenir l’expression à résoudre en ce jeton, basculez entre le concepteur et le mode Code.
 
-   ![Forme de condition avec chemins de décision](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Capture d'écran représentant la forme de condition, dans laquelle une condition a été ajoutée.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Maintenant, spécifiez les réponses à retourner selon que l’action **Décodage AS2** réussi ou non.
 

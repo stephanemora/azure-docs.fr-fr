@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729064"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940833"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -78,20 +78,20 @@ Tous les instantanés pris par Azure Backup sont accessibles par l’option Voir
 
 ### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>Que se passe-t-il après le déplacement d’un partage de fichiers sauvegardé vers un autre abonnement ?
 
-Une fois qu’un partage de fichiers est déplacé vers un autre abonnement, il est considéré comme un nouveau partage de fichiers par Sauvegarde Azure. Voici les étapes recommandées :
+Une fois qu’un partage de fichiers est déplacé vers un autre abonnement, il est considéré comme un nouveau partage de fichiers par Sauvegarde Azure. Les étapes recommandées sont les suivantes :
  
-Scénario : Supposons que vous avez un partage de fichiers FS1 dans l’abonnement S1 et qu’il est protégé à l’aide du coffre V1. Vous souhaitez maintenant déplacer votre partage de fichiers vers l’abonnement S2.
+Scénario : Supposons que vous avez un partage de fichiers *FS1* dans l’abonnement *S1* et qu’il est protégé à l’aide du coffre *V1*. Vous souhaitez maintenant déplacer votre partage de fichiers vers l’abonnement *S2*.
  
 1.  Déplacez le compte de stockage et le partage de fichiers (FS1) souhaités vers l’autre abonnement (S2).
 2.  Dans le coffre V1, déclenchez l’arrêt de la protection avec l’opération de suppression de données pour FS1.
 3.  Désinscrivez le compte de stockage qui héberge FS1 du coffre V1.
 4.  Reconfigurez la sauvegarde pour FS1, désormais déplacée dans S2, avec un coffre (V2) dans l’abonnement S2. 
  
-Notez qu’après la reconfiguration de la sauvegarde avec V2, les instantanés qui ont été effectués avec V1 ne seront plus gérés par Sauvegarde Azure. Par conséquent, vous devrez supprimer manuellement ces instantanés en fonction de vos besoins.
+Notez qu’après la reconfiguration de la sauvegarde avec V2, les instantanés qui ont été pris avec V1 ne seront plus gérés par Sauvegarde Azure. Vous devrez donc supprimer ces instantanés manuellement en fonction de vos besoins.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Puis-je déplacer mon partage de fichiers sauvegardé vers un autre groupe de ressources ?
  
-Oui, vous pouvez déplacer votre partage de fichiers sauvegardé vers un autre groupe de ressources. Toutefois, vous devrez reconfigurer la sauvegarde pour le partage de fichiers, car il sera traité comme une nouvelle ressource par Sauvegarde Azure. En outre, les instantanés qui ont été créés avant le déplacement du groupe de ressources ne seront plus gérés par Sauvegarde Azure. Par conséquent, vous devrez supprimer manuellement ces instantanés en fonction de vos besoins.
+Oui, vous pouvez déplacer votre partage de fichiers sauvegardé vers un autre groupe de ressources. Toutefois, vous devrez reconfigurer la sauvegarde pour le partage de fichiers, car il sera traité comme une nouvelle ressource par Sauvegarde Azure. En outre, les instantanés qui ont été créés avant le déplacement du groupe de ressources ne seront plus gérés par Sauvegarde Azure. Vous devrez donc supprimer ces instantanés manuellement en fonction de vos besoins.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Quelle est la durée de conservation maximale configurable pour les sauvegardes ?
 

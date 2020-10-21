@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/23/2020
+ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497611"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332098"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,7 +81,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur « Dynamics », « DynamicsCrm » ou « CommonDataServiceForApps ». | Oui |
 | deploymentType | Type de déploiement de l’instance Dynamics. La valeur doit être « En ligne » pour Dynamics en ligne. | Oui |
-| serviceUri | URL de service de votre instance Dynamics. par exemple https://www.crmdynamics.com. | Oui |
+| serviceUri | URL du service de votre instance Dynamics, la même que celle à laquelle vous accédez à partir du navigateur. Par exemple, « https://\<organization-name>.crm[x].dynamics.com ». | Oui |
 | authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Les valeurs valides sont « AADServicePrincipal » et « Office 365 ». | Oui |
 | servicePrincipalId | ID client de l’application Azure AD. | Oui lorsque l’authentification est « AADServicePrincipal » |
 | servicePrincipalCredentialType | Type d’informations d’identification à utiliser pour l’authentification de principal du service. Les valeurs valides sont « ServicePrincipalKey » et « ServicePrincipalCert ». | Oui lorsque l’authentification est « AADServicePrincipal » |
@@ -102,7 +102,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {

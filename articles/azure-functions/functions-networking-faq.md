@@ -4,12 +4,12 @@ description: Répond à certaines questions courantes concernant les réseaux da
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385906"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538056"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquentes concernant les réseaux dans Azure Functions
 
@@ -27,7 +27,7 @@ Vous pouvez limiter l’accès Internet de deux façons :
     * Lorsque des restrictions d’adresse IP sont appliquées, vous pouvez également configurer des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md),afin de contraindre votre fonction à n’accepter que le trafic entrant provenant d’un réseau virtuel particulier.
 * Suppression de tous les déclencheurs HTTP. Pour certaines applications, il suffit simplement d’éviter les déclencheurs HTTP et d’utiliser toute autre source d’événement pour déclencher votre fonction.
 
-N’oubliez pas que l’éditeur du portail Azure nécessite un accès direct à la fonction actuellement exécutée. Les modifications apportées au code via le portail Azure nécessitent que l’appareil que vous utilisez accède au portail afin d’obtenir que son adresse IP soit ajoutée à la liste verte. Toutefois, vous pouvez aussi utiliser l’une des options qui se trouvent sous l’onglet Fonctionnalités de la plateforme lorsque des restrictions de réseau sont appliquées.
+N’oubliez pas que l’éditeur du portail Azure nécessite un accès direct à la fonction actuellement exécutée. Pour que les modifications apportées au code via le portail Azure soient appliquées, l'ID de l'appareil que vous utilisez pour accéder au portail doit être ajouté à la liste approuvée. Toutefois, vous pouvez aussi utiliser l’une des options qui se trouvent sous l’onglet Fonctionnalités de la plateforme lorsque des restrictions de réseau sont appliquées.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Comment limiter mon application de fonction à un réseau virtuel ?
 

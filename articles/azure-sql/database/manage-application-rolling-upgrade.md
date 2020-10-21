@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031940"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450266"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gérer les mises à niveau propagées des applications cloud à l’aide de la géoréplication active Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Si votre application s’appuie sur des sauvegardes automatiques de la base de d
 > [!NOTE]
 > Ces étapes de préparation n’affecteront pas l’environnement de production, qui peut fonctionner en mode d’accès complet.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option1-1.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 Une fois les étapes de préparation terminées, l’application est prête pour la mise à niveau. Le schéma suivant illustre les étapes impliquées dans le processus de mise à niveau :
 
@@ -48,7 +48,7 @@ Une fois les étapes de préparation terminées, l’application est prête pour
 2. Déconnectez la base de données secondaire à l’aide du mode d’arrêt planifié (4). Cette action crée une copie indépendante entièrement synchronisée de la base de données primaire. Cette base de données est alors mise à niveau.
 3. Configurez la base de données secondaire en mode lecture-écriture et exécutez le script de mise à niveau (5).
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option1-2.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud qui exécute le script de mise à niveau.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Si la mise à niveau se termine correctement, vous êtes maintenant prêt à faire basculer les utilisateurs vers la copie mise à niveau de l’application, qui devient un environnement de production. Ce basculement implique quelques étapes supplémentaires, comme l’illustre le schéma suivant :
 
@@ -67,7 +67,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 > [!NOTE]
 > La restauration ne nécessite pas de modifications DNS, car vous n’aviez pas encore effectué d’opération de permutation.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option1-4.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud avec l’environnement intermédiaire désaffecté.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 Le principal avantage de cette option est qu’elle vous permet de mettre à niveau une application dans une seule région en effectuant une série d’étapes simples. Le coût de la mise à niveau est relativement faible. 
 
@@ -98,7 +98,7 @@ Pour permettre l’annulation de la mise à niveau, vous devez créer un environ
 > [!NOTE]
 > Ces étapes de préparation n’affecteront pas l’application dans l’environnement de production. Elle restera totalement fonctionnelle en mode lecture-écriture.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option2-1.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud avec une copie entièrement synchronisée de l’application.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 Une fois les étapes de préparation terminées, l’environnement de préproduction est prêt pour la mise à niveau. Le schéma suivant illustre ces étapes de la mise à niveau :
 
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) est également disponible. 
+2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) est également disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Exécutez le script de mise à niveau sur `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` et la base de données primaire de préproduction (12). Les modifications apportées à la base de données sont répliquées automatiquement sur la secondaire de préproduction.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option2-2.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud avec les modifications de base de données répliquées pour l’environnement intermédiaire.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Si la mise à niveau s’est correctement déroulée, vous êtes maintenant prêt à basculer les utilisateurs sur la version V2 de l’application. Le schéma suivant illustre les étapes impliquées dans ce processus :
 
 1. Effectuez une opération de permutation entre les environnements de production et de préproduction de l’application web dans la région primaire (13) et dans la région de sauvegarde (14). La version V2 de l’application est maintenant un environnement de production avec une copie redondante dans la région de sauvegarde.
 2. Si vous n’avez plus besoin de la version V1 de l’application (15 et 16), vous pouvez mettre l’environnement de préproduction hors service.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option2-3.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud avec désaffectation facultative de l’environnement intermédiaire.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Si la mise à niveau échoue, par exemple en raison d’une erreur dans le script de mise à niveau, considérez l’environnement de préproduction comme étant dans un état incohérent. Pour restaurer l’application telle qu’elle se trouvait avant la mise à niveau, rétablissez l’utilisation de la version V1 de l’application dans l’environnement de production. Les étapes nécessaires sont indiquées sur le schéma suivant :
 
@@ -139,7 +139,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 > [!NOTE]
 > La restauration ne nécessite pas de modifications DNS, car vous n’avez pas effectué d’opération de permutation.
 
-![Configuration de la géoréplication SQL Database pour la reprise d’activité cloud.](./media/manage-application-rolling-upgrade/option2-4.png)
+![Diagramme montrant la configuration de la géoréplication de SQL Database pour la récupération d’urgence cloud avec le processus de mise à niveau annulé.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 Le principal avantage de cette option est qu’elle vous permet de mettre à niveau l’application et sa copie géoredondante en parallèle sans compromettre votre continuité de l’activité lors de la mise à niveau.
 
