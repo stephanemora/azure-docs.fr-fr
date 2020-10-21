@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766847"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125335"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Une fois la copie des données terminée, vous pouvez passer à leur validation.
 
 Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vous devez les valider. Pour vérifier les données, procédez comme suit.
 
-1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur. Cette option est disponible uniquement pour les environnements Windows. Les utilisateurs Linux doivent vérifier que les données sources copiées sur le disque répondent aux [prérequis](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur. Cette option est disponible uniquement pour les environnements Windows. Les utilisateurs Linux doivent vérifier que les données sources copiées sur le disque répondent aux [prérequis](./data-box-disk-limits.md).
     
     ![Sortie de l’outil de validation Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Effectuez les étapes suivantes pour vérifier vos données.
 1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur.
 2. Utilisez l’option 2 pour valider vos fichiers et générer des sommes de contrôle. Selon la taille de vos données, cette étape peut prendre un certain temps. Si des erreurs se produisent pendant la validation et la génération des sommes de contrôle, vous en êtes averti, et un lien d’accès aux journaux d’activité des erreurs vous est également fourni.
 
-    Pour plus d’informations sur la validation de données, consultez [Valider les données](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Si des erreurs se produisent lors de la validation, consultez [Résoudre les erreurs de validation](data-box-disk-troubleshoot.md).
+    Pour plus d’informations sur la validation de données, consultez [Valider les données](#validate-data). Si des erreurs se produisent lors de la validation, consultez [Résoudre les erreurs de validation](data-box-disk-troubleshoot.md).
 
 ::: zone-end

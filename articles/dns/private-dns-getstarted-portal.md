@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78244978"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310045"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Démarrage rapide : Créer une zone Azure DNS privée avec le portail Azure
 
@@ -20,15 +20,7 @@ Ce guide de démarrage rapide vous guide tout au long des étapes de création d
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Pour publier une zone DNS privée sur votre réseau virtuel, vous spécifiez la liste des réseaux virtuels qui sont autorisés à résoudre les enregistrements dans la zone.  On les appelle réseaux virtuels *liés*. Quand l’inscription automatique est activée, Azure DNS met également à jour les enregistrements de zone chaque fois qu’une machine virtuelle est créée, change d’adresse IP ou est supprimée.
 
-Dans ce guide de démarrage rapide, vous apprenez à :
-
-> [!div class="checklist"]
-> * Créer une zone DNS privée
-> * Créez un réseau virtuel
-> * Lier le réseau virtuel
-> * Créer des machines virtuelles de test
-> * Créer un enregistrement DNS supplémentaire
-> * Tester la zone privée
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -180,7 +172,7 @@ Répétez l’opération pour myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Supprimer toutes les ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources **MyAzureResourceGroup** afin de supprimer les ressources créées dans cette guide de démarrage rapide.
 

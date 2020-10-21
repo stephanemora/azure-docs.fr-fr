@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684658"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150069"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -436,7 +436,7 @@ En cas de problème avec Power BI, ouvrez un ticket auprès de l'[équipe de su
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Pourquoi mes balises de ressources ne s'affichent-elles pas sur mes rapports ?
 
-Les balises de ressources sont gérées sur le portail Azure. Vous pouvez contacter l'équipe des abonnements Azure sur le [portail Azure](https://portal.azure.com). Suivez les étapes de l'article [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Les balises de ressources sont gérées sur le portail Azure. Vous pouvez contacter l'équipe des abonnements Azure sur le [portail Azure](https://portal.azure.com). Suivez les étapes de l'article [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>Pourquoi mon taux de ressource change-t-il tous les jours ?
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: ca83760f09ea29ba0b21a0f7177dd3f3188c44cd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686137"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151524"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Réduire les coûts d’Azure Synapse Analytics avec une capacité de réserve
 
@@ -27,7 +27,7 @@ Quand la capacité de réserve arrive à expiration, les instances Azure Synapse
 
 Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-Vous pouvez acheter une capacité de réserve Azure Synapse Analytics sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Payez la réservation [à l’avance ou par paiements mensuels](monthly-payments-reservations.md). Pour acheter une capacité réservée :
+Vous pouvez acheter une capacité de réserve Azure Synapse Analytics sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Payez la réservation [à l’avance ou par paiements mensuels](./prepare-buy-reservation.md). Pour acheter une capacité réservée :
 
 - Vous devez avoir le rôle propriétaire pour au moins un abonnement Entreprise ou avec paiement à l’utilisation.
 - Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Si le paramètre est désactivé, vous devez être un administrateur EA.

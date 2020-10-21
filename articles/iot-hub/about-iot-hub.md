@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87428982"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148839"
 ---
 # <a name="what-is-azure-iot-hub"></a>Qu’est-ce qu’Azure IoT Hub ?
 
@@ -40,7 +40,7 @@ IoT Hub vous offre un canal de communication sécurisé pour que vos appareils e
 
 * Vous avez un contrôle complet sur l’accès à l’appareil et pouvez contrôler les connexions au niveau de l’appareil.
 
-* Le [Service IoT Hub Device Provisioning](https://docs.microsoft.com/azure/iot-dps/) provisionne automatiquement les appareils en fonction de l’IoT Hub correct lors de leur premier démarrage.
+* Le [Service IoT Hub Device Provisioning](../iot-dps/index.yml) provisionne automatiquement les appareils en fonction de l’IoT Hub correct lors de leur premier démarrage.
 
 * Plusieurs types d’authentification prennent en charge un large éventail de fonctionnalités d’appareil :
 
@@ -64,13 +64,13 @@ La fonctionnalité de routage de messages intégrée vous offre la possibilité 
 
 Vous pouvez intégrer IoT Hub avec d’autres services Azure pour créer des solutions complètes, de bout en bout. Par exemple, utilisez :
 
-* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) pour permettre à votre entreprise de réagir rapidement à des événements critiques de façon sûre, évolutive et sécurisée.
+* [Azure Event Grid](../event-grid/index.yml) pour permettre à votre entreprise de réagir rapidement à des événements critiques de façon sûre, évolutive et sécurisée.
 
-* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) pour automatiser les processus métier.
+* [Azure Logic Apps](../logic-apps/index.yml) pour automatiser les processus métier.
 
 * [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) pour ajouter l’apprentissage automatique et les modèles AI à votre solution.
 
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) pour exécuter des calculs analytiques en temps réel sur le streaming de données à partir de vos appareils.
+* [Azure Stream Analytics](../stream-analytics/index.yml) pour exécuter des calculs analytiques en temps réel sur le streaming de données à partir de vos appareils.
 
 ## <a name="configure-and-control-your-devices"></a>Configurer et contrôler vos appareils
 
@@ -88,7 +88,7 @@ Il existe un [Contrat de niveau de service pour IoT Hub](https://azure.microsoft
 
 ## <a name="connect-your-devices"></a>Connecter vos appareils
 
-Utilisez les bibliothèques [Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) pour créer des applications qui s’exécutent sur vos appareils et interagissent avec IoT Hub. Les plateformes prises en charge incluent plusieurs distributions Linux, Windows et les systèmes d’exploitation en temps réel. Les langages pris en charge incluent :
+Utilisez les bibliothèques [Azure IoT device SDK](./iot-hub-devguide-sdks.md) pour créer des applications qui s’exécutent sur vos appareils et interagissent avec IoT Hub. Les plateformes prises en charge incluent plusieurs distributions Linux, Windows et les systèmes d’exploitation en temps réel. Les langages pris en charge incluent :
 
 * C
 * C#
@@ -108,7 +108,7 @@ Si votre solution ne peut pas utiliser les bibliothèques d’appareils, les app
 
 Si votre solution ne peut pas utiliser un des protocoles pris en charge, vous pouvez étendre IoT Hub pour prendre en charge des protocoles personnalisés :
 
-* Utilisez [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) pour créer une passerelle locale afin d’effectuer la traduction de protocole sur la périphérie.
+* Utilisez [Azure IoT Edge](../iot-edge/index.yml) pour créer une passerelle locale afin d’effectuer la traduction de protocole sur la périphérie.
 
 * Personnalisez la [passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) pour effectuer la traduction de protocole dans le cloud.
 

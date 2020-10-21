@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017010"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132548"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -25,13 +25,13 @@ PAL permet à Microsoft d’identifier et de gratifier les partenaires qui favor
 
 Avant de lier votre ID partenaire, votre client doit vous donner accès à ses ressources Azure en utilisant l’une des options suivantes :
 
-- **Utilisateur invité** : votre client peut vous ajouter en tant qu’utilisateur invité et attribuer des rôles Azure. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utilisateur invité** : votre client peut vous ajouter en tant qu’utilisateur invité et attribuer des rôles Azure. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](../../active-directory/external-identities/what-is-b2b.md).
 
 - **Compte Active Directory** : votre client peut créer un compte d’utilisateur pour vous dans son propre répertoire et affecter un rôle Azure.
 
 - **Principal du service** : votre client peut ajouter une application ou un script provenant de votre organisation dans son répertoire et affecter un rôle Azure. L’identité de l’application ou du script correspond à un principal du service.
 
-- **Azure Lighthouse** : Votre client peut déléguer un abonnement (ou un groupe de ressources) pour permettre à vos utilisateurs de l’utiliser à partir de votre locataire. Pour plus d’informations, consultez [Gestion des ressources déléguées Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+- **Azure Lighthouse** : Votre client peut déléguer un abonnement (ou un groupe de ressources) pour permettre à vos utilisateurs de l’utiliser à partir de votre locataire. Pour plus d’informations, consultez [Gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="link-to-a-partner-id"></a>Lien vers un ID partenaire
 
@@ -55,7 +55,7 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 1. Installez le module PowerShell [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/).
 
-2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](/powershell/azure/authenticate-azureps).
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -89,7 +89,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -152,9 +152,9 @@ Les partenaires peuvent accéder aux rapports sur les performances des produits 
 
 Vous ne voyez pas le client dans les rapports pour les raisons suivantes
 
-1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) à un abonnement ou à une ressource Azure de client.
+1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) à un abonnement ou à une ressource Azure de client.
 
-2. L’abonnement Azure pour lequel l’utilisateur dispose de l’[accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) n’est d’aucune utilité.
+2. L’abonnement Azure pour lequel l’utilisateur dispose de l’[accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) n’est d’aucune utilité.
 
 **L’option Lier un ID partenaire fonctionne-t-elle avec Azure Stack ?**
 

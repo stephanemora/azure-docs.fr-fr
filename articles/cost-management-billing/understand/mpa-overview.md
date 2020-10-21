@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447934"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150084"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft
 
@@ -29,7 +29,7 @@ Le diagramme suivant montre la relation entre un compte de facturation, les prof
 
 ![Diagramme illustrant la hiérarchie de facturation pour un Contrat Partenaire Microsoft](./media/mpa-overview/mpa-hierarchy.svg)
 
-Les utilisateurs qui ont le rôle **Administrateur général** ou **Agent d’administration** dans votre organisation ont la possibilité de gérer les comptes de facturation, les profils de facturation et les clients. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).
+Les utilisateurs qui ont le rôle **Administrateur général** ou **Agent d’administration** dans votre organisation ont la possibilité de gérer les comptes de facturation, les profils de facturation et les clients. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
 ## <a name="billing-profiles"></a>Profils de facturation
 
@@ -47,7 +47,7 @@ Vous pouvez voir et gérer les clients qui ont accepté un Contrat Client Micros
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Activer la stratégie pour avoir une meilleure visibilité du coût
 
-Appliquez la stratégie pour contrôler si les utilisateurs dans l’organisation des clients peuvent voir et analyser le coût aux tarifs du paiement à l’utilisation pour leur consommation d’Azure. Par défaut, la stratégie est désactivée et les utilisateurs ne peuvent pas voir le coût. Quand cette stratégie est activée, les utilisateurs qui disposent d’un accès [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) approprié sur un abonnement peuvent voir et analyser le coût de l’abonnement.
+Appliquez la stratégie pour contrôler si les utilisateurs dans l’organisation des clients peuvent voir et analyser le coût aux tarifs du paiement à l’utilisation pour leur consommation d’Azure. Par défaut, la stratégie est désactivée et les utilisateurs ne peuvent pas voir le coût. Quand cette stratégie est activée, les utilisateurs qui disposent d’un accès [Azure RBAC](../../role-based-access-control/overview.md) approprié sur un abonnement peuvent voir et analyser le coût de l’abonnement.
 
 Pour activer la stratégie :
 
@@ -69,7 +69,7 @@ Pour activer la stratégie :
 
 ## <a name="resellers"></a>Revendeurs
 
-Les fournisseurs indirects dans le [modèle CSP de niveau deux](https://docs.microsoft.com/partner-center) peuvent sélectionner un revendeur quand ils créent des abonnements pour les clients dans le portail Azure. Après la création, ils peuvent voir la liste des abonnements filtrés par un revendeur et analyser le coût pour un client par les revendeurs dans l’analyse des coûts Azure.
+Les fournisseurs indirects dans le [modèle CSP de niveau deux](/partner-center) peuvent sélectionner un revendeur quand ils créent des abonnements pour les clients dans le portail Azure. Après la création, ils peuvent voir la liste des abonnements filtrés par un revendeur et analyser le coût pour un client par les revendeurs dans l’analyse des coûts Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Vérifier l’accès à un Contrat Partenaire Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ Si vous avez toujours besoin d’aide, [contactez le support technique](https://
 Consultez les articles suivants pour en savoir plus sur votre compte de facturation :
 
 - [Créer un abonnement Azure supplémentaire dans le cadre de votre Contrat Partenaire Microsoft](../manage/create-subscription.md)
-- Intégrer les données de facturation à votre propre système de rapports à l’aide des [API Facturation Azure](https://docs.microsoft.com/rest/api/billing/)
-- [Guide de démarrage rapide d’Azure Cost Management pour les partenaires](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Intégrer les données de facturation à votre propre système de rapports à l’aide des [API Facturation Azure](/rest/api/billing/)
+- [Guide de démarrage rapide d’Azure Cost Management pour les partenaires](../costs/get-started-partners.md)

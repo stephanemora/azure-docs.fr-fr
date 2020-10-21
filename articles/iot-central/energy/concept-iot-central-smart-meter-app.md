@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001840"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125609"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - Architecture d’application pour compteurs intelligents
 
@@ -28,7 +28,7 @@ Cette architecture est constituée des composants suivants. Certaines solutions 
 
 ## <a name="smart-meters-and-connectivity"></a>Compteurs intelligents et connectivité 
 
-Un compteur intelligent est un des appareils les plus importants parmi l’ensemble des ressources énergétiques. Il enregistre et communique les données de consommation d’énergie aux services publics pour le suivi et d’autres cas d’usage, tels que la facturation et la réponse à la demande. Selon le type du compteur, il peut se connecter à IoT Central via des passerelles ou d’autres appareils ou systèmes intermédiaires, tels que des appareils de périmètre et des systèmes de tête de réseau. Créez un pont d’appareil IoT Central pour connecter les appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Un compteur intelligent est un des appareils les plus importants parmi l’ensemble des ressources énergétiques. Il enregistre et communique les données de consommation d’énergie aux services publics pour le suivi et d’autres cas d’usage, tels que la facturation et la réponse à la demande. Selon le type du compteur, il peut se connecter à IoT Central via des passerelles ou d’autres appareils ou systèmes intermédiaires, tels que des appareils de périmètre et des systèmes de tête de réseau. Créez un pont d’appareil IoT Central pour connecter les appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](../core/howto-build-iotc-device-bridge.md). 
 
 
 ## <a name="iot-central-platform"></a>Plateforme IoT Central
@@ -42,4 +42,4 @@ La plateforme IoT Central fournit deux options d’extensibilité : L’exporta
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Maintenant que vous avez découvert l’architecture, [créez une application de compteur intelligent gratuitement](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Pour plus d’informations sur IoT Central, consultez la [vue d’ensemble d’IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Pour plus d’informations sur IoT Central, consultez la [vue d’ensemble d’IoT Central](../index.yml)

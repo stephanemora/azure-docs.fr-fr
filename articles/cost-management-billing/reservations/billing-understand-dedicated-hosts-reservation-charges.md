@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689454"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148368"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Comment la remise de réservation Azure est appliquée aux hôtes dédiés Azure
 
@@ -36,17 +36,16 @@ Si vous avez des questions ou besoin d’aide,  [créez une demande de support]
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Qu’est-ce qu’une réservation Azure ?](./save-compute-costs-reservations.md)
 
-- [Utilisation d’hôtes dédiés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Utilisation d’hôtes dédiés Azure](../../virtual-machines/dedicated-hosts.md)
 
 - [Tarifs des hôtes dédiés](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Gérer les réservations pour Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Gérer les réservations pour Azure](./manage-reserved-vm-instance.md)
 
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](./understand-reserved-instance-usage.md)
 
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](./understand-reserved-instance-usage-ea.md)
 
-- [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Comprendre l’utilisation d’une réservations pour les abonnements CSP](/partner-center/azure-reservations)
