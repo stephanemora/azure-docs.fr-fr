@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442979"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371522"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutoriel : Charger le jeu de données de New York Taxicab
 
@@ -91,7 +91,7 @@ Pour créer une base de données vide, procédez comme suit.
 
 11. Dans la barre d’outils, sélectionnez **Notifications** pour superviser le processus de déploiement.
   
-     ![notification](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Capture d'écran représentant le portail Azure, avec le volet Notifications ouvert et un déploiement en cours.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 

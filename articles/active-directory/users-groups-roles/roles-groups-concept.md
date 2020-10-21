@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053767"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542306"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
 
@@ -58,13 +58,12 @@ Les scénarios suivants ne sont pas pris en charge pour le moment :
 
 ## <a name="known-issues"></a>Problèmes connus
 
-- Vous ne pouvez pas créer ni modifier un groupe dynamique lorsque le rôle est attribué par le biais d’un groupe.
 - La fonctionnalité **Activer le lancement intermédiaire pour la connexion utilisateur managée** ne prend pas en charge l’affectation par le biais du groupe.
 - *Clients titulaires d’une licence Azure AD P2 uniquement :* n’affectez pas un groupe actif à un rôle à la fois par le biais d’Azure AD et de Privileged Identity Management (PIM). En particulier, n’affectez pas un rôle à un groupe assignable à un rôle lors de sa création *et* à l’aide de PIM plus tard. Cela entraînera des problèmes où les utilisateurs ne pourront pas voir leurs attributions de rôles actives dans PIM, ainsi que l’impossibilité de supprimer ces attributions PIM. Les attributions éligibles ne sont pas visées dans ce scénario. Si vous tentez d’effectuer cette affectation, vous pourriez constater des comportements inattendus, par exemple :
   - L’heure de fin de l’attribution de rôle peut s’afficher de manière incorrecte.
   - Dans le portail PIM, la rubrique **Mes rôles** ne peut afficher qu’une seule attribution de rôle, quel que soit le nombre de méthodes par lesquelles l’affectation est accordée (par le biais d’un ou de plusieurs groupes, directement ou non).
 - *Clients titulaires d’une licence Azure AD P2 uniquement :* même après avoir supprimé le groupe, celui-ci apparaît toujours comme membre éligible du rôle dans l’interface utilisateur PIM. Fonctionnellement, il n’y a aucun problème ; il s’agit simplement d’un problème de cache dans le portail Azure.  
-- Le centre d’administration Exchange ne reconnaît pas encore l’appartenance au rôle par le biais d’un groupe, mais la cmdlet PowerShell fonctionnera.
+- Utilisez le nouveau [Centre d'administration Exchange](https://admin.exchange.microsoft.com/) pour les attributions de rôles via l'appartenance de groupe. L'ancien Centre d'administration Exchange ne prend pas encore en charge cette fonctionnalité. Les cmdlets Exchange PowerShell fonctionnent normalement.
 - Le portail Azure Information Protection (le portail classique) ne reconnaît pas encore l’appartenance au rôle par le biais d’un groupe. Vous pouvez [migrer vers la plateforme unifiée d’étiquetage de confidentialité](/azure/information-protection/configure-policy-migrate-labels), puis utiliser le centre Security & Compliance d’Office 365 pour gérer les rôles à l’aide des affectations de groupe.
 
 Nous travaillons à corriger ces problèmes.

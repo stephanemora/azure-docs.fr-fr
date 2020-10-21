@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512922"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533636"
 ---
 # <a name="register-for-azure-netapp-files"></a>S’inscrire à Azure NetApp Files
 
@@ -50,13 +50,13 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
 
       ![Icône d’Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Si vous avez plusieurs abonnements sur votre compte Azure, sélectionnez celui qui a été mis en liste verte pour Azure NetApp Files :
+2. Si vous disposez de plusieurs abonnements sur votre compte Azure, sélectionnez celui qui a été approuvé pour Azure NetApp Files :
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. Dans la console Azure Cloud Shell, entrez la commande suivante pour vérifier que votre abonnement a été mis en liste verte :
+3. Dans la console Azure Cloud Shell, entrez la commande suivante pour vérifier que votre abonnement a été approuvé :
     
     ```azurepowershell
     az feature list | grep NetApp

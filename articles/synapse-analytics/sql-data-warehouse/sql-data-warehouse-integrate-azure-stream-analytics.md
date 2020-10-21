@@ -2,27 +2,27 @@
 title: Utilisation d’Azure Stream Analytics
 description: Conseils d’utilisation d’Azure Stream Analytics avec votre entrepôt de données dans Azure Synapse pour développer des solutions en temps réel.
 services: synapse-analytics
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213344"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449515"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Utiliser Azure Stream Analytics avec Azure Synapse Analytics
 
 Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour découvrir les principes de base de ce service, voir l’article [Présentation d’Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Prise en main d’Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-Dans cet article, vous allez apprendre à utiliser votre entrepôt de données comme récepteur de sortie pour vos travaux Azure Stream Analytics.
+Dans cet article, vous allez apprendre à utiliser votre entrepôt de données en tant que récepteur de sortie pour l'ingestion de données à haut débit avec les travaux Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Dans cet article, vous allez apprendre à utiliser votre entrepôt de données c
     2. Configuration et démarrage de l’application de génération d’événements
     3. Configuration d’un travail Stream Analytics
     4. Spécification d’une entrée de travail et d’une requête
-* Entrepôt de données du pool SQL Azure Synapse : pour créer un entrepôt de données, suivez les étapes décrites dans le guide de [Démarrage rapide pour créer un entrepôt de données](create-data-warehouse-portal.md).
+* Pool Azure Synapse SQL pour votre entrepôt de données : pour créer un entrepôt de données, suivez les étapes décrites dans le guide de [Démarrage rapide pour créer un entrepôt de données](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Spécifier la sortie de streaming pour pointer vers votre entrepôt de données
 
@@ -42,9 +42,9 @@ Dans le portail Azure, accédez à votre travail Stream Analytics, puis cliquez 
 
 ### <a name="step-2"></a>Étape 2
 
-Cliquez sur le bouton **Ajouter**, puis choisissez **Base de données SQL** dans le menu déroulant.
+Cliquez sur le bouton **Ajouter**, puis choisissez **Azure Synapse Analytics** dans le menu déroulant.
 
-![Choisissez SQL Database.](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Choisir Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### <a name="step-3"></a>Étape 3 :
 
@@ -52,15 +52,15 @@ Saisissez les valeurs suivantes :
 
 * *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
 * *Abonnement*:
-  * Si votre entrepôt de données se trouve dans le même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner une base de données SQL dans vos abonnements***.
-  * Si votre base de données se trouve dans un autre abonnement, cliquez sur Fournir les paramètres de base de données SQL manuellement.
+  * Si votre entrepôt de données est associé au même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner Azure Synapse Analytics dans vos abonnements***.
+  * Si votre entrepôt de données est associé à un autre abonnement, cliquez sur Fournir les paramètres Azure Synapse Analytics manuellement.
 * *Base de données* : Sélectionnez la base de données de destination dans la liste déroulante.
 * *Nom d’utilisateur* : entrez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
 * *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
 * *Table*: spécifiez le nom de la table cible dans la base de données.
 * Cliquez sur le bouton **Enregistrer**.
 
-![Formulaire SQL Database complété](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Formulaire Azure Synapse Analytics complété](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### <a name="step-4"></a>Étape 4
 

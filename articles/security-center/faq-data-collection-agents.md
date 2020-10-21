@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894818"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441493"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -166,7 +166,7 @@ Vous pouvez désactiver l’approvisionnement automatique pour vos abonnements d
 
 1. Si Azure Defender est activé pour votre abonnement, ouvrez la stratégie de sécurité de cet abonnement et sélectionnez **Azure Defender désactivé**.
 
-   ![Niveau tarifaire][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Activer ou désactiver Azure Defender":::
 
 1. Ensuite, désactivez l’approvisionnement automatique en sélectionnant **Non** sur le page **Stratégie de sécurité : collecte de données**.
    ![Collecte de données][2]
@@ -200,7 +200,7 @@ Installez manuellement l’extension de l’agent Log Analytics pour que Securit
 
 Vous pouvez connecter l’agent à n’importe quel espace de travail personnalisé existant ou à l’espace de travail créé par Security Center. Si les solutions « Security » ou « SecurityCenterFree » ne sont pas activées pour un espace de travail personnalisé, vous devez appliquer une solution. Pour ce faire, sélectionnez l’abonnement ou l’espace de travail personnalisé, puis appliquez un niveau tarifaire via la page **Stratégie de sécurité – Niveau tarifaire**.
 
-   ![Niveau tarifaire][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Activer ou désactiver Azure Defender":::
 
 Security Center active la solution appropriée sur l’espace de travail en fonction du niveau tarifaire sélectionné.
 
@@ -271,7 +271,6 @@ L’agent utilise une quantité minime de ressources système et n’a donc qu�
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

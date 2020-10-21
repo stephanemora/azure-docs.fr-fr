@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056803"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534979"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -32,6 +32,9 @@ L’API REST de synthèse vocale prend en charge les voix de synthèse vocale ne
 Avant d’utiliser cette API, tenez compte du point suivant :
 
 * L’API REST de synthèse vocale nécessite un en-tête d’autorisation. Cela signifie que vous devez échanger un jeton pour accéder au service. Pour en savoir plus, consultez [Authentification](#authentication).
+
+> [!TIP]
+> Consultez la [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) Azure Government pour les points de terminaison Government Cloud (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -241,6 +244,6 @@ Si l’état HTTP est `200 OK`, le corps de la réponse contient un fichier audi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
+- [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
 - [Synthèse asynchrone pour un contenu audio long](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Bien démarrer avec Custom Voice](how-to-custom-voice.md)

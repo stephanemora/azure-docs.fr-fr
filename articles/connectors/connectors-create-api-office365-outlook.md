@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832975"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400772"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Office 365 Outlook](/connectors/office365connector/), vous pouvez créer des tâches et des workflows automatisés qui gèrent votre compte Office 365 en générant des applications logiques. Par exemple, vous automatisez les tâches suivantes :
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Office 365 Outlook](/connectors/office365connector/), vous pouvez créer des tâches et des workflows automatisés qui gèrent votre compte professionnel ou scolaire en générant des applications logiques. Par exemple, vous automatisez les tâches suivantes :
 
 * Recevoir, envoyer et répondre à des e-mails 
 * Planifier des réunions sur votre calendrier
@@ -31,9 +31,9 @@ Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Un [compte Office 365](https://www.office.com/).
+* Un [compte professionnel ou scolaire](https://www.office.com/)
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Office 365 Outlook. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre application logique doit déjà disposer d’un déclencheur.
+* L'application logique à partir de laquelle vous souhaitez accéder à votre compte professionnel ou scolaire. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre application logique doit déjà disposer d’un déclencheur.
 
 ## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
@@ -45,7 +45,7 @@ Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) dési
    
    ![Sélectionner un déclencheur pour démarrer votre application logique](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés du déclencheur.
+1. Si vous êtes invité à vous connecter, entrez vos informations d'identification professionnelles ou scolaires afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés du déclencheur.
 
    > [!NOTE]
    > Votre connexion n’expire pas tant qu’elle n’est pas révoquée, même si vous modifiez vos informations d’identification de connexion. Pour plus d’informations, consultez [Durée de vie des jetons configurables dans Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une op
 
    ![Sélectionner l’action à exécuter dans votre application logique](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés de l’action.
+1. Si vous êtes invité à vous connecter, entrez vos informations d'identification professionnelles ou scolaires afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés de l’action.
 
    > [!NOTE]
    > Votre connexion n’expire pas tant qu’elle n’est pas révoquée, même si vous modifiez vos informations d’identification de connexion. Pour plus d’informations, consultez [Durée de vie des jetons configurables dans Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

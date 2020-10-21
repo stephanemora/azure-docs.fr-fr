@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 831ce1ccb2c09a85ddfff8fa65172b1871119a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079891"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439995"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. 
@@ -66,7 +66,7 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Définissez l’option **Mode** sur **Réinitialiser la configuration uniquement** puis cliquez sur le bouton **Mettre à jour** :
    
-    ![Réinitialiser la configuration RDP dans le portail Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
+    ![Réinitialiser la configuration RDP dans le portail Azure.](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **Vérifiez les règles du groupe de sécurité réseau**. Utilisez la [vérification des flux IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux d’activité de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
@@ -78,17 +78,17 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :
    
-    ![Vérifier l’intégrité des ressources de la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
+    ![Vérifier l’intégrité des ressources de machine virtuelle dans le portail Azure.](./media/troubleshoot-rdp-connection/check-resource-health.png)
 6. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe sur un compte d’administrateur local lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.  Une fois que vous êtes connecté à la machine virtuelle, vous devez réinitialiser le mot de passe pour cet utilisateur.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Assurez-vous que le **Mode** est défini sur **Réinitialiser le mot de passe**, puis entrez votre nom d’utilisateur et un nouveau mot de passe. Enfin, cliquez sur le bouton **Mettre à jour** :
    
-    ![Réinitialiser les informations d’identification de l’utilisateur dans le portail Azure](./media/troubleshoot-rdp-connection/reset-password.png)
+    ![Réinitialiser les informations d’identification de l’utilisateur dans le portail Azure.](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **Redémarrez votre machine virtuelle**. Cette étape de dépannage permet de corriger tout problème sous-jacent rencontré par la machine virtuelle.
    
     Sélectionnez votre machine virtuelle dans le portail Azure et cliquez sur l’onglet **Vue d’ensemble**. Cliquez sur le bouton **Redémarrer** :
    
-    ![Redémarrer la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
+    ![Redémarrer la machine virtuelle dans le portail Azure.](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **Redéployez votre machine virtuelle**. Cette étape de dépannage redéploie votre machine virtuelle sur un autre hôte dans Azure pour corriger tout problème sous-jacent lié au réseau ou à la plateforme.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Redéployer**, puis sur **Redéployer** :
@@ -203,14 +203,14 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Cliquez sur le bouton **...Plus** puis cliquez sur **Réinitialiser l’accès à distance** :
    
-    ![Réinitialiser la configuration RDP dans le portail Azure](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
+    ![Réinitialiser la configuration RDP dans le portail Azure pour machine virtuelle à l’aide du modèle de déploiement classique.](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **Vérifiez les points de terminaison des Services cloud**. Cette étape de dépannage vérifie que vous avez des points de terminaison dans vos Services cloud pour autoriser le trafic RDP. Le port par défaut pour RDP est le port TCP 3389. Une règle autorisant le trafic RDP peut ne pas être créée automatiquement lorsque vous créez votre machine virtuelle.
    
    Sélectionnez votre machine virtuelle dans le portail Azure. Cliquez sur le bouton **Points de terminaison** pour afficher les points de terminaison actuellement configurés pour votre machine virtuelle. Vérifiez la présence de points de terminaison autorisant le trafic RDP sur le port TCP 3389.
    
    L’exemple suivant montre les points de terminaison valides qui autorisent le trafic RDP :
    
-   ![Vérifier les points de terminaison de Services cloud dans le portail Azure](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
+   ![Vérifier les points de terminaison des services cloud dans le portail Azure pour machine virtuelle à l’aide du modèle de déploiement classique.](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
    Si vous ne disposez pas d’un point de terminaison autorisant le trafic RDP, [créez un point de terminaison de Services cloud](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). Autorisez TCP sur le port privé 3389.
 3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux d’activité de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
@@ -220,17 +220,17 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :
    
-    ![Vérifier l’intégrité des ressources de la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
+    ![Vérifier l’intégrité d’une ressource de machine virtuelle dans le portail Azure pour machine virtuelle à l’aide du modèle de déploiement classique.](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
 5. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe du compte de l’administrateur local que vous spécifiez lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.  Une fois que vous êtes connecté à la machine virtuelle, vous devez réinitialiser le mot de passe pour cet utilisateur.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Entrez votre nom d’utilisateur et un nouveau mot de passe. Enfin, cliquez sur le bouton **Enregistrer** :
    
-    ![Réinitialiser les informations d’identification de l’utilisateur dans le portail Azure](./media/troubleshoot-rdp-connection/classic-reset-password.png)
+    ![Réinitialiser les informations d’identification de l’utilisateur dans le portail Azure pour machine virtuelle à l’aide du modèle de déploiement classique.](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **Redémarrez votre machine virtuelle**. Cette étape de dépannage permet de corriger tout problème sous-jacent rencontré par la machine virtuelle.
    
     Sélectionnez votre machine virtuelle dans le portail Azure et cliquez sur l’onglet **Vue d’ensemble**. Cliquez sur le bouton **Redémarrer** :
    
-    ![Redémarrer la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+    ![Redémarrer la machine virtuelle dans le portail Azure pour machine virtuelle à l’aide du modèle de déploiement classique.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
 7. Vérifiez que le pare-feu de votre ordinateur ou vos pare-feu locaux autorisent le trafic sortant vers Azure via le port TCP 3389.
 

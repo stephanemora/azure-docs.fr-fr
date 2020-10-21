@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 549c14e0506613aca91ee4666026348d74afedbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514765"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961593"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utiliser le service StorSimple Device Manager pour gérer votre catalogue de sauvegarde
 ## <a name="overview"></a>Vue d’ensemble
@@ -75,11 +75,11 @@ Procédez comme suit pour sélectionner un jeu de sauvegarde pour un volume ou u
       
       Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-      ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Accéder au catalogue de sauvegarde 2](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. Sélectionnez un jeu de sauvegarde et développez-le. Vous pouvez maintenant voir les jeux de sauvegarde répartis par les volumes qu’ils contiennent. Les options **Restaurer** et **Supprimer** sont disponibles via le menu contextuel (clic droit) du jeu de sauvegarde. Vous pouvez effectuer une de ces actions sur le jeu de sauvegarde que vous avez sélectionné.
 
-    ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Accéder au catalogue de sauvegarde 3](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>Supprimer un jeu de sauvegarde
 Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui lui sont associées. Procédez comme suit pour supprimer un jeu de sauvegarde.
@@ -95,19 +95,19 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
       
       Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-      ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Accéder au catalogue de sauvegarde 4](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 1. Sélectionnez un jeu de sauvegarde et développez-le. Vous pouvez maintenant voir les jeux de sauvegarde répartis par les volumes qu’ils contiennent. Les options **Restaurer** et **Supprimer** sont disponibles via le menu contextuel (clic droit) du jeu de sauvegarde. Cliquez avec le bouton droit sur le jeu de sauvegarde sélectionné et sélectionnez **Supprimer** dans le menu contextuel.
 
-    ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Accéder au catalogue de sauvegarde 5](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
 1. Lorsque vous êtes invité à confirmer l’opération, passez en revue les informations affichées et cliquez sur **Supprimer**. La sauvegarde sélectionnée est supprimée définitivement.
 
-    ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Accéder au catalogue de sauvegarde 6](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
 1. Vous serez informé de la progression de la suppression et de son issue. Une fois la suppression terminée, actualisez la requête dans cette page. Le jeu de sauvegarde supprimé n’apparaîtra plus dans la liste des jeux de sauvegarde.
 
-    ![Accéder au catalogue de sauvegarde](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Accéder au catalogue de sauvegarde 7](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le catalogue de sauvegarde pour restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-8000-restore-from-backup-set-u2.md).

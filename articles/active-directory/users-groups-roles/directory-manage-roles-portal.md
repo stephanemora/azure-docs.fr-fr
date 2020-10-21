@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448692"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541184"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Afficher et assigner des rôles d’administrateur dans Azure Active Directory
 
@@ -55,7 +55,7 @@ Si vous êtes un administrateur global ou un administrateur de rôle privilégi�
 
 Lorsque vous affichez les membres d’un rôle, sélectionnez **Description** pour afficher la liste complète des autorisations accordées par l’attribution de rôle. Cette page inclut des liens vers la documentation correspondante pour vous guider tout au long de la gestion des rôles d’annuaire.
 
-![liste des autorisations pour un rôle d’administrateur](./media/directory-manage-roles-portal/role-description.png)
+![Capture d'écran représentant la page « Administrateur général - Description ».](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Télécharger les attributions de rôle
 
@@ -71,7 +71,7 @@ Pour télécharger toutes les attributions d’un rôle spécifique, dans la pag
 
 1. Sélectionnez un rôle pour afficher ses attributions.
 
-    ![liste des autorisations pour un rôle d’administrateur](./media/directory-manage-roles-portal/member-list.png)
+    ![Capture d'écran représentant la page « Administrateur d'utilisateurs - Attributions », sur laquelle l'action « Gérer dans PIM » est sélectionnée.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Sélectionnez **Ajouter des attributions** et sélectionnez les rôles que vous souhaitez attribuer. Vous pouvez sélectionner **Gérer dans PIM** pour disposer de davantage de fonctionnalités de gestion. Si vous voyez un nom différent de l’image suivante, lisez la Note dans [Afficher les affectations de rôles privilégiés](#view-assignments-for-privileged-roles) pour vérifier si vous êtes dans PIM.
 

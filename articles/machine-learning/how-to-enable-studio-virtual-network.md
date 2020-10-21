@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897527"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776083"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -24,14 +24,15 @@ Dans cet article, vous allez apprendre à utiliser le studio Azure Machine Learn
 
 > [!div class="checklist"]
 > - Accédez au studio à partir d’une ressource à l’intérieur d’un réseau virtuel.
+> - Configurez des points de terminaison privés pour les comptes de stockage.
 > - Accordez au studio l’accès aux données stockées au sein d’un réseau virtuel.
-> - Comprenez l’impact du studio sur la sécurité du stockage.
+> - Découvrez l'impact du studio sur la sécurité du stockage.
 
 Cet article est le cinquième d’une série de cinq qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de parcourir tout d’abord la [Première partie : Présentation du réseau virtuel](how-to-network-security-overview.md) pour en savoir plus sur l’architecture globale. 
 
 Consultez les autres articles de cette série :
 
-[1. Présentation du réseau virtuel](how-to-network-security-overview.md) > [2. Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > [3. Sécurisation de l’environnement d’entraînement](how-to-secure-training-vnet.md) > [4. Sécurisation de l’environnement d’inférence](how-to-secure-inferencing-vnet.md) > [5. Activation de la fonctionnalité de studio](how-to-enable-studio-virtual-network.md)
+[1. Présentation du réseau virtuel](how-to-network-security-overview.md) > [2. Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > [3. Sécurisation de l’environnement d’entraînement](how-to-secure-training-vnet.md) > [4. Sécurisation de l’environnement d’inférence](how-to-secure-inferencing-vnet.md) > **5. Activation de la fonctionnalité de studio**
 
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ Consultez les autres articles de cette série :
 
 + Un [espace de travail Azure Machine Learning existant avec Liaison privée activée](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Un [compte de stockage Azure existant a ajouté votre réseau virtuel](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ Un [compte de stockage Azure existant a ajouté votre réseau virtuel](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accéder au studio à partir d’une ressource au sein d’un réseau virtuel
 
@@ -56,8 +57,7 @@ Par exemple, si vous utilisez des groupes de sécurité réseau pour limiter le 
 
 ## <a name="access-data-using-the-studio"></a>Accéder aux données à l’aide du studio
 
-Si vos données sont stockées sur un réseau virtuel, vous devez configurer vos comptes de stockage afin d’utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour accorder au studio l’accès à vos données.
-
+Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), vous devez configurer votre compte de stockage afin d'utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour autoriser le studio à accéder à vos données.
 
 Si vous n’activez pas l’identité managée, cette erreur s’affichera : `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`. En outre, les opérations suivantes seront désactivées :
 
@@ -66,13 +66,15 @@ Si vous n’activez pas l’identité managée, cette erreur s’affichera : `E
 * Envoi d’une expérience AutoML
 * Démarrage d’un projet d’étiquetage
 
+> [!NOTE]
+> L'[étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
+
 Studio prend en charge la lecture de données à partir des types de magasins de données suivants sur un réseau virtuel :
 
 * Objets blob Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurer des magasins de données pour utiliser l’identité managée
 
@@ -104,7 +106,7 @@ Pour __Stockage Blob Azure__, l’identité managée de l’espace de travail es
 
 Vous pouvez utiliser à la fois des listes de contrôle d’accès (ACL) de style POSIX et le contrôle RBAC pour contrôler l’accès aux données au sein d’un réseau virtuel.
 
-Pour utiliser le contrôle RBAC, ajoutez l’identité managée de l’espace de travail au rôle [Lecteur des données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Pour utiliser le contrôle RBAC, ajoutez l’identité managée de l’espace de travail au rôle [Lecteur des données Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Pour plus d'informations, consultez [Contrôle d'accès en fonction du rôle Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
 
 Pour utiliser des listes de contrôle d’accès, vous pouvez accorder l’accès à l’identité managée de l’espace de travail comme tout autre principal de sécurité. Pour plus d’informations, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439007"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076978"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -149,6 +149,23 @@ Pour modifier les règles d’un groupe d’ordinateurs :
 
 1. Pour appliquer les modifications, sélectionnez **Enregistrer**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Examiner et modifier les paramètres d’un groupe
+
+1. Pour afficher les détails et les paramètres de votre groupe, sélectionnez **Paramètres du groupe**
+
+    Ce volet affiche le nom du groupe (qui peut être modifié), le type de système d’exploitation, l’emplacement et d’autres détails pertinents.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Ouverture de contrôles d’application adaptatifs à partir du tableau de bord Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > L’option **Appliquer**, dans les paramètres du mode de protection du type de fichier, est grisée dans **tous** les scénarios. Aucune option de mise en application n’est disponible pour l’instant. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Ouverture de contrôles d’application adaptatifs à partir du tableau de bord Azure":::
+
+1. Si vous le souhaitez, modifiez le nom du groupe ou les modes de protection du type de fichier.
+
+1. Sélectionnez **Appliquer** et **Enregistrer**.
 
 
 

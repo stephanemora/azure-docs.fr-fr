@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206143"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449661"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
-Cet article explique certaines des tâches de gestion et de configuration qui peuvent être effectuées sur les appareils Data Box et Data Box Heavy. Vous pouvez gérer les appareils Data Box et Data Box Heavy via l’interface utilisateur du portail Azure et l’interface utilisateur web locale de l’appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web locale.
+Cet article décrit certaines des tâches de configuration et de gestion qui effectuées sur des appareils Data Box et Data Box Heavy. Vous pouvez gérer les appareils Data Box et Data Box Heavy via l’interface utilisateur du portail Azure et l’interface utilisateur web locale de l’appareil. Cet article se concentre sur les tâches effectuées à l’aide de l’interface utilisateur web locale.
 
 L’interface utilisateur web locale de Data Box et Data Box Heavy est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer l’appareil, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux d’activité de copie et générer un package de journaux d’activité destiné au support Microsoft. Sur un appareil Data Box Heavy avec deux nœuds indépendants, vous pouvez accéder à deux interfaces utilisateur web locales distinctes correspondant aux deux différents nœuds de l’appareil.
 
@@ -53,7 +53,7 @@ Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un packa
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrêter ou redémarrer votre appareil
 
-Vous pouvez arrêter ou redémarrer votre appareil à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données. Vérifiez que la copie des données n’est pas en cours lorsque vous arrêtez l’appareil.
+Vous pouvez arrêter ou redémarrer votre appareil à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données. Lorsque vous arrêtez l’appareil, vérifiez qu’aucune copie de données n’est en cours.
 
 Pour arrêter votre appareil, effectuez les étapes suivantes.
 
@@ -62,7 +62,7 @@ Pour arrêter votre appareil, effectuez les étapes suivantes.
 
     ![Arrêter Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Quand il vous est demandé de confirmer l’opération, sélectionnez **OK** pour continuer.
+3. Lorsque vous êtes invité à confirmer, sélectionnez **OK** pour continuer.
 
     ![Arrêter Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -75,7 +75,7 @@ Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 
     ![Redémarrer Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Quand il vous est demandé de confirmer l’opération, sélectionnez **OK** pour continuer.
+3. Lorsque vous êtes invité à confirmer, sélectionnez **OK** pour continuer.
 
    L’appareil s’arrête puis redémarre.
 
@@ -202,6 +202,49 @@ Pour activer la signature SMB sur votre appareil Azure :
 4. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
 5. Sélectionnez **Redémarrer**.
 
+## <a name="enable-backup-operator-privileges"></a>Activer les privilèges d’opérateur de sauvegarde
+
+Les utilisateurs de votre interface utilisateur web disposent par défaut de privilèges d’opérateur de sauvegarde sur des partages SMB. Si vous ne souhaitez pas cela, utilisez l’option **Activer les privilèges d’opérateur de sauvegarde** pour activer ou désactiver les privilèges.
+
+Pour plus d’informations, consultez Opérateurs de sauvegarde dans [Groupes de sécurité Azure Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+
+Pour activer les privilèges d’opérateur de sauvegarde sur votre appareil Azure :
+
+1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
+
+   ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Activez** les privilèges d’opérateur de sauvegarde.
+
+   ![Activer les privilèges d’opérateur de sauvegarde](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **Sélectionnez Appliquer**.
+4. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
+5. Sélectionnez **Redémarrer**.
+
+## <a name="enable-acls-for-azure-files"></a>Activer les ACL pour Azure Files
+
+Les métadonnées des fichiers sont transférées par défaut quand des utilisateurs chargent des données via SMB sur votre Data Box. Les métadonnées incluent des listes de contrôle d’accès (ACL), des attributs de fichier et des horodateurs. Si vous ne souhaitez pas cela, utilisez l’option **ACL pour Azure Files** pour désactiver ou activer cette fonctionnalité.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> Pour transférer des métadonnées avec des fichiers, vous devez être un opérateur de sauvegarde. Lorsque vous utilisez cette fonctionnalité, assurez-vous que les utilisateurs locaux de l’interface utilisateur web sont des opérateurs de sauvegarde. Consultez [Activer les privilèges d’opérateur de sauvegarde](#enable-backup-operator-privileges).
+
+Pour activer le transfert des ACL pour Azure Files :
+
+1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
+
+    ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Activez** ACL pour Azure files.
+
+     ![Activer les ACL pour Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Sélectionnez **Appliquer**.
+4. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
+5. Sélectionnez **Redémarrer**.
+
 ## <a name="enable-tls-11"></a>Activation du protocole TLS 1.1
 
 Par défaut, Azure Data Box utilise pour le chiffrement la version 1.2 du protocole TLS (Transport Layer Security), plus sécurisée que la version 1.1. Toutefois, si vos clients ou vous-même utilisez pour accéder aux données un navigateur qui ne prend pas en charge le protocole TLS 1.2, vous pouvez activer le protocole TLS 1.1.
@@ -212,7 +255,7 @@ Pour activer le protocole TLS 1.1 sur votre appareil Azure :
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, sélectionnez **Paramètres**.
 
-    ![Ouverture des paramètres](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Ouvrir les paramètres de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Activez** le protocole TLS 1.1.
 

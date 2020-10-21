@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541020"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399599"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
@@ -64,13 +64,13 @@ Exemples de méthodes qu’utilise Azure Identity Protection pour vous aider à 
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Avec [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cette fonctionnalité inclut l’accès aux ressources dans Azure AD et d’autres services en ligne Microsoft comme Office 365 ou Microsoft Intune.
+Avec [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cette fonctionnalité inclut l'accès aux ressources d'Azure AD et d'autres services en ligne Microsoft comme Microsoft 365 ou Microsoft Intune.
 
 ![Diagramme Azure AD Privileged Identity Management](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM vous permet de :
 
--   Recevoir une alerte et un rapport sur les administrateurs Azure AD et de bénéficier d’un accès administratif « juste à temps » aux services Microsoft Online Services comme Office 365 et Intune.
+-   Recevoir une alerte et un rapport sur les administrateurs Azure AD, et de bénéficier d'un accès administratif « juste à temps » (JIT) aux services Microsoft Online Services comme Microsoft 365 et Intune.
 
 -   Obtenir des rapports sur l'historique des accès administrateur et sur les modifications apportées aux affectations de l'administrateur.
 
@@ -155,7 +155,7 @@ Azure Security Center emploie des analyses de sécurité avancées allant bien a
 
 Microsoft dispose d’une multitude d’informations en matière de menaces à l’échelle mondiale.
 
-La télémétrie provient de plusieurs sources, telles qu’Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) et Microsoft Security Response Center (MSRC).
+La télémétrie provient de plusieurs sources, telles qu’Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) et Microsoft Security Response Center (MSRC).
 
 ![Découvertes d’informations sur les menaces](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Voici quelques exemples :
 
 -   **Scripts PowerShell malveillants** : les pirates peuvent utiliser PowerShell pour exécuter du code malveillant sur des machines virtuelles cibles à des fins diverses. Azure Security Center inspecte l’activité PowerShell à la recherche d’activité suspecte.
 
--   **Attaques sortantes** : les pirates ciblent souvent les ressources cloud en vue d’utiliser ces ressources pour lancer d’autres attaques. Les machines virtuelles compromises peuvent, par exemple, servir à lancer des attaques par force brute contre d’autres machines virtuelles, envoyer du courrier indésirable, ou analyser les ports ouverts et autres appareils sur Internet. En appliquant l’apprentissage automatique au trafic réseau, Azure Security Center peut détecter lorsque les communications réseau sortantes dépassent la norme. Lorsque du courrier indésirable est détecté, Azure Security Center met également en corrélation le trafic de messagerie inhabituel avec l’intelligence issue d’Office 365 pour déterminer si le courrier est susceptible d’être mal intentionné ou est le résultat d’une campagne de courrier électronique légitime.
+-   **Attaques sortantes** : les pirates ciblent souvent les ressources cloud en vue d’utiliser ces ressources pour lancer d’autres attaques. Les machines virtuelles compromises peuvent, par exemple, servir à lancer des attaques par force brute contre d’autres machines virtuelles, envoyer du courrier indésirable, ou analyser les ports ouverts et autres appareils sur Internet. En appliquant l’apprentissage automatique au trafic réseau, Azure Security Center peut détecter lorsque les communications réseau sortantes dépassent la norme. Lorsque du courrier indésirable est détecté, Azure Security Center met également en corrélation le trafic de messagerie inhabituel avec l'intelligence issue de Microsoft 365 pour déterminer si le courrier est susceptible d'être mal intentionné ou est le résultat d'une campagne de courrier électronique légitime.
 
 ### <a name="anomaly-detection"></a>Détection des anomalies
 

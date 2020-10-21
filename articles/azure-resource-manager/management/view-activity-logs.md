@@ -3,12 +3,12 @@ title: Afficher les journaux d’activité Azure pour surveiller les ressources
 description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le Portail Microsoft Azure, PowerShell, l’interface de ligne de commande Azure et REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827059"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371590"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
@@ -20,7 +20,7 @@ Les journaux d’activité vous permettent de déterminer :
 * L’état de l’opération
 * Les valeurs d’autres propriétés qui peuvent vous aider à effectuer des recherches sur l’opération
 
-Le journal d’activité contient toutes les opérations d’écriture (PUT, POST, DELETE) de vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
+Le journal d’activité contient toutes les opérations d’écriture (PUT, POST, DELETE) de vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger n'importe quelle plage de dates, à condition que la date de début ne remonte pas à plus de 90 jours.
 
@@ -195,4 +195,4 @@ Les opérations REST à utiliser avec le journal d’activité font partie de l�
 * Pour voir plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application dans Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](../templates/deployment-history.md).
 * Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](lock-resources.md).
-* Pour obtenir la liste des opérations disponibles pour chaque fournisseur Microsoft Azure Resource Manager, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).
+* Pour obtenir la liste des opérations disponibles pour chaque fournisseur Microsoft Azure Resource Manager, consultez [Opérations du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md).

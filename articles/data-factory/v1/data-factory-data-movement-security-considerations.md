@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441933"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619914"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -142,7 +142,7 @@ Les illustrations suivantes décrivent l’utilisation de la passerelle de gesti
 
 ![VPN IPSec avec passerelle](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurations de pare-feu et autorisation des adresses IP de la passerelle
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurations de pare-feu et filtrage des adresses IP de la passerelle
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé  
 Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur central. Le **pare-feu Windows** s’exécute quant à lui en tant que démon sur l’ordinateur local sur lequel est installée la passerelle. 
@@ -158,7 +158,7 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 | `*.azuredatalakestore.net` | 443 | (Facultatif) nécessaire lorsque votre destination est Azure Data Lake Store. | 
 
 > [!NOTE] 
-> Vous devrez peut-être gérer les ports/domaines autorisés au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.   
+> Vous serez peut-être amené à gérer les ports/domaines de filtrage au niveau du pare-feu de l'entreprise, comme l'exigent les sources de données correspondantes. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.   
 
 Le tableau suivant indique les paramètres de **port entrant** requis pour le **pare-feu Windows**.
 
@@ -168,10 +168,10 @@ Le tableau suivant indique les paramètres de **port entrant** requis pour le **
 
 ![Configuration requise des ports de la passerelle](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Configuration/autorisation des adresses IP dans la banque de données
-Pour certaines banques de données hébergées dans le cloud, vous devez autoriser l’adresse IP de l’ordinateur à partir duquel vous vous y connectez. Vérifiez que l’adresse IP de l’ordinateur de passerelle est autorisée/correctement configurée dans le pare-feu.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Configuration/filtrage des adresses IP dans la banque de données
+Pour certaines banques de données hébergées dans le cloud, vous devez également approuver l'adresse IP de l'ordinateur qui y accède. Vérifiez que l'adresse IP de l'ordinateur de passerelle est approuvée/correctement configurée dans le pare-feu.
 
-Les banques de données cloud suivantes requièrent l’autorisation de l’adresse IP de l’ordinateur de passerelle. Il est possible que certaines de ces banques de données ne requièrent pas par défaut l’autorisation des adresses IP. 
+Les banques de données cloud suivantes requièrent l'approbation de l'adresse IP de l'ordinateur de passerelle. Certaines de ces banques de données peuvent ne pas nécessiter l'approbation des adresses IP par défaut. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 **Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.
 
 **Question :** Quels sont les paramètres de port permettant de garantir le bon fonctionnement de la passerelle ?
-**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure Synapse Analytics comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure Synapse Analytics comme source/destination, vous devez également ouvrir le port **1433**. Pour plus d'informations, consultez la section [Configurations de pare-feu et filtrage d'adresses IP](#firewall-configurations-and-filtering-ip-address-of gateway). 
 
 **Question :** De quels certificats la passerelle a-t-elle besoin ?
 **Réponse :** La passerelle actuelle requiert un certificat utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
-
- 

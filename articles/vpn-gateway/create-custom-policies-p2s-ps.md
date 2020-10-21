@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663196"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743690"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>Créer et définir des stratégies IPsec personnalisées pour une configuration point à site
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Créer et définir des stratégies IPsec personnalisées pour une configuration point à site (préversion)
 
 Si votre environnement nécessite une stratégie IPsec personnalisée pour le chiffrement, vous pouvez facilement configurer un objet de stratégie avec les paramètres requis. Cet article vous permet de créer un objet de stratégie personnalisée, puis de le définir en utilisant PowerShell.
 

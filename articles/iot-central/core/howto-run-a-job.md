@@ -3,16 +3,16 @@ title: Créer et exécuter des travaux dans votre application Azure IoT Central 
 description: Les travaux Azure IoT Central prennent en charge les fonctionnalités de gestion des appareils en bloc, telles que la mise à jour des propriétés ou l’exécution d’une commande.
 ms.service: iot-central
 services: iot-central
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 09/10/2020
+author: philmea
+ms.author: philmea
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060813"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017945"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Créer et exécuter un travail dans votre application Azure IoT Central
 
@@ -32,11 +32,19 @@ L’exemple suivant montre comment créer et exécuter un travail pour définir 
 
 1. Choisissez ensuite **Propriété cloud**, **Propriété** ou **Commande** pour **Type de travail** :
 
-    Pour définir une configuration de travail de **Propriété**, sélectionnez une propriété et définissez sa nouvelle valeur. Pour effectuer une configuration de travail **Commande**, choisissez la commande à exécuter. Un travail de propriété peut définir plusieurs propriétés.
+    Pour configurer un travail **Propriété**, sélectionnez une propriété et définissez sa nouvelle valeur. Pour configurer un travail **Commande**, choisissez la commande à exécuter. Un travail de propriété peut définir plusieurs propriétés.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Capture d’écran montrant des sélections pour la création d’un travail de propriété appelé Seuil de lumière":::
 
     Sélectionnez **Enregistrer et quitter** pour ajouter le travail à la liste des travaux enregistrés sur la page**Travaux**. Vous pouvez revenir ultérieurement à un travail à partir de la liste des travaux enregistrés.
+
+    Sélectionnez **Suivant** pour accéder à la page **Options de remise**. La page **Options de remise** vous permet de définir les options de remise pour ce travail : **Lots** et **Seuil d’annulation**.
+
+    Les lots vous permettent d’échelonner les tâches pour un grand nombre d’appareils. La tâche est divisée en plusieurs lots, et chaque lot contient un sous-ensemble des appareils. Les lots sont mis en file d’attente et exécutés dans l’ordre.
+
+    Le seuil d’annulation vous permet d’annuler automatiquement un travail si le nombre d’erreurs dépasse la limite définie. Le seuil peut s’appliquer à tous les appareils du travail ou à des lots individuels.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Capture d’écran montrant des sélections pour la création d’un travail de propriété appelé Seuil de lumière":::
 
     Sélectionnez **Suivant** pour accéder à la page **Vérifier**. La page **Vérification** affiche les détails de la configuration du travail. Sélectionnez **Exécuter** pour envoyer le travail.
 
@@ -51,7 +59,7 @@ L’exemple suivant montre comment créer et exécuter un travail pour définir 
 1. Le travail s’affiche à présent dans la liste des **30 derniers jours** sur la page **Travaux**. Cette page affiche les travaux en cours d’exécution et l’historique des travaux déjà exécutés ou enregistrés.
 
     > [!NOTE]
-    > Vous pouvez afficher jusqu’à 30 jours d’historique pour vos travaux exécutés.
+    > Vous pouvez afficher 30 jours d’historique pour vos travaux exécutés.
 
 ## <a name="manage-jobs"></a>Gestion des travaux
 
@@ -82,6 +90,7 @@ Une fois qu’un travail a été créé, la colonne **État** est mise à jour a
 | Pending              | L’exécution de ce travail n’a pas encore commencé sur les appareils.         |
 | Exécution en cours              | Ce travail est en cours d’exécution sur les appareils.             |
 | Arrêté              | Un utilisateur a arrêté manuellement ce travail.           |
+| Opération annulée             | Ce travail a été annulé, car le seuil défini sur la page **Options de remise** a été dépassé. |
 
 Le message d’état est suivi d’une vue d’ensemble des appareils au sein du travail. Le tableau suivant répertorie les valeurs d’*état des appareils* possibles :
 

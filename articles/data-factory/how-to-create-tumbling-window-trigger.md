@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996684"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856482"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -147,7 +147,7 @@ Pour utiliser les variables système **WindowStart** et **WindowEnd** dans la d�
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordre d’exécution des fenêtres dans un scénario de renvoi
 
-Si la valeur startTime du déclencheur se situe dans le passé, sur la base de cette formule, M=(CurrentTime-TriggerStartTime)/TriggerSliceSize, le déclencheur génère {M} exécutions de renvoi en parallèle, en respectant la concurrence des déclencheurs, avant d’exécuter les futures exécutions. L’ordre d’exécution des fenêtres est déterministe, des intervalles les plus anciens aux plus récents. Actuellement, ce comportement ne peut pas être modifié.
+Si la valeur startTime du déclencheur se situe dans le passé, sur la base de cette formule, M=(CurrentTime-TriggerStartTime)/TumblingWindowSize, le déclencheur génère {M} exécutions de renvoi en parallèle, en respectant la concurrence des déclencheurs, avant d’exécuter les futures exécutions. L’ordre d’exécution des fenêtres est déterministe, des intervalles les plus anciens aux plus récents. Actuellement, ce comportement ne peut pas être modifié.
 
 ### <a name="existing-triggerresource-elements"></a>Éléments TriggerResource existants
 

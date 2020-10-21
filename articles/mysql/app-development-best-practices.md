@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794200"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538906"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Meilleures pratiques pour créer une application avec Azure Database pour MySQL 
 
@@ -69,9 +69,9 @@ Votre application peut rencontrer des [erreurs temporaires](https://docs.microso
 Nous vous recommandons de patienter 5 secondes avant votre première nouvelle tentative. Ensuite, attendez progressivement plus longtemps entre chaque tentative, jusqu’à un délai de 60 secondes. Limitez le nombre maximal de nouvelles tentatives au-delà duquel votre application considère que l’opération a échoué afin que vous puissiez ensuite poursuivre votre enquête. Pour plus d’informations, consultez [Comment résoudre les erreurs de connexion](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues). 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Activer le réplica en lecture pour atténuer les basculements
-Vous pouvez utiliser la [réplication des données entrantes](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) pour les scénarios de basculement. Lors de l’utilisation de réplicas de lecture, aucun basculement automatique entre les serveurs maître et réplica n’a lieu. 
+Vous pouvez utiliser la [réplication des données entrantes](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) pour les scénarios de basculement. Lors de l'utilisation de réplicas de lecture, aucun basculement automatique n'a lieu entre les serveurs source et réplica. 
 
-Vous remarquerez un décalage entre le serveur maître et le réplica, car la réplication est asynchrone. Le décalage du réseau dépend d’un grand nombre de facteurs, comme la taille de la charge de travail exécutée sur le serveur maître et la latence entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes.
+Vous remarquerez un décalage entre le serveur source et le réplica, car la réplication est asynchrone. Le décalage du réseau dépend d'un grand nombre de facteurs, comme la taille de la charge de travail exécutée sur le serveur source et la latence entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes.
 
 ## <a name="database-deployment"></a>Déploiement de base de données 
 

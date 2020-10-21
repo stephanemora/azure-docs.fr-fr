@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488828"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400806"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -136,7 +136,7 @@ Logic Apps fournit les connecteurs standard ci-dessous qui sont les plus couramm
 | [![Connecteur managé Azure Service Bus][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Gérez les messages asynchrones, les sessions et les abonnements à une rubrique avec le connecteur le plus couramment utilisé dans Logic Apps. |
 | [![Connecteur managé SQL Server][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connectez-vous à votre serveur SQL local ou à Azure SQL Database dans le cloud pour gérer les enregistrements, exécuter des procédures stockées ou exécuter des requêtes. |
 | [![Connecteur managé Stockage Blob Azure][azure-blob-storage-icon]<br>**Stockage Blob<br>Azure**][azure-blob-storage-doc] | Connectez-vous à votre compte de stockage pour créer et gérer du contenu d’objet blob. |
-| [![Connecteur managé Outlook Office 365][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connectez-vous à votre compte de messagerie Office 365 pour créer et gérer des e-mails, des tâches, des événements de calendrier, des réunions, des contacts, des requêtes et bien plus encore. |
+| [![Connecteur managé Outlook Office 365][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connectez-vous à votre compte de courrier professionnel ou scolaire pour créer et gérer des e-mails, des tâches, des événements de calendrier, des réunions, des contacts, des requêtes et bien plus encore. |
 | [![Connecteur managé SFTP-SSH][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connectez-vous aux serveurs SFTP auxquels vous avez accès à partir d’Internet via une connexion SSH afin de pouvoir utiliser vos fichiers et vos dossiers. |
 | [![Connecteur managé SharePoint Online][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connectez-vous à SharePoint Online pour gérer des fichiers, des pièces jointes, des dossiers et bien plus encore. |
 | [![Connecteur managé de files d’attente Azure][azure-queues-icon]<br>**Files d’attente <br>Azure**][azure-queues-doc] | Connectez-vous à votre compte de stockage Azure pour créer et gérer des files d’attente et des messages. |
@@ -588,7 +588,7 @@ Bien que vous ayez créé des connexions à partir d’une application logique, 
 [instagram-doc]: ./connectors-create-api-instagram.md "Se connecter à Instagram. Déclencher ou agir sur les événements"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Se connecter à Mandrill pour la communication"
 [mysql-doc]: /connectors/mysql/ "Se connecter à votre base de données MySQL locale pour lire et écrire des données"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Se connecter à votre compte Office 365 pour envoyer et recevoir des e-mails, gérer votre calendrier et vos contacts, etc."
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Se connecter à votre compte professionnel ou scolaire pour envoyer et recevoir des e-mails, gérer votre calendrier et vos contacts, etc."
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Se connecter à votre Microsoft OneDrive personnel pour charger, supprimer, lister des fichiers, etc."
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Se connecter à votre Microsoft OneDrive professionnel pour charger, supprimer, lister des fichiers, etc."
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Se connecter à une base de données Oracle pour ajouter, insérer, supprimer des lignes, etc."

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450391"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -133,16 +133,16 @@ Vous pouvez approfondir davantage en cliquant sur un hôte ESXi ou un type d’�
 
 Lorsque vous cliquez sur un nom d’hôte ESXi, vous voyez les informations de cet hôte ESXi. Si vous souhaitez affiner des résultats avec le type d’événement, ajoutez `“ProcessName_s=EVENT TYPE”` à votre requête de recherche. Vous pouvez sélectionner **ProcessName** dans le filtre de recherche. Cela restreint les informations pour vous.
 
-![explorer](./media/vmware/eventhostdrilldown.png)
+![Capture d’écran des panneaux ESXi Host Per Event Count et Breakdown Per Event Type dans l’affichage du tableau de bord VMware Monitoring.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Rechercher les activités de machine virtuelle élevées
 Une machine virtuelle peut être créée et supprimée sur tout hôte ESXi. Il est utile pour un administrateur d’identifier le nombre de machines virtuelles que crée un hôte ESXi. Cela aide ensuite à comprendre la planification des performances et de la capacité. Il est essentiel de suivre les événements d’activité de machine virtuelle lors de la gestion de votre environnement.
 
-![explorer](./media/vmware/vmactivities1.png)
+![Capture d’écran du panneau Activités de machine virtuelle dans le tableau de bord VMware Monitoring, montrant un graphique de création et suppression de machine virtuelle par l’hôte ESXi.](./media/vmware/vmactivities1.png)
 
 Si vous souhaitez voir d’autres données de création de machine virtuelle hôte ESXi, cliquez sur un nom d’hôte ESXi.
 
-![explorer](./media/vmware/createvm.png)
+![Capture d’écran d’un volet du tableau de bord VMware Monitoring montrant un tableau avec une ligne de données pour chaque création de machine virtuelle par un hôte ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Requêtes de journal courantes
 La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer vos hôtes ESXi, telles que l’espace de stockage élevé, la latence du stockage et la défaillance de chemin.

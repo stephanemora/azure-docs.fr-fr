@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 333a7ec4ae0e5c8cbc94a603e2ccf81ee92e7d48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905587"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078457"
 ---
 ## <a name="query-language-features"></a>Fonctionnalités du langage de requête
 
@@ -32,6 +32,8 @@ Vous pouvez améliorer davantage vos requêtes grâce aux opérations suivantes�
 * Obtenir des jumeaux via des types de relations multiples (requêtes`JOIN`). 
   - Pendant la préversion, jusqu’à cinq niveaux de `JOIN` sont autorisés.
 * Sélectionnez uniquement les premiers résultats de la requête (opérateur `Select TOP`).
+* Compter le nombre d’éléments dans un jeu de résultats à l’aide de `Select COUNT`
+* Utiliser des projections pour choisir les colonnes qui seront renvoyées par une requête
 * Utilisez des fonctions scalaires : `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Utilisez des opérateurs de comparaison de requêtes : `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
 * Utilisez n’importe quelle combinaison (opérateur `AND`, `OR`, `NOT`) de `IS_OF_MODEL`, des fonctions scalaires et des opérateurs de comparaison.

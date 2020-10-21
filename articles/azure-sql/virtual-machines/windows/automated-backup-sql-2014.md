@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8e563e53ad0d5ec90fb9b728c8ffe2d239cf0763
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920594"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565120"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
+
 **Système d’exploitation** :
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 et versions ultérieures 
 
 **Édition/version de SQL Server**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> La sauvegarde automatisée fonctionne avec SQL Server 2014. Si vous utilisez SQL Server 2016/2017, vous pouvez utiliser la sauvegarde automatisée (version 2) pour sauvegarder vos bases de données. Pour plus d’informations, consultez [Sauvegarde automatisée version 2 pour les machines virtuelles Azure SQL Server 2016](automated-backup.md).
+> [!NOTE]
+> Pour SQL 2016 et versions ultérieures, consultez l’article [Sauvegarde automatisée pour les machines virtuelles SQL Server 2016](automated-backup.md).
 
 **Configuration de la base de données**:
 
-- Les bases de données cibles doivent utiliser le modèle de récupération complète. Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
-- Les bases de données cibles doivent se trouver sur l’instance SQL Server par défaut. L’extension de l’agent IaaS SQL Server ne prend pas en charge les instances nommées.
-
-> [!NOTE]
-> La sauvegarde automatisée utilise l’extension de l’agent IaaS de SQL Server. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md)(Extension de l’agent IaaS SQL Server).
+- Les bases de données _utilisateur_ cibles doivent utiliser le modèle de récupération complète. Les bases de données système n’ont pas besoin d’utiliser le mode de récupération complète. Toutefois, si vous avez besoin de sauvegardes de fichier journal pour un modèle ou MSDB, vous devez utiliser le mode de récupération complète. Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx). 
+- La machine virtuelle SQL Server a été enregistrée avec le fournisseur de ressources de machines virtuelles SQL en [mode de gestion complet](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  La sauvegarde automatisée utilise l’[extension complète de l’agent IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Par conséquent, la sauvegarde automatisée est uniquement prise en charge sur les bases de données cibles de l’instance par défaut ou sur une instance nommée unique. S’il n’existe aucune instance par défaut et plusieurs instances nommées, l’extension IaaS SQL échoue et la sauvegarde automatisée ne fonctionnera pas. 
 
 ## <a name="settings"></a>Paramètres
 

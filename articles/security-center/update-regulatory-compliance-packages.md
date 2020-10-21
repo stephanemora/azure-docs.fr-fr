@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445855"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078100"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnalisation de l’ensemble de normes du tableau de bord de conformité réglementaire
 
@@ -84,6 +84,31 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
     > L’affichage d’une norme nouvellement ajoutée dans le tableau de bord de conformité peut prendre quelques heures.
 
     [![Tableau de bord de conformité réglementaire présentant l’ancienne et la nouvelle version d’Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Suppression d’une norme de votre tableau de bord
+
+Si certaines des normes réglementaires fournies ne sont pas pertinentes pour votre organisation, il est facile de les supprimer de l’interface utilisateur. Cela vous permet de personnaliser davantage le tableau de bord de conformité réglementaire et de vous concentrer uniquement sur les normes qui vous sont applicables.
+
+Pour supprimer une norme :
+
+1. Dans le menu de Security Center, sélectionnez **Stratégie de sécurité**.
+
+1. Sélectionnez l’abonnement approprié à partir duquel vous souhaitez supprimer une norme.
+
+    > [!NOTE]
+    > Vous pouvez supprimer une norme d’un abonnement, mais pas d’un groupe d’administration. 
+
+    La page Stratégie de sécurité s’ouvre. Pour l’abonnement sélectionné, il affiche la stratégie par défaut, le secteur et les normes réglementaires, ainsi que les initiatives personnalisées que vous avez créées.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Suppression d’une norme réglementaire de votre tableau de bord de conformité réglementaire dans Azure Security Center":::
+
+1. Pour la norme que vous souhaitez supprimer, sélectionnez **Désactiver**. Une fenêtre de confirmation s’ouvre.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Suppression d’une norme réglementaire de votre tableau de bord de conformité réglementaire dans Azure Security Center":::.
+
+1. Sélectionnez **Oui**. La norme est supprimée. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

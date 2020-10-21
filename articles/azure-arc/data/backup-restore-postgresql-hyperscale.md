@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930608"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071436"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Sauvegarde et restauration pour les groupes de serveurs Azure Arc enabled PostgreSQL Hyperscale
 
@@ -52,7 +52,7 @@ Examinez la section « storage » (stockage) de la sortie :
     }
 ...
 ```
-Si vous voyez une section « backups » (sauvegardes), cela signifie que votre groupe de serveurs a été configuré pour utiliser une classe de stockage de sauvegarde, et qu’il est prêt pour la réalisation de sauvegardes et de restaurations. Si vous ne voyez pas de section « backups », vous devez supprimer et recréer votre groupe de serveurs pour configurer la classe de stockage de sauvegarde. Pour le moment, il n’est pas encore possible de configurer une classe de stockage de sauvegarde une fois que le groupe de serveurs a été créé.
+Si vous voyez le nom d’une classe de stockage indiquée dans la section « backups » (sauvegardes) de la sortie de cette commande, cela signifie que votre groupe de serveurs a été configuré pour utiliser une classe de stockage de sauvegarde et qu’il est prêt pour la réalisation de sauvegardes et de restaurations. Si vous ne voyez pas de section « backups », vous devez supprimer et recréer votre groupe de serveurs pour configurer la classe de stockage de sauvegarde. Pour le moment, il n’est pas encore possible de configurer une classe de stockage de sauvegarde une fois que le groupe de serveurs a été créé.
 
 >[!IMPORTANT]
 >Si votre groupe de serveurs est déjà configuré pour utiliser une classe de stockage de sauvegarde, ignorez l’étape suivante et passez directement à l’étape « Effectuer une sauvegarde complète manuelle ».
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Effectuer une sauvegarde complète manuelle
 
+
 Ensuite, effectuez une sauvegarde complète manuelle.
+
+> [!CAUTION]
+> **Pour les utilisateurs d’Azure Kubernetes Service (AKS) uniquement :** nous avons connaissance d’un problème lié à l’exécution de sauvegardes d’un groupe de serveurs hébergé sur Azure Kubernetes Service (AKS). Nous travaillons déjà à sa résolution. Tant que la mise à jour n’est pas déployée dans une version/mise à jour future, vous devez supprimer les pods de vos groupes de serveurs avant d’effectuer une sauvegarde. Pour chacun des pods de votre groupe de serveurs (vous répertoriez les pods en exécutant **kubectl get pods -n \<namespace name>** ), supprimez-les en exécutant **kubectl delete pod \<server group pod name> -n \<namespace name>** . Ne supprimez pas les pods qui ne font pas partie de votre groupe de serveurs. La suppression de pods ne risque pas de compromettre vos données. Attendez que tous les pods soient à nouveau en ligne et à l’état STATUS=RUNNING avant d’effectuer une sauvegarde. L’état du pod est indiqué dans la sortie de la commande « kubectl get pods » ci-dessus.
+
 
 Pour effectuer une sauvegarde complète de l’ensemble des dossiers de données et de journaux de votre groupe de serveurs, exécutez la commande suivante :
 
@@ -93,8 +98,6 @@ Où :
 - __name__ indique le nom d’une sauvegarde.
 - __server-name__ indique un groupe de serveurs
 - __no-wait__ indique que la ligne de commande n’attendra pas que la sauvegarde se termine pour vous permettre de continuer à utiliser cette fenêtre de ligne de commande
-
->**Remarque** : La commande qui vous permet de lister les sauvegardes disponibles pour la restauration ne montre pas encore la date/heure à laquelle une sauvegarde a été effectuée. Il est donc recommandé de donner un nom à la sauvegarde (en utilisant le paramètre --name) en y incluant les informations de date/heure.
 
 Cette commande coordonne une sauvegarde complète distribuée sur tous les nœuds qui constituent votre groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale. En d’autres termes, elle va sauvegarder toutes les données de vos nœuds Coordinateur et Worker.
 
@@ -134,10 +137,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Elle retourne une sortie comme celle-ci :
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indique l’heure UTC dans le temps à laquelle la sauvegarde a été effectuée.
 
 ## <a name="restore-a-backup"></a>Restaurer une sauvegarde
 
@@ -216,5 +221,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrir le [scale-out (ajout de nœuds worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
-- Découvrir le [scale-up ou le scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs
+- En savoir plus sur le [scale-out (ajout de nœuds worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
+- En savoir plus sur le [scale-up ou le scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs

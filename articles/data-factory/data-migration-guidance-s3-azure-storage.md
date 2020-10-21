@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984899"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616922"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure 
 
@@ -74,7 +74,7 @@ Migrer des données via un lien privé :
 
 - Dans cette architecture, la migration des données s’effectue via un lien de peering privé entre AWS Direct Connect et Azure Express Route, de telle sorte que les données ne transitent jamais sur l’Internet public.  Cela nécessite l'utilisation de AWS VPC et du réseau virtuel Azure. 
 - Vous devez installer le runtime d'intégration ADF auto-hébergé sur une machine virtuelle Windows au sein de votre réseau virtuel Azure pour réaliser cette architecture.  Vous pouvez effectuer un scale-up manuel de vos machines virtuelles IR auto-hébergées ou effectuer un scale-out sur plusieurs machines virtuelles (jusqu’à 4 nœuds) pour utiliser pleinement votre réseau et vos IOPS/bande passante de stockage. 
-- S’il est acceptable de transférer des données sur HTTPS mais que vous souhaitez verrouiller l’accès réseau à la source S3 à une plage d’adresses IP spécifique, vous pouvez adopter une variante de cette architecture en supprimant l’AWS VPC et en remplaçant le lien privé par HTTPS.  Vous devez conserver le runtime d’intégration virtuel Azure et auto-hébergé sur une machine virtuelle Azure, afin de pouvoir utiliser une adresse IP publiquement routable à des fins de liste verte. 
+- S’il est acceptable de transférer des données sur HTTPS mais que vous souhaitez verrouiller l’accès réseau à la source S3 à une plage d’adresses IP spécifique, vous pouvez adopter une variante de cette architecture en supprimant l’AWS VPC et en remplaçant le lien privé par HTTPS.  Vous devez conserver le runtime d'intégration virtuel Azure et auto-hébergé sur une machine virtuelle Azure, afin de pouvoir utiliser une adresse IP publiquement routable à des fins de filtrage. 
 - Cette architecture permet à la fois la migration initiale des données instantanées et la migration des données delta. 
 
 ## <a name="implementation-best-practices"></a>Meilleures pratiques en matière d’implémentation 

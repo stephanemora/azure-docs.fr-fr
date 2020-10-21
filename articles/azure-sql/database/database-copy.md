@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225731"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91443783"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -26,7 +26,10 @@ Azure SQL Database propose plusieurs méthodes pour créer une copie d’une [ba
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une copie de base de données est un instantané cohérent d’un point de vue transactionnel de la base de données source au moment où la demande de copie est lancée. Vous pouvez sélectionner le même serveur ou un autre serveur pour la copie. Vous pouvez aussi choisir de conserver le niveau de service et la taille de calcul de la base de données source ou d’utiliser une taille de calcul différente au sein du même ou d’un autre niveau de service. Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations dans la base de données copiée sont gérés indépendamment de la base de données source. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage du réplica terminé, le lien de géoréplication prend fin automatiquement. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
+Une copie de base de données est un instantané cohérent d’un point de vue transactionnel de la base de données source au moment où la demande de copie est lancée. Vous pouvez sélectionner le même serveur ou un autre serveur pour la copie. Vous pouvez aussi conserver la redondance de sauvegarde, le niveau de service et la taille de calcul de la base de données source ou utiliser une redondance de stockage de sauvegarde et une taille de calcul différentes au sein du même ou d’un autre niveau de service. Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations dans la base de données copiée sont gérés indépendamment de la base de données source. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage du réplica terminé, le lien de géoréplication prend fin automatiquement. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
+
+> [!NOTE]
+> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion publique dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
 
 ## <a name="logins-in-the-database-copy"></a>Connexions dans la copie de la base de données
 
@@ -84,6 +87,9 @@ Démarrez la copie de la base de données source avec l’instruction [CREATE DA
 > [!NOTE]
 > L’arrêt de l’instruction T-SQL ne met pas fin à l'opération de copie de la base de données. Pour mettre fin à l'opération, supprimez la base de données cible.
 >
+
+> [!IMPORTANT]
+> La sélection de la redondance du stockage de sauvegarde lors de l’utilisation de la commande T-SQL CREATE DATABASE... AS COPY OF n’est pas encore prise en charge. 
 
 ### <a name="copy-to-the-same-server"></a>Copier sur le même serveur
 

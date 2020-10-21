@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a30ab4136b1d54e852ddb8fe3d0ed9a4e2bc9149
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485938"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856776"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -32,7 +32,7 @@ Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoir
 - [Windows 64 bits](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32 bits](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Ces fichiers sont compressés dans un fichier zip (Windows et Mac) ou un fichier tar (Linux). Pour télécharger et décompresser le fichier tar sur Linux, consultez la documentation de votre distribution Linux.
 
@@ -50,7 +50,9 @@ Pour afficher une liste de commandes, saisissez `azcopy -h` et appuyez sur la to
 
 Pour en savoir plus sur une commande spécifique, incluez simplement le nom de la commande (par exemple : `azcopy list -h`).
 
-![Aide en ligne](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Aide en ligne](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 Pour obtenir une documentation de référence détaillée pour chaque commande et paramètre de commande, consultez [azcopy](storage-ref-azcopy.md)
 
@@ -94,7 +96,7 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 - Resource group
 - Abonnement
 
-Pour savoir comment vérifier et attribuer des rôles, voir [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment vérifier et attribuer des rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux objets blob et données de file d’attente](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Gardez à l’esprit que la propagation des affectations de rôles Azure peut prendre cinq minutes.

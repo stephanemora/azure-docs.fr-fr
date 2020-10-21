@@ -1,6 +1,6 @@
 ---
 title: Créer des règles d’analytique personnalisées pour détecter des menaces avec Azure Sentinel | Microsoft Docs
-description: Ce tutoriel explique comment créer des règles d’analytique personnalisées pour détecter des menaces de sécurité avec Azure Sentinel.
+description: Ce tutoriel explique comment créer des règles d’analytique personnalisées pour détecter des menaces de sécurité avec Azure Sentinel. Profitez des avantages du regroupement des événements et des alertes, et découvrez à quoi correspond le préfixe AUTO DISABLED (Désactivée automatiquement).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605892"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617177"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutoriel : Créer des règles d’analytique personnalisées pour détecter des menaces
 
@@ -53,13 +53,15 @@ Vous pouvez créer des règles d’analytique personnalisées pour détecter plu
 
       Voici un exemple de requête qui vous avertit quand un nombre anormal de ressources est créé dans Activité Azure.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > La requête peut comporter entre 1 et 10 000 caractères, et ne doit pas contenir « search \* » ou « union \* ».
+        > [!NOTE]
+        > La requête peut comporter entre 1 et 10 000 caractères, et ne doit pas contenir « search \* » ou « union \* ».
 
     1. Utilisez la section **Mapper les entités** pour lier les paramètres de vos résultats de requête aux entités reconnues par Azure Sentinel. Ces entités constituent la base d’une analyse plus approfondie, notamment le regroupement des alertes en incidents sous l’onglet **Incident settings** (Paramètres d’incident).
   
@@ -69,8 +71,12 @@ Vous pouvez créer des règles d’analytique personnalisées pour détecter plu
 
        1. Définissez le paramètre **Rechercher les données des derniers** pour déterminer la période des données couvertes par la requête. Par exemple, l’interrogation peut porter sur les 10 dernières minutes de données ou sur les 6 dernières heures de données.
 
-       > [!NOTE]
-       > Ces deux paramètres sont indépendants l’un de l’autre, jusqu’à un certain point. Vous pouvez exécuter une requête sur un court intervalle qui couvre une période plus longue que l’intervalle (en ayant en fait des requêtes qui se chevauchent), mais vous ne pouvez pas exécuter une requête sur un intervalle qui dépasse la période de couverture, sinon vous avez des écarts dans la couverture globale des requêtes.
+          > [!NOTE]
+          > **Intervalles entre les requêtes et période de recherche arrière**
+          > - Ces deux paramètres sont indépendants l’un de l’autre, jusqu’à un certain point. Vous pouvez exécuter une requête sur un court intervalle qui couvre une période plus longue que l’intervalle (en ayant en fait des requêtes qui se chevauchent), mais vous ne pouvez pas exécuter une requête sur un intervalle qui dépasse la période de couverture, sinon vous avez des écarts dans la couverture globale des requêtes.
+          >
+          > **Délai d'ingestion**
+          > - Pour tenir compte de la **latence** qui peut se produire entre la génération d'un événement à la source et son ingestion dans Azure Sentinel, et pour assurer une couverture complète sans duplication de données, Azure Sentinel exécute les règles d'analytique planifiées avec un **décalage de cinq minutes** par rapport à l'heure planifiée.
 
     1. Utilisez la section **Seuil d’alerte** pour définir une base de référence. Par exemple, affectez la valeur **Est supérieur à** au paramètre **Générer une alerte quand le nombre de résultats de la requête**, puis entrez le nombre 1000 pour que la règle génère une alerte uniquement si la requête retourne plus de 1000 résultats à chaque exécution. Ce champ obligatoire étant obligatoire, si vous ne souhaitez pas définir de base de référence (en d’autres termes, si vous souhaitez que votre alerte inscrive chaque événement), entrez 0 dans le champ numérique.
     
@@ -134,6 +140,43 @@ Vous pouvez créer des règles d’analytique personnalisées pour détecter plu
 
 > [!NOTE]
 > Les alertes générées dans Azure Sentinel sont consultables dans  [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Pour plus d’informations, consultez la [documentation sur les alertes Microsoft Graph Security](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Une règle planifiée n'a pas été exécutée, ou le préfixe AUTO DISABLED (Désactivée automatiquement) a été ajouté à son nom
+
+Bien que cela soit rare, une règle de requête planifiée peut échouer. Azure Sentinel classe les échecs comme passagers ou permanents, en fonction de leur type et des circonstances qui y ont conduit.
+
+#### <a name="transient-failure"></a>Échec passager
+
+Un échec passager se produit en raison d'une circonstance temporaire. Dès que la situation redevient normale, la règle est exécutée. Voici quelques exemples d'échecs classés comme passagers par Azure Sentinel :
+
+- La requête d'une règle met trop de temps à s'exécuter et expire.
+- Problèmes de connectivité entre les sources de données et Log Analytics, ou entre Log Analytics et Azure Sentinel.
+- Tous les autres échecs nouveaux et inconnus sont considérés comme passagers.
+
+En cas d'échec passager, Azure Sentinel essaie à nouveau d'exécuter la règle à intervalles prédéterminés et toujours croissants, jusqu'à un certain stade. Passé ce stade, la règle ne se réexécute qu'à la prochaine heure planifiée. Un échec passager ne provoque jamais la désactivation automatique de la règle.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Échec permanent - désactivation automatique de la règle
+
+Un échec permanent se produit suite à une modification des conditions qui permettent à la règle de s'exécuter. Sans intervention humaine, celle-ci ne reviendra pas à son ancien état. Voici quelques exemples d'échecs classés comme permanents :
+
+- L'espace de travail cible (sur lequel la requête de la règle était exécutée) a été supprimé.
+- La table cible (sur laquelle la requête de la règle était exécutée) a été supprimée.
+- Azure Sentinel a été supprimé de l'espace de travail cible.
+- Une fonction utilisée par la requête de la règle n'est plus valide ; elle a été modifiée ou supprimée.
+- Les autorisations d'accès à l'une des sources de données de la requête de la règle ont été modifiées.
+- Une des sources de données de la requête de la règle a été supprimée ou déconnectée.
+
+**Dans le cas d'un nombre prédéterminé d'échecs permanents consécutifs, du même type et sur la même règle,** Azure Sentinel cesse d'essayer d'exécuter la règle et effectue ce qui suit :
+
+- Il désactive la règle.
+- Il ajoute le préfixe **« AUTO DISABLED »** (Désactivée automatiquement) au nom de la règle.
+- Il ajoute la raison de l'échec (et de la désactivation) à la description de la règle.
+
+La présence de règles désactivées automatiquement peut facilement être déterminée en triant la liste des règles par nom. Les règles désactivées automatiquement apparaissent alors en haut de la liste.
+
+Les gestionnaires SOC doivent régulièrement rechercher la présence de règles désactivées automatiquement dans la liste des règles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

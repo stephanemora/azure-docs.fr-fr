@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419986"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533546"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurer les alertes de sécurité pour les rôles Azure AD dans Privileged Identity Management
 
@@ -38,7 +38,7 @@ Suivez les étapes décrites dans cet article afin d’examiner des alertes de s
 
 # <a name="new-version"></a>[Nouvelle version](#tab/new)
 
-![Rôles Azure AD : volet Alertes répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Capture d’écran montrant la page « alertes » avec une liste d’alertes et leur gravité.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Alertes de sécurité
 
@@ -108,8 +108,8 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et supprimez ceux qui n’ont absolument pas besoin du rôle Administrateur général. </br>Affectez des rôles privilégiés inférieurs à ces utilisateurs. |
 | **Prévention** | Affectez aux utilisateurs le rôle le moins privilégié dont ils ont besoin. |
 | **Action d´atténuation dans le portail** | Supprime le compte de leur rôle privilégié. |
-| **Déclencheur** | Cette alerte se déclenche si deux critères correspondent, et vous pouvez configurer ces deux valeurs. Vous devez tout d’abord atteindre un certain seuil d’administrateurs généraux. Puis vous devez réserver un certain pourcentage du total de vos affectations à des rôles d’administrateur général. L’alerte ne s’affiche pas si vous ne remplissez qu’un seul de ces critères. |
-| **Nombre minimal d’administrateurs généraux** | Ce paramètre spécifie le nombre d’administrateurs globaux, de 2 à 100, que vous jugez trop peu nombreux pour votre organisation Azure AD. |
+| **Déclencheur** | Cette alerte se déclenche si deux critères correspondent, et vous pouvez configurer ces deux valeurs. Vous devez tout d’abord atteindre un certain seuil d’attributions de rôle Administrateur général. Puis vous devez réserver un certain pourcentage du total de vos affectations à des rôles d’administrateur général. L’alerte ne s’affiche pas si vous ne remplissez qu’un seul de ces critères. |
+| **Nombre minimal d’administrateurs généraux** | Ce paramètre spécifie le nombre d’attributions de rôle Administrateurs général, de 2 à 100, que vous jugez trop peu nombreux pour votre organisation Azure AD. |
 | **Pourcentage d'administrateurs généraux** | Ce paramètre spécifie, de 0 % à 100 %, le pourcentage d'administrateurs généraux par rapport au nombre total d’administrateurs en dessous duquel vous ne souhaitez pas que votre organisation Azure AD descende. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Les rôles sont activés trop fréquemment
@@ -125,21 +125,21 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 | **Période de renouvellement d'activation** | Ce paramètre spécifie la période, en jours, heures, minutes et secondes, que vous souhaitez utiliser pour effectuer le suivi des renouvellements suspects. |
 | **Nombre de renouvellements de l’activation** | Ce paramètre spécifie le nombre d’activations, de 2 à 100, pour lesquelles vous souhaitez recevoir des notifications, dans l’intervalle de temps que vous avez choisi. Vous pouvez modifier ce paramètre en déplaçant le curseur ou en tapant un nombre dans la zone de texte. |
 
-## <a name="configure-security-alert-settings"></a>Configurez les paramètres d'alerte de sécurité
+## <a name="customize-security-alert-settings"></a>Personnaliser les paramètres d’alerte de sécurité
 
-Dans la page Alertes, accédez aux **paramètres**.
+Sur la page **Alertes**, sélectionnez **Paramètres**.
 
 ![Page des alertes avec paramètres mis en surbrillance](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Personnalisez les paramètres des différentes alertes pour travailler avec votre environnement et les objectifs de sécurité.
 
-![Page de configuration d’une alerte permettant d’activer et de configurer des paramètres](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Page de configuration d’une alerte permettant d’activer et de configurer des paramètres](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
 
-![Rôles Azure AD : volet Alertes répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Rôles Azure AD : volet Alerte répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Alertes de sécurité
+## <a name="security-alert-details"></a>Détails des alertes de sécurité
 
 Cette section répertorie toutes les alertes de sécurité pour les rôles Azure AD, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 

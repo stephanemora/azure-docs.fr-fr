@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651721"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743520"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -117,9 +117,11 @@ Vous pouvez toujours revenir à la mise à l’échelle automatique en cliquant 
 
 Lorsque vous effectuez un scale-out vers plusieurs instances, App Service peut effectuer des contrôles d’intégrité sur vos instances pour acheminer le trafic uniquement vers les instances saines. Pour ce faire, ouvrez le portail de votre App Service, puis sélectionnez **Contrôle d’intégrité** sous **Analyse**. Sélectionnez **Activer** et fournissez un chemin d’URL valide pour votre application, par exemple `/health` ou `/api/health`. Cliquez sur **Enregistrer**.
 
+Pour activer la fonctionnalité avec les modèles ARM, définissez la propriété `healthcheckpath` de la ressource `Microsoft.Web/sites` sur le chemin d’accès de contrôle d’intégrité sur votre site, par exemple : `"/api/health/"`. Pour désactiver la fonctionnalité, redéfinissez la propriété sur la chaîne vide, `""`.
+
 ### <a name="health-check-path"></a>Chemin de contrôle d'intégrité
 
-Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si le protocole HTTP**S** est activé pour le site, le contrôle d’intégrité atteint le point de terminaison HTTP en premier, puis honore la redirection HTTP 307 vers le point de terminaison HTTPS.
+Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si HTTP**S** uniquement est activé sur le site, la requête Healthcheck sera envoyée via HTTP**S**.
 
 Le chemin du contrôle d'intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin d’accès doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230583"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91358897"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
 
@@ -56,7 +56,7 @@ Pour utiliser les vues Log Analytics, vous avez besoin de :
 
 3. Sélectionnez la vue qui vous intéresse pour accéder aux différents rapports associés. Vous pouvez également définir des alertes sur les paramètres de rapport de votre choix. Par exemple, définissons une alerte pour chaque erreur de connexion rencontrée. Pour ce faire, sélectionnez la vue **Événements de connexion**, sélectionnez le rapport **Erreurs de connexion rencontrées**, puis sélectionnez **Analytics** pour ouvrir la page de détails, avec la requête actuelle sous-jacente au rapport. 
 
-    ![Détails](./media/howto-install-use-log-analytics-views/details.png)
+    ![Capture d'écran représentant la page des détails de l'analyse qui contient la requête du rapport.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Sélectionnez **Définir une alerte**, puis sélectionnez **Quand la recherche de journal personnalisée est définie sur &lt;logique non définie&gt;** sous la section **Critères d’alerte**. Étant donné que nous voulons être alertés à chaque erreur de connexion, définissez l’option **Seuil** de la logique d’alerte par défaut à **1**, puis sélectionnez **Terminé**. 

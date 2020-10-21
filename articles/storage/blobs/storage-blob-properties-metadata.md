@@ -4,21 +4,21 @@ description: Découvrez comment définir et récupérer des propriétés systèm
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008435"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399123"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gérer les propriétés et les métadonnées blob avec .NET
 
-En plus des données qu’ils contiennent, les blobs prennent en charge des propriétés système et des métadonnées définies par l’utilisateur. Cet article présente la gestion des propriétés système et des métadonnées définies par l’utilisateur avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+En plus des données qu’ils contiennent, les blobs prennent en charge des propriétés système et des métadonnées définies par l’utilisateur. Cet article présente la gestion des propriétés système et des métadonnées définies par l’utilisateur avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>À propos des propriétés et des métadonnées
 
@@ -168,7 +168,7 @@ L’exemple de code suivant lit les métadonnées d’un blob.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Pour récupérer des métadonnées, appelez l’une des méthodes [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) sur votre objet blob ou votre conteneur pour remplir la collection [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata), puis lisez les valeurs, comme indiqué dans l’exemple suivant.
+Pour récupérer des métadonnées, appelez l’une des méthodes [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) sur votre objet blob ou votre conteneur pour remplir la collection [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata), puis lisez les valeurs, comme indiqué dans l’exemple suivant. Les méthodes **GetProperties** récupèrent les propriétés et les métadonnées des objets blob en un seul appel. Ce qui n'est pas le cas des API REST pour lesquelles des appels distincts sont nécessaires afin d'[Obtenir les propriétés des objets blob](/rest/api/storageservices/get-blob-properties) et d'[Obtenir les métadonnées des objets blob](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 

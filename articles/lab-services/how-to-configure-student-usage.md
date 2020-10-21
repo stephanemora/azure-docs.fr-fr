@@ -3,12 +3,12 @@ title: Configurer des paramètres d’utilisation dans les labos de classe Azure
 description: Découvrez comment configurer le nombre d’étudiants d’un labo, les inscrire au labo, contrôler le nombre d’heures pendant lesquelles ils peuvent utiliser la machine virtuelle, et bien plus encore.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445948"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399667"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 
@@ -166,7 +166,7 @@ Pour définir des quotas supplémentaires, procédez comme suit :
 
 Pour ajouter des étudiants à un labo de classe, vous utilisez leurs comptes de messagerie. Les étudiants peuvent avoir les types de comptes de messagerie suivants :
 
-- Un compte de messagerie étudiant fourni par l’instance Azure Active Directory pour Office 365 de votre université. 
+- Un compte de courrier étudiant fourni par l'instance Azure Active Directory de votre université.
 - Un compte de messagerie de domaine Microsoft, par exemple *outlook.com*, *hotmail.com*, *msn.com* ou *live.com*.
 - Un compte de messagerie non Microsoft, tel qu’un compte fourni par Yahoo! ou Google. Cependant, ces types de comptes doivent être liés à un compte Microsoft.
 - Un compte GitHub. Ce compte doit être lié à un compte Microsoft.

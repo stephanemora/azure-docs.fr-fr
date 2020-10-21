@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809467"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448808"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Si vous avez configuré la [conservation à long terme des sauvegardes](long-ter
 
 > [!IMPORTANT]
 > Vous ne pouvez pas remplacer une base de données existante lors de la restauration.
-
-Par défaut, les sauvegardes Azure SQL Database et SQL Managed Instance sont stockées dans un stockage blob géorépliqué (type de stockage RA-GRS). En outre, SQL Managed Instance prend également en charge le stockage de sauvegarde redondant localement (LRS) et redondant par zone (ZRS). La redondance permet de protéger vos données contre les événements planifiés ou non, notamment les défaillances matérielles temporaires, les pannes de réseau ou de courant et les catastrophes naturelles massives. Le stockage redondant interzone (ZRS) est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> La configuration de la redondance de stockage pour les sauvegardes est disponible uniquement pour l’instance gérée et autorisée pendant la création du processus. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
 
 Quand vous utilisez le niveau de service Standard ou Premium, la restauration de votre base de données peut entraîner un coût de stockage supplémentaire. Le coût supplémentaire s’applique si la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse dans le niveau de service et de performance de la base de données cible. Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en fixant la taille maximale de la base de données sur la quantité incluse.
 
@@ -91,13 +86,13 @@ Vous pouvez récupérer une base de données d’instance ou unique à un moment
 
 Pour récupérer une base de données à un point dans le temps à l'aide du portail Azure, ouvrez la page de présentation de la base de données et sélectionnez **Restaurer** sur la barre d'outils. Choisissez une source de sauvegarde et sélectionnez le point de sauvegarde dans le temps à partir duquel une nouvelle base de données sera créée.
 
-  ![Capture d’écran des options de restauration de base de données](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Capture d’écran des options de restauration de base de données pour SQL Database.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instance managée SQL
 
 Pour récupérer une base de données d’instance managée à un point dans le temps à l’aide du portail Azure, ouvrez la page de vue d’ensemble de la base de données, puis sélectionnez **Restaurer** dans la barre d’outils. Choisissez le point de sauvegarde dans le temps à partir duquel une nouvelle base de données sera créée.
 
-  ![Capture d’écran des options de restauration de base de données](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Capture d’écran des options de restauration de base de données pour une instance gérée SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > Pour restaurer par programmation une base de données à partir d’une sauvegarde, consultez [Exécution par programmation d’une récupération à l’aide des sauvegardes automatisées](recovery-using-backups.md).
@@ -143,7 +138,7 @@ Pour obtenir un exemple de script PowerShell montrant comment restaurer une base
 ## <a name="geo-restore"></a>La géorestauration
 
 > [!IMPORTANT]
-> La géorestauration est disponible uniquement pour les instances gérées configurées avec le type stockage de sauvegarde géo-redondant (RA-GRS). Les instances gérées configurées avec avec des types de stockage de sauvegarde avec redondance locale ou redondante dans une zone ne prennent pas en charge la géorestauration.
+> La géorestauration est disponible uniquement pour les bases de données SQL ou les instances gérées configurées avec un [stockage de sauvegarde](automated-backups-overview.md#backup-storage-redundancy) géoredondant.
 
 Vous pouvez restaurer une base de données sur n’importe quel serveur SQL Database ou une base de données d’instance sur n’importe quelle instance managée dans toute région Azure à partir des sauvegardes géorépliquées les plus récentes. La géorestauration utilise une sauvegarde géorépliquée comme source. Vous pouvez demander une géorestauration même si la base de données ou le centre de données est inaccessible en raison d’une panne.
 
@@ -196,7 +191,7 @@ Pour obtenir un script PowerShell qui illustre comment effectuer une géorestaur
 Vous ne pouvez pas effectuer une limite de restauration dans le temps sur une base de données géosecondaire. Vous ne pouvez le faire que sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> La géorestauration est la solution de récupération d’urgence la plus basique disponible dans SQL Database et SQL Managed Instance. Elle s’appuie sur des sauvegardes géorépliquées créées automatiquement, dont l’objectif de point de récupération (RPO) est égal à 1 heure et la durée estimée de récupération à 12 heures maximum. Elle ne garantit pas que la région cible aura la capacité de restaurer les bases de données après une panne régionale, car il se produira probablement un pic de demande. Si votre application utilise des bases de données relativement petites et qu’elle n’est pas vitale pour l’entreprise, la géorestauration est une solution de reprise d’activité adaptée. 
+> La géorestauration est la solution de récupération d’urgence la plus basique disponible dans SQL Database et SQL Managed Instance. Elle s’appuie sur des sauvegardes géorépliquées créées automatiquement, dont l’objectif de point de récupération (RPO) est jusqu’à 1 heure et la durée estimée de récupération jusqu’à 12 heures. Elle ne garantit pas que la région cible aura la capacité de restaurer les bases de données après une panne régionale, car il se produira probablement un pic de demande. Si votre application utilise des bases de données relativement petites et qu’elle n’est pas vitale pour l’entreprise, la géorestauration est une solution de reprise d’activité adaptée. 
 >
 > Pour les applications vitales pour l’entreprise qui utilisent de grosses bases de données et doivent assurer la continuité de l’activité, utilisez des [Groupes de basculement automatique](auto-failover-group-overview.md). Ils offrent un RPO et un objectif de délai de récupération beaucoup plus faibles, et la capacité est toujours garantie. 
 >

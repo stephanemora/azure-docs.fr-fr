@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744202"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445381"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Activer et utiliser les journaux de ressources Bastion
 
@@ -22,13 +22,13 @@ Quand les utilisateurs se connectent à des charges de travail à l’aide d’A
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre ressource Azure Bastion et sélectionnez **Paramètres de diagnostic** sur la page Azure Bastion.
 
-   ![paramètres de diagnostic](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Capture d'écran représentant la page « Paramètres de diagnostic ».](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Sélectionnez **Paramètres de diagnostic**, puis **+ Ajouter un paramètre de diagnostic** pour ajouter une destination pour les journaux.
 
-   ![ajouter le paramètre de diagnostic](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Capture d'écran représentant la page « Paramètres de diagnostic », sur laquelle le bouton « Ajouter un paramètre de diagnostic » est sélectionné.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Dans la page **Paramètres de diagnostic**, sélectionnez le type de compte de stockage à utiliser pour stocker les journaux de diagnostic.
 
-   ![sélectionner l’emplacement de stockage](./media/diagnostic-logs/3add-storage-account.png)
+   ![Capture d'écran représentant la page « Paramètres de diagnostic », sur laquelle la section permettant de sélectionner un emplacement de stockage en surbrillance.](./media/diagnostic-logs/3add-storage-account.png)
 4. Une fois que vous avez configuré les paramètres, le résultat doit ressembler à l’exemple suivant :
 
    ![exemples de paramètres](./media/diagnostic-logs/4example-settings.png)

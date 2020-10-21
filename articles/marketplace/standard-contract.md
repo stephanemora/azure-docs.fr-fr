@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3079cb18f7bc88d691081a7970f5833e8b8d6887
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361685"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078185"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrat Standard pour le marketplace commercial de Microsoft
 
@@ -34,7 +34,7 @@ Deux types de modifications sont proposées aux éditeurs de la place de marché
 * Modifications personnalisées : Il s’agit de modifications spéciales apportées au contrat Standard qui ciblent certains clients uniquement via les ID de locataires Azure. Les éditeurs peuvent choisir le locataire qu'ils souhaitent cibler. Seuls les clients du locataire recevront les conditions personnalisées dans le flux d’achat de l’offre.  Les clients doivent accepter les conditions du contrat Standard et la ou les modifications avant de pouvoir utiliser votre offre.
 
 >[!Note]
->Ces deux types de modifications s’ajoutent l’un à l’autre. Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée au contrat Standard lors de l’achat.
+>Ces deux types de modifications s’ajoutent l’un à l’autre. Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée au contrat Standard lors de l’achat. Les modifications sont limitées à 4 000 caractères, espaces comprises.
 
 Vous pouvez tirer parti du contrat Standard pour la place de marché commerciale de Microsoft pour les types d’offre suivants :  Applications Azure (modèles de solution et applications managées), machines virtuelles et SaaS.
 

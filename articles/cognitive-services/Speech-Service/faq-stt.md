@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661518"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397757"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -29,7 +29,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Par où commencer si je souhaite utiliser un modèle de référence ?**
 
-**R** : Commencez par obtenir une [clé d’abonnement](get-started.md). Si vous voulez adresser des appels REST à des modèles de référence pré-déployés, consultez les informations sur les [API REST](rest-apis.md). Si vous voulez utiliser des WebSockets, téléchargez le [Kit de développement logiciel (SDK)](speech-sdk.md).
+**R** : Commencez par obtenir une [clé d’abonnement](overview.md#try-the-speech-service-for-free). Si vous voulez adresser des appels REST à des modèles de référence pré-déployés, consultez les informations sur les [API REST](rest-apis.md). Si vous voulez utiliser des WebSockets, téléchargez le [Kit de développement logiciel (SDK)](speech-sdk.md).
 
 **Q : Dois-je toujours générer un modèle vocal personnalisé ?**
 
@@ -152,17 +152,17 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 **R** : Le chargement d’une liste de mots a pour effet d’ajouter des mots au vocabulaire, mais n’enseigne pas au système la manière dont ceux-ci sont généralement utilisés. En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de prononcer), le modèle linguistique peut apprendre les mots nouveaux ainsi que la façon dont ils sont utilisés. Le modèle linguistique personnalisé convient, non seulement pour l’ajout de mots au système, mais aussi pour l’ajustement de la probabilité d’occurrence de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modèle de locataire (Custom Speech avec des données Office 365)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Modèle de locataire (Custom Speech avec des données Microsoft 365)
 
 **Q : Quelles sont les informations incluses dans le modèle de locataire et comment sont-elles créées ?**
 
-**R :** Un modèle de locataire est créé à l’aide d’un [groupe public](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) d’e-mails et de documents qui peuvent être consultés par toute personne de votre organisation.
+**R :** Un modèle de locataire est créé à l’aide d’un [groupe public](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) d’e-mails et de documents qui peuvent être consultés par toute personne de votre organisation.
 
 **Q : Quelles sont les améliorations apportées par le modèle de locataire aux expériences de reconnaissance vocale ?**
 
 **R :** Une fois le modèle de locataire activé, créé et publié, celui-ci permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service Speech, qui transmettent également un jeton Azure AD d’utilisateur indiquant l’appartenance à l’entreprise.
 
-La création d’un modèle de locataire pour vos applications Speech ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
+La création d'un modèle de locataire pour vos applications Speech ne modifie pas les expériences de reconnaissance vocale intégrées à Microsoft 365, telles que Dictée et Sous-titrage PowerPoint.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

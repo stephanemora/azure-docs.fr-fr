@@ -1,14 +1,16 @@
 ---
 title: Fonctionnalités de Machine Learning avec LUIS
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075173"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372001"
 ---
 # <a name="machine-learning-features"></a>Caractéristiques issues de l’apprentissage automatique
 
@@ -20,12 +22,10 @@ Une fonctionnalité peut être décrite comme une fonction, par exemple f(x) = y
 
 ## <a name="types-of-features"></a>Types de caractéristiques
 
-LUIS prend en charge les listes d’expressions et d’autres modèles en tant que caractéristiques :
+Les caractéristiques sont essentielles à la conception de votre schéma. LUIS prend en charge les listes d’expressions et d’autres modèles en tant que caractéristiques :
 
-* Caractéristiques de liste d’expressions 
+* Caractéristiques de liste d’expressions
 * Modèle (intention ou entité) en tant que caractéristique
-
-Les caractéristiques doivent être considérées comme une partie nécessaire de la conception de votre schéma.
 
 ## <a name="find-features-in-your-example-utterances"></a>Rechercher des caractéristiques dans vos exemples d’énoncés
 
@@ -43,32 +43,6 @@ Déterminez si le texte, parce qu’il se distingue d’une caractéristique, do
 * Correspondre à un mot ou une expression exacts. Envisagez d’ajouter une entité d’expression régulière ou une entité de liste comme caractéristique de l’entité ou de l’intention.
 * Correspondre à un concept bien connu, comme des dates, des heures ou des noms de personnes. Utilisez une entité prédéfinie en tant que caractéristique de l’entité ou de l’intention.
 * Apprendre de nouveaux exemples au fil du temps. Utilisez une liste d’expressions de quelques exemples du concept comme caractéristique de l’entité ou de l’intention.
-
-## <a name="combine-features"></a>Combiner les caractéristiques
-
-Vous pouvez utiliser plusieurs caractéristiques pour décrire un trait ou un concept. Une association courante consiste à utiliser comme caractéristique une fonctionnalité de liste d’expressions et un type d’entité souvent utilisé :
-
- * entité prédéfinie
- * entité expression régulière
- * entité de liste
-
-### <a name="ticket-booking-entity-example"></a>Exemple d’entité Réservation de tickets
-
-À titre d’exemple, considérez une application permettant de réserver un vol avec une intention de réservation de vol et une entité de réservation de tickets.
-
-L’entité de réservation de tickets est une entité issue de l’apprentissage automatique pour la destination de vol. Pour faciliter l’extraction de l’emplacement, utilisez deux caractéristiques pour vous aider :
-
-* une liste d’expressions composée de mots pertinents tels que **avion**, **vol**, **réservation** ou **ticket** ;
-* une entité **geographyV2** prédéfinie en tant que caractéristique pour l’entité.
-
-### <a name="pizza-entity-example"></a>Exemple d’entité Pizza
-
-Prenons un autre exemple, celui d’une application de commande de pizza avec une intention créer-commande-pizza et une entité pizza.
-
-L’entité pizza est une entité issue de l’apprentissage automatique pour les détails relatifs à la pizza. Pour faciliter l’extraction des détails, utilisez deux caractéristiques :
-
-* une liste d’expressions composée de mots pertinents tels que **fromage**, **croûte**, **pepperoni** ou **ananas** ;
-* une entité **number** prédéfinie en tant que caractéristique pour l’entité.
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Créer une liste d’expressions pour un concept
 
@@ -176,12 +150,12 @@ Poursuivons avec l’exemple de l’adresse de livraison :
 
 Adresse de livraison (entité issue du Machine Learning)
 
- * Numéro de rue (sous-entité) 
- * Rue (sous-entité) 
- * Numéro de rue (sous-entité) 
- * Ville (sous-entité) 
- * Région ou département (sous-entité) 
- * Pays/région (sous-entité) 
+ * Numéro de rue (sous-entité)
+ * Rue (sous-entité)
+ * Numéro de rue (sous-entité)
+ * Ville (sous-entité)
+ * Région ou département (sous-entité)
+ * Pays/région (sous-entité)
  * Code postal (sous-entité)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Caractéristique requise utilisant des entités prédéfinies
@@ -217,6 +191,59 @@ Bien que l’utilisation la plus courante consiste à appliquer une caractérist
 L’utilisation la plus courante d’une caractéristique globale consiste à ajouter un vocabulaire à l’application. Par exemple, si vos clients utilisent une langue principale, mais s’attendent à pouvoir utiliser une autre langue dans le même énoncé, vous pouvez ajouter une caractéristique qui comprend des mots de la langue secondaire.
 
 Étant donné que l’utilisateur s’attend à utiliser la langue secondaire pour exprimer toute intention ou entité, ajoutez des mots de la langue secondaire à la liste d’expressions. Configurez la liste d’expressions en tant que fonctionnalité globale.
+
+## <a name="combine-features-for-added-benefit"></a>Combiner les caractéristiques pour bénéficier d'avantages supplémentaires
+
+Vous pouvez utiliser plusieurs caractéristiques pour décrire un trait ou un concept. L'association suivante est couramment utilisée :
+
+* Caractéristique de liste d'expressions : vous pouvez utiliser plusieurs listes d'expressions comme caractéristiques d'un même modèle.
+* Modèle en tant que caractéristique : [entité prédéfinie](luis-reference-prebuilt-entities.md), [entité d'expression régulière](reference-entity-regular-expression.md), [entité de liste](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Exemple : caractéristiques d'une entité de réservation de billets pour une application de voyage  
+
+Prenons l'exemple d'une application permettant de réserver un vol avec une _intention_ de réservation de vol et une _entité_ de réservation de billets. L'entité de réservation de billets capture les informations nécessaires à la réservation d'un billet d'avion dans un système de réservation. 
+
+L'entité d'apprentissage automatique associée à la réservation de billets comporte deux sous-entités permettant de capturer l'origine et la destination. Les caractéristiques doivent être ajoutées à chaque sous-entité, et non à l'entité de niveau supérieur.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Schéma de l'entité de réservation de billets":::
+
+L'entité de réservation de billets est une entité d'apprentissage automatique, avec des sous-entités _Origine_ et _Destination_. Ces sous-entités indiquent toutes deux un emplacement géographique. Pour faciliter l'extraction des emplacements, et faire la distinction entre _Origine_ et _Destination_, chaque sous-entité doit disposer de caractéristiques.
+
+|Type|Sous-entité Origine |Sous-entité Destination|
+|--|--|--|
+|Modèle en tant que fonctionnalité|Entité prédéfinie [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|Entité prédéfinie [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
+|Liste d’expressions|**Expressions liées à l'origine** : `start at`, `begin from`, `leave`|**Expressions liées à la destination** : `to`, `arrive`, `land at`, `go`, `going`, `stay`, `heading`|
+|Liste d’expressions|Codes d'aéroport - même liste pour l'origine et la destination|Codes d'aéroport - même liste pour l'origine et la destination|
+|Liste d’expressions|Noms d'aéroport - même liste pour l'origine et la destination|Codes d'aéroport - même liste pour l'origine et la destination|
+
+Si vous souhaitez que les gens utilisent les codes et les noms des aéroports, LUIS doit disposer de listes d'expressions qui utilisent les deux types d'expressions. Les codes d'aéroport peuvent être plus courants avec du texte saisi dans un bot conversationnel, tandis que les noms d'aéroport peuvent être plus courants avec une conversation orale telle qu'un bot conversationnel à reconnaissance vocale.
+
+Les détails correspondants des caractéristiques sont uniquement renvoyés pour les modèles, et non pour les listes d'expressions, car seuls les modèles sont renvoyés dans le JSON de prédiction.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Étiquetage des réservations de billets dans l'intention
+
+Après avoir créé l'entité d'apprentissage automatique, vous devez ajouter des exemples d'énoncés à une intention, et étiqueter l'entité parente et toutes les sous-entités.
+
+Pour l'exemple de réservation de billets, étiquetez les exemples d'énoncés de l'intention avec l'entité `TicketBooking` et les sous-entités du texte.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schéma de l'entité de réservation de billets":::
+
+### <a name="example-pizza-ordering-app"></a>Exemple : application de commande de pizzas
+
+Prenons maintenant l'exemple d'une application de pizzeria qui reçoit des commandes de pizzas, avec les détails du type de pizza que commande le client. Chaque détail de la pizza doit être extrait, si possible, afin de traiter la commande.
+
+L'entité d'apprentissage automatique de cet exemple est plus complexe, avec des sous-entités imbriquées, des listes d'expressions, des entités prédéfinies et des entités personnalisées.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schéma de l'entité de réservation de billets":::
+
+Cet exemple utilise des caractéristiques aux niveaux de la sous-entité et de l'enfant de la sous-entité. La détermination du niveau qui reçoit tel ou tel type de liste d'expressions ou de modèle comme caractéristique constitue une partie importante de la conception de votre entité.
+
+Tandis que les sous-entités peuvent disposer de nombreuses listes d'expressions comme caractéristiques pour la détection de l'entité, chaque sous-entité ne dispose que d'un seul modèle comme caractéristique. Dans cette [application de commandes de pizzas](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), ces modèles sont principalement des listes.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schéma de l'entité de réservation de billets":::
+
+Les exemples d'énoncés correctement étiquetés illustrent la façon dont les entités sont imbriquées. 
+
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

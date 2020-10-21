@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Activer l’authentification unique sur iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Déboguer l’authentification unique SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Configurer des revendications
           items:
             - name: Configurer des revendications de rôle

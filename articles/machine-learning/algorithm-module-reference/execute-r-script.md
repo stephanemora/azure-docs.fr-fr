@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907999"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542286"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
 Cet article explique comment utiliser le module Exécuter un script R pour exécuter du code R dans votre pipeline de concepteur Azure Machine Learning.
 
-R vous permet d’exécuter des tâches qui ne sont actuellement pas prises en charge par les modules existants, telles que : 
+R vous permet d'effectuer des tâches qui ne sont pas prises en charge par les modules existants, telles que : 
 - Créer des transformations de données personnalisées
 - Utiliser vos propres métriques pour évaluer des prédictions
 - Générer des modèles à l’aide d’algorithmes qui ne sont pas implémentés en tant que modules autonomes dans le concepteur
@@ -137,7 +137,7 @@ Vous pouvez vous référer à l’exemple de code suivant pour [accéder aux jeu
 
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 
-Le module Exécuter un script R contient un exemple de code que vous pouvez utiliser comme point de départ. Pour configurer le module Exécuter un script R, indiquez un ensemble d’entrées et du code à exécuter.
+Le module Exécuter un script R contient un exemple de code comme point de départ.
 
 ![Diagramme des entrées pour un module R](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
     > [!NOTE]
     > Vous devrez peut-être apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline de concepteur. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans le concepteur.
 
-    Si la taille de votre script est supérieure à 16 Ko, utilisez le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16 597 caractères*. 
+    Si la taille de votre script est supérieure à 16 Ko, utilisez le port **Script Bundle** pour éviter des erreurs comme *La ligne de commande dépasse la limite de 16597 caractères*. 
     
-    Regroupez le script et d’autres ressources personnalisées dans un fichier zip, puis chargez le fichier zip comme **Jeu de données de fichier** dans Studio. Vous pouvez faire glisser le module de jeu de données de la liste *Mes jeux de données* vers le volet de module de gauche sur la page de création du concepteur. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
+    1. Regroupez le script et d'autres ressources personnalisées dans un fichier zip.
+    1. Chargez le fichier zip en tant que **jeu de données** dans Studio. 
+    1. Faites glisser le module du jeu de données de la liste *Mes jeux de données* vers le volet de module de gauche sur la page de création du concepteur. 
+    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
     
     Voici l’exemple de code permettant d’utiliser le script dans le groupe de scripts :
 
@@ -219,7 +222,7 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 
 ## <a name="results"></a>Résultats
 
-Les modules Exécuter un script R peuvent retourner plusieurs sorties, mais elles doivent être fournies sous forme de trames de données R. Les trames de données sont automatiquement converties en jeux de données dans le concepteur pour assurer la compatibilité avec d’autres modules.
+Les modules Exécuter un script R peuvent retourner plusieurs sorties, mais elles doivent être fournies sous forme de trames de données R. Le concepteur convertit automatiquement les trames de données en jeux de données pour assurer la compatibilité avec d'autres modules.
 
 Les erreurs et messages standard de R sont retournés dans le journal du module.
 
@@ -236,7 +239,7 @@ Le module Exécuter un script R prend en charge des fichiers de script R arbit
 
 1. Pour télécharger un fichier. zip contenant du code R dans votre espace de travail, accédez à la page de ressources **Jeux de données**. Sélectionnez **Créer un jeu de données**, puis sélectionnez **À partir d’un fichier local** et l’option de type de jeu de données **Fichier**.  
 
-1. Vérifiez que le fichier compressé est disponible dans la liste **Mes jeux de données** sous la catégorie **Jeux de données** dans l’arborescence du module de gauche.
+1. Vérifiez que le fichier compressé apparaît dans **Mes jeux de données** sous la catégorie **Jeux de données** de l'arborescence du module de gauche.
 
 1.  Connectez le jeu de données au port d’entrée **ScriptBundle**.
 

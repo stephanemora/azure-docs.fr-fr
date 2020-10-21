@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300730"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359152"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -83,7 +83,7 @@ Pour les applications distribuées globalement ou les scénarios de basculement 
 > [!NOTE]
 > Pour le moment, le peering de réseaux virtuels global n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 
 
-![global-vnet](media/networking/global-vnet.png)
+![Diagramme représentant deux régions reliées par deux passerelles VPN. Chaque région contient des réseaux virtuels appairés.](media/networking/global-vnet.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

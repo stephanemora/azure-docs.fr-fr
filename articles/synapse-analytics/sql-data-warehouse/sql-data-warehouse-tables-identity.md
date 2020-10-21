@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876003"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utiliser IDENTITY pour créer des clés de substitution dans le pool SQL Synapse
 
@@ -26,7 +26,8 @@ Dans cet article, vous trouverez des recommandations et exemples d’utilisation
 
 Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.
 > [!NOTE]
-> Il n’est pas garanti que la valeur IDENTITY dans Synapse SQL soit unique si l’utilisateur insère explicitement une valeur en double avec « SET IDENTITY_INSERT ON » ou réamorce IDENTITY. Pour plus d’informations, consultez [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> Dans Azure Synapse Analytics, la valeur IDENTITY augmente de façon autonome dans chaque distribution et ne chevauche pas les valeurs IDENTITY dans d’autres distributions.  Il n’est pas garanti que la valeur IDENTITY dans Synapse soit unique si l’utilisateur insère explicitement une valeur en double avec « SET IDENTITY_INSERT ON » ou réamorce IDENTITY. Pour plus d’informations, consultez [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Création d’une table avec une colonne IDENTITY
 

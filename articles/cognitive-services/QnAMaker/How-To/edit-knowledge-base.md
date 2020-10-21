@@ -1,14 +1,16 @@
 ---
 title: Modifier une base de connaissances - QnA Maker
 description: QnA Maker vous permet de gérer le contenu de votre base de connaissances en fournissant une expérience d’édition simple d’utilisation.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054018"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776542"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modifier des paires de Q/R dans votre base de connaissances
 
@@ -72,7 +74,7 @@ La modification du texte enrichi de votre réponse vous permet d’obtenir un st
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Capture d'écran représentant l'éditeur en place avec l'URL de l'image publiquement accessible et le texte de remplacement de l'image.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Ajoutez un lien vers une URL soit en sélectionnant le texte dans la réponse, puis en choisissant l’icône de lien dans la barre d’outils, soit en sélectionnant l’icône de lien dans la barre d’outils, puis en entrant le nouveau texte et l’URL.
 

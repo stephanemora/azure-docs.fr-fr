@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463958"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776100"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Atténuer les risques et débloquer les utilisateurs
 
@@ -88,6 +88,10 @@ Pour débloquer un compte en fonction du risque de connexion, les administrateur
 1. **Connexion à partir d’un emplacement ou d’un appareil connu** : les connexions suspectes bloquées sont généralement des tentatives de connexion effectuées à partir d’un emplacement ou d’un appareil inconnu. Vos utilisateurs peuvent déterminer rapidement s’il s’agit bien de la raison du blocage en essayant de se connecter à partir d’un appareil ou d’un emplacement connu.
 1. **Exclure l’utilisateur de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification occasionne des problèmes pour certains utilisateurs, vous pouvez les en exclure. Pour plus d’informations, consultez la section Exclusions de l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez l’article [Guide pratique : Configurer et activer des stratégies de risque](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>PowerShell en préversion
+
+Le module Microsoft Graph PowerShell SDK Preview permet aux organisations de gérer les risques à l'aide de PowerShell. Les modules disponibles en préversion et les exemples de code se trouvent dans le [référentiel GitHub Azure AD](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

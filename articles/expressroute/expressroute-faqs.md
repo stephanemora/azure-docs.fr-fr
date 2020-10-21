@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566418"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077352"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -242,6 +242,9 @@ Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou le
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Puis-je bloquer connectivité Internet pour les réseaux virtuels connectés à des circuits ExpressRoute ?
 
 Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute.
+
+> [!NOTE]
+> Si l’itinéraire publié 0.0.0.0/0 est retiré des itinéraires publiés (par exemple, en raison d’une panne ou d’une configuration incorrecte), Azure fournit un [ltinéraire du système](../virtual-network/virtual-networks-udr-overview.md#system-routes) aux ressources du réseau virtuel connecté pour assurer la connectivité à Internet.  Pour vous assurer que le trafic sortant vers Internet est bloqué, il est recommandé de placer un groupe de sécurité réseau sur tous les sous-réseaux avec une règle de refus sortante pour le trafic Internet.
 
 Si vous publiez des itinéraires par défaut, nous forçons le réacheminement du trafic en direction des services offerts via le peering Microsoft (tels que le Stockage Azure et SQL DB) vers votre environnement local. Vous devez configurer vos routeurs de façon à ce qu’ils retournent le trafic vers Azure via le chemin d’accès de peering Microsoft ou via Internet. Si vous avez activé un point de terminaison de service pour le service, le trafic vers le service n’est pas réacheminé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 

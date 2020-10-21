@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888411"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446953"
 ---
 # <a name="configure-azure-sql-edge"></a>Configurer Azure SQL Edge
 
@@ -33,7 +33,8 @@ Azure SQL Edge expose plusieurs variables d’environnement qui peuvent être ut
 Les nouvelles variables d’environnement suivantes ont été ajoutées à Azure SQL Edge. 
 
 | Variable d’environnement | Description | Valeurs |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | Spécifie la référence SKU Azure SQL Edge à utiliser lors de l'initialisation. Cette variable d'environnement est uniquement requise lors du déploiement d'Azure SQL Edge à l'aide d'Azure IoT Edge. | **asde-developer-on-iot-edge** ou **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Activez ou désactivez la collecte des données d’utilisation et de diagnostic. | TRUE ou FALSE |  
 | **MSSQL_TELEMETRY_DIR** | Définit le répertoire cible pour les fichiers d’audit de la collecte des données d’utilisation et de diagnostic. | Emplacement du dossier dans le conteneur SQL Edge. Ce dossier peut être mappé à un volume hôte à l’aide de points de montage ou de volumes de données. | 
 | **MSSQL_PACKAGE** | Spécifie l'emplacement du package dacpac ou bacpac à déployer. | Dossier, fichier ou URL SAP contenant les packages dacpac ou bacpac. Pour plus d’informations, consultez [Déployer des packages SQL Database DACPAC et BACPAC dans SQL Edge](deploy-dacpac.md). |

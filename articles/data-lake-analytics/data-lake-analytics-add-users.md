@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502934"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450208"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Ajout d’un utilisateur dans le portail Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502934"
 2. Cliquez sur **Assistant Ajouter un utilisateur**.
 3. Dans l’étape **Sélectionner un utilisateur**, recherchez l’utilisateur que vous voulez ajouter. Cliquez sur **Sélectionner**.
 4. Dans l’étape **Sélectionner un rôle**, choisissez **Développeur Data Lake Analytics**. Ce rôle dispose de l’ensemble minimal d’autorisations requises pour envoyer/contrôler/gérer les travaux U-SQL. Assignez ce rôle si le groupe n’est pas conçu pour gérer les services Azure.
-5. Dans l’étape **Sélectionner des autorisations de catalogue**, sélectionnez les bases de données supplémentaires auxquelles l’utilisateur doit avoir accès. Un accès Lecture et écriture à la base de données MASTER est requis pour envoyer des travaux. Lorsque vous avez terminé, cliquez sur **OK**.
+5. Dans l’étape **Sélectionner des autorisations de catalogue**, sélectionnez les bases de données supplémentaires auxquelles l’utilisateur doit avoir accès. Un accès en lecture et en écriture à la base de données statique par défaut appelée « master » est requis pour envoyer des travaux. Lorsque vous avez terminé, cliquez sur **OK**.
 6. Dans la dernière étape appelée **Affecter les autorisations sélectionnées**, passez en revue les modifications que l’Assistant apportera. Cliquez sur **OK**.
 
 

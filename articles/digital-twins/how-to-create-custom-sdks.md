@@ -8,26 +8,26 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324227"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970127"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Création de kits SDK personnalisés pour Azure Digital Twins avec AutoRest
 
 Pour le moment, le seul Kit de développement logiciel (SDK) de plan de données publié permettant d’interagir avec les API Azure Digital Twins est destiné à .NET (C#), JavaScript et Java. Pour plus d’informations sur ces kits de développement logiciel (SDK) et les API en général, consultez [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md). Si vous travaillez avec un autre langage, cet article vous montre comment générer votre propre Kit de développement logiciel (SDK) de plan de données dans le langage de votre choix à l’aide d’AutoRest.
 
 >[!NOTE]
-> Si vous le souhaitez, vous pouvez également utiliser AutoRest pour générer un Kit de développement logiciel (SDK) de plan de contrôle. Pour ce faire, suivez les étapes de cet article en utilisant le [fichier Swagger (OpenAPI) du plan de contrôle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) au lieu de celui du plan de données.
+> Si vous le souhaitez, vous pouvez également utiliser AutoRest pour générer un Kit de développement logiciel (SDK) de plan de contrôle. Pour ce faire, suivez les étapes de cet article en utilisant la dernière version du fichier **Swagger du plan de contrôle** (OpenAPI) dans le dossier [dossier du fichier Swagger du plan de contrôle]](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) ) au lieu de celui du plan de données.
 
 ## <a name="set-up-your-machine"></a>Configurer votre machine
 
 Pour générer un kit SDK, vous aurez besoin des éléments suivants :
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (la version 3 n’est pas prise en charge pour le moment)
 * [Node.js](https://nodejs.org), qui fait partie des prérequis d’AutoRest
-* Le [fichier Swagger (OpenAPI) du plan de données](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) d’Azure Digital Twins intitulé *digitaltwins.json* et le dossier d’exemples qui l’accompagne Téléchargez le fichier Swagger et son dossier d’exemples sur votre ordinateur local.
+* La dernière version du fichier **Swagger du plan de données** (OpenAPI) d’Azure Digital Twins dans le [dossier du fichier Swagger du plan de données](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) et le dossier d’exemples qui l’accompagne.  Téléchargez le fichier Swagger *digitaltwins.json* et son dossier d’exemples sur votre ordinateur local.
 
 Une fois que votre machine est équipée de tous les éléments de la liste ci-dessus, vous êtes prêt à utiliser AutoRest pour créer le kit SDK.
 

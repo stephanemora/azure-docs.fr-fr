@@ -1,23 +1,23 @@
 ---
-title: Utiliser l’espace de noms agrégé d’Azure HPC Cache
+title: Comprendre l’espace de noms agrégé d’Azure HPC Cache
 description: Comment planifier l’espace de noms virtuel pour votre compte Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612946"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
 Azure HPC Cache permet aux clients d’accéder à un large éventail de systèmes de stockage par le biais d’un espace de noms virtuels qui masque les détails du système de stockage back-end.
 
-Lorsque vous ajoutez une cible de stockage, vous définissez le chemin de fichier côté client. Les ordinateurs clients montent ce chemin de fichier et peuvent effectuer des requêtes de lecture de fichier dans le cache au lieu de monter directement le système de stockage.
+Après avoir ajouté une cible de stockage, vous configurez un ou plusieurs chemins d’accès d’espace de noms côté client pour la cible de stockage. Les ordinateurs clients montent ce chemin de fichier et peuvent effectuer des requêtes de lecture de fichier dans le cache au lieu de monter directement le système de stockage.
 
 Azure HPC Cache gérant ce système de fichiers virtuel, vous pouvez modifier la cible de stockage sans modifier le chemin d’accès côté client. Par exemple, vous pouvez remplacer un système de stockage matériel par du stockage cloud sans avoir à réécrire les procédures côté client.
 
@@ -48,7 +48,7 @@ Pour permettre un accès facile via le cache, vous pouvez créer des cibles de s
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source/               |
 
-Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de noms virtuels, à condition que chacun d’eux fasse référence à un chemin d’exportation unique.
+Une cible de stockage NFS peut avoir plusieurs chemins d’accès d’espace de noms virtuels, à condition que chacun d’eux fasse référence à un chemin d’exportation unique. (Lisez [Chemins d’accès aux espaces de noms NFS](add-namespace-paths.md#nfs-namespace-paths) pour connaître le nombre maximal recommandé de chemins d’accès d’espace de noms par cible de stockage NFS).
 
 Les chemins sources NFS étant des sous-répertoires d’une même exportation, vous devez définir plusieurs chemins d’espaces de noms à partir de la même cible de stockage.
 
@@ -59,6 +59,13 @@ Les chemins sources NFS étant des sous-répertoires d’une même exportation,
 
 Une application cliente peut monter le cache et accéder facilement aux chemins d’espaces de noms agrégés ``/source``, ``/templates/sku798`` et ``/templates/sku980``.
 
+Une autre approche consiste à créer un chemin d’accès virtuel comme `/templates` qui établit un lien vers le répertoire parent, `acme2017`, puis permet aux clients d’accéder aux répertoires individuels `sku798` et `sku980` après le montage du cache. Toutefois, vous ne pouvez pas créer de chemin d’accès à l’espace de noms qui est un sous-répertoire du chemin d’accès d’un autre espace de noms. Par conséquent, si vous créez un chemin d’accès au répertoire `acme2017`, vous ne pouvez pas non plus créer de chemins d’accès à des espace de noms pour accéder directement à ses sous-répertoires.
+
+La page de paramètres **Espace de noms** d’Azure HPC Cache reprend le système de fichiers côté client et vous permet d’ajouter ou de modifier des chemins d’accès. Pour en savoir plus, consultez [Planifier l’espace de noms agrégé](add-namespace-paths.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez décidé comment configurer votre système de fichiers virtuel, [créez des cibles de stockage](hpc-cache-add-storage.md) pour mapper votre stockage back-end à vos chemins de fichiers virtuels côté client.
+Une fois que vous avez déterminé la configuration de votre système de fichiers virtuel, suivez les étapes ci-dessous pour le créer :
+
+* [Créez des cibles de stockage](hpc-cache-add-storage.md) pour ajouter vos systèmes de stockage principaux à votre Azure HPC Cache
+* [Ajoutez des chemins d’accès à l’espace de noms](add-namespace-paths.md) pour créer l’espace de noms agrégé utilisé par les ordinateurs clients pour accéder aux fichiers

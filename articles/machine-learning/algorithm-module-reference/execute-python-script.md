@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908017"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450134"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -57,8 +57,11 @@ if spec is None:
 > [!NOTE]
 > Si votre pipeline contient plusieurs modules Exécuter un script Python qui nécessitent des packages qui ne figurent pas dans la liste des packages préinstallés, installez les packages dans chaque module.
 
+> [!WARNING]
+> Le module Exécuter un script Python ne prend pas en charge l’installation de packages qui dépendent de bibliothèques natives supplémentaires avec une commande telle que « apt-obten », par exemple, Java, PyODBC, etc. Cela est dû au fait que ce module est exécuté dans un environnement simple avec uniquement Python préinstallé et une autorisation non administrateur.  
+
 ## <a name="upload-files"></a>Charger des fichiers
-Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
+Le module Exécuter un script Python prend en charge le chargement de fichiers à l’aide du [kit SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 L’exemple suivant montre comment charger un fichier image dans le module Exécuter un script Python :
 
@@ -140,7 +143,10 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
 
     Deux jeux de données peuvent être renvoyés au concepteur, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
 
-6. Soumettez le pipeline, ou sélectionnez le module et sélectionnez **Exécuter la sélection** pour exécuter uniquement le script Python.
+    > [!WARNING]
+    > Il n’est **pas** recommandé de se connecter à une base de données ou à d’autres stockages externes dans le **Module Exécuter un script Python**. Vous pouvez utiliser le [Module Importer des données](./import-data.md) et le [Module Exporter les données](./export-data.md)     
+
+6. Envoyez le pipeline.
 
     La totalité des données et du code sont chargés sur une machine virtuelle et s’exécutent à l’aide de l’environnement Python spécifié.
 

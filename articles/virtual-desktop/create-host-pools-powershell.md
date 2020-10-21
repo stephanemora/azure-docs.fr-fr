@@ -3,15 +3,15 @@ title: Créer un pool d’hôtes Windows Virtual Desktop via PowerShell – Azur
 description: Découvrez comment créer un pool d’hôtes dans Windows Virtual Desktop avec des cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121151"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667161"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Windows Virtual Desktop avec PowerShell
 
@@ -100,6 +100,9 @@ Avant d'installer les agents Windows Virtual Desktop et d'inscrire les machines 
     >[!NOTE]
     > Si vous joignez vos machines virtuelles à un environnement Azure Active Directory Domain Services (Azure AD DS), vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
+>[!IMPORTANT]
+>Nous vous recommandons de ne pas activer de stratégies ou de configurations qui désactivant Windows Installer. Si vous désactivez Windows Installer, le service ne pourra pas installer les mises à jour de l'agent sur vos hôtes de session, et ces derniers ne fonctionneront pas correctement.
+
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop
 
 L'inscription des machines virtuelles dans un pool d’hôtes Windows Virtual Desktop est aussi simple que l'installation des agents Windows Virtual Desktop.
@@ -140,7 +143,7 @@ Pour mettre à jour l’agent :
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
-6. Une fois que vous avez désinstallé ces éléments, vous devez supprimer toutes les associations avec l’ancien pool d’hôtes. Si vous souhaitez réinscrire cet hôte auprès du service, suivez les instructions figurant dans [Inscrire les machines virtuelles dans le pool d’hôtes Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+6. Une fois que vous avez désinstallé ces éléments, vous devez supprimer toutes les associations avec l’ancien pool d’hôtes. Si vous souhaitez réinscrire cet hôte auprès du service, suivez les instructions figurant dans [Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

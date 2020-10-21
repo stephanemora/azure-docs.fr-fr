@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594422"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362710"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Créer des certificats pour autoriser le serveur back-end dans Azure Application Gateway
 
@@ -37,7 +37,7 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Recherchez le certificat, généralement dans « Certificats - Utilisateur actuel\Personnel\Certificats », puis cliquez dessus avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**. Si vous ne trouvez pas le certificat sous Current User\Personal\Certificates, il est possible que vous ayez ouvert par erreur « Certificats – Ordinateur local » et non « Certificats – Utilisateur actuel ». Si vous voulez ouvrir le Gestionnaire de certificats dans le champ d’application utilisateur actuel en utilisant PowerShell, tapez *certmgr* dans la fenêtre de la console.
 
-   ![Exporter](./media/certificates-for-backend-authentication/export.png)
+   ![Capture d’écran montrant le Gestionnaire de certificats avec l’option Certificats sélectionnée, et un menu contextuel avec les options Toutes les tâches, puis Exporter sélectionnées.](./media/certificates-for-backend-authentication/export.png)
 
 2. Dans l’assistant, cliquez sur **Suivant**.
 
@@ -53,19 +53,19 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 5. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
 
-   ![...](./media/certificates-for-backend-authentication/browse.png)
+   ![Capture d’écran montrant l’Assistant Exportation de certificat dans lequel vous spécifiez un fichier à exporter.](./media/certificates-for-backend-authentication/browse.png)
 
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
-   ![Finish](./media/certificates-for-backend-authentication/finish.png)
+   ![Capture d’écran montrant l’Assistant Exportation de certificat une fois l’exportation de fichier terminée.](./media/certificates-for-backend-authentication/finish.png)
 
 7. Votre certificat est correctement exporté.
 
-   ![Succès](./media/certificates-for-backend-authentication/success.png)
+   ![Capture d’écran montrant l’Assistant Exportation de certificat affichant un message de réussite.](./media/certificates-for-backend-authentication/success.png)
 
    Le certificat exporté ressemble à ceci :
 
-   ![Exporté](./media/certificates-for-backend-authentication/exported.png)
+   ![Capture d’écran montrant un symbole de certificat.](./media/certificates-for-backend-authentication/exported.png)
 
 8. Si vous ouvrez le certificat exporté à l’aide du Bloc-notes, vous verrez quelque chose de similaire à cet exemple. La section en bleu contient les informations chargées vers Application Gateway. Si vous ouvrez votre certificat avec le Bloc-notes et qu’il ne ressemble pas à celui de l’exemple, cela signifie généralement que vous ne l’avez pas exporté au format X.509 de base 64 (.CER). De plus, si vous voulez utiliser un autre éditeur de texte, notez que certains éditeurs peuvent ajouter une mise en forme non souhaitée en arrière-plan. Cela peut créer des problèmes quand vous chargez le texte de ce certificat sur Azure.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934818"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360155"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Créer des pages d’erreur personnalisées pour Application Gateway
 
@@ -48,7 +48,7 @@ Après avoir spécifié une page d’erreur, la passerelle d’application la t�
 
 1. Accédez à la passerelle Application Gateway dans le portail et choisissez une passerelle d’application.
 
-    ![ag-overview](media/custom-error/ag-overview.png)
+    ![Capture d'écran représentant la page de présentation d'une passerelle applicative.](media/custom-error/ag-overview.png)
 2. Cliquez sur **Écouteurs** et accédez à un écouteur spécifique sur lequel vous souhaitez spécifier une page d’erreur.
 
     ![Écouteurs Application Gateway](media/custom-error/ag-listener.png)

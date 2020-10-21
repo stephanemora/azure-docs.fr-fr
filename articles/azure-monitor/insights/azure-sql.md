@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318026"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397077"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -90,11 +90,11 @@ Si certaines métriques ou certains journaux d’activité ne sont pas diffusés
 
 Lorsque la vignette Azure SQL Analytics de la base de données est sélectionnée, le tableau de bord de monitoring s’affiche.
 
-![Vue d’ensemble d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-overview.png)
+![Capture d'écran représentant le tableau de bord de surveillance.](./media/azure-sql/azure-sql-sol-overview.png)
 
 En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’une perspective en particulier. Une fois la perspective sélectionnée, le rapport détaillé est ouvert.
 
-![Délais d’expiration d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics.png)
+![Capture d'écran représentant le rapport détaillé d'une perspective spécifique.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Chaque perspective de cette vue fournit des récapitulatifs aux niveaux de l’abonnement, du serveur, du pool élastique et de la base de données. En outre, sur la droite, chaque perspective présente une vision spécifique au rapport. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
 
 #### <a name="alert-on-intelligent-insights"></a>Alerte sur Intelligent Insights
+
+> [!IMPORTANT]
+> Si une base de données fonctionne bien et qu'aucun rapport Intelligent Insights n'a été généré, cette requête échoue et le message d'erreur suivant apparaît : Échec de la résolution de l'expression scalaire « rootCauseAnalysis_s ». Ce comportement est normal lorsqu'aucun rapport Intelligent Insights n'est généré pour la base de données.
 
 ```
 let alert_run_interval = 1h;

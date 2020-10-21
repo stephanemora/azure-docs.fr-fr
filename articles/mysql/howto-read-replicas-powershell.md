@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c85af0f4078010fa5b6a1d116b3bfda942c0490c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e9c8ce7519c6e2c84ef47fc78897c4b67b89e56a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816930"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540997"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de PowerShell
 
@@ -38,12 +38,12 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
+> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 
@@ -68,14 +68,14 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md).
 
-Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître, sauf si le paramètre **Sku** est spécifié.
+Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source, sauf si le paramètre **Sku** est spécifié.
 
 > [!NOTE]
-> Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur maître pour garantir que le serveur réplica est à la hauteur du serveur maître.
+> Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
 
-### <a name="list-replicas-for-a-master-server"></a>Répertorier les réplicas d'un serveur maître
+### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source
 
-Pour afficher tous les réplicas d'un serveur maître donné, exécutez la commande suivante :
+Pour afficher tous les réplicas d'un serveur source donné, exécutez la commande suivante :
 
 ```azurepowershell-interactive
 Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -86,7 +86,7 @@ La commande `Get-AzMySqlReplica` requiert les paramètres suivants :
 | Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
-| ServerName | mydemoserver | Nom ou ID du serveur maître. |
+| ServerName | mydemoserver | Nom ou ID du serveur source. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 
@@ -96,12 +96,12 @@ La suppression d’un serveur réplica en lecture peut être effectuée en exéc
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Supprimer un serveur maître
+### <a name="delete-a-source-server"></a>Supprimer un serveur source
 
 > [!IMPORTANT]
-> La suppression d’un serveur maître arrête la réplication vers tous les serveurs réplicas et supprime le serveur maître lui-même. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
+> La suppression d’un serveur source arrête la réplication vers tous les serveurs réplicas et supprime le serveur source proprement dit. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
 
-Pour supprimer un serveur maître, vous pouvez exécuter la cmdlet `Remove-AzMySqlServer`.
+Pour supprimer un serveur source, vous pouvez exécuter la cmdlet `Remove-AzMySqlServer`.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

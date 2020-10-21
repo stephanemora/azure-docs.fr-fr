@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91774576"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -36,7 +36,8 @@ Avant de commencer, et si vous ne l’avez pas déjà fait, [créez un compte Ma
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- L'ID d'offre associé à l'ID d'éditeur doit contenir moins de 40 caractères.
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d'union et des traits de soulignement, mais pas d'espaces. Par exemple, si votre ID d'éditeur est testpublisherid et que vous entrez **test-offer-1** ici, l'adresse web de l'offre sera `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -56,11 +57,11 @@ Sélectionnez l’option que vous souhaitez utiliser pour cette offre.
 
 #### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
 
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/my-app`.
+Répertoriez votre offre gratuitement pour les clients.
 
 #### <a name="free-trial-listing"></a>Essai gratuit (annonce)
 
-Répertoriez votre offre en tant qu’essai gratuit pour les clients en fournissant une URL valide (qui commence par `http` ou `https`) où ils peuvent accéder obtenir un essai.  Par exemple : `https://contoso.com/trial/my-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
+Répertoriez votre offre pour les clients en fournissant un lien vers un essai gratuit. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
 
 > [!NOTE]
 > Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure Active Directory (Azure AD) pour automatiser la création de comptes dans votre application. Les comptes Microsoft ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
@@ -182,8 +183,8 @@ Fournissez au moins un (et au plus trois) documents marketing associés ici, com
 
 Fournissez un fichier PNG pour le logo de **grande** taille. L’Espace partenaires s’en servira pour créer un logo de **petite taille**. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image.
 
-- **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
-- **Petite taille** (48 x 48 px, facultatif)
+- **Grand** (de 216 x 216 à 350 x 350 px, obligatoire)
+- **Petit** (48 x 48 px, facultatif)
 
 Ces logos sont utilisés à différents emplacements dans la liste :
 
@@ -256,9 +257,8 @@ Téléchargez le fichier de package d’extension (.app) pour votre offre.
 
 Obligatoire si votre offre doit être installée avec une autre extension qui n’est pas publiée sur la place de marché. Si c’est le cas, téléchargez le fichier .app ici.
 
-#### <a name="dependency-package-file"></a>Fichier de package de dépendance
-
-Obligatoire si votre offre doit être installée avec une autre extension qui a déjà été publiée sur la place de marché. Si c’est le cas, téléchargez le fichier `.app` ou `.zip` ici.
+>[!NOTE]
+>Le fichier de package de dépendance n'est plus utilisé. Chargez un fichier de package de bibliothèque à la place.
 
 ### <a name="url-to-app-installation"></a>URL d’installation de l’application
 

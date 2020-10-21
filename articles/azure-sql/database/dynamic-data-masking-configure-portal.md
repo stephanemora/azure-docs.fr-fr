@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 12a187b29737ba9388d9b33ac8bcfedf1339c059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d4c29cdb9cf24f87df4acc3556b318a1079810a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253781"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91443619"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,20 +32,20 @@ Cet article vous montre comment implémenter [le masquage des données dynamique
 2. Accédez à la page des paramètres de la base de données comprenant les données sensibles que vous souhaitez masquer.
 3. Cliquez sur le panneau **Dynamic Data Masking** sous la section **Sécurité** de votre base de données SQL.
 
-   ![Volet de navigation](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![Capture d'écran représentant la section Sécurité dans laquelle Dynamic Data Masking est en surbrillance.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
 4. Dans la page de configuration **Masquage des données dynamiques**, certaines colonnes de base de données ont été indiquées par le moteur de recommandations pour le masquage. Pour accepter les recommandations, cliquez simplement sur **Ajouter un masque** pour une ou plusieurs colonnes et un masque est créé en fonction du type par défaut pour cette colonne. Vous pouvez modifier la fonction de masquage en cliquant sur la règle de masquage et en modifiant le format du champ de masquage pour un format différent de votre choix. N'oubliez pas de cliquer sur **Enregistrer** pour enregistrer vos paramètres.
 
-    ![Volet de navigation](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
+    ![Capture d'écran représentant la page de configuration de Dynamic Data Masking.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
 5. Pour ajouter un masque pour une colonne de votre base de données, au sommet de la page de configuration **Dynamic Data Masking**, cliquez sur **Ajouter un masque** pour ouvrir la page de configuration **Ajouter une règle de masquage**.
 
-    ![Volet de navigation](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
+    ![Capture d'écran représentant la page de configuration Ajouter une règle de masquage.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
 6. Sélectionnez le **Schéma**, la **Table** et la **Colonne** pour définir les champs désignés qui seront masqués.
 7. **Sélectionnez le mode de masquage** dans la liste des catégories de masquage des données sensibles.
 
-    ![Volet de navigation](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
+    ![Capture d'écran représentant les catégories de masquage des données sensibles sous la section Sélectionner le mode de masquage.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. Cliquez sur **Ajouter** sur la page des règles de masquage pour mettre à jour l'ensemble des règles de la stratégie de masquage dynamique des données.
 9. Saisissez les utilisateurs SQL ou les identités Azure Active Directory (Azure AD) qui doivent être exclues du masquage et avoir accès aux données sensibles non masquées. La liste d'utilisateurs doit être délimitée par des points-virgules. Les utilisateurs disposant de privilèges administrateur ont toujours accès aux données d'origine non masquées.
