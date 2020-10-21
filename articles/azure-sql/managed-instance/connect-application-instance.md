@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab, vanto
+ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871443"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628364"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connecter votre application à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Il existe deux options pour connecter des réseaux virtuels :
 - [Peering de réseaux virtuels Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Le peering est préférable car il utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. Le peering de réseau virtuel est limité aux réseaux d’une même région.  
+Le peering est préférable car il utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. L’appairage de réseaux virtuels est pris en charge entre les réseaux d’une même région. L’appairage de réseaux virtuels mondiaux est également pris en charge avec la limitation décrite dans la remarque ci-dessous.  
 
 > [!IMPORTANT]
-> Le scénario de peering de réseau virtuel pour SQL Managed Instance est limité aux réseaux de la même région en raison de [contraintes du peering de réseau virtuel global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 ## <a name="connect-from-on-premises"></a>Connexion en local 
 

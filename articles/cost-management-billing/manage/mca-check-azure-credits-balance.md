@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447620"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131409"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Suivre le solde de crédit Azure d’un Contrat client Microsoft
 
@@ -102,7 +102,7 @@ Cet article s'applique à un compte de facturation associé à un contrat client
 
 ### <a name="rest-api"></a>[REST API](#tab/rest)
 
-Vous pouvez utiliser les API [Consommation](https://docs.microsoft.com/rest/api/billing/) et [Facturation Azure](https://docs.microsoft.com/rest/api/consumption/) pour obtenir programmatiquement le solde de crédits de votre compte de facturation.
+Vous pouvez utiliser les API [Consommation](/rest/api/billing/) et [Facturation Azure](/rest/api/consumption/) pour obtenir programmatiquement le solde de crédits de votre compte de facturation.
 
 Les exemples ci-dessous utilisent les API REST. Actuellement, PowerShell et Azure CLI ne sont pas pris en charge.
 

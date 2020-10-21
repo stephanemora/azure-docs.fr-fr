@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892658"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207272"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple C++ natif sur HoloLens
 
@@ -32,7 +32,7 @@ Les logiciels suivants doivent être installés :
 
 * SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Installez la dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Outils Visual Studio pour Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
+* [Outils Visual Studio pour Mixed Reality](/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
   * **Développement Desktop en C++**
   * **Développement de la plateforme Windows universelle (UWP)**
 * Git [(télécharger)](https://git-scm.com/downloads)

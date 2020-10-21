@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 255fbe4036c83618dd0131b262d13709ab7f9c2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370332"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131885"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Souscrire un abonnement Azure avec un compte Microsoft 365
 
-Si vous avez un abonnement Microsoft 365, vous pouvez utiliser votre compte Microsoft 365 pour créer un abonnement Azure. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre nom d’utilisateur et votre mot de passe Microsoft 365. Si vous souhaitez configurer des machines virtuelles ou utiliser d’autres services Azure, vous devez souscrire un abonnement Azure. Vous pouvez partager votre abonnement Azure avec d’autres personnes et [utiliser le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à vos ressources et abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Si vous avez un abonnement Microsoft 365, vous pouvez utiliser votre compte Microsoft 365 pour créer un abonnement Azure. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre nom d’utilisateur et votre mot de passe Microsoft 365. Si vous souhaitez configurer des machines virtuelles ou utiliser d’autres services Azure, vous devez souscrire un abonnement Azure. Vous pouvez partager votre abonnement Azure avec d’autres personnes et [utiliser le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à vos ressources et abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Si vous avez déjà à la fois un compte Microsoft 365 et un abonnement Azure, consultez [Associer un locataire Microsoft 365 à un abonnement Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Partagez votre abonnement Azure avec d’autres personnes et [utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à vos ressources et abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Partagez votre abonnement Azure avec d’autres personnes et [utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à vos ressources et abonnement Azure](../../role-based-access-control/role-assignments-portal.md).

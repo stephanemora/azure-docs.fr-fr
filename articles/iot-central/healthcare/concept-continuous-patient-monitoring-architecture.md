@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122149"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architecture du suivi continu des patients
 
@@ -33,11 +33,11 @@ De nombreux appareils médicaux de type wearable utilisés dans les solutions m�
 
 ### <a name="mobile-phone-gateway"></a>Passerelle de téléphone portable
 
-La fonction principale de l’application de téléphone mobile est de collecter les données BLE des appareils médicaux et de les communiquer à IoT Central. L’application guide également les patients dans la configuration de l’appareil et leur permet de visualiser leurs données médicales personnelles. D’autres solutions pourraient utiliser une passerelle de tablette ou une passerelle statique dans une chambre d’hôpital. Un exemple d’application mobile open source est disponible pour Android et iOS, que vous pouvez utiliser comme point de départ pour le développement de votre application. Pour plus d’informations, consultez l’[application mobile de surveillance continue des patients IoT Central](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+La fonction principale de l’application de téléphone mobile est de collecter les données BLE des appareils médicaux et de les communiquer à IoT Central. L’application guide également les patients dans la configuration de l’appareil et leur permet de visualiser leurs données médicales personnelles. D’autres solutions pourraient utiliser une passerelle de tablette ou une passerelle statique dans une chambre d’hôpital. Un exemple d’application mobile open source est disponible pour Android et iOS, que vous pouvez utiliser comme point de départ pour le développement de votre application. Pour plus d’informations, consultez l’[application mobile de surveillance continue des patients IoT Central](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Exporter vers l’API Azure pour FHIR&reg;
 
-Azure IoT Central est conforme à HIPAA et certifié HITRUST&reg;. Vous pouvez également envoyer les données médicales des patients à d’autres services en utilisant l’[API Azure pour FHIR](../../healthcare-apis/overview.md). L’API Azure pour FHIR est une API basée sur des standards pour les données médicales cliniques. Le [connecteur Azure IoT pour FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart) vous permet d’utiliser l’API Azure pour FHIR comme destination d’exportation des données en continu depuis IoT Central.
+Azure IoT Central est conforme à HIPAA et certifié HITRUST&reg;. Vous pouvez également envoyer les données médicales des patients à d’autres services en utilisant l’[API Azure pour FHIR](../../healthcare-apis/overview.md). L’API Azure pour FHIR est une API basée sur des standards pour les données médicales cliniques. Le [connecteur Azure IoT pour FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) vous permet d’utiliser l’API Azure pour FHIR comme destination d’exportation des données en continu depuis IoT Central.
 
 ### <a name="machine-learning"></a>Apprentissage automatique
 

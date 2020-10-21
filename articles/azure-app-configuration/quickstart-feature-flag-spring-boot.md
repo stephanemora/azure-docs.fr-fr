@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824192"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075533"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -23,7 +23,7 @@ Les bibliothèques de gestion des fonctionnalités Spring Boot étendent le fram
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Un [kit SDK de développement Java](https://docs.microsoft.com/java/azure/jdk) pris en charge avec version 8
+* Un [kit SDK de développement Java](/java/azure/jdk) pris en charge avec version 8
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 ou ultérieure
 
 ## <a name="create-an-app-configuration-instance"></a>Créer une instance d’App Configuration
@@ -304,7 +304,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web Spring Boot via les [bibliothèques de gestion des fonctionnalités](https://go.microsoft.com/fwlink/?linkid=2074664).
+Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web Spring Boot via les [bibliothèques de gestion des fonctionnalités](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Découvrez plus d’informations sur la [gestion des fonctionnalités](./concept-feature-management.md).
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md).

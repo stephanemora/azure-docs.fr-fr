@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 786947a03440cc837f9d104d43e8061c80a0844c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803090"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045327"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -247,6 +247,7 @@ Génération 2 (démarrage UEFI) | Prise en charge
 Disques NVMe | Non pris en charge
 Disques partagés Azure | Non pris en charge
 Option de transfert sécurisé | Prise en charge
+Disques avec accélérateur d’écriture | Non pris en charge
 
 >[!IMPORTANT]
 > Pour éviter les problèmes de performances, assurez-vous de vous respecter les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
@@ -273,7 +274,7 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
 Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement. <br/><br/> Il n’est pas garanti que l’ordre des cartes réseau après basculement soit le même que l’ordre d’origine. <br/><br/> Vous pouvez renommer des cartes réseau dans la région cible conformément aux conventions de nommage de votre organisation. Le renommage des cartes réseau est pris en charge en utilisant PowerShell.
-Équilibreur de charge Internet | Non pris en charge | L’équilibrage de charge public/Internet n’est pas pris en charge par Azure Site Recovery.
+Équilibreur de charge Internet | Non pris en charge | Vous pouvez configurer des équilibreurs de charge publics ou Internet dans la région primaire. Toutefois, les équilibreurs de charge publics/Internet ne sont pas pris en charge par Azure Site Recovery dans la région de récupération d’urgence.
 Équilibreur de charge interne | Prise en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
 Adresse IP publique | Prise en charge | Associez une adresse IP publique existante à la carte réseau. Ou, créez une adresse IP publique et associez-la à la carte réseau à l’aide d’un script Azure Automation dans un plan de récupération.
 Groupe de sécurité réseau (NSG) sur la carte réseau | Prise en charge | Associez le groupe de sécurité réseau à la carte réseau à l’aide d’un script Azure Automation dans un plan de récupération.

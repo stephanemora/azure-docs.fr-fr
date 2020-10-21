@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372355"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132293"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -180,7 +180,7 @@ Les étendues suivantes sont prises en charge pour les CSP ayant des clients sou
 
 Seuls les utilisateurs ayant les rôles *Administrateur général* et *Agent d’administration* peuvent gérer et voir les coûts pour les comptes de facturation, les profils de facturation et les clients directement dans le locataire Azure du partenaire. Pour plus d’informations sur les rôles de l’espace Partenaires, consultez [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
-Azure Cost Management prend en charge uniquement les clients partenaires CSP si ces clients disposent d’un Contrat client Microsoft. Pour les clients pris en charge par un CSP qui ne sont pas encore sous Contrat client Microsoft, consultez l'[Espace partenaires](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Azure Cost Management prend en charge uniquement les clients partenaires CSP si ces clients disposent d’un Contrat client Microsoft. Pour les clients pris en charge par un CSP qui ne sont pas encore sous Contrat client Microsoft, consultez l'[Espace partenaires](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Les groupes d'administration des étendues CSP ne sont pas pris en charge par Cost Management. Si vous disposez d'un abonnement CSP et que vous définissez l'étendue sur un groupe d'administration dans l'analyse des coûts, une erreur semblable à la suivante s'affiche :
 

@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925043"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131953"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Créer un abonnement Azure supplémentaire
 
@@ -30,7 +30,7 @@ Pour créer des abonnements, vous avez besoin des autorisations suivantes :
 |---------|---------|
 |Contrat Entreprise (EA) |  Rôle Propriétaire du compte sur l’inscription au Contrat Entreprise. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](understand-ea-roles.md).    |
 |Contrat client Microsoft (MCA) |  Rôle Propriétaire ou Contributeur sur la section Factures, le profil de facturation ou le compte de facturation. Ou rôle Créateur de l’abonnement Azure dans la section Factures.  Pour plus d’informations, consultez [Rôles et tâches liés à la facturation des abonnements](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contrat Partenaire Microsoft (MPA) |   Rôle Administrateur général ou Agent d’administration dans l’organisation partenaire CSP. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).  L’utilisateur doit se connecter au locataire partenaire pour créer des abonnements Azure.   |
+|Contrat Partenaire Microsoft (MPA) |   Rôle Administrateur général ou Agent d’administration dans l’organisation partenaire CSP. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).  L’utilisateur doit se connecter au locataire partenaire pour créer des abonnements Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Créer un abonnement dans le Portail Azure
 
@@ -79,7 +79,7 @@ Vous pouvez également créer des abonnements supplémentaires par programmation
 
 - [Ajouter ou changer des administrateurs d’abonnements Azure](add-change-subscription-administrator.md)
 - [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Créer des groupes d’administration pour l’organisation et l’administration des ressources](../../governance/management-groups/create.md)
+- [Créer des groupes d’administration pour l’organisation et l’administration des ressources](../../governance/management-groups/create-management-group-portal.md)
 - [Annuler votre abonnement Azure](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
