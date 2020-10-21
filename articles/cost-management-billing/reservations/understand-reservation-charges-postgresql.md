@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 51b2f4964c01efbfc82008134d47f09648a772ff
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6b32df7264066daa0bc7298a04453dad4fc9937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681972"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147253"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Comment une remise de réservation est-elle appliquée à un serveur unique Azure Database pour PostgreSQL ?
 
@@ -30,7 +30,7 @@ La remise de capacité réservée de serveur unique Azure Database pour PostgreS
 
 Les exemples suivants montrent comment la remise de capacité réservée de serveur unique Azure Database pour PostgreSQL s’applique en fonction du nombre de cœurs achetés et du moment où ils s’exécutent.
 
-* **Exemple 1** : Vous achetez une capacité réservée de serveur unique Azure Database pour PostgreSQL pour un 8 vCore. Si vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur unique PostgreSQL et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur unique PostgreSQL 8 vCore.</br>
+**Exemple 1** : Vous achetez une capacité réservée de serveur unique Azure Database pour PostgreSQL pour un 8 vCore. Si vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur unique PostgreSQL et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur unique PostgreSQL 8 vCore.</br>
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée de serveur unique Azure Database pour PostgreSQL que vous achetez est pour un serveur unique Azure Database pour PostgreSQL 16 vCore et que le reste des attributs de réservation correspond aux serveurs uniques PostgreSQL en cours d’exécution.
 
@@ -40,7 +40,7 @@ Dans le reste de ces exemples, nous supposons que la capacité réservée de ser
 
 * **Exemple 4** : Vous exécutez un serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h et 13h45. Vous exécutez un autre serveur unique Azure Database pour PostgreSQL 16 vCore entre 13h30 et 14h. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
-Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

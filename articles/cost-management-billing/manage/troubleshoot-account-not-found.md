@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f701e41c62336bcd7638360a27a0fb4c3ce3ec7d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686664"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132633"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Résoudre les problèmes d’affichage de votre compte de facturation dans le portail Azure
 
@@ -59,7 +59,7 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 Lisez les articles suivants sur la facturation et les abonnements pour vous aider à résoudre les problèmes.
 
-- [Carte refusée](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problèmes de connexion à l’abonnement](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Aucun abonnement trouvé](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Désactivation de l’affichage des coûts d’entreprise](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Carte refusée](./troubleshoot-declined-card.md)
+- [Problèmes de connexion à l’abonnement](./troubleshoot-sign-in-issue.md)
+- [Aucun abonnement trouvé](./no-subscriptions-found.md)
+- [Désactivation de l’affichage des coûts d’entreprise](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

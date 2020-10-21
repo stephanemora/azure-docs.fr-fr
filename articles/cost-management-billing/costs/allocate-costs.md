@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684981"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131086"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Créer et gérer des règles d'affectation des coûts Azure (préversion)
 
@@ -58,16 +58,16 @@ Lors de la répartition des coûts par coût de calcul, coût de stockage ou co�
 
 Lors de la répartition des coûts en proportion du coût total, le pourcentage proportionnel est alloué par la somme ou le coût total des cibles sélectionnées pour le mois de facturation en cours.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exemple illustrant le pourcentage d'affectation" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Une fois définis, les pourcentages préremplis sont fixes. Ils sont utilisés pour toutes les affectations en cours. Les pourcentages changent uniquement lorsque la règle est mise à jour manuellement.
 
 1. Sélectionnez l'une des options suivantes dans la liste **Préremplir le pourcentage sur**.
     - **Répartir uniformément** : chacune des cibles reçoit une proportion égale en pourcentage du coût total.
     - **Coût total** : crée un ratio proportionnel aux cibles sur la base de leur coût total. Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
-    - **Coût de calcul** : crée un ratio proportionnel aux cibles sur la base de leur coût de calcul Azure (types de ressources de l'espace de noms [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
-    - **Coût de stockage** : crée un ratio proportionnel aux cibles sur la base de leur coût de stockage Azure (types de ressources de l'espace de noms [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
-    - **Coût réseau**  : crée un ratio proportionnel aux cibles sur la base de leur coût réseau Azure (types de ressources de l'espace de noms [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions)). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
+    - **Coût de calcul** : crée un ratio proportionnel aux cibles sur la base de leur coût de calcul Azure (types de ressources de l'espace de noms [Microsoft.Compute](/azure/templates/microsoft.compute/allversions). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
+    - **Coût de stockage** : crée un ratio proportionnel aux cibles sur la base de leur coût de stockage Azure (types de ressources de l'espace de noms [Microsoft.Storage](/azure/templates/microsoft.storage/allversions)). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
+    - **Coût réseau**  : crée un ratio proportionnel aux cibles sur la base de leur coût réseau Azure (types de ressources de l'espace de noms [Microsoft.Network](/azure/templates/microsoft.network/allversions)). Le ratio est utilisé pour répartir les coûts à partir des sources sélectionnées.
     - **Personnalisé** : permet de spécifier manuellement un pourcentage en nombre entier. Le total spécifié doit être égal à 100 %.
 1. Une fois la règle configurée, sélectionnez **Créer**.
 
@@ -84,7 +84,7 @@ Lorsque la règle d'affectation des coûts est active, les coûts des sources s�
 
 Vous pouvez visualiser l'impact de la règle d'affectation dans l'analyse des coûts. Dans le portail Azure, accédez à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Sélectionnez un abonnement dans la liste ciblée par une règle d'affectation des coûts active. Sélectionnez ensuite **Analyse des coûts** dans le menu. Dans Analyse des coûts, sélectionnez **Regrouper par**, puis **Affectation des coûts**. L'affichage qui en résulte présente une répartition rapide des coûts générée par l'abonnement. Les coûts affectés à l'abonnement sont également affichés, comme dans l'image suivante.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exemple illustrant la répartition des coûts" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualiser l'affectation des coûts pour un groupe de ressources
 
@@ -94,7 +94,7 @@ Utilisez un processus similaire pour visualiser l'impact d'une règle d'affectat
 
 Sur le portail Azure, accédez à **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse des coûts**. Dans Analyse des coûts, sélectionnez **Ajouter un filtre**. Sélectionnez **Étiquette**, choisissez la clé et les valeurs d'étiquette auxquelles un coût est affecté.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exemple illustrant les coûts liés aux éléments marqués" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Modifier une règle d'affectation de coûts existante
 
@@ -112,10 +112,10 @@ Actuellement, dans Cost Management, la fonctionnalité d'affectation des coûts 
 Les éléments suivants ne sont actuellement pas pris en charge par la préversion publique de la fonctionnalité d'affectation des coûts :
 
 - Exportations [planifiées](tutorial-export-acm-data.md)
-- Données exposées par l'API [Détails d'utilisation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list)
+- Données exposées par l'API [Détails d'utilisation](/rest/api/consumption/usagedetails/list)
 - Zone des abonnements de facturation
 - [Application Power BI Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Connecteur Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Connecteur Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Les coûts sont-ils pris en compte par les budgets et par les prévisions ?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ Il est déconseillé d'avoir recours à des règles dont les sources ou les cibl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créer ou mettre à jour des règles d'affectation à l'aide de l'[API Rest Affectation des coûts](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Créer ou mettre à jour des règles d'affectation à l'aide de l'[API Rest Affectation des coûts](/rest/api/cost-management/costallocationrules)
 - En savoir plus sur l'[Optimisation de votre investissement dans le cloud avec Azure Cost Management](cost-mgt-best-practices.md)

@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
-ms.openlocfilehash: f981e347b809f5df87e3b5379c69aab83ecf74eb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a3c10d95a57ea81f269af8f8f1cad49fc1c1b845
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687618"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131256"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutoriel : Autoriser l'accès aux données Cloudyn
 
@@ -135,4 +135,4 @@ Dans ce didacticiel, vous avez appris à :
 Si vous n’avez pas déjà activé l’accès de l’API Azure Resource Manager pour vos comptes, consultez l’article suivant.
 
 > [!div class="nextstepaction"]
-> [Activer des abonnements et comptes Azure](../../cost-management/activate-subs-accounts.md)
+> [Activer des abonnements et comptes Azure](./activate-subs-accounts.md)

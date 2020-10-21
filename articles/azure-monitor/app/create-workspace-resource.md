@@ -1,16 +1,14 @@
 ---
 title: Créer une ressource Azure Monitor Application Insights basée sur un espace de travail | Microsoft Docs
 description: En savoir plus sur les étapes requises pour activer les nouvelles ressources Azure Monitor Application Insights basées sur un espace de travail.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894536"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945411"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -206,6 +204,10 @@ Dans le volet des ressources Application Insights, sélectionnez **Propriétés*
 ## <a name="export-telemetry"></a>Exporter la télémétrie
 
 La fonctionnalité héritée d’exportation continue n’est pas prise en charge pour les ressources basées sur l’espace de travail. Au lieu de cela, sélectionnez **Paramètres de diagnostic** > **Ajouter un paramètre de diagnostic** à partir de votre ressource Application Insights. Vous pouvez sélectionner toutes les tables ou un sous-ensemble de tables à archiver dans un compte de stockage ou à transmettre en continu à un Event Hub Azure.
+
+> [!NOTE]
+> Il n’y a actuellement pas de frais supplémentaires pour l’exportation de la télémétrie. Les informations de tarification pour cette fonctionnalité sont disponibles sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Avant le début de la facturation, des notifications seront envoyées. Si vous choisissez de continuer à utiliser <feature name> après la période de préavis, vous serez facturé au tarif en vigueur. 
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

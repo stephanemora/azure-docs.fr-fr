@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683179"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132310"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -110,7 +110,7 @@ Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistre
 
 - Les étiquettes doivent être appliquées directement aux ressources et ne sont pas héritées implicitement du groupe de ressources parent.
 - Les étiquettes de ressource sont prises en charge seulement pour les ressources déployées sur des groupes de ressources.
-- Certaines ressources déployées peuvent ne pas prendre en charge les étiquettes ou ne pas inclure d’étiquettes dans les données d’utilisation : consultez [Étiquettes prises en charge pour les ressources Azure](../../azure-resource-manager/tag-support.md).
+- Certaines ressources déployées peuvent ne pas prendre en charge les étiquettes ou ne pas inclure d’étiquettes dans les données d’utilisation : consultez [Étiquettes prises en charge pour les ressources Azure](../../azure-resource-manager/management/tag-support.md).
 - Les étiquettes de ressource sont incluses seulement dans les données d’utilisation quand l’étiquette est appliquée : les étiquettes ne sont pas appliquées aux données d’historique.
 - Les étiquettes de ressource ne sont disponibles dans Cost Management qu’une fois les données actualisées (voir [Mises à jour et rétention des données de coût et d’utilisation](#cost-and-usage-data-updates-and-retention)).
 - Les étiquettes de ressource sont disponibles dans Cost Management seulement quand la ressource est active/en cours d’exécution et produit des enregistrements d’utilisation (par exemple pas quand une machine virtuelle est désallouée).
@@ -121,7 +121,7 @@ Si vous ne voyez pas une étiquette spécifique dans Cost Management, prenez en 
 
 - L’étiquette a-t-elle été appliquée directement à la ressource ?
 - L’étiquette a-t-elle été appliquée il y a plus de 24 heures ? Voir [Mises à jour et rétention des données de coût et d’utilisation](#cost-and-usage-data-updates-and-retention)
-- Le type de ressource prend-il en charge les étiquettes ? Les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation à la date du 1er décembre 2019. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/tag-support.md).
+- Le type de ressource prend-il en charge les étiquettes ? Les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation à la date du 1er décembre 2019. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/management/tag-support.md).
     - Annuaires Azure Active Directory B2C
     - Azure Bastion
     - Pare-feux Azure
@@ -185,4 +185,4 @@ Les données historiques des offres basées sur le crédit et avec règlement à
 
 ## <a name="see-also"></a>Voir aussi
 
-- Si vous n’avez pas encore effectué le premier guide de démarrage rapide relatif à Cost Management, lisez-le à partir de [Démarrer l’analyse des coûts](../../cost-management/quick-acm-cost-analysis.md).
+- Si vous n’avez pas encore effectué le premier guide de démarrage rapide relatif à Cost Management, lisez-le à partir de [Démarrer l’analyse des coûts](./quick-acm-cost-analysis.md).

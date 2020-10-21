@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371740"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149390"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Bien démarrer avec votre compte de facturation Azure mis à jour
 
@@ -104,8 +104,8 @@ Si vous utilisez les API de facturation ou de gestion des coûts pour interroger
 
 |API | Modifications  |
 |---------|---------|
-|[Comptes de facturation - Liste](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Dans l’API Comptes de facturation - Liste, votre ancien compte de facturation indique pour agreementType **MicrosoftOnlineServiceProgram**, votre nouveau compte de facturation indiquera pour agreementType **MicrosoftCustomerAgreement**. En cas de dépendance pour agreementType, mettez-la à jour. |
-|[Factures - Liste par abonnement de facturation](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Cette API renvoie uniquement les factures générées avant la mise à jour de votre compte. Utilisez l’API [Factures - Liste par compte de facturation](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) pour obtenir les factures générées dans votre nouveau compte de facturation. |
+|[Comptes de facturation - Liste](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Dans l’API Comptes de facturation - Liste, votre ancien compte de facturation indique pour agreementType **MicrosoftOnlineServiceProgram**, votre nouveau compte de facturation indiquera pour agreementType **MicrosoftCustomerAgreement**. En cas de dépendance pour agreementType, mettez-la à jour. |
+|[Factures - Liste par abonnement de facturation](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Cette API renvoie uniquement les factures générées avant la mise à jour de votre compte. Utilisez l’API [Factures - Liste par compte de facturation](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) pour obtenir les factures générées dans votre nouveau compte de facturation. |
 
 ## <a name="additional-information"></a>Informations supplémentaires
 

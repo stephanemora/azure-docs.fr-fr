@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540368"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097318"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Xamarin avec Azure Spatial Anchors
 
@@ -37,10 +37,10 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
     - <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si vous utilisez macOS :
-    - Une version à jour de <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio pour Mac 8.1+</a>.
+    - Une version à jour de <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio pour Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git pour macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
-- La dernière version de Xamarin.Android installée et en cours d’exécution sur la plateforme de votre choix. Pour obtenir un guide d’installation de Xamarin.Android, reportez-vous aux guides d’[Installation de Xamarin.Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index).
+- La dernière version de Xamarin.Android installée et en cours d’exécution sur la plateforme de votre choix. Pour obtenir un guide d’installation de Xamarin.Android, reportez-vous aux guides d’[Installation de Xamarin.Android](/xamarin/android/get-started/installation/index).
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
   - Des pilotes d’appareils supplémentaires peuvent être nécessaires pour que votre ordinateur puisse communiquer avec votre appareil Android. Vous pourrez trouver plus d’informations [ici](https://developer.android.com/studio/run/device.html).
 - Votre application doit cibler ARCore **1.8**.

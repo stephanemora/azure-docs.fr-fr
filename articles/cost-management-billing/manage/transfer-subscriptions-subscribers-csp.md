@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371403"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132361"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -26,7 +26,7 @@ Les partenaires CSP de facturation directe certifiés [Fournisseur de services m
 Lorsque la demande est approuvée, le CSP peut alors fournir une facture combinée à ses clients. Pour en savoir plus sur le transfert d’abonnements par les CSP, consultez [Obtenir la propriété de facturation des abonnements Azure pour votre compte MPA](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Après le transfert d’un abonnement Contrat Entreprise à un partenaire CSP, toute augmentation du quota précédemment appliquée à l’abonnement Contrat Entreprise sera rétablie à sa valeur par défaut. Si un quota supplémentaire est nécessaire après le transfert de l’abonnement, demandez à votre fournisseur CSP de soumettre une demande d’[augmentation de quota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Après le transfert d’un abonnement Contrat Entreprise à un partenaire CSP, toute augmentation du quota précédemment appliquée à l’abonnement Contrat Entreprise sera rétablie à sa valeur par défaut. Si un quota supplémentaire est nécessaire après le transfert de l’abonnement, demandez à votre fournisseur CSP de soumettre une demande d’[augmentation de quota](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Autres transferts d’abonnements à un partenaire CSP
 
@@ -42,7 +42,7 @@ Pour transférer tout autre abonnement Azure à un partenaire CSP, l’abonné d
 1. Avant de commencer, [validez](/rest/api/resources/resources/validatemoveresources) le fait que toutes les ressources Azure peuvent être déplacées de l’abonnement source à l’abonnement de destination.  
     Certaines ressources Azure ne peuvent pas être déplacées entre des abonnements. Pour afficher la liste complète des ressources Azure qui peuvent être déplacées, consultez [Prise en charge des opérations de déplacement pour les ressources](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - Azure CSP prend en charge uniquement les ressources Azure Resource Manager. Si des ressources Azure dans l’abonnement source ont été créées à l’aide du modèle de déploiement Azure classique, vous devez les migrer vers [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) avant la migration. Vous devez être partenaire pour pouvoir afficher la page web.
+    >  - Azure CSP prend en charge uniquement les ressources Azure Resource Manager. Si des ressources Azure dans l’abonnement source ont été créées à l’aide du modèle de déploiement Azure classique, vous devez les migrer vers [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) avant la migration. Vous devez être partenaire pour pouvoir afficher la page web.
 
 1. Vérifiez que tous les services d’abonnement sources utilisent le modèle Azure Resource Manager. Ensuite, transférez les ressources de l’abonnement source vers l’abonnement de destination à l’aide du [déplacement de ressources Azure](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 6aa960837a3bfc7f8a04ca1f554fb10d635c2ea2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348262"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275621"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Démarrage rapide : Créer une porte d’entrée pour une application web mondiale hautement disponible à l’aide d’Azure CLI
 
@@ -46,7 +46,7 @@ Dans Azure, vous allouez les ressources associées à un groupe de ressources. V
 
 Pour ce guide de démarrage rapide, vous avez besoin de deux groupes de ressources. L’un se trouve dans *USA Centre*, l’autre dans *USA Centre Sud*.
 
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) :
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) :
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Si vous n’avez pas encore d’application web, utilisez le script suivant pour
 
 Avant de pouvoir créer des applications web, vous avez besoin de deux plans App Service, l’un dans *USA Centre* et l’autre dans *USA Centre Sud*.
 
-Créez les plans App Service avec la commande [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true) :
+Créez les plans App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true) :
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 L’exécution des commandes suivantes crée une application web dans chacun des plans App Service à l’étape précédente. Les noms des applications web doivent être globalement uniques.
 
-Créez une application web avec la commande [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true) :
+Créez une application web avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true) :
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Prenez note du nom d’hôte par défaut de chaque application web afin de pouvo
 
 Créez une porte d’entrée de base avec les paramètres d’équilibrage de charge, la sonde d’intégrité et les règles de routage par défaut comme suit :
 
-Créez une porte d’entrée avec la commande [az network front-door create](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true) :
+Créez une porte d’entrée avec la commande [az network front-door create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true) :
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ Ouvrez un navigateur web et entrez le nom d’hôte obtenu à partir des command
 
 Quand vous n’avez plus besoin des ressources que vous avez créées avec la porte d’entrée, supprimez les deux groupes de ressources. Quand vous supprimez le groupe de ressources, vous supprimez aussi la porte d’entrée et toutes ses ressources associées. 
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true) :
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true) :
 
 ```azurecli-interactive
 az group delete \

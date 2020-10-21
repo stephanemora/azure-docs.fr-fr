@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689471"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148359"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Rétrofacturation des coûts Azure Reservations
 
 Les lecteurs de la facturation Contrat Entreprise et Contrat client Microsoft peuvent afficher les données de coût amorti des réservations. Ils ont la possibilité d’utiliser ces données pour rétrofacturer la valeur monétaire d’un abonnement, d’un groupe de ressources, d’une ressource ou d’une balise à leurs partenaires. Dans les données amorties, le prix effectif est le coût de la réservation horaire au prorata. Le coût correspond au coût total de l’utilisation de la réservation par la ressource ce jour-là.
 
-Les utilisateurs disposant d’un abonnement individuel ont accès aux données de coût amorti dans leur fichier d’utilisation. Lorsqu’une ressource obtient une remise de réservation, la section *Informations complémentaires* du fichier d’utilisation contient les détails de la réservation. Pour plus d’informations, consultez [Téléchargement de l’utilisation sur le Portail Azure](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv).
+Les utilisateurs disposant d’un abonnement individuel ont accès aux données de coût amorti dans leur fichier d’utilisation. Lorsqu’une ressource obtient une remise de réservation, la section *Informations complémentaires* du fichier d’utilisation contient les détails de la réservation. Pour plus d’informations, consultez [Téléchargement de l’utilisation sur le Portail Azure](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>Récupération des données de rétrofacturation des réservations
 

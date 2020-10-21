@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949029"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929640"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Effectuer une mise à niveau vers la dernière API REST dans Recherche cognitive Azure
 
@@ -40,13 +40,19 @@ Si vous êtes concerné par l’une de ces situations, vous aurez peut-être à 
 
 ## <a name="upgrade-to-2020-06-30"></a>Mise à niveau vers la version 2020-06-30
 
-La version 2020-06-30 est la nouvelle version de l’API REST en disponibilité générale. Il n’y a pas de changements cassants, mais il existe quelques différences de comportement. 
+La version 2020-06-30 est la nouvelle version de l’API REST en disponibilité générale. Elle comporte un changement cassant et plusieurs différences de comportement. 
 
 Les fonctionnalités désormais en disponibilité générale dans cette version de l’API sont notamment :
 
 * La [base de connaissances](knowledge-store-concept-intro.md), un stockage persistant de contenu enrichi créé via des ensembles de compétences, pour l’analyse et le traitement en aval par le biais d’autres applications. Avec cette fonctionnalité, un pipeline d’enrichissement par IA piloté par un indexeur peut remplir une base de connaissances en plus d’un index de recherche. Si vous avez utilisé la version préliminaire de cette fonctionnalité, elle équivaut à la version en disponibilité générale. La seule modification de code requise est celle de la version de l’API.
 
-Voici certains des changements de comportement :
+### <a name="breaking-change"></a>Modification avec rupture
+
+Le code existant écrit sur des versions d’API antérieures s’arrête sur api-version=2020-06-30 et versions ultérieures si le code contient la fonctionnalité suivante :
+
+* Les littéraux Edm.Date (une date composée de l’année-mois-jour, par exemple `2020-12-12`) dans les expressions de filtre doivent respecter le format Edm.DateTimeOffset : `2020-12-12T00:00:00Z`. Cette modification était nécessaire pour gérer les résultats de requête erronés ou inattendus en raison de différences entre les fuseaux horaires.
+
+### <a name="behavior-changes"></a>Changements de comportement
 
 * L’[algorithme de classement BM25](index-ranking-similarity.md) remplace l’algorithme de classement précédent par une technologie plus récente. Les nouveaux services utiliseront cet algorithme automatiquement. Pour les services existants, vous devez définir des paramètres pour utiliser le nouvel algorithme.
 
