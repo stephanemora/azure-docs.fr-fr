@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038114"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874286"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Architecture de l’application Analytique vidéo – Détection d’objets et de mouvements
 
 Le modèle d’application **Analytique vidéo – Détection d’objets et de mouvements** vous permet de créer des solutions IoT, notamment des capacités d’analytique vidéo en direct.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architecture":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagramme de la vue d’ensemble des composants d’analytique vidéo pour la détection d’objets et de mouvements.":::
 
 Les principaux composants de la solution d’analytique vidéo sont les suivants :
 
@@ -41,4 +41,4 @@ Le graphe multimédia vous permet de définir l’emplacement à partir duquel c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La prochaine étape proposée consiste à apprendre à [créer une application d’analytique vidéo dans Azure IoT Central](tutorial-video-analytics-create-app.md).
+L’étape suivante suggérée consiste à découvrir [comment déployer une application IoT Central à l’aide du modèle d’application d’analytique vidéo pour la détection d’objets et de mouvements](tutorial-video-analytics-deploy.md).

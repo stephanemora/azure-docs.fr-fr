@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535523"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Compétences cognitives intégrées pour le traitement de texte et d'images pendant l'indexation (Recherche cognitive Azure)
 
@@ -38,7 +38,7 @@ Diverses compétences sont flexibles du point de vue de ce qu’elles consomment
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Cette compétence utilise un modèle préformé pour détecter la langue utilisée (un ID de langue par document). Quand plusieurs langues sont utilisées dans les mêmes segments de texte, la sortie est le LCID de la langue utilisée principalement.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolide en un champ unique du texte issu d’une collection de champs.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Cette compétence utilise un modèle préentraîné pour établir des entités pour un ensemble fixe de catégories : personnes, emplacement, organisation, e-mails, URL, champs d’horodatage. |
-| [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Cette compétence utilise un modèle préformé pour extraire des informations d’identification personnelle d’un texte donné. Elle offre également différentes options pour masquer les entités d’informations d'identification personnelle dans le texte.  |
+| [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Cette compétence utilise un modèle préformé pour extraire des informations personnelles d’un texte donné. Elle offre également différentes options pour masquer les entités d’informations personnelles détectées dans le texte.  |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Cette compétence utilise un modèle préformé pour évaluer un sentiment positif ou négatif enregistrement par enregistrement. Le score est compris entre 0 et 1. Les scores neutres se produisent dans les cas Null où aucun sentiment n’est détectable et quand le texte est considéré comme neutre.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Fractionne le texte en pages afin que vous puissiez enrichir ou augmenter le contenu de façon incrémentielle. |
 | [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | Cette qualification utilise un modèle préformé pour traduire le texte d’entrée en plusieurs langues pour les cas d’usage de normalisation ou de localisation. |

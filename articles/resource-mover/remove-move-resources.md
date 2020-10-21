@@ -7,28 +7,35 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 241ccbda67f7a2518d0c44a0d362673922ad4284
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652612"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945941"
 ---
-# <a name="remove-resources-from-a-move-collection"></a>Supprimer des ressources d’une collection de déplacements
+# <a name="manage-move-collections-and-resource-groups"></a>Gérer les collections de déplacement et les groupes de ressources
 
-Cet article explique comment supprimer des ressources d’une collection de déplacements dans [Azure Resource Mover](overview.md). Les collections de déplacement sont utilisées lors du déplacement de ressources Azure entre régions Azure.
+Cet article explique comment supprimer des ressources d’une collection de déplacement ou supprimer une collection de déplacement/un groupe de ressources dans [Azure Resource Mover](overview.md). Les collections de déplacement sont utilisées lors du déplacement de ressources Azure entre régions Azure.
 
 ## <a name="remove-a-resource-portal"></a>Suppression d’une ressource (portail)
 
-Supprimez dans le portail Resource Move en procédant comme suit :
+Vous pouvez supprimer des ressources dans une collection de déplacement, dans le portail du déplaceur de ressources, comme suit :
 
-1. Dans **Entre régions**, sélectionnez les ressources que vous souhaitez supprimer de la collection > **Supprimer**.
+1. Dans **Entre régions**, sélectionnez toutes les ressources que vous souhaitez supprimer de la collection, puis sélectionnez **Supprimer**. 
 
     ![Bouton à sélectionner pour supprimer](./media/remove-move-resources/portal-select-resources.png)
 
-1. Dans **Supprimer des ressources**, cliquez sur **Supprimer**.
+2. Dans **Supprimer des ressources**, cliquez sur **Supprimer**.
 
     ![Bouton permettant de supprimer des ressources d’une collection de déplacements](./media/remove-move-resources/remove-portal.png)
+
+## <a name="remove-a-move-collectionresource-group-portal"></a>Supprimer une collection de déplacement/un groupe de ressources (portail)
+
+Vous pouvez supprimer une collection de déplacement/un groupe de ressources dans le portail.
+
+1. Suivez les instructions de la procédure ci-dessus pour supprimer des ressources de la collection. Si vous supprimez un groupe de ressources, assurez-vous qu’il ne contient aucune ressource.
+2. Supprimez la collection de déplacement ou le groupe de ressources.  
 
 ## <a name="remove-a-resource-powershell"></a>Supprimer une ressource (PowerShell)
 
@@ -41,16 +48,20 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 **Sortie attendue**
 ![Texte de sortie après la suppression d’une ressource d’une collection de déplacement](./media/remove-move-resources/remove-resource.png)
 
+
+
 ## <a name="remove-a-collection-powershell"></a>Supprimer une collection (PowerShell)
 
 Supprimez une collection de déplacements entière à l’aide de PowerShell, comme suit :
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**Sortie attendue**
-![Texte de sortie après la suppression d’une collection de déplacement](./media/remove-move-resources/remove-collection.png)
+1. Suivez les instructions ci-dessus pour supprimer des ressources de la collection à l’aide de PowerShell.
+2. Exécutez :
+
+    ```azurepowershell-interactive
+    # Remove a resource using the resource ID
+    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    ```
+    **Sortie attendue** ![Texte de sortie après la suppression d’une collection de déplacement](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>État des ressources de la machine virtuelle après suppression
 

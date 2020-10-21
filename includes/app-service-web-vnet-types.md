@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312837"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91739904"
 ---
 * Les systèmes multilocataires qui prennent en charge l’ensemble des plans de tarification, excepté « Isolé ».
 * La fonctionnalité App Service Environment qui opère un déploiement dans votre réseau virtuel et prend en charge les applications à plan tarifaire Isolé.
@@ -23,7 +23,7 @@ L’intégration au réseau virtuel permet à votre application d’accéder aux
 
 Les fonctionnalités d’intégration au réseau virtuel :
 
-* Nécessitent un plan tarifaire Standard, Premium, PremiumV2 ou Élastique Premium.
+* Nécessitent un plan tarifaire Standard, Premium, PremiumV2, PremiumV3 ou Élastique Premium.
 * Prennent en charge les protocoles TCP et UDP.
 * Fonctionnent avec les applications Azure App Service et les applications de fonction.
 

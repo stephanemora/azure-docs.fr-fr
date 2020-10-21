@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423080"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072269"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Prise en charge des plateformes par les kits Azure IoT device SDK
 
@@ -60,7 +60,7 @@ Le kit [Azure IoT Hub device SDK en Python](https://github.com/Azure/azure-iot-
 | Système d''exploitation                  | Compilateur                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2.7.*, 3.5 ou version ultérieure |
-| MacOS High Sierra   | Python 2.7.*, 3.5 ou version ultérieure |
+| macOS High Sierra   | Python 2.7.*, 3.5 ou version ultérieure |
 | Famille Windows 10   | Python 2.7.*, 3.5 ou version ultérieure |
 
 Seul Python version 3.5.3 ou ultérieure prend en charge les API asynchrones, nous vous recommandons d’utiliser la version 3.7 ou une version ultérieure.
@@ -120,7 +120,7 @@ Microsoft collabore avec différents partenaires en vue d’étendre le nombre d
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connexion à IoT Hub sans SDK
 
-Si vous n’êtes pas en mesure d’utiliser l’un des kits Azure IoT Hub device SDK, vous pouvez vous connecter directement à IoT Hub à l’aide des [API REST IoT Hub](https://docs.microsoft.com/rest/api/iothub/) à partir de n’importe quelle application capable d’envoyer et de recevoir des requêtes et des réponses HTTPS.
+Si vous n’êtes pas en mesure d’utiliser l’un des kits Azure IoT device SDK, vous pouvez vous connecter directement à IoT Hub à l’aide d’un protocole de communication pris en charge. Pour plus d’informations, consultez [Développer sans Kit de développement logiciel (SDK) Azure IoT](iot-hub-devguide-no-sdk.md).
 
 ## <a name="support-and-other-resources"></a>Prise en charge et autres ressources
 

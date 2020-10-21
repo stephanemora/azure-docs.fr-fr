@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2806ce18cc9febfdf15d48052d301da48b3c226f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934461"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360954"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
@@ -158,7 +158,7 @@ Maintenant que vous avez créé des ressources, vous allez créer un bot. Vous a
 4. Une fois le projet chargé, appuyez sur <kbd>F5</kbd> pour le générer et l’exécuter.
 5. Un navigateur doit se lancer et un écran similaire à celui-ci s’affiche.
     > [!div class="mx-imgBorder"]
-    > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot s’exécutant sur localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
+    > [![Capture d’écran montrant la page EchoBot affichant le message Votre bot est prêt !](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot s’exécutant sur localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Tester l’exemple de bot avec Bot Framework Emulator
 
@@ -174,7 +174,7 @@ Maintenant que vous avez créé des ressources, vous allez créer un bot. Vous a
    ```
    Puis appuyez sur « Se connecter ».
 4. Le bot est censé vous accueillir avec un message « Bonjour et bienvenue ! » . Tapez un message texte et vérifiez que vous recevez une réponse de la part du bot.
-5. Voici à quoi peut ressembler un échange de communication avec une instance Echo Bot :  [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework Emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+5. Voici à quoi pourrait ressembler un échange de communication avec une instance Echo Bot :  [![Capture d’écran montrant le Bot Framework Emulator.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework Emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Déployer votre bot dans Azure App Service
 

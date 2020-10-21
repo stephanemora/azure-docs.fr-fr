@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2d6d00ea06bb362d82b5fbdff658b729eed17cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 091704fabb7b50a0c83625c6ae46d9a807f01ffc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258982"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961032"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -46,6 +46,24 @@ Vous pouvez utiliser les propriétés suivantes pour gérer les sessions d’app
     ![Paramètres de propriété du comportement de la session sur le Portail Azure](./media/session-behavior/session-behavior.png)
 
 8. Cliquez sur **Enregistrer**.
+
+## <a name="configure-sign-out-behavior"></a>Configurer le comportement de déconnexion
+
+### <a name="secure-your-logout-redirect"></a>Sécuriser la redirection de déconnexion
+
+Après la déconnexion, l’utilisateur est redirigé vers l’URI spécifié dans le paramètre `post_logout_redirect_uri`, quelles que soient les URL de réponse qui ont été spécifiées pour l’application. Cependant, si un `id_token_hint` valide est transmis et que l’option **Exiger un jeton d’ID dans les demandes de déconnexion** est activée, Azure AD B2C vérifie que la valeur de `post_logout_redirect_uri` correspond à l’un des URI de redirection configurés de l’application avant d’effectuer la redirection. Si aucune URL de réponse correspondante n’a été configurée pour l’application, un message d’erreur s’affiche et l’utilisateur n’est pas redirigé. Pour exiger un jeton d’ID dans les demandes de déconnexion :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Flux d’utilisateurs**.
+1. Ouvrez le flux utilisateur que vous avez créé précédemment.
+1. Sélectionner **Propriétés**.
+1. Activez l’option **Exiger un jeton d’ID dans les demandes de déconnexion**.
+1. Revenez à **Azure AD B2C**.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez votre application.
+1. Sélectionnez **Authentification**.
+1. Dans la zone de texte **URL de déconnexion**, saisissez votre URI de redirection après déconnexion, puis sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461729"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448528"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -86,11 +86,11 @@ Pendant la période de suppression réversible, vous pouvez récupérer votre es
 2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**. Vous voyez la liste des espaces de travail dont vous disposez dans l’étendue sélectionnée.
 3. Cliquez sur **Récupérer** dans le menu supérieur gauche pour ouvrir une page répertoriant les espaces de travail en état de suppression réversible qui sont récupérables.
 
-   ![Récupérer un espace de travail](media/delete-workspace/recover-menu.png)
+   ![Capture d’écran de l’écran Espaces de travail Log Analytics dans le portail Azure avec Récupérer en surbrillance dans la barre de menus.](media/delete-workspace/recover-menu.png)
 
 4. Sélectionnez l’espace de travail, puis cliquez sur **Récupérer** pour récupérer cet espace de travail.
 
-   ![Récupérer un espace de travail](media/delete-workspace/recover-workspace.png)
+   ![Capture d’écran de la boîte de dialogue Récupérer les espaces de travail Log Analytics supprimés dans le portail Azure avec un espace de travail en surbrillance et le bouton Récupérer sélectionné.](media/delete-workspace/recover-workspace.png)
 
 
 ### <a name="powershell"></a>PowerShell

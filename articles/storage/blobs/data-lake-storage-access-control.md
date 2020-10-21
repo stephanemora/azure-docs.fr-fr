@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017232"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716113"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui 
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
-Le contrôle RBAC utilise les attributions de rôles pour appliquer efficacement des jeux d’autorisations aux *principaux de sécurité*. Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini dans Azure Active Directory (AD) qui demande l’accès à des ressources Azure.
+Azure RBAC utilise des attributions de rôles pour appliquer efficacement des jeux d’autorisations aux *principaux de sécurité*. Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini dans Azure Active Directory (AD) qui demande l’accès à des ressources Azure.
 
 En règle générale, ces ressources Azure sont limitées aux ressources de niveau supérieur (par exemple : les comptes de stockage Azure). Avec le Stockage Azure, et par conséquent Azure Data Lake Storage Gen2, ce mécanisme a été étendu à la ressource de conteneur (système de fichiers).
 
-Pour savoir comment affecter des rôles aux entités de sécurité dans l’étendue de votre compte de stockage, consultez [Accorder l’accès aux données blob et file d’attente Azure avec le contrôle RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment attribuer des rôles aux principaux de sécurité dans l’étendue de votre compte de stockage, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Un utilisateur invité ne peut pas créer d’attribution de rôle.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L’impact des affectations de rôle sur les listes de contrôle d’accès au niveau fichier et répertoire
 
-Même si l’affectation de rôle Azure est un puissant dispositif qui permet de contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère la fonction RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
+Même si l’affectation de rôle Azure est un puissant dispositif qui permet de contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère Azure RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
 
-Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les affectations de rôle Azure du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification de liste de contrôle d’accès supplémentaire n’est effectuée. Sinon, si le principal de sécurité n’a pas d’affectation de rôle Azure, ou si l’opération de la demande ne correspond pas à l’autorisation affectée, les vérifications de liste de contrôle d’accès sont effectuées pour déterminer si le principal de sécurité est autorisé à effectuer l’opération demandée.
+Quand un principal de sécurité reçoit des autorisations sur les données Azure RBAC par le biais d’un [rôle intégré](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) ou personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les affectations de rôle Azure du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification de liste de contrôle d’accès supplémentaire n’est effectuée. Sinon, si le principal de sécurité n’a pas d’affectation de rôle Azure, ou si l’opération de la demande ne correspond pas à l’autorisation affectée, les vérifications de liste de contrôle d’accès sont effectuées pour déterminer si le principal de sécurité est autorisé à effectuer l’opération demandée.
 
 > [!NOTE]
 > Si l’attribution de rôle intégré Propriétaire des données de Stockage Blob est affectée au principal de sécurité, le principal de sécurité est considéré comme un *super utilisateur* et il bénéficie d’un accès complet à toutes les opérations de mutation, notamment la définition du propriétaire d’un répertoire ou d’un fichier ainsi que des ACL pour les répertoires et fichiers dont ils ne sont pas propriétaires. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
@@ -102,7 +102,7 @@ Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Ex
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
 > [!NOTE]
-> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de sécurité, vous devez donner au principal de la sécurité les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
+> Si vous accordez des autorisations à l’aide uniquement d’ACL (sans Azure RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de sécurité, vous devez donner au principal de sécurité les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
 
 #### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 

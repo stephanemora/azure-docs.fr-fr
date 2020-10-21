@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327597"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838685"
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
 
@@ -380,7 +380,7 @@ Vous êtes maintenant prêt à exécuter les applications de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Application de service Java IoT Hub pour mettre à jour la valeur des balises et exécuter les requêtes des appareils](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Capture d’écran montrant la sortie de la commande pour exécuter l’application de service add-tags-query.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Vous pouvez constater que les balises **plant** et **region** sont ajoutées au jumeau d’appareil. La première requête retourne votre appareil, la seconde non.
 
@@ -390,7 +390,7 @@ Vous êtes maintenant prêt à exécuter les applications de console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Le client d’appareil ajoute la propriété signalée **connectivityType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Le client d’appareil ajoute la propriété rapportée connectivityType](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Dans une invite de commandes, exécutez la commande suivante dans le dossier **add-tags-query** pour exécuter de nouveau l’application de service **add-tags-query** une deuxième fois :
 

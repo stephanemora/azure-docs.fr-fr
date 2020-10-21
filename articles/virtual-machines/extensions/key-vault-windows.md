@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804093"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072286"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -31,6 +31,11 @@ L’extension de machine virtuelle Key Vault prend en charge les versions ci-des
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>Conditions préalables
+  - Une instance Key Vault avec certificat. Voir [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+  - Une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) doit être attribuée à la machine virtuelle ou au groupe de machines virtuelles identiques.
+  - La stratégie d’accès à Key Vault doit être définie avec des secrets `get` et l’autorisation `list` pour l’identité managée de machine virtuelle ou de groupe de machines virtuelles identiques afin de récupérer une partie de certificat d’un secret. Consultez [Comment s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -101,6 +106,10 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une actualisation de certificats après le déploiement. Vous pouvez déployer l’extension sur des machines virtuelles individuelles ou dans des groupes de machines virtuelles identiques. La configuration et le schéma sont communs aux deux types de modèle. 
 
 La configuration JSON d’une extension de machine virtuelle doit être imbriquée dans le fragment de la ressource de machine virtuelle du modèle, plus précisément dans l’objet `"resources": []` de la machine virtuelle et, dans le cas d’un groupe de machines virtuelles identiques, sous l’objet `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+
+ > [!NOTE]
+> L’extension de machine virtuelle nécessite l’attribution d’une identité managée par le système ou l’utilisateur pour s’authentifier auprès du coffre de clés.  Consultez [Comment s’authentifier auprès de Key Vault et attribuer une stratégie d’accès Key Vault](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).
+> 
 
 ```json
     {
@@ -196,9 +205,9 @@ L’interface de ligne de commande Azure permet de déployer l’extension de ma
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -n "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
@@ -206,8 +215,7 @@ L’interface de ligne de commande Azure permet de déployer l’extension de ma
 Tenez compte des restrictions et conditions suivantes :
 - Restrictions de Key Vault :
   - Doit exister au moment du déploiement 
-  - La stratégie d’accès Key Vault doit être définie pour l’identité VM/VMSS à l’aide d’une identité managée. Consultez [Comment s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-cli).
-
+  - La stratégie d’accès Key Vault doit être définie pour l’identité VM/VMSS à l’aide d’une identité managée. Consultez [Comment s’authentifier auprès de Key Vault](../../key-vault/general/authentication.md) et [Attribuer une stratégie d’accès Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

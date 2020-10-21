@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841354"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -87,6 +87,7 @@ Pour créer un jeu de données dans le studio :
 1. Sélectionnez le type de jeu de données **Tabulaire** ou **Fichier**.
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où conserver votre jeu de données après sa création, ainsi que les fichiers de données à utiliser pour votre jeu de données.
     1. Vous pouvez choisir d’ignorer la validation si vos données se trouvent dans un réseau virtuel. En savoir plus sur l’[isolement et la confidentialité des réseaux virtuels](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Pour les jeux de données de type Tabulaire, vous pouvez spécifier une caractéristique « timeseries » pour activer les opérations relatives au temps sur votre jeu de données. Découvrez comment [ajouter la caractéristique « timeseries » à votre jeu de données](how-to-monitor-datasets.md#studio-dataset).
 1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma** ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
 1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](#profile).
 1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.

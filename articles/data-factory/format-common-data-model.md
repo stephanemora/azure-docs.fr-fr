@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905279"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042590"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,6 +51,8 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Dossier de corpus | l’emplacement racine du corpus | oui, en cas d’utilisation du manifeste | String | corpusPath |
 | Entité de corpus | Chemin d’accès vers la référence d’entité | Oui | String | entité |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
+
+Si la définition d’entité que vous souhaitez utiliser dans votre transformation de la source se trouve dans le même répertoire que votre dossier de données, vous pouvez désélectionner « Utiliser une entité du corpus » et taper simplement l’entité de l’entité que vous souhaitez utiliser comme référence d’entité.
 
 ### <a name="sink-settings"></a>Paramètres de récepteur
 

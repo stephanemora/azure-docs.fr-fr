@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016243"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651154"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validation fonctionnelle d’AppSource Dynamics 365 Finance and Operations
 
@@ -58,7 +58,7 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
 
     | Champ | Image <img src="" width="400px">|
     | --- | --- |
-    | Vue d’ensemble du package | [![Vue d’ensemble du package](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Vue d’ensemble du package | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Approbateurs de solution</li></ul> | [![Vue d’ensemble du package](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Contenu d'un package<ul><li>Modèle</li><li>Package logiciel déployable</li></ul> | [![Contenu du package - Capture 1](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuration GER</li><li>Sauvegarde de base de données</li></ul><br>Les artefacts ne sont pas nécessaires dans la section **Configuration GER**. | [![Contenu du package - Capture 2](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357129"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Surveillance et diagnostics pour Azure Service Fabric
 
@@ -39,7 +39,7 @@ Service Fabric fournit un ensemble complet d’événements prêts à l’emploi
 
 * EventStore - EventStore est une fonctionnalité offerte par la plateforme qui fournit les événements de la plateforme Service Fabric disponibles dans Service Fabric Explorer et via l’API REST. Vous pouvez obtenir une vue de capture de ce qui se passe dans votre cluster pour chaque entité (nœud, service, application et requête) basée sur l’heure de l’événement. Vous pouvez en savoir plus sur EventStore dans [Vue d’ensemble d’EventStore](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Capture d'écran représentant l'onglet ÉVÉNEMENTS du volet Nœuds et affichant plusieurs événements, dont un événement NodeDown.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Les diagnostics fournis sont sous la forme d’un ensemble complet d’événements prêts à l’emploi. Ces [événements Service Fabric](service-fabric-diagnostics-events.md) illustrent les actions effectuées par la plateforme sur différentes entités telles que les nœuds, les applications, les services, les partitions, etc. Dans le dernier scénario ci-dessus, si un nœud venait à tomber en panne, la plateforme émettrait un événement `NodeDown` et vous pourriez être informé immédiatement par votre outil de supervision préféré. D’autres exemples courants incluent `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` lors d’un basculement. **Les mêmes événements sont disponibles sur les clusters Windows et Linux.**
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893792"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945700"
 ---
 # <a name="filter-based-feature-selection"></a>Sélection de caractéristiques par filtrage
 
@@ -90,8 +90,14 @@ Vous choisissez une métrique statistique standard. Le module calcule la corrél
 
     - Si vous spécifiez moins de colonnes de résultats qu’il n’y a de colonnes de caractéristiques, les caractéristiques sont classées par ordre décroissant de leur score. Seules les caractéristiques principales sont retournées. 
 
-7.  Envoyez le pipeline, ou sélectionnez le module de sélection de caractéristiques par filtrage et sélectionnez **Exécuter la sélection**.
+7.  Envoyez le pipeline.
 
+> [!IMPORTANT]
+> Si vous envisagez d’utiliser **Sélection de caractéristiques par filtrage** dans l’inférence, vous devez utiliser [Transformation d’une sélection de colonnes](./select-columns-transform.md) pour stocker le résultat sélectionné de la fonctionnalité et [Appliquer une transformation](./apply-transformation.md) pour appliquer la transformation sélectionnée de la fonctionnalité au jeu de données de scoring.
+>
+> Reportez-vous à la capture d’écran suivante pour créer votre pipeline, afin de vous assurer que les sélections de colonnes sont les mêmes pour le processus de scoring.
+> [!div class="mx-imgBorder"]
+> ![Exemple de pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Résultats
 

@@ -31,6 +31,9 @@
     - name: Protéger les nouvelles ressources avec des verrous de ressource de blueprint
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: 'Découvrez : Gouverner plusieurs abonnements en utilisant Azure Blueprints'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Exemples
   items:
     - name: Index

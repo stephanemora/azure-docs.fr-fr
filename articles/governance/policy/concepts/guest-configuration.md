@@ -1,14 +1,14 @@
 ---
 title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756688"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075482"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -18,8 +18,7 @@ Azure Policy peut vérifier les paramètres à l’intérieur d’une machine, t
 - La configuration ou la présence de l’application
 - Paramètres d'environnement
 
-À ce stade, la plupart des stratégies de configuration d’invité Azure Policy effectue uniquement un audit des paramètres à l’intérieur de la machine.
-Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
+À l’heure actuelle, la plupart des définitions de stratégie pour Azure Policy Guest Configuration auditent uniquement les paramètres à l’intérieur de la machine. Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Activer la configuration d’invité
 
@@ -59,8 +58,7 @@ Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 m
 
 ## <a name="supported-client-types"></a>Types de clients pris en charge
 
-Les stratégies de configuration d’invité sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans la Place de marché Azure sont exclues si l’agent de configuration d’invité n’est pas compatible.
-Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
+Les définitions de stratégie Guest Configuration sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans la Place de marché Azure sont exclues si l’agent de configuration d’invité n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|
@@ -72,7 +70,7 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 |Red Hat|Red Hat Enterprise Linux|7.4 à 7.8|
 |SUSE|SLES|12 SP3-SP5|
 
-Les images de machine virtuelle personnalisées sont prises en charge par les stratégies de configuration d’invité, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
+Les images de machine virtuelle personnalisées sont prises en charge par les définitions de stratégie Guest Configuration, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -86,7 +84,7 @@ Les machines virtuelles utilisant des réseaux virtuels pour la communication re
 
 ### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
 
-Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des stratégies Guest Configuration à l’ordinateur.
+Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des définitions de stratégie Guest Configuration à la machine.
 
 Le trafic est acheminé à l’aide de l’[IP publique virtuelle](../../../virtual-network/what-is-ip-address-168-63-129-16.md) d’Azure pour établir un canal sécurisé et authentifié avec les ressources de la plateforme Azure.
 
@@ -111,14 +109,12 @@ Si la machine a actuellement une identité système affectée par l’utilisateu
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Les stratégies de configuration d’invité utilisent l’effet **AuditIfNotExists**. Lorsque la définition est assignée, un service back-end gère automatiquement le cycle de vie de toutes les spécifications dans le fournisseur de ressources Azure `Microsoft.GuestConfiguration`.
+Les définitions de stratégie Guest Configuration utilisent l’effet **AuditIfNotExists**. Lorsque la définition est assignée, un service back-end gère automatiquement le cycle de vie de toutes les spécifications dans le fournisseur de ressources Azure `Microsoft.GuestConfiguration`.
 
-Les stratégies **AuditIfNotExists** ne retournent pas de résultats de conformité tant que toutes les spécifications ne sont pas satisfaites sur l’ordinateur. Les spécifications sont décrites dans la section [Configuration requise pour le déploiement de machines virtuelles Azure](#deploy-requirements-for-azure-virtual-machines)
+Les définitions de stratégie **AuditIfNotExists** ne retournent pas de résultats de conformité tant que toutes les spécifications ne sont pas satisfaites sur la machine. Les spécifications sont décrites dans la section [Configuration requise pour le déploiement de machines virtuelles Azure](#deploy-requirements-for-azure-virtual-machines).
 
 > [!IMPORTANT]
-> Dans une version antérieure de la configuration d’invité, une initiative était nécessaire pour combiner les définitions **DeployIfNoteExists** et **AuditIfNotExists**. Les définitions **DeployIfNotExists** ne sont plus nécessaires. Les définitions et les initiatives sont étiquetées `[Deprecated]` mais les attributions existantes continuent à fonctionner.
->
-> Une étape manuelle est nécessaire. Si vous avez déjà affecté les initiatives de stratégie dans la catégorie `Guest Configuration`, supprimez l’attribution de stratégie et attribuez la nouvelle définition. Les stratégies de configuration d’invité ont un modèle de nom comme suit : `Audit <Windows/Linux> machines that <non-compliant condition>`
+> Dans une version antérieure de la configuration d’invité, une initiative était nécessaire pour combiner les définitions **DeployIfNoteExists** et **AuditIfNotExists**. Les définitions **DeployIfNotExists** ne sont plus nécessaires. Les définitions et les initiatives sont étiquetées `[Deprecated]` mais les attributions existantes continuent à fonctionner. Pour plus d’informations, consultez le billet de blog : [Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy utilise la propriété **complianceStatus** de fournisseur de ressources de configuration d’invité pour signaler la conformité dans le nœud **Conformité**. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/get-compliance-data.md).
 
@@ -140,15 +136,15 @@ Seule la définition _Configurer le fuseau horaire sur les machines Windows_ app
 Lorsque vous attribuez des définitions qui commencent par _Configurer_, vous devez également attribuer la définition _Déployer les composants requis pour activer la stratégie de configuration d’invité sur des machines virtuelles Windows_. Vous pouvez combiner ces définitions dans une initiative.
 
 > [!NOTE]
-> La stratégie de fuseau horaire intégrée est la seule définition qui prend en charge la configuration des paramètres à l’intérieur des machines et les stratégies personnalisées qui configurent les paramètres à l’intérieur des machines ne sont pas prises en charge.
+> La stratégie intégrée de fuseau horaire est la seule définition qui prend en charge la configuration des paramètres à l’intérieur des machines ; les définitions de stratégie personnalisées qui configurent les paramètres à l’intérieur des machines ne sont pas prises en charge.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Attribution de stratégies à des machines en dehors d’Azure
 
-Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour serveurs](../../../azure-arc/servers/overview.md) qui relèvent du champ d’application de l’attribution de stratégies sont automatiquement incluses.
+Les définitions de stratégie Audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour serveurs](../../../azure-arc/servers/overview.md) qui relèvent du champ d’application de l’attribution de stratégies sont automatiquement incluses.
 
 ### <a name="multiple-assignments"></a>Affectations multiples
 
-Actuellement, les stratégies de configuration d’invité prennent en charge l’affectation d’une seule affectation d’invité par machine, même si l’affectation de stratégie utilise des paramètres différents.
+Actuellement, les définitions de stratégie Guest Configuration prennent en charge l’attribution d’une seule affectation d’invité par machine, même si l’attribution de stratégie utilise des paramètres différents.
 
 ## <a name="client-log-files"></a>Fichiers journaux du client
 

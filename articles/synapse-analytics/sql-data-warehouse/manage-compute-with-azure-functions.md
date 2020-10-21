@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442219"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91259949"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
@@ -124,10 +124,10 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
@@ -137,33 +137,33 @@ Cette section décrit ce dont vous avez besoin pour réaliser une planification 
 
 ### <a name="example-1"></a>Exemple 1
 
-Montée en puissance quotidienne à 8 h 00 jusqu’à DW600 et descente en puissance à 20 h 00 jusqu’à DW200.
+Montée en puissance quotidienne à 8 h 00 jusqu’à DW600c et descente en puissance à 20 h 00 jusqu’à DW200c.
 
 | Fonction  | Planifier     | Opération                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
-| Fonction2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
+| Fonction2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-2"></a>Exemple 2
 
-Montée en puissance quotidienne à 8h00 jusqu’à DW1000, descente en puissance à 16h00 jusqu’à DW600 et descente en puissance à 22h00 jusqu’à DW200.
+Montée en puissance quotidienne à 8h00 jusqu’à DW1000c, descente en puissance à 16h00 jusqu’à DW600 et descente en puissance à 22h00 jusqu’à DW200c.
 
 | Fonction  | Planifier     | Opération                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Fonction2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
-| Fonction3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Fonction2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
+| Fonction3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-3"></a>Exemple 3
 
-Montée en puissance à 8 h 00 jusqu’à DW1000, descente en puissance unique jusqu’à DW600 à 16 h 00 les jours de semaine. Mise en pause le vendredi à 23 h 00, reprise à 7 h 00 le lundi matin.
+Montée en puissance à 8 h 00 jusqu’à DW1000c, descente en puissance unique jusqu’à DW600c à 16 h 00 les jours de semaine. Mise en pause le vendredi à 23 h 00, reprise à 7 h 00 le lundi matin.
 
 | Fonction  | Planifier       | Opération                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Fonction1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Fonction2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Fonction1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Fonction2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Fonction3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
-| Fonction4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
+| Fonction4 | 0 0 7 * * 1    | `var operation = {"operationType": "ResumeDw"}` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

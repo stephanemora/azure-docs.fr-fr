@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017470"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072031"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutoriel : Configurer la réécriture des attributs d’Azure AD à Workday
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour réécrire des attributs d’Azure AD à Workday. L’application de provisionnement Workday Writeback prend en charge l’affectation de valeurs sur les attributs Workday suivants :
@@ -144,16 +144,31 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 
 1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
+1. Dans la liste déroulante **Étendue**, sélectionnez **Synchroniser tous les utilisateurs et groupes**. Grâce à cette option, l’application Writeback écrira en différé les attributs mappés de tous les utilisateurs d’Azure AD dans Workday, selon les règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > L’application d’approvisionnement Workday Writeback ne prend pas en charge l’option **Synchroniser uniquement les utilisateurs et les groupes attribués**.
+ 
+
 2. Cliquez sur **Enregistrer**.
 
 3. Cette opération permet de lancer la synchronisation initiale dont la durée dépendra du nombre d’utilisateurs contenus dans le répertoire source. Vous pouvez consulter la barre de progression pour suivre la progression du cycle de synchronisation. 
 
-4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit listent tous les événements de synchronisation individuels effectués par le service de provisionnement, par exemple quels utilisateurs sont importés à partir de la source et lesquels sont exportés vers l’application cible.  
+4. À tout moment, consultez l’onglet **Journaux d’approvisionnement** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit listent tous les événements de synchronisation individuels effectués par le service de provisionnement, par exemple quels utilisateurs sont importés à partir de la source et lesquels sont exportés vers l’application cible.  
 
 5. Au terme de la synchronisation initiale, un rapport de synthèse est créé dans l’onglet **Provisionnement**, comme illustré ci-dessous.
 
      > [!div class="mx-imgBorder"]
      > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Limitations et problèmes connus
+
+* L’application Writeback utilise une valeur prédéfinie pour les paramètres **Communication_Usage_Type_ID** et **Phone_Device_Type_ID**. Si votre locataire Workday utilise une valeur différente pour ces attributs, l’opération d’écriture différée échouera. Comme solution de contournement, nous vous suggérons de mettre à jour les paramètres Type_ID dans Workday. 
+* Lorsque l’application Writeback est configurée pour mettre à jour les numéros de téléphone secondaires, elle ne remplace pas le numéro de téléphone secondaire existant dans Workday. Elle ajoute un autre numéro de téléphone secondaire à l’enregistrement du Worker. Il n’existe aucune solution de contournement à ce comportement. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

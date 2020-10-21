@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535091"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716045"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Deuxième partie : affecter des autorisations au niveau du partage à une identité
 
@@ -47,12 +47,12 @@ Pour affecter un rôle Azure à une identité Azure AD par le biais du [portail 
 1. Dans le portail Azure, accédez à votre partage de fichiers ou [créez un partage de fichiers](storage-how-to-create-file-share.md).
 1. Sélectionnez **Contrôle d’accès (IAM)** .
 1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Dans le panneau **Ajouter une attribution de rôle**, sélectionnez le rôle intégré approprié (Lecteur de partage SMB de données de fichier de stockage, Collaborateur de partage SMB de données de fichier de stockage) dans la liste **Rôle**. Conservez le paramètre par défaut **Attribuer l’accès à** : **Utilisateur, groupe ou principal du service Azure AD**. Sélectionnez l’identité Azure AD cible par son nom ou son adresse e-mail. L’identité Azure AD sélectionnée doit être une identité hybride et ne peut pas être une identité cloud uniquement. Cela signifie que la même identité est également représentée dans AD DS.
+1. Dans le panneau **Ajouter une attribution de rôle**, sélectionnez le rôle intégré approprié (Lecteur de partage SMB de données de fichier de stockage, Collaborateur de partage SMB de données de fichier de stockage) dans la liste **Rôle**. Conservez le paramètre par défaut **Attribuer l’accès à** : **Utilisateur, groupe ou principal du service Azure AD**. Sélectionnez l’identité Azure AD cible par son nom ou son adresse e-mail. **L’identité Azure AD sélectionnée doit être une identité hybride et ne peut pas être une identité cloud uniquement.** Cela signifie que la même identité est également représentée dans AD DS.
 1. Sélectionnez **Enregistrer** pour terminer l’opération d’attribution de rôle.
 
 ### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant montre comment affecter un rôle Azure à une identité Azure AD, en fonction du nom de connexion. Pour plus d’informations sur l’affectation de rôles Azure avec PowerShell, consultez [Gérer l’accès à l’aide de RBAC et Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+L’exemple PowerShell suivant montre comment affecter un rôle Azure à une identité Azure AD, en fonction du nom de connexion. Pour plus d’informations sur l’attribution de rôles Azure avec PowerShell, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du module Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Avant d’exécuter l’exemple de script suivant, remplacez les valeurs d’espace réservé, y compris les crochets, par vos valeurs.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>Interface de ligne de commande
   
-La commande CLI 2.0 suivante affecte un rôle Azure à une identité Azure AD, selon le nom de connexion. Pour plus d’informations sur l’affectation de rôles Azure avec Azure CLI, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+La commande CLI 2.0 suivante affecte un rôle Azure à une identité Azure AD, selon le nom de connexion. Pour plus d’informations sur l’attribution de rôles Azure avec Azure CLI, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide de l’interface de ligne de commande Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 Avant d’exécuter l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs.
 

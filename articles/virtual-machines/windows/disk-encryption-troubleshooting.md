@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3b83899ad21cf125105881a7ffb526f5c607c6d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 45c64261b60d88557e63cb8f9af922fd7aa71ad4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322208"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977899"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -34,7 +34,7 @@ Les paramètres de groupe de sécurité réseau appliqués doivent permettre au 
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault derrière un pare-feu
 
-Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-windows-aad.md#), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Office 365](/office365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).
+Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-windows-aad.md#), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
 La machine virtuelle doit pouvoir accéder au point de terminaison [Azure Instance Metadata Service](../windows/instance-metadata-service.md) qui utilise une adresse IP non routable bien connue (`169.254.169.254`), accessible uniquement à partir de la machine virtuelle.  Les configurations de proxy qui modifient le trafic HTTP local à cette adresse (par exemple, en ajoutant un en-tête X-Forwarded-For) ne sont pas prises en charge.
@@ -90,5 +90,5 @@ Pour désactiver Azure Disk Encryption avec l’interface CLI, utilisez [az vm e
 
 Ce document vous a fait découvrir certains problèmes couramment rencontrés dans Azure Disk Encryption et en a décrit la résolution. Pour plus d’informations sur ce service et ses fonctionnalités, consultez les articles suivants :
 
-- [Appliquer le chiffrement de disque dans Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Appliquer le chiffrement de disque dans Azure Security Center](../../security-center/asset-inventory.md)
 - [Chiffrement des données au repos Azure](../../security/fundamentals/encryption-atrest.md)

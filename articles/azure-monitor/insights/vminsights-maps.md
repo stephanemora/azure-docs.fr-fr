@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320508"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445532"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles afin de mieux comprendre le fonctionnement des composants d’application
 Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
@@ -95,7 +95,7 @@ La carte affiche les dépendances de la machine virtuelle en détectant les proc
 
 Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange** dans le coin supérieur gauche. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.  
 
-![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vm-01.png)
+![Capture d’écran de l’onglet Carte dans la section Insights d’analyse du portail Azure, montrant un diagramme des dépendances entre les machines virtuelles.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Afficher une carte à partir d’un groupe de machines virtuelles identiques
 
@@ -111,7 +111,7 @@ Pour charger la carte d’une instance spécifique, sélectionnez d’abord cett
 
 Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange**. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.
 
-![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vmss-01.png)
+![Capture d’écran de l’onglet Carte dans la section Insights d’analyse du portail Azure, montrant un diagramme des dépendances entre les groupes de machines virtuelles identiques.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >Vous pouvez également accéder à la carte d’une instance spécifique à partir de la vue **Instances** de votre groupe de machines virtuelles identiques. Dans la section **Paramètres**, accédez à **Instances** > **Insights**.

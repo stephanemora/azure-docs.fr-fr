@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321592"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058265"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Réduire les coûts des ressources grâce à une capacité de réserve – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Faites des économies avec Azure SQL Database et SQL Managed Instance en procédant à une réservation des ressources de calcul au lieu de payer le tarif du paiement à l’utilisation. Avec une capacité de réserve, vous prenez l’engagement d’utiliser SQL Database ou SQL Managed Instance sur une période d’un an ou de trois ans afin de bénéficier de remises importantes sur les coûts de calcul. Pour acheter une capacité de réserve, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et la durée.
 
-Vous n’avez pas besoin d’attribuer la réservation à une base de données ou une instance managée spécifique. Les déploiements existants correspondants, qui sont déjà en cours d’exécution ou récemment déployés, bénéficient automatiquement de cet avantage. En achetant une réservation, vous vous engagez à payer les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés au service. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et la base de données ou l’instance managée est facturée au tarif du paiement à l’utilisation. Les réservations ne sont pas renouvelées automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Vous n’avez pas besoin d’attribuer la réservation à une base de données ou une instance managée spécifique. Les déploiements existants correspondants, qui sont déjà en cours d’exécution ou récemment déployés, bénéficient automatiquement de cet avantage. En achetant une réservation, vous vous engagez à payer les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. 
+
+Une réservation s’applique aux réplicas de calcul principaux et secondaires facturables, mais ne couvre pas les frais de logiciels, de mise en réseau ou de stockage associés au service. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et la base de données ou l’instance managée est facturée au tarif du paiement à l’utilisation. Les réservations ne sont pas renouvelées automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Vous pouvez acheter une capacité de réserve sur le [portail Azure](https://portal.azure.com). Payez la réservation [à l’avance ou par paiements mensuels](../../cost-management-billing/reservations/prepare-buy-reservation.md). Pour acheter une capacité réservée :
 
@@ -32,6 +34,9 @@ Vous pouvez acheter une capacité de réserve sur le [portail Azure](https://por
 - Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement. Capacité réservée.
 
 Pour en savoir plus sur la facturation des achats de réservation pour les clients professionnels et les clients payant à l’utilisation, consultez les articles [Comprendre l’utilisation d’une réservation Azure pour votre inscription Entreprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) et [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+
+> [!NOTE]
+> L’achat d’une capacité de réserve ne préalloue ni ne réserve de ressources d’infrastructure spécifiques (machines virtuelles ou nœuds) à votre usage.
 
 ## <a name="determine-correct-size-before-purchase"></a>Déterminer la taille correcte avant l’achat
 

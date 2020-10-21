@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325621"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072150"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configurer le domaine par défaut NFSv4.1 pour Azure NetApp Files
 
@@ -26,11 +26,11 @@ NFSv4 introduit le concept de domaine d’authentification. Azure NetApp Files p
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Comportement par défaut du mappage de l’utilisateur/groupe
 
-Par défaut, le mappage racine est réglé sur l’utilisateur `nobody`, car le domaine NFSv4 est défini sur `localdomain`. Quand vous montez un volume Azure NetApp Files NFSv4.1 en tant que racine, vous voyez des autorisations de fichiers comme suit :  
+Par défaut, le mappage racine est réglé sur l’utilisateur `nobody`, car le domaine NFSv4 est défini sur `localdomain` par défaut. Quand vous montez un volume Azure NetApp Files NFSv4.1 en tant que racine, vous voyez des autorisations de fichiers comme suit :  
 
 ![Comportement par défaut du mappage de l’utilisateur/groupe pour NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Comme le montre l’exemple ci-dessus, l’utilisateur de `file1` doit être `root`, mais il est mappé à `nobody` par défaut.  Cet article explique comment définir l’utilisateur `file1` sur `root`.  
+Comme le montre l’exemple ci-dessus, l’utilisateur de `file1` doit être `root`, mais il est mappé à `nobody` par défaut.  Cet article explique comment définir l’utilisateur `file1` sur `root` en modifiant le paramètre `idmap Domain` sur `defaultv4iddomain.com`.  
 
 ## <a name="steps"></a>Étapes 
 

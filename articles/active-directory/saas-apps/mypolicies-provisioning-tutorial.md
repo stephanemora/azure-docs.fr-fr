@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850490"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs
 
@@ -118,7 +118,7 @@ Exemple : `<demo0-qa>`. mypolicies.com.
 
 9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur myPolicies**.
 
-    ![Mappages d’utilisateur myPolicies](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec customappsso est visible." border="false":::
 
 10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et myPolicies. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur myPolicies en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 

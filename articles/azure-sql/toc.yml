@@ -263,6 +263,8 @@
           items:
             - name: Règles de pare-feu IP au niveau du serveur
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub Actions
+          href: database/connect-github-actions-sql-db.md
     - name: Tutoriels
       items:
         - name: Concevoir une base de données

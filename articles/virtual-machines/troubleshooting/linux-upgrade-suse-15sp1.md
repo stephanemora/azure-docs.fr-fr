@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449241"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359509"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Mettre à niveau une machine virtuelle Azure avec SLES 12 vers SLES 15 SP1
 
@@ -70,7 +70,7 @@ La version SLES actuelle doit être SLES 12 SP4 ou 12 SP5 pour que vous puissi
 
 8. Une fois le système redémarré avec le nouveau noyau, le message suivant s’affiche.
 
-     ![Capture d’écran des messages de la console série](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![Capture d’écran des messages de la console série après le redémarrage du système avec le nouveau noyau.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Vérifiez la version du noyau et du système d’exploitation afin de déterminer si le système est correctement mis à niveau.
 
     ```

@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483794"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873211"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -33,9 +33,6 @@ Pour qu’il soit possible d’intégrer le locataire d’un client, celui-ci do
 - L’ID de locataire du locataire du fournisseur de services (où vous allez gérer les ressources du client)
 - L’ID de locataire du locataire du client (dont les ressources seront gérées par le fournisseur de services)
 - Les ID d’abonnement de chaque abonnement dans le locataire du client qui sera géré par le fournisseur de services (ou qui contient les groupes de ressources qui seront gérés par le fournisseur de services).
-
-> [!NOTE]
-> Même si vous souhaitez uniquement intégrer un ou plusieurs groupes de ressources au sein d’un abonnement, le déploiement doit être effectué au niveau de l’abonnement. Vous aurez donc besoin de l’ID d’abonnement.
 
 Si vous ne disposez pas de ces valeurs d’ID, vous pouvez les récupérer de l’une des manières suivantes. Veillez à utiliser ces valeurs exactes dans votre déploiement.
 
@@ -72,7 +69,7 @@ Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’u
 Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour des consignes et des informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
-> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Pour définir des autorisations, vous devez connaître les valeurs d’ID pour chaque utilisateur, groupe d’utilisateurs ou principal de service dans le locataire du fournisseur de services auquel vous souhaitez accorder l’accès. Vous aurez également besoin de l’ID de définition de rôle pour chaque rôle intégré que vous souhaitez attribuer. Si vous ne les avez pas déjà, vous pouvez les récupérer en exécutant les commandes ci-dessous à partir du locataire du fournisseur de services.
 
@@ -128,6 +125,11 @@ Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manage
 
 Le processus d’intégration nécessite un modèle Azure Resource Manager (fourni dans nos [exemples de référentiel](https://github.com/Azure/Azure-Lighthouse-samples/)) et un fichier de paramètres correspondant que vous modifiez pour correspondre à votre configuration et pour définir vos autorisations.
 
+> [!IMPORTANT]
+> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement en cours d'intégration, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
+>
+> De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
+
 Les modèles que vous choisissez dépendront de votre choix d’intégrer un abonnement entier, un groupe de ressources ou plusieurs groupes de ressources au sein d’un abonnement. Nous fournissons également un modèle qui peut être utilisé pour des clients qui ont acheté une offre de service managé que vous avez publiée sur la Place de marché Azure, si vous préférez intégrer leurs abonnements de cette façon.
 
 |Pour intégrer ceci  |Utiliser ce modèle Azure Resource Manager  |Et modifier ce fichier de paramètres |
@@ -137,10 +139,8 @@ Les modèles que vous choisissez dépendront de votre choix d’intégrer un abo
 |Plusieurs groupes de ressources au sein d’un abonnement   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement en cours d'intégration, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
->
-> De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
+> [!TIP]
+> Bien que vous ne puissiez pas intégrer un groupe d’administration entier dans un déploiement, vous pouvez [déployer une stratégie au niveau du groupe d’administration](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La stratégie vérifie si chaque abonnement au sein du groupe d’administration a été délégué au locataire de gestion spécifié et, si ce n’est pas le cas, crée l’attribution en fonction des valeurs que vous fournissez.
 
 L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.json** modifié qui peut être utilisé pour l’intégration d’un abonnement. Les fichiers de paramètres de groupe de ressources (situés dans le dossier [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) sont similaires, mais incluent en outre un paramètre **rgName** pour identifier les groupes de ressources à intégrer.
 

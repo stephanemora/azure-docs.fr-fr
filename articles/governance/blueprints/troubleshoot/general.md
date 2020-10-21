@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651320"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058282"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -59,7 +59,7 @@ En passant un paramètre de blueprint qui utilise une fonction, comme `[resource
 
 #### <a name="resolution"></a>Résolution
 
-Pour passer une fonction en tant que paramètre, ajoutez un caractère d’échappement devant toute la chaîne avec `[` pour que le paramètre de blueprint se présente sous la forme `[[resourceGroup().tags.myTag]`. Le caractère d’échappement fait que les blueprints traitent la valeur comme une chaîne lors du traitement du blueprint. Le blueprint place ensuite la fonction sur l’artefact, ce qui lui permet d’être dynamique comme prévu. Pour plus d’informations, voir [Syntaxe et expressions dans les modèles Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Pour passer une fonction en tant que paramètre, ajoutez un caractère d’échappement devant toute la chaîne avec `[` pour que le paramètre de blueprint se présente sous la forme `[[resourceGroup().tags.myTag]`. Le caractère d’échappement fait que les blueprints traitent la valeur comme une chaîne lors du traitement du blueprint. Le service Blueprints place ensuite la fonction sur l’artefact, ce qui lui permet d’être dynamique comme prévu. Pour plus d’informations, voir [Syntaxe et expressions dans les modèles Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Supprimer les erreurs
 

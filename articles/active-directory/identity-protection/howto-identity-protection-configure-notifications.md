@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950389"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839345"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 
@@ -44,8 +44,8 @@ Pour empêcher une surcharge d’e-mails, vous ne recevrez qu’un seul e-mail U
 En tant qu’administrateur, vous pouvez définir les éléments suivants :
 
 - **Le niveau de risque de l’utilisateur qui déclenche la génération de cet e-mail** : par défaut, le niveau de risque est défini sur « Élevé ».
-- **Les destinataires de cet e-mail** : par défaut, les destinataires incluent tous les administrateurs généraux. Les administrateurs généraux peuvent également ajouter d’autres administrateurs généraux, des administrateurs de la sécurité et des lecteurs Sécurité comme destinataires.
-   - Si vous le souhaitez, vous pouvez **ajouter des e-mails supplémentaires pour recevoir des notifications d’alerte**. Cette fonctionnalité est en préversion et les utilisateurs définis doivent disposer des autorisations appropriées pour afficher les rapports liés sur le portail Azure.
+- **Les destinataires de cet e-mail** : les utilisateurs des rôles Administrateur général, Administrateur de la sécurité ou Lecteur de sécurité sont automatiquement ajoutés à cette liste. Nous tentons d’envoyer des e-mails aux 20 premiers membres de chaque rôle. Si un utilisateur est inscrit dans PIM pour s’élever à l’un de ces rôles à la demande, **il recevra uniquement les e-mails s’il est élevé au moment où l’e-mail est envoyé**.
+   - Si vous le souhaitez, vous pouvez **ajouter un e-mail personnalisé ici**. Les utilisateurs définis doivent disposer des autorisations appropriées pour afficher les rapports liés dans le portail Azure.
 
 Configurez l’e-mail Utilisateurs à risque sur le **Portail Azure** sous **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Alertes Utilisateurs à risque détectés**.
 
@@ -60,7 +60,7 @@ Il inclut :
 
 ![E-mail de synthèse hebdomadaire](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Par défaut, les destinataires incluent tous les administrateurs généraux. Les administrateurs généraux peuvent également ajouter d’autres administrateurs généraux, des administrateurs de la sécurité et des lecteurs Sécurité comme destinataires.
+Les utilisateurs des rôles Administrateur général, Administrateur de la sécurité ou Lecteur de sécurité sont automatiquement ajoutés à cette liste. Nous tentons d’envoyer des e-mails aux 20 premiers membres de chaque rôle. Si un utilisateur est inscrit dans PIM pour s’élever à l’un de ces rôles à la demande, **il recevra uniquement les e-mails s’il est élevé au moment où l’e-mail est envoyé**.
 
 ### <a name="configure-weekly-digest-email"></a>Configurer un courrier de synthèse hebdomadaire
 

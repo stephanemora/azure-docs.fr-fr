@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018363"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445065"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Pour vous assurer que votre application peut accéder immédiatement au nouveau 
 
 ## <a name="configuring-secondary-database"></a>Configuration d'une base de données secondaire
 
-Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCores) que la base de données primaire. En cas de charge de travail d’écriture importante de la base de données primaire, une base de données secondaire dotée d’une taille de calcul inférieure peut ne pas suivre. Cela entraîne le décalage de la phase de restauration par progression sur la base de données secondaire et l’indisponibilité potentielle de la base de données secondaire. Pour atténuer ces risques, la géoréplication active limite si nécessaire le taux de journalisation des transactions de la base de données primaire pour permettre à ses bases de données secondaires de rattraper le retard.
+Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec les mêmes redondance de stockage de sauvegarde taille de calcul (DTU ou vCores) que la base de données primaire. En cas de charge de travail d’écriture importante de la base de données primaire, une base de données secondaire dotée d’une taille de calcul inférieure peut ne pas suivre. Cela entraîne le décalage de la phase de restauration par progression sur la base de données secondaire et l’indisponibilité potentielle de la base de données secondaire. Pour atténuer ces risques, la géoréplication active limite si nécessaire le taux de journalisation des transactions de la base de données primaire pour permettre à ses bases de données secondaires de rattraper le retard.
 
 Après un basculement, une configuration de base de données secondaire déséquilibrée peut aussi altérer le niveau de performance de l’application en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire. Dans ce cas, il est nécessaire d’effectuer un scale-up de l’objectif du service de base de données au niveau nécessaire, ce qui peut nécessiter beaucoup de temps et de ressources de calcul. Un basculement à [haute disponibilité](high-availability-sla.md) est également nécessaire à la fin du processus de scale-up.
 
@@ -126,8 +126,13 @@ Si vous décidez de créer une base de données secondaire avec une taille de ca
 
 La limitation du taux de journalisation des transactions sur la base de données primaire en raison d’une réduction de la taille de calcul sur une base de données secondaire est signalée à l’aide du type d’attente HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visible dans les vues de base de données [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
+Par défaut, la redondance de stockage de sauvegarde de la base de données secondaire est identique à celle de la base de données primaire. Vous pouvez configurer la base de données secondaire avec une redondance de stockage de sauvegarde différente. Les sauvegardes sont toujours effectuées sur la base de données primaire. Si la base de données secondaire est configurée avec une redondance de stockage de sauvegarde différente, après le basculement effectué lors de la promotion de la base de données secondaire en base de données primaire, les sauvegardes sont facturées en fonction de la redondance de stockage sélectionnée sur la nouvelle base de données primaires (ancienne secondaire). 
+
 > [!NOTE]
 > Le taux de journalisation des transactions sur la base de données primaire peut être limité pour des raisons non liées à une taille de calcul inférieure sur une base de données secondaire. Ce genre de limitation peut se produire même si la base de données secondaire a une taille de calcul identique ou supérieure à celle de la base de données primaire. Pour plus d’informations, notamment sur les types d’attente pour les différents genres de limitation du taux de journalisation, consultez [Gouvernance relative au taux de journalisation des transactions](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion publique dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de sauvegarde redondante localement ou redondante interzone, la création d’une base de données secondaire dans une autre région Azure n’est pas prise en charge. 
 
 Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](purchasing-models.md).
 
@@ -248,9 +253,9 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 
 | Commande | Description |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilise l’argument FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilise l’argument REMOVE SECONDARY ON SERVER pour mettre fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilise l’argument FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilise l’argument REMOVE SECONDARY ON SERVER pour mettre fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retourne des informations concernant tous les liens de réplication existants pour chaque base de données sur un serveur. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtient l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication pour une base de données spécifique. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Affiche l’état de toutes les opérations de base de données, y compris l’état des liens de réplication. |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319760"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356364"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -170,7 +170,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
 
 3. Ajoutez les noms de **collection** et de **base de données**. (Ces noms doivent être définis sur **changefeedlabcollection** et sur **changefeedlabdatabase**, sauf si vous avez choisi d’attribuer des noms différents.)
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Mettre à jour les chaînes de connexion":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Éléments visuels du projet":::
  
 4. Enregistrez les modifications dans tous les fichiers modifiés.  
 
@@ -180,7 +180,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
 
 7. Si vous accédez au [portail Azure](https://portal.azure.com/), puis au compte Cosmos DB dans votre groupe de ressources, et enfin à **Data Explorer**, vous verrez les données aléatoires importées dans votre collection **changefeedlabcollection** .
  
-   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Données générées dans le portail":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Éléments visuels du projet":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Configurer un travail Stream Analytics
 
@@ -190,7 +190,7 @@ Azure Stream Analytics est un service cloud entièrement géré pour le traiteme
 
 2. Sélectionnez **Entrées** comme illustré ci-dessous.  
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Création d’une entrée":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Éléments visuels du projet":::
 
 3. Sélectionnez **+ Ajouter une entrée de flux**. Dans le menu déroulant, sélectionnez **Event Hub**.  
 
@@ -222,7 +222,7 @@ Azure Stream Analytics est un service cloud entièrement géré pour le traiteme
 
 8. Revenez à **streamjob1**, puis cliquez sur **Modifier la requête**.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Modifier la requête":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Éléments visuels du projet":::
  
 9. Collez la requête ci-après dans la fenêtre de requête. La requête **AVERAGE PRICE** calcule le prix moyen de tous les articles consultés par les utilisateurs, de tous les articles ajoutés au panier des utilisateurs et de tous les articles achetés par les utilisateurs. Ce métrique peut aider les sociétés d’e-commerce à déterminer le prix de vente des articles, ainsi que le stock dans lequel investir. Par exemple, si le prix moyen des articles consultés est nettement plus élevé que celui des articles achetés, une société peut choisir d’ajouter des articles moins chers à son stock.
 
@@ -315,7 +315,7 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
 
    Voici un exemple de tableau de bord contenant ces graphiques :
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualisations":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Éléments visuels du projet":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facultatif : Visualiser les données à l’aide d’un site d’e-commerce
 
@@ -329,13 +329,13 @@ Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analyt
 
 2. Cliquez sur la collection **topItems**, puis sous **Mise à l’échelle et paramètres**, définissez le paramètre **Durée de vie** sur **30 secondes** pour que la collection topItems soit mise à jour toutes les 30 secondes.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Durée de vie":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Éléments visuels du projet":::
 
 3. Afin de remplir la collection **topItems** avec les articles les plus fréquemment achetés, réaccédez à **streamjob1**, puis ajoutez une nouvelle **Sortie**. Sélectionnez **Cosmos DB**.
 
 4. Renseignez les champs obligatoires comme illustré ci-après.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Sortie Cosmos":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Éléments visuels du projet":::
  
 5. Si vous avez ajouté la requête facultative TOP 5 dans la partie précédente du labo, passez à la partie 5a. Dans le cas contraire, passez à la partie 5b.
 

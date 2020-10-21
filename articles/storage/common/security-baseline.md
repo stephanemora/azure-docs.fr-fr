@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228271"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715149"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Base de référence de sécurité Azure pour Stockage Azure
 
@@ -54,7 +54,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 - [Présentation des points de terminaison privés pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints#known-issues)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -84,7 +84,7 @@ Notez que si vous avez des points de terminaison privés attachés à votre comp
 
 - [Gestion des captures de paquets avec Azure Network Watcher à l’aide du portail](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -380,13 +380,13 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès basé sur un rôle (RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
+**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure fournit un contrôle d’accès basé sur un rôle Azure (Azure RBAC) pour contrôler l’accès d’un client aux ressources dans un compte de stockage.  Comme meilleure pratique, utilisez si possible les informations d’identification Azure AD plutôt que la clé de compte, qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, des signatures d’accès partagé (SAP) de délégation d’utilisateur pour profiter d’une sécurité supérieure.
 
 - [Création et configuration d’une instance Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Utilisation du fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Configuration de l’accès aux données Blob et File d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Configuration de l’accès aux données Blob et File d’attente Azure avec Azure RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autorisation de l’accès aux données dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Acti
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
-**Aide** : Implémentez une isolation en utilisant des abonnements, groupes d’administration et comptes de stockage distincts selon les domaines de sécurité (par exemple, l’environnement et la sensibilité des données).  Vous pouvez limiter votre compte de stockage pour contrôler le niveau d’accès à vos comptes de stockage selon les exigences de vos applications et environnements d’entreprise, en fonction du type et du sous-ensemble de réseaux utilisés. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage. Vous pouvez contrôler l’accès à Stockage Azure via le RBAC d’Azure AD. Vous pouvez également configurer des points de terminaison privés pour améliorer la sécurité, car le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. 
+**Aide** : Implémentez une isolation en utilisant des abonnements, groupes d’administration et comptes de stockage distincts selon les domaines de sécurité (par exemple, l’environnement et la sensibilité des données).  Vous pouvez limiter votre compte de stockage pour contrôler le niveau d’accès à vos comptes de stockage selon les exigences de vos applications et environnements d’entreprise, en fonction du type et du sous-ensemble de réseaux utilisés. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage. Vous pouvez contrôler l’accès à Stockage Azure via Azure RBAC. Vous pouvez également configurer des points de terminaison privés pour améliorer la sécurité, car le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. 
 
 - [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -534,13 +534,13 @@ Utilisez également les stratégies de point de terminaison de service de résea
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle (RBAC). Stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
+**Conseils** : Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
 
 - [Attribution des rôles Azure pour un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Utilisation du fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Configuration de l’accès aux données Blob et File d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Configuration de l’accès aux données Blob et File d’attente Azure avec Azure RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Guide pratique pour créer et configurer une instance AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -844,7 +844,7 @@ Utilisez les recommandations d’Azure Security Center comme base de référence
 
 **Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -1061,7 +1061,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

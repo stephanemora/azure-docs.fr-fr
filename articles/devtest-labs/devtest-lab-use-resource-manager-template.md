@@ -3,12 +3,12 @@ title: Afficher et utiliser un modèle Azure Resource Manager de machine virtuel
 description: Découvrez comment utiliser le modèle Azure Resource Manager à partir d’une machine virtuelle pour créer d’autres machines virtuelles
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272689"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91282491"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
@@ -23,7 +23,7 @@ Il existe deux façons de créer des machines virtuelles dans DevTest Labs avec 
 
 - Les modèles Resource Manager qui utilisent un type de ressource Microsoft.DevTestLab/labs/virtualmachines (tel que déclaré dans la propriété « ressource » du modèle) peuvent configurer des machines virtuelles lab individuelles. Chaque machine virtuelle apparaît alors sous la forme d’un seul élément dans la liste de machines virtuelles DevTest Labs :
 
-   ![Liste des machines virtuelles qui apparaissent comme un seul élément dans la liste de machines virtuelles DevTest Lab](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Capture d’écran montrant la liste des machines virtuelles en tant qu’éléments uniques dans la liste des machines virtuelles DevTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    Ce type de modèle Resource Manager peut être provisionné via la commande Azure PowerShell **New-AzResourceGroupDeployment** ou via la commande Azure CLI **az group deployment create**. Il requiert des autorisations d’administrateur. Les utilisateurs assignés à un rôle d’utilisateur DevTest Labs ne peuvent donc pas effectuer le déploiement. 
 

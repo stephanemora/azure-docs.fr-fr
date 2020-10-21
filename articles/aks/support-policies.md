@@ -4,12 +4,12 @@ description: Découvrez les stratégies de support Azure Kubernetes Service (AKS
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888990"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892708"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -130,8 +130,7 @@ Vous pouvez uniquement personnaliser les groupes de sécurité réseau sur des s
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Clusters arrêtés ou désalloués
 
-Comme indiqué ci-dessus, la désallocation manuelle de tous les nœuds de cluster via les API IaaS/l’interface CLI/le Portail rend le cluster non pris en charge.
-La seule méthode prise en charge pour arrêter/désallouer le nœud entier consiste à [arrêter le cluster AKS, ce qui préserve l’état du cluster pendant jusqu’à 12 mois.
+Comme indiqué précédemment, la désallocation manuelle de tous les nœuds de cluster via les API IaaS, l’interface CLI ou le portail supprime toute prise en charge du cluster. La seule méthode prise en charge pour arrêter/désallouer tous les nœuds consiste à [arrêter le cluster AKS](start-stop-cluster.md#stop-an-aks-cluster), ce qui préserve l’état du cluster pendant un maximum de 12 mois.
 
 Les clusters arrêtés depuis plus de 12 mois ne conservent plus l’état. 
 

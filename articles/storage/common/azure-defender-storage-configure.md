@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992529"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91289767"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurer Azure Defender pour le stockage
 
@@ -23,11 +23,11 @@ Azure Defender pour le stockage offre une couche supplémentaire de sécurité i
 
 Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/) et sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
 
-Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées au Stockage Blob et à Azure Files (préversion) en vue de détecter les menaces. Pour examiner les alertes d’Azure Defender, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
+Le service ingère les journaux de ressources des demandes de lecture, d’écriture et de suppression adressées au Stockage Blob et à Azure Files en vue de détecter les menaces. Pour examiner les alertes d’Azure Defender, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilité
 
-Azure Defender pour le stockage est actuellement disponible pour Stockage Blob, Azure Files (préversion) et Azure Data Lake Storage Gen2 (préversion). Les types de compte prenant en charge Azure Defender incluent les comptes à usage général v2, les objets blob de blocs et les comptes Stockage Blob. Azure Defender pour le stockage est disponible dans tous les clouds publics et US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
+Azure Defender pour le stockage est actuellement disponible pour Stockage Blob, Azure Files et Azure Data Lake Storage Gen2. Les types de compte prenant en charge Azure Defender incluent les comptes à usage général v2, les objets blob de blocs et les comptes Stockage Blob. Azure Defender pour le stockage est disponible dans tous les clouds publics et US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
 
 Les comptes avec des espaces de noms hiérarchiques activés pour Data Lake Storage prennent en charge les transactions à l’aide des API Stockage Blob Azure et des API Data Lake Storage. Les partages de fichiers Azure prennent en charge les transactions via SMB.
 
@@ -37,8 +37,8 @@ La liste suivante récapitule la disponibilité d’Azure Defender pour le stock
 
 - État de sortie :
   - [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilité générale)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (la préversion prend en charge les transactions SMB et REST)
-  - Azure Data Lake Storage Gen2 (préversion)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilité générale)
+  - Azure Data Lake Storage Gen2 (disponibilité générale)
 - Clouds :<br>
     ✔ Clouds commerciaux<br>
     ✔ US Gov<br>

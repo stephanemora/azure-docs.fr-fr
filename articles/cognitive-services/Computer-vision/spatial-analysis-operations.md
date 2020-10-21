@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984922"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628211"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -39,7 +39,7 @@ Toutes les opérations ci-dessus sont également disponibles dans la version `.d
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Effectue le suivi lorsqu’une personne traverse une ligne désignée dans le champ de vue de la caméra. <br> Émet un événement _personLineEvent_ lorsque la personne traverse la zone, et fournit des informations directionnelles. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Effectue le suivi lorsqu’une personne enfreint une règle de distance. <br> Émet régulièrement un _personDistanceEvent_ avec l’emplacement de chaque infraction de distance. |
 
-L’analyse spatiale peut également être exécutée avec [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) en tant que module d’intelligence artificielle vidéo. 
+L’analyse spatiale peut également être exécutée avec [Live Video Analytics](https://aka.ms/lva-spatial-analysis) en tant que module d’intelligence artificielle vidéo. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -644,7 +644,7 @@ Vous pouvez intégrer la détection ou les événements d’analyse spatiale dan
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Déploiement d’opérations d’analyse spatiale à grande échelle (plusieurs caméras)
 
-Pour optimiser les performances et l’utilisation des GPU, vous pouvez déployer toutes les opérations d’analyse spatiale sur plusieurs caméras à l’aide d’instances de graphe. Voici un exemple d’exécution de l’opération cognitiveservices.vision.spatialanalysis-personcount sur cinq (5) caméras.
+Pour optimiser les performances et l’utilisation des GPU, vous pouvez déployer toutes les opérations d’analyse spatiale sur plusieurs caméras à l’aide d’instances de graphe. Voici un exemple d’exécution de l’opération `cognitiveservices.vision.spatialanalysis-personcount` sur cinq caméras.
 
 ```json
  "properties.desired": {
@@ -727,7 +727,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
   ```
 | Nom | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | Indique que le nombre de caméras qui seront utilisées dans cette opération.|
+| `batch_size` | int | Indique le nombre de caméras qui seront utilisées dans l’opération. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

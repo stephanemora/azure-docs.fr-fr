@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526525"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996346"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -79,7 +79,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
    Certains déclencheurs (par exemple, **Quand un ou plusieurs messages arrivent dans une file d’attente (autocomplétion)** ) peuvent retourner un ou plusieurs messages. Quand ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifié par la propriété **Nombre maximal de messages** du déclencheur.
 
     > [!NOTE]
-    > Le déclencheur de saisie semi-automatique rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’exécution du déclencheur suivant. Ce comportement peut affecter la conception de votre application logique. Par exemple, évitez de modifier la concurrence sur le déclencheur d’autocomplétion, car cette modification peut entraîner la duplication de messages si votre application logique entre dans un état limité. La modification du contrôle de la concurrence crée les conditions suivantes : les déclencheurs limités sont ignorés avec le code `WorkflowRunInProgress`, l’opération d’achèvement n’a pas lieu et l’exécution du déclencheur suivant se produit après l’intervalle d’interrogation. Vous devez définir la durée de verrouillage du bus de service sur une valeur supérieure à la fréquence d’interrogation. Toutefois, malgré ce réglage, le message peut ne pas être complet si votre application logique reste à un état limité à l’intervalle d’interrogation suivant.
+    > Le déclencheur d’autocomplétion rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’appel suivant à Service Bus. Ce comportement peut affecter la conception de votre application logique. Par exemple, évitez de modifier la concurrence sur le déclencheur d’autocomplétion, car cette modification peut entraîner la duplication de messages si votre application logique entre dans un état limité. La modification du contrôle de la concurrence crée les conditions suivantes : les déclencheurs limités sont ignorés avec le code `WorkflowRunInProgress`, l’opération d’achèvement n’a pas lieu et l’exécution du déclencheur suivant se produit après l’intervalle d’interrogation. Vous devez définir la durée de verrouillage du bus de service sur une valeur supérieure à la fréquence d’interrogation. Toutefois, malgré ce réglage, le message peut ne pas être complet si votre application logique reste à un état limité à l’intervalle d’interrogation suivant.
 
 1. Si votre déclencheur se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
 
@@ -162,6 +162,10 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 Lorsque vous devez envoyer des messages connexes dans un ordre précis, vous pouvez utiliser le modèle de [*convoi séquentiel*](/azure/architecture/patterns/sequential-convoy) à l'aide du [connecteur Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Les messages corrélés possèdent une propriété qui définit la relation entre ces messages, comme l'ID de la [session](../service-bus-messaging/message-sessions.md) dans Service Bus.
 
 Lorsque vous créez une application logique, vous pouvez sélectionner le modèle **Livraison corrélée dans l'ordre à l'aide de sessions Service Bus**, qui implémente le modèle de convoi séquentiel. Pour plus d'informations, consultez [Envoyer des messages connexes dans l'ordre](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retards dans l’entrée en vigueur des mises à jour de votre application logique
+
+Si l’intervalle d’interrogation d’un déclencheur Service Bus est faible, par exemple 10 secondes, les mises à jour de votre application logique peuvent ne pas prendre effet avant 10 minutes. Pour contourner ce problème, vous pouvez augmenter temporairement l’intervalle d’interrogation à une valeur plus élevée, par exemple 30 secondes ou 1 minute, avant de mettre à jour votre application logique. Après avoir effectué la mise à jour, vous pouvez rétablir la valeur d’origine de l’intervalle d’interrogation. 
 
 <a name="connector-reference"></a>
 

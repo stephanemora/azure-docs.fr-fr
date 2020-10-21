@@ -3,19 +3,18 @@ title: Sécurité d’Azure Key Vault
 description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377571"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91739688"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -76,21 +75,16 @@ Une fois que les règles de pare-feu sont effectives, les utilisateurs peuvent l
 
 Pour plus d’informations sur l’adresse réseau d’Azure Key Vault, voir [Point de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md).
 
-## <a name="monitoring"></a>Surveillance
+## <a name="tls-and-https"></a>TLS et HTTPS
 
-La journalisation de Key Vault enregistre les informations sur les activités effectuées sur votre coffre. Key Vault consigne les éléments suivants :
+*   Le serveur frontal Key Vault (plan de données) est un serveur multilocataire. Cela signifie que les coffres de clés de différents clients peuvent partager la même IP publique. À des fins d’isolement, chaque requête HTTP est authentifiée et autorisée indépendamment des autres requêtes.
+*   Vous pouvez identifier des versions antérieures de TLS pour signaler des vulnérabilités, mais, comme l’IP publique est partagée, il n’est pas possible pour l’équipe du service des coffres de clés de désactiver les anciennes versions de TLS pour les coffres de clés individuels au niveau du transport.
+*   Le protocole HTTPS permet au client de participer à la négociation TLS. **Les clients peuvent appliquer la version la plus récente de TLS** et, chaque fois qu’un client le fait, l’ensemble de la connexion utilise le niveau de protection correspondant. Le fait que Key Vault prenne toujours en charge les anciennes versions de TLS ne nuit pas à la sécurité des connexions utilisant des versions plus récentes de TLS.
+*   Malgré les vulnérabilités connues du protocole TLS, il n’existe aucune attaque connue qui permettrait à un agent malveillant d’extraire des informations de votre coffre de clés lorsque l’attaquant établit une connexion avec une version de TLS qui présente des vulnérabilités. L’attaquant doit toujours s’authentifier et s’autoriser et, tant que les clients légitimes se connectent toujours avec des versions récentes de TLS, il est impossible que des informations d’identification aient pu être divulguées à partir de vulnérabilités d’anciennes versions de TLS.
 
-- Toutes les authentifiées requêtes d’API REST, y compris les demandes ayant échoué
-  - Opérations sur le coffre de clés lui-même. Ces opérations incluent la création, la suppression, la définition des stratégies d’accès et la mise à jour des attributs de coffre de clés (par exemple, les balises).
-  - Les opérations sur les clés et secrets dans le coffre de clés, à savoir :
-    - Création, modification ou suppression de ces clés ou secrets.
-    - Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
-- les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.
+## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
 
-Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. C’est à vous de gérer vos journaux dans votre compte de stockage.
-
-- Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
-- Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
+La journalisation de Key Vault enregistre les informations sur les activités effectuées sur votre coffre. Pour plus d’informations, consultez [Journalisation de Key Vault](logging.md).
 
 Pour toute recommandation quant à la gestion sécurisée des comptes de stockage, consultez le [guide de sécurité du Stockage Azure](../../storage/blobs/security-recommendations.md).
 
@@ -98,4 +92,3 @@ Pour toute recommandation quant à la gestion sécurisée des comptes de stockag
 
 - [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Contrôle d’accès en fonction du rôle (RBAC) : Rôles intégrés](../../role-based-access-control/built-in-roles.md)
-

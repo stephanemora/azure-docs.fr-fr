@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800464"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044290"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -21,7 +21,7 @@ Azure Digital Twins utilise des **routes d’événements** pour envoyer des don
 Avec la préversion, il existe deux cas principaux d’envoi de données Azure Digital Twins :
 * Envoi de données d’une représentation dans le graphique Azure Digital Twins vers une autre. Par exemple, lorsqu’une propriété au sein d’une représentation numérique change, vous souhaiterez peut-être notifier et mettre à jour une autre représentation numérique.
 * Envoi de données à des services de données en aval pour un stockage ou un traitement supplémentaire (également appelé *sortie de données*). Par exemple,
-  - Un hôpital peut vouloir envoyer des données d’événements Azure Digital Twins vers [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), pour enregistrer des données de série chronologique relatives à des événements liés au lavage de mains pour une analyse en masse.
+  - Un hôpital peut vouloir envoyer des données d’événements Azure Digital Twins vers [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), pour enregistrer des données de série chronologique relatives à des événements liés au lavage de mains pour une analyse en masse.
   - Une entreprise qui utilise déjà [Azure Maps](../azure-maps/about-azure-maps.md) souhaite utiliser Azure Digital Twins pour améliorer sa solution. Ils peuvent rapidement activer une carte Azure après avoir configuré Azure Digital Twins, amener des entités Azure Maps dans Azure Digital Twins en tant que [représentations numériques](concepts-twins-graph.md) dans le graphique de représentation, ou exécuter des requêtes puissantes en tirant parti des données de Azure Maps et Azure Digital Twins.
 
 Les routes d’événements sont utilisées pour ces deux scénarios.
@@ -55,7 +55,9 @@ Pour définir une route d’événement, les développeurs doivent d’abord dé
 * Event Hub
 * Service Bus
 
-Les points de terminaison sont configurés à l’aide d’API de plan de contrôle (prises en charge par [l’interface CLI Azure Digital Twins](how-to-use-cli.md) ou via le portail Azure. Une définition de point de terminaison donne :
+Pour créer un point de terminaison, vous pouvez utiliser les [**API de plan de contrôle**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) d’Azure Digital Twins, des [**commandes CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) ou le [**portail Azure**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+Lorsque vous définissez un point de terminaison, vous devez fournir les éléments suivants :
 * Le nom du point de terminaison
 * Le type de point de terminaison (Event Grid, Event Hub ou Service Bus)
 * Les chaînes de connexion primaire et secondaire pour l’authentification 
@@ -69,15 +71,24 @@ Les API de point de terminaison disponibles dans le plan de contrôle sont les s
 
 ## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
  
-Les routes d’événements sont créées dans une application cliente avec l’appel de [kit de développement logiciel .NET (C#) ](how-to-use-apis-sdks.md) : 
+Pour créer une route d’événement, vous pouvez utiliser les [**API de plan de données**](how-to-manage-routes-apis-cli.md#create-an-event-route) d’Azure Digital Twins, des [**commandes CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) ou le [**portail Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Voici un exemple de création d’une route d’événement dans une application cliente à l’aide de l’appel `CreateEventRoute`du [Kit de développement logiciel (SDK) .NET (C#)](how-to-use-apis-sdks.md) : 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* Le `endpoint-name` identifie un point de terminaison, comme Event Hub, Event Grid ou Service Bus. Ces points de terminaison doivent être créés dans votre abonnement et attachés à Azure Digital Twins à l’aide des API de plan de contrôle avant d’effectuer cet appel d’inscription.
+1. Tout d’abord, un objet `EventRoute` est créé, et il prend le nom d’un point de terminaison. Le champs `endpointName` identifie un point de terminaison, comme Event Hub, Event Grid ou Service Bus. Ces points de terminaison doivent être créés dans votre abonnement et attachés à Azure Digital Twins à l’aide des API de plan de contrôle avant d’effectuer cet appel d’inscription.
 
-L’objet de l’itinéraire d’événement passé à `EventRoutes.Add` prend également un paramètre [**filtre**](./how-to-manage-routes-apis-cli.md#filter-events), utilisable pour restreindre les types d’événements qui suivent cet itinéraire.
+2. L’objet de la route d’événement comporte également un champ [**Filtre**](./how-to-manage-routes-apis-cli.md#filter-events), qui peut être utilisé pour restreindre les types d’événements qui suivent cette route. Un filtre `true` active la route sans filtrage supplémentaire (un filtre `false` désactive la route). 
+
+3. Cet objet de route d’événement est ensuite transmis à `CreateEventRoute`, ainsi qu’un nom pour la route.
+
+> [!TIP]
+> Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
 
 Les routes peuvent également être créées à l’aide de [l’interface CLI Azure Digital Twins](how-to-use-cli.md).
 

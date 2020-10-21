@@ -1,23 +1,23 @@
 ---
 title: Installer et utiliser l’explorateur Azure IoT | Microsoft Docs
-description: Installer l’outil d’exploration Azure IoT et l’utiliser pour interagir avec les appareils IoT Plug-and-Play en préversion connectés à un hub IoT.
+description: Installer l’outil d’exploration Azure IoT et l’utiliser pour interagir avec les appareils IoT Plug-and-Play connectés à un hub IoT.
 author: rido-min
 ms.author: rmpablos
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 083dcde44e56af34f17d952c46e554b234818f27
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351958"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019152"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
-L’explorateur Azure IoT est un outil graphique permettant d’interagir avec vos appareils IoT Plug-and-Play en préversion et de les tester. Après avoir installé l’outil sur votre ordinateur local, vous pouvez l’utiliser pour vous connecter à un hub. Vous pouvez utiliser l’outil pour afficher la télémétrie que les appareils envoient, utiliser les propriétés de l’appareil et appeler des commandes.
+L’explorateur Azure IoT est un outil graphique permettant d’interagir avec vos appareils IoT Plug-and-Play et de les tester. Après avoir installé l’outil sur votre ordinateur local, vous pouvez l’utiliser pour vous connecter à un hub. Vous pouvez utiliser l’outil pour afficher la télémétrie que les appareils envoient, utiliser les propriétés de l’appareil et appeler des commandes.
 
 Cet article vous montre comment :
 
@@ -29,22 +29,18 @@ Cet article vous montre comment :
 Pour utiliser l’outil qu’est l’explorateur Azure IoT, vous avez besoin des éléments suivants :
 
 - Un IoT Hub Azure. Il y a de nombreuses façons d’ajouter un hub IOT à votre abonnement Azure, par exemple la [Création d’un hub IOT à l’aide de l’interface de ligne de commande Azure](../iot-hub/iot-hub-create-using-cli.md). Vous avez besoin de la chaîne de connexion du hub IoT pour exécuter l’outil explorateur Azure IoT. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Un appareil inscrit dans votre hub IoT. Vous pouvez utiliser la commande d’interface de ligne de commande Azure suivante pour inscrire un appareil. Veillez à remplacer les espaces réservés `{YourIoTHubName}` et `{YourDeviceID}` par vos valeurs :
-
-    ```azurecli-interactive
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
-    ```
+- Un appareil inscrit dans votre hub IoT. Vous pouvez utiliser l’explorateur IoT pour créer et gérer les inscriptions d’appareils dans votre IoT Hub.
 
 ## <a name="install-azure-iot-explorer"></a>Installez l’explorateur Azure IoT
 
 Accédez aux [versions de l’explorateur Azure IOT](https://github.com/Azure/azure-iot-explorer/releases) et développez la liste des ressources pour la version la plus récente. Téléchargez et installez la version la plus récente de l’application.
 
 >[!Important]
->À partir de la version 0.11.0, IoT Explorer prend uniquement en charge la version de préversion d’IoT Plug-and-Play datant de mai 2020. Pour utiliser les fonctionnalités disponibles dans la préversion précédente datant d’août 2019, vous devez installer une version 0.10.x.
+> Mettez à jour vers la version 0.13. x pour résoudre les modèles à partir de n’importe quel référentiel basé sur [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Utilisez l’explorateur Azure IoT
 
-Concernant l’appareil, vous pouvez connecter votre propre appareil ou utiliser l’un de nos exemples d’appareils simulés. Suivez [ces instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) pour exécuter l’exemple d’appareil simulé.
+Concernant l’appareil, vous pouvez connecter votre propre appareil ou utiliser l’un des exemples d’appareils simulés. Suivez [ces instructions](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) pour exécuter l’exemple d’appareil simulé.
 
 ### <a name="connect-to-your-hub"></a>Connectez-vous à votre hub
 
@@ -65,7 +61,7 @@ Pour supprimer une source :
 
 Modifiez les priorités sources :
 
-Vous pouvez faire glisser et déposer l’une des sources de définition de modèle dans une position différente sur la liste. 
+Vous pouvez faire glisser et déposer l’une des sources de définition de modèle dans une position différente sur la liste.
 
 ### <a name="view-devices"></a>Afficher les appareils
 
@@ -103,7 +99,7 @@ Dans la page **Composant**, vous pouvez afficher les propriétés en lecture seu
 
 #### <a name="properties"></a>Propriétés
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Afficher les propriétés dans l’explorateur Azure IoT":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Afficher les composants dans l’explorateur Azure IoT":::
 
 Vous pouvez afficher les propriétés en lecture seule définies dans une interface sur l’onglet **Propriétés (en lecture seule)** . Vous pouvez mettre à jour les propriétés accessibles en écriture définies dans une interface sur l’onglet **Propriétés (accessibles en écriture)**  :
 
@@ -128,6 +124,16 @@ Pour envoyer une commande à un appareil, accédez à l’onglet **Commandes** 
 
 Pour afficher la télémétrie de l’interface sélectionnée, accédez à son onglet **Télémétrie**.
 
+#### <a name="known-issues"></a>Problèmes connus
+
+- Prise en charge d’IoT Edge : La version actuelle n’affiche pas les appareils IoT Edge dans la liste des appareils.
+- Fonctionnalités du langage DTDL : IoT Explorer 0.12.x n’est pas entièrement compatible avec DTDL v2, les fonctionnalités non prises en charge sont les suivantes :
+  - Héritage d’interface avec `extends`
+  - Mappage dans mappage (mappage imbriqué)
+  - Type tableau
+  - Schémas personnalisés
+  - Types de sémantique personnalisés
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article de procédure, vous avez appris à installer et à utiliser l’explorateur Azure IoT pour interagir avec vos appareils IoT Plug-and-Play. L’étape suivante consiste à apprendre à utiliser les [commandes Azure CLI IoT Plug-and-Play](./howto-use-iot-pnp-cli.md).
+Dans cet article de procédure, vous avez appris à installer et à utiliser l’explorateur Azure IoT pour interagir avec vos appareils IoT Plug-and-Play. À présent, nous vous suggérons de découvrir comment [Installer et utiliser les outils de création DTDL](howto-use-dtdl-authoring-tools.md).

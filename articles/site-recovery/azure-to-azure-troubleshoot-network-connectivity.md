@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437460"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398304"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 
@@ -51,16 +51,16 @@ Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le ser
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problème2 : Échec de la configuration de Site Recovery (151196)
 
 > [!NOTE]
-> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n’ont pas accès aux adresses IP Office 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
+> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **standard**, par défaut, elles n'ont pas accès aux adresses IP Microsoft 365, comme `login.microsoftonline.com`. Remplacez le type d’équilibreur de charge interne par le type **De base** ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Cause probable
 
-Impossible d’établir une connexion aux points de terminaison IP4 d’identité et d’authentification Office 365.
+Impossible d'établir une connexion avec les points de terminaison IP4 d'identité et d'authentification Microsoft 365.
 
 #### <a name="resolution"></a>Résolution
 
-- Azure Site Recovery exige l’accès aux plages d’adresses IP d’Office 365 pour l’authentification.
-- Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’autoriser la communication avec les plages IP Office 365. Créer une règle de groupe de sécurité réseau [basée sur une balise de service Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à Azure AD.
+- Azure Site Recovery exige l'accès aux plages d'adresses IP Microsoft 365 pour l'authentification.
+- Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, veillez à autoriser la communication avec les plages IP Microsoft 365. Créer une règle de groupe de sécurité réseau [basée sur une balise de service Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à Azure AD.
 - Si de nouvelles adresses sont ajoutées à Azure AD à l’avenir, vous devez créer des règles de groupe de sécurité réseau.
 
 ### <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau

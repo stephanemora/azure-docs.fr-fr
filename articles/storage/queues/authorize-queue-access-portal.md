@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088669"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715510"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de files d’attente dans le portail Azure
 
@@ -24,11 +24,11 @@ Lorsque vous accédez aux données de file d’attente à l’aide du [Portail A
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Autorisations nécessaires pour accéder aux données de file d’attente
 
-Selon la façon dont vous souhaitez autoriser l’accès aux données de la file d’attente dans le portail Azure, vous devrez disposer d’autorisations particulières. Dans la plupart des cas, ces autorisations sont fournies via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md).
+Selon la façon dont vous souhaitez autoriser l’accès aux données de la file d’attente dans le portail Azure, vous devrez disposer d’autorisations particulières. Dans la plupart des cas, ces autorisations sont fournies via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations sur Azure RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Utiliser la clé d'accès au compte
 
-Pour accéder aux données de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
+Pour accéder aux données de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle Azure qui vous est attribué et qui inclut l’action Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle Azure peut être intégré ou il peut s’agir d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
 
 - Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
 - Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
@@ -95,6 +95,6 @@ Les files d’attente ne sont pas répertoriées dans le portail si vous n’ave
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md)
-- [Octroyer l’accès aux conteneurs et files d’attente Azure avec RBAC dans le portail Azure](../common/storage-auth-aad-rbac-portal.md)
-- [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI](../common/storage-auth-aad-rbac-cli.md)
-- [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide de PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-portal.md)
+- [Utiliser Azure CLI afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-cli.md)
+- [Utiliser le module Azure PowerShell afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac-powershell.md)

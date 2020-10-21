@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: cc53aa9cab765f16fdf7a517793f8f36ca30daac
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651511"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Vous pouvez configurer une connexion VPN de site à site en tant que sauvegarde 
 > 
 > 
 
-![Coexister](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
+![Diagramme montrant une connexion VPN de site à site en tant que sauvegarde pour ExpressRoute.](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
 ### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Configurer un réseau VPN de site à site pour se connecter à des sites non connectés via ExpressRoute
 Vous pouvez configurer votre réseau là où certains sites se connectent directement à Azure via des réseaux VPN de site à site ou via ExpressRoute. 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b02c669439c54f34afb4212949b20f6793784103
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616863"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359423"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Sauvegarde et restauration du système d’exploitation pour les références (SKU) de type II avec révision 3
 
@@ -69,7 +69,7 @@ La commande suivante illustre la restauration d’un fichier */etc/fstab* à par
 
 La capture d’écran suivante illustre la restauration d’une sauvegarde complète :
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![Capture d'écran représentant une fenêtre d'invite de commandes avec la restauration.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Comment installer l’outil ReaR et modifier la configuration ? 
 
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-La capture d’écran suivante illustre la restauration d’une sauvegarde complète : ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+La capture d’écran suivante illustre la restauration d’une sauvegarde complète : ![Capture d'écran représentant une fenêtre d'invite de commandes avec la restauration à l'aide de l'outil ReaR.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

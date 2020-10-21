@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053148"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071997"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytics
 
@@ -211,6 +211,10 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ```
 
 ## <a name="output-data-errors"></a>Erreurs de données de sortie
+
+Selon la configuration, Azure Stream Analytics peut identifier les erreurs de données de sortie avec ou sans requête d’E/S adressée au récepteur de sortie. Par exemple, l’absence d’une colonne obligatoire, telle que `PartitionKey`, lors de l’utilisation de la sortie de Table Azure peut être identifiée sans requête d’E/S. Toutefois, les violations de contrainte dans la sortie SQL requièrent une requête d’E/S.
+
+Il existe plusieurs erreurs de données qui ne peuvent être détectées qu’après un appel au récepteur de sortie, ce qui peut ralentir le traitement. Pour résoudre ce problème, modifiez la configuration de votre travail ou la requête à l’origine de l’erreur de données.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 

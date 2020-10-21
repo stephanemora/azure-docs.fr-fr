@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57ead9636b7218ecfc7d72bb605b469d6a7d1ac6
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536351"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530412"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurer des Spatial Anchors Azure dans un projet Unity
 
@@ -57,7 +57,7 @@ Azure Spatial Anchors pour Unity est actuellement distribué à l’aide de pack
 1. Accédez à **Edit** > **Project Settings** > **Player**.
 2. Dans le **panneau Inspector** (Inspecteur) pour **Player Settings** (Paramètres du lecteur), sélectionnez l’icône **Android**.
 3. Sous la section **Build**, cochez la case **Custom Main Gradle Template** (Principal modèle Gradle personnalisé) pour générer un modèle Gradle personnalisé sur `Assets\Plugins\Android\mainTemplate.gradle`.
-4. Ouvrez votre fichier `mainTemplate.gradle` dans un éditeur de texte. 
+4. Ouvrez votre fichier `mainTemplate.gradle` dans un éditeur de texte.
 5. Dans la section `dependencies`, collez les dépendances suivantes :
 
     ```gradle
@@ -72,10 +72,10 @@ Quand vous avez terminé, votre section `dependencies` doit ressembler à ce qui
 ### <a name="import-the-asset-package"></a>[Importer le package de ressources](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> La distribution du package de ressources Unity du SDK Azure Spatial Anchors sera dépréciée après le SDK version 2.5.0.
+> La distribution du package de ressources Unity du Kit de développement logiciel (SDK) Azure Spatial Anchors a été déconseillée dans la version 2.5.0, et n’est plus disponible depuis la version 2.6.0.
 
-1. Téléchargez le fichier `AzureSpatialAnchors.unitypackage` pour la version que vous souhaitez cibler à partir des [Mises en production GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). 
-2. Suivez les instructions [ici](https://docs.unity3d.com/Manual/AssetPackagesImport.html) pour importer le package de ressources Unity dans votre projet.    
+1. Téléchargez le fichier `AzureSpatialAnchors.unitypackage` pour la version que vous souhaitez cibler à partir des [Mises en production GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases).
+2. Suivez les instructions [ici](https://docs.unity3d.com/Manual/AssetPackagesImport.html) pour importer le package de ressources Unity dans votre projet.
 
 ---
 

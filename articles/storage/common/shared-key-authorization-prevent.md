@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088797"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715121"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -219,7 +219,7 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 | Azure PowerShell | Pris en charge. Pour plus d’informations sur l’autorisation des commandes PowerShell pour les opérations d’objet blob ou de file d’attente avec Azure AD, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-active-directory-powershell.md) ou [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données de la file d’attente](../queues/authorize-active-directory-powershell.md). |
 | Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 

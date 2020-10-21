@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1feb4432111ce517d49396eb2cb516b0463268d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883033"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057839"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -30,7 +30,14 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 * Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Pour utiliser un modèle d’une interface CLI, vous devez avoir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Dans certains scénarios, vous devez ouvrir un ticket de support. Ces scénarios sont les suivants :
+
+    * __Espace de travail activé pour Azure Private Link avec une clé gérée par le client (CMK)__
+    * __Azure Container Registry de l’espace de travail derrière votre réseau virtuel__
+
+    Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="workspace-resource-manager-template"></a>Modèle Resource Manager de l’espace de travail
 
@@ -272,7 +279,7 @@ En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vo
 Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé. Vous pouvez le faire aussi bien pour les espaces de travail existants que nouveaux. Lors de la mise à jour d’un espace de travail existant, renseignez les paramètres du modèle avec les informations concernant cet espace.
 
 > [!IMPORTANT]
-> L’utilisation d’Azure Private Link pour créer un point de terminaison privé pour l’espace de travail Azure Machine Learning est actuellement en préversion publique. Cette fonctionnalité n’est disponible que dans les régions **USA Est**, **USA Centre Sud** et **USA Ouest 2**. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’utilisation d’un espace de travail Azure Machine Learning avec un lien privé n’est pas disponible dans les régions Azure Government ou Azure China 21Vianet.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

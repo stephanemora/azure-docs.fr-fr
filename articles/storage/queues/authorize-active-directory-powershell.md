@@ -10,22 +10,22 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 1dc8009792163730602827a995c4b6900a0ef08d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715481"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 
 Stockage Azure fournit des extensions pour PowerShell qui vous permettent de vous connecter et d’exécuter des commandes de script avec des informations d’identification Azure Active Directory (Azure AD). Lorsque vous vous connectez à PowerShell avec les informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par PowerShell pour autoriser les opérations de données suivantes sur le Stockage File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations sur les données en file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC](../common/storage-auth-aad-rbac.md).
+Vous pouvez attribuer des autorisations sur les données de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](../common/storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
-Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les files d’attente Stockage Azure sont attribuées via le contrôle d’accès en fonction du rôle (RBAC). Par exemple, si le rôle **Lecteur des données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
+Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les files d’attente Stockage Azure sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
 
 Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -68,7 +68,7 @@ L’exemple suivant montre comment créer une file d’attente dans un nouveau c
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Avant de créer la file d’attente, attribuez-vous le rôle [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC dans le portail Azure](../common/storage-auth-aad-rbac.md).
+1. Avant de créer la file d’attente, attribuez-vous le rôle [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le Portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../common/storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184293"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398184"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrer les données d’un appareil StorSimple 5000-7000 vers un appareil StorSimple 8000
 
@@ -80,8 +80,8 @@ Avant d’effectuer la migration, assurez-vous de satisfaire les exigences suiva
 
     ![Vérification de la version logicielle sur les appareils d’ancienne génération](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Si votre appareil actif n’exécute pas la version v2.1.1.518 ou une version ultérieure, mettez à niveau votre système vers la version minimale requise. Pour des instructions détaillées, consultez le [guide de mise à niveau du système vers v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Si vous exécutez la version v2.1.1.518, accédez à l’interface utilisateur Web pour vérifier s’il existe des notifications relatives à des échecs de restauration du Registre. Si la restauration du Registre a échoué, exécutez d’abord celle-ci. Pour plus d’informations, consultez [Exécuter la restauration du Registre](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
+    * Si votre appareil actif n’exécute pas la version v2.1.1.518 ou une version ultérieure, mettez à niveau votre système vers la version minimale requise. Vous devrez peut-être contacter le Support Microsoft afin de solliciter son assistance pour la mise à niveau.
+    * Si vous exécutez la version v2.1.1.518, accédez à l’interface utilisateur Web pour vérifier s’il existe des notifications relatives à des échecs de restauration du Registre. Si la restauration du Registre a échoué, exécutez d’abord celle-ci. Vous devrez peut-être contacter le Support Microsoft afin de solliciter son assistance pour la restauration de votre registre.
     * Si vous disposez d’un appareil inactif qui n’exécutait pas la version v2.1.1.518, effectuez un basculement vers un appareil de remplacement exécutant la version v2.1.1.518. Pour plus d’informations, reportez-vous aux instructions détaillées de récupération d’urgence de votre appareil StorSimple 5000/7000.
     * Sauvegardez les données de votre appareil en prenant un instantané cloud.
     * Vérifiez s’il existe d’autres tâches de sauvegarde actives en cours d’exécution sur l’appareil source. Cela inclut notamment les tâches sur l’hôte de la console de protection des données StorSimple. Patientez jusqu’à ce que les tâches en cours soient entièrement terminées.

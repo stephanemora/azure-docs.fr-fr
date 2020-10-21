@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605224"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372423"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
@@ -32,7 +32,7 @@ Pour les stratégies Azure, utilisez :
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Pour le contrôle d’accès en fonction du rôle, utilisez :
+Pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC), utilisez :
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -45,7 +45,7 @@ Pour gérer vos ressources, utilisez :
 
 * [balises](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>schéma
+## <a name="schema"></a>schéma
 
 Le schéma que vous utilisez pour les déploiements au niveau du groupe d'administration est différent de celui utilisé pour les déploiements de groupes de ressources.
 
@@ -60,6 +60,30 @@ Le schéma d’un fichier de paramètres est le même pour toutes les étendues 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Étendues de déploiement
+
+Lors du déploiement sur un groupe d’administration, vous pouvez cibler le groupe d’administration spécifié dans la commande de déploiement, ou sélectionner un autre groupe d’administration dans le locataire.
+
+Les ressources définies dans la section des ressources du modèle sont appliquées au groupe d’administration à partir de la commande de déploiement.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+Pour cibler un autre groupe d’administration, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`. Définissez la propriété `scope` sur une valeur au format `Microsoft.Management/managementGroups/<mg-name>`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+Vous pouvez également cibler des abonnements ou des groupes de ressources au sein d’un groupe d’administration. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+
+Pour cibler un abonnement au sein du groupe d’administration, utilisez un déploiement imbriqué et la propriété `subscriptionId`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+Pour cibler un groupe de ressources dans cet abonnement, ajoutez un autre déploiement imbriqué et la propriété `resourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Pour utiliser un déploiement de groupe d’administration afin de créer un groupe de ressources dans un abonnement et de déployer un compte de stockage dans ce groupe de ressources, consultez [Déployer dans un abonnement et un groupe de ressources](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
@@ -94,97 +118,6 @@ Pour les déploiements au niveau du groupe d'administration, vous devez fournir 
 Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
-
-## <a name="deployment-scopes"></a>Étendues de déploiement
-
-Lors du déploiement sur un groupe d’administration, vous pouvez cibler le groupe d’administration spécifié dans la commande de déploiement ou d’autres groupes d’administration dans le locataire. Vous pouvez également cibler des abonnements ou des groupes de ressources au sein d’un groupe d’administration. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
-
-Les ressources définies dans la section des ressources du modèle sont appliquées au groupe d’administration à partir de la commande de déploiement.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Pour cibler un autre groupe d’administration, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Pour cibler un abonnement au sein du groupe d’administration, utilisez un déploiement imbriqué et la propriété `subscriptionId`. Pour cibler un groupe de ressources dans cet abonnement, ajoutez un autre déploiement imbriqué et la propriété `resourceGroup`.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-Pour utiliser un déploiement de groupe d’administration afin de créer un groupe de ressources dans un abonnement et de déployer un compte de stockage dans ce groupe de ressources, consultez [Déployer dans un abonnement et un groupe de ressources](#deploy-to-subscription-and-resource-group).
 
 ## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 

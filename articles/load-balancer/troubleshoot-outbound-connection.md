@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851143"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628993"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Résolution des problèmes liés aux défaillances des connexions sortantes
 
@@ -44,7 +44,7 @@ Quand les [ports éphémères préaffectés](load-balancer-outbound-connections.
 Les ports éphémères ont un délai d’inactivité de 4 minutes (non ajustable). Si les nouvelles tentatives sont trop agressives, le problème d’épuisement ne peut pas se résoudre de lui-même. Par conséquent, il est essentiel de pouvoir évaluer comment et selon quelle fréquence votre application relance les transactions.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Assigner une adresse IP publique à chaque machine virtuelle
-L’attribution d’une adresse IP publique modifie votre scénario sur [Adresse IP publique sur une machine virtuelle](load-balancer-outbound-connections.md). Les ports éphémères de l’adresse IP publique qui sont utilisés pour chaque machine virtuelle sont tous accessibles à la machine virtuelle. (Contrairement aux scénarios où les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associés au pool backend correspondant.) Des compromis sont à prendre en compte, notamment le coût supplémentaire des adresses IP publiques et l’impact possible de la mise sur liste verte d’un nombre important d’adresses IP individuelles.
+L’attribution d’une adresse IP publique modifie votre scénario sur [Adresse IP publique sur une machine virtuelle](load-balancer-outbound-connections.md). Les ports éphémères de l’adresse IP publique qui sont utilisés pour chaque machine virtuelle sont tous accessibles à la machine virtuelle. (Contrairement aux scénarios où les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associés au pool backend correspondant.) Des compromis sont à prendre en compte, notamment le coût supplémentaire des IP publiques et l’impact possible du filtrage d’un nombre important d’adresses IP individuelles.
 
 >[!NOTE] 
 >Cette option n’est pas disponible pour les rôles de travail web.

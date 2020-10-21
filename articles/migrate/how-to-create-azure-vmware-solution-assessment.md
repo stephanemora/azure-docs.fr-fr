@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 89dc962c73a6446afc79eec2a0fcfd5c0e32e84e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288862"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576708"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Créer une évaluation Azure VMware Solution (AVS)
 
@@ -56,7 +56,7 @@ Procédez comme suit pour exécuter une évaluation Azure VMware Solution (AVS) 
 
 2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Mosaïque**  d’évaluation de serveur, cliquez sur **Évaluer**.
 
-    ![Évaluer](./media/how-to-create-assessment/assess.png)
+    ![Capture d’écran montrant des serveurs Azure Migrate avec l’option Évaluer sélectionnée sous Outils d’évaluation.](./media/how-to-create-assessment/assess.png)
 
 3. Dans **Évaluer les serveurs**, sélectionnez le type d’évaluation « Azure VMware Solution (AVS) », sélectionnez la source de détection et spécifiez le nom de l’évaluation.
 
@@ -110,7 +110,7 @@ Une évaluation Azure VMware Solution (AVS) indique :
     - **État de la préparation inconnu** : Azure Migrate n’a pas pu déterminer l’état de préparation de la machine, car les métadonnées collectées dans l’environnement local sont insuffisantes.
 
 3. Vérifiez l’outil suggéré :
-    - **VMware HCX ou Enterprise** : Pour les machines VMware, la solution VMWare Hybrid Cloud Extension (HCX) est l’outil de migration suggéré pour déplacer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/hybrid-cloud-extension-installation.md)
+    - **VMware HCX ou Enterprise** : Pour les machines VMware, la solution VMWare Hybrid Cloud Extension (HCX) est l’outil de migration suggéré pour déplacer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/tutorial-deploy-vmware-hcx.md)
     - **Inconnue** : Pour les machines importées via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les machines VMware, il est cependant suggéré d’utiliser la solution VMware Hybrid Cloud Extension (HCX). 
 
 4. Cliquez sur un état **Préparé pour Azure VMware Solution**. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.

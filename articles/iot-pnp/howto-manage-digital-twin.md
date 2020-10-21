@@ -1,24 +1,24 @@
 ---
 title: Comment gérer les jumeaux numériques IoT Plug-and-Play
-description: Comment gérer les API de jumeaux numériques utilisant un appareil IoT Plug-and-Play (préversion)
+description: Comment gérer un appareil IoT Plug-and-Play à l’aide d’API de jumeau numérique
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351959"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042845"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gérer les jumeaux numériques IoT Plug-and-Play
 
-IoT Plug-and-Play prend en charge les opérations **Obtenir le jumeau numérique** et **Mettre à jour un jumeau numérique** pour gérer des représentations numériques. Vous pouvez utiliser les [API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou l’un des [Kits de développement logiciel (SDK) du service](libraries-sdks.md).
+IoT Plug-and-Play prend en charge les opérations **Obtenir le jumeau numérique** et **Mettre à jour un jumeau numérique** pour gérer des représentations numériques. Vous pouvez utiliser les [API REST](/rest/api/iothub/service/digitaltwin) ou l’un des [Kits de développement logiciel (SDK) du service](libraries-sdks.md).
 
-Au moment de la rédaction de cet article, la version d’API de jumeau numérique pour la préversion publique est `2020-05-31-preview`.
+Au moment de la rédaction de cet article, la version d’API de jumeau numérique est `2020-09-30`.
 
 ## <a name="update-a-digital-twin"></a>Mettre à jour un jumeau numérique
 
@@ -72,7 +72,7 @@ Par exemple, vous pouvez mettre à jour la propriété `targetTemperature` comme
 ]
 ```
 
-La mise à jour précédente définit la valeur souhaitée d’une propriété dans les `$metadata` correspondantes au niveau de la racine ou du composant, comme indiqué dans l’extrait de code suivant. IoT Hub met à jour la version souhaitée de la propriété :
+La mise à jour précédente définit la valeur souhaitée d’une propriété dans le niveau du composant correspondant `$metadata` comme indiqué dans l’extrait de code suivant. IoT Hub met à jour la version souhaitée de la propriété :
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ L’exemple JSON Patch suivant montre comment ajouter, remplacer ou supprimer u
 
 Une opération d’ajout ou de remplacement définit la valeur souhaitée d’une propriété. L’appareil peut synchroniser l’état et signaler une mise à jour de la valeur, ainsi qu’un code `ack`, une version et une description.
 
-La suppression d’une propriété efface la valeur souhaitée de la propriété si elle est définie. L’appareil peut alors cesser de signaler cette propriété et celle-ci est supprimée du composant ou du niveau racine. Si cette propriété est la dernière dans le composant, le composant est également supprimé.
+La suppression d’une propriété efface la valeur souhaitée de la propriété si elle est définie. L’appareil peut alors cesser de signaler cette propriété et celle-ci est supprimée du composant. Si cette propriété est la dernière dans le composant, le composant est également supprimé.
 
 L’exemple JSON Patch suivant montre comment ajouter, remplacer ou supprimer une propriété dans un composant :
 
@@ -179,11 +179,11 @@ Toutes les clés de mappage doivent être des noms DTDL v2 valides.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Résoudre les erreurs liées à l’API de mise à jour du jumeau numérique
 
-Pendant la préversion publique, l’API de mise à jour du jumeau numérique génère le message d’erreur générique suivant :
+L’API de jumeau numérique génère le message d’erreur générique suivant :
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Assurez-vous que le correctif de mise à jour respecte les [règles de définition de la valeur souhaitée d’une propriété de jumeau numérique](#rules-for-setting-the-desired-value-of-a-digital-twin-property).
+Si vous voyez cette erreur, assurez-vous que le correctif de mise à jour respecte les [règles de définition de la valeur souhaitée d’une propriété de jumeau numérique](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 Lorsque vous mettez à jour un composant, assurez-vous que le [marqueur $metadata d’objet vide](#add-replace-or-remove-a-component) est défini.
 
@@ -194,5 +194,5 @@ Les mises à jour peuvent échouer si les valeurs rapportées d’un appareil ne
 Maintenant que vous avez découvert les jumeaux numériques, voici quelques ressources supplémentaires :
 
 - [Interagir avec un appareil à partir de votre solution](quickstart-service-node.md)
-- [API REST de jumeau numérique IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST de jumeau numérique IoT](/rest/api/iothub/service/digitaltwin)
 - [Explorateur Azure IoT](howto-use-iot-explorer.md)

@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804620"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978864"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 
@@ -21,7 +21,10 @@ Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, e
 ## <a name="prerequisites"></a>Prérequis
 
 - Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
-- Un [appareil IoT Edge](how-to-register-device.md) avec le runtime IoT Edge installé.
+- Un appareil IoT Edge.
+
+  Si vous n’avez aucun appareil IoT Edge configuré, vous pouvez en créer un sur une machine virtuelle Azure. Suivez les étapes décrites dans l’un des articles de démarrage rapide pour [créer un appareil Linux virtuel](quickstart-linux.md) ou [créer un appareil Windows virtuel](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) et [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) si vous effectuez le déploiement à partir de Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Effectuer un déploiement à partir du portail Azure
@@ -203,10 +206,10 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
      - Pour les conteneurs Linux, le format est **\<your storage path or volume>:/blobroot**. Par exemple :
          - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:/blobroot`.
          - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `/srv/containerdata:/blobroot`. Veillez à suivre les étapes pour [octroyer l’accès à l’annuaire à l’utilisateur du conteneur](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Pour les conteneurs Windows, le format est **\<your storage path or volume>:C:/BlobRoot**. Par exemple
-         - utiliser [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:C:/BlobRoot`.
-         - utiliser [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `C:/ContainerData:C:/BlobRoot`.
-         - Au lieu d’utiliser votre lecteur local, vous pouvez mapper votre emplacement réseau SMB. Pour en savoir plus, consultez la section relative à [l’utilisation du partage SMB en tant que stockage local.](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - Pour les conteneurs Windows, le format est **\<your storage path or volume>:C:/BlobRoot**. Par exemple :
+         - utilisez [le montage de volumes](https://docs.docker.com/storage/volumes/) : `my-volume:C:/BlobRoot`.
+         - utilisez [le montage de liaison](https://docs.docker.com/storage/bind-mounts/) : `C:/ContainerData:C:/BlobRoot`.
+         - au lieu d’utiliser votre lecteur local, vous pouvez mapper votre emplacement réseau SMB. Pour plus d’informations, consultez [Utilisation du partage SMB comme stockage local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Ne modifiez pas la deuxième moitié de la valeur de montage de stockage, qui pointe vers un emplacement spécifique dans le Stockage Blob sur le module IoT Edge. Le montage de stockage doit toujours se terminer par **:/blobroot** pour les conteneurs Linux et **:C:/BlobRoot** pour les conteneurs Windows.
@@ -271,7 +274,7 @@ Ce processus est décrit dans [Configurer un appareil IoT Edge pour communiquer 
 
 En outre, un module de stockage d’objets BLOB requiert également le paramètre HTTPS_PROXY dans le fichier de déploiement du manifeste. Vous pouvez modifier directement le fichier manifeste de déploiement ou utiliser le portail Azure.
 
-1. Accédez à votre IoT Hub dans le portail Azure et sélectionnez **IoT Edge** dans le menu du volet gauche.
+1. Accédez à votre hub IoT dans le portail Azure et sélectionnez **IoT Edge** dans le menu du volet gauche.
 
 1. Sélectionnez l’appareil avec le module à configurer.
 

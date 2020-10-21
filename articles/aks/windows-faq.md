@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Consultez la foire aux questions lorsque vous exécutez des pools de nœuds Windows Server et des charges de travail d’application dans Azure Kubernetes service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927524"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013965"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -113,6 +113,49 @@ Oui. Toutefois, Azure Monitor est en préversion publique pour la collecte des j
 
 Un cluster avec des nœuds Windows peut avoir environ 500 services avant d’être confronté à l’épuisement des ports.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Puis-je utiliser Azure Hybrid Benefit avec des nœuds Windows ?
+
+Oui. Azure Hybrid Benefit pour Windows Server réduit les coûts d’exploitation en vous permettant de placer votre licence Windows Server locale sur des nœuds Windows AKS.
+
+Azure Hybrid Benefit peut être utilisé sur l’ensemble de votre cluster AKS ou sur des nœuds individuels. Pour les nœuds individuels, vous devez accéder au [groupe de ressources du nœud][resource-groups] et appliquer Azure Hybrid Benefit aux nœuds directement. Pour plus d’informations relatives à l’application d’Azure Hybrid Benefit sur des nœuds individuels, consultez [Azure Hybrid Benefit pour Windows Server][hybrid-vms]. 
+
+Pour utiliser Azure Hybrid Benefit sur un nouveau cluster AKS, utilisez l’argument `--enable-ahub`.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Pour utiliser Azure Hybrid Benefit sur un cluster AKS existant, mettez à jour le cluster à l’aide de l’argument `--enable-ahub`.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Pour vérifier si Azure Hybrid Benefit est défini sur le cluster, utilisez la commande suivante :
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Si Azure Hybrid Benefit est activé sur le cluster, la sortie de `az vmss show` sera similaire à ce qui suit :
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Puis-je utiliser le tableau de bord web Kubernetes avec des conteneurs Windows ?
 
 Oui, vous pouvez utiliser le [tableau de bord web Kubernetes][kubernetes-dashboard] pour accéder aux informations sur les conteneurs Windows, mais, pour le moment, vous ne pouvez pas exécuter *kubectl exec* dans un conteneur Windows en cours d’exécution directement à partir du tableau de bord web Kubernetes. Pour plus d’informations sur la connexion à votre conteneur Windows en cours d’exécution, consultez [Se connecter avec RDP à des nœuds Windows Server de cluster AKS (Azure Kubernetes Service) à des fins de maintenance ou de résolution des problèmes][windows-rdp].
@@ -152,3 +195,5 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

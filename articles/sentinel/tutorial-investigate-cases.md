@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566333"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843105"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
@@ -119,11 +119,11 @@ Une fois que vous avez résolu un incident particulier (par exemple, lorsque vot
 - Faux positif – données incorrectes
 - Indéterminé
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Capture d’écran qui met en évidence les classifications disponibles dans la liste Sélectionner le classification.":::
 
 Après avoir choisi la classification appropriée, ajoutez un texte descriptif dans le champ **Commentaire**. Cela vous sera utile dans l’éventualité où vous devriez revenir à cet incident. Lorsque vous avez terminé, cliquez sur **Appliquer** pour clôturer l’incident.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Capture d’écran qui met en évidence les classifications disponibles dans la liste Sélectionner le classification.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à commencer à examiner les incidents à l’aide d’Azure Sentinel. Passez au didacticiel vous apprenant [comment répondre aux menaces à l’aide de playbooks automatisés](tutorial-respond-threats-playbook.md).

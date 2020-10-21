@@ -3,12 +3,12 @@ title: Alertes de journal d’Azure Monitor pour les conteneurs | Microsoft Doc
 description: Cet article explique comment créer des alertes de journal personnalisées pour l'utilisation de la mémoire et du processeur à partir d'Azure Monitor pour les conteneurs.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973723"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995263"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Comment créer des alertes de journal à partir d’Azure Monitor pour conteneurs
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
-Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances d’Azure Monitor pour conteneurs. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance. Utilisez l’une des requêtes de recherche dans les journaux fournies précédemment pour commencer. Pour créer en utilisant un modèle Resource Manager, consultez [Exemple de création d’alerte de journal à l’aide du modèle de ressource Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Cette section décrit la création d’une règle d’alerte de mesure de métrique à l’aide des données de performances d’Azure Monitor pour conteneurs. Vous pouvez utiliser ce processus de base avec diverses requêtes de journal pour alerter sur différents compteurs de performance. Utilisez l’une des requêtes de recherche dans les journaux fournies précédemment pour commencer. Pour créer une alerte en utilisant un modèle Resource Manager, consultez [Exemples de création d’alerte de journal à l’aide d’un modèle Resource Manager](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >La procédure suivante visant à créer une règle d’alerte pour l’utilisation des ressources de conteneur requiert de basculer vers une nouvelle API d’alertes de journal, comme décrit dans [Changer de préférence d’API pour les alertes de journal](../platform/alerts-log-api-switch.md).
@@ -307,4 +307,4 @@ Cette section décrit la création d’une règle d’alerte de mesure de métri
 
 - Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
 
-- Pour en savoir plus sur Azure Monitor et sur la façon d’analyser d’autres aspects de votre cluster Kubernetes, consultez [Afficher les performances du cluster Kubernetes](container-insights-analyze.md) et [Afficher l’intégrité du cluster Kubernetes](container-insights-health.md).
+- Pour en savoir plus sur Azure Monitor et sur la façon d’analyser d’autres aspects de votre cluster Kubernetes, consultez [Afficher les performances du cluster Kubernetes](container-insights-analyze.md) et [Afficher l’intégrité du cluster Kubernetes](./container-insights-overview.md).

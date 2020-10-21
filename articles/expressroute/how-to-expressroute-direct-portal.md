@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dac9df23209fa93b8060ad80d58fd66f7a356ecd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986369"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651477"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Créer une ressource ExpressRoute Direct à l’aide du portail Azure
 
@@ -26,7 +26,7 @@ Vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré
 1. Accédez aux paramètres de votre abonnement comme décrit dans [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 1. Dans votre abonnement, pour **Fournisseurs de ressources**, vérifiez que le fournisseur **Microsoft.Network** affiche un état **Inscrit**. Si le fournisseur de ressources Microsoft.Network ne figure pas dans la liste des fournisseurs inscrits, ajoutez-le.
 
-## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Créer une ressource ExpressRoute Direct
+## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Créer une ressource ExpressRoute Direct
 
 1. Dans le menu du [portail Azure](https://portal.azure.com) ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 
@@ -65,7 +65,11 @@ Vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré
 
 1. Sélectionnez **Create** (Créer). Un message vous informe que votre déploiement est en cours. L’état s’affiche sur cette page à mesure que les ressources sont créées. 
 
-## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Changer l’état Administrateur de liens
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Générer la lettre d’autorisation
+
+La génération de la lettre d’autorisation n’est pas disponible à partir du portail pour l’instant. Utilisez **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** ou **[Azure CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** pour obtenir la lettre d’autorisation.
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Changer l’état Administrateur de liens
 
 Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’assurant que chaque connexion croisée est correctement reliée dans chaque routeur principal et secondaire.
 
@@ -83,7 +87,7 @@ Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’a
 
 1. Répétez le même processus pour **link2**.
 
-## <a name="3-create-a-circuit"></a><a name="circuit"></a>3. Créer un circuit
+## <a name="create-a-circuit"></a><a name="circuit"></a>Créer un circuit
 
 Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la ressource ExpressRoute Direct. Cette valeur peut être augmentée par le support. Vous êtes responsable du suivi de la bande passante approvisionnée et utilisée. La bande passante provisionnée est la somme de la bande passante de tous les circuits de la ressource ExpressRoute Direct. La bande passante utilisée est l’utilisation physique des interfaces physiques sous-jacentes.
 

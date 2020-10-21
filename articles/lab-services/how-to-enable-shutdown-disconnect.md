@@ -2,13 +2,13 @@
 title: Configurer l’arrêt automatique des machines virtuelles pour un labo dans Azure Lab Services
 description: Découvrez comment activer ou désactiver l’arrêt automatique des machines virtuelles lorsqu'une connexion Bureau à distance est déconnectée.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 0df3fdcaea99c00461caac37a3b655d152a0e527
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 10/01/2020
+ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798480"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91649879"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurer l’arrêt automatique des machines virtuelles pour un labo
 
@@ -16,8 +16,8 @@ Cet article explique comment configurer l’arrêt automatique des machines virt
 
 Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrêt automatique afin d’éviter de manière proactive les coûts supplémentaires lorsque les machines virtuelles ne sont pas utilisées activement. La combinaison des trois fonctionnalités suivantes d’arrêt et de déconnexion automatiques permet d’intercepter la plupart des cas où les utilisateurs laissent accidentellement leurs machines virtuelles en marche :
  
-* Déconnecter automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives (Windows uniquement).
-* Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent (Windows et Linux).
+* Déconnectez automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives.
+* Arrêt automatique des machines virtuelles quand les utilisateurs se déconnectent.
 * Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
 
 Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
@@ -37,8 +37,7 @@ Vous pouvez configurer le paramètre d’arrêt automatique dans [Azure Lab Serv
 Veillez à consulter les détails de l’arrêt automatique dans la section [Optimiser le contrôle des coûts avec les paramètres d’arrêt automatique](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 > [!WARNING]
-> Si vous arrêtez le système d’exploitation Windows d’une machine virtuelle avant de vous déconnecter d’une session RDP sur cette machine virtuelle, la fonctionnalité d’arrêt automatique ne marche pas correctement.  
-
+> Si vous arrêtez le système d’exploitation Linux ou Windows d’une machine virtuelle avant de vous déconnecter d’une session RDP sur cette machine virtuelle, la fonctionnalité d’arrêt automatique ne marche pas correctement.  
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Tableau de bord pour les labs de classe](use-dashboard.md)

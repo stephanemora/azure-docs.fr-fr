@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534853"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714451"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -21,13 +21,13 @@ L’Explorateur Stockage Microsoft Azure est une application autonome qui vous p
 
 Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Explorateur Stockage.
 
-## <a name="rbac-permissions-issues"></a>Problèmes d’autorisations RBAC
+## <a name="azure-rbac-permissions-issues"></a>Problèmes d’autorisations Azure RBAC
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) autorise une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des _rôles_. Voici quelques stratégies permettant d’optimiser le fonctionnement de RBAC dans l’Explorateur Stockage.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) permet une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des _rôles_. Voici quelques stratégies permettant d’optimiser le fonctionnement d’Azure RBAC dans Explorateur Stockage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Comment accéder à mes ressources dans l’Explorateur Stockage ?
 
-Si vous avez des difficultés à accéder aux ressources de stockage via RBAC, c’est que les rôles qui vous ont été attribués ne sont peut-être pas les bons. Les sections suivantes décrivent les autorisations que l’Explorateur Stockage vous demande actuellement pour pouvoir accéder à vos ressources de stockage. Contactez l’administrateur de votre compte Azure si vous n’êtes pas sûr de disposer des autorisations ou des rôles appropriés.
+Si vous avez des difficultés à accéder aux ressources de stockage via Azure RBAC, c’est que les rôles qui vous ont été attribués ne sont peut-être pas les bons. Les sections suivantes décrivent les autorisations que l’Explorateur Stockage vous demande actuellement pour pouvoir accéder à vos ressources de stockage. Contactez l’administrateur de votre compte Azure si vous n’êtes pas sûr de disposer des autorisations ou des rôles appropriés.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problème d’autorisations « Lecture : Répertorier/obtenir le ou les comptes de stockage »
 
@@ -65,7 +65,7 @@ Si vous souhaitez accéder à des files d’attente ou des conteneurs d’objets
 3. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Cliquez sur Suivant.
 4. Sélectionnez le type de ressource, entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Cliquez sur Suivant. Cliquez sur Se connecter.
 
-Pour d’autres types de ressource, nous n’avons actuellement pas de solution liée à RBAC. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Pour les autres types de ressource, nous n’avons actuellement pas de solution liée à Azure RBAC. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rôles intégrés Azure recommandés
 
