@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Bibliothèque de stockage d’objets Blob Azure v12
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 avec Xamarin afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre appareil mobile et à lister tous les objets blob dans un conteneur.
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001325"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109015"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 avec Xamarin
 
@@ -157,7 +157,7 @@ protected async override void OnAppearing()
 L’extrait de code suivant :
 
 1. Crée un `MemoryStream` de texte.
-1. Charge le texte dans un objet blob en appelant la fonction [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la classe [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient), en lui transmettant à la fois le nom de fichier et le `MemoryStream` de texte. Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+1. Charge le texte dans un objet blob en appelant la fonction [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la classe [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient), en lui transmettant à la fois le nom de fichier et le `MemoryStream` de texte. Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
 Ajoutez ce code au fichier *MainPage.xaml.cs* :
 

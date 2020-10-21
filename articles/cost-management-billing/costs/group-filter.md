@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683400"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131868"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Options de groupe et de filtre dans l’analyse des coûts
 
@@ -49,10 +49,10 @@ Le tableau suivant répertorie quelques options courantes de regroupement et de 
 | **Nom du service** ou **Catégorie du compteur** | Pour décomposer les coûts par service Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
 | **Niveau de service** ou **Sous-catégorie de compteur** | Pour décomposer les coûts par sous-classification du compteur d’utilisation Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
 | **Abonnement** | Décompose les coûts par abonnement Azure et par compte AWS lié. | Les achats et les ressources des locataires peuvent apparaître avec le libellé **Non applicable**. |
-| **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. | Les étiquettes ne sont pas disponibles pour les achats, les ressources des locataires qui ne sont pas associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques. Certains services n’incluent pas d’étiquettes dans les données d’utilisation. Pour plus d’informations, consultez [Prise en charge des étiquettes pour chaque type de ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. | Les étiquettes ne sont pas disponibles pour les achats, les ressources des locataires qui ne sont pas associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques. Certains services n’incluent pas d’étiquettes dans les données d’utilisation. Pour plus d’informations, consultez [Prise en charge des étiquettes pour chaque type de ressource](../../azure-resource-manager/management/tag-support.md). |
 
 Pour plus d’informations sur ces termes, consultez [Comprendre les termes utilisés dans le fichier Utilisation et frais Azure](../understand/understand-usage.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrer l’analyse des coûts](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis)
+- [Démarrer l’analyse des coûts](./quick-acm-cost-analysis.md)

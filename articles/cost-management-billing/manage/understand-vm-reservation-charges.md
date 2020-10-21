@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132140"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comment la remise de réservation Azure est-elle appliquée aux machines virtuelles ?
 
@@ -57,7 +57,7 @@ Quand vous exécutez des instances de machine virtuelle Windows, la réservation
 
 ## <a name="discount-can-apply-to-different-sizes"></a>La remise peut s'appliquer à différentes tailles
 
-Lorsque vous achetez une instance de machine virtuelle réservée et sélectionnez **Optimisé pour la flexibilité de la taille d'instance**, la remise s'applique à la taille de machine virtuelle que vous sélectionnez. Elle peut également s'appliquer à d'autres tailles de machines virtuelles appartenant au même groupe de flexibilité de taille d'instance de série. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Lorsque vous achetez une instance de machine virtuelle réservée et sélectionnez **Optimisé pour la flexibilité de la taille d'instance**, la remise s'applique à la taille de machine virtuelle que vous sélectionnez. Elle peut également s'appliquer à d'autres tailles de machines virtuelles appartenant au même groupe de flexibilité de taille d'instance de série. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Les machines virtuelles de stockage Premium ne bénéficient pas des remises non Premium.
 

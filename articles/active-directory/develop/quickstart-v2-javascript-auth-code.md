@@ -12,20 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613439"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216655"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification
 
 Dans ce guide de démarrage rapide, vous allez exécuter un exemple de code montrant comment une application monopage JavaScript (SPA) peut connecter les utilisateurs de comptes personnels, professionnels et scolaires à l’aide du flux de code d’autorisation. L’exemple de code indique également comment obtenir un jeton d’accès pour appeler une API web, en l’occurrence l’API Microsoft Graph. Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’autorisation. Pour accéder à un guide de démarrage rapide similaire qui utilise MSAL.js 1.0 avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

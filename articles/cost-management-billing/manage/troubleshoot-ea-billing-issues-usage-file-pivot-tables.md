@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: a30f85ae1b65321a25ee93239374d2a8aae26769
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b32bb979176af8a8a3751db8edf9c129caf1002e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026296"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131987"
 ---
 # <a name="troubleshoot-ea-billing-issues-with-usage-file-pivot-tables"></a>Résoudre les problèmes de facturation EA à l’aide de tableaux croisés dynamiques créés à partir de fichiers d’utilisation
 
@@ -33,7 +33,7 @@ Seuls les administrateurs EA, les propriétaires de comptes et les administrate
 
 Étant donné que les fichiers d’utilisation Azure sont au format CSV, vous devez préparer les données pour les utiliser dans Excel. Utilisez les étapes suivantes pour présenter les données sous forme de table.
 
-1. Téléchargez le fichier Détails de l’utilisation version 2 avec Tous les frais (utilisation et achats) en suivant les instructions fournies dans [Télécharger l’utilisation pour les clients EA](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-ea-customers).
+1. Téléchargez le fichier Détails de l’utilisation version 2 avec Tous les frais (utilisation et achats) en suivant les instructions fournies dans [Télécharger l’utilisation pour les clients EA](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
 1. Ouvrez le fichier dans Excel.
 1. Les données non mises en forme ressemblent à l’exemple suivant.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::

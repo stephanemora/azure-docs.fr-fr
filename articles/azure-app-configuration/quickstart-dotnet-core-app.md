@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767739"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075788"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Démarrage rapide : Créer une application .NET Core avec App Configuration
 
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans 
 
 ## <a name="create-a-net-core-console-app"></a>Créer une application console .NET Core
 
-Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.microsoft.com/dotnet/core/tools/) pour créer un projet d’application console .NET Core. Par rapport à Visual Studio, l’interface CLI .NET Core offre l’avantage d’être disponible sur les plateformes Windows, macOS et Linux.  Vous pouvez également utiliser les outils préinstallés qui sont disponibles dans [Azure Cloud Shell](https://shell.azure.com).
+Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](/dotnet/core/tools/) pour créer un projet d’application console .NET Core. Par rapport à Visual Studio, l’interface CLI .NET Core offre l’avantage d’être disponible sur les plateformes Windows, macOS et Linux.  Vous pouvez également utiliser les outils préinstallés qui sont disponibles dans [Azure Cloud Shell](https://shell.azure.com).
 
 1. Créez un nouveau dossier pour votre projet.
 
@@ -124,7 +124,7 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et l’avez utilisé avec une application console .NET Core par l’intermédiaire du [fournisseur App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Pour savoir comment configurer votre application .NET Core afin d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et l’avez utilisé avec une application console .NET Core par l’intermédiaire du [fournisseur App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). Pour savoir comment configurer votre application .NET Core afin d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Activer la configuration dynamique](./enable-dynamic-configuration-dotnet-core.md)

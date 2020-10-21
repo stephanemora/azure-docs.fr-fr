@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440246"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124960"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
@@ -185,4 +185,4 @@ Pour commencer à créer une solution de vente au détail :
 * [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management.md)
 * [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-micro-fulfillment-center.md)
 * [Déployer et découvrir un modèle d’application d’analytique vidéo](./tutorial-video-analytics-deploy.md)
-* Pour plus d’informations sur IoT Central, consultez la [présentation d’IoT Central](../preview/overview-iot-central.md).
+* Pour plus d’informations sur IoT Central, consultez la [présentation d’IoT Central](../core/overview-iot-central.md).

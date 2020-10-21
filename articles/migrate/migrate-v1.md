@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001635"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317203"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 et tous les Service Packs | Azure assure un support com
 Windows Server 2012 et tous les Service Packs | Azure assure un support complet. | Disponible pour Azure
 Windows Server 2008 R2 et tous les Service Packs | Azure assure un support complet.| Disponible pour Azure
 Windows Server 2008 (32 bits et 64 bits) | Azure assure un support complet. | Disponible pour Azure
-Windows Server 2003, 2003 R2 | Non pris en charge. La prise en charge dans Azure nécessite un contrat de support personnalisé ([Custom Support Agreement (CSA)](https://aka.ms/WSosstatement)). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
+Windows Server 2003, 2003 R2 | Non pris en charge. La prise en charge dans Azure nécessite un contrat de support personnalisé ([Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support)). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Non pris en charge. La machine pourrait démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Clients Windows 7, 8 et 10 | Azure assure un support avec [abonnement Visual Studio uniquement](../virtual-machines/windows/client-images.md). | Préparé pour Azure sous condition
 Windows 10 Pro Desktop | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md). | Préparé pour Azure sous condition

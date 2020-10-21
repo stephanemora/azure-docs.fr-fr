@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686494"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132327"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Résoudre les problèmes de connexion à l’abonnement Azure
 
 Ce guide aide à résoudre les problèmes de connexion au portail Azure ou au Centre des comptes Azure.
 
 > [!NOTE]
-> Si vous rencontrez des problèmes pour vous inscrire à un nouveau compte Azure, consultez [Résoudre les problèmes d’inscription aux abonnements Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> Si vous rencontrez des problèmes pour vous inscrire à un nouveau compte Azure, consultez [Résoudre les problèmes d’inscription aux abonnements Azure](./troubleshoot-azure-sign-up.md).
 
 ## <a name="page-hangs-in-the-loading-status"></a>La page se bloque à l’état de chargement
 
@@ -66,7 +66,7 @@ Ce problème se produit si vous avez sélectionné le mauvais annuaire ou si vot
 Pour résoudre ce problème :
 
 - Vérifiez que le répertoire Azure correct est sélectionné en sélectionnant votre compte dans l’angle supérieur droit.
-- Si le répertoire Azure correct est sélectionné, mais que vous recevez néanmoins le messager d’erreur, [faites ajouter votre compte en tant que Propriétaire](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- Si le répertoire Azure correct est sélectionné, mais que vous recevez néanmoins le messager d’erreur, [faites ajouter votre compte en tant que Propriétaire](./add-change-subscription-administrator.md).
 
 **Scénario 2 :** Vous recevez l’erreur quand vous vous connectez au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)
 
@@ -80,11 +80,11 @@ Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pou
 
 Autres articles sur la résolution des problèmes liés à la facturation et aux abonnements Azure
 
-- [Carte refusée](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problèmes de souscription à l’abonnement](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [Aucun abonnement trouvé](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Désactivation de l’affichage des coûts d’entreprise](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Documentation sur la facturation Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Carte refusée](./troubleshoot-declined-card.md)
+- [Problèmes de souscription à l’abonnement](./troubleshoot-azure-sign-up.md)
+- [Aucun abonnement trouvé](./no-subscriptions-found.md)
+- [Désactivation de l’affichage des coûts d’entreprise](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Documentation sur la facturation Azure](../index.yml)
 
 ## <a name="contact-us-for-help"></a>Contactez-nous pour obtenir de l'aide
 

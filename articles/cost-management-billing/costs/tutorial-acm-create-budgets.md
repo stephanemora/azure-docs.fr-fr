@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527137"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132803"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
 Les budgets dans Cost Management vous aident à planifier et à suivre la comptabilité de l’organisation. Avec les budgets, vous pouvez prendre en compte les services Azure que vous consommez ou auxquels vous vous abonnez pendant une période spécifique. Ils vous permettent d’informer les autres utilisateurs de leurs dépenses pour gérer les coûts de manière proactive, ainsi que pour superviser la progression des dépenses. En cas de dépassement des seuils budgétaires que vous avez créés, seules des notifications sont déclenchées. Aucune de vos ressources n’est affectée et votre consommation n’est pas arrêtée. Vous pouvez utiliser des budgets pour comparer et suivre les dépenses lors de l’analyse des coûts.
 
-Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 8 à 24 heures, et les budgets sont évalués par rapport à ces coûts toutes les 12 à 14 heures. Veillez à vous familiariser avec les détails de [Mises à jour et rétention des données de coût et d’utilisation](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement envoyées dans l’heure suivant l’évaluation.
+Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 8 à 24 heures, et les budgets sont évalués par rapport à ces coûts toutes les 12 à 14 heures. Veillez à vous familiariser avec les détails de [Mises à jour et rétention des données de coût et d’utilisation](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement envoyées dans l’heure suivant l’évaluation.
 
 Les budgets sont automatiquement réinitialisés à la fin d’une période (mensuelle, trimestrielle ou annuelle) pour le même montant lorsque vous sélectionnez une date d’expiration ultérieure. Étant donné qu’ils sont réinitialisés avec le même montant de budget, vous devez créer des budgets distincts quand les montants budgétisés diffèrent pour des périodes ultérieures.
 
@@ -72,7 +72,7 @@ Les autorisations, ou étendues, Azure suivantes sont prises en charge par abonn
 - Contributeur et Contributeur Cost Management : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.
 - Lecteur et Lecteur Cost Management : peut afficher les budgets pour lesquels ils disposent des autorisations adéquates.
 
-Pour plus d’informations sur l’affectation d’une autorisation d’accès aux données Cost Management, consultez [Affecter une autorisation d’accès aux données Cost Management](../../cost-management/assign-access-acm-data.md).
+Pour plus d’informations sur l’affectation d’une autorisation d’accès aux données Cost Management, consultez [Affecter une autorisation d’accès aux données Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -104,7 +104,7 @@ Selon les champs choisis dans le budget jusqu’à présent, un graphique s’af
 
 Après avoir configuré le montant du budget, sélectionnez **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement envoyées dans l’heure suivant l’évaluation.
 
-Si vous voulez recevoir des e-mails, ajoutez azure-noreply@microsoft.com à votre liste d’expéditeurs approuvés afin que les e-mails ne soient pas placés dans votre dossier de courrier indésirable. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+Si vous voulez recevoir des e-mails, ajoutez azure-noreply@microsoft.com à votre liste d’expéditeurs approuvés afin que les e-mails ne soient pas placés dans votre dossier de courrier indésirable. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](./cost-mgt-alerts-monitor-usage-spending.md).
 
 Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets). Si vous souhaitez envoyer une alerte par e-mail dans une autre langue, consultez [Paramètres régionaux pris en charge pour les e-mails d’alerte budgétaire](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -112,7 +112,7 @@ Les limites d’alerte prennent en charge une plage de 0,01 à 1 000 % du seui
 
 ![Exemple de conditions d’alerte](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Après avoir créé un budget, il est indiqué dans l’analyse des coûts. Visualiser votre budget par rapport à la tendance de vos dépenses est une des premières étapes quand vous commencez à [analyser vos coûts et vos dépenses](../../cost-management/quick-acm-cost-analysis.md).
+Après avoir créé un budget, il est indiqué dans l’analyse des coûts. Visualiser votre budget par rapport à la tendance de vos dépenses est une des premières étapes quand vous commencez à [analyser vos coûts et vos dépenses](./quick-acm-cost-analysis.md).
 
 ![Exemple de budget et de dépenses affichés dans l’analyse des coûts](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

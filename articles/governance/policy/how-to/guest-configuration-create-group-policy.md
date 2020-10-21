@@ -3,12 +3,12 @@ title: Comment créer des définitions de stratégie de configuration d’invit�
 description: Découvrez comment convertir la stratégie de groupe issue de la sécurité de référence du Windows Server 2019 en une définition de politique.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547766"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893371"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Comment créer des définitions de stratégie de configuration d’invité à partir de la stratégie de groupe de référence pour Windows
 
@@ -87,7 +87,7 @@ Ensuite, nous allons convertir la référence Server 2019 téléchargée en un p
 
 ## <a name="create-azure-policy-guest-configuration"></a>Créez une Azure Policy Guest Configuration
 
-L’étape suivante consiste à publier le fichier dans le stockage Blob. 
+L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. 
 
 1. Le script ci-dessous contient une fonction que vous pouvez utiliser pour automatiser cette tâche. Veuillez noter que les commandes utilisées dans la fonction `publish` requièrent le module `Az.Storage`.
 
@@ -145,7 +145,7 @@ L’étape suivante consiste à publier le fichier dans le stockage Blob.
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. Utilisez la fonction Publish avec les paramètres affectés pour publier le package Guest Configuration dans le stockage d’objets BLOB public.
+1. Utilisez la fonction « publish » avec les paramètres attribués pour publier le package Guest Configuration dans le stockage blob public.
 
 
    ```azurepowershell-interactive

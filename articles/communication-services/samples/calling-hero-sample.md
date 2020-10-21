@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963106"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126324"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Bien démarrer avec l’exemple de bannière d’appel de groupe
 
@@ -30,7 +30,7 @@ L’**exemple de bannière d’appel de groupe** Azure Communication Services il
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
 > [!IMPORTANT]
-> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -103,7 +103,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"] 
->[Télécharger l’exemple à partir de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Pour plus d’informations, consultez les articles suivants :
 
