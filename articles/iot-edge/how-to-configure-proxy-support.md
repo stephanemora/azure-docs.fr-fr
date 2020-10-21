@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500366"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045956"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -25,7 +25,7 @@ Cet article vous montre la procédure en quatre étapes à suivre pour configure
 
 1. [**Installer le runtime IoT Edge sur votre appareil**](#install-the-runtime-through-a-proxy)
 
-   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour les appareils Windows, le script d’installation fournit également une option [d’installation hors connexion](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation).
+   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour les appareils Windows, le script d’installation fournit également une option d’installation hors connexion.
 
    Vous n’effectuerez la configuration décrite dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge. Vous devez disposer des mêmes connexions lorsque vous mettez à jour le runtime IoT Edge.
 
@@ -65,7 +65,7 @@ Si vous exécutez votre appareil IoT Edge sur Windows ou Linux, vous devez accé
 
 ### <a name="linux-devices"></a>Appareils Linux
 
-Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md) comme d’habitude.
+Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge](how-to-install-iot-edge.md) comme d’habitude.
 
 ### <a name="windows-devices"></a>Appareils Windows
 
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Pour plus d’informations sur les paramètres de proxy, consultez [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Pour plus d’informations sur les options d’installation Windows, y compris les installations hors connexion, consultez [Installer le runtime Azure IoT Edge sur Windows](how-to-install-iot-edge-windows.md).
+Pour plus d’informations sur les paramètres de proxy, consultez [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest). Pour plus d’informations sur les paramètres d’installation Windows, consultez [Scripts PowerShell pour IoT Edge sous Windows](reference-windows-scripts.md).
 
 ## <a name="configure-the-daemons"></a>Configurer les démons
 
@@ -108,7 +108,7 @@ Les démons Moby et IoT Edge doivent être configurés afin d’utiliser le serv
 Choisissez l’article correspondant au système d’exploitation de votre appareil IoT Edge :
 
 * [Configurez le démon Docker sur Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) Le démon Mobyx garde le nom Docker sur les appareils Linux.
-* [Configurez le démon Docker sur Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) Le démon Moby s’appelle iotedge-moby sur les appareils Windows. Les noms sont différents, car il est possible d’exécuter simultanément Docker Desktop et Moby sur un appareil Windows.
+* [Configurez le démon Docker sur Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) Le démon Moby s’appelle iotedge-moby sur les appareils Windows. Les noms sont différents, car il est possible d’exécuter simultanément Docker Desktop et Moby sur un appareil Windows.
 
 ### <a name="iot-edge-daemon"></a>Démon IoT Edge
 

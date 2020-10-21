@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776406"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278357"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application Spring Data Azure Cosmos DB v3 pour gérer les données de l’API SQL Azure Cosmos DB
 
@@ -52,9 +52,9 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 
 *Structure d’un compte Cosmos DB.* Quels que soient l’API et le langage de programmation, un *compte* Cosmos DB contient zéro, une ou plusieurs *bases de données*, une *base de données* contient zéro, un ou plusieurs *conteneurs* et un *conteneur* contient zéro, un ou plusieurs éléments, comme illustré dans le schéma ci-dessous :
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entités du compte Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entités du compte Azure Cosmos" border="false":::
 
-Pour en savoir plus sur les bases de données, les conteneurs et les éléments, consultez [cette page](databases-containers-items.md). Certaines propriétés importantes sont définies au niveau du conteneur, notamment le *débit provisionné* et la *clé de partition*. 
+Pour en savoir plus sur les bases de données, les conteneurs et les éléments, consultez [cette page](account-databases-containers-items.md). Certaines propriétés importantes sont définies au niveau du conteneur, notamment le *débit provisionné* et la *clé de partition*. 
 
 Le débit provisionné est mesuré en unités de requête (*RU*), pour lesquelles un prix est fixé. Il s’agit d’un facteur déterminant du coût d’exploitation du compte. Vous pouvez choisir un débit provisionné par conteneur ou par base de données. Toutefois, il est généralement préférable de spécifier le débit au niveau du conteneur. Pour en savoir plus sur le provisionnement du débit consultez [cette page](set-throughput.md).
 

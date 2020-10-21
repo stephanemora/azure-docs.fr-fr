@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304897"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850499"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutoriel : Configurer iPass SmartConnect pour l’approvisionnement automatique d’utilisateurs
 
@@ -114,11 +114,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur iPass SmartConnect**.
 
-    ![Mappages d’utilisateur iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec iPass SmartConnect est visible." border="false":::
 
 9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers iPass SmartConnect dans la section **Mappage d’attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans iPass SmartConnect pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Mappages d’utilisateur iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec iPass SmartConnect est visible." border="false":::
 
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

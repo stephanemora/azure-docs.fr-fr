@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88118788"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152000"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Démarrage rapide : Créer un catalogue de données Azure
 
@@ -24,7 +24,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 > [!Note]
-> En raison des exigences de sécurité d’Azure, Azure Data Catalog a appliqué le protocole TLS (Transport Layer Security) 1.2. Les protocoles TLS 1.0 et TLS 1.1 ont été désactivés. Vous pouvez rencontrer des erreurs lors de l’exécution de l’outil d’inscription si votre ordinateur n’est pas mis à jour pour le protocole TLS 1.2. Consultez [Activer le protocole TLS (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) pour mettre à jour votre ordinateur.
+> En raison des exigences de sécurité d’Azure, Azure Data Catalog a appliqué le protocole TLS (Transport Layer Security) 1.2. Les protocoles TLS 1.0 et TLS 1.1 ont été désactivés. Vous pouvez rencontrer des erreurs lors de l’exécution de l’outil d’inscription si votre ordinateur n’est pas mis à jour pour le protocole TLS 1.2. Consultez [Activer le protocole TLS (1.2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) pour mettre à jour votre ordinateur.
 
 Pour commencer, vous avez besoin des éléments suivants :
 

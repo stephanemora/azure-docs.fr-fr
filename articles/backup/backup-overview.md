@@ -4,12 +4,12 @@ description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la f
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968333"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172478"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
@@ -46,7 +46,7 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Plusieurs options de stockage** : Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles.
   - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
   - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
-  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le stockage redondant interzone n’a pas de temps d’arrêt. Vos charges de travail critiques qui nécessitent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et qui ne doivent pas avoir de temps d’arrêt peuvent donc être sauvegardées dans un stockage redondant interzone.
+  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](../availability-zones/az-overview.md#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le stockage redondant interzone n’a pas de temps d’arrêt. Vos charges de travail critiques qui nécessitent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et qui ne doivent pas avoir de temps d’arrêt peuvent donc être sauvegardées dans un stockage redondant interzone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

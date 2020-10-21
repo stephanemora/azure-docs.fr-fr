@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448377"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275970"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -66,7 +66,7 @@ Security Center filtre et classifie les résultats à partir de l’analyseur. Q
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Puis-je obtenir les résultats de l’analyse via l’API REST ?
 Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). De plus, vous pouvez utiliser Azure Resource Graph (ARG), l’API de type Kusto pour toutes vos ressources : une requête peut extraire une analyse spécifique.
- 
+
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quels sont les types de registres analysés ? Quels types sont facturés ?
 Pour une liste des types de registres de conteneurs pris en charge par Azure Defender pour les registres de conteneurs, consultez [Disponibilité](defender-for-container-registries-usage.md#availability).
 

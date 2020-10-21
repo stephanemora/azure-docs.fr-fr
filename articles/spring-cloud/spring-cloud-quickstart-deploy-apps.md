@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045396"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092951"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -187,10 +187,10 @@ Avant de procéder au déploiement avec Azure CLI ou Maven, effectuez les exempl
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Installez JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Installez JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
-* (Facultatif) [Installez Azure CLI version 2.0.67 ou ultérieure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) et installez l’extension Azure Spring Cloud avec la commande : `az extension add --name spring-cloud`
-* (Facultatif) [Installez Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) et [connectez-vous](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+* (Facultatif) [Installez Azure CLI version 2.0.67 ou ultérieure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) et installez l’extension Azure Spring Cloud avec la commande : `az extension add --name spring-cloud`
+* (Facultatif) [Installez Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) et [connectez-vous](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 ## <a name="deployment-procedures"></a>Procédures de déploiement
 
@@ -304,7 +304,7 @@ Nous avons besoin d’un moyen d’accéder à l’application via un navigateur
     ![Importer un projet](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Déployer une application de passerelle sur Azure Spring Cloud
-Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre compte Azure auprès d’Azure Toolkit for IntelliJ et choisir votre abonnement. Pour plus d’informations sur la connexion, consultez [Installation et connexion](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre compte Azure auprès d’Azure Toolkit for IntelliJ et choisir votre abonnement. Pour plus d’informations sur la connexion, consultez [Installation et connexion](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Cliquez avec le bouton droit sur votre projet dans l’explorateur de projets IntelliJ, puis sélectionnez **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -313,7 +313,7 @@ Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre 
 1. Dans le champ **Name** (Nom), ajoutez *:gateway* au **nom** existant.
 1. Dans la zone de texte **Artifact**, sélectionnez *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. Dans la zone de texte **Subscription** (Abonnement), vérifiez votre abonnement.
-1. Dans la zone de texte **Spring Cloud**, sélectionnez l’instance Azure Spring Cloud que vous avez créée dans [Provisionner une instance Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Dans la zone de texte **Spring Cloud**, sélectionnez l’instance Azure Spring Cloud que vous avez créée dans [Provisionner une instance Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
 1. Définissez **Public Endpoint** (Point de terminaison public) sur *Enable* (Activer).
 1. Dans la zone de texte **App:** , sélectionnez **Create app...** .
 1. Entrez *gateway*, puis cliquez sur **OK**.

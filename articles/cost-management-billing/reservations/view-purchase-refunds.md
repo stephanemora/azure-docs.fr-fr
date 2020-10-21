@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681700"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151777"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Affichage des transactions d’achat et de remboursement de réservations
 
@@ -39,11 +39,11 @@ Un administrateur de facturation d’Accord de Mise en Œuvre Entreprise ou de C
 
 [![Exemple montrant les transactions de réservation](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Pour plus d’informations, consultez [Application Power BI Azure Cost Management pour les Contrats Entreprise](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Pour plus d’informations, consultez [Application Power BI Azure Cost Management pour les Contrats Entreprise](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Accéder aux transactions de réservation avec les API
 
-Les utilisateurs du Contrat Entreprise (EA) et du Contrat client Microsoft peuvent accéder aux données des transactions de réservation à l’aide de [l’API Transactions de réservation – Lister](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Les utilisateurs du Contrat Entreprise (EA) et du Contrat client Microsoft peuvent accéder aux données des transactions de réservation à l’aide de [l’API Transactions de réservation – Lister](/rest/api/consumption/reservationtransactions/list).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

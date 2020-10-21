@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état, gestion
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715970"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205334"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -35,7 +35,7 @@ La gestion de la configuration dans Azure Automation permet d’accéder à deux
 
 ### <a name="change-tracking-and-inventory"></a>Suivi des modifications et inventaire
 
-La fonctionnalité Suivi des modifications et inventaire combine les fonctions de suivi des modifications et d’inventaire pour vous permettre d’effectuer le suivi des modifications apportées à l’infrastructure des machines virtuelles et des serveurs. Le service prend en charge le suivi des modifications sur les services, les démons, les logiciels, le Registre et les fichiers de votre environnement pour vous aider à diagnostiquer les changements indésirables et à déclencher des alertes. La prise en charge de l’inventaire vous permet d’interroger les ressources intégrées pour voir les applications installées et d’autres éléments de configuration. Pour plus d’informations sur cette fonctionnalité, consultez [Suivi des modifications et inventaire](change-tracking.md).
+La fonctionnalité Suivi des modifications et inventaire combine les fonctions de suivi des modifications et d’inventaire pour vous permettre d’effectuer le suivi des modifications apportées à l’infrastructure des machines virtuelles et des serveurs. Le service prend en charge le suivi des modifications sur les services, les démons, les logiciels, le Registre et les fichiers de votre environnement pour vous aider à diagnostiquer les changements indésirables et à déclencher des alertes. La prise en charge de l’inventaire vous permet d’interroger les ressources intégrées pour voir les applications installées et d’autres éléments de configuration. Pour plus d’informations sur cette fonctionnalité, consultez [Suivi des modifications et inventaire](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>Azure Automation – State Configuration
 

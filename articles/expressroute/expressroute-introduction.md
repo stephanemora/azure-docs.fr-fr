@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743061"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206949"
 ---
 # <a name="what-is-azure-expressroute"></a>Qu’est-ce qu’Azure ExpressRoute ?
 ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsoft via une connexion privée avec l’aide d’un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Microsoft 365.
@@ -36,10 +36,10 @@ Pour plus d’informations, consultez le [Forum Aux Questions ExpressRoute](expr
 ## <a name="features"></a>Fonctionnalités
 
 ### <a name="layer-3-connectivity"></a>Connectivité de couche 3
-Microsoft utilise BGP, un protocole de routage dynamique standard. Pour échanger des routes entre votre réseau local, vos instances dans Azure et des adresses publiques Microsoft. Nous établissons plusieurs sessions BGP avec votre réseau pour tester différents profils de trafic. Vous trouverez plus de détails à ce sujet dans l’article [Circuit ExpressRoute et domaines de routage](expressroute-circuit-peerings.md) .
+Microsoft utilise le protocole de routage dynamique standard (BGP) pour échanger des routages entre votre réseau local, vos instances dans Azure et les adresses publiques Microsoft. Nous établissons plusieurs sessions BGP avec votre réseau pour tester différents profils de trafic. Vous trouverez plus de détails à ce sujet dans l’article [Circuit ExpressRoute et domaines de routage](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redondance
-Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau au niveau d’un [site ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations). Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et la périphérie de votre réseau, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer d’appareils redondants/de circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
+Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau au niveau d’un [site ExpressRoute](./expressroute-locations.md#expressroute-locations). Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et la périphérie de votre réseau, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer d’appareils redondants/de circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connectivité aux services de cloud Microsoft
 Les connexions ExpressRoute permettent d’accéder aux services suivants :
@@ -82,13 +82,13 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 * Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire banque, secteur public et commerce de détail
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
-Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
+Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](./expressroute-erdirect-about.md).
 
 ### <a name="bandwidth-options"></a>Options de bande passante
 Vous pouvez acheter des circuits ExpressRoute pour un large éventail de bandes passantes. Les bandes passantes prises en charge sont listées ci-dessous. Veillez à vérifier auprès de votre fournisseur de connectivité la liste des bandes passantes prises en charge qu’il propose.
 
 * 50 Mbits/s
-* 100 Mbits/s
+* 100 Mbits/s
 * 200 Mbits/s
 * 500 Mbits/s
 * 1 Gbit/s

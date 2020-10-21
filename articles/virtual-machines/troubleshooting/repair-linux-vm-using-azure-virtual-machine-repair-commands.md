@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: c7fbe46d378d45f49a8510f9fdd01a9cae665d0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074385"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91595931"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Réparer une machine virtuelle Linux à l’aide des commandes de réparation de machine virtuelle Azure
 
@@ -42,7 +42,7 @@ Suivez ces étapes pour résoudre le problème de la machine virtuelle :
 1. Lancement d’Azure Cloud Shell
 2. Exécuter az extension add/update
 3. Exécuter az vm repair create
-4. Effectuer des étapes d’atténuation
+4. Exécutez « az vm repair run » ou effectuez des étapes d’atténuation.
 5. Exécuter az vm repair restore
 
 Pour obtenir de la documentation et des instructions supplémentaires, consultez [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -59,7 +59,7 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
 
    Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite au minimum la version 2.0.30 d’Azure CLI. Exécutez ``az --version`` pour trouver la version. Si vous devez installer ou mettre à niveau votre interface Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
    
-   Si vous devez vous connecter à Cloud Shell avec un compte différent de celui avec lequel vous êtes actuellement connecté au portail Azure, vous pouvez utiliser ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Pour basculer entre les abonnements associés à votre compte, vous pouvez utiliser ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Si vous devez vous connecter à Cloud Shell avec un compte différent de celui avec lequel vous êtes actuellement connecté au portail Azure, vous pouvez utiliser ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Pour basculer entre les abonnements associés à votre compte, vous pouvez utiliser ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Si vous utilisez les commandes `az vm repair` pour la première fois, ajoutez l’extension CLI vm-repair.
 
@@ -79,7 +79,13 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Effectuez les étapes d’atténuation nécessaires sur la machine virtuelle de réparation créée, puis passez à l’étape 5.
+4. Exécutez `az vm repair run`. Cette commande permet d’exécuter le script de réparation spécifié sur le disque attaché via la machine virtuelle de réparation. Si le guide de résolution des problèmes que vous utilisez spécifie un ID d’exécution, utilisez-le ici. Autrement, vous pouvez utiliser la commande « az vm repair list-scripts » pour afficher les scripts de réparation disponibles. Le groupe de ressources et le nom de la machine virtuelle utilisés ici serviront à la machine virtuelle hors service de l’étape 3. Vous trouverez des informations supplémentaires sur les scripts de réparation dans la [bibliothèque de scripts de réparation](https://github.com/Azure/repair-script-library).
+
+   ```azurecli-interactive
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
+   ```
+
+   Si vous le souhaitez, vous pouvez effectuer toutes les étapes d’atténuation manuelles nécessaires à l’aide de la machine virtuelle de réparation, puis passer à l’étape 5.
 
 5. Exécutez `az vm repair restore`. Cette commande permet de remplacer le disque de système d’exploitation réparé par le disque de système d’exploitation d’origine de la machine virtuelle. Le groupe de ressources et le nom de la machine virtuelle utilisés ici serviront à la machine virtuelle hors service de l’étape 3.
 

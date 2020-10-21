@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88509363"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207221"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
@@ -33,7 +33,7 @@ Les logiciels suivants doivent être installés :
 
 * SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Installez la dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Outils Visual Studio pour Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
+* [Outils Visual Studio pour Mixed Reality](/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
   * **Développement Desktop en C++**
   * **Développement de la plateforme Windows universelle (UWP)**
 * Git [(télécharger)](https://git-scm.com/downloads)

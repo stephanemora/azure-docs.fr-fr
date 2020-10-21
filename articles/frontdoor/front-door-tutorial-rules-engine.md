@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031923"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278120"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutoriel : Configurer votre moteur de règles
 
@@ -58,7 +58,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Configurer le moteur de règles dans Azure CLI
 
-1. Si ce n’est déjà fait, installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Ajoutez l’extension « Front-Door » :- az extension add --name front-door. Ensuite, connectez-vous et basculez vers votre abonnement az account set --subscription <name_or_Id>.
+1. Si ce n’est déjà fait, installez [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Ajoutez l’extension « Front-Door » :- az extension add --name front-door. Ensuite, connectez-vous et basculez vers votre abonnement az account set --subscription <name_or_Id>.
 
 1. Commencez par créer un moteur de règles : cet exemple montre une règle avec une action basée sur l’en-tête et une condition de correspondance. 
 
@@ -96,7 +96,7 @@ Dans ce tutoriel, vous allez apprendre à :
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Pour plus d’informations, vous trouverez la liste complète des commandes du moteur de règles AFD [ici](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true).   
+Pour plus d’informations, vous trouverez la liste complète des commandes du moteur de règles AFD [ici](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest).   
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

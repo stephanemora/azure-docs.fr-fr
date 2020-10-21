@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c8f93548443b043f26bdb3bd7d7d38e6efb39852
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4678ab34de169a8406f0d73b63906152ef1185f0
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334495"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281917"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB
 
@@ -45,9 +45,9 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 
 *Structure d’un compte Cosmos DB.* Quels que soient l’API et le langage de programmation, un *compte* Cosmos DB contient zéro, une ou plusieurs *bases de données*, une *base de données* contient zéro, un ou plusieurs *conteneurs* et un *conteneur* contient zéro, un ou plusieurs éléments, comme illustré dans le schéma ci-dessous :
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entités du compte Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entités du compte Azure Cosmos" border="false":::
 
-Pour en savoir plus sur les bases de données, les conteneurs et les éléments, consultez [cette page](databases-containers-items.md). Certaines propriétés importantes sont définies au niveau du conteneur, notamment le *débit provisionné* et la *clé de partition*. 
+Pour en savoir plus sur les bases de données, les conteneurs et les éléments, consultez [cette page](account-databases-containers-items.md). Certaines propriétés importantes sont définies au niveau du conteneur, notamment le *débit provisionné* et la *clé de partition*. 
 
 Le débit provisionné est mesuré en unités de requête (*RU*), pour lesquelles un prix est fixé. Il s’agit d’un facteur déterminant du coût d’exploitation du compte. Vous pouvez choisir un débit provisionné par conteneur ou par base de données. Toutefois, il est généralement préférable de spécifier le débit au niveau du conteneur. Pour en savoir plus sur le provisionnement du débit consultez [cette page](set-throughput.md).
 

@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022178"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893201"
 ---
 # <a name="late-stage-reprojection"></a>Reprojection en phase tardive
 
@@ -34,7 +34,9 @@ Si c’est le cas, votre application utilisera Depth LSR, sinon, elle utilisera 
 
 Pour que Depth LSR fonctionne, l’application cliente doit fournir un tampon de profondeur valide qui contient toutes les géométries appropriées à prendre en compte pendant la reprojection en phase tardive.
 
-Depth LSR tente de stabiliser la trame vidéo en fonction du contenu du tampon de profondeur fourni. Ainsi, le contenu qui n’y a pas été rendu, tel que les objets transparents, ne peut pas être ajusté par LSR mais présenter une instabilité et des artefacts de reprojection.
+Depth LSR tente de stabiliser la trame vidéo en fonction du contenu du tampon de profondeur fourni. Ainsi, le contenu qui n’y a pas été rendu, tel que les objets transparents, ne peut pas être ajusté par LSR mais présenter une instabilité et des artefacts de reprojection. 
+
+Pour atténuer l’instabilité de la reprojection pour les objets transparents, vous pouvez forcer l’écriture dans le tampon de profondeur. Consultez l’indicateur de matériau *TransparencyWritesDepth* pour les matériaux [Couleur](color-materials.md) et [PBR](pbr-materials.md). Notez toutefois que la qualité visuelle de l’interaction entre l’objet transparent et l’objet opaque peut souffrir de cet indicateur.
 
 ## <a name="planar-lsr"></a>Planar LSR
 

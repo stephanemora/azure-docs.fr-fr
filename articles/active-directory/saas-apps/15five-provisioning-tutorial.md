@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 40fd048e1ace56af7a9198088d6129925033be93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331214"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850130"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutoriel : Configurer 15Five pour l’approvisionnement automatique d’utilisateurs
 
@@ -54,19 +54,19 @@ Avant de configurer 15Five pour l’approvisionnement automatique d’utilisateu
 
 1. Connectez-vous à votre [Console d’administration 15Five](https://my.15five.com/). Accédez à **Fonctionnalités > Intégrations**.
 
-    ![Console d’administration 15Five](media/15five-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
 
 2.  Cliquez sur **SCIM 2.0**.
 
-    ![Console d’administration 15Five](media/15five-provisioning-tutorial/image00.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
 
 3.  Accédez à **Intégration SCIM > Générer un jeton OAuth**.
 
-    ![Ajouter SCIM 15Five](media/15five-provisioning-tutorial/image02.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
 
 4.  Copiez les valeurs de l’**URL de base SCIM 2.0** et du **jeton d’accès**. Cette valeur doit être entrée dans les champs **URL de locataire** et **Jeton secret** dans l’onglet Approvisionnement de votre application 15Five dans le Portail Azure.
     
-    ![Ajouter SCIM 15Five](media/15five-provisioning-tutorial/image03.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Capture d’écran de la console d’administration 15Five. Les intégrations s’affichent sous Fonctionnalités dans un menu, et Fonctionnalités et Intégrations sont mises en évidence." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter 15Five à partir de la galerie d’applications Azure AD
 

@@ -6,14 +6,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355361"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282144"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 
@@ -31,6 +31,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 Pour toutes les étapes du portail, connectez-vous au [portail Azure](https://portal.azure.com).
+
+## <a name="prerequisites"></a>Prérequis
+
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+
+Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: mblythe
 ms.date: 07/24/2020
-ms.openlocfilehash: 6b7a4f6d4ad7f5e94d19b9d531992f54ff13fec0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: de0394f9b3254931537441d9f44606d16392a62d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87440705"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073884"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure avec PowerShell
 
@@ -23,7 +23,7 @@ Le tableau de bord affiche les performances d’une machine virtuelle, ainsi que
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Tant que le module PowerShell **Az.Portal** est en préversion, vous devez l’installer séparément du module PowerShell Az à l’aide de la commande suivante : `Install-Module`. Quand ce module PowerShell sera en disponibilité générale, il fera partie intégrante des versions futures du module PowerShell Az et sera disponible en mode natif dans Azure Cloud Shell.
@@ -36,7 +36,7 @@ Install-Module -Name Az.Portal
 
 ## <a name="choose-a-specific-azure-subscription"></a>Choisir un abonnement Azure spécifique
 
-Si vous avez plusieurs abonnements Azure, sélectionnez l’abonnement approprié dans lequel les ressources doivent être facturées. Sélectionnez un abonnement spécifique avec l’applet de commande [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Si vous avez plusieurs abonnements Azure, sélectionnez l’abonnement approprié dans lequel les ressources doivent être facturées. Sélectionnez un abonnement spécifique avec l’applet de commande [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -68,7 +68,7 @@ $vmName = 'SimpleWinVM'
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) avec l’applet de commande [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
+Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) avec l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
 
 L’exemple suivant crée un groupe de ressources en fonction du nom de la variable `$resourceGroupName` dans la région spécifiée de la variable `$location`.
 
@@ -102,7 +102,7 @@ Le déploiement de la machine virtuelle commence alors et prend quelques minutes
 
 ## <a name="download-the-dashboard-template"></a>Télécharger le modèle de tableau de bord
 
-Étant donné que les tableaux de bord Azure sont des ressources, ils peuvent être représentés au format JSON. Le code suivant télécharge la représentation JSON d’un exemple de tableau de bord. Pour plus d’informations, consultez [Structure des tableaux de bord Azure](/azure/azure-portal/azure-portal-dashboards-structure).
+Étant donné que les tableaux de bord Azure sont des ressources, ils peuvent être représentés au format JSON. Le code suivant télécharge la représentation JSON d’un exemple de tableau de bord. Pour plus d’informations, consultez [Structure des tableaux de bord Azure](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -180,4 +180,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Pour plus d’informations sur les applets de commande du module PowerShell Az.Portal, consultez :
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell : applets de commande de tableau de bord du portail](https://docs.microsoft.com/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell : applets de commande de tableau de bord du portail](/powershell/module/Az.Portal/)

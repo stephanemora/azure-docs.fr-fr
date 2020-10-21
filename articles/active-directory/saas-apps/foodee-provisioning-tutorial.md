@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850419"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutoriel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
 
@@ -55,7 +55,7 @@ Avant de configurer Foodee pour le provisionnement automatique des utilisateurs 
 
 1. Connectez-vous à [Foodee](https://www.food.ee/login/), puis sélectionnez votre ID de locataire.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 1. Sous **Enterprise Portal** > sélectionnez **Single Sign On (Authentification unique)** .
 
@@ -63,7 +63,7 @@ Avant de configurer Foodee pour le provisionnement automatique des utilisateurs 
 
 1. Copiez la valeur dans la zone **API Token (Jeton d’API)** pour une utilisation ultérieure. Vous devrez entrer cette valeur dans la zone **Secret Token (Jeton secret)** sous l’onglet **Provisioning (Provisionnement)** de votre application Foodee sur le portail Azure.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Ajouter Foodee à partir de la galerie
 
@@ -130,20 +130,20 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
 1. Sous **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Foodee**.
 
-    ![Mappages d’utilisateurs Foodee](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 1. Sous **Mappages des attributs**, passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes d’utilisateurs* dans Foodee pour les opérations de mise à jour. 
 
-    ![Mappages d’utilisateurs Foodee](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 1. Pour valider vos modifications, sélectionnez **Enregistrer**.
 1. Sous **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Foodee**.
 
-    ![Mappages d’utilisateurs Foodee](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 1. Sous **Mappages des attributs**, passez en revue les attributs utilisateur synchronisés entre Azure AD et Foodee. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les *comptes de groupes* dans Foodee pour les opérations de mise à jour.
 
-    ![Mappages d’utilisateurs Foodee](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Capture d’écran du menu principal du portail d’entreprise Foodee. Un espace réservé d’ID de locataire est visible dans le menu." border="false":::
 
 1. Pour valider vos modifications, sélectionnez **Enregistrer**.
 1. Configurez les filtres d’étendue. Pour cette opération, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326250"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093053"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi
 
 ::: zone pivot="programming-language-csharp"
-Avec les fonctionnalités de supervision intégrées d’Azure Spring Cloud, vous pouvez déboguer et superviser des problèmes complexes. Azure Spring Cloud intègre le [suivi distribué](https://steeltoe.io/docs/3/tracing/distributed-tracing) de Steeltoe dans [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Cette intégration fournit des fonctionnalités puissantes en matière de journaux, de métriques et de suivi distribué, disponibles dans le portail Azure.
+Avec les fonctionnalités de supervision intégrées d’Azure Spring Cloud, vous pouvez déboguer et superviser des problèmes complexes. Azure Spring Cloud intègre le [suivi distribué](https://steeltoe.io/docs/3/tracing/distributed-tracing) de Steeltoe dans [Application Insights](../azure-monitor/app/app-insights-overview.md). Cette intégration fournit des fonctionnalités puissantes en matière de journaux, de métriques et de suivi distribué, disponibles dans le portail Azure.
 
 Les procédures suivantes expliquent comment utiliser le streaming de journaux, l’analytique des journaux, les métriques et le suivi distribué avec l’exemple d’application que vous avez déployé dans les guides de démarrage rapide précédents.
 
@@ -69,7 +69,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Modifiez la requête pour supprimer les clauses WHERE qui limitent l’affichage aux journaux d’avertissements et d’erreurs.
 
-1. Sélectionnez ensuite `Run` pour afficher les journaux. Pour plus d’informations sur l’écriture de requêtes, consultez [Documentation Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries).
+1. Sélectionnez ensuite `Run` pour afficher les journaux. Pour plus d’informations sur l’écriture de requêtes, consultez [Documentation Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md).
 
    [ ![Requête Logs Analytics - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -107,7 +107,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Avec les fonctionnalités de supervision intégrées d’Azure Spring Cloud, vous pouvez déboguer et superviser des problèmes complexes. Azure Spring Cloud intègre Azure [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) d’Azure. Cette intégration fournit des fonctionnalités puissantes en matière de journaux, de métriques et de suivi distribué, disponibles dans le portail Azure. Les procédures suivantes expliquent comment utiliser le streaming de journaux, Log Analytics, les métriques et le suivi distribué avec les applications PiggyMetrics déployées.
+Avec les fonctionnalités de supervision intégrées d’Azure Spring Cloud, vous pouvez déboguer et superviser des problèmes complexes. Azure Spring Cloud intègre Azure [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](../azure-monitor/app/app-insights-overview.md) d’Azure. Cette intégration fournit des fonctionnalités puissantes en matière de journaux, de métriques et de suivi distribué, disponibles dans le portail Azure. Les procédures suivantes expliquent comment utiliser le streaming de journaux, Log Analytics, les métriques et le suivi distribué avec les applications PiggyMetrics déployées.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -165,7 +165,7 @@ Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 
    [ ![Entrée Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Vous voyez alors les journaux filtrés. Pour plus d’informations sur l’écriture de requêtes, consultez [Documentation Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries).
+1. Vous voyez alors les journaux filtrés. Pour plus d’informations sur l’écriture de requêtes, consultez [Documentation Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md).
 
    [ ![Requête Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

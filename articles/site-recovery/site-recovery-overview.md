@@ -4,12 +4,12 @@ description: Présente le service Azure Site Recovery et récapitule les différ
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86135237"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281885"
 ---
 # <a name="about-site-recovery"></a>À propos de Site Recovery
 
@@ -50,7 +50,7 @@ Site Recovery peut gérer la réplication pour :
 **Pris en charge** | **Détails**
 --- | ---
 **Scénarios de réplication** | Répliquez des machines virtuelles Azure d’une région Azure vers une autre.<br/><br/>  Répliquez des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques (Windows et Linux) et des machines virtuelles Azure Stack locales sur Azure.<br/><br/> Répliquez des instances Windows AWS sur Azure.<br/><br/> Répliquer des machines virtuelles VMware locales, des machines virtuelles Hyper-V gérées par System Center VMM et des serveurs physiques vers un site secondaire.
-**Régions** | Consultez les [régions prises en charge](https://azure.microsoft.com/regions/services/) pour Site Recovery. |
+**Régions** | Consultez les [régions prises en charge](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) pour Site Recovery. |
 **Machines répliquées** | Passez en revue la configuration requise pour la réplication de [machines virtuelles Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), de [machines virtuelles locales VMware et de serveurs physiques](vmware-physical-azure-support-matrix.md#replicated-machines),et de [machines virtuelles locales Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
 **Charges de travail** | Vous pouvez répliquer toutes les charges de travail qui s’exécutent sur une machine prenant en charge la réplication. En outre, l’équipe Site Recovery a effectué des tests spéciaux pour [plusieurs applications](site-recovery-workload.md#workload-summary).
 

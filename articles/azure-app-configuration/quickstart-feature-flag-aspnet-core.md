@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767717"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074445"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Avec la modification précédente, le [fournisseur de configuration d'App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) a été inscrit auprès de l'API de configuration .NET Core.
+    Avec la modification précédente, le [fournisseur de configuration d'App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) a été inscrit auprès de l'API de configuration .NET Core.
 
 1. Dans *Startup.cs*, ajoutez une référence au gestionnaire de fonctionnalités .NET Core :
 
@@ -260,7 +260,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web ASP.NET Core via les [bibliothèques de gestion des fonctionnalités](https://go.microsoft.com/fwlink/?linkid=2074664).
+Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web ASP.NET Core via les [bibliothèques de gestion des fonctionnalités](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Découvrez plus d’informations sur la [gestion des fonctionnalités](./concept-feature-management.md).
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md).

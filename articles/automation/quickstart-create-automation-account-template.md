@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055428"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078950"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Automation à l’aide d’un modèle ARM
 
@@ -84,7 +84,7 @@ Le modèle JSON spécifie une valeur par défaut pour les autres paramètres sus
 
 Si vous ne connaissez pas encore Azure Automation et Azure vous devez bien comprendre les détails de configuration suivants. Ils peuvent vous aider à éviter des erreurs quand vous essayez de créer, de configurer et d’utiliser un espace de travail Log Analytics lié à votre nouveau compte Automation.
 
-* Examinez les [détails supplémentaires](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité.
+* Examinez les [détails supplémentaires](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité.
 
 * Passez en revue les [mappages d’espace de travail](how-to/region-mappings.md) pour spécifier les régions prises en charge incluses ou figurant dans un fichier de paramètres. Seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation dans votre abonnement.
 

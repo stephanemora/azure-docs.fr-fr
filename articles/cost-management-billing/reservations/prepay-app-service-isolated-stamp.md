@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688927"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151539"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
 
@@ -39,7 +39,7 @@ Achetez des réservations d’horodatage Windows si vous avez un ou plusieurs wo
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Achetez une capacité réservée d’horodatage Isolé
 
-Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](monthly-payments-reservations.md). Pour acheter une capacité réservée, vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou d’un abonnement individuel avec des tarifs de paiement à l’utilisation.
+Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](./prepare-buy-reservation.md). Pour acheter une capacité réservée, vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou d’un abonnement individuel avec des tarifs de paiement à l’utilisation.
 
 - Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si le paramètre est désactivé, vous devez être un administrateur EA.
 - Pour le programme Fournisseur de solutions cloud (CSP), seuls des agents d’administration ou des agents commerciaux peuvent acheter une capacité de réserve Azure Synapse Analytics.

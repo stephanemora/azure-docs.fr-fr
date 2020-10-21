@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828212"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854356"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-Seules les propriétés des utilisateurs et les attributs personnalisés répertoriés dans l’expérience **Azure Active Directory** > **Identités externes** > **Attributs utilisateur personnalisés** peuvent être envoyés dans la demande.
+Seules les propriétés utilisateur et les attributs personnalisés répertoriés dans l’expérience **Azure AD B2C** > **Attributs utilisateur** peuvent être envoyés dans la demande.
 
 Les attributs personnalisés existent au format **extension_\<extensions-app-id>_CustomAttribute** dans le répertoire. Votre API doit s’attendre à recevoir des revendications dans ce même format sérialisé. Pour plus d’informations sur les attributs personnalisés, consultez [Définir des attributs personnalisés dans Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -294,7 +294,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Meilleures pratiques et résolution des problèmes
 
 ### <a name="using-serverless-cloud-functions"></a>Utilisation des fonctions cloud serverless
-Les fonctions serverless, comme les déclencheurs HTTP dans Azure Functions, fournissent une méthode simple pour créer des points de terminaison d’API à utiliser avec le connecteur d’API. Vous pouvez utiliser la fonction cloud serverless pour, par exemple, effectuer une logique de validation et limiter les inscriptions à des domaines spécifiques. La fonction cloud serverless peut également appeler et invoquer d’autres API web, magasins d’utilisateurs et autres services cloud dans le cade de scénarios plus complexes.
+Les fonctions serverless, comme les déclencheurs HTTP dans Azure Functions, fournissent une méthode simple pour créer des points de terminaison d’API à utiliser avec le connecteur d’API. Vous pouvez utiliser la fonction cloud serverless pour, [par exemple](code-samples.md#api-connectors), effectuer une logique de validation et limiter les inscriptions à des domaines de courrier spécifiques. La fonction cloud serverless peut également appeler et invoquer d’autres API web, magasins d’utilisateurs et autres services cloud dans le cade de scénarios plus complexes.
 
 ### <a name="best-practices"></a>Meilleures pratiques
 Assurez-vous que :
@@ -314,4 +314,4 @@ En général, il est judicieux d’utiliser les outils de journalisation activé
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Prise en main de nos [exemples de démarrage rapide d’Azure Function](code-samples.md#api-connectors).

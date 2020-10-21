@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400124"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151618"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -110,7 +110,7 @@ Vous pouvez annuler, échanger ou rembourser des réservations avec certaines li
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées
 
- Lorsque vous achetez une instance de machine virtuelle réservée, vous choisissez sa flexibilité de taille ou sa priorité de capacité. La flexibilité de taille d’instance applique la remise sur réservation aux autres machines virtuelles du même [groupe de tailles de machine virtuelle](https://aka.ms/RIVMGroups). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cette option offre une assurance supplémentaire quand à votre capacité à lancer les instances de machine virtuelle quand vous en avez besoin.
+ Lorsque vous achetez une instance de machine virtuelle réservée, vous choisissez sa flexibilité de taille ou sa priorité de capacité. La flexibilité de taille d’instance applique la remise sur réservation aux autres machines virtuelles du même [groupe de tailles de machine virtuelle](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cette option offre une assurance supplémentaire quand à votre capacité à lancer les instances de machine virtuelle quand vous en avez besoin.
 
 Par défaut, quand l’étendue de la réservation est partagée, la flexibilité de taille de l’instance est activée. La capacité de centre de données n’est pas priorisée pour les déploiements de machine virtuelle.
 
@@ -173,7 +173,7 @@ Acheter un plan de service :
 - [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Acheter un abonnement logiciel :
-- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prépayer des logiciels SUSE avec des réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Comprendre la remise et l’utilisation :

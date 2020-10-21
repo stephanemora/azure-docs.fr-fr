@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: ef571857664739c055912cb6460c4638d4cad32b
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728928"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893116"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -210,7 +210,7 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-Après avoir créé le package de configuration et avant de le publier sur Azure, vous pouvez tester le package à partir de votre station de travail ou de votre environnement d’intégration CI/CD. La cmdlet GuestConfiguration `Test-GuestConfigurationPackage` comprend le même agent dans votre environnement de développement que celui utilisé dans les machines Azure. Via cette solution, vous pouvez effectuer un test d’intégration en local avant la publication dans les environnements cloud facturés.
+Après avoir créé le package de configuration et avant de le publier sur Azure, vous pouvez tester le package à partir de votre station de travail ou de votre environnement d’intégration continue et de déploiement continu (CI/CD). La cmdlet GuestConfiguration `Test-GuestConfigurationPackage` comprend le même agent dans votre environnement de développement que celui utilisé dans les machines Azure. Via cette solution, vous pouvez effectuer un test d’intégration en local avant la publication dans les environnements cloud facturés.
 
 Étant donné que l’agent évalue l’environnement local, vous devez, dans la plupart des cas, vous devez exécuter la cmdlet Test- sur la même plateforme de système d’exploitation que celle que vous envisagez d’auditer. Le test utilise uniquement les modules qui sont inclus dans le package de contenu.
 
@@ -233,7 +233,7 @@ La cmdlet prend aussi en charge l’entrée depuis le pipeline PowerShell. Dirig
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-L’étape suivante consiste à publier le fichier dans le stockage Blob. Le script ci-dessous contient une fonction que vous pouvez utiliser pour automatiser cette tâche. Les commandes utilisées dans la fonction `publish` requièrent le module `Az.Storage`.
+L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. Le script ci-dessous contient une fonction que vous pouvez utiliser pour automatiser cette tâche. Les commandes utilisées dans la fonction `publish` requièrent le module `Az.Storage`.
 
 ```azurepowershell-interactive
 function publish {

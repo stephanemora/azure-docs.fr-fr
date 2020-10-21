@@ -13,14 +13,14 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
+ms.date: 10/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 145015b7645cf7923f15ecd7c0378ff6cb96dd7e
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767690"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201260"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application .NET Framework
 
@@ -30,7 +30,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -70,6 +70,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Mettez à jour la méthode `Main` pour vous connecter à App Configuration, en spécifiant l’option `UseFeatureFlags` pour que les indicateurs de fonctionnalité soient récupérés. Affichez ensuite un message si l’indicateur de fonctionnalité `Beta` est activé.
@@ -99,6 +100,8 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 
