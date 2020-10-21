@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614045"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449331"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -73,15 +73,15 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
    - Pour une ressource unique, cliquez sur **Paramètres de diagnostic** sous **Analyse** dans le menu de la ressource.
 
-        ![Paramètres de diagnostic](media/diagnostic-settings/menu-resource.png)
+        ![Capture d’écran de la section Surveillance d’un menu de ressources dans le portail Azure avec les Paramètres de diagnostic en surbrillance.](media/diagnostic-settings/menu-resource.png)
 
    - Pour une ou plusieurs ressources, dans le menu Azure Monitor, sous **Paramètres**, cliquez sur **Paramètres de diagnostic**, puis sur la ressource.
 
-      ![Paramètres de diagnostic](media/diagnostic-settings/menu-monitor.png)
+        ![Capture d’écran de la section Paramètres dans le menu d’Azure Monitor avec les Paramètres de diagnostic en surbrillance.](media/diagnostic-settings/menu-monitor.png)
 
    - Pour le journal d’activité, dans le menu **Azure Monitor**, cliquez sur **Journal d’activité**, puis sur **Paramètres de diagnostic**. Veillez à désactiver toute configuration héritée pour le journal d’activité. Pour plus d’informations, voir [Désactiver des paramètres existants](./activity-log.md#legacy-collection-methods).
 
-        ![Paramètres de diagnostic](media/diagnostic-settings/menu-activity-log.png)
+        ![Capture d’écran du menu d’Azure Monitor avec le Journal d’activité sélectionné et les Paramètres de diagnostic en surbrillance dans la barre de menus du journal d’activité.](media/diagnostic-settings/menu-activity-log.png)
 
 2. S’il n’existe aucun paramètre sur la ressource que vous avez sélectionnée, vous êtes invité à créer un paramètre. Cliquez sur **Ajouter le paramètre de diagnostic**.
 

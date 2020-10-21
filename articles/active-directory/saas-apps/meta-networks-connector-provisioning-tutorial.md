@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273515"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849229"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutoriel : Configurer Meta Networks Connector pour l’approvisionnement automatique d’utilisateurs
 
@@ -60,7 +60,7 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
 3.  Définissez le **Nom de la clé API** et la **Description de la clé API**.
 
-    ![Créer un jeton Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Capture d’écran de la console d’administration Meta Networks Connector avec le nom de la clé API et les valeurs de description de la clé API d’Azure AD et une clé API mis en surbrillance." border="false":::
 
 4.  Activez les privilèges **En écriture** pour les **Groupes** et les **Utilisateurs**.
 
@@ -68,7 +68,7 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
 5.  Cliquez sur **Ajouter**. Copiez le **SECRET** et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Approvisionnement de votre application Meta Networks Connector dans le Portail Azure.
 
-    ![Créer un jeton Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Capture d’écran de la console d’administration Meta Networks Connector avec le nom de la clé API et les valeurs de description de la clé API d’Azure AD et une clé API mis en surbrillance." border="false":::
 
 6.  Ajoutez un IdP en accédant à **Administration > Paramètres > IdP > Créer**.
 

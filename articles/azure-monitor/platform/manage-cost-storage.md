@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595649"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044103"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -46,7 +46,7 @@ Notez également que certaines solutions, telles que [Azure Security Center](htt
 
 ### <a name="log-analytics-dedicated-clusters"></a>Clusters dédiés Log Analytics
 
-Les clusters dédiés Log Analytics sont des collections d’espaces de travail regroupés dans un seul cluster Azure Data Explorer managé pour prendre en charge des scénarios avancés tels que les [clés gérées par le client](customer-managed-keys.md).  Les clusters dédiés Log Analytics prennent uniquement en charge un modèle de tarification de réservation de capacité à partir de 1 000 Go/jour avec une remise de 25 % par rapport au tarif Paiement à l’utilisation. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. La réservation de capacité de cluster a une période d’engagement de 31 jours après l’augmentation du niveau de réservation. Au cours de la période d’engagement, le niveau de réservation de capacité ne peut pas être réduit, mais il peut être augmenté à tout moment. En savoir plus sur la [création de clusters d’analytique des journaux d'activité](customer-managed-keys.md#create-cluster-resource) et [l’association de ces clusters à des espaces de travail](customer-managed-keys.md#workspace-association-to-cluster-resource).  
+Les clusters dédiés Log Analytics sont des collections d’espaces de travail regroupés dans un seul cluster Azure Data Explorer managé pour prendre en charge des scénarios avancés tels que les [clés gérées par le client](customer-managed-keys.md).  Les clusters Log Analytics dédiés utilisent un modèle de tarification de réservation de capacité qui doit être configuré sur au moins 1 000 Go/jour. Ce niveau de capacité offre une remise de 25 % par rapport à la tarification Paiement à l’utilisation. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. La réservation de capacité de cluster a une période d’engagement de 31 jours après l’augmentation du niveau de réservation. Au cours de la période d’engagement, le niveau de réservation de capacité ne peut pas être réduit, mais il peut être augmenté à tout moment. Lorsque des espaces de travail sont associés à un cluster, la facturation d’ingestion des données de ces espaces de travail est effectuée au niveau du cluster à l’aide du niveau de réservation de capacité configuré. En savoir plus sur la [création de clusters d’analytique des journaux d'activité](customer-managed-keys.md#create-cluster-resource) et [l’association de ces clusters à des espaces de travail](customer-managed-keys.md#workspace-association-to-cluster-resource). Les informations sur la tarification de réservation de capacité sont disponibles sur la [page de tarification Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
 Le niveau de réservation de la capacité du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La `Capacity` est spécifiée en unités de Go et peut avoir des valeurs de 1 000 Go/jour ou plus par incréments de 100 Go/jour. Ceci est expliqué en détail dans [Clé gérée par le client dans Azure Monitor](customer-managed-keys.md#create-cluster-resource). Si votre cluster a besoin d’une réservation supérieure à 2 000 Go/jour, contactez-nous à l’adresse [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
@@ -56,7 +56,7 @@ Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peu
 
 2. **Espaces de travail** : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](https://docs.microsoft.com/azure/security-center/) pour chaque espace de travail). Si le volume total de données ingérées dans un espace de travail au cours d’une journée est inférieur à la réservation de capacité, chaque espace de travail est facturé pour ses données ingérées au taux de réservation de capacité par Go effectif, en les facturant une fraction de la réservation de capacité, et la partie inutilisée de la réservation de capacité est facturée sur la ressource de cluster. Si le volume total de données ingérées dans un espace de travail au cours d’une journée est supérieur à la réservation de capacité, chaque espace de travail est facturé pour une fraction de la réservation de capacité en fonction de la fraction des données ingérées, et chaque espace de travail pour une fraction des données ingérées au-delà de la réservation de capacité. Rien n’est facturé au niveau de la ressource de cluster si le volume total de données ingérées dans un espace de travail au cours d’une journée est supérieur à la réservation de capacité.
 
-Dans options de facturation de cluster, la conservation des données est facturée au niveau de l’espace de travail. Notez que la facturation du cluster commence lorsque le cluster est créé, que les espaces de travail aient ou non été associés au cluster. Notez également que les espaces de travail associés à un cluster ne présentent plus de niveau tarifaire.
+Dans options de facturation de cluster, la conservation des données est facturée par espace de travail. Notez que la facturation du cluster commence lorsque le cluster est créé, que les espaces de travail aient ou non été associés au cluster. Notez également que les espaces de travail associés à un cluster ne présentent plus de niveau tarifaire.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimation des coûts de gestion de votre environnement 
 
@@ -102,7 +102,7 @@ Les abonnements qui incluaient un espace de travail Log Analytics ou une ressour
 
 L’utilisation au niveau tarifaire Autonome est facturée en fonction du volume de données ingérées. Elle est rapporté dans le service **Log Analytics**, et le compteur est nommé « Data Analyzed » (Données analysées). 
 
-Le niveau tarifaire par nœud est facturé par machine virtuelle (nœud) surveillée sur une granularité horaire. Pour chaque nœud analysé, 500 Mo de données non facturées par jour sont affectées à l’espace de travail. Cette allocation est agrégée au niveau de l’espace de travail. Les données ingérées au-delà de l’allocation de données quotidienne agrégée sont facturées par Go comme dépassement de données. Notez que sur votre facture le service indiqué est **Insight and Analytics** pour l’utilisation de Log Analytics si l’espace de travail se trouve dans le niveau tarifaire Par nœud. L’utilisation est signalée sur trois compteurs :
+Le niveau tarifaire par nœud est facturé par machine virtuelle (nœud) surveillée sur une granularité horaire. Pour chaque nœud analysé, 500 Mo de données non facturées par jour sont affectées à l’espace de travail. Cette allocation est calculée avec une granularité horaire et est agrégée chaque jour au niveau de l’espace de travail. Les données ingérées au-delà de l’allocation de données quotidienne agrégée sont facturées par Go comme dépassement de données. Notez que sur votre facture le service indiqué est **Insight and Analytics** pour l’utilisation de Log Analytics si l’espace de travail se trouve dans le niveau tarifaire Par nœud. L’utilisation est signalée sur trois compteurs :
 
 1. Node (Nœud) : il s’agit de l’utilisation du nombre de nœuds surveillés (machines virtuelles) en unités de nœud * mois.
 2. Data Overage per Node (Dépassement de données par nœud) : il s’agit du nombre de Go de données ingérées au-delà de l’allocation de données agrégées.
@@ -125,6 +125,10 @@ Aucun des niveaux tarifaires hérités n’a de tarification régionale.
 
 > [!NOTE]
 > Pour utiliser les droits que vous obtenez à l’achat de la suite OMS E1, OMS E2 ou du module complémentaire OMS pour System Center, sélectionnez le niveau tarifaire *Par nœud* de Log Analytics.
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics et Centre de sécurité
+
+La facturation du [Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/) est étroitement liée à la facturation de Log Analytics. Le Centre de sécurité fournit une allocation de 500 Mo/nœud/jour à un ensemble de [types de données de sécurité](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) et aux types de données Update et UpdateSummary lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou que le ciblage de solution est activé. Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations du Centre de sécurité et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.  
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
@@ -234,12 +238,12 @@ La limite quotidienne peut être configurée via ARM en définissant le paramèt
 
 Si nous présentons un indice visuel dans le portail Azure lorsque le seuil limite des données est atteint, ce comportement n’est pas nécessairement en harmonie avec la façon dont vous gérez les problèmes opérationnels exigeant une attention immédiate.  Pour recevoir une notification d’alerte, vous pouvez créer une règle d’alerte dans Azure Monitor.  Pour en savoir plus, reportez-vous à l’article sur [la création, l’affichage et la gestion des alertes](alerts-metric.md).
 
-Pour vous aider à démarrer, voici les paramètres que nous recommandons pour l’alerte :
+Pour vous aider à démarrer, voici les paramètres que nous recommandons pour l’alerte interrogeant la table `Operation` à l’aide de la fonction `_LogOperation`. 
 
 - Cible : sélectionnez votre ressource Log Analytics.
 - Critères : 
    - Nom du signal : Recherche personnalisée dans les journaux
-   - Requête de recherche : Operation | where Detail has 'OverQuota'
+   - Requête de recherche : `_LogOperation | where Detail has 'OverQuota'`
    - Basé sur : Nombre de résultats
    - Condition : Supérieur à
    - Seuil : 0
@@ -283,6 +287,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
+
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nœuds facturés par le niveau tarifaire hérité Par nœud
+
+Le [niveau tarifaire hérité Par nœud](#legacy-pricing-tiers) facture les nœuds avec une granularité horaire et ne compte pas non plus les nœuds qui envoient uniquement un ensemble de types de données de sécurité. Son nombre quotidien de nœuds devrait être semblable à la requête suivante :
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+Le nombre d’unités sur votre facture est exprimé en unités nœuds x mois, ce qui est représenté par `billableNodeMonthsPerDay` dans la requête. Si la solution Update Management est installée sur l’espace de travail, ajoutez les types de données Update et UpdateSummary à la liste dans la clause WHERE de la requête ci-dessus. Enfin, il existe une complexité supplémentaire dans l’algorithme de facturation réel lorsque le ciblage de solution utilisé n’est pas représenté dans la requête ci-dessus. 
+
 
 > [!TIP]
 > Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane). Si vous n’avez pas besoin des résultats **par ordinateur**, interrogez le type de données Usage (voir ci-dessous).

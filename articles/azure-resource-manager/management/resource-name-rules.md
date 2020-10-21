@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235976"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653364"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -174,8 +174,8 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | galleries / images / versions | image | Entier de 32 bits | Chiffres et points. |
 > | images | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | snapshots | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/"'[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossibilité d’utiliser :<br> `\/"'[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Les machines virtuelles Windows ne peuvent pas inclure de point ni se terminer par un tiret.<br><br>Les machines virtuelles Linux ne peuvent pas se terminer par un point ou un trait d’union. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `\/"'[]:|<>+=;,?*@&`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
 
 > [!NOTE]
 > Les machines virtuelles Azure portent deux noms distincts : un nom de ressource et un nom d’hôte. Quand vous créez une machine virtuelle dans le portail, la même valeur est utilisée pour les deux noms. Les restrictions mentionnées dans le tableau précédent concernent le nom d’hôte. Le nom de ressource proprement dit peut comporter jusqu’à 64 caractères.
@@ -392,7 +392,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`/&%\?` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 > | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral

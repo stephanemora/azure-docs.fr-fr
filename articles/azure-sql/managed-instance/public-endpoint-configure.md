@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708627"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619982"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ En raison de la sensibilité des données qui se trouvent sur une instance gér�
 1. Dans la page de paramètres **Sécurité**, sélectionnez l’onglet **Réseau virtuel**.
 1. Dans la page de configuration du réseau virtuel, sélectionnez **Activer**, puis cliquez sur l’icône **Enregistrer** afin de mettre à jour la configuration.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Capture d'écran représentant une page Réseau virtuel de SQL Managed Instance, sur laquelle l'option Point de terminaison public est activée.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Activation d’un point de terminaison public pour une instance gérée à l’aide de PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Si la page de configuration de l’instance gérée est toujours ouverte, accédez à l’onglet **Vue d’ensemble**. Dans le cas contraire, revenez à votre ressource **d’instance gérée SQL**. Sélectionnez le lien **Réseau/sous-réseau virtuel**, qui vous permet d’accéder à la page de configuration du réseau virtuel.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Capture d'écran représentant la page de configuration du réseau virtuel dans laquelle vous pouvez trouver la valeur de votre réseau/sous-réseau virtuel.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Sélectionnez l’onglet **Sous-réseaux** figurant dans le volet de configuration du réseau virtuel, sur la gauche, et notez le **GROUPE DE SÉCURITÉ** de votre instance gérée.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Capture d'écran représentant l'onglet Sous-réseau, dans lequel vous pouvez accéder au GROUPE DE SÉCURITÉ de votre instance gérée.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Revenez au groupe de ressources contenant votre instance gérée. Vous devez voir le nom du **groupe de sécurité réseau** indiqué ci-dessus, que vous avez noté. Sélectionnez ce nom pour accéder à la page de configuration du groupe de sécurité réseau.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Action**     |Allow         |Autorisez le trafic entrant vers une instance gérée par le biais du point de terminaison public |
     |**Priorité**     |1 300         |Assurez-vous que cette règle présente une priorité plus élevée que la règle **deny_all_inbound** |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Capture d'écran représentant les Règles de sécurité de trafic entrant, qui contiennent la nouvelle règle public_endpoint_inbound et la règle deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > Le port 3342 est utilisé pour les connexions du point de terminaison public à l’instance gérée ; il ne peut pas être changé à ce stade.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Accédez à la page de configuration de l’instance gérée qui a été activée pour le point de terminaison public. Sélectionnez l’onglet **Chaînes de connexion** sous la configuration **Paramètres**.
 1. Notez que le nom d’hôte du point de terminaison public présente le format <nom_mi>. **public**. <zone_dns>. database.windows.net et que le port utilisé pour la connexion est 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Capture d'écran représentant les chaînes de connexion de vos points de terminaison publics et privés.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

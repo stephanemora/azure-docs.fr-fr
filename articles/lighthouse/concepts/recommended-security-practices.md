@@ -3,12 +3,12 @@ title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez Azure Lighthouse, il est important de prendre en compte la sécurité et le contrôle d’accès.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163269"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399378"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
@@ -28,7 +28,7 @@ Nous vous suggérons de demander à vos clients d’implémenter également Micr
 Pour faciliter la gestion, utilisez des groupes Azure Active Directory (Azure AD) pour chaque rôle requis pour gérer les ressources de vos clients. Cela vous permet d’ajouter ou de supprimer des utilisateurs dans un groupe en fonction des besoins, plutôt que d’attribuer directement des autorisations à chaque utilisateur.
 
 > [!IMPORTANT]
-> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Lors de la création de votre structure d’autorisation, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail, ce qui contribue à réduire le risque d’erreurs accidentelles.
 

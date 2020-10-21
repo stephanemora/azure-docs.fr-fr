@@ -1,19 +1,19 @@
 ---
 title: Configuration des points de terminaison réseau Azure Files | Microsoft Docs
-description: Vue d’ensemble des options de réseau pour Azure Files.
+description: Découvrez comment configurer des points de terminaison réseau Azure File.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078590"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612827"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuration des points de terminaison réseau Azure Files
 
@@ -32,7 +32,7 @@ Avant de lire le présent guide, nous vous recommandons de lire [Considérations
 - Cet article suppose que vous avez déjà créé un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Cet article part du principe que vous avez déjà créé un partage de fichiers Azure dans un compte de stockage auquel vous souhaitez vous connecter à partir d’un emplacement local. Pour savoir comment créer un partage de fichiers Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configurations de point de terminaison
 

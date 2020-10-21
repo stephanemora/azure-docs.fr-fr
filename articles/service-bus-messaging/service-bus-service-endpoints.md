@@ -4,12 +4,12 @@ description: Cet article fournit des informations sur l’ajout d’un point de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552983"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843377"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir de réseaux virtuels spécifiques
 
@@ -54,6 +54,10 @@ Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-
 La liaison d’un espace de noms Service Bus à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel et l’activer pour **Microsoft.ServiceBus**, comme expliqué dans la [vue d’ensemble des points de terminaison de service][vnet-sep]. Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Service Bus au moyen d’une **règle de réseau virtuel**.
 
 La règle de réseau virtuel est une association de l’espace de noms Service Bus et d’un sous-réseau de réseau virtuel. Une fois la règle en place, toutes les charges de travail liées au sous-réseau sont autorisées à accéder à l’espace de noms Service Bus. Service Bus n’établit jamais de connexions sortantes, ne nécessite aucun accès et ne se voit donc jamais accorder l’accès à votre sous-réseau quand cette règle est activée.
+
+> [!NOTE]
+> N’oubliez pas qu’un point de terminaison de service réseau fournit aux applications exécutées dans le réseau virtuel l’accès à l’espace de noms Service Bus. Le réseau virtuel contrôle l’accessibilité du point de terminaison, mais pas les opérations qui peuvent être effectuées sur des entités Service Bus (files d’attente, rubriques ou abonnements). Utilisez Azure Active Directory (Azure AD) pour autoriser les opérations que les applications peuvent effectuer sur l’espace de noms et ses entités. Pour plus d’informations, consultez [Authentifier et autoriser une application avec Azure AD pour accéder aux entités Service Bus](authenticate-application.md).
+
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section montre comment utiliser le portail Azure pour ajouter un point de terminaison de service de réseau virtuel. Pour limiter l’accès, vous devez intégrer le point de terminaison de service de réseau virtuel pour cet espace de noms Event Hubs.

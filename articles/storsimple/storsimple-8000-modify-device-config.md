@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514678"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962885"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -61,7 +61,7 @@ Cette description vise généralement à identifier le propriétaire et l’empl
 
 Votre appareil doit synchroniser l’heure pour s’authentifier auprès du fournisseur de services de stockage cloud. Utilisez le panneau **Paramètres généraux** de votre appareil pour modifier les paramètres d’heure de ce dernier.
 
-![Description de l’appareil dans les Paramètres généraux](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Description de l’appareil dans les Paramètres généraux 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Sélectionnez votre fuseau horaire dans la liste déroulante. Vous pouvez spécifier jusqu’à deux serveurs NTP (Network Time Protocol) :
 

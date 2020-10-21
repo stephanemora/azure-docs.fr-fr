@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513505"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441874"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 
@@ -32,7 +32,7 @@ Vous devez respecter les consignes suivantes :
   - Générez un numéro de suivi pour le travail d’exportation.
   - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
   - Si vous n’avez pas de compte de transporteur, accédez à :
-    - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou
+    - [Créer un compte FedEx](https://www.fedex.com/en-us/create-account.html), ou
     - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Étape 1 : Création d’une tâche d’exportation
@@ -85,7 +85,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
 
     - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’exportation terminée.
-    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
+    - Indiquez le nom, le numéro de téléphone, l'e-mail, l'adresse, la ville, le code postal, l'état/la province et le pays/la région d'un contact, puis vérifiez que ces informations sont complètes et valides.
 
         > [!TIP]
         > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
@@ -119,7 +119,7 @@ Quand le tableau de bord indique que la tâche a été effectuée, les disques v
 1. Une fois que vous avez reçu les disques contenant les données exportées, vous devez obtenir les clés BitLocker pour les déverrouiller. Accédez à la tâche d’exportation dans le Portail Azure. Cliquez sur l’onglet **Import/Export**.
 2. Dans la liste, sélectionnez votre tâche d’exportation, puis cliquez sur celle-ci. Accédez à **Chiffrement**, puis copiez les clés.
 
-   ![Afficher les clés BitLocker pour une tâche d'exportation](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Afficher les clés BitLocker pour une tâche d'exportation](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Utilisez les clés BitLocker pour déverrouiller les disques.
 
@@ -127,15 +127,13 @@ L’exportation est effectuée.
 
 ## <a name="step-5-unlock-the-disks"></a>Étape 5 : Déverrouiller les disques
 
-Si vous utilisez la version 1.4.0.300 de l’outil WAImportExport, utilisez la commande suivante pour déverrouiller le lecteur :
+Utilisez la commande suivante pour déverrouiller le disque :
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Voici un exemple de ces données en entrée.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Si vous utilisez des versions antérieures de l’outil, utilisez la boîte de dialogue BitLocker pour déverrouiller le lecteur.
 
 À ce stade, vous pouvez supprimer la tâche ou la conserver. Les tâches sont automatiquement supprimées au bout de 90 jours.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337855"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356024"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Envoyer des messages à un serveur MQTT
 
@@ -55,7 +55,7 @@ Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples po
 
 Saisissez `Ctrl+P` (macOS : `Cmd+P`) pour exécuter `task device-upload`. Une fois le chargement terminé, le DevKit et exécute l’ébauche.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![Capture d'écran représentant une fenêtre d'invite de commandes qui charge et exécute l'ébauche de projet Arduino.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > Vous pouvez recevoir un message d’erreur « Error: AZ3166: Unknown package » (Erreur : AZ3166 : Package inconnu). Cette erreur se produit lorsque l’index du package de la carte n’est pas actualisé correctement. Pour résoudre cette erreur, consultez la [section de développement du FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -64,15 +64,15 @@ Saisissez `Ctrl+P` (macOS : `Cmd+P`) pour exécuter `task device-upload`. Une fo
 
 Dans VS Code, suivez cette procédure pour ouvrir et configurer Serial Monitor (analyse en série) :
 
-1. Cliquez sur le mot `COM[X]` dans la barre d’état pour définir le port COM approprié avec `STMicroelectronics` : ![set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Cliquez sur le mot `COM[X]` dans la barre d'état pour définir le port COM approprié sur `STMicroelectronics` : ![Capture d'écran représentant Visual Studio Code, dans lequel COM8 STMicroElectronics est sélectionné. ](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Cliquez sur l’icône de branchement « power » dans la barre d’état pour ouvrir l’analyse en série : ![serial-monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Cliquez sur l'icône de branchement « power » de la barre d'état pour ouvrir l'analyse en série : ![Capture d'écran du Résumé de la mise en production et de l'icône de branchement de la barre d'état.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. Dans la barre d’état, cliquez sur le numéro qui représente la vitesse de transmission et définissez-la sur `115200` : ![set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. Sur la barre d'état, cliquez sur le numéro qui représente la vitesse de transmission et définissez-la sur `115200` : ![Capture d'écran représentant la définition de la vitesse de transmission dans Visual Studio Code.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 L’analyse de série affiche tous les messages envoyés par l’exemple d’ébauche. L’ébauche connecte le DevKit en Wi-Fi. Une fois la connexion Wi-Fi établie, l’ébauche envoie un message au répartiteur MQTT. L’exemple envoie ensuite à plusieurs reprises deux messages « iot.eclipse.org » à l’aide de QoS 0 et QoS 1, respectivement.
 
-![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![Capture d'écran représentant l'analyse de série qui affiche les messages envoyés par l'ébauche.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problèmes et commentaires
 

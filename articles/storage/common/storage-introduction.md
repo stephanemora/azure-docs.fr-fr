@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cd45a393081d52985d99fac7ea5dccc5bd2a2712
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653798"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079222"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Présentation des principaux services de stockage Azure
 
@@ -111,7 +111,7 @@ Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type pren
 
 Chaque demande adressée au Stockage Azure doit être autorisée. Stockage Azure prend en charge les méthodes d’autorisation suivantes :
 
-- **Intégration d’Azure Active Directory (Azure AD) pour les données Blob et de files d’attente.** Le Stockage Azure prend en charge l’authentification et l’autorisation avec Azure AD pour les services Blob et File d’attente via un contrôle d’accès en fonction du rôle (RBAC). L’autorisation des demandes avec Azure AD est recommandée pour davantage de sécurité et de facilité d’utilisation. Pour plus d’informations, voir [Autoriser l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+- **Intégration d’Azure Active Directory (Azure AD) pour les données Blob et de files d’attente.** Stockage Azure prend en charge l'authentification et l'autorisation avec Azure AD pour les services Blob et File d'attente via le Contrôle d'accès en fonction du rôle Azure (Azure RBAC). L’autorisation des demandes avec Azure AD est recommandée pour davantage de sécurité et de facilité d’utilisation. Pour plus d’informations, voir [Autoriser l’accès aux objets blob et files d’attente Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 - **Autorisation Azure AD sur SMB pour Azure Files.** Azure Files prend en charge l’autorisation basée sur l’identité sur SMB (Server Message Block) via Azure Active Directory Domain Services (Azure AD DS) ou Active Directory Domain Services local (préversion). Vos machines virtuelles Windows jointes à un domaine peuvent accéder aux partages de fichiers Azure en utilisant des informations d’identification Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB](../files/storage-files-active-directory-overview.md) et [Planification d’un déploiement Azure Files](../files/storage-files-planning.md#identity).
 - **Autorisation avec Clé partagée.** Les services Azure Stockage Blob, Fichiers, Files d’attente et Table prennent en charge l’autorisation avec une clé partagée. Un client qui utilise l’autorisation Clé partagée transmet avec chaque demande un en-tête signé à l’aide de la clé d’accès au compte de stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorisation à l’aide de signatures d’accès partagé (SAP).** Une signature d’accès partagé (SAP) est une chaîne contenant un jeton de sécurité pouvant être ajouté à l’URI pour une ressource de stockage. Le jeton de sécurité encapsule des contraintes telles que les autorisations et l’intervalle d’accès. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAS)](storage-sas-overview.md).
@@ -173,8 +173,7 @@ Vous pouvez accéder aux ressources dans un compte de stockage à l’aide de to
 - [Applets de commande Azure CLI pour le stockage](https://docs.microsoft.com/cli/azure/storage)
 - [Utilitaire de ligne de commande AzCopy](https://aka.ms/downloadazcopy)
 - L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
-- [Outils clients d’Azure Storage](../storage-explorers.md)
-- [Outils de développement Azure](https://azure.microsoft.com/tools/)
+- [Modèles Azure Resource Manager pour Stockage Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

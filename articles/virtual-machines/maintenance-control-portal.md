@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676044"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397281"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Contrôler les mises à jour avec le contrôle de maintenance et le portail Azure
 
@@ -76,7 +76,7 @@ Il y a deux façons de vérifier si des mises à jour sont en attente pour une c
 
 Vous pouvez également vérifier un hôte spécifique à l’aide de **Machines virtuelles** ou des propriétés de l’hôte dédié. 
 
-![Capture d’écran montrant comment vérifier la maintenance d’un hôte](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Capture d'écran montrant l'état de maintenance mis en surbrillance.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Appliquer des mises à jour
 
@@ -94,7 +94,7 @@ Vous pouvez vérifier la progression des mises à jour d’une configuration dan
 
 Pour supprimer une configuration, ouvrez les détails de la configuration, puis cliquez sur **Supprimer**.
 
-![Capture d’écran montrant comment vérifier la maintenance d’un hôte](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Capture d'écran montrant comment supprimer une configuration.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

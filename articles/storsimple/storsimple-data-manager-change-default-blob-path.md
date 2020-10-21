@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183715"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743571"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Modifier le chemin d’accès d’objet blob par défaut
 
@@ -69,7 +69,7 @@ Pour créer une fonction Azure, procédez comme suit :
      
 10. Dans la fenêtre Fonction, exécutez le fichier _.csx_.
 
-    ![Créer une fonction C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Créer une fonction C# 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Procédez comme suit.
 
@@ -191,7 +191,7 @@ Pour créer une fonction Azure, procédez comme suit :
 
     2. Cliquez sur **+ Ajouter**.
         
-        ![Lien « Afficher les fichiers »](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Ajouter une nouvelle fonction ajouter un fichier](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Saisissez **project.json** et appuyez sur **Entrée**. Collez le code suivant dans le fichier **project.json** :
 
@@ -211,7 +211,7 @@ Pour créer une fonction Azure, procédez comme suit :
     
     4. Cliquez sur **Enregistrer**.
 
-        ![Lien « Afficher les fichiers »](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![Nouveau projet de fonction json](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Vous avez créé une fonction Azure. Cette fonction est déclenchée à chaque fois qu’un nouvel objet blob est généré par le travail de transformation des données.
 

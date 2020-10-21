@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658742"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295020"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -125,7 +125,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
 3. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Capture d’écran montrant la « Page Sécurité » avec l’option « Liste des attributions de sites aux zones » sélectionnée.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
    - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
    - **Valeur** (données) : **1** indique la zone Intranet.
@@ -142,15 +142,15 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 5. Sélectionnez **OK**, puis de nouveau **OK**.
 
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Capture d’écran montrant la fenêtre « Afficher le contenu » avec une attribution de zone sélectionnée.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone Intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Capture d’écran montrant la page « Zone Intranet » avec l’option « Autoriser les mises à jour de la barre d’état via le script » sélectionnée.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Activez le paramètre de stratégie, puis sélectionnez **OK**.
 
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Capture d’écran montrant la fenêtre « Autoriser les mises à jour de la barre d’état via le script » avec le paramètre de stratégie activé.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Option « Préférences de stratégie de groupe » - Procédure détaillée
 
@@ -158,7 +158,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
 3. Accédez à **Configuration utilisateur** > **Préférences** > **Paramètres Windows** > **Registre** > **Nouveau** > **Élément de Registre**.
 
-    ![Authentification unique](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Capture d’écran montrant « Registre » sélectionné et « Élément de Registre » sélectionné.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Entrez les valeurs suivantes dans les champs appropriés et cliquez sur **OK**.
    - **Chemin de la clé** : ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
    - **Type de valeur** : ***REG_DWORD***
    - **Données de la valeur** : ***00000001***
  
-     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Capture d’écran montrant la fenêtre « Nouvelles propriétés de Registre ».](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Authentification unique](./media/how-to-connect-sso-quick-start/sso17.png)
 

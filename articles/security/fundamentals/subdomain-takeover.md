@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514609"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447368"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Prévention des entrées DNS non résolues et de l’acquisition de sous-domaine
 
@@ -107,24 +107,19 @@ Exécutez la requête en tant qu’utilisateur disposant des privilèges suivant
 - au moins l’accès de niveau lecteur aux abonnements Azure
 - accès en lecture au graphe des ressources Azure
 
-Si vous êtes un administrateur général du locataire de votre organisation, élevez votre compte pour avoir accès à l’ensemble de l’abonnement de votre organisation en suivant les instructions fournies dans [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Si vous êtes un administrateur général du locataire de votre organisation, élevez votre compte pour avoir accès à l’ensemble de l’abonnement de votre organisation en suivant les instructions fournies dans [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Azure Resource Graph présente des limitations et des limites de pagination que vous devez prendre en compte si vous disposez d’un environnement Azure volumineux. [En savoir plus](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sur la gestion de gros jeux de données de ressources Azure. 
+> Azure Resource Graph présente des limitations et des limites de pagination que vous devez prendre en compte si vous disposez d’un environnement Azure volumineux. 
+> 
+> [En savoir plus sur la gestion de gros jeux de données de ressources Azure](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > L’outil utilise un traitement par lot d’abonnements pour éviter ces limitations.
 
 ### <a name="run-the-script"></a>Exécuter le script
 
-Il existe deux versions du script, toutes deux avec les mêmes paramètres d’entrée, qui produisent une sortie similaire :
-
-|Script  |Informations  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |Le mode parallèle n’est pris en charge que dans PowerShell versions 7 et ultérieures. Sinon, le mode série est exécuté.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Uniquement pris en charge dans PowerShell Desktop, version antérieure à 6, car ce script utilise [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Apprenez-en davantage et téléchargez les scripts PowerShell à partir de GitHub : https://aka.ms/DanglingDNSDomains.
+En savoir plus sur le script PowerShell, **Get-DanglingDnsRecords. ps1**, et le télécharger à partir de GitHub : https://aka.ms/DanglingDNSDomains.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corriger les entrées de DNS non-résolu 
 
@@ -152,7 +147,7 @@ Certains services Azure offrent des fonctionnalités pour vous aider à mettre e
 
 ### <a name="use-azure-dns-alias-records"></a>Enregistrements d’alias Azure DNS
 
-Les [enregistrements d’alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS empêchent les références non résolues en associant le cycle de vie d’un enregistrement DNS à une ressource Azure. Prenons l'exemple d'un enregistrement DNS qualifié en tant qu'enregistrement d'alias et pointant vers une adresse IP publique ou un profil Traffic Manager. Si vous supprimez ces ressources sous-jacentes, l’enregistrement d’alias DNS devient un jeu d’enregistrements vide. Il ne fait plus référence à la ressource supprimée. Il est important de noter qu’il existe des limites à la protection offerte par les enregistrements d’alias. La liste se limite actuellement aux éléments suivants :
+Les [enregistrements d’alias](../../dns/dns-alias.md#scenarios) Azure DNS empêchent les références non résolues en associant le cycle de vie d’un enregistrement DNS à une ressource Azure. Prenons l'exemple d'un enregistrement DNS qualifié en tant qu'enregistrement d'alias et pointant vers une adresse IP publique ou un profil Traffic Manager. Si vous supprimez ces ressources sous-jacentes, l’enregistrement d’alias DNS devient un jeu d’enregistrements vide. Il ne fait plus référence à la ressource supprimée. Il est important de noter qu’il existe des limites à la protection offerte par les enregistrements d’alias. La liste se limite actuellement aux éléments suivants :
 
 - Azure Front Door
 - Profils Traffic Manager
@@ -161,7 +156,7 @@ Les [enregistrements d’alias](https://docs.microsoft.com/azure/dns/dns-alias#s
 
 Malgré les offres de service limitées à l’heure actuelle, nous vous recommandons d’utiliser des enregistrements d’alias pour vous défendre dans la mesure du possible contre les acquisitions de sous-domaines.
 
-[En savoir plus](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) sur les fonctionnalités des enregistrements d’alias Azure DNS.
+[En savoir plus sur les fonctionnalités des enregistrements d’alias Azure DNS](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -171,7 +166,7 @@ Lors de la création d’entrées DNS pour Azure App Service, créez un enregist
 
 Ces enregistrements n’empêchent pas de créer le service Azure App Service du même nom que celui qui se trouve dans votre entrée CNAME. Sans moyen de prouver la propriété du nom de domaine, les auteurs de menaces ne peuvent pas recevoir de trafic ni contrôler le contenu.
 
-[En savoir plus](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) sur le mappage d’un nom DNS personnalisé existant à Azure App Service.
+[En savoir plus sur le mappage d’un nom DNS personnalisé existant à Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -185,13 +180,13 @@ Il incombe souvent aux développeurs et aux équipes d’exploitation d’exécu
 
     - Placez « Supprimer l’entrée DNS » dans la liste des vérifications requises lors de la désactivation d’un service.
 
-    - Placez des [verrous de suppression](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) sur les ressources qui comportent une entrée DNS personnalisée. Un verrou de suppression indique que le mappage doit être supprimé avant le déprovisionnement de la ressource. Les mesures comme celles-ci ne peuvent fonctionner qu’associées à des programmes de formation internes.
+    - Placez des [verrous de suppression](../../azure-resource-manager/management/lock-resources.md) sur les ressources qui comportent une entrée DNS personnalisée. Un verrou de suppression indique que le mappage doit être supprimé avant le déprovisionnement de la ressource. Les mesures comme celles-ci ne peuvent fonctionner qu’associées à des programmes de formation internes.
 
 - **Créer des procédures de découverte :**
 
     - Vérifiez régulièrement vos enregistrements DNS pour contrôler que vos sous-domaines sont tous mappés à des ressources Azure qui remplissent les conditions suivantes :
 
-        - Les ressources existent : interrogez vos zones DNS pour connaître les ressources pointant vers des sous-domaines Azure tels que *.azurewebsites.net ou *.cloudapp.azure.com (voir [cette liste de références](azure-domains.md)).
+        - Les ressources existent : interrogez vos zones DNS pour connaître les ressources pointant vers des sous-domaines Azure tels que *.azurewebsites.net ou *.cloudapp.azure.com (voir la [Liste de références des domaines Azure](azure-domains.md)).
         - Vous en êtes le propriétaire : vérifiez que vous possédez toutes les ressources que vos sous-domaines DNS ciblent.
 
     - Gérez un catalogue de services de vos points de terminaison de nom de domaine complet (FQDN) Azure et des propriétaires d’applications. Pour créer votre catalogue de services, exécutez le script de requête Azure Resource Graph suivant. Ce script projette les informations des points de terminaison de FQDN des ressources auxquelles vous avez accès et les génère dans un fichier CSV. Si vous avez accès à tous les abonnements de votre locataire, le script les prend tous en compte, comme indiqué dans l’exemple de script suivant. Pour restreindre les résultats à un ensemble spécifique d’abonnements, modifiez le script comme indiqué.
@@ -207,8 +202,8 @@ Il incombe souvent aux développeurs et aux équipes d’exploitation d’exécu
 
 Pour plus d’informations sur les services connexes et les fonctionnalités Azure que vous pouvez utiliser pour vous défendre contre l’acquisition de sous-domaine, consultez les pages suivantes.
 
-- [Azure DNS prend en charge l’utilisation d’enregistrements d’alias pour les domaines personnalisés](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Empêcher les enregistrements DNS non résolus avec Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Recours à l’ID de vérification du domaine lors de l’ajout de domaines personnalisés dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Utiliser un ID de vérification du domaine lors de l’ajout de domaines personnalisés dans Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Démarrage rapide : Exécution d’une requête Resource Graph à l’aide d’Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Démarrage rapide : Exécution d’une requête Resource Graph à l’aide d’Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

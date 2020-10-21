@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605737"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777785"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Il vous est recommandé de configurer le débit au niveau de la granularité du 
 
 L’illustration suivante montre comment une partition physique héberge une ou plusieurs partitions logiques d’un conteneur :
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partition physique" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Définir le débit sur une base de données
 
@@ -75,7 +75,7 @@ Si votre compte Azure Cosmos DB contient déjà une base de données à débit p
 
 Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partition physique" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Définir le débit sur une base de données et un conteneur
 
@@ -84,7 +84,7 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 * Vous pouvez créer une base de données Azure Cosmos nommée *« Z »* avec le débit approvisionné standard (manuel) des unités de requête *« K »* . 
 * Créez ensuite cinq conteneurs nommés *A*, *B*, *C*, *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Notez que vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Définition du débit au niveau du conteneur":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur":::
 
 * Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A*, *C*, *D*, et *E*. La quantité exacte de débit disponible pour *A*, *C*, *D*, ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé *B* est assuré de bénéficier en permanence du débit des unités de requête *« P »* . Il est associé à des contrats SLA.
@@ -105,11 +105,11 @@ Pour estimer le [débit provisionné minimal](concepts-limits.md#storage-and-dat
 
 La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour voir l’historique du débit provisionné (RU/s) et du stockage sur une ressource.
 
-Vous pouvez récupérer le débit minimum d’un conteneur ou d’une base de données par programmation en utilisant les SDK ou visualiser la valeur dans le Portail Microsoft Azure. Lorsque vous utilisez le SDK .NET, la méthode [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) vous permet d’adapter la valeur de débit provisionnée. Lorsque vous utilisez le SDK Java, la méthode [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) vous permet d’adapter la valeur de débit provisionnée. 
+Vous pouvez récupérer le débit minimum d’un conteneur ou d’une base de données par programmation en utilisant les SDK ou visualiser la valeur dans le Portail Microsoft Azure. Lorsque vous utilisez le SDK .NET, la méthode [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) vous permet d'adapter la valeur de débit approvisionnée. Lorsque vous utilisez le SDK Java, la méthode [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) vous permet d'adapter la valeur de débit approvisionnée.
 
-Lors de l’utilisation du SDK.NET, la méthode [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) vous permet de récupérer le débit minimum d’un conteneur ou d’une base de données. 
+Lorsque vous utilisez le SDK.NET, la méthode [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) vous permet de récupérer le débit minimum d'un conteneur ou d'une base de données. 
 
-Vous pouvez à tout moment faire évoluer le débit provisionné d’un conteneur ou d’une base de données. Lorsqu’une opération de mise à l’échelle est effectuée pour augmenter le débit, il peut s’écouler plus de temps en raison des tâches du système pour fournir les ressources nécessaires. Vous pouvez vérifier l’état du fonctionnement de la mise à l’échelle dans le Portail Microsoft Azure ou par programmation à l’aide des SDK. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez obtenir l’état de l’opération de mise à l’échelle en utilisant la méthode `DocumentClient.ReadOfferAsync`.
+Vous pouvez à tout moment faire évoluer le débit provisionné d’un conteneur ou d’une base de données. Lorsqu’une opération de mise à l’échelle est effectuée pour augmenter le débit, il peut s’écouler plus de temps en raison des tâches du système pour fournir les ressources nécessaires. Vous pouvez vérifier l’état du fonctionnement de la mise à l’échelle dans le Portail Microsoft Azure ou par programmation à l’aide des SDK. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez obtenir l’état de l’opération de mise à l’échelle en utilisant la méthode `Container.ReadThroughputAsync`.
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 Ce tableau présente une comparaison entre l’approvisionnement du débit standard (manuel) sur une base de données et sur un conteneur. 

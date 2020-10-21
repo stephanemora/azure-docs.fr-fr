@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286551"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069980"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutoriel : Configurer l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors
 L’objectif de ce tutoriel est d’illustrer les étapes de l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors Employee Central. 
@@ -324,13 +324,23 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 
 1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
-2. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Étendue**. Vous pouvez sélectionner l’une des options suivantes : 
+   * **Synchroniser l’ensemble des utilisateurs et groupes** : Sélectionnez cette option si vous envisagez de réécrire des attributs mappés de tous les utilisateurs d’Azure AD dans SuccessFactors, selon les règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**. 
+   * **Synchroniser uniquement les utilisateurs et groupes assignés** : Sélectionnez cette option si vous envisagez de réécrire des attributs mappés des utilisateurs que vous avez assignés à cette application uniquement dans l’option de menu **Application** -> **Gérer** -> **Utilisateurs et groupes**. Ces utilisateurs sont également soumis aux règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**.
 
-3. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d’utilisateurs du locataire SuccessFactors. Vous pouvez consulter la barre de progression pour suivre la progression du cycle de synchronisation. 
+   > [!div class="mx-imgBorder"]
+   > ![Sélectionner l’étendue d’écriture différée](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit listent tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus à partir d’Employee Central, puis ajoutés ou mis à jour dans Active Directory. 
+   > [!NOTE]
+   > L’application d’approvisionnement de l’écriture différée SuccessFactors ne prend pas en charge l’« affectation de groupe ». Seule l’« attribution d’utilisateur » est prise en charge. 
 
-5. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
+1. Cliquez sur **Enregistrer**.
+
+1. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d’utilisateurs du locataire Azure AD et de l’étendue définie pour l’opération. Vous pouvez consulter la barre de progression pour suivre la progression du cycle de synchronisation. 
+
+1. À tout moment, consultez l’onglet **Journaux d’approvisionnement** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’approvisionnement répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement. 
+
+1. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
 
    > [!div class="mx-imgBorder"]
    > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

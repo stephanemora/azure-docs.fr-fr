@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325149"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445777"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -364,15 +364,15 @@ Sur la page **Vue d’ensemble** de votre espace de travail Log Analytics dans l
 
 Vous pouvez utiliser le panneau **Agents qui capturent le trafic réseau** pour déterminer quelle quantité de bande passante réseau est consommée par les ordinateurs. Il vous permet de trouver facilement l’ordinateur _qui communique le plus_ dans votre environnement. Ces ordinateurs peuvent être surchargés, agir de façon anormale ou utiliser plus de ressources réseau que la normale.
 
-![Exemple de recherche de journal](./media/wire-data/log-search-example01.png)
+![Capture d’écran du panneau Agents qui capturent le trafic réseau dans le tableau de bord de Wire Data 2.0, montrant la bande passante réseau consommée par chaque ordinateur.](./media/wire-data/log-search-example01.png)
 
 De même, vous pouvez utiliser le panneau **Sous-réseaux locaux** pour déterminer quelle quantité de trafic réseau circule sur vos sous-réseaux. Les utilisateurs définissent souvent des sous-réseaux autour des zones critiques de leurs applications. Ce panneau permet de surveiller ces zones.
 
-![Exemple de recherche de journal](./media/wire-data/log-search-example02.png)
+![Capture d’écran du panneau Sous-réseaux locaux dans le tableau de bord de Wire Data 2.0, montrant la bande passante réseau consommée par chaque LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 Le Panneau **Protocoles de niveau application** est utile, car il permet de savoir quels protocoles sont en cours d’utilisation. Par exemple, vous pouvez vouloir que SSH ne soit pas utilisé dans votre environnement réseau. Les informations disponibles sur le panneau peuvent le confirmer ou le démentir rapidement.
 
-![Exemple de recherche de journal](./media/wire-data/log-search-example03.png)
+![Capture d’écran du panneau Protocoles au niveau de l’application dans le tableau de bord de Wire Data 2.0, montrant la bande passante réseau consommée par chaque protocole.](./media/wire-data/log-search-example03.png)
 
 Il est également utile de savoir si le trafic des protocoles augmente ou diminue au fil du temps. Par exemple, si la quantité de données transmises par une application augmente, il peut être nécessaire ou intéressant de le savoir.
 

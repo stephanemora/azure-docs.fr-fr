@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083818"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397961"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -197,11 +197,11 @@ Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le ser
 
 #### <a name="possible-cause"></a>Cause probable
 
-Impossible d’établir une connexion aux points de terminaison IP4 d’identité et d’authentification Office 365.
+Impossible d'établir une connexion avec les points de terminaison IP4 d'identité et d'authentification Microsoft 365.
 
 #### <a name="fix-the-problem"></a>Résoudre le problème
 
-Azure Site Recovery exigeait l’accès aux plages d’adresses IP d’Office 365 pour l’authentification.
+Azure Site Recovery exigeait l'accès aux plages d'adresses IP Microsoft 365 pour l'authentification.
 Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’utiliser une règle de groupe de sécurité réseau basée sur les [balises de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à AAD. Nous ne prenons plus en charge les règles de groupe de sécurité réseau basées sur les adresses IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (151197)
@@ -281,14 +281,14 @@ Pour rétablir l’intégrité de l’état de réplication à la machine virtue
 1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_ > **Disques**.
 1. Sélectionnez le disque non protégé, puis sélectionnez **Activer la réplication** :
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Activez la réplication sur des disques de machine virtuelle.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-error.":::
 
 #### <a name="to-dismiss-the-warning"></a>Pour ignorer l’avertissement
 
 1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_.
 1. Sélectionnez l’avertissement dans la section **Vue d’ensemble**, puis sélectionnez **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignorez l’avertissement relatif au nouveau disque.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-error.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Suppression de la machine virtuelle du coffre terminée avec des informations (code d'erreur 150225)
 
@@ -309,7 +309,7 @@ Vous pouvez ignorer cet avertissement si vous n’envisagez pas de protéger à 
 
 1. Supprimez le verrou de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
@@ -334,7 +334,7 @@ Une configuration obsolète peut se produire sur une machine virtuelle Azure si 
 
 1. Supprimez le verrou de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
@@ -367,7 +367,7 @@ Il est possible que la machine virtuelle que vous voulez activer pour la réplic
 
 1. Supprimez le verrou, le cas échéant, de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
@@ -404,17 +404,17 @@ Pour activer la réplication sur la machine virtuelle, son état de provisionnem
 
 Lors de la configuration de la récupération d'urgence, si la machine virtuelle source fait partie d'un réseau virtuel et qu'une autre machine virtuelle du même réseau virtuel est déjà mappée à un réseau dans le groupe de ressources cible, la zone de liste déroulante de sélection du réseau est indisponible (grisée) par défaut.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Liste de sélection du réseau non disponible.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-error.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problème2 : Vous avez précédemment protégé la machine virtuelle, puis désactivé la réplication
 
 La désactivation de la réplication d’une machine virtuelle ne supprime pas le mappage réseau. Le mappage doit être supprimé du coffre Recovery Services dans lequel la machine virtuelle a été protégée. Sélectionnez le **coffre Recovery Services** et accédez à **Gérer** > **Infrastructure Site Recovery** > **Pour les machines virtuelles Azure** > **Mappage réseau**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Supprimez un mappage réseau.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-error.":::
 
 Le réseau cible qui a été défini lors de la configuration de la récupération d'urgence peut être modifié après la configuration initiale, une fois la machine virtuelle protégée. Pour **modifier le mappage réseau**, sélectionnez le nom du réseau :
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modifiez un mappage réseau.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-error.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ ou VSS (code d'erreur 151025)
@@ -437,7 +437,7 @@ Définissez les services Application système COM+ et Cliché instantané de vol
 1. Ouvrez la console Services dans Windows.
 1. Vérifiez que les services Application système COM+ et Cliché instantané de volume ne sont pas définis sur **Désactivé** pour leur **Type de démarrage**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Vérifiez le type de démarrage des services Application système COM+ et Cliché instantané de volume.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-error.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Taille de disque managé non prise en charge (code d’erreur 150172)
 

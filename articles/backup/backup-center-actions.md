@@ -3,12 +3,12 @@ title: Effectuer des actions à l’aide du Centre de sauvegarde
 description: Cet article explique comment effectuer des actions à l’aide du Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992992"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854424"
 ---
 # <a name="perform-actions-using-backup-center"></a>Effectuer des actions à l’aide du Centre de sauvegarde
 
@@ -70,7 +70,7 @@ Selon le type de source de données que vous souhaitez restaurer, suivez les ins
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Si vous restaurez un serveur Azure Database pour PostgreSQL
 
 1. Accédez au Centre de sauvegarde et sélectionnez **Restaurer** en haut de l’onglet **Vue d’ensemble**.
-2. Sélectionnez le type de source de données que vous souhaitez sauvegarder (serveur Azure Database pour PostgreSQL dans le cas présent).
+2. Sélectionnez le type de source de données que vous souhaitez restaurer (serveur Azure Database pour PostgreSQL dans le cas présent).
 
     ![Sélectionner une source de données pour restaurer le serveur Azure Database pour PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

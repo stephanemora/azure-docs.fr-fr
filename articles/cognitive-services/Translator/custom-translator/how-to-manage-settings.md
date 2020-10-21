@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91757025"
 ---
 # <a name="how-to-manage-settings"></a>Comment gérer les paramètres
 
@@ -51,6 +51,8 @@ Si vous n’avez pas d’abonnement, procédez comme suit :
 
     ![Créer une boîte de dialogue d’espace de travail](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Custom Translator ne prend pas en charge la création d’espace de travail pour la ressource de l’API de traduction de texte Translator Text (ou clé d’abonnement Azure) créée dans [Réseau virtuel activé](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modifier une clé existante
 
@@ -61,7 +63,7 @@ Si vous n’avez pas d’abonnement, procédez comme suit :
 
 3. Dans la boîte de dialogue, entrez la clé de votre abonnement à Translator, puis cliquez sur le bouton « Enregistrer ».
 
-    ![Comment ajouter une clé d’abonnement](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Boîte de dialogue Ajout d’une clé d’abonnement](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Gérer votre espace de travail
 

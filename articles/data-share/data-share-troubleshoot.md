@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 08/14/2020
-ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 10/02/2020
+ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257799"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761529"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -58,34 +58,15 @@ Vous avez besoin d’une autorisation d’écriture pour partager ou recevoir de
 
 S’il s’agit de la première fois que vous partagez ou recevez des données à partir du magasin de données Azure, vous devez également obtenir l’autorisation *Microsoft.Authorization/role assignments/write*, qui existe généralement dans le rôle Propriétaire. Même si vous avez créé la ressource de magasin de données Azure, cela ne fait PAS automatiquement de vous le propriétaire de la ressource. Avec l’autorisation appropriée, le service Azure Data Share accorde automatiquement à l’identité managée de la ressource de partage de données l’accès au magasin de données. La prise d’effet de ce processus peut prendre quelques minutes. Si vous rencontrez un problème en raison de ce délai, réessayez après quelques minutes.
 
-Le partage basé sur SQL nécessite des autorisations supplémentaires. Pour plus d’informations, consultez Résolution des problèmes de partage basé sur SQL.
-
-## <a name="troubleshooting-sql-based-sharing"></a>Résolution des problèmes de partage basé sur SQL
-
-« L’utilisateur x n’existe pas dans la base de données SQL »
-
-Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Database.  Pour résoudre ce problème, exécutez le script suivant :
-
-```sql
-    create user "<share_acct_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acct_name>";
-```      
-Si vous recevez ce message d’erreur lors du mappage du jeu de données à une cible SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
-
-```sql
-    create user "<share_acc_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-```
-Notez que *<share_acc_name>* est le nom de votre ressource Data Share.      
-
-Assurez-vous que vous avez suivi toutes les conditions préalables indiquées dans les didacticiels [Partager vos données](share-your-data.md) et [Accepter et recevoir des données](subscribe-to-data-share.md).
+Le partage basé sur SQL nécessite des autorisations supplémentaires. Consultez la liste détaillée des prérequis dans l’article [Partager à partir de sources SQL](how-to-share-from-sql.md).
 
 ## <a name="snapshot-failed"></a>Échec de la capture instantanée
-La capture instantanée peut échouer pour différentes raisons. Vous trouverez un message d’erreur détaillé en cliquant sur l’heure de début de la capture instantanée, puis sur l’état de chaque jeu de données. 
+La capture instantanée peut échouer pour différentes raisons. Vous trouverez un message d’erreur détaillé en cliquant sur l’heure de début de la capture instantanée, puis sur l’état de chaque jeu de données. Voici les raisons pour lesquelles l’instantané peut échouer :
 
-Si le message d’erreur est lié à l’autorisation, vérifiez que le service Data Share dispose de l’autorisation requise. Pour plus d’informations, consultez [Rôles et conditions requises](concepts-roles-permissions.md). Si c’est la première fois que vous prenez une capture instantanée, il peut falloir quelques minutes pour que la ressource Data Share soit autorisée à accéder au magasin de données Azure. Patientez quelques minutes et réessayez.
+* Data Share n’est pas autorisé à lire à partir du magasin de données source ou à écrire au magasin de données cible. Consultez la liste détaillée des autorisations requises dans l’article [Rôles et conditions requises](concepts-roles-permissions.md). Si c’est la première fois que vous prenez une capture instantanée, il peut falloir quelques minutes pour que la ressource Data Share soit autorisée à accéder au magasin de données Azure. Patientez quelques minutes et réessayez.
+* La connexion de Data Share au magasin de données source ou cible est bloquée par le pare-feu.
+* Le jeu de données partagé, ou le magasin de données source ou cible, est supprimé.
+* Pour le partage SQL, les types de données ne sont pas pris en charge par le processus d’instantané ou le magasin de données cible. Pour plus d’informations, consultez [Partager à partir de sources SQL](how-to-share-from-sql.md#supported-data-types).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516938"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91539127"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
-Cet article explique la différence entre les métriques Application Insights « traditionnelles » basées sur les journaux d'activité et les métriques pré-agrégées actuellement en préversion publique. Les deux types de métriques sont à la disposition des utilisateurs d’Application Insights et chacun présente des atouts uniques pour la surveillance de l’intégrité des applications, des diagnostics et des analyses. Les développeurs qui appliquent l’instrumentation aux applications décident quel type de métrique convient le mieux à un scénario donné, en fonction de la taille de l’application, du volume attendu de télémétrie et des besoins de l’entreprise en matière de précision des métriques et de génération d’alertes.
+Cet article explique la différence entre les métriques Application Insights « traditionnelles » basées sur les journaux d'activité et les métriques pré-agrégées. Les deux types de métriques sont à la disposition des utilisateurs d’Application Insights et chacun présente des atouts uniques pour la surveillance de l’intégrité des applications, des diagnostics et des analyses. Les développeurs qui appliquent l’instrumentation aux applications décident quel type de métrique convient le mieux à un scénario donné, en fonction de la taille de l’application, du volume attendu de télémétrie et des besoins de l’entreprise en matière de précision des métriques et de génération d’alertes.
 
 ## <a name="log-based-metrics"></a>Métriques basées sur le journal
 
-Jusqu’à récemment, le modèle de données de télémétrie de surveillance des applications dans Application Insights était uniquement basé sur un petit nombre de types prédéfinis d’événements, comme les requêtes, les exceptions, les appels de dépendance, les vues de page, etc. Les développeurs peuvent utiliser le Kit de développement logiciel (SDK) pour émettre ces événements manuellement (en écrivant du code qui appelle explicitement le SDK), ou bien ils peuvent se reposer sur la collecte automatique des événements assurée par l’instrumentation automatique. Dans les deux cas, le serveur principal d’Application Insights stocke tous les événements collectés sous forme de journaux d’activité. Dans le portail Azure, les panneaux Application Insights servent d’outil d’analyse et de diagnostic et permettent de visualiser les données basées sur les événements à partir des journaux d’activité.
+Auparavant, le modèle de données de télémétrie de surveillance des applications d'Application Insights était uniquement basé sur un petit nombre de types prédéfinis d'événements, comme les requêtes, les exceptions, les appels de dépendance, les consultations de pages, etc. Les développeurs peuvent utiliser le Kit de développement logiciel (SDK) pour émettre ces événements manuellement (en écrivant du code qui appelle explicitement le SDK), ou bien ils peuvent se reposer sur la collecte automatique des événements assurée par l’instrumentation automatique. Dans les deux cas, le serveur principal d’Application Insights stocke tous les événements collectés sous forme de journaux d’activité. Dans le portail Azure, les panneaux Application Insights servent d’outil d’analyse et de diagnostic et permettent de visualiser les données basées sur les événements à partir des journaux d’activité.
 
 L’utilisation de journaux d’activité pour conserver un ensemble complet d’événements présente un grand avantage en termes d’analyse et de diagnostic. Vous pouvez par exemple obtenir le nombre exact de requêtes envoyées vers une URL donnée avec le nombre d’utilisateurs distincts ayant effectué ces appels. Ou bien vous pouvez obtenir des rapports d’appels de procédures détaillés pour le diagnostic, notamment les exceptions et les appels de dépendance de n’importe quelle session utilisateur. Ce type d’information améliore considérablement la visibilité sur l’intégrité et l’utilisation des applications, diminuant le temps nécessaire pour diagnostiquer les problèmes avec une application.
 
@@ -35,7 +35,7 @@ Outre les métriques basées sur le journal, fin 2018, l'équipe Application Ins
 > [!IMPORTANT]
 > Les métriques basées sur le journal et pré-agrégées coexistent dans Application Insights. Pour différencier les deux, dans l'expérience utilisateur Application Insights, les métriques pré-agrégées sont maintenant appelées « Métriques standard (préversion) », tandis que les métriques traditionnelles des événements ont été renommées « Métriques basées sur le journal ».
 
-Les kits de développement logiciel les plus récents (SDK [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) ou version ultérieure pour .NET) pré-agrègent les métriques durant la collecte, avant que les techniques de réduction du volume de données de télémétrie entrent en action. Ainsi, la précision des nouvelles métriques n'est pas affectée par l'échantillonnage et le filtrage lors de l'utilisation des SDK Application Insights les plus récents.
+Les kits de développement logiciel les plus récents (SDK [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) ou version ultérieure pour .NET) pré-agrègent les métriques pendant la collecte. Cela s'applique aux [métriques standard envoyées par défaut](../platform/metrics-supported.md#microsoftinsightscomponents) afin que la précision ne soit pas affectée par l'échantillonnage ou le filtrage. Cela s'applique également aux métriques personnalisées envoyées à l'aide de [GetMetric](./api-custom-events-metrics.md#getmetric), ce qui permet de réduire l'ingestion de données et les coûts.
 
 Lorsque les SDK n'implémentent pas la pré-agrégation (ce qui est le cas avec les anciennes versions des SDK Application Insights ou pour l'instrumentation du navigateur), le serveur principal d'Application Insights continue à renseigner les nouvelles métriques en agrégeant les événements reçus par le point de terminaison de collecte des événements d'Application Insights. Ainsi, même si vous ne bénéficiez pas de la réduction du volume de données transmises sur le réseau, vous pouvez utiliser les métriques pré-agrégées et profiter de performances et d'une prise en charge améliorées de la génération d'alertes dimensionnelles quasiment en temps réel avec des kits de développement logiciel (SDK) qui ne pré-agrègent pas les métriques pendant la collecte.
 

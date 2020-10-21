@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: 91455e4797324f28f911dd8a928410517a951728
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531744"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946142"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propriété type de la source de l’activité de copie doit être définie sur **ParquetSink**. | Oui      |
+| type          | La propriété type du récepteur de l’activité de copie doit être définie sur **ParquetSink**. | Oui      |
 | formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres d’écriture Parquet** ci-dessous. |    Non      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
@@ -108,6 +108,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source Pa
 | Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source | non | String | rowUrlColumn |
 | Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
+| N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemple de source
 
@@ -126,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>Propriétés du récepteur
 
-Le tableau ci-dessous liste les propriétés prises en charge par une source Parquet. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**.
+Le tableau ci-dessous liste les propriétés prises en charge par un récepteur Parquet. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**.
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -155,7 +156,7 @@ ParquetSource sink(
 
 ## <a name="data-type-support"></a>Prise en charge des types de données
 
-Les types de données complexes Parquet ne sont actuellement pas pris en charge (par ex., MAP, LIST, STRUCT).
+Les types de données complexes Parquet (par exemple, MAP, LIST, STRUCT) ne sont actuellement pris en charge que dans des Data Flows, et non dans l’activité de copie. Pour utiliser des types complexes dans des flux de données, n’importez pas le schéma de fichier dans le jeu de données, en laissant ainsi le schéma vide dans le jeu de données. Ensuite, dans la transformation de la source, importez la projection.
 
 ## <a name="using-self-hosted-integration-runtime"></a>Utilisation du runtime d’intégration auto-hébergé
 

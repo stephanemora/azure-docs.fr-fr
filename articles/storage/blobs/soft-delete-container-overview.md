@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228628"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460796"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -42,11 +42,7 @@ La désactivation de la suppression réversible de conteneur n’entraîne pas l
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
-La suppression réversible de conteneur est disponible en préversion dans les régions suivantes :
-
-- France Centre
-- Est du Canada
-- Centre du Canada
+La suppression réversible de conteneur est disponible en préversion dans toutes les régions Azure.
 
 > [!IMPORTANT]
 > La préversion de la suppression réversible de conteneur est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
@@ -123,4 +119,4 @@ Aucuns frais supplémentaires ne sont facturés pour activer la suppression rév
 
 - [Configuration de la suppression réversible de conteneur](soft-delete-container-enable.md)
 - [Suppression réversible pour les objets blob](soft-delete-blob-overview.md)
-- [Gestion des versions d’objets blob](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)

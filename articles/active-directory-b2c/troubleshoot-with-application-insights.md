@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116072"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993165"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -89,7 +89,7 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 Il y a un court délai, généralement moins de cinq minutes, avant que les nouveaux journaux d’activité s’affichent dans Application Insights.
 
 1. Ouvrez la ressource Application Insights que vous avez créée sur le [portail Azure](https://portal.azure.com).
-1. Dans le menu **Vue d’ensemble**, sélectionnez **Analyse**.
+1. Dans la page **Vue d’ensemble**, sélectionnez **Journaux d’activité**.
 1. Ouvrez un nouvel onglet dans Application Insights.
 
 Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux d’activité :

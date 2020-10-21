@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 7f04483415253145cd485ccf870160e83a6e0e4b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4e5880a39d6ad299fd6e7f29bd0e3aefadc3bcd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319114"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446902"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envoi de messages cloud à appareil avec IoT Hub (Java)
 
@@ -88,14 +88,25 @@ Dans cette section, vous modifiez l’application d’appareil simulé créée d
     client.open();
     ```
 
-    > [!NOTE]
-    > Si vous utilisez HTTPS au lieu de MQTT ou d’AMQP comme moyen de transport, l’instance **DeviceClient** vérifie les messages à partir d’IoT Hub peu fréquemment (moins de toutes les 25 minutes). Pour plus d’informations sur les différences entre la prise en charge de MQTT, d’AMQP et de HTTPS et la limitation d’IoT Hub, consultez la [section sur les messages du Guide du développeur IoT Hub](iot-hub-devguide-messaging.md).
-
 4. Pour générer l’application **simulated-device** à l’aide de Maven, exécutez la commande suivante à l’invite de commandes dans le dossier simulated-device :
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
+
+La méthode `execute` dans la classe `AppMessageCallback` retourne `IotHubMessageResult.COMPLETE`. Cela notifie IoT Hub que le message a été traité avec succès et peut être supprimé en toute sécurité de la file d’attente de l’appareil. L’appareil doit retourner cette valeur quand son traitement se termine correctement, quel que soit le protocole utilisé.
+
+Avec AMQP et HTTPS, mais pas MQTT, l’appareil peut également :
+
+* abandonner un message - IoT Hub conserve alors le message dans la file d’attente de l’appareil pour un traitement ultérieur ;
+* rejeter un message, ce qui le supprime définitivement de la file d’attente de l’appareil.
+
+S’il se produit un événement qui empêche l’appareil de traiter, d’abandonner ou de rejeter le message, IoT Hub le met à nouveau en file d’attente après un délai d’attente déterminé. C’est la raison pour laquelle la logique de traitement des messages de l’application pour périphérique doit être *idempotente* pour qu’un message identique reçu plusieurs fois produise le même résultat.
+
+Pour plus d'informations sur la façon dont IoT Hub traite les messages cloud-à-appareil, y compris sur le cycle de vie des messages cloud-à-appareil, consultez [Envoyer des messages cloud-à-appareil à partir d'un hub IoT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Si vous utilisez HTTPS plutôt que MQTT ou AMQP comme moyen de transport, l'instance **DeviceClient** ne vérifie pas très souvent les messages provenant d'IoT Hub (au minimum toutes les 25 minutes). Pour plus d'informations sur les différences de prise en charge entre MQTT, AMQP et HTTPS, consultez [Conseils sur les communications cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) et [Choisir un protocole de communication](iot-hub-devguide-protocols.md).
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtenir la chaîne de connexion du hub IoT
 

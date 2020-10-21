@@ -3,14 +3,15 @@ title: Créer un pool Azure Batch sans adresses IP publiques
 description: Découvrez comment créer un pool sans adresses IP publiques
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/08/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962439"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850929"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Créer un pool Azure Batch sans adresses IP publiques
 
@@ -18,12 +19,12 @@ Lorsque vous créez un pool Azure Batch, vous pouvez provisionner le pool de con
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>Pourquoi utiliser un pool sans adresses IP publiques ?
 
-Par défaut, une adresse IP publique est affectée à tous les nœuds de calcul d’un pool de configuration de machine virtuelle Azure Batch. Cette adresse est utilisée par le service Batch pour planifier des tâches et pour communiquer avec les nœuds de calcul, notamment dans le cadre de l’accès sortant à Internet. 
+Par défaut, une adresse IP publique est affectée à tous les nœuds de calcul d’un pool de configuration de machine virtuelle Azure Batch. Cette adresse est utilisée par le service Batch pour planifier des tâches et pour communiquer avec les nœuds de calcul, notamment dans le cadre de l’accès sortant à Internet.
 
 Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces nœuds à partir d’Internet, vous pouvez provisionner le pool sans adresses IP publiques.
 
 > [!IMPORTANT]
-> Dans Azure Batch, la prise en charge des pools sans adresses IP publiques est actuellement en préversion publique dans les régions USA Centre-Ouest, USA Est, USA Centre Sud, USA Ouest 2, US Gov Virginie et US Gov Arizona.
+> La prise en charge des pools sans adresses IP publiques dans Azure Batch est actuellement en préversion publique pour les régions suivantes : France Centre, Asie Est, USA Centre-Ouest, USA Centre Sud, USA Ouest 2, USA Est, Europe Nord, USA Est 2, USA Centre, Europe Ouest, USA Centre Nord, USA Ouest, Australie Est, Japon Est, Japon Ouest.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -34,7 +35,7 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
   - Le réseau virtuel doit se trouver dans la même région et le même abonnement que le compte Batch utilisé pour créer le pool.
   - Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit.
   - Vous devez désactiver les stratégies relatives aux services de liaison privée et aux réseaux de points de terminaison. Pour cela, vous pouvez utiliser Azure CLI : ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+
 > [!IMPORTANT]
 > Pour chaque groupe de 100 nœuds dédiés ou basse priorité, Batch alloue un service de liaison privée et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être [demander une augmentation du quota](batch-quota-limit.md#increase-a-quota) pour une ou plusieurs de ces ressources. En outre, aucun verrou de ressource ne doit être appliqué à une ressource créée par Batch, puisque cela empêche le nettoyage des ressources à la suite d’actions lancées par l’utilisateur, telles que la suppression d’un pool ou le redimensionnement à zéro.
 
@@ -46,7 +47,7 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Créer un pool sans adresses IP publiques dans le portail Azure
 
-1. Accédez à votre compte  Batch dans le portail Azure. 
+1. Accédez à votre compte  Batch dans le portail Azure.
 1. Dans la fenêtre **Paramètres** située à gauche, sélectionnez **Pools**.
 1. Dans la fenêtre **Pools**, sélectionnez **Ajouter**.
 1. Dans la fenêtre **Ajouter un pool**, sélectionnez l’option que vous souhaitez utiliser à partir de la liste déroulante **Type d’image**.
@@ -55,7 +56,7 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
 1. Vous pouvez également sélectionner le réseau virtuel et le sous-réseau que vous souhaitez utiliser. Ce réseau virtuel doit se trouver dans le même groupe de ressources que le pool que vous créez.
 1. Dans **Type de provisionnement des adresses IP**, sélectionnez **NoPublicIPAddresses**.
 
-![Écran Ajouter un pool avec l’option NoPublicIPAddresses sélectionnée](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Capture de l’écran Ajouter un pool avec l’option NoPublicIPAddresses sélectionnée.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Utiliser l’API REST Batch pour créer un pool sans adresses IP publiques
 
@@ -91,7 +92,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

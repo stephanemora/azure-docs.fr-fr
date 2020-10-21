@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825359"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448455"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -169,7 +169,7 @@ Certains processus jouent des rôles particuliers sur les machines : serveurs w
 
 Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
 
-![Connexions ayant échoué](media/service-map/failed-connections.png)
+![Capture d'écran d'une partie d'une solution Service Map dans laquelle une ligne rouge en pointillés est mise en surbrillance pour signaler que la connexion entre le processus backup.pl et le port 4475 a échoué.](media/service-map/failed-connections.png)
 
 Le fait de comprendre les connexions ayant échoué peut faciliter le dépannage, la validation de la migration, l’analyse de la sécurité et la compréhension globale de l’architecture. Les échecs de connexion sont parfois sans incidence, mais ils dénotent souvent directement un problème tel qu’un environnement de basculement devenant subitement inaccessible ou deux couches Application incapables de communiquer après une migration vers le cloud.
 
@@ -193,7 +193,7 @@ Les groupes de ports du serveur sont des zones qui représentent les ports de ch
 
 Un clic sur les points de suspension (...) en haut à droite d’un serveur permet d’afficher le menu contextuel de ce serveur.
 
-![Connexions ayant échoué](media/service-map/context-menu.png)
+![Capture d'écran représentant le menu contextuel d'un serveur dans Service Map. Le menu contient les options Charger la carte des serveurs et Afficher les self-links.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Charger la carte des serveurs
 
@@ -258,7 +258,7 @@ L’intégration de Service Map à Change Tracking est automatique quand les deu
 
 Le volet **Change Tracking d’une machine** affiche la liste de toutes les modifications, les plus récentes en tête, ainsi qu’un lien pour consulter des détails supplémentaires dans Recherche dans les journaux.
 
-![Volet Change Tracking d’une machine](media/service-map/change-tracking.png)
+![Capture d'écran du volet Change Tracking d'une machine dans Service Map.](media/service-map/change-tracking.png)
 
 L’illustration suivante est une vue détaillée d’un événement ModificationDeConfiguration que vous pourriez voir après avoir sélectionné **Afficher dans Log Analytics**.
 
@@ -300,7 +300,7 @@ L’intégration de Service Map à Update Management est automatique quand les d
 
 Le volet **Mises à jour de la machine** affiche les données de la solution Update Management pour le serveur sélectionné. Le volet affiche un récapitulatif de toutes les mises à jour manquantes pour le serveur pendant la période sélectionnée.
 
-![Volet Change Tracking d’une machine](media/service-map/machine-updates.png)
+![Capture d'écran du volet Mises à jour de la machine dans Service Map.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 

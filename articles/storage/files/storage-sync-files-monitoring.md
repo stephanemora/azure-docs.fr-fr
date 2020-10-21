@@ -4,15 +4,15 @@ description: Découvrez comment surveiller votre déploiement Azure File Sync à
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/05/2019
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271054"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448034"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -35,8 +35,10 @@ Utilisez [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview
 Les métriques pour Azure File Sync sont activées par défaut et sont envoyées à Azure Monitor toutes les 15 minutes.
 
 **Comment afficher les métriques d’Azure File Sync dans Azure Monitor**
-- Rendez-vous sur votre service de synchronisation **Storage Sync Service** dans le **portail Azure** et cliquez sur **Métriques**.
-- Cliquez dans la liste déroulante **Métrique** et sélectionnez la mesure que vous souhaitez visualiser.
+1. Rendez-vous sur votre service de synchronisation **Storage Sync Service** dans le **portail Azure** et cliquez sur **Métriques**.
+2. Cliquez dans la liste déroulante **Métrique** et sélectionnez la mesure que vous souhaitez visualiser.
+
+![Capture d’écran de métriques d’Azure File Sync](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monitor :
 
@@ -58,15 +60,15 @@ Les alertes vous avertissent de façon proactive lorsque des conditions signific
 
 **Guide pratique pour créer des alertes pour Azure File Sync**
 
-- Rendez-vous sur votre service de synchronisation **Storage Sync Service** dans le **Portail Azure**. 
-- Cliquez sur **Alertes** dans la section Surveillance, puis cliquez sur **+ Nouvelle règle d’alerte**.
-- Cliquez sur **Sélectionnez une condition** et fournissez les informations suivantes pour l’alerte : 
+1. Rendez-vous sur votre service de synchronisation **Storage Sync Service** dans le **Portail Azure**. 
+2. Cliquez sur **Alertes** dans la section Surveillance, puis cliquez sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Sélectionnez une condition** et fournissez les informations suivantes pour l’alerte : 
     - **Mesure**
     - **Nom de la dimension**
     - **Logique d'alerte**
-- Cliquez sur **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-- Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
-- Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.  
+4. Cliquez sur **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+5. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
+6. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.  
 
 Le tableau suivant répertorie quelques exemples de scénarios destinés à la surveillance ainsi que la métrique appropriée à utiliser pour l’alerte :
 
@@ -96,6 +98,8 @@ Pour visualiser l’intégrité de votre déploiement Azure File Sync dans le **
 
 Pour afficher l’**intégrité du serveur inscrit** dans le portail, accédez à la section **Serveurs inscrits** du **Service de synchronisation de stockage**.
 
+![Capture d’écran de l’intégrité des serveurs inscrits](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+
 - Si l'état du **serveur inscrit** est défini sur **En ligne**, cela signifie que le serveur communique avec le service.
 - Si l’état du **serveur inscrit** est **Apparaître hors connexion**, ce problème peut se produire si le processus de supervision de la synchronisation du stockage (AzureStorageSyncMonitor.exe) ne s’exécute pas ou que le serveur ne peut pas accéder au service Azure File Sync. Pour plus d’instructions, consultez la [documentation sur le dépannage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity).
 
@@ -103,7 +107,9 @@ Pour afficher l’**intégrité du serveur inscrit** dans le portail, accédez �
 
 Pour afficher l’intégrité d’un **point de terminaison de serveur**  dans le portail, accédez à la section **Groupes de synchronisation** du **service de synchronisation de stockage**, puis sélectionnez un **groupe de synchronisation**.
 
-- L’**intégrité du point de terminaison de serveur** et l’**activité de synchronisation** dans le portail sont basées sur les événements de synchronisation qui sont enregistrés dans le journal d’événements de télémétrie sur le serveur (ID 9102 et 9302). Si une session de synchronisation échoue à cause d’une erreur transitoire, telle qu’une erreur annulée, la synchronisation apparaît toujours comme saine sur le portail tant que la session de synchronisation progresse (les fichiers sont appliqués). L’événement ID 9302 est l’événement de progression de la synchronisation et l’événement ID 9102 est consigné une fois la session de synchronisation terminée.  Pour plus d'informations, consultez [Intégrité de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) et [Progression de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si le portail affiche une erreur parce que la synchronisation ne progresse pas, consultez la [documentation de dépannage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) pour obtenir des conseils.
+![Capture d’écran de l’intégrité du point de terminaison de serveur](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+
+- L’**intégrité du point de terminaison de serveur** et l’**activité de synchronisation** dans le portail sont basées sur les événements de synchronisation qui sont enregistrés dans le journal d’événements de télémétrie sur le serveur (ID 9102 et 9302). Si une session de synchronisation échoue à cause d’une erreur transitoire, telle qu’une erreur annulée, le point de terminaison de serveur apparaît toujours comme **sain** sur le portail tant que la session de synchronisation progresse (les fichiers sont appliqués). L’événement ID 9302 est l’événement de progression de la synchronisation et l’événement ID 9102 est consigné une fois la session de synchronisation terminée.  Pour plus d'informations, consultez [Intégrité de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) et [Progression de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si l’intégrité du point de terminaison de serveur affiche une **Erreur** ou **Aucune activité**, consultez la [documentation sur la résolution des problèmes](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) pour obtenir de l’aide.
 - Le nombre de fichiers **non synchronisés** dans le portail est basé sur l’ID d’événement 9121 qui est consigné dans le journal des événements de télémétrie sur le serveur. Cet événement est journalisé pour chaque erreur par élément une fois la session de synchronisation terminée. Pour résoudre ce type d’erreur, consultez [Comment puis-je voir s’il existe des fichiers ou dossiers qui ne sont pas synchronisés ?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - Pour visualiser l’**efficacité de la hiérarchisation cloud** dans le portail, accédez à la section **Propriétés du point de terminaison de serveur**, puis à la section **Hiérarchisation cloud**. Les données fournies pour l’efficacité de la hiérarchisation cloud sont basées sur l’événement ID 9071 qui est consigné dans le journal des événements de télémétrie sur le serveur. Pour plus d’informations, consultez [Vue d’ensemble de la hiérarchisation cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
 - Pour visualiser les **fichiers non hiérarchisés** et les **erreurs de rappel** dans le portail, accédez à la section **Propriétés du point de terminaison de serveur**, puis à la section **Hiérarchisation cloud**. Les **fichiers non hiérarchisés** sont basés sur l’ID d’événement 9003 qui est consigné dans le journal des événements de télémétrie sur le serveur et les **erreurs de rappel** sont basées sur l’ID d’événement 9006. Pour examiner les fichiers qui ne peuvent pas être hiérarchisés ou rappelés, consultez [Résoudre les problèmes de hiérarchisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) et [Résoudre les problèmes de hiérarchisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -142,7 +148,7 @@ Intégrité de la synchronisation
 
 - L’ID d’événement 9121 est journalisé pour chaque erreur par élément une fois la session de synchronisation terminée. Utilisez cet événement pour déterminer le nombre de fichiers qui ne se synchronisent pas avec cette erreur (**PersistentCount** et **TransientCount**). Pour savoir rechercher les erreurs persistantes par élément, consultez [Comment puis-je voir s’il existe des fichiers ou dossiers qui ne sont pas synchronisés ?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- L’ID d’événement 9302 est enregistré toutes les 5 à 10 minutes s’il existe une session de synchronisation active. Utilisez cet événement pour déterminer si la session de synchronisation actuelle progresse (**AppliedItemCount > 0**). Si la synchronisation ne progresse pas, la session de synchronisation peut finir par échouer, et un ID d'événement 9102 est enregistré avec l'erreur. Pour plus d'informations, consultez la [documentation consacrée à la progression de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- L’ID d’événement 9302 est enregistré toutes les 5 à 10 minutes s’il existe une session de synchronisation active. Utilisez cet événement pour déterminer le nombre d’éléments qui doivent être synchronisés (**TotalItemCount**), le nombre d’éléments qui ont été synchronisés jusqu’à présent (**AppliedItemCount**) et le nombre d’éléments dont la synchronisation a échoué en raison d’une erreur par élément (**PerItemErrorCount**). Si la synchronisation ne progresse pas (**AppliedItemCount=0**), la session de synchronisation finira par échouer, et un ID d’événement 9102 sera journalisé avec l’erreur. Pour plus d'informations, consultez la [documentation consacrée à la progression de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Intégrité du serveur inscrit
 
@@ -248,6 +254,7 @@ Cette section propose des exemples d’alertes pour Azure File Sync.
      - Type d’agrégation : **Maximum**  
      - Valeur de seuil (en octets) : **1** 
      - Évaluées sur la base de : Granularité de l’agrégation = **1 heure** | Fréquence d’évaluation = **toutes les 30 minutes** 
+        - Notez que les métriques sont envoyées à Azure Monitor toutes les 15 à 20 minutes. Ne définissez pas la **Fréquence d’évaluation** sur une valeur inférieure à 30 minutes (générera des alertes erronées).
      - Cliquez sur **Terminé.** 
 8. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 9. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).

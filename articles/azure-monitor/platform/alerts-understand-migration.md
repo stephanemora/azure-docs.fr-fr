@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852393"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875918"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Comprendre les options de migration vers les alertes plus récentes
 
@@ -254,10 +254,12 @@ Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux 
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Une stratégie avec effet de refus nous empêche de migrer vos règles
 
-Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, une stratégie peut nous empêcher de créer des ressources. En fonction de la stratégie, certaines ou l’intégralité des règles n’ont pas pu être migrées. Les stratégies qui bloquent le processus sont listées dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Pour résoudre ce problème, effectuez l’une ou l’autre des étapes suivantes :
+Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, une affectation [Azure Policy](../../governance/policy/index.yml) peut nous empêcher de créer des ressources. En fonction de l’affectation de stratégie, certaines ou l’intégralité des règles n’ont pas pu être migrées. Les affectations de stratégie qui bloquent le processus sont listées dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Pour résoudre ce problème, effectuez l’une ou l’autre des étapes suivantes :
 
-- Excluez les abonnements ou les groupes de ressources pendant la durée du processus de migration à partir de l’attribution de stratégie. [En savoir plus sur la gestion de l’étendue de l’exclusion des stratégies](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Supprimez l’effet de refus ou modifiez-le en le remplaçant par un effet d’audit ou d’ajout (qui, par exemple, permet de résoudre les problèmes liés aux balises manquantes). [En savoir plus sur la gestion de l’effet des stratégies](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Excluez les abonnements, les groupes de ressources ou les ressources individuelles pendant la durée du processus de migration à partir de l’affectation de stratégie. [En savoir plus sur la gestion des étendues de l’exclusion de stratégie](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Définissez le « mode d’application » sur **Désactivé** sur l’affectation de stratégie. [En savoir plus sur la propriété enforcementMode de l’affectation de stratégie](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Définissez une exemption Azure Policy (préversion) sur les abonnements, les groupes de ressources ou les ressources individuelles pour l’affectation de stratégie. [En savoir plus sur la structure d’exemption Azure Policy](../../governance/policy/concepts/exemption-structure.md).
+- Supprimez l’effet ou modifiez-le en le remplaçant par un effet désactivé, d’audit, d’ajout ou de modification (qui, par exemple, permet de résoudre les problèmes liés aux balises manquantes). [En savoir plus sur la gestion des effets de stratégie](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

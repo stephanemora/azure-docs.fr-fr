@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9402b1d38457c979f00d05f56b8ed45d2d37dfca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971675"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91290039"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
@@ -72,9 +72,11 @@ Dans la page **Source de données**, la source doit être **Cosmos DB**, avec le
 
 + Le **Nom** correspond au nom de l’objet source de données. Une fois créé, vous pouvez le choisir pour d’autres charges de travail.
 
-+ Un **compte Cosmos DB** doit être la chaîne de connexion primaire ou secondaire à partir de Cosmos DB au format suivant : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;`.
-    + Pour les **collections MongoDB** des versions 3.2 et 3.6, utilisez le format suivant pour le compte Cosmos DB dans le portail Azure : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-    + Pour les **graphes Gremlin et les tables Cassandra**, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.
++ Le **compte Cosmos DB** doit être dans l'un des formats suivants :
+    1. La chaîne de connexion primaire ou secondaire de Cosmos DB au format suivant : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;`.
+        + Pour les **collections MongoDB** des versions 3.2 et 3.6, utilisez le format suivant pour le compte Cosmos DB dans le portail Azure : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+        + Pour les **graphes Gremlin et les tables Cassandra**, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.
+    1.  Une chaîne de connexion d'identité managée au format suivant qui n'inclut pas de clé de compte : `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)`. Pour utiliser ce format de chaîne de connexion, reportez-vous à [Configurer une connexion d'indexeur à une base de données Cosmos DB à l'aide d'une identité managée](search-howto-managed-identities-cosmos-db.md) et suivez les instructions fournies.
 
 + La **Base de données** correspond à une base de données existante à partir du compte. 
 
@@ -183,7 +185,7 @@ Le corps de la requête contient la définition de la source de données, qui do
 |---------|-------------|
 | **name** | Obligatoire. Choisissez un nom pour représenter votre objet source de données. |
 |**type**| Obligatoire. Doit être `cosmosdb`. |
-|**credentials** | Obligatoire. Doit être une chaîne de connexion Cosmos DB.<br/><br/>Pour les **collections SQL**, les chaînes de connexion sont au format suivant : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Pour les **collections MongoDB** des versions 3.2 et 3.6, utilisez le format suivant pour la chaîne de connexion : `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Pour les **graphes Gremlin et les tables Cassandra**, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.<br/><br/>Évitez les numéros de port dans l’URL du point de terminaison. Si vous incluez le numéro de port, Recherche cognitive Azure ne peut pas indexer votre base de données Azure Cosmos DB.|
+|**credentials** | Obligatoire. Doit suivre le format de chaîne de connexion Cosmos DB ou un format de chaîne de connexion d'identité managée.<br/><br/>Pour les **collections SQL**, les chaînes de connexion peuvent suivre l'un des formats ci-dessous : <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Une chaîne de connexion d'identité managée au format suivant qui n'inclut pas de clé de compte : `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;`. Pour utiliser ce format de chaîne de connexion, reportez-vous à [Configurer une connexion d'indexeur à une base de données Cosmos DB à l'aide d'une identité managée](search-howto-managed-identities-cosmos-db.md) et suivez les instructions fournies.<br/><br/>Pour les versions 3.2 et 3.6 des **collections MongoDB**, utilisez l'un des formats suivants pour la chaîne de connexion : <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Une chaîne de connexion d'identité managée au format suivant qui n'inclut pas de clé de compte : `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;`. Pour utiliser ce format de chaîne de connexion, reportez-vous à [Configurer une connexion d'indexeur à une base de données Cosmos DB à l'aide d'une identité managée](search-howto-managed-identities-cosmos-db.md) et suivez les instructions fournies.<br/><br/>Pour les **graphes Gremlin et les tables Cassandra**, inscrivez-vous à la [préversion de l’indexeur contrôlé](https://aka.ms/azure-cognitive-search/indexer-preview) pour accéder à la préversion et aux informations sur la façon de mettre en forme les informations d’identification.<br/><br/>Évitez les numéros de port dans l’URL du point de terminaison. Si vous incluez le numéro de port, Recherche cognitive Azure ne peut pas indexer votre base de données Azure Cosmos DB.|
 | **container** | Contient les éléments suivants : <br/>**nom** : Obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.<br/>**query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d’un document JSON arbitraire de manière à ce qu’Azure Search puisse procéder à l’indexation.<br/>Pour l’API MongoDB, l’API Gremlin et l’API Cassandra, les requêtes ne sont pas prises en charge. |
 | **dataChangeDetectionPolicy** | Recommandé. Consultez la section [Indexation des documents modifiés](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facultatif. Consultez la section [Indexation des documents supprimés](#DataDeletionDetectionPolicy).|

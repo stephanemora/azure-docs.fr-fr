@@ -8,19 +8,77 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/06/2020
-ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530672"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
 
 
-Découvrez comment déboguer des pipelines et des déploiements Azure Machine Learning de manière interactive à l’aide de Visual Studio Code (VS Code) et [depugpy](https://github.com/microsoft/debugpy/).
+Découvrez comment déboguer des expériences, des pipelines et des déploiements Azure Machine Learning de manière interactive à l’aide de Visual Studio Code (VS Code) et de [depugpy](https://github.com/microsoft/debugpy/).
+
+## <a name="run-and-debug-experiments-locally"></a>Exécuter et déboguer des expériences localement
+
+Utilisez l’extension Azure Machine Learning pour valider, exécuter et déboguer vos expériences d’apprentissage automatique avant de les envoyer au cloud.
+
+### <a name="prerequisites"></a>Prérequis
+
+* Extension VS Code Azure Machine Learning (préversion). Pour plus d’informations, consultez [Configurer l’extension VS Code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* [Docker](https://www.docker.com/get-started)
+  * Docker Desktop pour Mac et Windows
+  * Moteur Docker pour Linux.
+* [Python 3](https://www.python.org/downloads/)
+
+> [!NOTE]
+> Sur Windows, veillez à [Configurer Docker pour utiliser des conteneurs Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
+> [!TIP]
+> Pour Windows, bien que cela ne soit pas obligatoire, il est vivement recommandé d’[utiliser Docker avec le Sous-système Windows pour Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+
+> [!IMPORTANT]
+> Avant d’exécuter votre expérience localement, assurez-vous que Docker est en cours d’exécution.
+
+### <a name="debug-experiment-locally"></a>Déboguer une expérience localement
+
+1. Dans VS Code, ouvrez l’affichage de l’extension Azure Machine Learning.
+1. Développez le nœud d’abonnement contenant votre espace de travail. Si vous n’en avez pas encore, vous pouvez [créer un espace de travail Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) à l’aide de l’extension.
+1. Développez le nœud de votre espace de travail.
+1. Cliquez avec le bouton droit sur le nœud **Expériences**, puis sélectionnez **Créer une expérience**. Quand vous y être invité, spécifiez un nom pour votre expérience.
+1. Développez le nœud **Expériences**, cliquez avec le bouton droit sur l’expérience que vous souhaitez exécuter, puis sélectionnez **Exécuter une expérience**.
+1. Dans la liste des options d’exécution de votre expérience, sélectionnez **Localement**.
+1. **Première utilisation sur Windows uniquement**. Lorsque vous êtes invité à autoriser le Partage de fichiers, sélectionnez **Oui**. Lorsque vous activez le partage de fichiers, Docker peut monter le répertoire contenant votre script sur le conteneur. En outre, il permet à Docker de stocker les journaux et les sorties de votre exécution dans un répertoire temporaire sur votre système.
+1. Sélectionnez **Oui** pour déboguer votre expérience. Sinon, sélectionnez **Non**. Si vous sélectionnez Non, votre expérience est exécutée localement sans être attachée au débogueur.
+1. Sélectionnez **Create new Run Configuration** (Créer une configuration de série de tests) pour créer votre configuration de série de tests. La configuration de série de tests définit le script que vous souhaitez exécuter, les dépendances et les jeux de données utilisés. Autrement, si vous en avez déjà un, sélectionnez-le dans la liste déroulante.
+    1. Choisissez votre environnement. Vous pouvez choisir n’importe que [environnement organisé Azure Machine Learning](resource-curated-environments.md) ou créer le vôtre.
+    1. Indiquez le nom du script que vous souhaitez exécuter. Le chemin d’accès est relatif au répertoire ouvert dans VS Code.
+    1. Indiquez si vous souhaitez utiliser un jeu de données Azure Machine Learning ou non. Vous pouvez créer des [jeux de données Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) à l’aide de l’extension.
+    1. Debugpy est requis pour attacher le débogueur au conteneur exécutant votre expérience. Pour ajouter debugpy en tant que dépendance, sélectionnez **Ajouter Debugpy**. Autrement, sélectionnez **Ignorer**. Si vous n’ajoutez pas debugpy en tant que dépendance, votre expérience s’exécute sans être attachée au débogueur.
+    1. Un fichier de configuration contenant vos paramètres de configuration de série de tests s’ouvre dans l’éditeur. Si vous êtes satisfait des paramètres, sélectionnez **Soumettre l’expérience**. Vous pouvez également ouvrir la palette de commandes (**Afficher > Palette de commandes**) à partir de la barre de menus, puis entrer la commande `Azure ML: Submit experiment` dans la zone de texte.
+1. Une fois votre expérience envoyée, une image Docker contenant votre script et les configurations spécifiées dans votre configuration de série de tests est créée.
+
+    Lorsque le processus de génération d’image Docker commence, le contenu du fichier `60_control_log.txt` est diffusé vers la console de sortie dans VS Code.
+
+    > [!NOTE]
+    > La première création de votre image Docker peut prendre plusieurs minutes.
+
+1. Une fois votre image générée, une invite s’affiche pour démarrer le débogueur. Définissez vos points d’arrêt dans votre script, puis sélectionnez **Démarrer le débogueur** quand vous êtes prêt à démarrer le débogage. Cela a pour effet d’attacher le débogueur VS Code au conteneur exécutant votre expérience. Ou bien, dans l’extension Azure Machine Learning, vous pouvez pointer sur le nœud de votre exécution actuelle et sélectionner l’icône de lecture pour démarrer le débogueur.
+
+    > [!IMPORTANT]
+    > Vous ne pouvez pas avoir plusieurs sessions de débogage pour une seule expérience. Vous pouvez cependant déboguer au moins deux expériences à l’aide de plusieurs instances VS Code.
+
+À ce stade, vous devriez être en mesure d’effectuer un pas à pas détaillé et de déboguer votre code à l’aide de VS Code.
+
+Si, à un point quelconque, vous souhaitez annuler votre exécution, cliquez avec le bouton droit sur le nœud d’exécution, puis sélectionnez **Annuler l’exécution**.
+
+Comme pour les exécutions d’expérience à distance, vous pouvez développer votre nœud d’exécution pour inspecter les journaux et les sorties.
+
+> [!TIP]
+> Les images Docker qui utilisent les dépendances définies dans votre environnement sont réutilisées entre les exécutions. Toutefois, si vous exécutez une expérience à l’aide d’un environnement nouveau ou différent, une nouvelle image est créée. Étant donné que ces images sont enregistrées dans votre stockage local, il est recommandé de supprimer les images Docker anciennes ou inutilisées. Pour supprimer des images de votre système, utilisez l’[interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/rmi/) ou l’[extension Docker VS Code](https://code.visualstudio.com/docs/containers/overview).
 
 ## <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 
@@ -281,7 +339,7 @@ Enregistrez la valeur `ip_address`. Elles seront utilisées dans la section suiv
 Dans certains cas, vous devrez peut-être déboguer interactivement le code Python contenu dans votre modèle de déploiement. Par exemple, si le script d’entrée échoue pour une raison ne pouvant pas être déterminée par une journalisation supplémentaire. À l’aide de VS Code et de debugpy, vous pouvez attacher au code qui s’exécute dans le conteneur Docker.
 
 > [!IMPORTANT]
-> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Les déploiements de service web locaux nécessitent l’installation d’un Docker de travail sur votre système local. Pour plus d’informations sur l’utilisation de Docker, consultez la [documentation Docker](https://docs.docker.com/). Notez que, lorsque vous travaillez avec des instances de calcul, Docker est déjà installé.
 
@@ -416,7 +474,7 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
 
 À ce stade, VS Code se connecte à debugpy à l’intérieur du conteneur Docker et s’arrête au point d’arrêt que vous avez préalablement défini. Vous pouvez maintenant parcourir le code au fur et à mesure de son exécution, afficher des variables etc.
 
-Pour plus d’informations sur l’utilisation de VS Code pour déboguer Python, consultez [Déboguer votre code Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+Pour plus d’informations sur l’utilisation de VS Code pour déboguer Python, consultez [Déboguer votre code Python](https://code.visualstudio.com/docs/python/debugging).
 
 ### <a name="stop-the-container"></a>Arrêter le conteneur
 
@@ -428,6 +486,6 @@ docker stop debug
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré Visual Studio Code Remote, vous pouvez utiliser une instance de calcul comme calcul à distance à partir de Visual Studio Code pour déboguer votre code de manière interactive. 
+À présent que vous avez configuré VS Code Remote, vous pouvez utiliser une instance de calcul en tant que calcul à distance de VS Code pour déboguer votre code de manière interactive. 
 
 [Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](tutorial-1st-experiment-sdk-train.md) montre comment utiliser une instance de calcul avec un notebook intégré.

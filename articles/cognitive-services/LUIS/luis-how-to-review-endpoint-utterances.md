@@ -3,20 +3,18 @@ title: Passer en revue les énoncés de l’utilisateur – LUIS
 titleSuffix: Azure Cognitive Services
 description: Passez en revue les énoncés capturés par l’apprentissage actif afin de sélectionner l’intention et marquer les entités pour les énoncés du monde réel ; acceptez les modifications, entraînez et publiez.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055611"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541456"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
@@ -34,7 +32,7 @@ Utilisez le portail LUIS pour créer la requête de point de terminaison correct
 1. Pour la ressource de prédiction assignée, sélectionnez **Change query parameters** (Modifier les paramètres de requête).
 
     > [!div class="mx-imgBorder"]
-    > ![Utilisez le portail LUIS pour enregistrer les journaux, ce qui est nécessaire pour l’apprentissage actif.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Capture d'écran représentant le lien de modification des paramètres de requête.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Activez **Save logs** (Enregistrer les journaux), puis enregistrez en sélectionnant **Done**.
 

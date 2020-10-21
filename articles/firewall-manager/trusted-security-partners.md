@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563605"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399429"
 ---
 # <a name="what-are-security-partner-providers"></a>Que sont les fournisseurs de partenaire de sécurité ?
 
@@ -44,7 +44,7 @@ Les scénarios suivants sont pris en charge :
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Bonnes pratiques pour le filtrage du trafic Internet dans les hubs virtuels sécurisés
 
-Le trafic Internet comprend généralement le trafic web. Toutefois, il comprend également le trafic destiné aux applications SaaS comme Office 365 (O365) et aux services PaaS publics Azure tels que Stockage Azure et Azure SQL. Voici les bonnes pratiques recommandées pour gérer le trafic vers ces services :
+Le trafic Internet comprend généralement le trafic web. Toutefois, il comprend également le trafic destiné aux applications SaaS comme Microsoft 365 et aux services PaaS publics Azure tels que Stockage Azure et Azure SQL. Voici les bonnes pratiques recommandées pour gérer le trafic vers ces services :
 
 ### <a name="handling-azure-paas-traffic"></a>Gestion du trafic PaaS Azure
  
@@ -54,15 +54,15 @@ Le trafic Internet comprend généralement le trafic web. Toutefois, il comprend
 
 ![Tous les scénarios pour Azure Firewall Manager](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Gestion du trafic Office 365 (O365)
+## <a name="handling-microsoft-365-traffic"></a>Gestion du trafic Microsoft 365
 
-Dans les scénarios de positions de filiales à l’échelle mondiale, vous devez rediriger le trafic Office 365 directement au niveau de la filiale avant d’envoyer le reste du trafic Internet à votre hub sécurisé Azure.
+Dans les scénarios de positions de filiales à l’échelle mondiale, vous devez rediriger le trafic Microsoft 365 directement au niveau de la filiale avant d’envoyer le reste du trafic Internet à votre hub sécurisé Azure.
 
-Pour Office 365, la latence et les performances du réseau sont essentielles pour une expérience utilisateur réussie. Pour que les performances et l’expérience utilisateur soient optimales, les clients doivent implémenter un dispositif de déchargement direct et local pour Office 365 avant d’envisager de router le reste du trafic Internet via Azure.
+Pour Microsoft 365, la latence et les performances du réseau sont essentielles pour une expérience utilisateur réussie. Pour que les performances et l’expérience utilisateur soient optimales, les clients doivent implémenter un dispositif de déchargement direct et local pour Microsoft 365 avant d’envisager de router le reste du trafic Internet via Azure.
 
-Selon les [principes de connectivité réseau Office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles), les principales connexions réseau Office 365 doivent être routées localement à partir de l’appareil mobile ou de la filiale où se trouvent les utilisateurs et directement via Internet vers le point de présence réseau Microsoft le plus proche.
+Selon les [principes de connectivité réseau Microsoft 365](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles), les principales connexions réseau Microsoft 365 doivent être routées localement à partir de l’appareil mobile ou de la filiale où se trouvent les utilisateurs et directement via Internet vers le point de présence réseau Microsoft le plus proche.
 
-De plus, les connexions Office 365 sont chiffrées pour protéger la confidentialité et utilisent des protocoles propriétaires efficaces pour des raisons de performances. C’est pourquoi il est peu pratique et trop risqué de soumettre ces connexions à des solutions de sécurité de niveau réseau traditionnelles. Pour ces raisons, nous recommandons vivement aux clients d’envoyer le trafic Office 365 directement à partir des filiales, avant d’envoyer le reste du trafic via Azure. Microsoft s’est associé à plusieurs fournisseurs de solutions SD-WAN, qui s’intègrent à Azure et à Office 365 et permettent aux clients d’activer le déchargement direct et local du trafic Internet pour Office 365. Pour plus d’informations, consultez [Comment définir mes stratégies O365 via Virtual WAN ?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview).
+De plus, les connexions Microsoft 365 sont chiffrées pour protéger la confidentialité et utilisent des protocoles propriétaires efficaces pour des raisons de performances. C’est pourquoi il est peu pratique et trop risqué de soumettre ces connexions à des solutions de sécurité de niveau réseau traditionnelles. Pour ces raisons, nous recommandons vivement aux clients d’envoyer le trafic Microsoft 365 directement à partir des filiales, avant d’envoyer le reste du trafic via Azure. Microsoft s’est associé à plusieurs fournisseurs de solutions SD-WAN, qui s’intègrent avec Azure et Microsoft 365, et permettent aux clients d’activer le déchargement direct et local du trafic Internet pour Microsoft 365. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Virtual WAN ?](../virtual-wan/virtual-wan-about.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

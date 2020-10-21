@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666635"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403549"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -51,7 +51,7 @@ Une fois disponibles au point d’ingestion, les données peuvent être interrog
 ### <a name="management-solutions-collection"></a>Collecte des solutions de gestion
 Certaines solutions ne collectent pas leurs données à partir d’un agent et peuvent utiliser une méthode de collecte qui introduit une latence supplémentaire. Certaines solutions collectent des données à intervalles réguliers sans tenter d’effectuer une collecte en temps quasi-réel. Voici quelques exemples :
 
-- La solution Office 365 interroge les journaux d’activité à l’aide de l’API d’activité de gestion Office 365, qui ne fournit actuellement aucune garantie concernant une latence en temps quasi-réel.
+- La solution Microsoft 365 interroge les journaux d'activité à l'aide de l'API d'activité de gestion, qui ne fournit actuellement aucune garantie concernant une latence en temps quasi-réel.
 - Les données des solutions Windows Analytics (Update Compliance par exemple) sont collectées par la solution à une fréquence quotidienne.
 
 Reportez-vous à la documentation de chaque solution afin de déterminer sa fréquence de collecte.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828708"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993247"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy
 Même si certaines fonctionnalités Azure Monitor sont configurées une fois pour toutes ou un nombre de fois limité, pour d’autres, l’opération doit être répétée pour chacune des ressources que vous voulez superviser. Cet article décrit des méthodes pour implémenter Azure Monitor à la bonne échelle avec Azure Policy et garantir une configuration cohérente et précise de la supervision pour toutes vos ressources Azure.
@@ -33,7 +33,7 @@ Azure Policy comporte les objets présents dans le tableau suivant. Pour obtenir
 | Affectation | Une définition ou une initiative de stratégie ne prend pas effet tant qu’elle n’est pas affectée à une étendue. Par exemple, affectez une stratégie à un groupe de ressources pour l’appliquer à toutes les ressources créées dans cette ressource, ou appliquez-la à un abonnement pour l’appliquer à toutes les ressources de cet abonnement.  Pour plus d’informations, consultez [Structure d’attribution Azure Policy](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Définitions de stratégie intégrées pour Azure Monitor
-Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](samples/policy-samples.md).
+Azure Policy comprend plusieurs définitions prédéfinies en rapport avec Azure Monitor. Vous pouvez affecter ces définitions de stratégie à votre abonnement existant ou vous en servir de base pour créer vos propres définitions personnalisées. Pour obtenir la liste complète des politiques intégrées de la catégorie **Supervision**, consultez [Définitions de stratégie intégrées d’Azure Policy pour Azure Monitor](./samples/policy-reference.md).
 
 Pour consulter les définitions de stratégie intégrées en rapport avec la supervision, procédez comme suit :
 
@@ -41,7 +41,7 @@ Pour consulter les définitions de stratégie intégrées en rapport avec la sup
 2. Sélectionnez **Définitions**.
 3. Pour **Type**, sélectionnez *Intégré* pour **Catégorie**, sélectionnez *Supervision*.
 
-  ![Définitions de stratégie intégrées](media/deploy-scale/builtin-policies.png)
+  ![Capture d’écran de la page de définitions d’Azure Policy dans le Portail Azure montrant une liste de définitions de stratégie pour la catégorie Supervision et le type Intégré.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
@@ -54,7 +54,7 @@ Il existe deux définitions de stratégie intégrées pour chaque type de ressou
 
 Par exemple, l’image suivante montre les définitions de stratégie de paramètres de diagnostic intégrées pour Data Lake Analytics.
 
-  ![Définitions de stratégie intégrées](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Capture d’écran partielle de la page de définitions d’Azure Policy montrant deux définitions de stratégie de paramètres de diagnostic intégrées pour Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>Définitions de stratégie personnalisées
 Pour les types de ressource qui n’ont pas de stratégie intégrée, vous devez créer une définition de stratégie personnalisée. Vous pouvez le faire manuellement sur le portail Azure en copiant une stratégie intégrée existante et en la modifiant pour votre type de ressource. Il est néanmoins plus efficace de créer la stratégie par programmation en utilisant un script de PowerShell Gallery.
@@ -109,7 +109,7 @@ Pour plus d’informations sur la création d’une initiative, consultez [Crée
 ### <a name="assignment"></a>Affectation 
 Affectez l’initiative à un groupe d’administration, un abonnement ou un groupe de ressources Azure en fonction de l’étendue de vos ressources à superviser. Un [groupe d’administration ](../governance/management-groups/overview.md) est particulièrement utile pour définir l’étendue de la stratégie, surtout si votre organisation possède plusieurs abonnements.
 
-![Affectation d’initiative](media/deploy-scale/initiative-assignment.png)
+![Capture d’écran des paramètres de l’onglet De base dans la section Affecter une initiative des paramètres de diagnostic pour l’espace de travail Log Analytics dans le Portail Azure.](media/deploy-scale/initiative-assignment.png)
 
 Les paramètres initiative vous permettent de spécifier l’espace de travail ou d’autres détails une seule fois pour toutes les définitions de stratégie de l’initiative. 
 
@@ -146,7 +146,7 @@ Pour obtenir des détails sur ce processus, consultez [Activer Azure Monitor pou
 ### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
 Pour utiliser Azure Policy dans le but d’activer l’analyse de groupes de machines virtuelles identiques, attribuez l’initiative **Activer Azure Monitor pour les groupes de machines virtuelles identiques** à un groupe d’administration, un abonnement ou un groupe de ressources Azure, en fonction de l’étendue de vos ressources à surveiller. Un [groupe d’administration ](../governance/management-groups/overview.md) est particulièrement utile pour définir l’étendue de la stratégie, surtout si votre organisation possède plusieurs abonnements.
 
-![Affectation d’initiative](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Capture d’écran de la page Affecter une initiative dans le Portail Azure. La définition d’initiative est définie sur Activer Azure Monitor pour les groupes de machines virtuelles identiques.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Sélectionnez l’espace de travail auquel les données seront envoyées. La solution *VMInsights* doit avoir été installée dans cet espace de travail comme décrit dans []().
 

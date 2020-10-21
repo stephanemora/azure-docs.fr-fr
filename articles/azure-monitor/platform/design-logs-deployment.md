@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527307"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534197"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -26,6 +26,8 @@ Un espace de travail Log Analytics offre :
 * Un emplacement géographique pour le stockage des données.
 * L’isolation des données en accordant à différents utilisateurs des droits d’accès suivant l’une de nos stratégies de conception recommandées.
 * Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](./manage-cost-storage.md#changing-pricing-tier), la [rétention](./manage-cost-storage.md#change-the-data-retention-period) et la [limitation des données](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Les espaces de travail sont hébergés sur des clusters physiques. Par défaut, le système crée et gère ces clusters. Les clients qui ingèrent plus de 4 To/jour sont censés créer leurs propres clusters dédiés pour leurs espaces de travail, ce qui leur offre un meilleur contrôle et un taux d’ingestion supérieur.
 
 Cet article fournit une présentation détaillée des considérations relatives à la conception et à la migration, une présentation du contrôle d’accès ainsi que des implémentations de conception recommandées pour votre service informatique.
 
@@ -125,27 +127,15 @@ Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail
 
 Pour savoir comment modifier le mode de contrôle d’accès dans le portail, avec PowerShell ou à l’aide d’un modèle Resource Manager, consultez [Configurer le mode de contrôle d’accès](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Limite de débit du volume d’ingestion
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Échelle et débit maximal du volume d’ingestion
 
-Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. La limite du débit de volume vise à isoler les clients Azure Monitor des pics d’ingestion soudains dans un environnement multilocataire. Un seuil de débit de volume d’ingestion par défaut de 500 Mo (compressé) est défini dans les espaces de travail, ce qui se traduit par **6 Go/min** non compressé -- la taille réelle peut varier entre les types de données en fonction de la longueur du journal et du taux de compression. La limite du débit de volume s’applique à toutes les données ingérées, qu’elles soient envoyées à partir de ressources Azure en utilisant les [paramètres de diagnostic](diagnostic-settings.md),de l’[API du collecteur de données](data-collector-api.md) ou d’agents.
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des pétaoctets de données chaque mois à un rythme croissant. Les espaces de travail ne sont pas limités dans leur espace de stockage, et peuvent croître jusqu’à plusieurs pétaoctets de données. Il n’est pas nécessaire de fractionner les espaces de travail en raison d’une mise à l’échelle.
 
-Quand vous envoyez des données vers un espace de travail à un débit supérieur à 80 % du seuil configuré dans votre espace de travail, un événement est envoyé au tableau *Opération* de votre espace de travail toutes les 6 heures pendant que le seuil continue d’être dépassé. Quand le débit de volume ingéré est plus élevé que le seuil, des données sont supprimées et un événement est envoyé toutes les 6 heures au tableau *Opération* de votre espace de travail pendant que le seuil continue d’être dépassé. Si votre débit de volume d’ingestion continue de dépasser le seuil ou si vous pensez l’atteindre bientôt, vous pouvez demander de l’augmenter en effectuant une demande de support. 
+Pour protéger et isoler les clients Azure Monitor et leur infrastructure principale, il existe un débit maximal d’ingestion par défaut conçu pour protéger contre les situations de pics et de saturations. Le débit maximal par défaut, d’environ **6 Go/minute**, est conçu pour permettre une ingestion normale. Pour plus d’informations sur la mesure du volume maximal d’ingestion, consultez [Limites du service Azure Monitor](../service-limits.md#data-ingestion-volume-rate).
 
-Pour être notifié quand vous approchez ou atteignez la limite du débit de volume d’ingestion dans votre espace de travail, créez une [règle d’alerte de journal](alerts-log.md) à l’aide de la requête suivante avec une logique d’alerte basée sur le nombre de résultats supérieur à zéro, une période d’évaluation de 5 minutes et une fréquence de 5 minutes.
+Les clients qui ingèrent moins de 4 To/jour ne respectent généralement pas ces limites. Les clients qui ingèrent des volumes plus élevés ou qui sont confrontés à des pics dans le cadre de leurs opérations normales doivent envisager de passer à des [clusters dédiés](../log-query/logs-dedicated-clusters.md) où le débit maximal d’ingestion peut être augmenté.
 
-Le débit du volume d’ingestion a atteint 80 % du seuil :
-```Kusto
-Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
-```
-
-Le débit du volume d’ingestion a atteint le seuil :
-```Kusto
-Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
-```
+Lorsque le débit maximal d’ingestion est activé ou atteint 80 % du seuil, un événement est ajouté à la table *Opération* dans votre espace de travail. Il est recommandé de surveiller le débit et de créer une alerte. Pour plus d’informations, consultez [Débit d’ingestion de données](../service-limits.md#data-ingestion-volume-rate).
 
 
 ## <a name="recommendations"></a>Recommandations

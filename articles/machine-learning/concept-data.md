@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651163"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446694"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -48,7 +48,7 @@ Quand vous êtes prêt à utiliser les données dans votre solution de stockage 
 
 Le diagramme suivant fournit une démonstration visuelle de ce workflow recommandé.
 
-![Schéma de concept de données](./media/concept-data/data-concept-diagram.svg)
+![Diagramme représentant le service Stockage Azure, avec transmission vers un magasin de données, puis vers un jeu de données. La transmission s'effectue ensuite du jeu de données vers l'apprentissage du modèle, puis vers la dérive des données, avant de revenir au jeu de données.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Magasins de données
 
@@ -67,7 +67,7 @@ Services de stockage cloud pris en charge dans Azure qui peuvent être enregistr
 
 ## <a name="datasets"></a>Groupes de données
 
-Les jeux de données Azure Machine Learning sont des références qui pointent vers les données de votre service de stockage. Ce ne sont pas des copies de vos données. En créant un jeu de données Azure Machine Learning, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. 
+Les jeux de données Azure Machine Learning ne sont pas des copies de vos données. En créant un jeu de données, vous créez une référence aux données dans son service de stockage, ainsi qu'une copie de ses métadonnées. 
 
 Étant donné que les jeux de données sont évalués tardivement et que les données restent à leur emplacement existant :
 

@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585731"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042380"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Déplacer un coffre Azure Key Vault d’un groupe de ressources à un autre
 
 ## <a name="overview"></a>Vue d’ensemble
 
 Le déplacement d’un coffre de clés entre des groupes de ressources est une fonctionnalité Key Vault prise en charge. Ce déplacement n’impacte pas les configurations de stratégie d’accès ou de pare-feu Key Vault. Les applications connectées et les principaux de service continuent en principe à fonctionner comme prévu.
+
+> [!IMPORTANT]
+> **Les coffres de clés utilisés pour le chiffrement de disque ne peuvent pas être déplacés.**
+> Si vous utilisez un coffre de clés avec le chiffrement de disque pour une machine virtuelle, le coffre de clés ne peut pas être déplacé vers un autre groupe de ressources ou un abonnement lorsque le chiffrement de disque est activé. Vous devez désactiver le chiffrement de disque avant de déplacer le coffre de clés vers un nouveau groupe de ressources ou un nouvel abonnement. 
 
 ## <a name="design-considerations"></a>Remarques sur la conception
 

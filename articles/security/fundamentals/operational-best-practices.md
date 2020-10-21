@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279497"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943864"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -116,7 +116,7 @@ Le degré de sécurisation, qui est basé sur les contrôles du Center for Inter
 **Détail** : suivez les [recommandations de sécurité](../../security-center/security-center-recommendations.md) de Security Center en commençant par les éléments avec la priorité la plus élevée.
 
 **Bonne pratique** : intégrez des alertes de Security Center dans votre solution SIEM.   
-**Détail** : la plupart des organisations avec une solution SIEM l’utilisent comme un centre d’échanges central pour les alertes de sécurité qui nécessitent la réponse d’un analyste. Les événements traités produits par Security Center sont publiés dans le journal d’activité Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Pour connaître les instructions, consultez [Exporter les alertes et recommandations de sécurité ](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs). Si vous utilisez Azure Sentinel, consultez [Connect data from Azure Security Center](../../sentinel/connect-azure-security-center.md) (Connecter des données à partir d’Azure Security Center).
+**Détail** : la plupart des organisations avec une solution SIEM l’utilisent comme un centre d’échanges central pour les alertes de sécurité qui nécessitent la réponse d’un analyste. Les événements traités produits par Security Center sont publiés dans le journal d’activité Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Consultez [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](../../security-center/export-to-siem.md) pour obtenir des instructions. Si vous utilisez Azure Sentinel, consultez [Connect data from Azure Security Center](../../sentinel/connect-azure-security-center.md) (Connecter des données à partir d’Azure Security Center).
 
 **Bonne pratique** : intégrez les journaux Azure à votre solution SIEM.   
 **Détail** : utilisez [Azure Monitor pour collecter et exporter des données](/azure/azure-monitor/overview#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).
@@ -185,7 +185,7 @@ Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à ut
 Pour [Machines virtuelles Azure](../../virtual-machines/windows/overview.md), vérifiez que votre architecture de machine virtuelle inclut plusieurs machines virtuelles et que chaque machine virtuelle est dans un [groupe à haute disponibilité](../../virtual-machines/windows/tutorial-availability-sets.md). Nous vous recommandons d’utiliser des groupes de machines virtuelles identiques pour les fonctionnalités de mise à l’échelle automatique.
 
 **Bonne pratique** : Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Implémentez des conceptions sécurisées pour vos applications à l’aide des fonctionnalités intégrées à la plateforme Azure.  
-**Détail** : Plus la taille (surface d’exposition) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) et [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
+**Détail** : Plus la taille (surface d’exposition) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant une liste d’approbation permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) et [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
 Les [groupes de sécurité réseau](../../virtual-network/security-overview.md) permettent également de réduire la surface d’attaque. Vous pouvez utiliser des [balises de service](../../virtual-network/security-overview.md#service-tags) et des [groupes de sécurité d’application](../../virtual-network/security-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
 

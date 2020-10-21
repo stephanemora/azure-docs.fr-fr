@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986570"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766665"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurer des alertes personnalisées pour superviser les routes publiées
 
@@ -52,7 +52,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Créer et configurer des comptes
 
-Lorsque vous créez un compte Automation sur le portail Azure, un [compte d’identification](../automation/manage-runas-account.md#types-of-run-as-accounts) est automatiquement créé. Ce compte effectue les actions suivantes :
+Lorsque vous créez un compte Automation sur le portail Azure, un [compte d’identification](../automation/automation-security-overview.md#run-as-accounts) est automatiquement créé. Ce compte effectue les actions suivantes :
 
 * Crée une application Azure Active Directory (Azure AD) avec un certificat autosigné. Le compte d’identification possède lui-même un certificat qui doit être renouvelé par défaut chaque année.
 

@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Fournit un résumé de la prise en charge de l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084768"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450036"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -47,12 +47,12 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 **Déploiement pris en charge** | Déployez en tant que machine virtuelle VMware à en utilisant un modèle OVA.<br/><br/> Déployez en tant que machine virtuelle VMware ou que machine physique avec un script d’installation PowerShell.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
 **Limites de la découverte** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu'à un seul vCenter Server.
-**Modèle OVA** | Téléchargez-le sur le portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> La taille du téléchargement est de 11,6 Go.<br/><br/> Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
+**Modèle OVA** | Téléchargez-le sur le portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> La taille du téléchargement est de 11,9 Go.<br/><br/> Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
 **Script PowerShell** | Consultez cet [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Logiciel/matériel** |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 32 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l’appliance sur une machine virtuelle VMware, vous devez disposer de suffisamment de ressources sur le serveur vCenter pour allouer une machine virtuelle qui répond à la configuration requise.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise.
 **Conditions requises VMware** | Si vous déployez l’appliance en tant que machine virtuelle VMware, elle doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure.<br/><br/> vCenter Server exécutant les versions 5,5, 6,0, 6,5 ou 6,7.
 **VDDK (migration sans agent)** | Si vous déployez l’appliance en tant que machine virtuelle VMware et que vous effectuez une migration sans agent, le VDDK VMware vSphere doit être installé sur la machine virtuelle de l’appliance.
-**Valeur de hachage - OVA** | [Vérifiez](tutorial-assess-vmware.md#verify-security) les valeurs de hachage du modèle OVA.
+**Valeur de hachage - OVA** | [Vérifiez](tutorial-discover-vmware.md#verify-security) les valeurs de hachage du modèle OVA.
 **Valeur de hachage - Script PowerShell** | [Vérifiez](deploy-appliance-script.md#verify-file-security) les valeurs de hachage du script PowerShell.
 
 
@@ -67,11 +67,11 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 **Déploiement pris en charge** | Déployez en tant que machine virtuelle Hyper-V en utilisant un modèle de disque dur virtuel.<br/><br/> Déployez en tant que machine virtuelle Hyper-V ou que machine physique avec un script d’installation PowerShell.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
 **Limites de la découverte** | Une appliance peut détecter jusqu’à 5 000 machines virtuelles Hyper-V.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
-**Modèle de disque dur virtuel** | Dossier compressé incluant le disque dur virtuel. Téléchargez-le sur le portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> La taille du téléchargement est de 10,4 Go.<br/><br/> Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
+**Modèle de disque dur virtuel** | Dossier compressé incluant le disque dur virtuel. Téléchargez-le sur le portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> La taille du téléchargement est de 8,91 Go.<br/><br/> Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
 **Script PowerShell** | Consultez cet [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Logiciel/matériel***   |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous déployez l’appliance en tant que machine virtuelle Hyper-V, vous devez disposer de suffisamment de ressources sur l’hôte Hyper-V pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe pour la machine virtuelle de l’appliance.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise. 
+**Logiciel/matériel***   |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l'appliance en tant que machine virtuelle Hyper-V, vous devez disposer de suffisamment de ressources sur l'hôte Hyper-V pour allouer la configuration matérielle requise.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise. 
 **Configuration requise pour Hyper-V** | Si vous déployez l’appliance avec le modèle de disque dur virtuel, la machine virtuelle de l’appliance fournie par Azure Migrate est une machine virtuelle Hyper-V version 5.0.<br/><br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure. 
-**Valeur de hachage - Disque dur virtuel** | Valeurs de hachage du modèle VHD.
+**Valeur de hachage - Disque dur virtuel** | [Vérifiez](tutorial-discover-hyper-v.md#verify-security) les valeurs de hachage du modèle VHD.
 **Valeur de hachage - Script PowerShell** | [Vérifiez](deploy-appliance-script.md#verify-file-security) les valeurs de hachage du script PowerShell.
 
 
@@ -84,9 +84,9 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 **Déploiement pris en charge** | Déployez en tant que machine dédiée ou en tant que machine virtuelle avec un script d’installation PowerShell. Le script est disponible en téléchargement à partir du portail.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
 **Limites de la découverte** | Une appliance peut découvrir jusqu’à 1 000 serveurs physiques.
-**Script PowerShell** | Téléchargez le script (AzureMigrateInstaller.ps1) dans un dossier compressé à partir du portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140334). [Plus d’informations](tutorial-discover-physical.md)<br/><br/> La taille du téléchargement est de 85 Mo.
-**Logiciel/matériel** |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise.<br/> L’exécution de l’appliance sur un ordinateur doté de Windows Server 2019 n’est pas prise en charge.
-**Valeur de hachage** | [Vérifiez](deploy-appliance-script.md#verify-file-security) les valeurs de hachage du script PowerShell.
+**Script PowerShell** | Téléchargez le script (AzureMigrateInstaller.ps1) dans un dossier compressé à partir du portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140334). [Plus d’informations](tutorial-discover-physical.md)<br/><br/> La taille du téléchargement est de 85,8 Mo.
+**Logiciel/matériel** |  L'appliance doit s'exécuter sur une machine dotée de Windows Server 2016, de 16 Go de RAM, de 8 processeurs virtuels et d'environ 80 Go de stockage sur disque.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise.<br/>_(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_
+**Valeur de hachage** | [Vérifiez](tutorial-discover-physical.md#verify-security) les valeurs de hachage du script PowerShell.
 
 ## <a name="url-access"></a>accès URL
 

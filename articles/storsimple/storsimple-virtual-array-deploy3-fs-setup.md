@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006294"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977576"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
 ![Diagramme montrant les étapes nécessaires au déploiement d’un tableau virtuel. La première partie de la troisième étape est intitulée « Configurer en tant que serveur de fichiers » et est mise en évidence.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     ![Capture d’écran de la page Toutes les ressources du portail Azure. Un service Gestionnaire de périphériques est mis en évidence.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Dans la liste filtrée, sélectionnez votre service StorSimple Device Manager, puis accédez à **Gestion > Appareils**. Dans le panneau **Appareils**, vérifiez que l’appareil s’est correctement connecté au service et qu’il présente l’état **Prêt pour la configuration**.
     
-    ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Déployer](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Étape 2 : Configurer l'appareil en tant que serveur de fichiers
 Pour exécuter la configuration d’appareil requise, procédez comme suit dans le [Portail Azure](https://portal.azure.com/) .
@@ -129,7 +129,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
    ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Cliquez sur l’appareil. Un message de bannière s’affiche pour vous indiquer que l’appareil est prêt pour la configuration.
    
-    ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Configurer un serveur de fichiers 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Cliquez sur **Configurer** dans la barre de commandes. Le panneau **Configurer** s’affiche. Dans le panneau **Configurer**, procédez comme suit :
    
    1. Le nom du serveur de fichiers est automatiquement renseigné.
@@ -140,7 +140,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
    4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurer un serveur de fichiers 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Dans le panneau **Ajouter les informations d’identification d’un compte de stockage**, procédez comme suit : 
 
     1. Si le compte de stockage figure dans le même abonnement que le service, choisissez l’abonnement actuel. Si le compte de stockage ne se trouve pas dans le même abonnement, spécifiez un autre abonnement. 
@@ -153,19 +153,19 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
     5. Cliquez sur **Ajouter** pour ajouter ces informations d’identification du compte de stockage. 
    
-        ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Configurer un serveur de fichiers 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. Une fois les informations d’identification du compte de stockage correctement créées, le panneau **Configurer** est actualisé afin d’afficher les informations d’identification spécifiées. Cliquez sur **Configurer**.
    
-   ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Configurer un serveur de fichiers 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    Vous pouvez constater qu’un serveur de fichiers est en cours de création. Une fois le serveur créé, vous en êtes informé par un message.
    
-   ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Configurer un serveur de fichiers 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    L’appareil passe à l’état **En ligne**.
    
-   ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Configurer un serveur de fichiers 5c](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    Vous pouvez poursuivre la procédure par l’ajout d’un partage.
 
@@ -189,15 +189,15 @@ Pour créer un partage, procédez comme suit dans le [Portail Azure](https://por
    
    5. Cliquez sur **Ajouter** pour créer le partage. 
     
-       ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Ajouter un partage 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        Vous êtes averti que le partage est en cours de création.
    
-       ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Ajouter un partage 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       Une fois le partage créé avec les paramètres spécifiés, le panneau **Partages** est actualisé pour refléter le nouveau partage. Par défaut, la surveillance et la sauvegarde sont activées pour le partage.
    
-      ![Ajouter un partage](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Ajouter un partage 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Étape 4 : Se connecter au partage
 Vous devez à présent vous connecter aux partages que vous avez créés à l’étape précédente. Exécutez cette procédure sur votre hôte Windows Server connecté à votre baie StorSimple Virtual Array.

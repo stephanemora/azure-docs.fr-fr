@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019901"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91308110"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
@@ -87,7 +87,7 @@ Le processus de chargement du certificat de l’autorité de certification X.509
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Preuve de possession du certificat
 
-Le certificat de l’autorité de certification X.509, tout comme n’importe quel certificat numérique, constitue des informations publiques qui sont susceptibles d’être volées. Par conséquent, une personne malveillante peut intercepter un certificat et essayer de le charger comme s’il s’agissait du sien. Dans notre exemple, IoT Hub veut s’assurer que le certificat de l’autorité de certification que charge l’entreprise X appartient réellement à l’entreprise X. Pour ce faire, IoT Hub demande à l’entreprise X de prouver qu’elle possède effectivement le certificat via un [flux de preuve de possession](https://tools.ietf.org/html/rfc5280#section-3.1). Le flux de preuve de possession implique qu’IoT Hub génère un numéro aléatoire que l’entreprise X doit signer à l’aide de sa clé privée. Si l’entreprise X a bien suivi les meilleures pratiques de l’infrastructure de clé publique et a correctement protégé sa clé privée, alors elle est la seule à pouvoir répondre correctement au défi de la preuve de possession. IoT Hub poursuit l’inscription du certificat de l’autorité de certification X.509 en cas de réponse correcte au défi de la preuve de possession.
+Le certificat de l’autorité de certification X.509, tout comme n’importe quel certificat numérique, constitue des informations publiques qui sont susceptibles d’être volées. Par conséquent, une personne malveillante peut intercepter un certificat et essayer de le charger comme s’il s’agissait du sien. Dans notre exemple, IoT Hub veut s’assurer que le certificat de l’autorité de certification que charge l’entreprise X appartient réellement à l’entreprise X. Pour ce faire, IoT Hub demande à l'entreprise X de prouver qu'elle possède effectivement le certificat via un [flux de preuve de possession](https://tools.ietf.org/html/rfc5280#section-3.1). Le flux de preuve de possession implique qu’IoT Hub génère un numéro aléatoire que l’entreprise X doit signer à l’aide de sa clé privée. Si l’entreprise X a bien suivi les meilleures pratiques de l’infrastructure de clé publique et a correctement protégé sa clé privée, alors elle est la seule à pouvoir répondre correctement au défi de la preuve de possession. IoT Hub poursuit l’inscription du certificat de l’autorité de certification X.509 en cas de réponse correcte au défi de la preuve de possession.
 
 En cas de réponse correcte d’IoT Hub au défi de la preuve de possession, l’inscription de l’autorité de certification X.509 est terminée.
 

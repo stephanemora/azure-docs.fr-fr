@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725084"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399684"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 
@@ -199,7 +199,7 @@ Maintenant que vous avez correctement configuré Grafana pour lire l’index Ela
 
 La capture d’écran suivante montre un graphe et un graphique contenant les flux principaux et leur fréquence. Les flux peuvent également être affichés par règle de groupe de sécurité réseau et par décision. Grafana est hautement personnalisable. Il est donc recommandé de créer des tableaux de bord adaptés à vos besoins de surveillance. L’exemple ci-dessous montre un tableau de bord classique :
 
-![Graphe du tableau de bord](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Capture d'écran présentant l'exemple de configuration de graphe, avec les flux segmentés par une règle de groupe de sécurité réseau.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusion
 

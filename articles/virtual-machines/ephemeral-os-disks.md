@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837106"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91611518"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 
@@ -51,7 +51,7 @@ Vous pouvez déployer des machines virtuelles et images d’instance jusqu’à 
 Les disques éphémères nécessitent également que la taille de machine virtuelle prenne en charge le stockage Premium. Les tailles ont généralement (mais pas toujours) un `s` dans le nom, comme DSv2 et EsV3. Pour plus d’informations, consultez [Tailles de machine virtuelle Azure](sizes.md) pour plus d’informations sur les tailles prenant en charge le stockage Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Préversion - Les disques de système d’exploitation éphémères peuvent désormais être stockés sur des disques temporaires
-Les disques de système d’exploitation éphémères peuvent désormais être stockés sur le disque temporaire/ressources de la machine virtuelle en plus du cache de la machine virtuelle. À présent, vous pouvez donc utiliser des disques de système d’exploitation éphémères avec des machines virtuelles qui n’ont pas de cache ou qui ne disposent pas d’un cache suffisant, mais qui disposent d’un disque temporaire/ressources pour stocker le disque de système d’exploitation éphémère, tel que Dav3, Dav4, Eav4 et Eav3. Si une machine virtuelle dispose d’un cache et d’un espace temporaire suffisants, vous pouvez également spécifier où vous voulez stocker le disque de système d’exploitation éphémère à l’aide d’une nouvelle propriété appelée [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour commencer, [demandez l’accès](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Les disques de système d’exploitation éphémères peuvent désormais être stockés sur le disque temporaire/ressources de la machine virtuelle en plus du cache de la machine virtuelle. À présent, vous pouvez donc utiliser des disques de système d’exploitation éphémères avec des machines virtuelles qui n’ont pas de cache ou qui ne disposent pas d’un cache suffisant, mais qui disposent d’un disque temporaire/ressources pour stocker le disque de système d’exploitation éphémère, tel que Dav3, Dav4, Eav4 et Eav3. Si une machine virtuelle dispose d’un cache et d’un espace temporaire suffisants, vous pouvez également spécifier où vous voulez stocker le disque de système d’exploitation éphémère à l’aide d’une nouvelle propriété appelée [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Avec cette fonctionnalité, lorsqu’une machine virtuelle Windows est provisionnée, nous configurons le fichier d’échange pour qu’il se trouve sur le disque du système d’exploitation. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour commencer, [demandez l’accès](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

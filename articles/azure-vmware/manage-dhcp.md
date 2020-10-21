@@ -3,16 +3,16 @@ title: Création et gestion de protocole DHCP
 description: Cet article explique comment gérer le protocole DHCP dans Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069558"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332829"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Comment créer et gérer le protocole DHCP dans Azure VMWare Solution
 
-NSX-T offre la possibilité de configurer le protocole DHCP pour votre cloud privé. Si vous envisagez d’utiliser NSX-T pour héberger votre serveur DHCP, consultez [Créer un serveur DHCP](#create-dhcp-server). Autrement, s’il y a un serveur DHCP externe tiers dans votre réseau et si vous souhaitez relayer des demandes vers ce serveur, consultez [Créer un service de relais DHCP](#create-dhcp-relay-service).
+NSX-T offre la possibilité de configurer le protocole DHCP pour votre cloud privé. Si vous envisagez d’utiliser NSX-T pour héberger votre serveur DHCP, consultez [Créer un serveur DHCP](#create-dhcp-server). Sinon, si vous disposez d'un serveur DHCP externe tiers sur votre réseau et que vous souhaitez relayer les requêtes vers ce serveur DHCP, consultez [Créer un service de relais DHCP](#create-dhcp-relay-service).
 
 ## <a name="create-dhcp-server"></a>Créer un serveur DHCP
 
@@ -24,7 +24,7 @@ Dans le gestionnaire NSX, accédez à l’onglet **Mise en réseau**, puis, sous
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Connectez le serveur DHCP à la passerelle de niveau 1.
 
-1. Sélectionnez **Passerelles de niveau 1**, sélectionnez la passerelle, puis sélectionnez **Modifier**.
+1. Choisissez **Passerelles de niveau 1**, sélectionnez la passerelle, puis choisissez **Modifier**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Ajouter un serveur DHCP" border="true":::
 
@@ -56,7 +56,7 @@ Une fois que vous avez créé votre serveur DHCP, vous devez lui ajouter des seg
 
 ## <a name="create-dhcp-relay-service"></a>Créer un service de relais DHCP
 
-1. Dans la fenêtre NSX-T, sélectionnez l’onglet **Mise en réseau** puis, sous **Gestion des adresses IP**, sélectionnez **DHCP**. Sélectionnez **AJOUTER UN SERVEUR**. Choisissez Relais DHCP comme **Type de serveur**, puis entrez le nom du serveur et l’adresse IP du serveur relais. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+1. Dans la fenêtre NXT-T, sélectionnez l’onglet **Mise en réseau**, puis, sous **Gestion IP**, sélectionnez **DHCP**. Sélectionnez **AJOUTER UN SERVEUR**. Choisissez Relais DHCP comme **Type de serveur**, puis entrez le nom du serveur et l’adresse IP du serveur relais. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Ajouter un serveur DHCP" border="true":::
 

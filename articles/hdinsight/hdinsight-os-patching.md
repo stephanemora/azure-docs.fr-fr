@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019663"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447201"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 
 > [!IMPORTANT]
-> Les images Ubuntu sont accessibles pour la création d’un nouveau cluster Azure HDInsight dans les trois mois qui suivent leur publication. Depuis janvier 2019, plus aucun correctif automatique n’est disponible pour les clusters en cours. Les clients doivent utiliser des actions de script ou d'autres mécanismes pour corriger un cluster en cours d'exécution. Les clusters nouvellement créés disposeront toujours des mises à jour et des correctifs de sécurité les plus récents.
+> Les images Ubuntu sont accessibles pour la création d’un nouveau cluster Azure HDInsight dans les trois mois qui suivent leur publication. Plus aucun correctif automatique n'est disponible pour les clusters en cours. Les clients doivent utiliser des actions de script ou d'autres mécanismes pour corriger un cluster en cours d'exécution. Une bonne pratique consiste à exécuter ces actions de script et à appliquer les mises à jour de sécurité juste après la création du cluster.
 
 HDInsight prend en charge l’exécution des tâches courantes sur votre cluster, telles que l’installation des correctifs du système d’exploitation, les mises à jour de sécurité et le redémarrage des nœuds. Ces tâches sont accomplies à l’aide des deux scripts suivants qui peuvent être exécutés en tant qu’[actions de script](hdinsight-hadoop-customize-cluster-linux.md) et configurés avec les paramètres :
 

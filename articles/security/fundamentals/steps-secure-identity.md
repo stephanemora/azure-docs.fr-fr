@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386144"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399803"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe
 Si votre organisation utilise une solution d’identité hybride avec authentification ou fédération directe, vous devez activer la synchronisation du hachage de mot de passe pour les deux raisons suivantes :
 
 * Le rapport [Utilisateurs avec des informations d’identification volées](../../active-directory/reports-monitoring/concept-risk-events.md) dans l’administration d’Azure AD vous avertit si des paires nom d’utilisateur/mot de passe ont été exposées sur le « dark web ». Un volume incroyable de mots de passe fait l’objet d’une fuite via le hameçonnage, les programmes malveillants et la réutilisation de mot de passe sur des sites tiers qui sont ensuite victimes d’une violation de la sécurité. Microsoft recherche un grand nombre de ces informations d'identification ayant fuité et vous indiquera, dans ce rapport, si elles correspondent aux informations d’identification de votre organisation, mais uniquement si vous [activez la synchronisation de hachage du mot de passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) !
-* En cas de panne locale (par exemple, au cours d’une attaque de rançongiciel), vous pouvez basculer vers [l’authentification cloud à l’aide d’une synchronisation de hachage du mot de passe](choose-ad-authn.md). Cette méthode d’authentification de secours vous permettra de continuer à accéder aux applications configurées pour l’authentification avec Azure Active Directory, notamment Office 365. Dans ce cas, le personnel informatique n’aura pas besoin de recourir à des comptes e-mail personnels pour partager des données en attendant que la panne locale soit résolue.
+* En cas de panne locale (par exemple, au cours d’une attaque de rançongiciel), vous pouvez basculer vers [l’authentification cloud à l’aide d’une synchronisation de hachage du mot de passe](choose-ad-authn.md). Cette méthode d'authentification de secours vous permettra de continuer à accéder aux applications configurées pour l'authentification avec Azure Active Directory, notamment Microsoft 365. Dans ce cas, le personnel informatique n’aura pas besoin de recourir à des comptes e-mail personnels pour partager des données en attendant que la panne locale soit résolue.
 
 En savoir plus sur le fonctionnement de la [synchronisation de hachage du mot de passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -193,7 +193,7 @@ La [réinitialisation de mot de passe en libre-service (SSPR)](../../active-dire
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implémenter l’accès en libre-service aux groupes et aux applications
 
-Azure AD permet aux non-administrateurs de gérer l’accès aux ressources, à l’aide de groupes de sécurité, de groupes Office 365, de rôles d’application et de catalogues de packages d’accès.  La [gestion des groupes en libre-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permet aux propriétaires de groupes de gérer leurs propres groupes sans se voir attribuer de rôle d’administrateur. Les utilisateurs peuvent également créer et gérer des groupes Office 365 sans dépendre d’administrateurs pour gérer leurs demandes, et les groupes inutilisés expirent automatiquement.  La [Gestion des droits d’utilisation Azure AD](../../active-directory/governance/entitlement-management-overview.md) permet une délégation et une visibilité supplémentaires, avec des flux de travail de demande d’accès complets et une expiration automatique.  Vous pouvez déléguer à des non-administrateurs la possibilité de configurer leurs propres packages d’accès pour les groupes, les équipes, les applications et les sites SharePoint Online qu’ils possèdent, avec des stratégies personnalisées pour les personnes qui doivent approuver l’accès, y compris la configuration de responsables des employés et de sponsors partenaires commerciaux en tant qu’approbateurs.
+Azure AD permet aux utilisateurs autres que les administrateurs de gérer l'accès aux ressources, à l'aide de groupes de sécurité, de groupes Microsoft 365, de rôles d'application et de catalogues de packages d'accès.  La [gestion des groupes en libre-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permet aux propriétaires de groupes de gérer leurs propres groupes sans se voir attribuer de rôle d’administrateur. Les utilisateurs peuvent également créer et gérer des groupes Microsoft 365 sans dépendre d'administrateurs pour gérer leurs demandes, et les groupes inutilisés expirent automatiquement.  La [Gestion des droits d’utilisation Azure AD](../../active-directory/governance/entitlement-management-overview.md) permet une délégation et une visibilité supplémentaires, avec des flux de travail de demande d’accès complets et une expiration automatique.  Vous pouvez déléguer à des non-administrateurs la possibilité de configurer leurs propres packages d’accès pour les groupes, les équipes, les applications et les sites SharePoint Online qu’ils possèdent, avec des stratégies personnalisées pour les personnes qui doivent approuver l’accès, y compris la configuration de responsables des employés et de sponsors partenaires commerciaux en tant qu’approbateurs.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Mettre en œuvre les révisions d’accès Azure AD
 

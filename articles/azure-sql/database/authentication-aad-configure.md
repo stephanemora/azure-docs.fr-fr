@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d7b0f2bb479154fa10a18cd07a65b9f7287fc97c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434399"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91444478"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurer et gérer l’authentification Azure AD avec Azure SQL
 
@@ -89,19 +89,19 @@ Pour accorder à votre instance SQL Managed Instance Azure AD une autorisation d
 
 3. Accédez à l’instance SQL Managed Instance que vous souhaitez utiliser pour l’intégration d’Azure AD.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![Capture d'écran du portail Azure sur lequel la page d'administration d'Active Directory est ouverte pour l'instance SQL Managed Instance sélectionnée.](./media/authentication-aad-configure/aad.png)
 
 4. Sélectionnez la bannière en haut de la page d’administration Active Directory et accordez les autorisations à l’utilisateur actuel.
 
-    ![accorder des autorisations – portail](./media/authentication-aad-configure/grant-permissions.png)
+    ![Capture d'écran de la boîte de dialogue permettant d'accorder des autorisations à une instance SQL Managed Instance pour l'accès à Active Directory. Le bouton Accorder des autorisations est sélectionné.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. Lorsque l’opération a réussi, la notification suivante s’affichera dans le coin supérieur droit :
 
-    ![success](./media/authentication-aad-configure/success.png)
+    ![Capture d'écran d'une notification confirmant que les autorisations de lecture Active Directory ont été correctement mises à jour pour l'instance gérée.](./media/authentication-aad-configure/success.png)
 
 6. Vous pouvez maintenant choisir votre administrateur Azure AD pour votre Instance SQL Managed Instance. Pour cela, à la page Administrateur Active Directory, sélectionnez la commande **Définir l’administrateur**.
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![Capture d'écran représentant la commande Définir l'administrateur en surbrillance sur la page d'administration d'Active Directory pour l'instance SQL Managed Instance sélectionnée.](./media/authentication-aad-configure/set-admin.png)
 
 7. Sur la page d’administration Azure AD, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner**.
 
@@ -111,7 +111,7 @@ Pour accorder à votre instance SQL Managed Instance Azure AD une autorisation d
 
 8. En haut de la page Administrateur Active Directory, sélectionnez **Enregistrer**.
 
-    ![Enregistrer](./media/authentication-aad-configure/save.png)
+    ![Capture d'écran de la page d'administration d'Active Directory, avec le bouton Enregistrer sur la ligne supérieure en regard des boutons Définir l'administrateur et Supprimer l'administrateur.](./media/authentication-aad-configure/save.png)
 
     La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaît dans la zone Administrateur Active Directory.
 

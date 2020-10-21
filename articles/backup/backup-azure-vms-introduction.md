@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371505"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -105,6 +105,13 @@ Les scénarios courants ci-dessous peuvent affecter la durée de sauvegarde tota
 - **Disques fragmentés :** les opérations de sauvegarde sont plus rapides quand les changements de disque sont contigus. Si les changements sont dispersés et fragmentés sur un disque, la sauvegarde est plus lente.
 - **Évolution du disque :** si l’évolution quotidienne des disques protégés faisant l’objet d’une sauvegarde incrémentielle dépasse les 200 Go, la sauvegarde peut prendre du temps (plus de huit heures).
 - **Versions de Sauvegarde :** la dernière version de Sauvegarde, appelée Restauration instantanée, utilise un processus optimisé par rapport à la comparaison de la somme de contrôle pour identifier les changements. En revanche, si vous utilisez la Restauration instantanée et avez supprimé un instantané de sauvegarde, la sauvegarde bascule vers une comparaison de somme de contrôle. Dans ce cas, l’opération de sauvegarde prend plus de 24 heures (ou échoue).
+
+### <a name="restore-performance"></a>Performances de la restauration
+
+Les scénarios courants ci-dessous peuvent affecter la durée totale de la restauration :
+
+- La durée totale de la restauration varie selon les opérations d'entrée/sortie par seconde (IOPS) et le débit du compte de stockage.
+- La durée totale de la restauration peut être affectée si le compte de stockage cible est chargé avec d'autres opérations de lecture et d'écriture de l'application. Pour améliorer l'opération de restauration, sélectionnez un compte de stockage qui n'est pas chargé avec d'autres données d'application.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

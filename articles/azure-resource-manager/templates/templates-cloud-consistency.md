@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509754"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356883"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Développer des modèles ARM pour la cohérence du cloud
 
@@ -655,7 +655,7 @@ Il est difficile d’effectuer le suivi de tous les paramètres connexes, des fo
 
 L’image suivante montre un exemple typique d’un processus de développement d’une équipe à l’aide d’un environnement de développement intégré (IDE). Différents types de tests sont exécutés à différents stages de la chronologie. Ici, deux développeurs travaillent sur la même solution, mais ce scénario s’applique autant à un développeur seul qu’à une grande équipe. Chaque développeur crée généralement une copie locale d’un référentiel central, ce qui permet à chacun de travailler sur la copie locale sans affecter les autres qui travaillent peut-être sur les mêmes fichiers.
 
-![Workflow](./media/templates-cloud-consistency/workflow.png)
+![Diagramme représentant deux ensembles de tests unitaires et de tests d'intégration en parallèle dans l'IDE local et qui, au fil du processus de développement CI/CD, fusionnent pour se transformer en tests unitaires, puis en tests d'intégration, puis en test de déploiement, puis en déploiement.](./media/templates-cloud-consistency/workflow.png)
 
 Prenez en compte les conseils suivants relatifs aux tests et à l’automatisation :
 

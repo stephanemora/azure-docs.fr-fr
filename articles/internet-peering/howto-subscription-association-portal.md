@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540266"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associer un ASN de pair à un abonnement Azure en utilisant le portail
 
@@ -70,12 +70,12 @@ En tant que fournisseur d’accès à Internet ou fournisseur Internet Exchange,
 1. Ensuite, cliquez sur **Passer en revue + créer** et notez que le portail exécute la validation de base des informations que vous avez entrées. *Exécution de la validation finale…* s’affiche dans un ruban en haut de l’écran.
 
     > [!div class="mx-imgBorder"]
-    > ![Onglet de révision de PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Capture d'écran représentant la page Associer un NSA homologue sous l'onglet Informations de base.](./media/peerasn-review-tab-validation.png)
 
 1. Une fois que le message *Validation réussie* s’affiche dans le ruban, vérifiez vos informations et envoyez la requête en cliquant sur **Créer**. Si la validation échoue, cliquez sur **Précédent**, répétez les étapes ci-dessus pour modifier votre requête et vérifiez que les valeurs que vous entrez n’ont pas d’erreurs.
 
     > [!div class="mx-imgBorder"]
-    > ![Onglet de révision de PeerAsn](./media/peerasn-review-tab.png)
+    > ![Capture d'écran représentant la page Associer un NSA homologue sous l'onglet Informations de base, avec le message Validation réussie.](./media/peerasn-review-tab.png)
 
 1. Une fois que vous avez envoyé la requête, attendez qu’elle termine le déploiement. Si le déploiement échoue, contactez l’assistance [Peering Microsoft](mailto:peering@microsoft.com). Un déploiement réussi présente l’apparence suivante.
 

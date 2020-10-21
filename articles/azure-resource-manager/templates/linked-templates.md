@@ -3,12 +3,12 @@ title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535556"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91369312"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -369,7 +369,7 @@ Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un
 
 ## <a name="template-specs"></a>Spécifications de modèle
 
-Au lieu de gérer vos modèles liés sur un point de terminaison accessible, vous pouvez créer une [spécification de modèle](template-specs.md) qui empaquette le modèle principal et ses modèles liés dans une même entité que vous pouvez déployer. La spécification de modèle est une ressource de votre abonnement Azure. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+Au lieu de gérer vos modèles liés sur un point de terminaison accessible, vous pouvez créer une [spécification de modèle](template-specs.md) qui empaquette le modèle principal et ses modèles liés dans une même entité que vous pouvez déployer. La spécification de modèle est une ressource de votre abonnement Azure. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -731,7 +731,7 @@ Le fichier de paramètres peut également être limité à l’accès avec un je
 Vous ne pouvez pas établir un lien vers un modèle dans un compte de stockage derrière un [pare-feu Stockage Azure](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Plutôt que de sécuriser votre modèle avec un jeton SAS, envisagez de créer une [spécification de modèle](template-specs.md). La spécification de modèle stocke de façon sécurisée le modèle principal et ses modèles liés en tant que ressource dans votre abonnement Azure. Vous utilisez RBAC pour accorder l’accès aux utilisateurs qui doivent déployer le modèle.
+> Plutôt que de sécuriser votre modèle avec un jeton SAS, envisagez de créer une [spécification de modèle](template-specs.md). La spécification de modèle stocke de façon sécurisée le modèle principal et ses modèles liés en tant que ressource dans votre abonnement Azure. Vous utilisez Azure RBAC pour accorder l'accès aux utilisateurs qui doivent déployer le modèle.
 
 L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un modèle :
 
