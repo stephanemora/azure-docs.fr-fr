@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541167"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946091"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -29,28 +29,32 @@ Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de f
 |Aspect|Détails|
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
-|Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
+|Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md).<br>La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Rôles et autorisations obligatoires :|Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Le **lecteur** peut visualiser les résultats.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking.md) |
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking.md).|
 |||
 
-
-
-
-
 ## <a name="what-is-fim-in-security-center"></a>En quoi consiste la fonctionnalité FIM dans Security Center ?
-Le monitoring d’intégrité de fichier (FIM), également appelé Monitoring des modifications, recherche les modifications qui sont apportées aux fichiers et registres du système d’exploitation, ainsi qu’aux logiciels d’application et autres systèmes, et qui peuvent indiquer une attaque. Une méthode de comparaison est utilisée pour déterminer si l’état actuel du fichier est différent de la dernière analyse du fichier. Vous pouvez tirer parti de cette comparaison pour vérifier si des modifications suspectes ou valides ont été apportées à vos fichiers.
+Le monitoring d’intégrité de fichier (FIM), également appelé Monitoring des modifications, recherche les modifications qui sont apportées aux fichiers du système d’exploitation, registres Windows, logiciels d’application, fichiers du système Linux et bien d’autres encore, et qui peuvent indiquer une attaque. 
 
-Le monitoring d’intégrité de fichier dans Security Center valide l’intégrité des fichiers Windows, le Registre Windows et les fichiers Linux. Vous sélectionnez les fichiers que vous souhaitez analyser en activant la fonctionnalité FIM. À l’aide de la fonctionnalité FIM, Security Center recherche différentes activités sur les fichiers, notamment :
+Le Centre de sécurité recommande aux entités de surveiller avec FIM, et vous pouvez également définir vos propres stratégies FIM ou entités à surveiller. FIM vous alerte en cas d’activité suspecte, par exemple :
 
-- La suppression et la création de fichiers et d’entrées de registre
+- La création ou la suppression de fichiers et de clés de Registre
 - Les modifications de fichiers (modifications apportées à la taille du fichier, aux listes de contrôle d’accès et au hachage du contenu)
 - Les modifications de registre (modifications apportées à la taille du registre, aux listes de contrôle d’accès, au type d’entrées et au contenu)
 
-Security Center vous recommande des entités à surveiller, pour lesquelles vous pouvez facilement activer la fonctionnalité FIM. Vous pouvez également définir vos propres stratégies FIM ou entités à surveiller. Cette procédure pas à pas vous explique comment procéder.
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-> [!NOTE]
-> La fonctionnalité FIM (File Integrity Monitoring) fonctionne sur les ordinateurs et les machines virtuelles Windows et Linux et est disponible uniquement lorsque **Azure Defender pour les serveurs** est activé. Consultez [Tarification](security-center-pricing.md) pour en savoir plus. La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+> [!div class="checklist"]
+> * Passer en revue la liste des entités suggérées à surveiller avec FIM
+> * Définir vos propres règles FIM personnalisées
+> * Auditer les modifications apportées à vos entités surveillées
+> * Utiliser des caractères génériques pour simplifier le suivi entre les répertoires
+
+
+## <a name="how-does-fim-work"></a>Comment FIM fonctionne-t-il ?
+
+En comparant l’état actuel de ces éléments à l’état pendant l’analyse précédente, FIM vous alerte si des modifications suspectes ont été apportées.
 
 La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Quand la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type **Solution**. Pour plus d’informations sur la fréquence de collecte de données, consultez [Détails de la collecte de données de suivi des modifications](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
 
@@ -58,11 +62,11 @@ La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier
 > Si vous supprimez la ressource **Change Tracking**, vous désactivez également la fonctionnalité FIM dans Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Quels fichiers dois-je surveiller ?
-Sélectionnez les fichiers qui sont essentiels au fonctionnement de votre système et de vos applications. Nous vous recommandons de choisir des fichiers qui ne sont pas susceptibles d’être modifiés sans planification. La sélection de fichiers qui sont fréquemment modifiés par des applications ou le système d’exploitation (par exemple, les fichiers journaux et les fichiers texte) va surcharger le processus et compromettre la détection des attaques.
+Lors de la sélection des fichiers à surveiller, pensez aux fichiers essentiels au fonctionnement de votre système et de vos applications. Surveillez des fichiers qui ne sont pas susceptibles d’être modifiés sans planification. Si vous choisissez des fichiers qui sont fréquemment modifiés par des applications ou le système d’exploitation (par exemple, les fichiers journaux et les fichiers texte), cela crée une surcharge et compromet la détection des attaques.
 
-Security Center fournit la liste suivante d’éléments recommandés à surveiller en fonction de modèles d’attaque connus. Il s’agit notamment des fichiers et clés de Registre Windows. Toutes les clés sont sous HKEY_LOCAL_MACHINE (« HKLM » dans la table).
+Security Center fournit la liste suivante d’éléments recommandés à surveiller en fonction de modèles d’attaque connus.
 
-|**Fichiers Linux**|**Fichiers Windows**|**Clés de Registre Windows**|
+|Fichiers Linux|Fichiers Windows|Clés de Registre Windows (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
@@ -96,6 +100,8 @@ Security Center fournit la liste suivante d’éléments recommandés à surveil
 
 
 ## <a name="enable-file-integrity-monitoring"></a>Activer le Monitoring d’intégrité de fichier 
+
+FIM est disponible uniquement à partir des pages du Centre de sécurité dans le portail Azure. Il n’existe actuellement aucune API REST pour l’utilisation de FIM.
 
 1. Dans la zone **Protection avancée** du tableau de bord **Azure Defender**, sélectionnez **Analyse de l’intégrité du fichier**.
 

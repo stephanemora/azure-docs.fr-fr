@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999816"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91307447"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
@@ -43,7 +43,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version d’extension de machine virtuelle Linux Log Analytics | Version du bundle de l’Agent Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -211,7 +211,9 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 | 19 | Échec d’installation du package OMI | 
 | 20 | Échec d’installation du package SCX |
 | 51 | Cette extension n’est pas prise en charge sur le système d’exploitation de la machine virtuelle | |
-| 55 | Impossible de se connecter au service Azure Monitor, car des packages nécessaires sont manquants ou le gestionnaire de package dpkg est verrouillé| Vérifiez que le système dispose d’un accès Internet ou qu’un proxy HTTP valide a été fourni. Ensuite, vérifiez que le bon ID d’espace de travail est utilisé, puis vérifiez que les utilitaires curl et tar sont installés. |
+| 52 | Cette extension a échoué pour cause de dépendance manquante | Pour plus d'informations sur la dépendance manquante, consultez la sortie et les journaux. |
+| 53 | Cette extension a échoué pour cause de paramètres de configuration manquants ou incorrects | Pour plus d'informations sur ce qui s'est passé, consultez la sortie et les journaux. Vérifiez également que l'ID d'espace de travail utilisé est le bon, et assurez-vous que l'ordinateur est connecté à Internet. |
+| 55 | Impossible de se connecter au service Azure Monitor, car des packages nécessaires sont manquants ou le gestionnaire de package dpkg est verrouillé| Vérifiez que le système dispose d'un accès Internet ou qu'un proxy HTTP valide a été fourni. Vérifiez également que l'ID d'espace de travail utilisé est le bon, et assurez-vous que les utilitaires curl et tar sont installés. |
 
 Pour plus d’informations sur la résolution des problèmes, consultez le [guide de résolution des problèmes de l’agent Log Analytics pour Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

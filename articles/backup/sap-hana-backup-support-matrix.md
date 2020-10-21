@@ -4,12 +4,12 @@ description: Dans cet article,découvrez les scénarios pris en charge et les li
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022324"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946363"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -32,7 +32,7 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 | **Taille de la base de données HANA**     | Bases de données HANA de taille <= 2 To (il ne s’agit pas de la taille de la mémoire du système HANA)               |                                                              |
 | **Types de sauvegarde**           | Sauvegardes complètes, différentielles et de fichier journal                          | Incrémentielle, instantanés                                       |
 | **Types de restaurations**          | Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour connaître les types de restauration pris en charge |                                                              |
-| **Limites de sauvegarde**          | Jusqu’à 2 To de taille de sauvegarde complète par instance de SAP HANA         |                                                              |
+| **Limites de sauvegarde**          | Jusqu’à 2 To de taille de sauvegarde complète par instance de SAP HANA (limite conditionnelle)         |                                                              |
 | **Configurations spéciales** |                                                              | SAP HANA + Dynamic Tiering <br>  Clonage via LaMa        |
 
 ------

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/10/2020
-ms.openlocfilehash: dff5e73f9bb02357a6a6f74f5d0db08eee13e76e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332268"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948423"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -242,6 +242,9 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 >[!NOTE]
+>Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification de principal du service n’est pas prise en charge dans Data Flow.
+
+>[!NOTE]
 >L’authentification du principal du service n’est prise en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
 
 **Exemple :**
@@ -293,6 +296,9 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
 | accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage**ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
+
+> [!NOTE]
+> Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification d’identité managée n’est pas prise en charge dans Data Flow.
 
 > [!NOTE]
 > Les identités managées pour l’authentification des ressources Azure ne sont prises en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.

@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617915"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978354"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fuseaux horaires d'Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 
 ## <a name="limitations"></a>Limites
 
-- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié.
+- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié. En guise de solution de contournement, créez une nouvelle instance gérée avec le fuseau horaire approprié, puis soit une sauvegarde et une restauration manuelles, soit, ce que nous recommandons, une [restauration à un moment donné d’une autre instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Les processus externes lancés à partir des travaux SQL Server Agent ne suivent pas le fuseau horaire de l'instance.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge

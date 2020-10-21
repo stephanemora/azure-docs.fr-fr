@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392452"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612742"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Ajouter des attributions de rôle Azure à l’aide de modèles Azure Resource Manager
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>Identités managées
+
+Pour obtenir l’ID d’une identité managée, vous pouvez utiliser les commandes [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp](/cli/azure/ad/sp).
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>Application
 
 Pour récupérer l’ID d’un principal de service (identité utilisée par une application), vous pouvez utiliser les commandes [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Pour un principal de service, utilisez l’ID d’objet et **non** l’ID d’application.
@@ -77,7 +89,7 @@ Le modèle suivant montre comment ajouter de façon très simple une attribution
 Pour utiliser le modèle, vous devez effectuer les opérations suivantes :
 
 - Créez un fichier JSON et copiez le modèle.
-- Remplacez `<your-principal-id>` par l’ID d’un utilisateur, d’un groupe ou d’une application auxquels attribuer le rôle.
+- Remplacez `<your-principal-id>` par l’ID d’un utilisateur, d’un groupe, d’une identité managée ou d’une application auxquels attribuer le rôle
 
 ```json
 {
@@ -120,7 +132,7 @@ Le modèle précédent n’est pas très flexible. Le modèle suivant utilise de
 
 Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
 
-- L’ID d’un utilisateur, d’un groupe ou d’une application auxquels attribuer le rôle
+- L’ID d’un utilisateur, d’un groupe, d’une identité managée ou d’une application auxquels attribuer le rôle
 - Un identificateur unique qui sera utilisé pour l’attribution de rôle, ou vous pouvez utiliser l’ID par défaut
 
 ```json
@@ -214,7 +226,7 @@ Le modèle suivant montre comment :
 
 Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
 
-- L’ID d’un utilisateur, d’un groupe ou d’une application auxquels attribuer le rôle
+- L’ID d’un utilisateur, d’un groupe, d’une identité managée ou d’une application auxquels attribuer le rôle
 
 ```json
 {
@@ -365,7 +377,7 @@ Dans Azure RBAC, vous devez supprimer l’attribution de rôle pour supprimer l�
 
 - [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Étapes suivantes

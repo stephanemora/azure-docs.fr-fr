@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Créer un espace de travail Synapse en utilisant Azure CLI
       href: quickstart-create-workspace-cli.md
+    - name: Créer un espace de travail Synapse avec Azure PowerShell
+      href: quickstart-create-workspace-powershell.md
     - name: Déployer les mises à niveau avec un modèle
       href: quickstart-deployment-template-workspaces.md
     - name: Utiliser Synapse Studio
@@ -388,7 +390,7 @@
           items:
             - name: Assistant de scoring de modèle pour les pools SQL
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Exécuter une expérience de régression avec Azure AutoML (scoring dans DW)
+            - name: Exécuter une expérience de régression avec Azure AutoML
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Intégration d’outils (IA, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: Se connecter à Azure Synapse Link pour Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: "Utiliser Power BI et un pool SQL serverless pour analyser Azure Cosmos\_DB"
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: "Interroger des données Azure Cosmos\_DB avec un pool SQL serverless"
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copier des données depuis Synapse Link vers un pool SQL avec Apache Spark
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API REST
       href: /rest/api/synapse/

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328052"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848957"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dialpad pour l’attribution automatique d’utilisateurs
 
@@ -54,13 +54,13 @@ Avant de configurer Dialpad pour l’attribution automatique d’utilisateurs av
 
 1. Connectez-vous à votre [console d’administration Dialpad](https://dialpadbeta.com/login) et sélectionnez **Admin settings** (Paramètres d’administration). Vérifiez que l’option **My Company** (Ma société) est sélectionnée dans la liste déroulante. Accédez à **Authentication > API Keys** (Authentification > Clés API).
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
 2. Générez une nouvelle clé en cliquant sur **Add a key** (Ajouter une clé) et en configurant les propriétés du jeton de votre secret.
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
 3. Cliquez sur le bouton **Click to show value** (Cliquer pour afficher la valeur) associé à votre clé API récemment créée et copiez la valeur affichée. Cette valeur devra être entrée dans le champ **Jeton secret** sous l’onglet Provisionnement de votre application Dialpad dans le portail Azure. 
 
@@ -89,19 +89,19 @@ Avant de configurer Dialpad pour l’attribution automatique d’utilisateurs av
 
 5. Accédez à l’**URL** mise en évidence ci-dessous dans un autre navigateur. 
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
 6. Dans le coin supérieur droit, sélectionnez **Log In > Use Dialpad online** (Se connecter> Utiliser Dialpad en ligne).
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
 7. Comme Dialpad est une application OpenIDConnect, choisissez de vous connecter à Dialpad à l’aide de votre compte professionnel Microsoft.
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
 8. Une fois l’authentification réussie, acceptez l’invite de consentement pour la page de consentement. L’application est alors automatiquement ajoutée à votre locataire et vous serez redirigé vers votre compte Dialpad.
 
-    ![Dialpad - Ajout - SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Capture d’écran de la console d’administration Dialpad, avec l’icône des paramètres, My Company (Ma société), Authentication (Authentification) et API keys (Clés API) mis en surbrillance, et My Company (Ma société) sélectionné." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurer l’attribution automatique d’utilisateurs sur Dialpad
 

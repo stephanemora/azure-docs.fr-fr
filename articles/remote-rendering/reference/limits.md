@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976566"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617496"
 ---
 # <a name="limitations"></a>Limites
 
@@ -28,10 +28,12 @@ Un certain nombre de fonctionnalités ont une taille, un nombre ou d’autres li
 
 ## <a name="geometry"></a>Géométrie
 
-* Nombre total des matériaux autorisés dans une ressource : 65 535. Pour plus d’informations, consultez [Déduplication matérielle](../how-tos/conversion/configure-model-conversion.md#material-de-duplication).
-* Dimension maximale d’une texture unique 16 384 x 16 384. Les textures sources plus grandes seront mises à l’échelle par le processus de conversion.
+* **Animation :** Les animations se limitent au processus d'animation de transformations individuelles d'objets du jeu. Les animations squelettiques avec processus de maillage (skinning) ou les animations de vertex ne sont pas prises en charge. Les pistes d'animation du fichier d'élément multimédia source ne sont pas conservées. Au lieu de cela, les animations de transformation d'objets doivent être pilotées par le code client.
+* **Nuanceurs personnalisés :** La création de nuanceurs personnalisés n'est pas prise en charge. Seuls les [Matériaux de couleur](../overview/features/color-materials.md) ou les [Matériaux PBR](../overview/features/pbr-materials.md) intégrés peuvent être utilisés.
+* **Nombre maximal de documents distincts** dans un élément multimédia : 65 535. Pour plus d'informations sur la réduction automatique du nombre de matériaux, reportez-vous au chapitre [Déduplication de matériaux](../how-tos/conversion/configure-model-conversion.md#material-de-duplication).
+* **Dimension maximale d'une texture unique** : 16 384 x 16 384. Les textures sources de grande taille seront réduites par le processus de conversion.
 
-## <a name="overall-number-of-polygons"></a>Nombre total de polygones
+### <a name="overall-number-of-polygons"></a>Nombre total de polygones
 
 Le nombre autorisé de polygones pour tous les modèles chargés dépend de la taille de la machine virtuelle transmise à l’[API REST de gestion des sessions](../how-tos/session-rest-api.md#create-a-session) :
 
@@ -40,7 +42,7 @@ Le nombre autorisé de polygones pour tous les modèles chargés dépend de la t
 |standard| 20 millions |
 |Premium| aucune limite |
 
-Pour plus d’informations sur cette limitation, consultez le chapitre sur la [taille de serveur](../reference/vm-sizes.md).
+Pour plus d'informations sur cette limitation, consultez le chapitre consacré à la [taille de serveur](../reference/vm-sizes.md).
 
 ## <a name="platform-limitations"></a>Limitations de plateforme
 
@@ -48,6 +50,6 @@ Pour plus d’informations sur cette limitation, consultez le chapitre sur la [t
 
 * Win32/x64 est la seule plateforme Win32 prise en charge. Win32/x86 n’est pas pris en charge.
 
-**HoloLens 2**
+**HoloLens 2**
 
 * La fonctionnalité de [rendu à partir de la caméra PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) n’est pas prise en charge.

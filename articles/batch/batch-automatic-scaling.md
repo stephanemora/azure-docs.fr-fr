@@ -2,14 +2,14 @@
 title: Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
 description: Activer la mise à l’échelle automatique sur un pool de cloud pour ajuster dynamiquement le nombre de nœuds de calcul dans le pool.
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932319"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849790"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -648,6 +648,24 @@ Result:
 Error:
 ```
 
+## <a name="get-autoscale-run-history-using-pool-autoscale-events"></a>Obtenir l’historique des exécutions de mise à l’échelle automatique à l’aide des événements de mise à l’échelle automatique de pool
+Vous pouvez également vérifier l’historique de mise à l’échelle automatique en interrogeant [PoolAutoScaleEvent](batch-pool-autoscale-event.md). Cet événement est émis par le service Batch pour enregistrer chaque occurrence d’évaluation et d’exécution de la formule de mise à l’échelle automatique, ce qui peut être utile pour résoudre des problèmes potentiels.
+
+Exemple d’événement pour PoolAutoScaleEvent :
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
+```
+
 ## <a name="example-autoscale-formulas"></a>Exemples de formules de mise à l’échelle automatique
 
 Passons en revue quelques formules illustrant les différentes façons d’ajuster la quantité de ressources de calcul dans un pool.
@@ -691,7 +709,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Exemple 3 : comptabilisation des tâches parallèles
 
-Cet exemple C# montre l’ajustement de la taille du pool en fonction du nombre de tâches. Cette formule prend également en compte la valeur [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) qui a été définie pour le pool. Cette approche est particulièrement utile dans les situations où [l’exécution parallèle de tâches](batch-parallel-node-tasks.md) a été activée sur votre pool.
+Cet exemple C# montre l’ajustement de la taille du pool en fonction du nombre de tâches. Cette formule prend également en compte la valeur [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) qui a été définie pour le pool. Cette approche est particulièrement utile dans les situations où [l’exécution parallèle de tâches](batch-parallel-node-tasks.md) a été activée sur votre pool.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -699,7 +717,7 @@ Cet exemple C# montre l’ajustement de la taille du pool en fonction du nombre 
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

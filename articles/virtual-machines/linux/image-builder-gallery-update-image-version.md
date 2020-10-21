@@ -1,6 +1,6 @@
 ---
 title: Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure (préversion)
-description: Créez une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure.
+description: Créez une nouvelle version de l'image d'une machine virtuelle à partir d'une version existante à l'aide d'Azure VM Image Builder dans Linux.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f233a6fc557d9dbb62585e8cca85f175b3bc3e26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142b4a85826b9e9a95b17dc631045aab603f3859
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010595"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91307328"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Aperçu : Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide d’Azure VM Image Builder dans Linux
 

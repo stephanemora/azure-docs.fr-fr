@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512047"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766249"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 
@@ -86,7 +86,7 @@ La zone des éléments principaux comporte quelques-unes des propriétés import
 
 * La vignette **Capacité** affiche le stockage primaire configuré et restant sur l’appareil, relativement au stockage total disponible pour ce dernier. **Configuré** fait référence au volume de stockage préparé et alloué pour l’utilisation, **Restant** fait référence à la capacité restante pouvant être configurée sur cet appareil. 
 
-    ![Mosaïque Utilisation](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Mosaïque Utilisation 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Cliquez sur cette vignette pour voir comment la capacité est approvisionnée sur les volumes attachés localement et hiérarchisés. La **capacité hiérarchisée restante** est la capacité disponible, notamment dans le cloud, pouvant être approvisionnée, tandis que la **capacité locale restante** correspond à la capacité restant sur les disques attachés à cet appareil.
 

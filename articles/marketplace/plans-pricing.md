@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: ef860d57556e17d432988fd0fd43f861a31fde6c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380380"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858170"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Plans et tarification pour les offres de la place de marché commerciale
 
@@ -39,11 +39,12 @@ Le tableau suivant présente les options de plan pour chaque type d’offre. Les
 |||||
 
 Les plans ne sont pas pris en charge pour les types d’offres suivants :
--  Service de conseil
--  Dynamics 365 Business Central
--  Dynamics 365 Customer Engagement et PowerApps
--  Dynamics 365 for Operations
--  Application Power BI
+
+- Service de conseil
+- Dynamics 365 Business Central
+- Dynamics 365 Customer Engagement et PowerApps
+- Dynamics 365 for Operations
+- Application Power BI
 
 ## <a name="plan-information"></a>Informations sur le plan
 
@@ -53,12 +54,12 @@ Chaque type d’offre nécessite des informations distinctes lorsque vous créez
 
 Voici quelques informations courantes à fournir pour un nouveau plan :
 
--  **ID du plan** : créez un ID unique pour chaque plan dans cette offre. Utilisez au maximum 50 caractères : caractères minuscules, caractères alphanumériques, tirets et traits de soulignement. Cet ID sera visible par les clients dans l’adresse URL du produit et des modèles Resource Manager (si applicable). Une fois l’offre publiée, vous ne pouvez plus modifier cet ID.
--  **Nom du plan** : (renvoi 1 dans l’image ci-dessus) créez un nom unique pour chaque plan dans cette offre. Utilisez au maximum 50 caractères. Le nom du plan sert à différencier les plans logiciels pouvant faire partie de la même offre (par exemple, nom de l’offre : plan Standard et plan Entreprise). Les clients verront ce nom lorsqu’ils décideront du plan à sélectionner dans votre offre.
--  **Résumé du plan** : (renvoi 2 dans l’image ci-dessus) ce résumé s’affiche dans les résultats de la recherche de la Place de marché Azure et peut contenir jusqu’à 100 caractères.
+- **ID du plan** : créez un ID unique pour chaque plan dans cette offre. Utilisez au maximum 50 caractères : caractères minuscules, caractères alphanumériques, tirets et traits de soulignement. Cet ID sera visible par les clients dans l’adresse URL du produit et des modèles Resource Manager (si applicable). Une fois l’offre publiée, vous ne pouvez plus modifier cet ID.
+- **Nom du plan** : (renvoi 1 dans l’image ci-dessus) créez un nom unique pour chaque plan dans cette offre. Utilisez au maximum 50 caractères. Le nom du plan sert à différencier les plans logiciels pouvant faire partie de la même offre (par exemple, nom de l’offre : plan Standard et plan Entreprise). Les clients verront ce nom lorsqu’ils décideront du plan à sélectionner dans votre offre.
+- **Résumé du plan** : (renvoi 2 dans l’image ci-dessus) ce résumé s’affiche dans les résultats de la recherche de la Place de marché Azure et peut contenir jusqu’à 100 caractères.
    > [!NOTE]
    > Ce champ ne s’applique pas aux offres SaaS.
--  **Description du plan** : (renvoi 3 dans l’image ci-dessus) ajoutez une description du plan, expliquant en quoi celui-ci se distingue des autres plans de votre offre. Utilisez au maximum 500 caractères. Vos clients verront ce contenu s’afficher sur les pages de référencement de l’offre quand ils les parcourront et sélectionneront un plan pour votre offre.
+- **Description du plan** : (renvoi 3 dans l’image ci-dessus) ajoutez une description du plan, expliquant en quoi celui-ci se distingue des autres plans de votre offre. Utilisez au maximum 500 caractères. Vos clients verront ce contenu s’afficher sur les pages de référencement de l’offre quand ils les parcourront et sélectionneront un plan pour votre offre.
 
 Le nom et la description du plan s’affichent sur la page de référencement de l’offre dans les magasins en ligne de la place de marché commerciale. La capture d’écran suivante montre trois plans pour un référencement d’offre SaaS dans la Place de marché Azure.
 
@@ -66,8 +67,8 @@ Le nom et la description du plan s’affichent sur la page de référencement de
 
 Une fois vos plans créés, la page **Vue d’ensemble du plan** répertorie, pour chacun de vos plans, son nom, son ID, d’autres détails, son état de publication actuel et des actions disponibles. Selon l’état de publication du plan, les actions disponibles sont les suivantes :
 
--  Si le plan est dans l’état **Brouillon** : « Supprimer le brouillon ».
--  Si le plan est dans l’état **Publié** : « Arrêter la vente du plan » ou « Synchroniser le public privé ».
+- Si le plan est dans l’état **Brouillon** : « Supprimer le brouillon ».
+- Si le plan est dans l’état **Publié** : « Arrêter la vente du plan » ou « Synchroniser le public privé ».
 
 La capture d’écran suivante montre deux offres à l’état de brouillon.
 
@@ -77,9 +78,9 @@ La capture d’écran suivante montre deux offres à l’état de brouillon.
 
 La place de marché commerciale fonctionne selon un modèle d’agence. Les prix sont définis par l’éditeur, les factures sont établies par Microsoft, et l’éditeur est payé par Microsoft après déduction des frais d’agence. Vous définissez les marchés, la visibilité et la tarification de votre offre (le cas échéant) sous l’un des onglets **Tarification et disponibilité** ou **Disponibilité**.
 
--  **Marchés** : Chaque plan doit être disponible sur au moins un marché.  Vous avez la possibilité de sélectionner uniquement des pays avec « Impôt versé », dans lesquels Microsoft acquitte les taxes de vente et d’utilisation en votre nom.
--  **Prix** : les modèles de tarification s’appliquent uniquement aux plans pour des offres d’applications managées, de SaaS et de machines virtuelles Azure. Tous les plans d’une même offre doivent utiliser le même modèle de tarification.  
--  **Visibilité du plan** : selon le type d’offre, vous pouvez définir un public privé ou masquer l’offre ou le plan dans la Place de marché Azure. Cela est décrit plus en détail dans la section [Visibilité du plan](#plan-visibility) plus loin dans cet article.
+- **Marchés** : Chaque plan doit être disponible sur au moins un marché.  Vous avez la possibilité de sélectionner uniquement des pays avec « Impôt versé », dans lesquels Microsoft acquitte les taxes de vente et d’utilisation en votre nom.
+- **Prix** : les modèles de tarification s’appliquent uniquement aux plans pour des offres d’applications managées, de SaaS et de machines virtuelles Azure. Tous les plans d’une même offre doivent utiliser le même modèle de tarification.  
+- **Visibilité du plan** : selon le type d’offre, vous pouvez définir un public privé ou masquer l’offre ou le plan dans la Place de marché Azure. Cela est décrit plus en détail dans la section [Visibilité du plan](#plan-visibility) plus loin dans cet article.
 
 > [!TIP]
 > Nous vous recommandons de créer des plans aussi adaptés que possible aux modèles d’utilisation de votre base de clients cible. Cela contribue à réduire la fréquence à laquelle les utilisateurs changent de plan en fonction de leurs changements d’utilisation. Pour obtenir un exemple d’offre SaaS avec trois plans de facturation contrôlés, consultez [Exemple d’offre](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -88,9 +89,9 @@ La place de marché commerciale fonctionne selon un modèle d’agence. Les prix
 
 Vous devez associer un modèle de tarification à chaque plan pour les types d’offres suivants. Chacun de ces types d’offres présente différents modèles de tarification disponibles :
 
--  **Application managée Azure** : taux forfaitaire (mensuel) et tarification basée sur l’utilisation (dimensions de service de contrôle).
--  **Logiciel en tant que service** : taux forfaitaire (mensuel ou annuel), par utilisateur, et tarification basée sur l’utilisation (dimensions du service de contrôle). 
--  **Machine virtuelle Azure** : BYOL (apportez votre propre licence) et tarification basée sur l’utilisation. Pour un modèle de tarification basé sur l’utilisation, vous pouvez facturer par cœur, par taille de cœur ou par marché et taille de cœur. Un modèle de licence BYOL n’autorise pas de frais supplémentaires basés sur l’utilisation   (les offres de machine virtuelle BYOL ne nécessitent pas de modèle de tarification).
+- **Application managée Azure** : taux forfaitaire (mensuel) et tarification basée sur l’utilisation (dimensions de service de contrôle).
+- **Logiciel en tant que service** : taux forfaitaire (mensuel ou annuel), par utilisateur, et tarification basée sur l’utilisation (dimensions du service de contrôle). 
+- **Machine virtuelle Azure** : BYOL (apportez votre propre licence) et tarification basée sur l’utilisation. Pour un modèle de tarification basé sur l’utilisation, vous pouvez facturer par cœur, par taille de cœur ou par marché et taille de cœur. Un modèle de licence BYOL n’autorise pas de frais supplémentaires basés sur l’utilisation   (les offres de machine virtuelle BYOL ne nécessitent pas de modèle de tarification).
 
 Tous les plans d’une même offre doivent utiliser le même modèle de tarification. Par exemple, une offre ne peut pas avoir à la fois un plan forfaitaire et un plan par utilisateur. Pour plus de détails, consultez la documentation de l’offre spécifique.
 
@@ -107,38 +108,23 @@ Pour fixer des prix personnalisés dans un marché individuel, exportez, modifie
 
 Vérifiez vos prix avec soin avant la publication, car il y a des restrictions sur ce qui peut être modifié après la publication d’un plan :
 
--  Une fois qu’un plan est publié, vous ne pouvez plus modifier le modèle de tarification.
--  Une fois qu’une fréquence de facturation est publiée pour un plan, vous ne pouvez plus la supprimer.
--  Une fois qu’un prix pour un marché dans votre plan est publié, il ne peut pas être modifié ultérieurement.
+- Une fois qu’un plan est publié, vous ne pouvez plus modifier le modèle de tarification.
+- Une fois qu’une fréquence de facturation est publiée pour un plan, vous ne pouvez plus la supprimer.
+- Une fois qu’un prix pour un marché dans votre plan est publié, il ne peut pas être modifié ultérieurement.
 
 Les prix fixés en USD sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de l’enregistrement. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix pour chaque marché sélectionné.
 
-1.  Vous devez d’abord enregistrer les modifications de vos tarifs pour autoriser l’exportation des données de tarification. Près du bas de l’onglet **Tarification et disponibilité**, sélectionnez **Enregistrer le brouillon**.
-1.  Sous **Tarification**, sélectionnez le lien **Exporter les données de tarification**.
-1.  Ouvrez le fichier exportedPrice.xlsx dans Microsoft Excel.
-1.  Dans la feuille de calcul, effectuez les mises à jour souhaitées pour vos informations de tarification, puis enregistrez le fichier .CSV.
+1. Vous devez d’abord enregistrer les modifications de vos tarifs pour autoriser l’exportation des données de tarification. Près du bas de l’onglet **Tarification et disponibilité**, sélectionnez **Enregistrer le brouillon**.
+1. Sous **Tarification**, sélectionnez le lien **Exporter les données de tarification**.
+1. Ouvrez le fichier exportedPrice.xlsx dans Microsoft Excel.
+1. Dans la feuille de calcul, effectuez les mises à jour souhaitées pour vos informations de tarification, puis enregistrez le fichier .CSV.
     > [!NOTE]
     > Vous devrez peut-être activer la modification dans Excel avant de pouvoir mettre à jour le fichier.
-1.  Sous l’onglet de **Tarification et de disponibilité**, sous **Tarification**, sélectionnez **Importer des données de tarification**.
-1.  Dans la boîte de dialogue qui s’affiche, sélectionnez **Oui**.
-1.  Sélectionnez le fichier exportedPrice.xlsx que vous avez mis à jour, puis cliquez sur **Ouvrir**.
+1. Sous l’onglet de **Tarification et de disponibilité**, sous **Tarification**, sélectionnez **Importer des données de tarification**.
+1. Dans la boîte de dialogue qui s’affiche, sélectionnez **Oui**.
+1. Sélectionnez le fichier exportedPrice.xlsx que vous avez mis à jour, puis cliquez sur **Ouvrir**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### <a name="plan-visibility"></a>Visibilité du plan
+## <a name="plan-visibility"></a>Visibilité du plan
 
 Pour certains types d’offres, vous pouvez rendre des plans publiquement disponibles ou disponibles uniquement pour un public spécifique (privé). Les offres assorties de plans privés sont publiées sur le portail Azure. En savoir plus sur les offres privées dans les [offres du marketplace commercial de Microsoft](private-offers.md).
 
@@ -157,12 +143,12 @@ Vous pouvez activer un essai gratuit sur des plans pour des offres SaaS et de ma
 
 > [!NOTE]
 > Cette section décrit des essais gratuits de plans payants pour les offres vendues via Microsoft. Cela diffère des référencements d’essais gratuits de partenaires qui choisissent de traiter leurs transactions de façon indépendante. Vous pouvez créer un référencement d’essai gratuit (non associé à un plan) pour les types d’offres suivants :
-> -  Machine virtuelle Azure 
-> -  SaaS 
-> -  Dynamics 365 Business Central
-> -  Dynamics 365 for Customer Engagement et PowerApps
-> -  Dynamics 365 for Operations
-> 
+> - Machine virtuelle Azure 
+> - SaaS 
+> - Dynamics 365 Business Central
+> - Dynamics 365 for Customer Engagement et PowerApps
+> - Dynamics 365 for Operations
+>
 > Pour plus d’informations sur les options de référencement, consultez [Déterminer votre option de publication](determine-your-listing-type.md).
 
 Les essais gratuits sont pris en charge pour tous les modèles de facturation, à l’exception des plans contrôlés. Les plans SaaS permettent des essais gratuits de 1 mois. Les plans de machines virtuelles Azure permettent des essais gratuits de 1, 3 ou 6 mois.
@@ -180,5 +166,5 @@ Pour obtenir des informations sur les abonnements clients qui participent actuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--  Pour savoir comment ajouter ou mettre à jour des plans pour une offre existante, consultez [Mettre à jour une offre existante dans la place de marché commerciale](./partner-center-portal/update-existing-offer.md).
--  Pour en savoir plus sur les options de transaction et les modèles de tarification associés, consultez [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+- Pour savoir comment ajouter ou mettre à jour des plans pour une offre existante, consultez [Mettre à jour une offre existante dans la place de marché commerciale](./partner-center-portal/update-existing-offer.md).
+- Pour en savoir plus sur les options de transaction et les modèles de tarification associés, consultez [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).

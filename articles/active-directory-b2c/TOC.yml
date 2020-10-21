@@ -101,8 +101,10 @@
   items:
     - name: Intégration d’applications
       items:
-        - name: Inscrire une application
+        - name: "Inscrire une application\_web"
           href: tutorial-register-applications.md
+        - name: Inscrire une application monopage (SPA)
+          href: tutorial-register-spa.md
         - name: Inscrire un fournisseur de services SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'

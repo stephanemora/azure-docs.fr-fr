@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740375"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998110"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -437,6 +437,24 @@ Les scénarios de la partie de confiance SAML suivants sont pris en charge via v
 
 Les scénarios suivants de partie de confiance SAML ne sont pas pris en charge actuellement :
 * Authentification initiée par le fournisseur d’identité, où le fournisseur d’identité est un fournisseur externe, par exemple ADFS.
+
+## <a name="saml-token"></a>jeton SAML
+
+Un jeton SAML est un jeton de sécurité émis par Azure AD B2C après une connexion réussie. Il contient des informations sur l’utilisateur, le fournisseur de services pour lequel le jeton est prévu, la signature et la durée de validité. Le tableau suivant énumère les revendications et les propriétés auxquelles vous pouvez vous attendre avec un jeton SAML émis par Azure AD B2C.
+
+|Élément  |Propriété  |Notes  |
+|---------|---------|---------|
+|`<Response>`| `ID` | Identificateur unique de la réponse généré automatiquement. | 
+|`<Response>`| `InResponseTo` | ID de la requête SAML à laquelle ce message répond. | 
+|`<Response>` | `IssueInstant` | Heure d’émission de la réponse. La valeur d’heure est encodée au format UTC.  Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. | 
+|`<Response>` | `Destination`| Informations de référence d’URI indiquant l’adresse à laquelle cette réponse a été envoyée. La valeur est identique à `AssertionConsumerServiceURL` de la requête SAML. | 
+|`<Response>` `<Issuer>` | |Identifie l’émetteur du jeton. Il s’agit d’un URI arbitraire défini par les `IssuerUri` [métadonnées](saml-issuer-technical-profile.md#metadata)     de l’émetteur du jeton SAML. |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Principal sur lequel portent les assertions d’informations du jeton, comme l’ID d’objet de l’utilisateur. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Informations de référence d’URI représentant la classification des informations d’identificateur basées sur une chaîne. Par défaut, cette propriété est omise. Vous pouvez définir la partie de confiance [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) pour spécifier le format `NameID`, tel que `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Heure à laquelle le jeton devient non valide. La valeur d’heure est encodée au format UTC. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Heure à laquelle le jeton devient non valide. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. La valeur est de 15 minutes après `NotBefore` et ne peut pas être modifiée.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Informations de référence d’URI identifiant le public visé. Elles identifient le destinataire du jeton. La valeur est identique à `AssertionConsumerServiceURL` de la requête SAML.|
+|Collection `<Response>` `<Assertion>` `<AttributeStatement>` de `<Attribute>` | | Collection d’assertions (revendications), telle que configurée dans les revendications de sortie du [profil technique de la partie de confiance](relyingparty.md#technicalprofile). Vous pouvez configurer le nom de l’assertion en définissant `PartnerClaimType` dans la revendication de sortie. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

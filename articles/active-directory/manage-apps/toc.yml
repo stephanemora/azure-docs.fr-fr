@@ -61,6 +61,8 @@
           href: plan-sso-deployment.md
         - name: Options d’authentification unique
           href: sso-options.md
+        - name: Authentification unique OIDC
+          href: configure-oidc-single-sign-on.md
         - name: Authentification unique SAML
           href: configure-saml-single-sign-on.md
         - name: Authentification unique par mot de passe

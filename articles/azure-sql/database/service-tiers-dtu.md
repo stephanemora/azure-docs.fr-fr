@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321354"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848855"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |**Contrat SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
 |**Conservation de sauvegarde maximale**|7 jours|35 jours|35 jours|
 |**UC**|Faible|Faible, moyen, élevé|Faible, élevé|
-|**Débit d’E/S (approximatif)** |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
+|**IOPS (approximatif)** \* |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |**Latence d’E/S (approximative)**|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
 |**Indexation Columnstore** |N/A|S3 et supérieur|Prise en charge|
 |**OLTP en mémoire**|N/A|N/A|Prise en charge|
 
+\* Tous les fichiers de données d’IOPS en lecture et écriture, notamment les E/S en arrière-plan (point de contrôle et écriture différée)
+
 > [!IMPORTANT]
-> Les niveaux de service De base, Standard S0, S1 et S2 fournissent moins d’un seul vCore (UC).  Pour les charges de travail gourmandes en ressources processeur, un niveau de service S3 ou supérieur est recommandé. 
+> Les objectifs de service De base, S0, S1 et S2 fournissent moins d’un seul vCore (UC).  Pour les charges de travail gourmandes en ressources processeur, un objectif de service S3 ou supérieur est recommandé. 
 >
->En ce qui concerne le stockage des données, les niveaux de service De base, Standard S0 et S1 sont placés sur les objets blob de pages Standard. Les objets blob de pages Standard utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement, de test et d’accès peu fréquent, qui sont moins sensibles à la variabilité du niveau de performance.
+> Dans les objectifs de service De base, S0 et S1, les fichiers de base de données sont stockés dans le Stockage Standard Azure qui utilise un support de stockage basé sur un disque dur (HDD). Ces objectifs de service sont mieux adaptés aux charges de travail de développement, de test et d’accès peu fréquent, qui sont moins sensibles à la variabilité du niveau de performance.
 >
+
+> [!TIP]
+> Pour voir les limites de [gouvernance des ressources](resource-limits-logical-server.md#resource-governance) réelles pour une base de données ou un pool élastique, interrogez l’affichage [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database).
 
 > [!NOTE]
 > Vous pouvez obtenir une base de données gratuite dans Azure SQL Database au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
@@ -58,7 +63,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||De base|Standard|Premium|
+||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | **Taille de stockage maximale** | 2 Go | 1 To | 4 To  |
 | **DTU maximales** | 5 | 3000 | 4000 |
@@ -171,7 +176,7 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 | Classe de service | Mesure du débit | Temps de réponse requis |
 | --- | --- | --- |
 | Premium |Transactions par seconde |95e centile à 0,5 seconde |
-| Standard |Transactions par minute |90e centile à 1 seconde |
+| standard |Transactions par minute |90e centile à 1 seconde |
 | De base |Transactions par heure |80e centile à 2 secondes |
 
 ## <a name="next-steps"></a>Étapes suivantes

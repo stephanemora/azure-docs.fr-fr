@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
-  ms.date: 08/11/2020
-  ms.openlocfilehash: 43de19b3caa87bf410ad30a237c2c9e91beba63f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/20/2020
+  ms.openlocfilehash: cd1e23d464baa593ed5f63683664ca355e467168
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88136369"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92311697"
 landingContent:
 - title: À propos d’Azure Data Share
   linkLists:
@@ -44,25 +44,31 @@ landingContent:
       url: subscribe-to-data-share.md
   - linkListType: how-to-guide
     links:
-    - text: Ajouter des jeux de données
-      url: how-to-add-datasets.md
-    - text: Configurer des mappages de jeu de données
-      url: how-to-configure-mapping.md
+    - text: Partager à partir du Stockage Azure
+      url: how-to-share-from-storage.md
+    - text: Partager à partir d’Azure SQL Database ou Synapse Analytics
+      url: how-to-share-from-sql.md
+    - text: Partager depuis Azure Data Explorer
+      url: https://docs.microsoft.com/azure/data-explorer/data-share
 - title: Surveillance et gestion
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Superviser votre partage
-      url: how-to-monitor.md
-    - text: Résolution des problèmes courants
-      url: data-share-troubleshoot.md
+    - text: Ajouter des jeux de données
+      url: how-to-add-datasets.md
     - text: Ajouter des destinataires
       url: how-to-add-recipients.md
+    - text: Configurer des mappages de jeu de données
+      url: how-to-configure-mapping.md
     - text: Supprimer une invitation
       url: how-to-delete-invitation.md
     - text: Révoquer un abonnement de partage
       url: how-to-revoke-share-subscription.md
+    - text: Superviser votre partage
+      url: how-to-monitor.md
     - text: Vue d’ensemble de la sécurité d’Azure Data Share
       url: security.md
     - text: Récupération d'urgence
       url: disaster-recovery.md
+    - text: Résolution des problèmes courants
+      url: data-share-troubleshoot.md

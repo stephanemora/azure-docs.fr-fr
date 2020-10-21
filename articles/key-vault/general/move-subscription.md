@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394735"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042403"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -36,6 +36,9 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 * ajouter de nouvelles entrées de stratégie d’accès associées au locataire B.
 
 ## <a name="limitations"></a>Limites
+
+> [!IMPORTANT]
+> **Les coffres de clés utilisés pour le chiffrement de disque ne peuvent pas être déplacés** : si vous utilisez un coffre de clés avec le chiffrement de disque pour une machine virtuelle, le coffre de clés ne peut pas être déplacé vers un autre groupe de ressources ou un abonnement lorsque le chiffrement de disque est activé. Vous devez désactiver le chiffrement de disque avant de déplacer le coffre de clés vers un nouveau groupe de ressources ou un nouvel abonnement. 
 
 Certains principaux du service (utilisateurs et applications) sont liés à un locataire spécifique. Si vous déplacez votre coffre de clés vers un abonnement dans un autre locataire, vous risquez de ne pas pouvoir restaurer l’accès à un principal du service spécifique. Vérifiez que tous les principaux du service essentiels existent dans le locataire vers lequel vous déplacez votre coffre de clés.
 

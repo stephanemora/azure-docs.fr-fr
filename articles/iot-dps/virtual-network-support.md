@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534598"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998578"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Prise en charge des réseaux virtuels dans le service Azure IoT Hub Device Provisioning (DPS)
 
@@ -75,7 +75,7 @@ Pour configurer un point de terminaison privé, procédez comme suit :
 
 2. Sur la page _Créer un point de terminaison privé - Notions de base_, entrez les informations mentionnées dans le tableau ci-dessous.
 
-    ![Configurer la ressource vers laquelle un nouveau point de terminaison privé est mappé](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Créer des points de terminaison privés - Notions de base](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Champ | Valeur |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Pour configurer un point de terminaison privé, procédez comme suit :
 
 3. Sur la page _Créer un point de terminaison privé - Ressource_, entrez les informations mentionnées dans le tableau ci-dessous.
 
-    ![Configurer la ressource vers laquelle un nouveau point de terminaison privé est mappé](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Créer une ressource de point de terminaison privé](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Champ | Valeur |
     | :---- | :-----|
@@ -107,7 +107,7 @@ Pour configurer un point de terminaison privé, procédez comme suit :
  
     Cliquez sur **Suivant : Balises**, et spécifiez si nécessaire les balises de votre ressource.
 
-    ![Configurer la ressource vers laquelle un nouveau point de terminaison privé est mappé](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configurer un point de terminaison privé](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour créer votre ressource de point de terminaison privé.
 
@@ -141,7 +141,7 @@ Vous pouvez demander un point de terminaison privé à une ressource DPS par ID 
 
 5. Le propriétaire DPS verra la demande de point de terminaison privé dans la liste **Connexions des points de terminaison privés** sous l’onglet Mise en réseau DPS. Sur cette page, le propriétaire peut **approuver** ou **rejeter** la demande de point de terminaison privé, comme indiqué ci-dessous.
 
-    ![Onglet Propriétés DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Approbation du DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Tarification des points de terminaison privés

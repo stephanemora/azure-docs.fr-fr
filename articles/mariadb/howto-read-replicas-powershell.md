@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a13ecbb5bed65de9ab8a52258d1f22b9f3520c9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498937"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542357"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Tant que le module PowerShell Az.MariaDb est en préversion, vous devez l'installer séparément du module Az PowerShell à l'aide de la commande suivante : `Install-Module -Name Az.MariaDb -AllowPrerelease`.
+> Tant que le module PowerShell Az.MariaDb est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Une fois le module PowerShell Az.MariaDb généralement disponible, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
 Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
@@ -38,12 +38,12 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database for MariaDB dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur maître se trouve dans l’un de ces niveaux tarifaires.
+> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database for MariaDB dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 
@@ -68,14 +68,14 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md).
 
-Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître, sauf si le paramètre **Sku** est spécifié.
+Par défaut, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source, sauf si le paramètre **Sku** est spécifié.
 
 > [!NOTE]
-> Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur maître pour garantir que le serveur réplica est à la hauteur du serveur maître.
+> Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
 
-### <a name="list-replicas-for-a-master-server"></a>Répertorier les réplicas d'un serveur maître
+### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source
 
-Pour afficher tous les réplicas d'un serveur maître donné, exécutez la commande suivante :
+Pour afficher tous les réplicas d'un serveur source donné, exécutez la commande suivante :
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -86,7 +86,7 @@ La commande `Get-AzMariaDReplica` requiert les paramètres suivants :
 | Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
-| ServerName | mydemoserver | Nom ou ID du serveur maître. |
+| ServerName | mydemoserver | Nom ou ID du serveur source. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 
@@ -96,12 +96,12 @@ La suppression d’un serveur réplica en lecture peut être effectuée en exéc
 Remove-AzMariaDbServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Supprimer un serveur maître
+### <a name="delete-a-source-server"></a>Supprimer un serveur source
 
 > [!IMPORTANT]
-> La suppression d’un serveur maître arrête la réplication vers tous les serveurs réplicas et supprime le serveur maître lui-même. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
+> La suppression d’un serveur source arrête la réplication vers tous les serveurs réplicas et supprime le serveur source proprement dit. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
 
-Pour supprimer un serveur maître, vous pouvez exécuter la cmdlet `Remove-AzMariaDbServer`.
+Pour supprimer un serveur source, vous pouvez exécuter la cmdlet `Remove-AzMariaDbServer`.
 
 ```azurepowershell-interactive
 Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup

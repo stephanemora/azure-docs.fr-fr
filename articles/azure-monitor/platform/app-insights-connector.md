@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327104"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449409"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -83,9 +83,9 @@ Les sections suivantes expliquent comment vous pouvez utiliser les panneaux affi
 
 Cliquez sur la vignette **Application Insights** pour ouvrir le tableau de bord **Application Insights** et afficher les panneaux suivants.
 
-![Tableau de bord Application Insights](./media/app-insights-connector/app-insights-dash01.png)
+![Capture d'écran du tableau de bord d'Application Insights, avec les panneaux Applications, Volume de données et Disponibilité.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Tableau de bord Application Insights](./media/app-insights-connector/app-insights-dash02.png)
+![Capture d'écran du tableau de bord d'Application Insights, avec les panneaux Requêtes de serveur, Échecs et Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
 
 Le tableau de bord comprend les panneaux figurant dans le tableau. Chaque panneau répertorie jusqu'à 10 éléments répondant à ses critères en ce qui concerne l’étendue et l’intervalle de temps spécifiés. Vous pouvez exécuter une recherche dans les journaux qui renvoie tous les enregistrements lorsque vous cliquez sur **Afficher tout** en bas du panneau ou lorsque vous cliquez sur l’en-tête de panneau.
 

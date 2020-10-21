@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399427"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448700"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Prise en charge du protocole HTTP/2 dans Azure Front Door
 
 Actuellement, la prise en charge de HTTP/2 est active pour toutes les configurations Azure Front Door. Aucune action supplémentaire n’est nécessaire de la part des clients.
 
-HTTP/2 est une révision majeure du protocole HTTP/1.1. Il offre des performances web plus rapides, des meilleurs temps de réponse et une expérience utilisateur améliorée, tout en conservant les méthodes HTTP, les codes d’état et la sémantique habituels. Bien que HTTP/2 soit conçu pour fonctionner avec HTTP et HTTPS, de nombreux navigateurs web clients prennent en charge seulement HTTP/2 sur TLS (Transport Layer Security).
+HTTP/2 est une révision majeure de HTTP/1.1 qui vous permet de bénéficier de performances web plus rapides en réduisant le temps de réponse. Pour améliorer l'expérience utilisateur, HTTP/2 conserve les méthodes HTTP, les codes d'état et la sémantique qui vous sont familiers. Bien que HTTP/2 soit conçu pour fonctionner avec HTTP et HTTPS, de nombreux navigateurs web clients prennent uniquement en charge HTTP/2 sur TLS (Transport Layer Security).
 
 > [!NOTE]
 > La prise en charge du protocole HTTP/2 est disponible uniquement pour les requêtes des clients à Front Door. La communication entre Front Door et les serveurs principaux dans le pool back-end s’effectue via HTTP/1.1. 

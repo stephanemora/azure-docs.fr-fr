@@ -3,20 +3,18 @@ title: Sécuriser les pods avec Azure Policy dans Azure Kubernetes Service (AKS)
 description: Découvrez comment sécuriser les pods avec Azure Policy dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440874"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073459"
 ---
-# <a name="secure-pods-with-azure-policy-preview"></a>Sécuriser les pods avec Azure Policy (préversion)
+# <a name="secure-pods-with-azure-policy"></a>Sécuriser les pods avec Azure Policy
 
 Pour améliorer la sécurité de votre cluster AKS, vous pouvez contrôler quelles fonctions sont accordées aux pods et si quelque chose va à l'encontre de la politique de l'entreprise. Cet accès est défini par le biais de stratégies intégrées fournies par le module complémentaire [Azure Policy pour AKS][kubernetes-policy-reference]. Le contrôle supplémentaire sur les aspects de sécurité de la spécification de votre pod, comme les privilèges racine, permet une adhésion de sécurité plus stricte et une meilleure visibilité sur ce qui est déployé dans votre cluster. Si un pod ne remplit pas les conditions spécifiées dans la stratégie, Azure Policy peut empêcher le pod de démarrer ou signaler une violation. Cet article explique comment utiliser Azure Policy pour limiter le déploiement de pods dans AKS.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -29,11 +27,10 @@ Pour sécuriser les pods AKS via Azure Policy, vous devez installer le module co
 Ce document suppose que vous disposez des éléments suivants, qui sont déployés dans la procédure pas à pas liée ci-dessus.
 
 * Inscrit le `Microsoft.ContainerService` et `Microsoft.PolicyInsights` fournisseurs de ressources à l’aide de `az provider register`
-* Inscrit l’indicateur de fonctionnalité d’évaluation `AKS-AzurePolicyAutoApprove` à l’aide de `az feature register`
-* Azure CLI installé avec l’extension de `aks-preview` version 0.4.53 ou ultérieure
-* Un cluster AKS sur une version prise en charge de 1.15 ou une version ultérieure installée avec le module complémentaire Azure Policy
+* Azure CLI 2.12 ou version ultérieure
+* Un cluster AKS sur une version 1.15 ou ultérieure installée avec le module complémentaire Azure Policy
 
-## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>Présentation de la sécurisation des pods avec Azure Policy pour AKS (version préliminaire)
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks"></a>Présentation de la sécurisation des pods avec Azure Policy pour AKS
 
 >[!NOTE]
 > Ce document explique en détail comment utiliser Azure Policy pour sécuriser les pods, qui sont les successeurs de la fonctionnalité de stratégie de sécurité des pods [ Kubernetes dans la version préliminaire](use-pod-security-policies.md).
@@ -45,33 +42,61 @@ Dans un cluster AKS, un contrôleur d’admission est utilisé pour intercepter 
 
 Auparavant, la fonctionnalité [Stratégie de sécurité des pods (version préliminaire)](use-pod-security-policies.md) était activée via le projet Kubernetes pour limiter les pods pouvant être déployés.
 
-Via le module complémentaire Azure Policy, un cluster AKS peut utiliser des politiques Azure intégrées qui sécurisent des pods et d’autres ressources Kubernetes similaires à la stratégie de sécurité des pods utilisée auparavant. Le module complémentaire Azure Policy pour AKS installe une instance gérée de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un contrôleur d’admission de validation. Azure Policy pour Kubernetes est intégré à l’agent open source Open Policy qui s’appuie sur le[langage de stratégie Rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
+Via le module complémentaire Azure Policy, un cluster AKS peut utiliser des politiques Azure intégrées qui sécurisent des pods et d’autres ressources Kubernetes similaires à la stratégie de sécurité des pods utilisée auparavant. Le module complémentaire Azure Policy pour AKS installe une instance gérée de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un contrôleur d’admission de validation. Azure Policy pour Kubernetes est intégré à l’agent open source Open Policy qui s’appuie sur le [langage de stratégie Rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
 Ce document explique en détail comment utiliser Azure Policy pour sécuriser des pods dans un cluster AKS et comment migrer à partir de stratégies de sécurité Pod (version préliminaire).
 
 ## <a name="limitations"></a>Limites
 
-* Avec la version préliminaire, une limite de 200 pods avec 20 statégies Azure pour les stratégies Kubernetes peuvent s’exécuter dans un seul cluster.
-* [Certains espaces de noms système](#namespace-exclusion) contenant des pods gérées par AKS sont exclus de l’évaluation de la stratégie.
-* Les Windows Pod [ne prennent pas en charge les contextes de sécurité](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), par conséquent, de nombreuses stratégies Azure s’appliquent uniquement aux Pod Linux, telles que le rejet des privilèges racine, qui ne peuvent pas être élevés dans les pods Windows.
-* La stratégie de sécurité des pods (version préliminaire) et le module complémentaire Azure Policy pour AKS ne peuvent pas être activés simultanément. Si vous installez le module complémentaire Azure Policy dans un cluster avec la stratégie de sécurité des pods activée, [suivez les instructions](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+Les limitations générales suivantes s’appliquent au module complémentaire Azure Policy pour les clusters Kubernetes :
+
+- Le module complémentaire Azure Policy pour Kubernetes est pris en charge sur la version **1.14** ou ultérieure de Kubernetes.
+- Le module complémentaire Azure Policy pour Kubernetes peut uniquement être déployé dans des pools de nœuds Linux
+- Seules les définitions de stratégie intégrées sont prises en charge
+- Nombre maximal d’enregistrements non conformes par stratégie par cluster : **500**
+- Nombre maximal d’enregistrements non conformes par abonnement : **1 million**
+- Les installations de Gatekeeper en dehors du module complémentaire Azure Policy ne sont pas prises en charge. Désinstallez tous les composants installés par une installation antérieure de Gatekeeper avant d’activer le module complémentaire Azure Policy.
+- Les [raisons de non-conformité](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) ne sont pas disponibles pour le [mode Fournisseur de ressources](../governance/policy/concepts/definition-structure.md#resource-provider-modes).
+
+Les limitations suivantes s’appliquent uniquement au module complémentaire Azure Policy pour AKS :
+
+- La [stratégie de sécurité des pods AKS (préversion)](use-pod-security-policies.md) et le module complémentaire Azure Policy pour AKS ne peuvent pas être activés simultanément. 
+- Espaces de noms automatiquement exclus par le module complémentaire Azure Policy à des fins d’évaluation : _kube-system_, _gatekeeper-system_ et _aks-periscope_.
+
+### <a name="recommendations"></a>Recommandations
+
+Voici les recommandations générales relatives à l’utilisation du module complémentaire Azure Policy :
+
+- Le module complémentaire Azure Policy requiert 3 composants Gatekeeper pour s’exécuter : 1 pod d’audit et 2 réplicas de pod de webhook. Ces composants consomment davantage de ressources, car le nombre de ressources Kubernetes et d’attributions de stratégie augmente dans le cluster, ce qui nécessite des opérations d’audit et de mise en œuvre.
+
+  - Pour moins de 500 pods dans un seul cluster avec un maximum de 20 contraintes : 2 processeurs virtuels et 350 Mo de mémoire par composant.
+  - Pour plus de 500 pods dans un seul cluster avec un maximum de 40 contraintes : 3 processeurs virtuels et 600 Mo de mémoire par composant.
+
+La recommandation suivante s’applique uniquement à AKS et au module complémentaire Azure Policy :
+
+- Utilisez le pool de nœuds système avec la teinte `CriticalAddonsOnly` pour planifier des pods Gatekeeper. Pour plus d’informations, consultez [Utilisation de pools de nœuds système](use-system-pools.md#system-and-user-node-pools).
+- Sécurisez le trafic sortant de vos clusters AKS. Pour plus d’informations, consultez [Contrôle du trafic de sortie pour les nœuds de cluster](limit-egress-traffic.md).
+- Si `aad-pod-identity` est activé dans le cluster, les pods NMI (Node Managed Identity) modifient les tables d’adresses IP des nœuds pour intercepter les appels vers le point de terminaison Azure Instance Metadata. Cette configuration signifie que toutes les requêtes adressées au point de terminaison Metadata sont interceptées par NMI, même si le pod n’utilise pas `aad-pod-identity`. La CRD AzurePodIdentityException peut être configurée de manière à informer `aad-pod-identity` que toutes les requêtes adressées au point de terminaison Metadata depuis un pod correspondant aux étiquettes définies dans la CRD doivent être envoyées par proxy sans aucun traitement dans NMI. Les pods système qui disposent de l'étiquette `kubernetes.azure.com/managedby: aks` dans l’espace de noms _kube-system_ doivent être exclus de `aad-pod-identity` en configurant la CRD AzurePodIdentityException. Pour plus d’informations, consultez [Désactiver aad-pod-identity pour un pod ou une application spécifique](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  Pour configurer une exception, installez le fichier [YAML mic-exception](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+
+Le module complémentaire Azure Policy requiert des ressources de processeur et de mémoire pour fonctionner. Ces exigences augmentent à mesure que la taille d’un cluster augmente. Consultez les [recommandations d’Azure Policy][policy-recommendations] pour une générale relative à l’utilisation du module complémentaire Azure Policy.
 
 ## <a name="azure-policies-to-secure-kubernetes-pods"></a>Stratégies Azure pour sécuriser les pods Kubernetes
 
 Après l’installation du module complémentaire Azure Policy, aucune stratégie n’est appliquée par défaut.
 
-Il existe onze (11) stratégies Azure intégrées et deux (2) initiatives intégrées qui sécurisent spécifiquement les pods dans un cluster AKS.
+Il existe 11 stratégies Azure intégrées et deux initiatives intégrées qui sécurisent spécifiquement les pods dans un cluster AKS.
 Chaque stratégie peut être personnalisée à l’aide d’un effet. La liste complète des stratégies [AKS et leurs effets pris en charge sont répertoriées ici][policy-samples]. Découvrez plus en détail les effets [Azure Policy](../governance/policy/concepts/effects.md).
 
 Les stratégies Azure peuvent être appliquées au niveau du groupe d’administration, de l’abonnement ou des groupes de ressources. Lorsque vous affectez une stratégie au niveau du groupe de ressources, assurez-vous que le groupe de ressources du cluster AKS cible est sélectionné dans l’étendue de la stratégie. Chaque cluster de l’étendue attribuée avec le module complémentaire Azure Policy installé se situe dans l’étendue de la stratégie.
 
-Si vous utilisez [ une stratégie de sécurité des pods (version préliminaire)](use-pod-security-policies.md), découvrez comment [migrer vers Azure Policy et apprenez-en plus sur les autres différences de comportement](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+Si vous utilisez une [stratégie de sécurité des pods (préversion)](use-pod-security-policies.md), découvrez comment [migrer vers Azure Policy et apprenez-en plus sur les autres différences de comportement](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### <a name="built-in-policy-initiatives"></a>Initiatives de stratégie intégrées
 
 Une initiative dans Azure Policy est une collection de définitions de stratégie qui sont spécialement conçues pour atteindre un objectif global particulier. L’utilisation d’initiatives peut simplifier la gestion et l’affectation de stratégies entre les clusters AKS. Une initiative existe sous la forme d’un objet unique, en savoir plus sur les initiatives [Azure Policy](../governance/policy/overview.md#initiative-definition).
 
-Azure Policy pour Kubernetes offre deux initiatives intégrées qui sécurisent les pods, la [ligne de base](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) et les [restreintes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00).
+Azure Policy pour Kubernetes offre deux initiatives intégrées qui sécurisent les pods, la [ligne de base](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) et la [restreinte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00).
 
 Les deux initiatives intégrées sont générées à partir des définitions utilisées dans la [stratégie de sécurité des pods à partir de Kubernetes](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml).
 
@@ -98,7 +123,7 @@ Des stratégies Azure supplémentaires peuvent être appliquées séparément en
 |---|---|---|---|
 |Définir le profil AppArmor utilisé par les conteneurs|[Cloud public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | Facultatif | Facultatif |
 |Autoriser les montages qui ne sont pas en lecture seule|[Cloud public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | Facultatif | Facultatif |
-|Restreindre à des pilotes FlexVolume spécifiques|[Cloud public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Facultatif : à utiliser si vous souhaitez restreindre uniquement les pilotes FlexVolume, mais pas les autres définis par « Restreindre l’utilisation des types de volumes définis » | Non applicable : l’initiative restreinte comprend « Restreindre l’utilisation des types de volumes définis », ce qui interdit tous les pilotes FlexVolume |
+|Restreindre à des pilotes FlexVolume spécifiques|[Cloud public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Facultatif : à utiliser si vous souhaitez restreindre uniquement les pilotes FlexVolume, mais pas les autres définis par « Restreindre l’utilisation des types de volumes définis » | Non applicable : l’initiative restreinte comprend « Restreindre l’utilisation des types de volumes définis », ce qui interdit tous les pilotes FlexVolume |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>Stratégies intégrées non prises en charge pour les clusters AKS gérés
 
@@ -132,7 +157,7 @@ AKS requiert que les pods système s’exécutent sur un cluster pour fournir de
 1. azure-arc
 1. aks-periscope
 
-Les espaces de noms personnalisés supplémentaires peuvent être exclus de l’évaluation lors de la création, de la mise à jour et de l’audit. Cela doit être utilisé si vous avez des pods spécialisées qui s’exécutent dans un espace de noms approuvé et que vous souhaitez éviter de déclencher des violations d’audit.
+Les espaces de noms personnalisés supplémentaires peuvent être exclus de l’évaluation lors de la création, de la mise à jour et de l’audit. Ces exclusions doivent être utilisées si vous avez des pods spécialisés qui s’exécutent dans un espace de noms approuvé et que vous souhaitez éviter de déclencher des violations d’audit.
 
 ## <a name="apply-the-baseline-initiative"></a>Appliquer l’initiative de la ligne de base
 
@@ -292,7 +317,7 @@ Vous trouverez ci-dessous un résumé des changements de comportement entre la s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a montré comment appliquer une stratégie Azure qui limite le déploiement des pods privilégiée pour empêcher l’utilisation de l’accès privilégié. De nombreuses stratégies peuvent être appliquées, telles que celles qui limitent l’utilisation des volumes. Pour plus d’informations sur les options disponibles, consultez les [documents de référence Azure Policy pour Kubernetes][kubernetes-policy-reference].
+Cet article vous a montré comment appliquer une stratégie Azure qui limite le déploiement des pods privilégiée pour empêcher l’utilisation de l’accès privilégié. De nombreuses stratégies peuvent être appliquées, telles que les stratégies qui limitent l’utilisation de volumes. Pour plus d’informations sur les options disponibles, consultez les [documents de référence Azure Policy pour Kubernetes][kubernetes-policy-reference].
 
 Pour plus d’informations sur la limitation du trafic réseau des pods, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans AKS][network-policies].
 
@@ -304,10 +329,14 @@ Pour plus d’informations sur la limitation du trafic réseau des pods, consult
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
-[policy-samples]: policy-samples.md#microsoftcontainerservice
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

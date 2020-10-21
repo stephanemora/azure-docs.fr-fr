@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080157"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536067"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Créer et configurer des clusters de Pack Sécurité Entreprise dans Azure HDInsight
 
@@ -192,11 +192,11 @@ Créez un administrateur de locataire Azure Active Directory.
 
 1. Dans la page **Connexion à Azure AD**, entrez le nom d’utilisateur et le mot de passe de l’administrateur général pour l’instance Azure AD. Utilisez le nom d’utilisateur `fabrikamazureadmin@hdifabrikam.com` que vous avez créé lorsque vous avez configuré votre locataire Active Directory. Sélectionnez ensuite **Suivant**.
 
-    ![Page « Connexion à Azure AD »](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![Page « Connexion à Azure AD ».](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. Dans la page **Connexion à Active Directory Domain Services**, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Utilisez le nom d’utilisateur `HDIFabrikam\HDIFabrikamAdmin` et le mot de passe que vous avez créés précédemment. Sélectionnez ensuite **Suivant**.
 
-   ![Page « Connexion à Azure AD »](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![Page « Connexion à ADDS ».](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Dans la page **Configuration de la connexion à Azure AD**, sélectionnez **Suivant**.
    ![Page « Configuration de la connexion à Azure AD »](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 

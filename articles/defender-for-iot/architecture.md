@@ -4,21 +4,21 @@ description: En savoir plus sur le flux d’informations dans le service Azure D
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 3d26d9e3d686ad7c34e7493dc1413b7a9e7a2f6b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 3fc695770350e5a60ae3da9ab1796da5cac99370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930807"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843411"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architecture de Azure Defender pour IoT
 
@@ -47,7 +47,7 @@ En mode **étendu**, après l’activation de l’option **Sécurité** dans vot
 
 ![Architecture de Defender pour IoT](./media/architecture/azure-iot-security-architecture.png)
 
-Les agents d’appareil et d’autres applications utilisent le **SDK d’envoi de message de sécurité Azure** pour envoyer des informations de sécurité dans Azure IoT Hub. IoT Hub récupère ces informations et les transmet au service Defender pour IoT.
+Les agents d’appareil et d’autres applications utilisent le **SDK d’envoi de message de sécurité Azure** pour envoyer des informations de sécurité dans Azure IoT Hub. IoT Hub obtient ces informations et les transmet au service Defender pour IoT.
 
 Une fois le service Defender pour IoT activé, outre les données transférées, IoT Hub envoie également toutes ses données internes à Defender pour IoT à des fins d’analyse. Ces données incluent les journaux des opérations appareil-cloud, les identités des appareils et la configuration du Hub. Toutes ces informations permettent de créer le pipeline d’analytique Defender pour IoT.
 

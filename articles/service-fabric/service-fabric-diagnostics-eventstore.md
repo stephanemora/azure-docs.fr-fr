@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91354817"
 ---
 # <a name="eventstore-overview"></a>Vue d’ensemble d’EventStore
 
@@ -26,7 +26,7 @@ EventStore est un service Service Fabric avec état qui conserve les événement
 * Vérifier que les actions de gestion que vous entreprenez sur votre cluster sont traitées correctement
 * Obtenir un « instantané » de la façon dont interagit Service Fabric avec une entité en particulier
 
-![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![Capture d'écran représentant l'onglet ÉVÉNEMENTS du volet Nœuds et affichant plusieurs événements, dont un événement NodeDown.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Pour obtenir la liste complète des événements disponibles dans le service EventStore, consultez l’article relatif aux [événements Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 

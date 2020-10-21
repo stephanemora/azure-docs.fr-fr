@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738213"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91396771"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 
@@ -42,7 +42,7 @@ Avant de réaliser ce scénario, vous devez disposer des éléments suivants :
 
 - Un compte Azure Automation dans Azure. Assurez-vous que le compte automation a les derniers modules et qu’il a également le module AzureRM.Network. Le module AzureRM.Network est disponible dans la galerie des modules pour l’ajouter à votre compte automation.
 - Vous devez avoir configuré des informations d’identification dans Azure Automation. Pour en savoir plus, consultez l’article [Sécurité dans Azure Automation](../automation/automation-security-overview.md).
-- Un serveur SMTP valide (Office 365, votre messagerie locale ou une autre) et les informations d’identification définies dans Azure Automation.
+- Un serveur SMTP valide (Microsoft 365, votre messagerie locale ou autre) et les informations d'identification définies dans Azure Automation.
 - Une passerelle de réseau virtuel configurée dans Azure.
 - Un compte de stockage existant avec un conteneur existant pour y stocker les journaux d’activité.
 
@@ -85,7 +85,7 @@ Utilisez le code suivant et cliquez sur **Enregistrer**.
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +99,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName

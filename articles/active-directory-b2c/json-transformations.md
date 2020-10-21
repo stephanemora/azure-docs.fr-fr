@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204364"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998432"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
@@ -33,6 +33,8 @@ Utilisez des valeurs de revendication ou de constantes pour générer une chaîn
 | InputClaim | Toute chaîne suivant la notation par points | string | JsonPath du JSON dans lequel la valeur de revendication sera insérée. |
 | InputParameter | Toute chaîne suivant la notation par points | string | JsonPath du JSON dans lequel la valeur de chaîne de constante sera insérée. |
 | OutputClaim | outputClaim | string | Chaîne JSON générée. |
+
+### <a name="example-1"></a>Exemple 1
 
 L’exemple suivant génère une chaîne JSON en fonction de la valeur de revendication « email » et « otp », ainsi que de chaînes de constante.
 
@@ -52,8 +54,6 @@ L’exemple suivant génère une chaîne JSON en fonction de la valeur de revend
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### <a name="example"></a> Exemple
 
 La transformation des revendications suivante génère une revendication de chaîne JSON qui constituera le corps de la requête envoyée à SendGrid (un fournisseur de messagerie tiers). La structure de l'objet JSON est définie par les ID en notation par points des éléments InputParameters et des éléments TransformationClaimTypes de InputClaims. Les nombres dans la notation par points impliquent des tableaux. Les valeurs proviennent des valeurs InputClaims et des propriétés « Value » des éléments InputParameters.
 
@@ -87,6 +87,56 @@ La transformation des revendications suivante génère une revendication de cha�
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### <a name="example-2"></a>Exemple 2
+
+L’exemple suivant génère une chaîne JSON en fonction des valeurs de revendication, ainsi que des chaînes de constante.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+La transformation des revendications suivante génère une revendication de chaîne JSON qui constituera le corps de la requête envoyée à une API REST. La structure de l'objet JSON est définie par les ID en notation par points des éléments InputParameters et des éléments TransformationClaimTypes de InputClaims. Les valeurs proviennent des valeurs InputClaims et des propriétés « Value » des éléments InputParameters.
+
+- Revendications d’entrée :
+  - **email**, type de revendication de transformation **customerEntity.email**: "john.s@contoso.com"
+  - **objectId**, type de revendication de transformation **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, type de revendication de transformation **customerEntity.firstName** "John"
+  - **objectId**, type de revendication de transformation **customerEntity.lastName** "Smith"
+- Paramètre d’entrée :
+  - **customerEntity.role.name** : "Administrator"
+  - **customerEntity.role.id** 1
+- Revendication de sortie :
+  - **requestBody** : Valeur JSON
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 

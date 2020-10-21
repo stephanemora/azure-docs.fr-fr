@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449274"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961746"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervision des journaux et des métriques dans Azure Front Door
 
@@ -34,7 +34,7 @@ Les métriques représentent une fonctionnalité de certaines ressources Azure q
 | RequestCount | Nombre de requêtes | Count | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre de requêtes de clients prises en charge par Front Door  |
 | RequestSize | Taille de la requête | Octets | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre d’octets envoyés en tant que requêtes de clients à Front Door. |
 | ResponseSize | Taille de la réponse | Octets | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Nombre d’octets envoyés en tant que réponses de Front Door aux clients. |
-| TotalLatency | Latence totale | Millisecondes | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Temps calculé à partir du moment où la requête du client est reçue par Front Door jusqu’à ce que le client accuse réception du dernier octet de la réponse de Front Door. |
+| TotalLatency | Latence totale | Millisecondes | httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Durée totale de la requête du client reçue par Front Door jusqu’au dernier octet de réponse envoyé d’AFD au client. |
 | BackendRequestCount | Nombre de requêtes de backend | Count | httpStatus</br>HttpStatusGroup</br>Backend | Nombre de requêtes envoyées de Front Door aux backends. |
 | BackendRequestLatency | Latence de requête du backend | Millisecondes | Backend | Temps calculé à partir du moment où la requête est envoyée par Front Door au backend jusqu’à ce que Front Door reçoive le dernier octet de la réponse du backend. |
 | BackendHealthPercentage | Pourcentage d’intégrité du backend | Pourcentage | Backend</br>BackendPool | Pourcentage de sondes d’intégrité réussies de Front Door vers les backends. |
@@ -75,7 +75,7 @@ Front Door fournit actuellement des journaux de diagnostic (par lot toutes les h
 
 | Propriété  | Description |
 | ------------- | ------------- |
-| BackendHostname | Si la demande a été transférée à un serveur principal, ce champ représente le nom d’hôte du serveur principal. Ce champ est vide si la requête a été redirigée ou transférée vers un cache régional (lorsque la mise en cache est activée pour la règle d’acheminement). |
+| BackendHostname | Si la demande a été transférée à un serveur principal, ce champ représente le nom d’hôte du serveur principal. Ce champ est vide si la requête est redirigée ou transférée vers un cache régional (lorsque la mise en cache est activée pour la règle d’acheminement). |
 | CacheStatus | Pour les scénarios de mise en cache, ce champ définit une absence/une correspondance dans le cache au niveau POP |
 | ClientIp | Adresse IP du client à l’origine de la demande. S’il existait un en-tête X-Forwarded-For dans la demande, l’adresse IP du client est sélectionnée de la même façon. |
 | ClientPort | Adresse IP du port du client qui a effectué la requête. |
@@ -90,19 +90,49 @@ Front Door fournit actuellement des journaux de diagnostic (par lot toutes les h
 | RoutingRuleName | Nom de la règle de routage correspondant à la requête. |
 | RulesEngineMatchNames | Noms des règles correspondant à la demande. |
 | SecurityProtocol | Version du protocole TLS/SSL utilisée par la requête, ou Null si aucun chiffrement. |
-| SentToOriginShield | Champ booléen indiquant s’il y a eu une absence dans le cache sur le premier environnement et que la demande a été envoyée au cache régional. Ignorez ce champ si la règle d’acheminement est une redirection ou si la mise en cache n’est pas activée. |
+| SentToOriginShield </br> (déconseillé) * **Consultez les notes sur la désapprobation dans la section suivante.**| Si la valeur est true, cela signifie que la requête a été traitée à partir du cache de protection d’origine au lieu du pop de périphérie. La protection d’origine est un cache parent utilisé pour améliorer le taux d’accès au cache. |
+| isReceivedFromClient | Si la valeur est true, cela signifie que la requête provient du client. Si la valeur est false, la requête est en échec dans la périphérie (POP enfant) et reçoit une réponse à partir de la protection d’origine (POP parent). 
 | TimeTaken | Durée, en secondes, écoulée entre le premier octet de la requête Front Door et le dernier octet de la réponse. |
 | TrackingReference | Chaîne de référence unique qui identifie une requête traitée par Front Door, également envoyée en tant qu’en-tête X-Azure-Ref au client. Nécessaire pour pouvoir effectuer une recherche détaillée dans les journaux d’accès pour une requête spécifique. |
 | UserAgent | Type de navigateur utilisé par le client. |
 
-**Remarque :** Pour les différentes configurations de routage et les différents comportements de trafic, certains des champs, comme backendHostname, cacheStatus, sentToOriginShield et POP peuvent renvoyer des valeurs différentes. Le tableau ci-dessous explique les différentes valeurs que contiennent ces champs dans différents scénarios :
+### <a name="sent-to-origin-shield-deprecation"></a>Dépréciation de Sent to origin shield
+La propriété de journal brut **isSentToOriginShield** est déconseillée et remplacée par un nouveau champ **isReceivedFromClient**. Utilisez le nouveau champ si vous utilisez déjà le champ déconseillé. 
 
-| Scénarios | Nombre d’entrées de journal | POP | BackendHostname | SentToOriginShield | CacheStatus |
+Les journaux bruts incluent les journaux générés à partir de la périphérie de CDN (POP enfant) et de la protection d’origine. La protection d’origine fait référence aux nœuds parents qui se trouvent stratégiquement dans le monde entier. Ces nœuds communiquent avec les serveurs d’origine et réduisent la charge du trafic sur l’origine. 
+
+Pour chaque requête qui accède à la protection d’origine, il y a deux entrées de journal :
+
+* une pour les nœud de périphérie
+* l’autre pour la protection d’origine 
+
+Pour différencier la sortie ou les réponses des nœuds de périphérie par rapport à la protection d’origine, vous pouvez utiliser le champ **isReceivedFromClient** pour récupérer les données correctes. 
+
+Si la valeur est false, cela signifie que la requête reçoit une réponse de la protection d’origine jusqu’aux nœuds de périphérie. Cette approche est efficace pour comparer les journaux bruts aux données de facturation. Les frais ne sont pas facturés pour la sortie de la protection d’origine jusqu’aux nœuds de périphérie. Des frais sont facturés pour la sortie des nœuds de périphérie jusqu’aux clients. 
+
+**Exemple de requête Kusto pour exclure les journaux générés sur la protection d’origine dans Log Analytics.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> Pour les différentes configurations de routage et les différents comportements de trafic, certains des champs, comme backendHostname, cacheStatus, isReceivedFromClient et POP peuvent renvoyer des valeurs différentes. Le tableau ci-dessous explique les différentes valeurs que contiennent ces champs dans différents scénarios :
+
+| Scénarios | Nombre d’entrées de journal | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Règle d’acheminement sans mise en cache | 1 | Code POP Edge | Serveur principal où la demande a été envoyée | False | CONFIG_NOCACHE |
-| Règle d’acheminement avec mise en cache. Correspondance dans le cache au niveau de la périphérie POP | 1 | Code POP Edge | Vide | False | HIT |
-| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Vide | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
-| Règle d’acheminement avec mise en cache. Absence dans le cache à la fois dans la périphérie et dans le POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Serveur principal qui permet de remplir le cache | 1. True</br>2. False | 1. MISS</br>2. MISS |
+| Règle d’acheminement sans mise en cache | 1 | Code POP Edge | Serveur principal où la demande a été envoyée | True | CONFIG_NOCACHE |
+| Règle d’acheminement avec mise en cache. Correspondance dans le cache au niveau de la périphérie POP | 1 | Code POP Edge | Vide | True | HIT |
+| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Vide | 1. True</br>2. False | 1. MISS</br>2. HIT |
+| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance PARTIAL dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Serveur principal qui permet de remplir le cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Règle d’acheminement avec mise en cache. Cache PARTIAL_HIT au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Code POP Edge</br>2. Code POP du cache parent | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
+| Règle d’acheminement avec mise en cache. Absence dans le cache à la fois dans la périphérie et dans le POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Code POP Edge</br>2. Code POP du cache parent | 1. True</br>2. False | 1. MISS</br>2. MISS |
+
+> [!NOTE]
+> Pour les scénarios de mise en cache, la valeur de l’état du cache est partial_hit lorsque certains octets d’une requête sont traités à partir du cache de la périphérie Front Door ou du cache de la protection d’origine, tandis que certains octets sont traités à partir de l’origine pour les objets volumineux.
+
+Front Door utilise une technique appelée segmentation d’objets. Quand un fichier volumineux est demandé, l’instance Front Door récupère les petits éléments du fichier à partir de l’origine. Une fois que le serveur POP de l’instance Front Door a reçu une requête de fichier complet ou de plage d’octets de fichier, le serveur de périphérie Front Door demande le fichier au serveur d’origine par segments de 8 Mo.
+
+Quand un segment arrive à la périphérie Front Door, il est mis en cache et immédiatement servi à l’utilisateur. L’instance Front Door se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération garantit que le contenu a un bloc d’avance sur l’utilisateur, ce qui a réduit la latence. Ce processus se poursuit jusqu'à ce que le fichier entier soit téléchargé (si nécessaire), que toutes les plages d’octets soient disponibles (si nécessaire), ou que le client mette fin à la connexion. Pour plus d’informations sur la demande de plage d’octets, voir RFC 7233. L’instance Front Door met en cache les blocs au fur et à mesure de leur réception. Le fichier entier n’a pas besoin d’être mis en cache sur le cache Front Door. Les demandes suivantes concernant le fichier ou les plages d’octets sont traitées à partir du cache Front Door. Si tous les blocs sont mis en cache sur l’instance Front Door, une prérécupération est utilisée pour demander des blocs de l’origine. Cette optimisation s’appuie sur la capacité du serveur d’origine à prendre en charge des demandes de plages d’octets. Si le serveur d’origine ne prend pas en charge les demandes de plages d’octets, cette optimisation n’est pas effective.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

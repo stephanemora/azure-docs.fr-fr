@@ -15,15 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213996"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537342"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitation de requêtes avancée avec Gestion des API Azure
 La possibilité de limiter les requêtes entrantes est un rôle clé du service Gestion des API Azure. En contrôlant la fréquence des requêtes ou le nombre total de requêtes/données transférées, Gestion des API permet aux fournisseurs d’API de protéger leurs API contre les abus et de créer de la valeur pour différents niveaux de produits API.
+
+## <a name="rate-limits-and-quotas"></a>Limites de débit et quotas
+Les limites de débit et les quotas sont utilisés à des fins différentes.
+
+### <a name="rate-limits"></a>Limites du taux de transfert
+Les limites de débit sont généralement utilisées pour la protection contre les pics de volume brefs et intenses. Par exemple, si vous savez qu'un goulot d'étranglement se forme au niveau de la base de données de votre service back-end lorsque le volume d'appels est élevé, vous pouvez définir une stratégie `rate-limit-by-key` pour ne pas autoriser un volume d'appels élevé à l'aide de ce paramètre.
+
+### <a name="quotas"></a>Quotas
+Les quotas sont généralement utilisés pour contrôler les débits d'appels sur une longue période. Par exemple, ils peuvent définir le nombre total d'appels qu'un abonné particulier est autorisé à passer au cours d'un mois donné. Pour monétiser votre API, les quotas peuvent également être définis différemment pour les abonnements reposant sur des niveaux. Par exemple, un abonnement de niveau De base ne pourra pas passer plus de 10 000 appels par mois, tandis qu'un niveau Premium pourra passer jusqu'à 100 000 000 d'appels par mois.
+
+Dans Gestion des API Azure, les limites de débit sont généralement propagées plus rapidement sur les nœuds pour se protéger contre les pics. Les informations relatives aux quotas d'utilisation, quant à elles, sont utilisées à plus long terme ; leur implémentation est donc différente.
+
+> [!CAUTION]
+> En raison de la nature distribuée de l’architecture de limitation, la limitation du débit n’est jamais totalement exacte. La différence entre le nombre configuré et le nombre réel de requêtes autorisées varie en fonction du volume et du débit des requêtes, de la latence du back-end et d'autres facteurs.
 
 ## <a name="product-based-throttling"></a>Limitation basée sur le produit
 À ce jour, les fonctionnalités de limitation de fréquence sont limitées afin de porter sur un abonnement produit spécifique, défini dans le portail Azure. Cela permet aux fournisseurs d’API d’appliquer des limites aux développeurs qui ont souscrit pour utiliser leurs API. Toutefois, cela ne permet pas, par exemple, de limiter les utilisateurs finaux des API. Il est possible pour un seul utilisateur de l'application du développeur de consommer le quota entier et d’empêcher d’autres clients du développeur d'être en mesure d'utiliser l'application. De la même façon, plusieurs clients générant un volume élevé de requêtes peuvent limiter l'accès aux utilisateurs occasionnels.
