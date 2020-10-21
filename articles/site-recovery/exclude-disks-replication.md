@@ -3,12 +3,12 @@ title: Exclure des disques de la réplication avec Azure Site Recovery
 description: Comme exclure des disques de la réplication vers Azure avec Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245396"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333662"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclure des disques de la reprise d’activité
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
 
 Les paramètres du fichier d’échange sur la machine virtuelle source sont les suivants :
 
-![Paramètres du fichier d’échange sur la machine virtuelle source](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Capture d’écran de la boîte de dialogue Mémoire virtuelle avec la ligne Lecteur D : [volume Pagefile] en surbrillance montrant une Taille de fichier d’échange (Mo) de 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Nous activons la réplication pour la machine virtuelle.
 2. Nous excluons DB-Disk1 de la réplication.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
 
 Les paramètres du fichier d’échange sur la machine virtuelle Azure sont les suivants :
 
-![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Capture d’écran de la boîte de dialogue Mémoire virtuelle avec la ligne Lecteur D : en surbrillance montrant un paramètre de Taille de fichier d’échange « Gérée par le système ».](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

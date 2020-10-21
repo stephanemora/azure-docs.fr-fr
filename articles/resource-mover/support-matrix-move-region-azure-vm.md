@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602283"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945911"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
@@ -155,7 +155,7 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 Carte d’interface réseau | Prise en charge | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation. 
 Équilibreur de charge interne | Prise en charge | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation.  
 Équilibreur de charge public | Non prise en charge pour le moment | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation.  
-Adresse IP publique | Prise en charge | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation.  
+Adresse IP publique | Prise en charge | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation.<br/><br/> L’adresse IP publique est spécifique à une région et n’est pas conservée dans la région cible après le déplacement. Gardez cela à l’esprit lorsque vous modifiez les paramètres de mise en réseau (y compris les règles d’équilibrage de charge) dans l’emplacement cible.
 Groupe de sécurité réseau | Prise en charge | Spécifiez une ressource existante dans la région cible, ou créez une nouvelle ressource pendant le processus de préparation.  
 Adresse IP (statique) réservée | Prise en charge | Vous ne pouvez actuellement pas configurer ce paramètre. La valeur par défaut est la valeur de la source. <br/><br/> Si la carte réseau de la machine virtuelle source possède une adresse IP statique et que la même adresse IP est disponible pour le sous-réseau cible, celle-ci est attribuée à la machine virtuelle cible.<br/><br/> Si la même adresse IP n'est pas disponible pour le sous-réseau cible, le déplacement initial de la machine virtuelle échouera.
 Adresse IP dynamique | Prise en charge | Vous ne pouvez actuellement pas configurer ce paramètre. La valeur par défaut est la valeur de la source.<br/><br/> Si la carte réseau de la source possède une adresse IP dynamique, la carte réseau de la machine virtuelle cible est également dynamique par défaut.

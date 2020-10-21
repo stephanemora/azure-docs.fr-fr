@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825475"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019883"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur l’authentification pour Key Vault, consultez [S
 
 ## <a name="key-vault-authentication-options"></a>Options d’authentification Key Vault
 
-Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Tous les appelants dans les deux plans doivent s’inscrire auprès de ce locataire et s’authentifier pour accéder au coffre de clés. Dans les deux cas, les applications peuvent accéder au coffre de clés de deux façons :
+Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Tous les appelants dans les deux plans doivent s’inscrire auprès de ce locataire et s’authentifier pour accéder au coffre de clés. Dans les deux cas, les applications peuvent accéder au coffre de clés de trois manières :
 
 - **Application uniquement** : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
 - **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
@@ -71,7 +71,7 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 
 Dans le plan de gestion, vous utilisez le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle Azure RBAC, chaque abonnement Azure a une instance d’Azure AD. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager.
 
-Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles Azure appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle Azure :
+Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles Azure appropriés. Pour accorder un accès à un utilisateur pour gérer des coffres de clés, vous attribuez un rôle [Contributeur Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle Azure :
 
 - **Abonnement**: Un rôle Azure attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
 - **Groupe de ressources** : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
@@ -79,7 +79,7 @@ Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès
 
 Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). 
 
-Vous avez besoin d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner).
+Vous avez besoin d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 > [!IMPORTANT]
 > Si un utilisateur dispose d’autorisations `Contributor` sur un plan de gestion de coffre de clés, il peut s’accorder lui-même l’accès au plan de données en définissant une stratégie d’accès Key Vault. Vous devez contrôler étroitement qui dispose d’un accès accordé par le rôle `Contributor` à vos coffres de clés. Vérifiez que seules les personnes autorisées peuvent accéder à et gérer vos coffres de clés, vos clés, vos secrets et vos certificats.
@@ -184,11 +184,11 @@ Le tableau suivant récapitule les autorisations d’accès pour nos rôles et n
 
 | Role | Autorisations de plan de gestion | Autorisations du plan de données - Stratégies d’accès au coffre | Autorisations du plan de données - Azure RBAC (préversion)  |
 | --- | --- | --- | --- |
-| Équipe de sécurité | Contributeur Key Vault | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | Administrateur de Key Vault (préversion) |
+| Équipe de sécurité | [Contributeur Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | [Administrateur Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque** : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None | None |
-| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | Lecteur de Key Vault (préversion) |
-| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | Service de chiffrement de Key Vault |
-| Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | Key Vault Reader (préversion), Key Vault Secret User (préversion) |
+| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur Key Vault (préversion)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Service de chiffrement de Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | [Lecteur Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Utilisateur secret Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin de déployer l’accès. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux d’activité Key Vault sont stockés.
 
@@ -199,7 +199,11 @@ Notre exemple décrit un scénario simple. Les scénarios réels peuvent être p
 
 ## <a name="resources"></a>Ressources
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[À propos d’Azure Key Vault](overview.md)
+[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+[Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+[Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971166"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91539892"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Attribuer un rôle à un groupe à l’aide de Privileged Identity Management
 
@@ -35,7 +35,7 @@ Cet article décrit la procédure d’attribution d’un rôle Azure Active Dire
 
 1. Sélectionnez un rôle, puis un groupe. Seuls les groupes éligibles à l’attribution de rôle (groupes à attribution de rôle) sont affichés, et non tous les groupes.
 
-    ![sélectionner l’utilisateur auquel vous attribuez le rôle](./media/roles-groups-pim-eligible/select-member.png)
+    ![Capture d'écran représentant la page « Ajouter des attributions » dans laquelle les sections « Sélectionner un rôle » et « Sélectionner des membres » sont mises en surbrillance.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Sélectionnez le paramètre d’appartenance souhaité. Pour les rôles nécessitant une activation, choisissez **éligible**. Par défaut, l’utilisateur est éligible de façon permanente, mais vous pouvez également définir une heure de début et de fin de l’éligibilité de l’utilisateur. Une fois que vous avez terminé, cliquez sur Enregistrer et Ajouter pour terminer l’attribution de rôle.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30c60dbe74835cb67879f7e0cf9bf403dca17fd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884914"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531086"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
@@ -80,7 +80,7 @@ Si vous utilisez le chiffrement de données à l'aide d'une clé gérée par le 
 * Assurez-vous que Key Vault et Azure Database pour MySQL résident dans la même région pour garantir un accès plus rapide aux opérations wrap et unwrap des clés de chiffrement de données.
 * Verrouillez l’Azure Key Vault uniquement pour **le point de terminaison privé et les réseaux sélectionnés**, et autorisez uniquement des services *Microsoft approuvés* à sécuriser les ressources.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagramme illustrant le scénario Bring Your Own Key (BYOK)":::
 
 Suivez les recommandations ci-dessous pour configurer une clé gérée par le client :
 
@@ -121,9 +121,9 @@ Pour surveiller l'état de la base de données et activer les alertes liées à 
 
 Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le client stockée dans Key Vault, toute copie nouvellement créée du serveur est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l'intermédiaire d'une opération locale ou de restauration géographique, ou par le biais de réplicas en lecture. La copie peut cependant être modifiée afin de refléter la clé gérée du nouveau client pour le chiffrement. Lorsque la clé gérée par le client est modifiée, les anciennes sauvegardes du serveur utilisent la clé la plus récente.
 
-Pour éviter les problèmes lors de la configuration du chiffrement des données géré par le client, pendant la restauration ou la création d'un réplica de lecture, il est important de suivre les étapes ci-dessous sur le serveur maître et sur le serveur de restauration/réplication :
+Pour éviter les problèmes lors de la configuration du chiffrement des données géré par le client, pendant la restauration ou la création d’un réplica de lecture, il est important de suivre les étapes ci-dessous sur le serveur source et les serveurs de restauration/réplication :
 
-* Initiez le processus de création de réplicas en lecture ou de restauration à partir du serveur maître Azure Database pour MySQL.
+* Initiez le processus de création de réplicas en lecture ou de restauration à partir du serveur source Azure Database pour MySQL.
 * Veillez à ce que le serveur nouvellement créé (restauré/réplica) reste inaccessible car son identité unique n'a pas encore reçu les autorisations d'accès à Key Vault.
 * Sur le serveur restauré/réplica, revalidez la clé managée par le client dans les paramètres de chiffrement des données pour vous assurer que le serveur créé reçoit les autorisations wrap et unwrap sur la clé stockée dans Key Vault.
 

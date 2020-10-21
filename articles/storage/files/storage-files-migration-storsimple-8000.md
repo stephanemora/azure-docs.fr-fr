@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510349"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653245"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
@@ -119,7 +119,7 @@ Maintenant que vous avez terminé la phase 1, vous aurez effectué les opérati
 
 :::row:::
     :::column:::
-        ![Image illustrant une partie de l’image de vue d’ensemble précédente qui permet de cibler cette sous-section de l’article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![Illustration montrant qu’il est maintenant temps d’approvisionner une machine virtuelle et d’exposer le clone du volume (ou multiple) à cet ordinateur virtuel via iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         Une fois votre clone initial disponible sur l’appliance virtuelle StorSimple 8020 dans Azure, il est maintenant temps d’approvisionner une machine virtuelle et d’exposer le clone (ou plusieurs clones) de volume à cette machine virtuelle sur iSCSI.
@@ -175,7 +175,7 @@ Passez à la phase 3 uniquement lorsque vous avez terminé ces étapes pour tou
 
 :::row:::
     :::column:::
-        ![Image illustrant une partie de l’image de vue d’ensemble précédente qui permet de cibler cette sous-section de l’article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![Illustration montrant la nécessité de déterminer et d’approvisionner un certain nombre de partages de fichiers Azure et de créer un serveur Windows local en tant que remplacement d’appliance StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         Au cours de cette phase, vous allez déterminer et configurer un certain nombre de partages de fichiers Azure en créant un serveur Windows Server local en tant que solution de remplacement d’appliance StorSimple et en configurant ce serveur pour Azure File Sync. 
@@ -225,7 +225,7 @@ Votre serveur Windows Server local inscrit doit être prêt et connecté à Inte
 
 :::row:::
     :::column:::
-        ![Image illustrant une partie de l’image de vue d’ensemble précédente qui permet de cibler cette sous-section de l’article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Illustration montrant comment connecter la machine virtuelle via Azure File Sync et démarrer un premier cycle de transfert de fichiers à partir de vos clones de volume StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         Cette phase concerne votre machine virtuelle Azure avec le premier clone de volume monté via iSCSI. Au cours de cette phase, vous connecterez la machine virtuelle via Azure File Sync et démarrerez un premier cycle de transfert de fichiers à partir de vos clones de volume StorSimple.
@@ -281,7 +281,7 @@ Par expérience, nous pouvons supposer que la bande passante, et par conséquent
 
 :::row:::
     :::column:::
-        ![Image illustrant une partie de l’image de vue d’ensemble précédente qui permet de cibler cette sous-section de l’article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![Illustration montrant comment réduire le temps d’arrêt en utilisant plusieurs clones de volume et en indiquant à quel moment la synchronisation est terminée.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         Comme nous l’avons vu dans la phase précédente, la synchronisation initiale peut prendre beaucoup de temps. Vos utilisateurs et applications continuent d’accéder à l’appliance StorSimple 8100 ou 8600 locale. Cela signifie que les modifications s’accumulent et que, chaque jour, un écart plus important se forme entre les données actives et le clone de volume initial que vous êtes en train de migrer. Dans cette section, vous allez apprendre à réduire le temps d’arrêt en utilisant plusieurs clones de volume et en indiquant à quel moment la synchronisation est terminée.
@@ -338,7 +338,7 @@ Dans la phase 6, vous comblerez tout écart avec les données actives depuis le
 1. Des fichiers peuvent ne pas avoir été synchronisés (voir **PerItemErrors** dans le journal des événements ci-dessus).
 2. L’appliance StorSimple dispose d’un cache rempli, alors que le serveur Windows Server n’a qu’un espace de noms sans contenu de fichier stocké localement pour l’instant.
 
-![Image illustrant une partie de l’image de vue d’ensemble précédente qui permet de cibler cette sous-section de l’article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Illustration montrant comment le cache de Windows Server a été amené à l’état de l’appliance et vérifier qu’aucun fichier n’est ignoré en utilisant une RoboCopy finale.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 Nous pouvons amener le cache de Windows Server à l’état de l’appliance et vérifier qu’aucun fichier n’est ignoré en utilisant une RoboCopy finale.
 

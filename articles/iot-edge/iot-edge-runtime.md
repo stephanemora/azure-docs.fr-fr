@@ -4,17 +4,17 @@ description: Découvrez comment runtime IoT Edge gère les modules, la sécurit�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4e4895b227bfc699e94155515e829d0bf33aaf9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016952"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043049"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
@@ -71,7 +71,7 @@ Pour recevoir un message, inscrivez un rappel qui traite les messages entrant su
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Pour plus d’informations sur la classe ModuleClient et ses méthodes de communication, reportez-vous aux informations de référence sur l’API du langage de votre SDK préféré : [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) ou [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Pour plus d’informations sur la classe ModuleClient et ses méthodes de communication, reportez-vous aux informations de référence sur l’API du langage de votre SDK préféré : [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient) ou [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 Le développeur de solution doit spécifier les règles qui déterminent la façon dont le hub IoT Edge transmet les messages d’un module à l’autre. Les règles d’acheminement sont définies dans le cloud et envoyées (push) vers le hub IoT Edge dans son jumeau de module. La même syntaxe pour les itinéraires IoT Hub est utilisée pour définir les itinéraires entre les modules dans Azure IoT Edge. Pour plus d’informations, consultez [Déployer des modules et établir des routes dans IoT Edge](module-composition.md).
 
@@ -124,6 +124,22 @@ L’agent IoT Edge joue un rôle essentiel dans la sécurité d’un appareil Io
 
 Pour plus d’informations sur le framework de sécurité Azure IoT Edge, consultez [Gestionnaire de sécurité IoT Edge](iot-edge-security-manager.md).
 
+## <a name="runtime-quality-telemetry"></a>Télémétrie de qualité du runtime
+
+IoT Edge collecte des données de télémétrie anonymes à partir du runtime hôte et des modules système pour améliorer la qualité du produit. Ces informations sont appelées « télémétrie de qualité du runtime ». Les données de télémétrie collectées sont régulièrement envoyées sous forme de messages appareil-à-cloud à IoT Hub à partir de l’agent IoT Edge. Ces messages n’apparaissent pas dans la télémétrie régulière du client et ne consomment aucun quota de messages.
+
+L’agent IoT Edge et le hub génèrent des métriques que vous pouvez collecter pour comprendre les performances de l’appareil. Un sous-ensemble de ces métriques est collecté par l’agent IoT Edge dans le cadre de la télémétrie de qualité du runtime. Les métriques collectées pour la télémétrie de qualité du runtime sont marquées de la balise `ms_telemetry`. Pour plus d’informations sur toutes les métriques disponibles, consultez [Accéder aux métriques intégrées](how-to-access-built-in-metrics.md).
+
+Les informations permettant d’identifier une personne ou une organisation, telles que les noms d’appareils et de modules, sont supprimées avant le chargement pour garantir la nature anonyme de la télémétrie de qualité du runtime.
+
+L’agent IoT Edge collecte les données de télémétrie toutes les heures et envoie un message à IoT Hub toutes les 24 heures.
+
+Si vous souhaitez refuser l’envoi de données de télémétrie du runtime à partir de vos appareils, deux méthodes sont possibles :
+
+* Définissez la variable d’environnement `SendRuntimeQualityTelemetry` sur `false` pour **edgeAgent**, ou
+* Décochez l’option dans le portail Azure pendant le déploiement.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation des modules Azure IoT Edge](iot-edge-modules.md)
+* [Présentation des modules Azure IoT Edge](iot-edge-modules.md)
+* [En savoir plus sur les métriques du runtime IoT Edge](how-to-access-built-in-metrics.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319318"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448160"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connexion de Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement Microsoft Endpoint Configuration Manager à Azure Monitor pour synchroniser les données de regroupement d’appareils et faire référence à ces regroupements dans Azure Monitor et Azure Automation.  
@@ -135,7 +135,7 @@ Après la configuration initiale de l’importation des regroupements d’appare
 4. Sélectionnez **Groupes d’ordinateurs**, puis **SCCM**.  
 5. Sélectionnez **Importer les appartenances aux regroupements Configuration Manager**, puis cliquez sur **Enregistrer**.  
    
-    ![Groupes d’ordinateurs - Onglet SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Capture d’écran des paramètres avancés des groupes d’ordinateurs pour SCCM, contenant l’option Importer les appartenances aux regroupements Configuration Manager.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Afficher les données de Configuration Manager
 
@@ -143,7 +143,7 @@ Après l’ajout d’une connexion Log Analytics à Configuration Manager et l�
 
 Une fois les regroupements importés, vous pouvez voir combien d’ordinateurs avec des appartenances à des regroupements ont été détectés. Vous pouvez également voir le nombre de regroupements importés.
 
-![Groupes d’ordinateurs - Onglet SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Capture d’écran des paramètres avancés des groupes d’ordinateurs pour SCCM, montrant l’option Importer les appartenances aux regroupements Configuration Manager sélectionnée.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Quand vous cliquez sur l’un deux, l’éditeur de requête de journal s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. À l’aide de [Recherche dans les journaux](../log-query/log-query-overview.md), vous pouvez effectuer une analyse approfondie des données d’appartenance au regroupement.
 

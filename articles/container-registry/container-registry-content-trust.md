@@ -1,14 +1,14 @@
 ---
 title: Gérer des images signées
-description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu est une fonctionnalité du niveau de service Premium.
+description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu implémente l’approbation de contenu de Docker et est une fonctionnalité du niveau de service Premium.
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/18/2020
+ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076843"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409162"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -40,7 +40,7 @@ La première étape consiste à activer l’approbation de contenu au niveau du 
 
 Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer**. Vous pouvez également utiliser la commande [az acr config content-trust update][az-acr-config-content-trust-update] dans Azure CLI.
 
-![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-01-portal]
+![Capture d’écran montrant l’activation de l’approbation de contenu pour un registre dans le portail Azure.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Activer l’approbation de contenu dans les clients
 
@@ -71,8 +71,10 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 Seuls les utilisateurs ou les systèmes qui disposent des autorisations requises peuvent envoyer des images approuvées à votre registre. Pour accorder l’autorisation d’envoi d’images approuvées à un utilisateur (ou à un système à l’aide d’un principal de service), octroyez à leurs identités Azure Active Directory le rôle `AcrImageSigner`. Ce rôle vient s’ajouter au rôle `AcrPush` (ou équivalent) requis pour l’envoi (push) d’images au registre. Pour plus d’informations, consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md).
 
-> [!NOTE]
-> Vous ne pouvez pas accorder l’autorisation d’envoi (push) d’images approuvées au [compte Administrateur](container-registry-authentication.md#admin-account) d’un registre de conteneurs Azure.
+> [!IMPORTANT]
+> Vous ne pouvez pas accorder d’autorisation d’envoi (push) d’images approuvées aux comptes d’administration suivants : 
+> * le [compte administrateur](container-registry-authentication.md#admin-account) d’un registre de conteneurs Azure ;
+> * un compte d’utilisateur dans Azure Active Directory avec le [rôle d’administrateur système classique](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portail Azure et dans l’interface de ligne de commande Azure (Azure CLI) sont décrites ci-après.
 
@@ -80,9 +82,9 @@ Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portai
 
 Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
 
-Dans cet exemple, le rôle `AcrImageSigner` a été assigné à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
+Dans cet exemple, le rôle `AcrImageSigner` a été attribué à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
 
-![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-02-portal]
+![Accorder des autorisations de signature d’image ACR dans le portail Azure][content-trust-02-portal]
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -92,17 +94,16 @@ Pour accorder des autorisations de signature à un utilisateur à l’aide d’A
 az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
 ```
 
-Par exemple, pour vous octroyer ce rôle, vous pouvez exécuter les commandes ci-après dans une session Azure CLI authentifiée. Modifiez la valeur `REGISTRY` pour qu’elle reflète le nom de votre registre de conteneurs Azure.
+Par exemple, pour octroyer le rôle à un utilisateur non administrateur, vous pouvez exécuter les commandes ci-après dans une session Azure CLI authentifiée. Modifiez la valeur `REGISTRY` pour qu’elle reflète le nom de votre registre de conteneurs Azure.
 
 ```bash
 # Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
-USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 ```
 
 ```azurecli
-az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee azureuser@contoso.com
 ```
 
 Vous pouvez également octroyer à un [principal de service](container-registry-auth-service-principal.md) les droits d’envoyer des images approuvées à votre registre. L’utilisation d’un principal de service est utile pour les systèmes de génération et pour d’autres systèmes sans assistance qui doivent envoyer des images approuvées à votre registre. Le format de la commande ci-après est semblable à celui de l’octroi d’une autorisation utilisateur, mais vous devez spécifier un ID de principal de service pour la valeur `--assignee`.
@@ -118,10 +119,11 @@ La variable `<service principal ID>` peut correspondre à l’élément **appId*
 
 ## <a name="push-a-trusted-image"></a>Envoyer une image approuvée
 
-Pour envoyer une balise d’image approuvée à votre registre de conteneurs, activez l’approbation de contenu, puis envoyez l’image avec `docker push`. La première fois que vous envoyez une balise signée, vous êtes invité à créer une phrase secrète à la fois pour une clé de signature racine et pour une clé de signature de référentiel. La clé racine et la clé de référentiel sont générées et stockées localement sur votre machine.
+Pour envoyer une balise d’image approuvée à votre registre de conteneurs, activez l’approbation de contenu, puis envoyez l’image avec `docker push`. Après la première exécution d’envoi (push) avec une balise signée, vous êtes invité à créer une phrase secrète à la fois pour une clé de signature racine et pour une clé de signature de référentiel. La clé racine et la clé de référentiel sont générées et stockées localement sur votre machine.
 
 ```console
 $ docker push myregistry.azurecr.io/myimage:v1
+[...]
 The push refers to repository [myregistry.azurecr.io/myimage]
 ee83fc5847cb: Pushed
 v1: digest: sha256:aca41a608e5eb015f1ec6755f490f3be26b48010b178e78c00eac21ffbe246f1 size: 524
@@ -156,16 +158,19 @@ Status: Downloaded newer image for myregistry.azurecr.io/myimage@sha256:0800d17e
 Tagging myregistry.azurecr.io/myimage@sha256:0800d17e37fb4f8194495b1a188f121e5b54efb52b5d93dc9e0ed97fce49564b as myregistry.azurecr.io/myimage:signed
 ```
 
-Si un client ayant activé l’approbation de contenu tente d’extraire une balise non signée, l’opération échouera :
+Si un client pour lequel l’approbation de contenu est activée tente d’extraire une balise non signée, l’opération échoue avec une erreur semblable à la suivante :
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:unsigned
-No valid trust data for unsigned
+Error: remote trust data does not exist
 ```
 
 ### <a name="behind-the-scenes"></a>Dans les coulisses
 
 Quand vous exécutez la commande `docker pull`, le client Docker utilise la même bibliothèque que dans l’[interface de ligne de commande Notary][docker-notary-cli] pour demander le mappage sur SHA-256 du code de hachage de la balise que vous extrayez. Après la validation des signatures sur les données d’approbation, le client demande au moteur Docker d’effectuer une « extraction par code de hachage ». Pendant l’extraction, le moteur utilise la somme de contrôle SHA-256 comme adresse du contenu pour demander et valider le manifeste d’image à partir du registre de conteneurs Azure.
+
+> [!NOTE]
+> Azure Container Registry ne prend pas officiellement en charge l’interface de ligne de commande Notary, mais est compatible avec l’API Notary Server qui est incluse avec Docker Desktop. Actuellement, la version **0.6.0** est recommandée.
 
 ## <a name="key-management"></a>Gestion des clés
 
@@ -196,7 +201,7 @@ Pour désactiver l’approbation de contenu pour votre registre, accédez au reg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’approbation de contenu, consultez [Approbation de contenu dans Docker][docker-content-trust]. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
+* Pour plus d’informations sur l’approbation de contenu, notamment les commandes d’[approbation Docker](https://docs.docker.com/engine/reference/commandline/trust/) et les [délégations d’approbation](https://docs.docker.com/engine/security/trust/trust_delegation/), voir [Approbation de contenu dans Docker][docker-content-trust]. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
 
 * Consultez la documentation [Azure Pipelines](/azure/devops/pipelines/build/content-trust) pour obtenir un exemple d’utilisation de l’approbation de contenu quand vous générez et effectuez un Push d’une image Docker.
 

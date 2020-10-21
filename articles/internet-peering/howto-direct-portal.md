@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: e49462612b58163c2ac51b78584761d0d8b8bd06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700563"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537206"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Créer ou modifier un Peering direct à l’aide du Portail Azure
 
@@ -37,7 +37,7 @@ En tant que fournisseur de services Internet ou fournisseur Internet Exchange, v
 1. Dans la page **Créer un Peering**, sur l’onglet **De base**, remplissez les cases comme illustré ici :
 
 
-    ![Inscrire Peering Service](./media/setup-basics-tab.png)
+    ![Capture d'écran représentant l'onglet De base de la page Créer un Peering, avec le lien Créer nouveau en évidence.](./media/setup-basics-tab.png)
 
 2. Sélectionnez votre abonnement Azure.
 
@@ -59,7 +59,7 @@ En tant que fournisseur de services Internet ou fournisseur Internet Exchange, v
 
 
 
-    ![Inscrire Peering Service](./media/setup-direct-basics-filled-tab.png)
+    ![Capture d'écran représentant l'onglet De base de la page Créer un Peering, avec toutes les valeurs entrées.](./media/setup-direct-basics-filled-tab.png)
 
 
 #### <a name="configure-connections-and-submit"></a>Configurer les connexions et les soumettre

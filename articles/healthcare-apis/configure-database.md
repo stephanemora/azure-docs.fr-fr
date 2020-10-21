@@ -7,14 +7,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795777"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042488"
 ---
-# <a name="configure-database-settings"></a>Configurer les paramètres de base de données 
+# <a name="configure-database-settings"></a>Configuration des paramètres de la base de données 
 
 L’API Azure pour FHIR utilise une base de données pour stocker ses données. Le niveau de performance de la base de données sous-jacente dépend du nombre de RU (unités de requête) sélectionné durant le provisionnement du service ou dans les paramètres de base de données une fois le service provisionné.
 
@@ -38,7 +38,12 @@ Si le débit de la base de données est supérieur à 10 000 RU/s ou si les do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à mettre à jour vos RU dans le cadre de l’API Azure pour FHIR. Ensuite, déployez une API Azure pour FHIR complètement managée :
+Dans cet article, vous avez appris à mettre à jour vos RU dans le cadre de l’API Azure pour FHIR. Pour en savoir plus sur la configuration des clés gérées par le client en tant que paramètre de base de données :
+
+>[!div class="nextstepaction"]
+>[Configurer les clés gérées par le client](customer-managed-key.md)
+
+Vous pouvez également déployer une API Azure pour FHIR complètement managée :
  
 >[!div class="nextstepaction"]
 >[Déployer l’API Azure pour FHIR](fhir-paas-portal-quickstart.md)

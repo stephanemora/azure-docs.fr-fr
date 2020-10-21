@@ -1,29 +1,30 @@
 ---
-title: Installer et exécuter des conteneurs – Visage
+title: Installer et exécuter des conteneurs Docker pour l’API Visage
 titleSuffix: Azure Cognitive Services
-description: Cet article décrit la procédure pas à pas pour télécharger, installer et exécuter des conteneurs pour Visage.
+description: Utilisez le conteneur Docker pour l’API Visage afin de détecter et d’identifier des visages humains dans des images.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+keywords: local, Docker, conteneur, identifier
+ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548461"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91461510"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installer et exécuter des conteneurs Visage (préversion)
 
 > [!IMPORTANT]
 > La limite pour les utilisateurs du conteneur Visage a été atteinte. Nous n’acceptons actuellement aucune nouvelle inscription pour le conteneur Visage.
 
-L’API Visage d’Azure Cognitive Services fournit un conteneur Linux standardisé pour Docker qui détecte les visages humains dans des images. Cette API identifie également les attributs, y compris les caractéristiques comme le nez et les yeux, le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de ces capacités de détection, l’API Visage peut vérifier si deux visages dans la même image ou dans des images différentes sont identiques à l’aide d’un score de confiance. L’API Visage peut également comparer les visages par rapport à une base de données pour voir si un visage paraissant similaire ou identique existe déjà. Elle peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.
+L’API Visage d’Azure Cognitive Services fournit un conteneur Docker Linux qui détecte et analyse les visages humains dans des images. Cette API identifie également les attributs, y compris les caractéristiques comme le nez et les yeux, le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de ces capacités de détection, l’API Visage peut vérifier si deux visages dans la même image ou dans des images différentes sont identiques à l’aide d’un score de confiance. L’API Visage peut également comparer les visages par rapport à une base de données pour voir si un visage paraissant similaire ou identique existe déjà. Elle peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010186"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362178"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Résolution des problèmes de connectivité dans le pool SQL Synapse
 
@@ -34,13 +34,14 @@ L’état de votre pool SQL s’affiche ici. Si le service ne s’affiche pas c
 
 Si l’intégrité de vos ressources indique que votre instance de pool SQL est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
 
-![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Des informations supplémentaires relatives à l’intégrité des ressources sont disponibles ici.
+![Capture d’écran montrant une instance d’entrepôt de données SQL suspendue ou en cours de mise à l’échelle.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Des informations supplémentaires relatives à l’intégrité des ressources sont disponibles ici.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Vérifier les opérations de mise à l’échelle ou interrompues
 
 Dans le portail, vérifiez si votre instance de pool SQL est interrompue ou mise à l’échelle.
 
-![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Capture d’écran montrant comment vérifier si un entrepôt de données est suspendu.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre pool SQL, vous voyez la planification de maintenance sélectionnée.
 

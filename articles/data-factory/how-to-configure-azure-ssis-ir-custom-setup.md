@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.date: 10/13/2020
+ms.openlocfilehash: e4708e49ebd45210e381a1b58752bbfa287a9eeb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405239"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019850"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personnaliser l’installation d’un Azure-SSIS Integration Runtime
 
@@ -127,7 +127,7 @@ Pour approvisionner ou reconfigurer votre Azure-SSIS IR à l’aide d’installa
 
 #### <a name="running-cmdkey-command"></a>Exécution de la commande cmdkey
 
-Si vous sélectionnez le type **Exécuter la commande cmdkey** pour votre installation personnalisée rapide, vous pouvez exécuter la commande cmdkey Windows sur votre Azure-SSIS IR. Pour ce faire, entrez le nom ou nom de domaine, le nom d’utilisateur ou nom de compte, ainsi que le mot de passe ou la clé de compte de l’ordinateur ciblé respectivement dans les zones de texte **/Add**, **/User** et **/Pass**. Cela vous permettra de conserver les informations d’identification d’accès pour les serveurs SQL Server, les partages de fichiers ou Azure Files sur votre Azure-SSIS IR. Par exemple, pour accéder à Azure Files, vous pouvez entrer `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` et `YourAzureStorageAccountKey` respectivement pour **/Add**, **/User**et **/Pass**. Cela est similaire à l’exécution de la commande Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) sur votre ordinateur local.
+Si vous sélectionnez le type **Exécuter la commande cmdkey** pour votre installation personnalisée rapide, vous pouvez exécuter la commande cmdkey Windows sur votre Azure-SSIS IR. Pour ce faire, entrez le nom ou nom de domaine, le nom d’utilisateur ou nom de compte, ainsi que le mot de passe ou la clé de compte de l’ordinateur ciblé respectivement dans les zones de texte **/Add**, **/User** et **/Pass**. Cela vous permettra de conserver les informations d’identification d’accès pour les serveurs SQL Server, les partages de fichiers ou Azure Files sur votre Azure-SSIS IR. Par exemple, pour accéder à Azure Files, vous pouvez entrer `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` et `YourAzureStorageAccountKey` respectivement pour **/Add**, **/User**et **/Pass**. Cela est similaire à l’exécution de la commande Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) sur votre ordinateur local. Une seule installation personnalisée rapide pour exécuter la commande cmdkey est prise en charge pour le moment. Pour exécuter plusieurs commandes cmdkey, utilisez une installation personnalisée standard à la place.
 
 #### <a name="adding-environment-variables"></a>Ajout de variables d’environnement
 
@@ -143,7 +143,7 @@ Si vous sélectionnez le type **Installer un composant sous licence** pour votre
 
    * Si vous sélectionnez le composant **Task Factory de SentryOne**, vous pouvez installer la suite de composants [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) de SentryOne sur votre Azure-SSIS IR. Pour ce faire, entrez la clé de licence du produit que vous leur avez achetée au préalable dans la zone de texte **Clé de licence**. La version intégrée actuelle est **2020.1.3**.
 
-   * Si vous sélectionnez le composant **HEDDA.IO d’oh22**, vous pouvez installer le composant de qualité/nettoyage des données [HEDDA. IO](https://hedda.io/ssis-component/) d’oh22 sur votre Azure-SSIS IR. Pour ce faire, vous devez acheter leur service au préalable. La version intégrée actuelle est **1.0.14**.
+   * Si vous sélectionnez le composant **HEDDA.IO d’oh22**, vous pouvez installer le composant de qualité/nettoyage des données [HEDDA. IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) d’oh22 sur votre Azure-SSIS IR. Pour ce faire, vous devez acheter leur service au préalable. La version intégrée actuelle est **1.0.14**.
 
    * Si vous sélectionnez le composant **SQLPhonetics.NET d’oh22**, vous pouvez installer le composant de qualité/mise en correspondance des données [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) d’oh22 sur votre Azure-SSIS IR. Pour ce faire, entrez la clé de licence du produit que vous leur avez achetée au préalable dans la zone de texte **Clé de licence**. La version intégrée actuelle est **1.0.45**.
 
@@ -175,7 +175,7 @@ Pour approvisionner ou reconfigurer votre IR Azure-SSIS avec des installations 
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -242,6 +242,16 @@ Pour approvisionner ou reconfigurer votre IR Azure-SSIS avec des installations 
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "CData.Standard")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "CData.Extended")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }    
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -288,6 +298,8 @@ Pour afficher et réutiliser certains exemples d’installation personnalisée s
       * Un dossier *.NET FRAMEWORK 3.5* contenant un script d’installation personnalisée (*main.cmd*) pour installer une version antérieure de .NET Framework sur chaque nœud de votre Azure-SSIS IR. Cette version peut être requise par certains composants personnalisés.
 
       * Un dossier *BCP* contenant un script d’installation personnalisée (*main.cmd*) pour installer les utilitaires de ligne de commande SQL Server (*MsSqlCmdLnUtils.msi*) sur chaque nœud de votre Azure-SSIS IR. L’un de ces utilitaires est le programme de copie en bloc (*bcp*).
+
+      * Un dossier *DNS SUFFIX* contenant un script d’installation personnalisée (*main.cmd*) pour ajouter votre propre suffixe DNS (par exemple *test.com*) à un nom de domaine à étiquette unique non qualifié et le convertir en un nom de domaine complet (FQDN) avant de l’utiliser dans les requêtes DNS de votre Azure-SSIS IR.
 
       * Un dossier *EXCEL* contenant un script d’installation personnalisée (*main.cmd*) pour installer des assemblys et bibliothèques C# sur chaque nœud de votre Azure-SSIS IR. Vous pouvez les utiliser dans les tâches de script pour lire et écrire des fichiers Excel de façon dynamique. 
       

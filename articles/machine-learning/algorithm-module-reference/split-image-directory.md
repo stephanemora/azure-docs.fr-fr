@@ -1,20 +1,20 @@
 ---
 title: Diviser un répertoire d’images
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser le module Score Image Model dans Azure Machine Learning pour générer des prédictions à l’aide d’un modèle d’image entraîné.
+description: Découvrez comment utiliser le module Diviser un répertoire d’images dans Azure Machine Learning Designer (préversion) pour diviser les images d’un répertoire d’images en deux jeux distincts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890264"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448676"
 ---
 # <a name="split-image-directory"></a>Diviser un répertoire d’images
 
@@ -28,7 +28,7 @@ Ce module est particulièrement utile quand vous devez séparer des données d�
 
 2. Connectez-le au module dont la sortie est le répertoire d’images.
 
-3. Entrez **Fraction d’images dans la première sortie** pour spécifier le pourcentage de données à placer dans le fractionnement de gauche, par défaut 0.9.
+3. Entrez **Fraction d’images dans la première sortie** pour spécifier le pourcentage de données à placer dans le fractionnement de gauche, par défaut 0.9. Si le résultat de la fraction n’est pas un entier, le module utilise le plus petit entier proche.
 
 
 ## <a name="technical-notes"></a>Notes techniques

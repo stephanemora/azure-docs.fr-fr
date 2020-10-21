@@ -43,6 +43,12 @@
     - name: Gérer la gouvernance des balises
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implémenter Azure Policy en tant que code avec GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Découvrez : Contrôler et auditer vos ressources en utilisant Azure Policy'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Exemples
   items:
     - name: Index
@@ -113,7 +119,7 @@
     - name: Conformité réglementaire
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Concevoir des workflows de type Policy as Code
+    - name: Concevoir des workflows Azure Policy en tant que code
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Intégration à Kubernetes
@@ -198,7 +204,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Stratégie
+        - name: Policy
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -224,7 +230,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Stratégie
+        - name: Policy
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient

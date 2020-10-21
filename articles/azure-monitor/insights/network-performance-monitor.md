@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798905"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403719"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -28,7 +28,7 @@ Network Performance Monitor offre trois fonctionnalités générales :
 
 * [Moniteur de connectivité de service](network-performance-monitor-service-connectivity.md) : vous permet d’analyser la connectivité entre vos utilisateurs et les services qui vous intéressent, de déterminer l’infrastructure présente dans le chemin et d’identifier l’emplacement des goulots d’étranglement. Découvrez les pannes avant vos utilisateurs et déterminez l’emplacement exact des problèmes sur votre chemin d’accès réseau. 
 
-    Cette fonctionnalité vous permet d’effectuer des tests HTTP, HTTPS, TCP et ICMP afin d’analyser, en temps quasi réel ou dans le temps, la disponibilité et le temps de réponse de votre service. Vous pouvez également analyser la contribution du réseau en perte de paquets et en latence. Avec un mappage de topologie réseau, vous pouvez isoler les ralentissements du réseau. Vous pouvez identifier les points problématiques sur le chemin d’accès réseau entre le nœud et le service, avec les données de latence sur chaque tronçon. Au moyen de tests intégrés, analysez la connectivité réseau vers Office 365 et Dynamics CRM sans aucune configuration préalable. Avec cette fonctionnalité, vous pouvez analyser la connectivité réseau vers n’importe quel point de terminaison compatible TCP, comme des sites web, des applications SaaS, des applications PaaS et des bases de données SQL.
+    Cette fonctionnalité vous permet d’effectuer des tests HTTP, HTTPS, TCP et ICMP afin d’analyser, en temps quasi réel ou dans le temps, la disponibilité et le temps de réponse de votre service. Vous pouvez également analyser la contribution du réseau en perte de paquets et en latence. Avec un mappage de topologie réseau, vous pouvez isoler les ralentissements du réseau. Vous pouvez identifier les points problématiques sur le chemin d’accès réseau entre le nœud et le service, avec les données de latence sur chaque tronçon. Au moyen de tests intégrés, analysez la connectivité réseau vers Microsoft 365 et Dynamics CRM sans aucune configuration préalable. Avec cette fonctionnalité, vous pouvez analyser la connectivité réseau vers n’importe quel point de terminaison compatible TCP, comme des sites web, des applications SaaS, des applications PaaS et des bases de données SQL.
 
 * [Moniteur ExpressRoute](network-performance-monitor-expressroute.md) : analysez la connectivité de bout en bout et les performances entre vos filiales et Azure, le tout sur Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
     Pour analyser un lien réseau, installez des agents sur les deux points de terminaison de cette dernière. Si vous n’êtes pas certain de la topologie de votre réseau, installez les agents sur des serveurs présentant des charges de travail critiques entre lesquels vous souhaitez analyser les performances réseau. Par exemple, si vous souhaitez analyser la connexion réseau entre un serveur web et un serveur exécutant SQL Server, installez un agent sur les deux serveurs. Les agents surveillent la connectivité (liens) réseau entre les hôtes et non les hôtes proprement dits. 
 
-* **Moniteur de connectivité de service** : installez un agent Log Analytics sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Log Analytics sur au moins un nœud dans O1, O2 et O3. 
+* **Moniteur de connectivité de service** : installez un agent Log Analytics sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Microsoft 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Log Analytics sur au moins un nœud dans O1, O2 et O3. 
 
 * **Moniteur ExpressRoute** : Installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via le peering privé ExpressRoute.  
 
@@ -128,7 +128,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
    ![Affichage Analyseur de performances](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Moniteur de connectivité de service** : Cette fonctionnalité fournit des tests intégrés préconfigurés permettant d’analyser la connectivité réseau à Office 365 et à Dynamics 365 à partir de vos agents. Choisissez les services Office 365 et Dynamics 365 que vous souhaitez analyser en cochant les cases à côté d’eux. Pour sélectionnez les agents à partir desquels vous souhaitez effectuer une analyse, cliquez sur **Ajouter des agents**. Si vous ne souhaitez pas utiliser cette fonctionnalité ou la configurer ultérieurement, ne choisissez aucune option et sélectionnez **Enregistrer et continuer**.
+   **Moniteur de connectivité de service** : Cette fonctionnalité fournit des tests intégrés préconfigurés permettant d’analyser la connectivité réseau à Microsoft 365 et à Dynamics 365 à partir de vos agents. Choisissez les services Microsoft 365 et Dynamics 365 que vous souhaitez analyser en cochant les cases à côté d’eux. Pour sélectionnez les agents à partir desquels vous souhaitez effectuer une analyse, cliquez sur **Ajouter des agents**. Si vous ne souhaitez pas utiliser cette fonctionnalité ou la configurer ultérieurement, ne choisissez aucune option et sélectionnez **Enregistrer et continuer**.
 
    ![Vue Moniteur de connectivité de service](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

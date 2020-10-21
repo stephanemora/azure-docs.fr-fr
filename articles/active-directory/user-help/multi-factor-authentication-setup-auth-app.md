@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530338"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurer une application Authenticator comme méthode de vérification à deux facteurs
 
@@ -33,7 +33,7 @@ Vous pouvez configurer une application Authenticator pour envoyer une notificati
 
 2. Sélectionnez **Recevoir des notifications pour la vérification** à partir de la zone **Comment souhaitez-vous utiliser l’application mobile ?** , puis sélectionnez **Configurer**.
 
-    ![Page Vérification de sécurité supplémentaire, avec l’option application mobile et notifications](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Capture d’écran montrant la page « Vérification de sécurité supplémentaire » avec les options « Application mobile » et « Recevoir des notifications pour la vérification » sélectionnées.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     La page **Configurer l’application mobile** s’affiche.
 
@@ -48,7 +48,7 @@ Vous pouvez configurer une application Authenticator pour envoyer une notificati
 
 5. Revenez à votre ordinateur et à la page **Vérification de sécurité supplémentaire**, vérifiez que vous recevez le message indiquant que votre configuration a réussi, puis sélectionnez **Suivant**.
 
-    ![Page Vérification de sécurité supplémentaire, avec message de réussite](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Capture d’écran montrant la page « Vérification de sécurité supplémentaire » avec le message de réussite « L’application mobile a été configurée.... » en surbrillance.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     L’application Authenticator envoie une notification test à votre appareil mobile.
 

@@ -24,7 +24,7 @@
       items:
         - name: Installer les outils clients
           href: install-client-tools.md
-        - name: azdata
+        - name: Interface de ligne de commande Azure Data (azdata)
           items:
             - name: Installer
               href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
@@ -46,7 +46,7 @@
           href: create-data-controller-azure-data-studio.md
         - name: Créer une ressource de contrôleur de données (portail)
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Créer un contrôleur de données (azdata)
+        - name: Créer un contrôleur de données (Azure Data CLI)
           href: create-data-controller-using-azdata.md
         - name: Créer un contrôleur de données à l’aide de Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md

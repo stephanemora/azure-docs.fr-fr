@@ -2,13 +2,13 @@
 title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/18/2020
+ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541575"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -18,7 +18,7 @@ Azure Container Registry gère un certain nombre de scénarios courants de copie
 
 * Importer à partir d’un registre public
 
-* Importer à partir d’un autre registre de conteneurs Azure dans un abonnement Azure identique ou différent
+* Importer à partir d'un autre registre de conteneurs Azure dans un abonnement ou locataire Azure identique ou différent
 
 * Importer à partir d’un registre de conteneurs privé non-Azure
 
@@ -28,7 +28,7 @@ L’importation d’images dans un registre de conteneurs Azure présente les av
 
 * Quand vous importez des images multi-architecture (notamment des images Docker officielles), les images pour toutes les architectures et plateformes spécifiées dans la liste de manifeste sont copiées.
 
-* L’accès aux registres source et cible ne doit pas nécessairement utiliser les points de terminaison publics des registres.
+* L'accès au registre source ne doit pas nécessairement utiliser le point de terminaison public du registre.
 
 Pour importer des images conteneur, cet article nécessite que vous exécutiez l’interface Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
@@ -83,9 +83,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importer à partir d’un registre de conteneurs Azure
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importer à partir d'un registre de conteneurs Azure situé dans le même locataire AD
 
-Vous pouvez importer une image à partir d’un autre registre de conteneurs Azure à l’aide des autorisations Azure Active Directory intégrées.
+Vous pouvez importer une image à partir d'un registre de conteneurs Azure situé dans le même locataire AD grâce aux autorisations Azure Active Directory intégrées.
 
 * Votre identité doit disposer d’autorisations Azure Active Directory pour lire à partir du registre source (rôle Lecteur) et pour écrire dans le registre cible (rôle Contributeur ou [rôle personnalisé](container-registry-roles.md#custom-roles) permettant l’action importImage).
 
@@ -136,7 +136,20 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importer à partir d’un registre à l’aide des informations d’identification du principal de service
 
-Pour importer à partir d’un registre auquel vous ne pouvez pas accéder à l’aide des autorisations Active Directory, vous pouvez utiliser les informations d’identification du principal de service (si celles-ci sont disponibles). Indiquez l’appID et le mot de passe d’un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d’un accès ACRPull au registre source. L’utilisation d’un principal de service est utile pour les systèmes de génération et d’autres systèmes sans assistance qui doivent importer des images dans votre registre.
+Pour importer à partir d'un registre auquel vous n'avez pas accès avec les autorisations Active Directory intégrées, vous pouvez utiliser les informations d'identification du principal de service (si celles-ci sont disponibles) pour le registre source. Indiquez l’appID et le mot de passe d’un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d’un accès ACRPull au registre source. L’utilisation d’un principal de service est utile pour les systèmes de génération et d’autres systèmes sans assistance qui doivent importer des images dans votre registre.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
+```
+
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importer à partir d'un registre de conteneurs Azure situé dans un autre locataire AD
+
+Pour importer à partir d'un registre de conteneurs Azure situé dans un autre locataire Azure Active Directory, spécifiez le registre source par nom de serveur de connexion, et entrez des informations d'identification (nom d'utilisateur et mot de passe) permettant un accès par extraction au registre. Par exemple, utilisez un [jeton délimité par le référentiel](container-registry-repository-scoped-permissions.md) et un mot de passe, ou l'appID et le mot de passe d'un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d'un accès ACRPull au registre source. 
 
 ```azurecli
 az acr import \
@@ -149,7 +162,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importer à partir d’un registre de conteneurs privé non-Azure
 
-Importez une image à partir d’un registre privé en spécifiant des informations d’identification qui permettent un accès en tirage (pull) au registre. Par exemple, tirez (pull) une image à partir d’un registre Docker privé : 
+Importez une image à partir d'un registre privé non Azure en spécifiant des informations d'identification permettant un accès par extraction au registre. Par exemple, tirez (pull) une image à partir d’un registre Docker privé : 
 
 ```azurecli
 az acr import \

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378523"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362263"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 Voici un exemple de sortie pour une requête exécutée avec la mise en cache du jeu de résultats désactivée.
 
-![Étapes-requête-avec-RSC-désactivée](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Capture d’écran montrant les résultats de requête, y compris le type d’emplacement et la commande.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Voici un exemple de sortie pour une requête exécutée avec la mise en cache du jeu de résultats activée.
 
-![Étapes-requête-avec-RSC-activée](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Capture d’écran montrant les résultats de requête avec la commande sélectionnée * à partir du dbo de point [DW ResultCache Db] en évidence.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>Quand les résultats mis en cache sont utilisés
 

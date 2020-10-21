@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401569"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449204"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Comment une porte d’entrée fait correspondre les demandes à une règle de routage
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Comment les demandes sont mises en correspondance avec une règle de routage
 
-Après avoir établi une connexion et effectué une négociation TLS, l’une des premières choses que fait un environnement Front Door quand une requête lui parvient est de déterminer, parmi toutes les configurations, à quelle règle de routage faire correspondre la requête, puis d’effectuer l’action définie. Le document suivant explique comment une porte d’entrée détermine la configuration d’itinéraire à utiliser pendant le traitement d’une requête HTTP.
+Après avoir établi une connexion et effectué une négociation TLS, l’une des premières choses que fait un environnement Front Door quand une requête lui parvient est de déterminer à quelle règle de routage faire correspondre la requête, puis d’effectuer l’action définie dans la configuration. Le document suivant explique comment une porte d’entrée détermine la configuration d’itinéraire à utiliser pendant le traitement d’une requête HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Structure d’une configuration d’itinéraire de porte d’entrée
 La configuration d’une règle de routage de porte d’entrée est constituée de deux parties principales : le « côté gauche » et le « côté droit ». Nous faisons correspondre la demande entrante au côté gauche de l’itinéraire, tandis que le côté droit définit le mode de traitement de la demande.
@@ -41,7 +41,7 @@ Le choix du mode de traitement de la demande dépend de l’activation ou non de
 Cette section porte essentiellement sur la façon d’établir une correspondance avec une règle de routage de porte d’entrée donnée. L’idée de base est que nous établissons toujours en premier lieu une correspondance avec la **correspondance la plus spécifique** en tenant compte uniquement du « côté gauche ».  Nous établissons une correspondance d’abord en fonction du protocole HTTP, puis de l’hôte frontend, puis du chemin d’accès.
 
 ### <a name="frontend-host-matching"></a>Mise en correspondance avec des hôtes frontend
-Quand il s’agit de mettre en correspondance des hôtes frontend, nous utilisons la logique suivante :
+Quand il s’agit de mettre en correspondance des hôtes frontend, nous utilisons la logique définie ci-dessous :
 
 1. Recherche d’un routage ayant une correspondance parfaite sur l’hôte.
 2. Si aucune correspondance exacte n’est trouvée sur l’hôte frontend, la demande est rejetée et une erreur 400 Demande incorrecte est envoyée.

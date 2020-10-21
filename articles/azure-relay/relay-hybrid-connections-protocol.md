@@ -3,12 +3,12 @@ title: Guide du protocole de connexions hybrides Azure Relay | Microsoft Docs
 description: Cet article décrit les interactions côté client avec le relais Connexions hybrides pour la connexion de clients ayant le rôle d’expéditeur ou d’écouteur.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272007"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531443"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
@@ -55,8 +55,7 @@ Les informations encodées sont valides uniquement pendant une courte durée, co
 
 Outre les connexions WebSocket, l’écouteur peut recevoir des trames de requêtes HTTP de la part d’un expéditeur, si cette fonctionnalité est explicitement activée sur la connexion hybride.
 
-Les écouteurs qui se joignent aux connexions hybrides prenant en charge HTTP DOIVENT gérer l’opération `request`. Un écouteur ne prenant pas en charge l’opération `request` et occasionnant par conséquent des erreurs répétées de dépassement de délai de connexion RISQUE par la suite d’être placé en liste rouge
- par le service.
+Les écouteurs qui se joignent aux connexions hybrides prenant en charge HTTP DOIVENT gérer l’opération `request`. Un écouteur ne prenant pas en charge l’opération `request` et occasionnant par conséquent des erreurs répétées de dépassement de délai de connexion RISQUE par la suite d’être bloqué par le service.
 
 Les métadonnées d’en-tête de trame HTTP sont converties au format JSON pour en faciliter le traitement par l’infrastructure d’écouteur, et également parce que les bibliothèques d’analyse d’en-tête HTTP sont plus rares que les analyseurs JSON. Les métadonnées HTTP qui s’appliquent uniquement à la relation entre l’expéditeur et la passerelle HTTP de relais, y compris les informations d’autorisation, ne sont pas transférées. Le corps des requêtes HTTP est transféré de manière transparente sous la forme d’une trame WebSocket binaire.
 
@@ -327,7 +326,7 @@ Le contenu JSON pour `request` est le suivant :
 
 ##### <a name="responding-to-requests"></a>Réponse aux requêtes
 
-Le destinataire DOIT répondre. Des échecs répétés des réponses aux requêtes pendant que la connexion est maintenue peuvent entraîner la mise en liste rouge de l’écouteur.
+Le destinataire DOIT répondre. Des échecs répétés des réponses aux requêtes pendant que la connexion est maintenue peuvent entraîner le blocage de l’écouteur.
 
 Les réponses peuvent être envoyées dans n’importe quel ordre, mais chaque requête doit obtenir une réponse dans les 60 secondes, sans quoi la remise sera considérée comme ayant échoué. Le délai de 60 secondes est pris en compte jusqu’à ce que la trame `response` ait été reçue par le service. Une réponse en cours avec plusieurs trames binaires ne peut pas rester inactive pendant plus de 60 secondes ; dans le cas contraire, elle est interrompue.
 

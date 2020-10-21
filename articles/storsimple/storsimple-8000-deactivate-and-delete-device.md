@@ -1,6 +1,6 @@
 ---
 title: Désactiver et supprimer un appareil de la gamme StorSimple 8000 | Microsoft Docs
-description: Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant.
+description: Apprenez à désactiver et à supprimer un appareil StorSimple qui est connecté à un service StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777812"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
 
@@ -63,16 +63,16 @@ Si vous êtes intéressé par la suppression complète de l’appareil et que vo
         ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Dans le panneau **Désactiver**, saisissez le nom de l’appareil pour confirmer l’opération, puis cliquez sur **Désactiver**. Le processus de désactivation, qui met plusieurs minutes à s’exécuter, démarre.
 
-        ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Désactiver l'appareil StorSimple 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. À l’issue de la désactivation, vous pouvez supprimer complètement l’appareil. Si vous supprimez un appareil, il est retiré de la liste des appareils connectés au service. Le service ne peut alors plus gérer l’appareil supprimé. Procédez comme suit pour supprimer l’appareil :
    
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil désactivé à supprimer, cliquez avec le bouton droit, puis cliquez sur **Supprimer**.
 
-        ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Désactiver l'appareil StorSimple 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Dans le panneau **Supprimer**, saisissez le nom de l’appareil pour confirmer l’opération, puis cliquez sur **Supprimer**. Le processus de suppression prend quelques minutes.
 
-        ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Désactiver l'appareil StorSimple 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Vous êtes averti une fois la suppression terminée. La liste des appareils est également actualisée afin de refléter la suppression.
 
 ## <a name="deactivate-and-retain-data"></a>Désactiver et conserver des données
@@ -85,19 +85,19 @@ Si vous voulez supprimer un appareil tout en conservant ses données, procédez 
    
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil à désactiver, cliquez avec le bouton droit, puis cliquez sur **Désactiver**.
 
-         ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Désactiver l'appareil StorSimple 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Dans le panneau **Désactiver**, saisissez le nom de l’appareil pour confirmer l’opération, puis cliquez sur **Désactiver**. Le processus de désactivation, qui met plusieurs minutes à s’exécuter, démarre.
 
-         ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Désactiver l'appareil StorSimple 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. Vous pouvez maintenant basculer les conteneurs de volumes et les instantanés associés. Pour connaître les procédures, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-8000-device-failover-disaster-recovery.md).
 3. Après la désactivation et le basculement, vous pouvez supprimer complètement l’appareil. Si vous supprimez un appareil, il est retiré de la liste des appareils connectés au service. Le service ne peut alors plus gérer l’appareil supprimé. Pour supprimer l’appareil, procédez comme suit :
    
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil désactivé à supprimer, cliquez avec le bouton droit, puis cliquez sur **Supprimer**.
 
-       ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Désactiver l'appareil StorSimple 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Dans le panneau **Supprimer**, saisissez le nom de l’appareil pour confirmer l’opération, puis cliquez sur **Supprimer**. Le processus de suppression prend quelques minutes.
 
-       ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Désactiver l'appareil StorSimple 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Vous êtes averti une fois la suppression terminée. La liste des appareils est également actualisée afin de refléter la suppression.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Désactiver et supprimer une appliance cloud

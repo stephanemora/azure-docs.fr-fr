@@ -3,17 +3,17 @@ title: Niveaux d’accès chaud, froid et archive pour les objets blob - Stockag
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation. Comparez les options de stockage d’objets blob de blocs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460728"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -248,6 +248,10 @@ Non. Seuls les niveaux d’accès chaud et froid peuvent être choisis comme le 
 **Dans quelles régions les niveaux d’accès chaud, froid et archive sont-ils disponibles ?**
 
 Les niveaux d’accès chaud et froid ainsi que la hiérarchisation au niveau de l’objet blob sont disponibles dans toutes les régions. Le stockage archive ne sera disponible au départ que dans certaines régions sélectionnées. Pour avoir une liste complète, voir [Régions Azure disponibles par région](https://azure.microsoft.com/regions/services/).
+
+**Quelles options de redondance sont prises en charge pour les niveaux d’accès à chaud, à froid et archivage ?**
+
+Les niveaux à chaud et à froid prennent en charge toutes les options de redondance. Le niveau archivage prend en charge uniquement LRS, GRS et RA-GRS. ZRS, GZRS et RA-GZRS ne sont pas pris en charge pour le niveau archivage.
 
 **Les objets blob au niveau d’accès froid se comportent-ils différemment de ceux se trouvant au niveau d’accès chaud ?**
 

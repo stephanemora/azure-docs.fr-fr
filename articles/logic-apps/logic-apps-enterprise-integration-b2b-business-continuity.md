@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536468"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565409"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurer la reprise d’activité entre des régions pour des comptes d’intégration dans Azure Logic Apps
 
@@ -98,15 +98,15 @@ Pour activer la récupération d’urgence pour les messages entrants, sélectio
 
 3. Entrez un nom de connexion, sélectionnez votre *compte d’intégration de la région primaire* dans la liste et cliquez sur **Créer**.   
 
-   ![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Capture d’écran montrant où entrer un nom de connexion et sélectionner votre compte d’intégration de région primaire. ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
 4. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.   
 
-   ![Date/heure et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Capture d’écran montrant le paramètre DateTime pour démarrer la synchronisation des numéros de contrôle.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 5. Sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
-   ![Nouvelle étape, puis Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Capture d’écran montrant le bouton Nouvelle étape et l’option Ajouter une action.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 6. Lancez une recherche sur **X12** et sélectionnez **X12 - Ajouter ou mettre à jour des numéros de contrôle**.   
 
@@ -114,11 +114,11 @@ Pour activer la récupération d’urgence pour les messages entrants, sélectio
 
 7. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre *compte d’intégration de la région secondaire* dans la liste et cliquez sur **Créer**. 
 
-   ![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Capture d’écran montrant où ajouter un nom de compte d’intégration de région secondaire.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 8. Basculez vers les entrées brutes en cliquant sur l’icône située dans le coin supérieur droit.
 
-   ![Basculez vers des entrées brutes](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Capture d’écran montrant l’icône à sélectionner pour basculer vers les entrées brutes.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
 9. Sélectionnez le corps à partir du sélecteur de contenu dynamique et enregistrez l’application logique.
 
@@ -140,7 +140,7 @@ La continuité des activités pour les documents EDI EDIFACT repose sur les num�
 
 Pour activer la récupération d’urgence pour les messages entrants, sélectionnez les options de vérification de doublons dans les paramètres de réception de l’accord EDIFACT.
 
-![Sélectionnez les paramètres de vérification des doublons](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Capture d’écran montrant les options de vérification de doublons dans les paramètres de réception de l’accord EDIFACT.](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. Créez une [application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) dans la région secondaire.    
 
@@ -157,27 +157,27 @@ Pour activer la récupération d’urgence pour les messages entrants, sélectio
 
 4. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.    
 
-   ![Date/heure et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Capture d’écran montrant les paramètres DateTime et Fréquence.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 6. Sélectionnez **Nouvelle étape** > **Ajouter une action**.    
 
-   ![Nouvelle étape, puis Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Capture d’écran montrant où sélectionner Ajouter une action.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 7. Lancez une recherche sur **EDIFACT** et sélectionnez **EDIFACT - Ajouter ou mettre à jour des numéros de contrôle**.   
 
-   ![Ajoutez ou mettez à jour les numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Capture d’écran montrant où ajouter ou mettre à jour des numéros de contrôle.](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre *compte d’intégration de la région secondaire* dans la liste et cliquez sur **Créer**.
 
-   ![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Créez un nom de compte d’intégration de région secondaire.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 9. Basculez vers les entrées brutes en cliquant sur l’icône située dans le coin supérieur droit.
 
-   ![Basculez vers des entrées brutes](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Capture d’écran qui met en surbrillance l’icône à sélectionner lorsque vous souhaitez basculer vers les entrées brutes.](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Sélectionnez le corps à partir du sélecteur de contenu dynamique et enregistrez l’application logique.   
 
-   ![Champs de contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Capture d’écran montrant le sélecteur de contenu dynamique dans lequel vous pouvez sélectionner le corps.](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    Selon l’intervalle de temps, le déclencheur interroge la table des numéros de contrôle de la région primaire et extrait les nouveaux enregistrements.
    L’action les met à jour dans le compte d’intégration de la région secondaire. 
@@ -205,7 +205,7 @@ La continuité des activités pour les documents qui utilisent le protocole AS2 
    
 3. Entrez un nom de connexion, sélectionnez votre *compte d’intégration de la région primaire* dans la liste et cliquez sur **Créer**.
 
-   ![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Capture d’écran montrant où entrer un nom de connexion lorsqu’une valeur MIC est créée.](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. Le paramètre **DateTime de démarrage de la synchronisation des valeurs MIC** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.   
 

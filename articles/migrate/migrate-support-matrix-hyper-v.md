@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles Hyper-V à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641821"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91318175"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Tableau de prise en charge pour l’évaluation Hyper-V
 
@@ -46,7 +46,7 @@ Pour configurer l’évaluation d’une machine virtuelle Hyper-V, vous créez u
 | :----------------------------- | :------------------- |
 | **Système d’exploitation** | Tous les systèmes d’exploitation peuvent être évalués dans une optique de migration.  |
 | **Services d’intégration**       | Les [services d'intégration Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) doivent fonctionner sur les machines virtuelles que vous évaluez afin de capturer les informations du système d'exploitation. |
-
+| **Stockage** | Disque local, DAS, JBOD, espaces de stockage, CSV, SMB. Ces stockages d’hôte Hyper-V sur lesquels sont stockés les disques VHD/VHDX sont pris en charge. <br/> Les contrôleurs virtuels IDE et SCSI sont pris en charge| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Conditions requises de l’appliance Azure Migrate
 

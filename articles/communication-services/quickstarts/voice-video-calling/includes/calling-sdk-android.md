@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779754"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082137"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -517,7 +517,7 @@ Objet du convertisseur suivant les API
 // Create a view for a video stream
 renderer.createView()
 ```
-* Supprimer le convertisseur et tous les `RendererView` associés
+* Supprimez le convertisseur et tous les `RendererView` associés à ce convertisseur. À appeler lorsque vous avez supprimé toutes les vues associées de l’interface utilisateur.
 ```java
 renderer.dispose()
 ```

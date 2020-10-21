@@ -1,27 +1,29 @@
 ---
-title: Conteneurs Docker - LUIS
+title: Installer et exécuter des conteneurs Docker pour LUIS
 titleSuffix: Azure Cognitive Services
-description: Le conteneur LUIS charge votre application entraînée ou publiée dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur.
+description: Utilisez le conteneur LUIS pour charger votre application formée ou publiée, et accéder à ses prédictions localement.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: local, Docker, conteneur
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889499"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460983"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
+# <a name="install-and-run-docker-containers-for-luis"></a>Installer et exécuter des conteneurs Docker pour LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Les conteneurs vous permettent d’utiliser LUIS dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Cet article explique comment télécharger, installer et exécuter un conteneur LUIS.
 
 Le conteneur Language Understanding (LUIS) charge votre modèle Language Understanding qui a été entraîné ou publié. En tant qu’[application LUIS](https://www.luis.ai), le conteneur Docker fournit l’accès aux prédictions de requêtes à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux de requête du conteneur et les charger à nouveau dans l’application Language Understanding pour améliorer la précision de prédiction de l’application.
 

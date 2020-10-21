@@ -4,12 +4,12 @@ description: Découvrez des scénarios de sécurité relatifs aux clusters Azure
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261068"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946193"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 
@@ -134,7 +134,7 @@ La méthode de création de clusters sécurisés est la même pour les clusters 
 
 ### <a name="client-authentication-certificates-optional"></a>Certificats d’authentification client (facultatif)
 
-Autant de certificats supplémentaires que vous souhaitez peuvent être spécifiés pour les opérations de client utilisateur ou administrateur. Le client peut utiliser ce certificat lorsque l’authentification mutuelle est nécessaire. Les certificats clients ne sont généralement pas émis par une autorité de certification tierce. Au lieu de cela, le magasin personnel de l’emplacement actuel de l’utilisateur contient généralement des certificats clients placés là par une autorité racine. Le certificat doit avoir la valeur **Rôles prévus** définie sur **Authentification du client**.  
+Autant de certificats supplémentaires que vous souhaitez peuvent être spécifiés pour les opérations de client utilisateur ou administrateur. Le client peut utiliser ces certificats lorsque l’authentification mutuelle est nécessaire. Les certificats clients ne sont généralement pas émis par une autorité de certification tierce. Au lieu de cela, le magasin personnel de l’emplacement actuel de l’utilisateur contient généralement des certificats clients placés là par une autorité racine. Le certificat doit avoir la valeur **Rôles prévus** définie sur **Authentification du client**.  
 
 Par défaut, le certificat de cluster a des privilèges de client administrateur. Ces certificats client supplémentaires ne doivent pas être installés dans le cluster, mais sont spécifiés comme étant autorisés dans la configuration du cluster.  Toutefois, les certificats client doivent être installés sur les ordinateurs clients pour se connecter au cluster et effectuer des opérations.
 

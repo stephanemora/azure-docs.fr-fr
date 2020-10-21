@@ -40,6 +40,8 @@
       href: reference.md
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Support multilingue

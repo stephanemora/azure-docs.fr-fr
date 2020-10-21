@@ -2,13 +2,13 @@
 title: Améliorer la fiabilité d’une application avec Advisor
 description: Utilisez Azure Advisor pour garantir et améliorer la fiabilité de vos déploiements Azure vitaux pour l’entreprise.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 09/27/2020
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258491"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078032"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Améliorer la fiabilité d’une application à l’aide d’Azure Advisor
 
@@ -44,7 +44,7 @@ Si un profil Traffic Manager est configuré pour le routage géographique, le tr
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utiliser la suppression réversible sur le compte de stockage Azure pour enregistrer et récupérer des données après une suppression ou un remplacement accidentel
 
-Activez la [suppression réversible](../storage/blobs/soft-delete-overview.md) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. La suppression réversible vous permet de récupérer les données en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels la suppression réversible n’est pas activée et vous suggère de l’activer.
+Activez la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. La suppression réversible vous permet de récupérer les données en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels la suppression réversible n’est pas activée et vous suggère de l’activer.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurer votre passerelle VPN en mode actif/actif à des fins de résilience de connexion
 
@@ -76,27 +76,27 @@ Les machines virtuelles situées dans un groupe à haute disponibilité avec des
 
 ## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
 
-Azure Advisor détecte les règles d’alerte dont la section des conditions contient des requêtes non valides. Vous pouvez créer des règles d’alerte de journal dans Azure Monitor et les utiliser pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats d’une requête déterminent si une alerte doit être déclenchée. Il arrive que des requêtes d’analytique deviennent non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor vous recommande alors de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement et garantir ainsi une couverture de supervision complète de vos ressources dans Azure. [En savoir plus sur la résolution des problèmes liés aux règles d’alerte.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor détecte les règles d’alerte de journal dont la section des conditions contient des requêtes non valides. Les règles d’alerte Azure Monitor exécutent des requêtes à la fréquence spécifiée et déclenchent des alertes en fonction des résultats. Les requêtes peuvent devenir non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor recommande des corrections pour les requêtes d’alerte afin d’éviter que les règles soient automatiquement désactivées et de garantir la couverture de la surveillance. Pour plus d’informations, consultez [Résolution des problèmes liés aux règles d’alerte](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurer le mode d’indexation cohérent sur une collection Azure Cosmos DB
 
-La configuration de conteneurs Azure Cosmos DB avec le mode d’indexation différée peut perturber l’actualisation des résultats de requête. Advisor détecte les conteneurs configurés de cette façon et vous recommande de basculer en mode cohérent. [En savoir plus sur les stratégies d’indexation dans Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+La configuration de conteneurs Azure Cosmos DB avec le mode d’indexation différée peut perturber l’actualisation des résultats de requête. Advisor détecte les conteneurs configurés de cette façon et vous recommande de basculer en mode cohérent. [En savoir plus sur les stratégies d’indexation dans Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurer vos conteneurs Azure Cosmos DB avec une clé de partition
 
-Azure Advisor identifie les collections Azure Cosmos DB non partitionnées qui ont presque atteint leur quota de stockage approvisionné. Il vous recommande de les migrer vers de nouvelles collections avec une définition de clé de partition de manière à ce que le service puisse automatiquement effectuer un scale-out. [En savoir plus sur le choix d’une clé de partition.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifie les collections Azure Cosmos DB non partitionnées qui ont presque atteint leur quota de stockage approvisionné. Il vous recommande de les migrer vers de nouvelles collections avec une définition de clé de partition de manière à ce que le service puisse automatiquement effectuer un scale-out. [En savoir plus sur le choix d’une clé de partition.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Mettre à niveau le Kit de développement logiciel (SDK) .NET Azure Cosmos DB avec la version la plus récente de NuGet
 
-Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du Kit de développement logiciel (SDK) .NET. Il vous recommande de le mettre à niveau avec la version la plus récente de NuGet pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le Kit de développement logiciel (SDK) .NET Azure Cosmos DB.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du Kit de développement logiciel (SDK) .NET. Il vous recommande de le mettre à niveau avec la version la plus récente de NuGet pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le Kit de développement logiciel (SDK) .NET Azure Cosmos DB.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Mettre à niveau votre SDK Java Azure Cosmos DB avec la dernière version de Maven
 
-Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du Kit de développement logiciel (SDK) Java. Il vous recommande de le mettre à niveau avec la version la plus récente de Maven pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le Kit de développement logiciel (SDK) Java Azure Cosmos DB.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du Kit de développement logiciel (SDK) Java. Il vous recommande de le mettre à niveau avec la version la plus récente de Maven pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le Kit de développement logiciel (SDK) Java Azure Cosmos DB.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Mettre à niveau le connecteur Spark Azure Cosmos DB avec la version la plus récente de Maven
 
-Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du connecteur Spark Azure Cosmos DB. Il vous recommande de le mettre à niveau avec la version la plus récente de Maven pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le connecteur Spark Azure Cosmos DB.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes versions du connecteur Spark Azure Cosmos DB. Il vous recommande de le mettre à niveau avec la version la plus récente de Maven pour bénéficier des derniers correctifs, de performances accrues et de nouvelles capacités. [En savoir plus sur le connecteur Spark Azure Cosmos DB.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Envisager de passer à Kafka 2.1 sur HDInsight 4.0
 
@@ -109,6 +109,12 @@ Azure Advisor identifie les comptes Azure Cosmos DB qui utilisent d’anciennes 
 ## <a name="enable-virtual-machine-replication"></a>Activer la réplication des machines virtuelles
 Les machines virtuelles pour lesquelles la réplication n’est pas activée vers une autre région ne sont pas résilientes face aux pannes régionales. La réplication des machines virtuelles réduit les impacts négatifs sur l’activité en cas de panne d’une région Azure. Advisor détecte les machines virtuelles sur lesquelles la réplication n’est pas activée et recommande de l’activer. Lorsque vous activez la réplication, en cas de panne, vous pouvez rapidement faire apparaître vos machines virtuelles dans une région Azure distante. [En savoir plus sur la réplication de machines virtuelles.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Effectuer une mise à niveau vers la dernière version d’Azure Connected Machine Agent
+[Azure Connected Machine Agent](../azure-arc/servers/manage-agent.md) est régulièrement mis à jour avec des correctifs de bogues, des améliorations en termes de stabilité et de nouvelles fonctionnalités. Nous avons identifié des ressources qui ne travaillent pas sur la dernière version de l’agent de machine, et cette recommandation d’Advisor vous suggérera de mettre à niveau votre agent vers la dernière version pour bénéficier de la meilleure expérience Azure Arc.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Ne pas remplacer le nom d’hôte pour garantir l’intégrité du site web
+Advisor recommande d’éviter, dans la mesure du possible, de remplacer le nom d’hôte lors de la configuration d’Application Gateway. Le fait d’avoir un domaine différent sur le serveur frontal d’Application Gateway que celui qui est utilisé pour accéder au serveur principal peut entraîner des ruptures de cookies ou d’URL de redirection. Cela peut ne pas être le cas dans toutes les situations et certaines catégories de backends (comme les API REST) y sont en général moins sensibles. Assurez-vous que le serveur principal peut traiter ce problème ou mettez à jour la configuration d’Application Gateway pour que le nom d’hôte ne doive pas être remplacé par le serveur principal. Lorsqu’il est utilisé avec App Service, associez un nom de domaine personnalisé à l’application web et évitez d’utiliser le *nom d’hôte .azurewebsites.net vers le serveur principal.* [En savoir plus sur le domaine personnalisé](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans Advisor
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
@@ -120,6 +126,7 @@ Les machines virtuelles pour lesquelles la réplication n’est pas activée ver
 Pour plus d’informations sur les recommandations d’Advisor, consultez :
 * [Présentation du conseiller](advisor-overview.md)
 * [Prise en main d’Advisor](advisor-get-started.md)
+* [Score Advisor](azure-advisor-score.md)
 * [Recommandations d’Advisor en matière de coûts](advisor-cost-recommendations.md)
 * [Recommandations d’Advisor en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations d’Advisor en matière de sécurité](advisor-security-recommendations.md)

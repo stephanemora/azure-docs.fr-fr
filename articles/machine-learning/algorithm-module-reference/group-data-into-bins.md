@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907043"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998507"
 ---
 # <a name="group-data-into-bins-module"></a>Module Grouper des données dans des compartiments
 
@@ -44,7 +44,8 @@ Le *compartimentage*, ou regroupement, de données (parfois appelé *quantificat
 
 Le diagramme suivant illustre la distribution de valeurs numériques avant et après compartimentage avec la méthode des *quantiles*. Notez qu’en comparaison des données brutes à gauche, les données ont été compartimentées et transformées en une échelle d’unité normale.  
 
-Vous pouvez trouver un [exemple dans le résultat de l’exécution de ce pipeline](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Visualisation des résultats](media/module/group-data-into-bins-result-example.png)
 
 Compte il existe un grand nombre de façons, toutes personnalisables, de regrouper des données, nous vous recommandons d’expérimenter avec différentes méthodes et valeurs. 
 
@@ -65,6 +66,9 @@ Compte il existe un grand nombre de façons, toutes personnalisables, de regroup
     - **Bords personnalisés** : vous pouvez spécifier les valeurs qui marquent le début de chaque compartiment. La valeur de bord est toujours la limite inférieure du compartiment. 
     
       Par exemple, supposons que vous souhaitez regrouper des valeurs dans deux compartiments : l’un avec les valeurs supérieures à 0, et l’autre avec les valeurs inférieures ou égales à 0. Dans ce cas, pour les bords d’emplacement, vous devez taper **0** dans la **liste séparée par des virgules de bords d’emplacement**. La sortie du module sera 1 et 2, indiquant l’index du compartiment pour chaque valeur de ligne. Notez que la liste de valeurs séparées par des virgules doit être classée dans un ordre croissant, par exemple 1, 3, 5, 7.
+    
+    > [!Note]
+    > Le mode *MDL d’entropie* est défini dans Studio (classique) et il n’existe aucun package open source correspondant pouvant être utilisé pour la prise en charge de dans le concepteur.        
 
 4. Si vous utilisez les modes de compartimentage **Quantiles** et **Largeur égale**, utilisez l’option **Nombre de compartiments** pour spécifier le nombre de compartiments, ou *quantiles*, que vous souhaitez créer.
 

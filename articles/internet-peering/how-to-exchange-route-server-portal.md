@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700666"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537189"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Créer ou modifier un Peering Exchange avec un serveur d’itinéraire à l’aide du Portail Azure
 
@@ -74,7 +74,7 @@ En tant que fournisseur Internet Exchange, vous pouvez créer une requête de Pe
 1.  Sous **Direct Peering Connection** (Connexion de Peering directe), renseignez les détails de la session BGP :
 
     > [!div class="mx-imgBorder"]
-    > ![Configurer le serveur d’itinéraire pour le Peering direct](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Capture d'écran représentant le volet Connexion de Peering directe dans lequel des détails ont été ajoutés.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Installation de Peering : sélectionnez l’emplacement physique approprié pour le Peering.
@@ -99,19 +99,19 @@ En tant que fournisseur Internet Exchange, vous pouvez créer une requête de Pe
 1. Sélectionnez **Registered ASNs** (Numéros ASN inscrits) dans la section des paramètres.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurer le serveur d’itinéraire pour le Peering direct](./media/setup-exchange-registered-asn.png)
+    > ![Capture d'écran représentant le volet Peering dans lequel l'élément de menu Numéros ASN inscrits est sélectionné.](./media/setup-exchange-registered-asn.png)
 
 1. Sélectionnez **Add Registered ASN** (Ajouter le numéro ASN inscrit) pour créer un numéro ASN client dans le cadre de votre abonnement Exchange.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurer le serveur d’itinéraire pour le Peering direct](./media/setup-exchange-register-new-asn.png)
+    > ![Capture d'écran représentant le volet Inscrire un numéro ASN, et les zones de texte Nom et Numéro ASN.](./media/setup-exchange-register-new-asn.png)
 
 1. Sous Register an ASN (Inscrire un numéro ASN), sélectionnez un nom, indiquez le numéro ASN du client, puis cliquez sur Enregistrer.
 
 1. Une clé de préfixe associée à chaque numéro ASN s’affiche sous les numéros ASN inscrits. En tant que fournisseur Exchange, vous devrez fournir cette clé de préfixe à votre client pour qu’il puisse inscrire Peering Service dans le cadre de son abonnement.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurer le serveur d’itinéraire pour le Peering direct](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Capture d'écran représentant le volet Numéros ASN inscrits avec des clés de préfixe.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

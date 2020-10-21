@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319523"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977012"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
@@ -102,11 +102,11 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 1. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez le groupe auquel vous souhaitez affecter la licence.
 
-    ![Page Affecter une licence, avec les options Sélectionner et Rechercher en surbrillance](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Page Affecter une licence, avec les options Sélectionner et Rechercher mises en surbrillance 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
-    ![Page d’options de licence, avec toutes les options disponibles dans le plan de licence](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Page d’options de licence, avec toutes les options disponibles dans le plan de licence 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
@@ -135,7 +135,7 @@ Vous pouvez supprimer une licence de la page d’utilisateur Azure AD d’un ut
 
 1. Sélectionnez **Supprimer la licence**.
 
-    ![Page Groupes sous licence, avec l’option Supprimer une licence en surbrillance](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Page Groupes sous licence avec l’option Supprimer une licence mise en surbrillance 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Lorsqu’un compte d’utilisateur local synchronisé avec Azure AD est hors de portée pour la synchronisation ou lorsque la synchronisation est supprimée, l’utilisateur est supprimé de manière réversible dans Azure AD. Lorsque cela se produit, les licences attribuées directement à l’utilisateur ou via des licences basées sur des groupes sont marquées comme **suspendues** plutôt que **supprimées**.

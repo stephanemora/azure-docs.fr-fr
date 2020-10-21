@@ -4,21 +4,21 @@ description: 'Services Go-To-Market : les ressources Microsoft que les éditeur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705552"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91368247"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
-Vous avez publié une offre sur le marketplace commercial de Microsoft, et vous souhaitez maintenant qu’elle se vende bien. Nous vous proposons les avantages (commerciaux, techniques et marketing) dont vous avez besoin pour accélérer sa croissance.
+Vous avez publié une offre sur le marketplace commercial de Microsoft, et vous souhaitez maintenant qu’elle se vende bien. Nous vous proposons les avantages (commerciaux, techniques et marketing) dont vous avez besoin pour accélérer la croissance de votre offre.
 
-Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
+Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Pour une vue d’ensemble de l’inscription aux Récompenses de la Place de marché et l’activation des avantages dans l’Espace partenaires, consultez la [vidéo de démonstration](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) sur les Récompenses de la Place de marché. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
 
 ## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -32,7 +32,7 @@ Vous serez contacté par un membre de l’équipe de récompenses lorsque votre 
 
 Pour les partenaires Transact, vous débloquez des avantages supplémentaires par niveau à mesure que vous augmentez vos ventes facturées par le biais de la plateforme du marketplace commercial.
 
-La configuration minimale requise pour publier en magasin en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
+La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
 
 Vous bénéficierez d’une aide pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [consulter vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -44,13 +44,12 @@ Pour commencer en toute simplicité :
 2. Accédez à [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
 3. Pour activer les avantages marketing et commerciaux, attribuez un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
 4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
-
     1. Sélectionnez un utilisateur dans la liste. Si l’utilisateur que vous souhaitez attribuer ne figure pas dans la liste, vous pouvez ajouter de nouveaux utilisateurs dans **Paramètres du compte**.
     1. Fournissez une adresse e-mail pour l’utilisateur qui diffère de celle associée au compte de l’Espace partenaires de votre société. Nous vous enverrons par e-mail des instructions pour l’utilisation de votre avantage Récompenses de la Place de marché à l’adresse e-mail de votre contact marketing désigné.
     1. Fournissez le numéro de téléphone et la langue par défaut de ce contact marketing. Une fois que vous avez terminé d’entrer ces informations, sélectionnez **Attribuer l’utilisateur**.
     1. Une fois que vous avez mis à jour le contact marketing, sélectionnez **Activer** pour l’avantage que vous souhaitez commencer à utiliser. Une fois que vous avez activé un avantage, votre contact marketing sera contacté par un membre de l’équipe Récompenses dans un délai d’une semaine.
 
-**Avantages techniques**
+### <a name="technical-benefits"></a>Avantages techniques
 
 1. Vous pouvez utiliser vos avantages techniques pour demander une assistance technique pendant les phases de prévente, de conception, de déploiement et de développement d’applications de vos solutions cloud et hybrides. Pour demander de l’aide, remplissez le formulaire de demande, puis sélectionnez **Envoyer la demande**.
 2. La façon d’utiliser les avantages du parrainage Azure sera partagée par e-mail à mesure que vous déverrouillerez ces avantages.
@@ -79,7 +78,7 @@ Lorsque vous publiez votre offre négociable sur Microsoft AppSource ou Place de
 
 Ces avantages sont conçus pour vous aider dans vos activités de marketing, de ventes et techniques. Ils vous aident donc à obtenir davantage de visiteurs, à recevoir plus de prospects et à convertir davantage d’entreprises.
 
-Tous les partenaires qui disposent d’une offre publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités à plus forte valeur ajoutée pour votre portefeuille d’offres sur le marketplace commercial. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise. 
+Tous les partenaires qui disposent d’une offre publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités à plus forte valeur ajoutée pour votre portefeuille d’offres sur le marketplace commercial. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise.
 
 ![Avantages marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -97,23 +96,23 @@ En plus des avantages en matière de récompenses, les partenaires d’applicati
 
 ### <a name="publisher-agreement"></a>Contrat de l’éditeur
 
-Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur de la place de marché](https://go.microsoft.com/fwlink/?LinkID=699560) et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
+Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur](https://go.microsoft.com/fwlink/?LinkID=699560) Microsoft et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
 
 ### <a name="cancellation-policy"></a>Politique d’annulation
 
-Les éditeurs de type [Liste et Version d'évaluation](determine-your-listing-type.md) peuvent accepter ou refuser les activités par publication d’offre. Les partenaires peuvent refuser un engagement à tout moment. 
+Les éditeurs de type [Liste et Version d'évaluation](determine-your-listing-type.md) peuvent accepter ou refuser les activités par publication d’offre. Les partenaires peuvent refuser un engagement à tout moment.
 
-Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui : 
+Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui :
 
 * participent à une activité illégale à l’aide de leur référencement sur la place de marché ;
 * reçoivent un achat connu ou jugé comme étant frauduleux ;
-* sont retirés de la place de marché commerciale ; 
+* sont retirés de la place de marché commerciale ;
 * utilisent leur offre pour afficher du contenu marketing ou autre qui ne respecte pas les lois relatives aux droits d’auteur et aux marques ;
 * enfreignent les politiques du [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), notamment en utilisant le financement du parrainage Azure pour leurs propres opérations internes ou le minage de Bitcoin.
 
 Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de Marketplace Rewards quand :
 
-* Le client ayant effectué l’achat l’a fait par erreur et souhaite annuler son achat. 
+* Le client ayant effectué l’achat l’a fait par erreur et souhaite annuler son achat.
 * Le client annule son achat avant d’utiliser le produit du partenaire.
 
 ### <a name="offer-availability"></a>Disponibilité de l’offre
@@ -124,10 +123,7 @@ Les transactions reconnues frauduleuses ne seront pas comptabilisées dans le ni
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer ou configurer votre offre.
-
-Activez vos avantages Récompenses du marketplace dans [Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-
-Passez en revue les [ressources libre-service disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
-
-Inscrivez-vous au [Forum de la communauté Microsoft AppSource et de la place de marché Azure](https://aka.ms/MarketplaceCommunity) et découvrez des sujets pertinents ou participez à la discussion.
+- Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer ou configurer votre offre.
+- Activez vos avantages Récompenses du marketplace dans [Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+- Passez en revue les [ressources libre-service disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+- Inscrivez-vous au [Forum de la communauté Microsoft AppSource et de la place de marché Azure](https://aka.ms/MarketplaceCommunity) et découvrez des sujets pertinents ou participez à la discussion.

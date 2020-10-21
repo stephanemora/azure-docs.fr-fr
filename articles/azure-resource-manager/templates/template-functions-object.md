@@ -2,23 +2,25 @@
 title: Fonctions de modèle - objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des objets.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: 632e92bb798a5e8469079ef4693b7f321617f88c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676792"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977882"
 ---
 # <a name="object-functions-for-arm-templates"></a>Fonctions d’objet pour les modèles ARM
 
 Resource Manager fournit plusieurs fonctions pour travailler avec des objets dans votre modèle Azure Resource Manager (ARM).
 
 * [contains](#contains)
+* [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
 * [json](#json)
 * [length](#length)
+* [null](#null)
 * [union](#union)
 
 ## <a name="contains"></a>contains
@@ -38,7 +40,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 **True** si l’élément est trouvé ; sinon, **False**.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) suivant montre comment utiliser contains avec différents types :
 
@@ -102,6 +104,58 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
+## <a name="createobject"></a>createObject
+
+`createObject(key1, value1, key2, value2, ...)`
+
+Crée un objet à partir des clés et des valeurs.
+
+### <a name="parameters"></a>Paramètres
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| key1 |Non |string |Nom de la clé. |
+| valeur1 |Non |int, boolean, string, object ou array |Valeur pour la clé. |
+| clés supplémentaires |Non |string |Noms supplémentaires des clés. |
+| valeurs supplémentaires |Non |int, boolean, string, object ou array |Valeurs supplémentaires pour les clés. |
+
+La fonction attend uniquement un nombre pair de paramètres. Chaque clé doit avoir une valeur correspondante.
+
+### <a name="return-value"></a>Valeur de retour
+
+Objet avec chaque paire de clé et valeur.
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant crée un objet à partir de différents types de valeurs.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "newObject": {
+            "type": "object",
+            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent avec les valeurs par défaut est un objet nommé `newObject` avec la valeur suivante :
+
+```json
+{
+  "intProp": 1,
+  "stringProp": "abc",
+  "boolProp": true,
+  "arrayProp": ["a", "b", "c"],
+  "objectProp": {"key1": "value1"}
+}
+```
+
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
@@ -118,7 +172,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 Retourne **True** si la valeur est vide ; sinon, **False**.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) suivant vérifie si un tableau, un objet et une chaîne sont vides.
 
@@ -179,13 +233,13 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
-| arguments supplémentaires |Non  |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
+| arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Tableau ou objet avec les éléments communs.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) suivant indique comment utiliser intersection avec des tableaux et des objets :
 
@@ -237,40 +291,58 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `json(arg1)`
 
-Renvoie un objet JSON.
+Convertit une chaîne JSON valide en un type de données JSON.
 
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |string |La valeur à convertir au format JSON. |
+| arg1 |Oui |string |Valeur à convertir en JSON. La chaîne doit être une chaîne JSON correctement mise en forme. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
-L’objet JSON à partir de la chaîne spécifiée ou un objet vide lorsque **nul** est spécifié.
+Le type de données JSON de la chaîne spécifiée ou une valeur vide lorsque **null** est spécifié.
 
-### <a name="remarks"></a>Notes 
+### <a name="remarks"></a>Remarques
 
 Si vous devez inclure une valeur de paramètre ou une variable dans l’objet JSON, utilisez la fonction [concat](template-functions-string.md#concat) pour créer la chaîne que vous passez à la fonction.
 
-### <a name="example"></a> Exemple
+Vous pouvez également utiliser [null()](#null) pour obtenir une valeur null.
 
-L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) suivant montre comment utiliser la fonction json. Notez que vous pouvez passer une chaîne qui représente l’objet ou utiliser **null** quand aucune valeur n’est nécessaire.
+### <a name="example"></a>Exemple
+
+L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) suivant montre comment utiliser la fonction json. Notez que vous pouvez transmettre **null** pour un objet vide.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "jsonObject1": {
+        "jsonEmptyObject": {
             "type": "string",
             "defaultValue": "null"
         },
-        "jsonObject2": {
+        "jsonObject": {
             "type": "string",
             "defaultValue": "{\"a\": \"b\"}"
         },
-        "testValue": {
+        "jsonString": {
+            "type": "string",
+            "defaultValue": "\"test\""
+        },
+        "jsonBoolean": {
+            "type": "string",
+            "defaultValue": "true"
+        },
+        "jsonInt": {
+            "type": "string",
+            "defaultValue": "3"
+        },
+        "jsonArray": {
+            "type": "string",
+            "defaultValue": "[[1,2,3 ]"
+        },
+        "concatValue": {
             "type": "string",
             "defaultValue": "demo value"
         }
@@ -278,17 +350,33 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
     "resources": [
     ],
     "outputs": {
-        "jsonOutput1": {
+        "emptyObjectOutput": {
             "type": "bool",
-            "value": "[empty(json(parameters('jsonObject1')))]"
+            "value": "[empty(json(parameters('jsonEmptyObject')))]"
         },
-        "jsonOutput2": {
+        "objectOutput": {
             "type": "object",
-            "value": "[json(parameters('jsonObject2'))]"
+            "value": "[json(parameters('jsonObject'))]"
         },
-        "paramOutput": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[json(parameters('jsonString'))]"
+        },
+        "booleanOutput": {
+            "type": "bool",
+            "value": "[json(parameters('jsonBoolean'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[json(parameters('jsonInt'))]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[json(parameters('jsonArray'))]"
+        },
+        "concatObjectOutput": {
             "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
+            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
         }
     }
 }
@@ -298,9 +386,13 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | Type | Valeur |
 | ---- | ---- | ----- |
-| jsonOutput1 | Boolean | True |
-| jsonOutput2 | Object | {"a": "b"} |
-| paramOutput | Object | {"a": "valeur pour démonstration"}
+| emptyObjectOutput | Boolean | True |
+| objectOutput | Object | {"a": "b"} |
+| stringOutput | String | test |
+| booleanOutput | Boolean | True |
+| intOutput | Integer | 3 |
+| arrayOutput | Array | [ 1, 2, 3 ] |
+| concatObjectOutput | Object | {"a": "valeur de démonstration"} |
 
 ## <a name="length"></a>length
 
@@ -318,7 +410,7 @@ Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîn
 
 Un entier.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) suivant montre comment utiliser length avec un tableau et une chaîne :
 
@@ -378,6 +470,44 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
+## <a name="null"></a>null
+
+`null()`
+
+Retourne la valeur NULL.
+
+### <a name="parameters"></a>Paramètres
+
+La fonction null n’accepte aucun paramètre.
+
+### <a name="return-value"></a>Valeur de retour
+
+Valeur qui correspond toujours à null.
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant utilise la fonction null.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(null())]"
+        },
+    }
+}
+```
+
+La sortie de l’exemple précédent est :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| emptyOutput | Bool | True |
+
 ## <a name="union"></a>union
 
 `union(arg1, arg2, arg3, ...)`
@@ -390,13 +520,13 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
-| arguments supplémentaires |Non  |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
+| arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Objet ou tableau.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) suivant montre comment utiliser intersection avec des tableaux et des objets :
 

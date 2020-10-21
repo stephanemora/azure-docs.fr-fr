@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 09/21/2020
-  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
+  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91949103"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92172144"
 landingContent:
 - title: À propos d’Azure VMware Solution
   linkLists:
@@ -36,14 +36,12 @@ landingContent:
       url: concepts-role-based-access-control.md
     - text: Mises à niveau de clouds privés
       url: concepts-upgrades.md
-- title: Déployer Azure VMware Solution
+- title: Prise en main
   linkLists:
-  - linkListType: get-started
+  - linkListType: deploy
     links:
-    - text: Processus de prédéploiement
+    - text: Planifier le déploiement
       url: production-ready-deployment-steps.md
-    - text: Check-list pour le prédéploiement
-      url: pre-deployment-checklist.md
     - text: 1 - Déployer Azure VMware Solution
       url: deploy-azure-vmware-solution.md
     - text: 2 - Se connecter localement
@@ -64,14 +62,16 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: Appairer un environnement local à un cloud privé
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Déployer et configurer VMware HCX
-      url: tutorial-deploy-vmware-hcx.md
     - text: Mettre à l’échelle un cloud privé
       url: tutorial-scale-private-cloud.md
 - title: Étendre Azure VMware Solution
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Activer Azure VMware Solution
+      url: enable-azure-vmware-solution.md
+    - text: Faire des économies avec une instance réservée
+      url: reserved-instance.md
     - text: Évaluation de la migration
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Gérer DHCP
@@ -80,5 +80,49 @@ landingContent:
       url: disaster-recovery-for-virtual-machines.md
     - text: Déployer une machine virtuelle via la bibliothèque de contenu
       url: ./deploy-vm-content-library.md
-    - text: Utiliser la fonctionnalité d’adresse IP publique
+    - text: Configurer GitHub Enterprise Server
+      url: github-enterprise-server.md
+    - text: Utilisation d’adresses IP publiques
       url: public-ip-usage.md
+    - text: Créer un tunnel IPSec
+      url: create-ipsec-tunnel.md
+- title: Intégration native Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestion des API
+      url: concepts-api-management.md
+    - text: Hub-and-spoke
+      url: concepts-hub-and-spoke.md
+    - text: Azure Backup Server
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Gestion du cycle de vie sur des machines virtuelles
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Application Gateway
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Traffic Manager
+      url: deploy-traffic-manager-balance-workloads.md
+- title: Solutions VMware
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des opérations vRealize
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: Déployer VMware Horizon
+      url: azure-vmware-solution-horizon.md
+- title: Écosystème VMware
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Solutions de sauvegarde pour les machines virtuelles
+      url: ecosystem-back-up-vms.md
+- title: Ressources
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.vmware
+    - text: Obtenir de l’aide pour les échecs de provisionnement et de déploiement
+      url: fix-deployment-provisioning-failures.md
+    - text: Questions fréquentes (FAQ)
+      url: faq.md

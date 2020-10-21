@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897404"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530627"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -201,6 +201,7 @@ Pour plus d’informations, consultez [Expériences](concept-azure-machine-learn
 1. Développez le nœud **Expériences** à l’intérieur de votre espace de travail.
 1. Cliquez avec le bouton droit sur l’expérience que vous souhaitez exécuter.
 1. Sélectionnez l’icône **Exécuter l’expérience** dans la barre d’activité.
+1. Indiquez si vous souhaitez exécuter votre expérience localement ou à distance. Pour plus d’informations sur l’exécution et le débogage des expériences localement, consultez le [Guide de débogage](how-to-debug-visual-studio-code.md).
 1. Choisissez votre abonnement.
 1. Choisissez l’espace de travail ML Azure sous lequel exécuter l’expérience.
 1. Choisissez votre expérience.

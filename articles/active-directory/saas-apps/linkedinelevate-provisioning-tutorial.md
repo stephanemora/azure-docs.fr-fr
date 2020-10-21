@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: e49b35de5cce914edbd8db2ac0c0c8cccd5f811b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549770"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361576"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutoriel : Configurer l’attribution automatique d’utilisateurs dans LinkedIn Elevate
 
@@ -70,12 +70,12 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
     > [!NOTE]
     > Si l’affectation automatique de licences n’est pas activée, cela signifie que seules les données utilisateur sont synchronisées.
 
-    ![Approvisionnement LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+    ![Capture d’écran montrant les paramètres globaux du Centre des comptes LinkedIn.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
     > [!NOTE]
     > Quand l’affectation automatique de licences est activée, vous devez noter l’instance d’application et le type de licence. Les licences sont toutes affectées sur le principe du « premier arrivé, premier servi ».
 
-    ![Approvisionnement LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Capture d’écran montrant la page de configuration de SCIM.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
 5. Cliquez sur **Générer un jeton**. Un jeton d’accès doit s’afficher sous le champ **Jeton d’accès**.
 
@@ -89,7 +89,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 10. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Approvisionnement LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+    ![Capture d’écran montrant la page Approvisionnement LinkedIn Elevate.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11. Renseignez les champs suivants sous **Informations d’identification de l’administrateur** :
 
@@ -105,7 +105,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 14. Dans la section **Mappages d’attributs**, passez en revue les attributs d’utilisateur et de groupe qui seront synchronisés d’Azure AD vers LinkedIn Elevate. Notez que les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur et les groupes dans LinkedIn Elevate pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-    ![Approvisionnement LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![Capture d’écran montrant les mappages, y compris les mappages d’attributs.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15. Pour activer le service d’approvisionnement Azure AD pour LinkedIn Elevate, définissez l’**État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 

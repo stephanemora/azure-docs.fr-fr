@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797171"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531528"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
@@ -40,7 +40,7 @@ Voici quelques exemples de règles avancées ou de syntaxe pour lesquelles nous 
 > [!NOTE]
 > Le générateur de règles peut ne pas être en mesure d’afficher certaines règles construites dans la zone de texte. Un message peut s’afficher lorsque le générateur de règles n’est pas en mesure d’afficher la règle. Le générateur de règles ne modifie en aucune façon la syntaxe, la validation ou le traitement des règles de groupe dynamique pris en charge.
 
-![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Capture d’écran montrant la page « Règles d’appartenance dynamique » avec l’action « Ajouter une expression » sous l’onglet « Configurer les règles » sélectionnée.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Pour obtenir des exemples de syntaxe des règles, des propriétés prises en charge, des opérateurs et des valeurs pris en charge pour une règle d’appartenance, consultez [Règles d’appartenance dynamique pour les groupes dans Azure Active Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 
 1. Dans la page **Groupe**, entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
 
-   ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Capture d’écran montrant la page « Tous les groupes » avec l’action « Nouveau groupe » sélectionnée.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Pour afficher les propriétés d’extension personnalisées disponibles pour votre requête d’appartenance :
    1. Sélectionnez **Obtenir les propriétés d’extension personnalisée**

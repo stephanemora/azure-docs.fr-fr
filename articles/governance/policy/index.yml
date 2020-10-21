@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/30/2020
-  ms.openlocfilehash: fce9674e9ad21f51344b3ea249849e1474c40ee4
-  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+  ms.date: 10/16/2020
+  ms.openlocfilehash: 28011d2f3bbbb838f0de9a66c98845d968620fb1
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92054829"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92314177"
 landingContent:
 - title: À propos d’Azure Policy
   linkLists:
@@ -63,8 +63,10 @@ landingContent:
       url: ./tutorials/create-and-manage.md
     - text: Utiliser l’extension VS Code
       url: ./how-to/extension-for-vscode.md
-    - text: Concevoir des workflows de type Policy as Code
+    - text: Concevoir des workflows Azure Policy en tant que code
       url: ./concepts/policy-as-code.md
+    - text: Implémenter Azure Policy en tant que code avec GitHub
+      url: ./tutorials/policy-as-code-github.md
   - linkListType: deploy
     links:
     - text: Index des exemples de stratégie
@@ -89,9 +91,9 @@ landingContent:
     links:
     - text: Conformité réglementaire
       url: ./concepts/regulatory-compliance.md
-    - text: Policy pour Kubernetes
+    - text: Azure Policy pour Kubernetes
       url: ./concepts/policy-for-kubernetes.md
-    - text: Stratégie pour les machines virtuelles
+    - text: Azure Policy pour machines virtuelles
       url: ./concepts/guest-configuration.md
 - title: Vérifier et corriger les ressources
   linkLists:

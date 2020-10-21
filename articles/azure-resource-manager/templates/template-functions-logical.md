@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Logique
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677387"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978507"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Fonctions logiques pour les modèles ARM
 
@@ -16,11 +16,13 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
-## <a name="and"></a>and
+## <a name="and"></a>et
 
 `and(arg1, arg2, ...)`
 
@@ -32,9 +34,9 @@ Vérifie si toutes les valeurs de paramètres sont true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non  |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si toutes les valeurs sont true ; sinon, renvoie **False**.
 
@@ -84,8 +86,13 @@ Convertit le paramètre en valeur booléenne.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
+
 Valeur booléenne de la valeur convertie.
+
+### <a name="remarks"></a>Remarques
+
+Vous pouvez également utiliser [true()](#true) et [false()](#false) pour obtenir des valeurs booléennes.
 
 ### <a name="examples"></a>Exemples
 
@@ -126,6 +133,44 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
+## <a name="false"></a>false
+
+`false()`
+
+Retourne false.
+
+### <a name="parameters"></a>Paramètres
+
+La fonction false n’accepte aucun paramètre.
+
+### <a name="return-value"></a>Valeur de retour
+
+Valeur booléenne qui correspond toujours à false.
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant retourne une valeur de sortie false.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent est :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
+
 ## <a name="if"></a>if
 
 `if(condition, trueValue, falseValue)`
@@ -140,11 +185,11 @@ Retourne une valeur indiquant si une condition est true ou false.
 | trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
 | falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Retourne le deuxième paramètre lorsque le premier paramètre est **True** ; sinon, retourne le troisième paramètre.
 
-### <a name="remarks"></a>Notes 
+### <a name="remarks"></a>Remarques
 
 Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec la fonction **si**, vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Vous trouverez un exemple illustrant des expressions évaluant de manière conditionnelle dans la section suivante.
 
@@ -241,9 +286,9 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |boolean |La valeur à convertir. |
+| arg1 |Oui |boolean |Valeur à convertir. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** lorsque le paramètre est **False**. Retourne **False** lorsque le paramètre est **True**.
 
@@ -304,7 +349,7 @@ La sortie de l’exemple précédent est :
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>or
+## <a name="or"></a>ou
 
 `or(arg1, arg2, ...)`
 
@@ -316,9 +361,9 @@ Vérifie si l’une des valeurs du paramètre est true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non  |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Retourne **True** si l’une des valeurs est true ; sinon, renvoie **False**.
 
@@ -356,7 +401,45 @@ La sortie de l’exemple précédent est :
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+## <a name="true"></a>true
+
+`true()`
+
+Retourne la valeur true.
+
+### <a name="parameters"></a>Paramètres
+
+La fonction true n’accepte aucun paramètre.
+
+### <a name="return-value"></a>Valeur de retour
+
+Valeur booléenne qui correspond toujours à true.
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant retourne une valeur de sortie true.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent est :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
 

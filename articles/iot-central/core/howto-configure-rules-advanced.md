@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801357"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398576"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utiliser des workflows pour intégrer votre application Azure IoT Central à d’autres services cloud
 
@@ -22,8 +22,8 @@ Vous pouvez créer des règles dans IoT Central qui déclenchent des actions, te
 
 Le connecteur Azure IoT Central v3 pour Power Automate et Azure Logic Apps vous permet de créer des règles plus avancées pour automatiser les opérations dans IoT Central :
 
-- Lorsqu’une règle est déclenchée dans votre application Azure IoT Central, elle peut déclencher un workflow dans Power Automate ou Azure Logic Apps. Ces workflows peuvent exécuter des actions dans d’autres services cloud, tels qu’Office 365 ou un service tiers.
-- Un événement dans un autre service cloud, tel qu’Office 365, peut déclencher un workflow dans Power Automate ou Azure Logic Apps. Ces workflows peuvent exécuter des actions ou récupérer des données à partir de votre application IoT Central.
+- Lorsqu’une règle est déclenchée dans votre application Azure IoT Central, elle peut déclencher un workflow dans Power Automate ou Azure Logic Apps. Ces flux de travail peuvent exécuter des actions dans d’autres services cloud, tels que Microsoft 365 ou un service tiers.
+- Un événement dans un autre service cloud, tel que Microsoft 365, peut déclencher un flux de travail dans Power Automate ou Azure Logic Apps. Ces workflows peuvent exécuter des actions ou récupérer des données à partir de votre application IoT Central.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +75,7 @@ Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant qu�
 1. Dans la liste des actions, sélectionnez l’action IoT Central que vous souhaitez utiliser.
 1. Dans l’étape d’action, terminez la configuration de l’action que vous avez choisie. Ensuite, sélectionnez **Enregistrer**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central v3 et choisir une action":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central – Préversion et choisir le déclencheur":::
 
 ## <a name="list-of-actions"></a>Liste d’actions
 

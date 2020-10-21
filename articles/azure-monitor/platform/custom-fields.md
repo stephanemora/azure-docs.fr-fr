@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974713"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448555"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor (préversion)
 
@@ -101,7 +101,7 @@ Nous mettons en surbrillance le nom du service dans la propriété **RenderedDes
 
 Nous constatons que le nom du service est identifié correctement pour certains enregistrements, mais pas pour d’autres.   Les **Résultats de la recherche** montrent que cette partie du nom de **Carte de performance WMI** n’est pas sélectionnée.  Le **Résumé** montre qu’un seul enregistrement identifié **Programme d’installation de modules** au lieu de **Programme d’installation de modules Windows**.  
 
-![Résultats de la recherche](media/custom-fields/search-results-01.png)
+![Capture d’écran montrant des parties du nom de service en surbrillance dans le volet des résultats de recherche et un nom de service incorrect en surbrillance dans le résumé.](media/custom-fields/search-results-01.png)
 
 Commençons par l’enregistrement **Carte de performance WMI** .  Cliquez sur son icône de modification, puis sur **Modifier cette mise en surbrillance**.  
 
@@ -113,7 +113,7 @@ Nous étendons la mise en surbrillance afin d’inclure le mot **WMI** , puis no
 
 Nous constatons que les entrées de **Carte de performance WMI** ont été corrigées, et que Log Analytics a utilisé ces informations pour corriger les enregistrements de **Programme d’installation pour les modules Windows**.
 
-![Résultats de la recherche](media/custom-fields/search-results-02.png)
+![Capture d’écran montrant le nom complet du service en surbrillance dans le volet des résultats de recherche et les noms de service corrects en surbrillance dans le résumé.](media/custom-fields/search-results-02.png)
 
 Nous pouvons maintenant exécuter une requête qui vérifie que **Service_CF** est créé, mais qu’il n’est encore ajouté à aucun enregistrement. C’est parce que le champ personnalisé ne fonctionne pas sur les enregistrements existants. Nous devons attendre que de nouveaux enregistrements soient collectés.
 

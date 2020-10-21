@@ -3,12 +3,12 @@ title: Autoriser l’accès avec Azure Active Directory
 description: Cet article fournit des informations sur l’autorisation d’accès aux ressources Event Hubs à l’aide d'Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831836"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91566259"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoriser l’accès aux ressources Event Hubs à l'aide d'Azure Active Directory
 Azure Event Hubs prend en charge l’utilisation d'Azure Active Directory (Azure AD) pour autoriser les requêtes de ressources Event Hubs. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -33,9 +33,13 @@ Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Az
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Rôles intégrés Azure pour Azure Event Hubs
 Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès aux données Event Hubs à l’aide d’Azure AD et d’OAuth :
 
-- [Propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) : Utilisez ce rôle pour accorder un accès complet aux ressources Event Hubs.
-- [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) : Utilisez ce rôle pour accorder un accès en envoi aux ressources Event Hubs.
-- [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) : Utilisez ce rôle pour accorder un accès en réception/utilisation aux ressources Event Hubs.
+| Role | Description | 
+| ---- | ----------- | 
+| [Propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Utilisez ce rôle pour accorder un accès complet aux ressources Event Hubs. |
+| [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Utilisez ce rôle pour accorder un accès en envoi aux ressources Event Hubs. |
+| [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Utilisez ce rôle pour accorder un accès en réception/utilisation aux ressources Event Hubs. |
+
+Pour les rôles intégrés du registre de schémas, consultez [Rôles du registre de schémas](schema-registry-overview.md#role-based-access-control).
 
 ## <a name="resource-scope"></a>Étendue des ressources 
 Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.

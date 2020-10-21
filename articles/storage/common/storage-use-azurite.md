@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001907"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331571"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utiliser l’émulateur azurite pour le développement de stockage Azure local
 
@@ -555,6 +555,12 @@ Azurite s’aligne sur la logique de gestion des erreurs du Stockage Azure, mais
 Azurite prend en charge la réplication géoredondante avec accès en lecture (RA-GRS). Pour les ressources de stockage, accédez à l’emplacement secondaire en ajoutant `-secondary` au nom du compte. Par exemple, vous pouvez utiliser l’adresse suivante pour accéder à un objet blob à l’aide de l’emplacement secondaire en lecture seule dans Azurite :
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
+
+### <a name="table-support"></a>Prise en charge des tables
+
+La prise en charge des tables dans Azurite est actuellement en cours de développement et toutes les contributions sont les bienvenues ! Pour obtenir des informations à jour sur la progression, consultez le projet [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table).
+
+La prise en charge des fonctions durables requiert des tables.
 
 ## <a name="azurite-is-open-source"></a>Azurite est open source
 

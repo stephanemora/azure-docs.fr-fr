@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439844"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -75,7 +75,21 @@ La section suivante de l’e-mail contient des informations sur l’endroit où 
 Le pied de page contient d’autres informations sur l’invitation envoyée. Il comporte toujours une option permettant à l’invité de bloquer les futures invitations. Si l’organisation a [défini une déclaration de confidentialité](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), le lien associé est affiché ici.  Sinon, une note indique que l’organisation n’a pas défini de déclaration de confidentialité.
 
 ![Image de la section de pied de page dans l’e-mail](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Blocage d’une organisation (annulation d’abonnement)
+
+Dans l’invitation d’une organisation, le pied de page contient une option permettant de **bloquer les futures invitations**. Un utilisateur invité peut sélectionner ce lien pour bloquer les futures invitations de l’organisation. Cette action ajoute également l’organisation à la liste des utilisateurs désabonnés à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+
+### <a name="viewing-organizations-youve-blocked"></a>Affichage des organisations que vous avez bloquées
+
+Un utilisateur invité peut suivre les étapes suivantes pour afficher ou exporter les organisations qu’il a bloquées :
+
+1. Accédez à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Entrez votre adresse e-mail et suivez les étapes de connexion pour l’authentification par code secret ponctuelle d’e-mail.
+3. Affichez les organisations que vous avez bloquées ou exportez les noms à l’aide d’une opérations de copier-coller.
+   > [!NOTE]
+   > Si vous souhaitez autoriser une organisation que vous avez bloquée à vous inviter à nouveau, vous pouvez choisir l’organisation, puis sélectionner **Suivant**.
+
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
 
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue.

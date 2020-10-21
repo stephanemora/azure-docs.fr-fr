@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e1121f1d1217ebd48c744135c976587545323f44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565159"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -62,75 +62,13 @@ Les identités managées permettent au coffre de créer et d’utiliser des poin
     >[!NOTE]
     >Une fois activée, l’identité managée ne doit **pas** être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
 
-## <a name="dns-changes"></a>Modifications de DNS
-
-L’utilisation de points de terminaison privés requiert des zones DNS privées pour permettre à l’extension du service Sauvegarde Azure de résoudre les noms de domaine complets de liens privés en adresses IP privées. Trois zones DNS privées sont requises. Deux de ces zones doivent être créées. La troisième peut être soit intégrée au point de terminaison privé (lors de la création de ce dernier), soit créée séparément.
-
-Vous pouvez également utiliser vos serveurs DNS personnalisés. Pour plus d’informations sur l’utilisation des serveurs DNS personnalisés, reportez-vous à la section [Modifications de DNS pour créer des serveurs DNS personnalisés](#dns-changes-for-custom-dns-servers).
-
-### <a name="creating-mandatory-dns-zones"></a>Création des zones DNS obligatoires
-
-Vous devez créer deux zones DNS :
-
-- `privatelink.blob.core.windows.net` (pour les données de sauvegarde/restauration)
-- `privatelink.queue.core.windows.net` (pour la communication du service)
-
-1. Dans la barre de recherche **All services** (Tous les services), recherchez **Private DNS Zone** (Zone DNS privée), puis, dans la liste déroulante, sélectionnez **Private DNS zone** (Zone DNS privée).
-
-    ![Capture d’écran montrant l’option Private DNS zone (Zone DNS privée)](./media/private-endpoints/private-dns-zone.png)
-
-1. Une fois dans le volet **Zone DNS privée**, sélectionnez le bouton **+Ajouter** pour commencer à créer une zone.
-
-1. Dans le volet **Create private DNS zone** (Créer une zone DNS privée), entrez les informations requises. Vous devez utiliser le même abonnement que celui utilisé pour la création du point de terminaison privé.
-
-    Veuillez nommer les zones comme ceci :
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Zone**                           | **Service** | **Informations sur l’abonnement et le groupe de ressources**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Objet blob        | **Abonnement**: Identique à celui utilisé pour la création du point de terminaison privé **Groupe de ressources** : Soit le groupe de ressources du réseau virtuel, soit celui du point de terminaison privé |
-    | `privatelink.queue.core.windows.net` | File d'attente       | **Groupe de ressources**: Soit le groupe de ressources du réseau virtuel, soit celui du point de terminaison privé |
-
-    ![Capture d’écran montrant le volet Create Private DNS zone (Créer une zone DNS privée)](./media/private-endpoints/create-private-dns-zone.png)
-
-1. Lorsque vous avez terminé, vérifiez vos informations, puis créez la zone DNS.
-
-### <a name="optional-dns-zone"></a>Zone DNS facultative
-
-Vous pouvez choisir d’intégrer vos points de terminaison privés à des zones DNS privées pour le service Sauvegarde Azure (ceci est discuté dans la section [Création et utilisation de points de terminaison privés pour la sauvegarde](#creating-and-using-private-endpoints-for-backup)) pour la communication entre les services. Si vous ne souhaitez pas intégrer la zone DNS privée, vous pouvez choisir d’utiliser votre propre serveur DNS ou de créer une zone DNS privée distincte. Elle s’ajoutera aux deux zones DNS privées obligatoires décrites dans la section précédente.
-
-Si vous souhaitez créer une zone DNS privée distincte dans Azure, vous pouvez procéder de la même manière en utilisant les mêmes étapes que celles utilisées pour créer des zones DNS obligatoires. Voici les informations requises pour l’attribution des noms et l’abonnement requis :
-
-| **Zone**                                                     | **Service** | **Informations sur l’abonnement et le groupe de ressources**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Remarque** : le critère *geo* dans le nom de la zone fait référence au code de région. Par exemple, *wcus* et *ne* représentent les régions USA Centre-Ouest et Europe Nord. | Sauvegarde      | **Abonnement**: Identique à celui utilisé pour la création du point de terminaison privé **Groupe de ressources** : Tout groupe de ressources au sein de l’abonnement |
-
-[Cette liste](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) répertorie tous les codes de région.
-
-Pour les conventions d'affectation de noms d'URL dans les régions nationales :
-
-- [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
-- [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Liaison de zones DNS privées avec votre réseau virtuel
-
-Vous devez à présent lier les zones DNS créées précédemment au réseau virtuel sur lequel se trouvent les serveurs que vous souhaitez sauvegarder. Cette opération est requise pour toutes les zones DNS que vous avez créées.
-
-1. Accédez à la zone DNS que vous avez créée à l’étape précédente, puis, dans la barre de gauche, accédez à **Virtual network links** (Liens de réseau virtuel). Ensuite, sélectionnez le bouton **+Ajouter**.
-1. Renseignez les champs obligatoires. Vous devez renseigner les champs **Subscription** (Abonnement) et **Virtual network** (Réseau virtuel) avec les paramètres correspondants du réseau virtuel sur lequel se trouvent vos serveurs. Ne modifiez pas les autres champs.
-
-    ![Ajouter un lien de réseau virtuel](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>Accorder des autorisations au coffre pour créer des points de terminaison privés requis
 
 Pour créer les points de terminaison privés requis pour le service Sauvegarde Azure, le coffre (ou plus exactement, l’identité managée du coffre) doit disposer d’autorisations sur les groupes de ressources suivants :
 
 - Le groupe de ressources qui contient le réseau virtuel (VNet) cible.
 - Le groupe de ressources dans lequel les points de terminaison privés doivent être créés.
-- Le groupe de ressources qui contient l’application.
+- Le groupe de ressources qui contient Private DNS Zones, comme discuté en détail [ici](#creating-private-endpoints-for-backup)
 
 Nous vous recommandons d’accorder le rôle **Contributor** (Contributeur) à ces trois groupes de ressources pour le coffre (identité managée). Les étapes suivantes expliquent comment effectuer cette opération pour un groupe de ressources particulier (cette opération doit être effectuée pour chacun des trois groupes de ressources) :
 
@@ -173,6 +111,8 @@ Cette section décrit le processus de création d’un point de terminaison priv
 
         ![Capture d’écran montrant l’onglet Configuration](./media/private-endpoints/configuration-tab.png)
 
+        Reportez-vous à [cette section](#dns-changes-for-custom-dns-servers) si vous souhaitez utiliser vos serveurs DNS personnalisés au lieu de les intégrer à Azure Private DNS Zones.  
+
     1. Si vous le souhaitez, vous pouvez ajouter des **balises** à votre point de terminaison privé.
 
     1. Passez à **Vérifier + créer** lorsque vous avez terminé la saisie des informations requises. Une fois la validation terminée, sélectionnez **Créer** pour créer le point de terminaison privé.
@@ -189,51 +129,6 @@ Si vous souhaitez utiliser le client Azure Resource Manager pour approuver vos p
 
     ![Capture d’écran montrant la procédure d’approbation d’un point de terminaison privé](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>Ajout d’enregistrements DNS
-
->[!NOTE]
-> Cette étape est facultative si vous utilisez une zone DNS intégrée. Toutefois, si vous avez créé votre propre zone DNS privée Azure ou si vous utilisez une zone DNS privée personnalisée, vérifiez que les paramètres correspondent à ceux décrits dans cette section.
-
-Lorsque que vous avez créé la zone DNS privée facultative et les points de terminaison privés associés à votre coffre, vous devez ajouter des enregistrements DNS à votre zone DNS. Vous pouvez effectuer cette opération manuellement ou à l’aide d’un script PowerShell. Cette opération est uniquement obligatoire pour votre zone DNS de sauvegarde. Celles pour les objets BLOB et les files d’attente seront automatiquement mises à jour.
-
-### <a name="add-records-manually"></a>Ajouter manuellement des enregistrements
-
-Pour cela, vous devez créer des entrées pour chaque FQDN (nom de domaine complet) de votre point de terminaison privé dans votre zone de DNS privée.
-
-1. Accédez à votre **zone DNS privée**, puis, dans la barre de gauche, accédez à **Overview** (Vue d’ensemble). Sélectionnez ensuite **+Jeu d’enregistrements** pour commencer à ajouter des enregistrements.
-
-    ![Capture d’écran montrant comment sélectionner l’option +Record set (+ Jeu d’enregistrements)](./media/private-endpoints/select-record-set.png)
-
-1. Dans le volet **Add Record Set** (Ajouter un jeu d’enregistrements) qui s’ouvre, ajoutez une entrée pour chaque nom de domaine complet et adresse IP privée en tant qu’enregistrement **A type** (Type A). La liste des noms de domaine complets et des adresses IP peut être obtenue à partir de votre point de terminaison privé (sous **Overview** (Vue d’ensemble)). Comme indiqué dans l’exemple ci-dessous, le premier nom de domaine complet du point de terminaison privé est ajouté au jeu d’enregistrements dans la zone DNS privée.
-
-    ![Capture d’écran montrant la liste des noms de domaine complets et des adresses IP](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Ajouter un jeu d’enregistrements](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>Ajouter des enregistrements à l’aide d’un script PowerShell
-
-1. Dans le portail Azure, démarrez le **Cloud Shell**, puis sélectionnez **Upload** (Charger) dans la fenêtre PowerShell.
-
-    ![Capture d’écran montrant l’option Upload (Charger) de la fenêtre PowerShell](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Chargez ce script : [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Accédez à votre dossier de démarrage (par exemple : `cd /home/user`)
-
-1. Exécutez le script suivant :
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    Les paramètres sont les suivants :
-
-    - **Abonnement** : L’abonnement dans lequel résident les ressources (point de terminaison privé du coffre et zone DNS privée).
-    - **vaultPEName**: Nom du point de terminaison privé créé pour le coffre
-    - **vaultPEResourceGroup**: Groupe de ressources qui contient le point de terminaison privé du coffre
-    - **dnsResourceGroup**: Groupe de ressources qui contient les zones DNS privées
-    - **Privatezone**: Nom de la zone DNS privée
-
 ## <a name="using-private-endpoints-for-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
 Après l’approbation des points de terminaison privés créés pour le coffre de votre réseau virtuel, vous pouvez commencer à les utiliser pour effectuer vos sauvegardes et restaurations.
@@ -243,12 +138,9 @@ Après l’approbation des points de terminaison privés créés pour le coffre 
 >
 >1. Créer un (nouveau) coffre Recovery Services
 >1. Activer le coffre pour utiliser l’identité managée affectée par le système
->1. Créer trois zones DNS privées (deux, si vous utilisez une zone DNS intégrée pour la sauvegarde)
->1. Connecter votre réseau virtuel Azure à votre cloud privé
 >1. Attribuer les autorisations appropriées à l’identité managée du coffre
 >1. Créer un point de terminaison privé pour votre coffre
 >1. Approuver le point de terminaison privé (s’il n’a pas été approuvé automatiquement)
->1. Ajouter des enregistrements DNS requis à votre zone DNS privée pour le service Sauvegarde Azure (applicable uniquement si vous n’utilisez pas de zone DNS privée intégrée)
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Sauvegarde et restauration des charges de travail dans une machine virtuelle Azure (SQL, SAP HANA)
 
@@ -504,7 +396,11 @@ Vous devez créer trois zones DNS privées et les lier à votre réseau virtuel.
 >[!NOTE]
 >Dans le texte ci-dessus, *geo* fait référence au code de région. Par exemple, *wcus* et *ne* représentent les régions USA Centre-Ouest et Europe Nord.
 
-[Cette liste](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) répertorie tous les codes de région.
+[Cette liste](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) répertorie tous les codes de région. Consultez les liens suivants pour les conventions d'affectation de noms d’URL dans les régions nationales :
+
+- [Chine](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+- [Gouvernement des États-Unis](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>Ajout d’enregistrements DNS pour les serveurs DNS personnalisés
 

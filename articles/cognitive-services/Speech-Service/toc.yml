@@ -144,7 +144,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Référence
+    - name: Informations de référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
@@ -229,6 +229,8 @@
   items:
     - name: Documentation sur la reconnaissance de l’intention
       href: index-intent-recognition.yml
+    - name: Vue d’ensemble de la reconnaissance de l’intention
+      href: intent-recognition.md
     - name: Guide de démarrage rapide sur la reconnaissance de l’intention
       href: quickstarts/intent-recognition.md
     - name: Guides pratiques

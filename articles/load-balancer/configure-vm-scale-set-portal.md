@@ -1,17 +1,17 @@
 ---
 title: Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant – Portail Azure
-description: Découvrez comment configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant.
+description: Découvrez comment configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide du portail Azure.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809440"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439518"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide du Portail Azure
 
@@ -62,7 +62,7 @@ Dans cette section, vous allez créer un groupe de machines virtuelles identique
     | Confirmer le mot de passe               | Entrez de nouveau votre mot de passe d’administrateur |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Créer un groupe de machines virtuelles identiques." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Capture d’écran montrant l’onglet Concepts de base de Créer un groupe de machines virtuelles identiques." border="true":::
 
 4. Sélectionnez l’onglet **Mise en réseau**.
 
@@ -79,7 +79,7 @@ Dans cette section, vous allez créer un groupe de machines virtuelles identique
     | Sélectionnez un équilibreur de charge            | Sélectionnez **myLoadBalancer** ou votre équilibreur de charge existant |
     | Sélectionnez un pool principal             | Sélectionnez **myBackendPool** ou votre pool principal existant.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Créer un groupe de machines virtuelles identiques." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Capture d’écran montrant l’onglet Concepts de base de Créer un groupe de machines virtuelles identiques." border="true":::
 
 6. Sélectionnez l’onglet **Gestion**.
 

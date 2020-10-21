@@ -1,29 +1,30 @@
 ---
-title: Installer et exécuter des conteneurs – Analyse de texte
+title: Installer et exécuter des conteneurs Docker pour l’API Analyse de texte
 titleSuffix: Azure Cognitive Services
-description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Analyse de texte.
+description: Utilisez les conteneurs Docker pour l’API Analyse de texte pour effectuer un traitement en langage naturel, tel que l’analyse des sentiments, en local.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: local, Docker, conteneur, analyse des sentiments, traitement en langage naturel
+ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906126"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91461493"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
 > [!NOTE]
 > * Le conteneur Analyse des sentiments v3 est désormais en disposition générale. Les conteneurs Extraction de phrases clés et Détection de langue sont disponibles sous la forme d’une préversion publique non contrôlée.
 > * Les fonctionnalités Liaison d’entités et Reconnaissance d'entité nommée ne sont actuellement pas disponibles en tant que conteneurs.
-> * L’accès à l’analyse de texte pour le conteneur d’intégrité requiert un [formulaire de demande](https://aka.ms/cognitivegate). Actuellement, vous ne serez pas facturé pour son utilisation.
+> * L’accès à l’analyse de texte pour le conteneur d’intégrité requiert un [formulaire de demande](https://aka.ms/csgate). Actuellement, vous ne serez pas facturé pour son utilisation.
 > * Les emplacements de l’image du conteneur peuvent avoir été modifiés récemment. Lisez cet article pour voir l’emplacement mis à jour de ce conteneur.
 
 Les conteneurs vous permettent d’exécuter les API d’analyse de texte dans votre propre environnement et sont très utiles pour répondre à vos besoins spécifiques en matière de sécurité et de gouvernance des données. Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. 

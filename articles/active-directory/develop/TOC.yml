@@ -32,7 +32,7 @@
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: quickstart-v2-javascript.md
-    - name: les applications web
+    - name: Applications web
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
@@ -75,11 +75,13 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: WebAssembly Blazor
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript - Flux de code d’authentification
           href: tutorial-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: tutorial-v2-javascript-spa.md
-    - name: les applications web
+    - name: Applications web
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: Bonnes pratiques pour la plateforme d’identité
       href: identity-platform-integration-checklist.md
+    - name: Authentification unique (SSO) pour mobile
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Scénarios d’application
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: Comptes et profils de locataire
               href: accounts-overview.md
-            - name: Agents d’autorisation
-              href: authorization-agents.md
-            - name: Authentification répartie
-              href: brokered-auth.md
+            - name: SSO avec MSAL Android
+              href: msal-android-single-sign-on.md
             - name: Intégrer avec Azure AD B2C
               href: msal-android-b2c.md
             - name: Migrer vers MSAL.Android

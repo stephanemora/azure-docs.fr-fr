@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328902"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876207"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -200,6 +200,41 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | ajaxPerfLookupDelay | 25 | La valeur par défaut est 25 ms. Délai d’attente avant la nouvelle tentative de recherche de minutages de windows.performance pour une requête `ajax`, le temps est exprimé en millisecondes et est transmis directement à setTimeout().
 | enableUnhandledPromiseRejectionTracking | false | Si la valeur est true, les rejets de promesse non gérés sont collectés et signalés comme une erreur JavaScript. Quand disableExceptionTracking a la valeur true (ne pas suivre les exceptions), la valeur de configuration est ignorée et les rejets de promesse non gérés ne sont pas signalés.
 
+## <a name="enable-time-on-page-tracking"></a>Activer le suivi du temps sur une page
+
+En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](../platform/metrics-custom-overview.md) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](../platform/metrics-getting-started.md) en tant que « métrique basée sur le journal ».
+
+## <a name="enable-correlation"></a>Activer la corrélation
+
+La corrélation génère et envoie des données qui activent le suivi distribué et alimente la [cartographie d’application](../app/app-map.md), la [vue de transaction de bout en bout](../app/app-map.md#go-to-details) et d’autres outils de diagnostic.
+
+L’exemple suivant montre toutes les configurations possibles requises pour activer la corrélation, avec les remarques spécifiques aux scénarios ci-dessous :
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+Si l’un de vos serveurs tiers avec lequel le client communique ne peut pas accepter les en-têtes `Request-Id` et `Request-Context`, et que vous ne pouvez pas mettre à jour leur configuration, vous devez les placer dans une liste d’exclusion via la propriété de configuration `correlationHeaderExcludeDomains`. Cette propriété prend en charge les caractères génériques.
+
+Le côté serveur doit être en mesure d’accepter les connexions avec ces en-têtes présents. Selon la configuration de `Access-Control-Allow-Headers` côté serveur, il est souvent nécessaire d’étendre la liste côté serveur en ajoutant manuellement `Request-Id` et `Request-Context`.
+
+Access-Control-Allow-Headers : `Request-Id` `Request-Context`, `<your header>`
+
+> [!NOTE]
+> Si vous utilisez des kits de développement logiciel (SDK) OpenTelemtry ou Application Insights publiés en 2020 ou version ultérieure, nous vous recommandons d’utiliser [WC3 TraceContext](https://www.w3.org/TR/trace-context/). Consultez les instructions de configuration [ici](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ## <a name="single-page-applications"></a>Applications monopages
 
 Par défaut, ce kit SDK **ne gère pas** les modifications de route basées sur l’état qui se produisent dans les applications monopages. Pour activer le suivi automatique des modifications de route pour votre application monopage, vous pouvez ajouter `enableAutoRouteTracking: true` à la configuration de votre installation.
@@ -208,49 +243,13 @@ Actuellement, nous proposons un [plug-in React](javascript-react-plugin.md) dist
 > [!NOTE]
 > Utilisez `enableAutoRouteTracking: true` uniquement si vous n’utilisez **pas** le plug-in REACT. Tous deux peuvent envoyer de nouveaux PageViews lorsque la route change. Si les deux sont activés, il est possible que des PageViews en double soient envoyés.
 
-## <a name="configuration-autotrackpagevisittime"></a>Configuration : autoTrackPageVisitTime
-
-En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](../platform/metrics-custom-overview.md) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](../platform/metrics-getting-started.md) en tant que « métrique basée sur le journal ».
-
 ## <a name="extensions"></a>Extensions
 
 | Extensions |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
-
-## <a name="correlation"></a>Corrélation
-
-La corrélation entre le client et le serveur est prise en charge pour :
-
-- les requêtes XHR/AJAX 
-- les requêtes fetch 
-
-La corrélation entre le client et le serveur **n’est pas prise en charge** pour les requêtes `GET` et `POST`.
-
-### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Activer la corrélation entre composants entre le client AJAX et les requêtes serveur
-
-Pour activer la corrélation `CORS`, le client doit envoyer deux en-têtes de demande supplémentaires, `Request-Id` et `Request-Context`, et le côté serveur doit être en mesure d’accepter les connexions avec ces en-têtes. L’envoi de ces en-têtes est activé en définissant `enableCorsCorrelation: true` dans la configuration du Kit de développement logiciel (SDK) JavaScript. 
-
-Selon la configuration de `Access-Control-Allow-Headers` côté serveur, il est souvent nécessaire d’étendre la liste côté serveur en ajoutant manuellement `Request-Id` et `Request-Context`.
-
-Access-Control-Allow-Headers : `Request-Id` `Request-Context`, `<your header>`
-
-Si l’un de vos serveurs tiers avec lequel le client communique ne peut pas accepter les en-têtes `Request-Id` et `Request-Context`, et que vous ne pouvez pas mettre à jour leur configuration, vous devez les placer dans une liste d’exclusion via la propriété de configuration `correlationHeaderExcludeDomains`. Cette propriété prend en charge les caractères génériques.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
+| [Angular](javascript-angular-plugin.md) |
 
 ## <a name="explore-browserclient-side-data"></a>Explorer les données côté navigateur/client
 
