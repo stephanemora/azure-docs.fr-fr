@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: e990d122367581c785b411f3f6d3c39b334a14fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d683ada6401c4ba4f2e232948e9712643339fd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998575"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533466"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (.NET)
 
@@ -70,7 +70,7 @@ Avant de commencer, obtenez la chaîne de connexion de votre module. Connectez-v
 
 1. Recherchez et sélectionnez **Microsoft.Azure.Devices.Client**, puis sélectionnez **Installer**.
 
-    ![Installer la version actuelle du kit SDK du service .NET Azure IoT Hub](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    ![Capture d’écran montrant l’option « Microsoft.Azure.Devices.client » sélectionnée et le bouton « Installer » en surbrillance.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
 1. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 

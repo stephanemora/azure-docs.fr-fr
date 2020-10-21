@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: f6872ff362777f4357b2b4345d0535bc940eda66
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8f0c15c2b401992ebe90bbd982bd80ee1ad9ec36
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982878"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91444199"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Pour terminer la solution, la dernière étape consiste à créer un flux d’au
 
 - « **Azure Automation – Créer un travail** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
 - « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
-- « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte Office 365 de la personne qui crée le flux.
+- « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte professionnel ou scolaire de la personne qui crée le flux.
 
 Pour en savoir plus sur les fonctionnalités de Microsoft Flow, consultez [Bien démarrer avec Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

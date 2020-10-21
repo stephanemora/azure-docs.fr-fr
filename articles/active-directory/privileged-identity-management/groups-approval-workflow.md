@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505577"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536985"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Approuver des demandes d’activation de membres et propriétaires de groupe d’accès privilégié (préversion)
 
@@ -46,7 +46,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Recherchez et sélectionnez la demande que vous souhaitez approuver et sélectionnez **Approuver**.
 
-    ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Capture d’écran montrant la page « Approuver les demandes » avec les boutons « Approuver » et « Confirmer » en surbrillance.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. Dans la zone**Justification**, entrez la justification professionnelle.
 

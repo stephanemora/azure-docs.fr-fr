@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362578"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Documentation de référence sur le moteur de règles Azure CDN de Verizon Premium
 
@@ -41,7 +41,7 @@ Elle comprend :
 - Un ensemble de fonctionnalités qui définissent la façon dont le réseau CDN gère les requêtes ci-dessus.
 Ces éléments sont mis en surbrillance dans l’illustration suivante.
 
-![Workflow de déploiement de stratégies](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Capture d’écran avec des étiquettes montrant l’expression conditionnelle, la correspondance et les fonctionnalités d’une règle.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>Stratégie
 Une stratégie, qui se compose d’un ensemble de règles en lecture seule, permet d’effectuer les opérations suivantes :

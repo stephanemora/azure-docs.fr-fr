@@ -1,5 +1,5 @@
 ---
-title: Ajouter et supprimer des unités administratives (préversion) - Azure Active Directory | Microsoft Docs
+title: Ajouter et supprimer des unités administratives – Azure Active Directory | Microsoft Docs
 description: Utiliser des unités administratives pour limiter l’étendue des autorisations de rôle dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851762"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450373"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gérer des unités administratives dans Azure Active Directory
 
@@ -33,9 +33,6 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
 
     ![Capture d’écran montrant le lien vers « Accorder un consentement d’administrateur »](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. Dans l’Afficheur Graph, sélectionnez la version **bêta**.
-
-    ![Capture d’écran montrant la version bêta sélectionnée](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Utilisez la préversion d'Azure AD PowerShell.
 
@@ -45,7 +42,7 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
 
 1. Dans le portail Azure, accédez à Azure AD puis, dans le volet gauche, sélectionnez **Unités administratives**.
 
-    ![Capture d’écran du lien (préversion) des unités administratives dans Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Capture d’écran du lien des unités administratives dans Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Sélectionnez **Ajouter**, puis entrez le nom de l’unité administrative. Si vous le souhaitez, ajoutez une description de l’unité administrative.
 
@@ -59,7 +56,7 @@ Installez Azure AD PowerShell (préversion) avant d’essayer d’exécuter les 
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 Vous pouvez modifier les valeurs entre guillemets si nécessaire.
@@ -91,8 +88,8 @@ Dans Azure AD, vous pouvez supprimer une unité administrative dont vous n’ave
 ### <a name="use-powershell"></a>Utiliser PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 Vous pouvez modifier les valeurs entre guillemets si nécessaire, en fonction de l’environnement spécifique.

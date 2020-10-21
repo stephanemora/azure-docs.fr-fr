@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883233"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439091"
 ---
 # <a name="train-pytorch-model"></a>Entraîner un modèle Pytorch
 
@@ -49,7 +49,7 @@ Cet article explique comment utiliser le module **Train Pytorch Model** (Entraî
 
 8.  Pour **Patience**, spécifiez le nombre d’époques où l’entraînement doit être arrêté de manière anticipée si la perte de validation ne diminue pas de manière consécutive. 3 par défaut.
 
-9.  Envoyez le pipeline. Si votre jeu de données a une taille supérieure, cela prend un certain temps.
+9.  Envoyez le pipeline. Si votre jeu de données a une taille supérieure, cela prendra du temps et le calcul GPU est recommandé.
 
 ## <a name="results"></a>Résultats
 

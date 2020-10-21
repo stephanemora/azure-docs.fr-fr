@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660954"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295036"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
 
@@ -306,7 +306,7 @@ Microsoft propose un outil que vous pouvez utiliser pour tester votre fournisseu
 2.  Cliquez sur Installer maintenant pour commencer à télécharger et installer l’outil.
 3.  Sélectionnez « Je ne peux pas configurer la fédération avec Office 365, Azure ou d’autres services qui utilisent Azure Active Directory ».
 4.  Une fois l’outil téléchargé et en cours d’exécution, la fenêtre Diagnostics de connectivité s’affiche. L’outil vous guide pour tester votre connexion de fédération.
-5.  L’Analyseur de connectivité ouvre votre fournisseur d’identité SAML 2.0 pour vous permettre de vous connecter et d’entrer les informations d’identification du principal d’utilisateur que vous testez : ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  L’Analyseur de connectivité ouvre votre fournisseur d’identité SAML 2.0 pour vous permettre de vous connecter et d’entrer les informations d’identification du principal d’utilisateur que vous testez : ![Capture d’écran montrant la fenêtre de connexion de votre fournisseur d’identité SAML 2.0.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Dans la fenêtre de connexion des tests de la fédération, entrez un nom de compte et un mot de passe pour le locataire Azure AD configuré pour être fédéré avec votre fournisseur d’identité SAML 2.0. L’outil tente de se connecter à l’aide de ces informations d’identification et les résultats détaillés de tests effectués lors de la tentative de connexion sont fournis en tant que sortie.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Cette fenêtre affiche un résultat d’échec du test. Cliquez sur Vérifier les résultats détaillés pour afficher des informations sur les résultats de chaque test effectué. Vous pouvez également enregistrer les résultats sur le disque afin de les partager.

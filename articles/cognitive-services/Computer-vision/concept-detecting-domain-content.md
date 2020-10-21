@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68946337"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
@@ -26,7 +26,7 @@ Les modèles spécifiques à un domaine peuvent être utilisés de deux façons�
 
 ### <a name="scoped-analysis"></a>Analyse élargie
 
-Vous pouvez analyser une image à l'aide du modèle spécifique au domaine choisi en appelant l'API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
+Vous pouvez analyser une image à l’aide du modèle spécifique au domaine choisi en appelant l’API [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
 
 Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
 

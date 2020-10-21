@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409474"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -30,7 +30,7 @@ Microsoft peut retirer la complexité de la configuration d’une version d’é
 
 - **Nombre maximal de versions d’évaluation simultanées** (obligatoire) : définissez le nombre maximum de clients pouvant utiliser votre version d’évaluation simultanément. Chaque utilisateur simultané consommera une licence Dynamics 365 tant que la version d’évaluation est active. Vérifiez donc que vous avez assez de licences pour prendre en charge la limite maximale définie. La valeur recommandée se situe entre 3 et 5.
 
-- **Durée de la version d’évaluation** (obligatoire) – Entrez le nombre d’heures durant lesquelles la version d’évaluation restera active. Passée cette durée, la session prendra fin et ne consommera plus aucune de vos licences. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Cette durée ne peut être définie qu’en heures pleines (par exemple, « 2 » heures convient, mais pas « 1,5 »). L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
+- **Durée de la version d’évaluation** (obligatoire) : entrez le nombre d’heures durant lesquelles la version d’évaluation restera active (au moins une heure). Passée cette durée, la session prendra fin et ne consommera plus aucune de vos licences. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Cette durée ne peut être définie qu’en heures pleines (par exemple, « 2 » heures convient, mais pas « 1,5 »). L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
 - **URL de l’instance** (obligatoire) : URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
@@ -48,7 +48,7 @@ Ce type de version d'évaluation n’est pas hébergé par Microsoft. Utilisez-l
 
 - **Nombre maximal de versions d’évaluation simultanées** (obligatoire) : définissez le nombre maximum de clients pouvant utiliser votre version d’évaluation simultanément. Ces versions d’évaluation sont déjà déployées, permettant ainsi aux clients d’y accéder instantanément sans attendre un déploiement.
 
-- **Durée de la version d’évaluation** (obligatoire) : entrez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période.
+- **Durée de la version d’évaluation** (obligatoire) : entrez le nombre d’heures durant lesquelles la version d’évaluation restera active (au moins une heure). La version d’évaluation se termine automatiquement à la fin de cette période.
 
 - **Nom du groupe de ressources Azure** (obligatoire) : entrez le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md#resource-groups) dans lequel votre version d’évaluation d’application logique est enregistrée.
 
@@ -74,7 +74,7 @@ Pour permettre à Microsoft de déployer la version d’évaluation en votre nom
 
 - **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, sélectionnez **Inscriptions d’applications**, puis cherchez l’**ID d’application** (comme `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation gauche, sélectionnez l’onglet **Azure Active Directory**,puis **Inscriptions d’applications**, et enfin votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
+- **Clé secrète client Azure AD** (obligatoire) : entrez la [clé secrète client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation gauche, sélectionnez l’onglet **Azure Active Directory**,puis **Inscriptions d’applications**, et enfin votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur. Ne quittez pas la page avant de copier la valeur.
 
 ## <a name="test-drive-listings"></a>Listes des versions d’évaluation
 

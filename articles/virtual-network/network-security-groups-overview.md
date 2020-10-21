@@ -14,12 +14,12 @@ ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.custom: contperfq1
-ms.openlocfilehash: 81a3412c9531878d257d16cfb068c713695584d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 76f3ba000a9bde4a306d19e8281ebeb41f1616e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652618"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91335865"
 ---
 # <a name="network-security-groups"></a>Groupes de sécurité réseau
 <a name="network-security-groups"></a>
@@ -42,7 +42,7 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 |Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
 |Action     | Autoriser ou refuser        |
 
-Les règles de sécurité des groupes de sécurité réseau sont évaluées par priorité selon un tuple à 5 éléments (source, port source, destination, port de destination et protocole) pour autoriser ou refuser le trafic. Un enregistrement de flux est créé pour les connexions existantes. La communication est autorisée ou refusée en fonction de l’état de connexion de l’enregistrement de flux. L’enregistrement de flux permet d’obtenir un groupe de sécurité réseau avec état. Si vous spécifiez une règle de sécurité sortante vers n’importe quelle adresse sur le port 80, par exemple, il n’est pas nécessaire d’indiquer une règle de sécurité entrante pour la réponse au trafic sortant. Vous devez uniquement spécifier une règle de sécurité entrante si la communication est établie en externe. Le contraire est également vrai. Si le trafic entrant est autorisé sur un port, il n’est pas nécessaire de spécifier une règle de sécurité sortante pour répondre au trafic sur ce port.
+Les règles de sécurité des groupes de sécurité réseau sont évaluées par priorité selon un tuple à 5 éléments (source, port source, destination, port de destination et protocole) pour autoriser ou refuser le trafic. Vous ne pouvez pas créer deux règles de sécurité avec les mêmes priorité et direction. Un enregistrement de flux est créé pour les connexions existantes. La communication est autorisée ou refusée en fonction de l’état de connexion de l’enregistrement de flux. L’enregistrement de flux permet d’obtenir un groupe de sécurité réseau avec état. Si vous spécifiez une règle de sécurité sortante vers n’importe quelle adresse sur le port 80, par exemple, il n’est pas nécessaire d’indiquer une règle de sécurité entrante pour la réponse au trafic sortant. Vous devez uniquement spécifier une règle de sécurité entrante si la communication est établie en externe. Le contraire est également vrai. Si le trafic entrant est autorisé sur un port, il n’est pas nécessaire de spécifier une règle de sécurité sortante pour répondre au trafic sur ce port.
 
 Les connexions existantes ne peuvent pas être interrompues quand vous supprimez une règle de sécurité ayant activé le flux. Les flux de trafic sont interrompus quand les connexions sont arrêtées et qu’aucun trafic ne transite dans un sens ou dans l’autre pendant au moins quelques minutes.
 

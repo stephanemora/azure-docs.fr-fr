@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650957"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372236"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -34,6 +34,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | DeploymentNameLengthLimitExceeded | Les noms de déploiement sont limités à 64 caractères.  | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
 | DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. | [Résoudre l’erreur de nombre de déploiements supérieur à 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Simplifiez votre modèle pour réduire la taille. | [Résoudre des erreurs de taille de modèle](error-job-size-exceeded.md) |
 | DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Entrez un autre nom. | |
 | ImageNotFound | Vérifiez les paramètres d’image de machine virtuelle. |  |
 | InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | InvalidSubscriptionRegistrationState | Inscrivez votre abonnement auprès du fournisseur de ressources. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | InvalidTemplate | Vérifiez que la syntaxe de votre modèle ne contient pas d’erreurs. | [Résoudre les erreurs de modèle non valide](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Simplifiez votre modèle pour réduire la taille. | [Résoudre des erreurs de taille de modèle](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Vérifiez si votre compte appartient au même locataire que le groupe de ressources vers lequel vous effectuez le déploiement. | |
 | LinkedInvalidPropertyId | L’ID de ressource pour une ressource particulière n’est pas correctement résolu. Assurez-vous de bien fournir toutes les valeurs requises pour l’ID de ressource, notamment l’ID d’abonnement, le nom du groupe de ressources, le type de ressource, le nom de la ressource parente (si nécessaire) et le nom de la ressource. | |
 | LocationRequired | Fournissez un emplacement pour la ressource. | [Définir un emplacement](resource-location.md) |

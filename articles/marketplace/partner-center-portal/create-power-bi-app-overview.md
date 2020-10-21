@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317601"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397417"
 ---
 # <a name="power-bi-app-creation-overview"></a>Vue d’ensemble de la création d’applications Power BI
 
@@ -23,7 +23,7 @@ Cet article explique comment publier une application Power BI sur [Microsoft App
 Avantages de la publication sur le marketplace commercial :
 
 - Promouvez votre entreprise en utilisant la marque Microsoft.
-- Touchez potentiellement plus de 100 millions d’utilisateurs Office 365 et Dynamics 365 sur AppSource, ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
+- Touchez potentiellement plus de 100 millions d’utilisateurs Microsoft 365 et Dynamics 365 sur AppSource ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
 - Recevez des prospects de grande qualité à partir de ces marketplaces.
 - Bénéficiez d’une promotion de vos services assurée par les équipes de terrain et de télévente de Microsoft.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055039"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360869"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -31,7 +31,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 
 1. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle ayant échoué, puis sélectionnez **Reprotéger**. La direction de reprotection doit afficher secondaire à principal.
 
-   ![Reprotéger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Capture d’écran montrant une machine virtuelle avec un menu contextuel dans lequel l’option Reprotéger est sélectionnée.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Vérifiez les informations Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité. Cliquez ensuite sur **OK**. Si des ressources sont marquées comme nouvelles, elles seront créées dans le cadre du processus de reprotection.
 1. Le travail de reprotection amorce le site cible avec les données les plus récentes. Une fois que le travail terminé, la réplication différentielle a lieu. Ensuite, vous pouvez rebasculer vers le site principal. Vous pouvez sélectionner le compte de stockage ou le réseau que vous voulez utiliser pendant la reprotection à l’aide de l’option Personnaliser.

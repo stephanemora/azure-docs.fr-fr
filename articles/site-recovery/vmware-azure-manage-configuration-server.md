@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134827"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361481"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
 
@@ -71,7 +71,7 @@ Si vous n’avez pas ajouté des informations d’identification lors du déploi
 
 1. Après la [connexion](#access-configuration-server), sélectionnez **Gérer les informations d’identification de machine virtuelle**.
 2. Cliquez sur **Ajouter des informations d’identification de machine virtuelle**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Capture d’écran montrant le volet Gérer les informations d’identification de machine virtuelle avec le lien Ajouter des informations d’identification de machine virtuelle.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Entrez les nouvelles informations d’identification et cliquez sur **Ajouter**.
 
 Vous pouvez également ajouter des informations d’identification via CSPSConfigtool.exe.

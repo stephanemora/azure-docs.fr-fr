@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f539786de589dbab3a191a5343ba315349533447
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505361"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360988"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 
@@ -173,7 +173,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Accédez au portail Azure. 
 
-   ![Métriques dans le Portail Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![Capture d’écran montrant le portail Azure avec les options Moniteur et Métriques sélectionnées.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
 2. Dans le menu de gauche, sélectionnez **Surveiller**.
 
@@ -187,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 Vous pouvez utiliser les fonctionnalités de filtrage et de fractionnement des dimensions pour afficher la mémoire totale utilisée par un rôle ou une instance de rôle. 
 
- ![Métriques dans le Portail Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![Capture d’écran montrant des données métriques.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

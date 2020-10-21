@@ -1,14 +1,14 @@
 ---
 title: Recevoir des alertes de journal d’activité sur les notifications de service Azure avec le portail Azure
-description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
+description: Découvrez comment configurer des alertes de journal d’activité pour les notifications sur l’intégrité du service à l’aide du portail Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499261"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91289784"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Créer des alertes de journal d’activité sur les notifications de service à l’aide d’un portail Azure
 ## <a name="overview"></a>Vue d’ensemble

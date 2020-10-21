@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267256"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91529981"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurer le paramètre d’exportation et le compte de stockage
 
@@ -40,11 +40,11 @@ L’étape suivante de l’exportation consiste à attribuer au service API Azur
 
 Après avoir créé un compte de stockage, accédez au panneau Access Control (IAM) dans Compte de stockage et sélectionnez Ajouter des attributions de rôles.
 
-![Activer une identité managée](media/export-data/fhir-export-role-assignment.png)
+![Exporter une attribution de rôle](media/export-data/fhir-export-role-assignment.png)
 
 Ici, nous ajoutons ensuite le rôle Contributeur aux données blob du stockage à notre nom de service.
 
-![Activer une identité managée](media/export-data/fhir-export-role-add.png)
+![Ajout de rôle](media/export-data/fhir-export-role-add.png)
 
 Nous sommes maintenant prêts pour l’étape suivante, dans laquelle nous pouvons sélectionner le compte de stockage dans API Azure pour FHIR comme compte de stockage par défaut pour $export.
 
@@ -52,7 +52,7 @@ Nous sommes maintenant prêts pour l’étape suivante, dans laquelle nous pouvo
 
 La dernière étape consiste à attribuer le compte Stockage Azure vers lequel API Azure pour FHIR exportera les données. Pour ce faire, accédez au panneau Intégration du service API Azure pour FHIR dans le portail Azure et sélectionnez le compte de stockage.
 
-![Activer une identité managée](media/export-data/fhir-export-storage.png)
+![Stockage d’exportation FHIR](media/export-data/fhir-export-storage.png)
 
 Après cela, nous sommes prêts à exporter les données à l’aide de la commande $export.
 

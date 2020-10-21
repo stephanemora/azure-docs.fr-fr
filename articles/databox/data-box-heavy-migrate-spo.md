@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608602"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91396856"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Utiliser Azure Data Box Heavy pour migrer le contenu de votre partage de fichiers vers SharePoint Online
 
@@ -82,7 +82,7 @@ Pour optimiser les performances et la connectivité, nous vous recommandons de c
 1. Connectez-vous au portail Azure, puis [créez une machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 2. [Montez le partage de fichiers Azure sur la machine virtuelle](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Téléchargez l’Outil de migration SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) et installez-le sur votre machine virtuelle Azure.
-4. Démarrez l’Outil de migration SharePoint. Cliquez sur **Connexion**et indiquez votre nom d’utilisateur Office 365 et votre mot de passe.
+4. Démarrez l’Outil de migration SharePoint. Cliquez sur **Se connecter** et entrez le nom d’utilisateur et le mot de passe de votre compte professionnel ou scolaire.
 5. Quand une invite vous demande **Où se trouvent vos données ?** , sélectionnez **Partage de fichiers**. Entrez le chemin du partage de fichiers Azure où se trouvent vos données.
 6. Suivez les invites restantes, y compris la spécification de votre emplacement cible. Pour plus d’informations, accédez à [Comment utiliser l’Outil de migration SharePoint](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 

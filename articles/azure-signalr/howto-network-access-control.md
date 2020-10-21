@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302161"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536220"
 ---
 # <a name="configure-network-access-control"></a>Configurer le contrôle d’accès réseau
 
@@ -48,7 +48,7 @@ Vous pouvez gérer le contrôle d’accès réseau pour Azure SignalR Service vi
 1. Pour modifier l’action par défaut, faites basculer le bouton **Autoriser/refuser**.
 
     > [!TIP]
-    > L’action par défaut est l’action que nous entreprenons lorsqu’il n’existe aucune correspondance de règle avec la liste de contrôle d’accès (ACL, access-control list). Par exemple, si l’action par défaut est **Refuser**, les types de requêtes qui ne sont pas explicitement inclus dans la liste verte sont refusés.
+    > L’action par défaut est l’action que nous entreprenons lorsqu’il n’existe aucune correspondance de règle avec la liste de contrôle d’accès (ACL, access-control list). Par exemple, si l’action par défaut est **Refuser**, les types de demandes non explicitement approuvés ci-dessous sont refusés.
 
 1. Pour modifier une règle de réseau public, sélectionnez les types de requêtes autorisés sous **Réseau public**.
 

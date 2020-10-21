@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326730"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91404956"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -78,7 +78,7 @@ Routes est le premier onglet du volet Routage des messages. Pour ajouter une nou
 
 ![Capture d’écran montrant l’ajout d’un itinéraire](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Nommez votre hub. Le nom doit être unique au sein de la liste des routes pour ce hub. 
+Nommez votre itinéraire. Le nom de l’itinéraire doit être unique au sein de la liste des routes pour ce hub. 
 
 Pour **Point de terminaison**, vous pouvez en sélectionner un dans la liste déroulante ou en ajouter un nouveau. Dans cet exemple, un compte de stockage et un conteneur sont déjà disponibles. Pour les ajouter comme point de terminaison, cliquez sur +**Ajouter** en regard de la liste déroulante Point de terminaison et sélectionnez **Stockage Blob**. L’écran suivant montre l’endroit où le compte de stockage et le conteneur sont spécifiés.
 

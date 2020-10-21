@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535227"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91461476"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files
 
@@ -135,7 +135,7 @@ Cette section décrit l’impact des différentes options de `sec=*` sur les per
 
 ### <a name="expected-performance-impact"></a>Impact des performances attendues 
 
-Il existe deux zones principales : la charge faible et la limite supérieure. Les listes suivantes décrivent l’impact sur les performances de paramètre de sécurité à paramètre de sécurité et de scénario à scénario. Toutes les comparaisons sont effectuées par rapport au paramètre de sécurité `sec=sys`.
+Il existe deux zones principales : la charge faible et la limite supérieure. Les listes suivantes décrivent l’impact sur les performances de paramètre de sécurité à paramètre de sécurité et de scénario à scénario. Toutes les comparaisons sont effectuées par rapport au paramètre de sécurité `sec=sys`. Le test a été effectué sur un seul volume, à l’aide d’un seul client. 
 
 Impact de krb5 sur les performances :
 

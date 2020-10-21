@@ -3,12 +3,12 @@ title: Créer et déployer des projets de groupe de ressources avec Visual Studi
 description: Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985244"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372644"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
@@ -370,7 +370,7 @@ Vous n’êtes pas limité aux seules ressources qui sont disponibles via l’in
 
    ![Tableau de bord personnalisé](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-Vous pouvez gérer l’accès au tableau de bord en utilisant des groupes RBAC. Vous pouvez également personnaliser l’apparence du tableau de bord après son déploiement. Toutefois, si vous redéployez le groupe de ressources, le tableau de bord conserve son état par défaut dans votre modèle. Pour plus d’informations sur la création de tableaux de bord, consultez [Créer par programmation des tableaux de bord Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Vous pouvez gérer l’accès au tableau de bord à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC Azure). Vous pouvez également personnaliser l’apparence du tableau de bord après son déploiement. Toutefois, si vous redéployez le groupe de ressources, le tableau de bord conserve son état par défaut dans votre modèle. Pour plus d’informations sur la création de tableaux de bord, consultez [Créer par programmation des tableaux de bord Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

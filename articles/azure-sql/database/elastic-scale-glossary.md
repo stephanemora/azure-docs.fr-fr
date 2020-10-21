@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034710"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362612"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 **Gestionnaire de cartes de partitions** : objet de gestion et magasin de données qui contient les cartes de partitions, les emplacements des partitions et les mappages pour un ou plusieurs ensembles de partitions.
 
-![Mappages][2]
+![Diagramme montrant un gestionnaire de cartes de partitions associé à shardmaps_global, shards_global et shard_mappings_global.][2]
 
 ## <a name="verbs"></a>Verbes et adverbes
 **Mise à l’échelle horizontale** : action qui consiste à effectuer le scale-out (ou le scale-in) d’une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions, comme dans l’exemple ci-dessous.

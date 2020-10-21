@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, spécifications, matériel, DK, fonctionnalités, profondeur, couleur, RVB, capteur de mouvement, contrôleur, synchronisation
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276774"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361158"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchroniser plusieurs appareils Azure Kinect DK
 
@@ -26,7 +26,7 @@ Il existe de nombreuses raisons d’utiliser plusieurs appareils Azure Kinect DK
 
 - Remplir les occlusions. Bien que les transformations de données d’Azure Kinect DK produisent une image unique, les deux caméras (profondeur et RVB) sont en fait légèrement écartées l’une de l’autre. Cet écart peut entraîner des occlusions. Une occlusion se produit quand un objet au premier plan bloque la vue d’une partie d’un objet à l’arrière-plan pour l’une des deux caméras d’un appareil. Dans l’image en couleurs obtenue, l’objet au premier plan semble projeter une ombre sur l’objet à l’arrière-plan.  
    Par exemple, dans le diagramme suivant, la caméra de gauche voit le pixel gris « P2 ». Toutefois, l’objet blanc au premier plan bloque le faisceau IR de la caméra de droite. La caméra de droite ne reçoit pas de données pour « P2 ».  
-   ![Occlusion](./media/occlusion.png)  
+   ![Diagramme montrant deux caméras focalisées sur vers le même point, l’une d’elles étant bloquée.](./media/occlusion.png)  
    Des appareils synchronisés supplémentaires peuvent fournir les données occluses.
 - Analyser des objets en trois dimensions.
 - Augmenter la fréquence d’images effective en la réglant sur une valeur supérieure à 30 images par seconde (FPS).

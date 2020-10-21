@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640959"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537699"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Exécuter manuellement une fonction non déclenchée via HTTP
 
@@ -43,11 +43,11 @@ Vous utilisez cet emplacement de requête dans Postman, de même que la clé pri
 
 1. Dans la section **Modifier la clé**, copiez la valeur de clé dans le Presse-papiers, puis sélectionnez **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copiez la clé principale dans le Presse-papiers." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Localisez la clé principale à copier." border="true":::
 
 1. Après avoir copié la *_master*, sélectionnez **Code + Test**, puis sélectionnez **Journaux**. Vous noterez ici la présence de messages émanant de la fonction consignée lors de l'exécution de la fonction à partir de Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Affichez les journaux pour voir les résultats du test de clé principale." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Localisez la clé principale à copier." border="true":::
 
 > [!CAUTION]  
 > En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans une application. La clé ne doit être envoyée qu’à un point de terminaison HTTPS.
@@ -62,22 +62,22 @@ Ouvrez Postman et procédez comme suit :
 1. Tapez **x-fonctions-key** en tant que première clé et collez la clé principale (à partir du Presse-papiers) en tant que valeur.
 1. Tapez **Content-Type** comme deuxième clé et tapez **application/json** comme valeur.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Paramètres des en-têtes Postman." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Localisez la clé principale à copier." border="true":::
 
 1. Sélectionnez l’onglet **Corps** .
 1. Tapez **{ "input": "test" }** en tant que corps de la requête.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Paramètres de corps Postman." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Localisez la clé principale à copier." border="true":::
 
 1. Sélectionnez **Envoyer**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envoyez une requête avec Postman." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Localisez la clé principale à copier." border="true":::
 
     Postman indique alors un état **202 Accepté**.
 
 1. Revenez ensuite à votre fonction sur le Portail Azure. Consultez les journaux pour voir les messages émanant de l’appel manuel de la fonction.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Affichez les journaux pour voir les résultats du test de clé principale." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Localisez la clé principale à copier." border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
