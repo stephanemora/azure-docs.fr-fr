@@ -120,6 +120,8 @@
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: Contenu externe et contenu de la communauté
       href: text-analytics-resource-external-community.md
     - name: Questions fréquentes (FAQ)
@@ -130,9 +132,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
     - name: "Essayez\_!"
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-    - name: Envoyer des commentaires
-      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

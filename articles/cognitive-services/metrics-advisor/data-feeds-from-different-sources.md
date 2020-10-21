@@ -3,19 +3,19 @@ title: Comment ajouter des flux de données à partir de différentes sources da
 titleSuffix: Azure Cognitive Services
 description: ajouter des flux de données différents à Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324465"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046908"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Ajouter des flux de données à partir de différentes sources dans Metrics Advisor
 
@@ -133,7 +133,7 @@ Un seul timestamp est autorisé par fichier JSON.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Chaîne de connexion** : Consultez [Afficher et copier une chaîne de connexion](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) pour plus d’informations sur la façon de récupérer la chaîne de connexion à partir d’Azure Data Explorer (Kusto).
+* **Chaîne de connexion** : Metrics Advisor prend en charge l’accès à Azure Data Explorer (Kusto) à l’aide de l’authentification d’application Azure AD. Vous devrez créer et inscrire une application Azure AD, puis l’autoriser à accéder à une base de données Azure Data Explorer. Pour obtenir votre chaîne de connexion, consultez la documentation [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
 * **Requête** : Consultez [Langage de la requête Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) pour obtenir et formuler des données dans des données de séries chronologiques multidimensionnelles. Vous pouvez utiliser les variables `@StartTime` et `@EndTime` dans votre requête. Le format utilisé doit être le suivant : `yyyy-MM-dd HH:mm:ss`.
 

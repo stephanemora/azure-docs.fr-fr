@@ -44,10 +44,6 @@
         - name: Partager depuis Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Superviser
-      href: how-to-monitor.md
-    - name: Dépanner
-      href: data-share-troubleshoot.md
     - name: Ajouter des jeux de données
       href: how-to-add-datasets.md
     - name: Configurer des mappages de jeu de données
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Révoquer un abonnement de partage
       href: how-to-revoke-share-subscription.md
+    - name: Superviser
+      href: how-to-monitor.md
     - name: Sécurité
       href: security.md
     - name: Récupération d'urgence
       href: disaster-recovery.md
+    - name: Dépanner
+      href: data-share-troubleshoot.md
 - name: Informations de référence
   items:
     - name: .NET
