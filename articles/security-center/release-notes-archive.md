@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289801"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339796"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -28,6 +28,50 @@ Cette page fournit des informations sur les points suivants :
 - Nouvelles fonctionnalités
 - Résolution des bogues
 - Fonctionnalités dépréciées
+
+
+## <a name="april-2020"></a>Avril 2020
+
+Les mises à jour du mois d’avril incluent :
+- [Disponibilité générale des packages de conformité dynamique](#dynamic-compliance-packages-are-now-generally-available)
+- [Inclusion des recommandations relatives aux identités dans le niveau gratuit d’Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Disponibilité générale des packages de conformité dynamique
+
+Le tableau de bord de conformité réglementaire d’Azure Security Center inclut désormais des **packages de conformité dynamique** (en disponibilité générale) pour suivre des normes réglementaires et sectorielles supplémentaires.
+
+Vous pouvez ajouter ces packages de conformité dynamique à votre abonnement ou à votre groupe d’administration à partir de la page Stratégie de sécurité d’Azure Security Center. Après l’intégration d’une norme ou un benchmark, ceux-ci apparaissent dans votre tableau de bord de conformité réglementaire avec toutes les données de conformité associées en tant qu’évaluations. Un rapport de synthèse pour toutes les normes intégrées sera disponible en téléchargement.
+
+Désormais, vous pouvez ajouter des normes telles que les suivantes :
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official et UK NHS**
+- **PBMM fédéral du Canada**
+- **Azure CIS 1.1.0 (nouveau)** (représentation plus complète d’Azure CIS 1.1.0)
+
+De plus, nous avons récemment ajouté le **Benchmark de sécurité Azure**, les directives spécifiques d’Azure créées par Microsoft pour les meilleures pratiques de sécurité et de conformité, basées sur des infrastructures de conformité courantes. Des normes supplémentaires seront prises en charge dans le tableau de bord dès qu’elles seront disponibles.  
+ 
+Apprenez-en davantage sur la [personnalisation de l’ensemble de normes de votre tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Inclusion des recommandations relatives aux identités dans le niveau gratuit d’Azure Security Center
+
+Les recommandations de sécurité relatives aux identités et aux accès sont désormais généralement disponibles dans le niveau gratuit d’Azure Security Center. Cela fait partie de l’effort visant à atteindre la gratuité des fonctionnalités de gestion de la posture de sécurité cloud. Jusqu’à présent, ces recommandations n’étaient disponibles qu’au niveau tarifaire standard.
+
+Voici des exemples de recommandations relatives aux identités et aux accès :
+
+- « L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement. »
+- « Au maximum trois propriétaires doivent être désignés pour votre abonnement. »
+- « Les comptes déconseillés doivent être supprimés de votre abonnement. »
+
+Si vous avez des abonnements au niveau tarifaire gratuit, ce changement affectera leurs degrés de sécurisation, car ils n’ont jamais été évalués sur le plan de la sécurité des identités et des accès.
+
+Apprenez-en davantage sur les [recommandations relatives aux identités et aux accès](recommendations-reference.md#recs-identity).
+
+Apprenez-en davantage sur la [surveillance des identités et des accès](security-center-identity-access.md).
+
 
 
 ## <a name="march-2020"></a>Mars 2020
@@ -49,7 +93,7 @@ Chaque programme de sécurité comprend plusieurs workflows pour la réponse aux
 
 Pour plus d’informations sur les fonctionnalités automatiques et manuelles d’Azure Security Center pour l’exécution de vos flux de travail, consultez [Automatisation des workflows](workflow-automation.md).
 
-Apprenez-en davantage sur la [création de Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Apprenez-en davantage sur la [création de Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Intégration d’Azure Security Center avec le Centre d’administration Windows
@@ -170,7 +214,7 @@ Aujourd’hui, nous introduisons dans Security Center une nouvelle fonctionnalit
 
 Pour plus d’informations sur les fonctionnalités automatiques et manuelles d’Azure Security Center disponibles pour l’exécution de vos flux de travail, consultez [Automatisation des workflows](workflow-automation.md).
 
-Pour en savoir plus sur la création d’applications logiques, consultez [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Pour en savoir plus sur la création d’applications logiques, consultez [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Disponibilité générale d’un correctif rapide pour les ressources en bloc
@@ -226,9 +270,9 @@ Les applications installées sur les machines virtuelles peuvent souvent présen
 
 Le support d’Azure Security Center en lien avec la protection contre les menaces et l’évaluation des vulnérabilités pour les bases de données SQL s’exécutant sur des machines virtuelles IaaS est désormais en préversion.
 
-La fonctionnalité [Évaluation des vulnérabilités](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité en lien avec le degré de sécurisation Azure, et inclut des étapes pour résoudre des problèmes de sécurité et renforcer la protection de votre base de données.
+La fonctionnalité [Évaluation des vulnérabilités](../azure-sql/database/sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité en lien avec le degré de sécurisation Azure, et inclut des étapes pour résoudre des problèmes de sécurité et renforcer la protection de votre base de données.
 
-La [protection avancée contre les menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) détecte des activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès à votre serveur SQL ou d’exploitation de celui-ci. Elle supervise en permanence votre base de données pour détecter des activités suspectes, et envoie des alertes de sécurité orientées action en cas de modèles d’accès anormaux à la base de données. Ces alertes fournissent des détails sur les activités suspectes et des mesures recommandées pour examiner et atténuer la menace.
+La [protection avancée contre les menaces](../azure-sql/database/threat-detection-overview.md) détecte des activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès à votre serveur SQL ou d’exploitation de celui-ci. Elle supervise en permanence votre base de données pour détecter des activités suspectes, et envoie des alertes de sécurité orientées action en cas de modèles d’accès anormaux à la base de données. Ces alertes fournissent des détails sur les activités suspectes et des mesures recommandées pour examiner et atténuer la menace.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Prise en charge de stratégies personnalisées (préversion)
@@ -302,7 +346,7 @@ Lorsque vous activez l’accès JAT pour vos machines virtuelles, vous créez un
 
 Les demandes étant consignées dans le journal d’activité Azure, vous pouvez surveiller et vérifier facilement l’accès. La page juste-à-temps vous aide également à identifier rapidement les machines virtuelles existantes pour lesquelles l’accès JAT est activé et celles pour lesquelles il est recommandé.
 
-[Apprenez-en davantage sur le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview).
+[Apprenez-en davantage sur le Pare-feu Azure](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Correction en un seul clic pour améliorer votre posture de sécurité (préversion)

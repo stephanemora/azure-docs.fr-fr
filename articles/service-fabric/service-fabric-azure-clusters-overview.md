@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843309"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320504"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -78,7 +78,7 @@ Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle
 ### <a name="network-security-groups"></a>Groupes de sécurité réseau 
 Les groupes de sécurité réseau (NSG) contrôlent le trafic entrant et sortant d’un sous-réseau, d’une machine virtuelle ou d’une carte réseau spécifique.  Par défaut, quand plusieurs machines virtuelles sont placées sur le même réseau virtuel, elles peuvent communiquer entre elles via n’importe quel port.  Si vous voulez limiter les communications entre les machines, vous pouvez définir les groupes de sécurité réseau pour segmenter le réseau ou isoler les machines virtuelles les unes des autres.  Si vous avez plusieurs types de nœuds dans un cluster, vous pouvez appliquer des groupes de sécurité réseau à des sous-réseaux pour empêcher les machines appartenant à des types de nœuds différents de communiquer entre elles.  
 
-Pour plus d’informations, consultez [Groupes de sécurité](../virtual-network/security-overview.md).
+Pour plus d’informations, consultez [Groupes de sécurité](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="scaling"></a>Mise à l'échelle
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261254"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276110"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Interroger un conteneur Azure Cosmos
 
@@ -19,7 +19,7 @@ Cet article explique comment interroger un conteneur (collection, graphe ou tabl
 
 ## <a name="in-partition-query"></a>Requête dans une partition
 
-Quand vous interrogez des données de conteneurs, si un filtre de clé de partition est spécifié dans la requête, Azure Cosmos DB optimise la requête automatiquement. Il route la requête vers les [partitions physiques](partition-data.md#physical-partitions) qui correspondent aux valeurs de clé de partition spécifiées dans le filtre.
+Quand vous interrogez des données de conteneurs, si un filtre de clé de partition est spécifié dans la requête, Azure Cosmos DB optimise la requête automatiquement. Il route la requête vers les [partitions physiques](partitioning-overview.md#physical-partitions) qui correspondent aux valeurs de clé de partition spécifiées dans le filtre.
 
 Par exemple, considérez la requête ci-dessous avec un filtre d’égalité sur `DeviceId`. Si nous exécutons cette requête sur un conteneur partitionné sur `DeviceId`, cette requête filtre sur une seule partition physique.
 
@@ -61,7 +61,7 @@ Vous pouvez gérer l’exécution de requêtes parallèles en réglant les param
 
 - **MaxBufferedItemCount** : limite la latence des requêtes par rapport à l’utilisation de la mémoire côté client. Si cette option est omise ou si elle a la valeur -1, le kit SDK gère le nombre d’éléments mis en mémoire tampon durant l’exécution de requêtes parallèles.
 
-En raison de la capacité d’Azure Cosmos DB à paralléliser les requêtes entre les partitions, la latence des requêtes est généralement correctement mise à l’échelle lorsque le système ajoute des [partitions physiques](partition-data.md#physical-partitions). Toutefois, les frais de RU augmenteront considérablement avec le nombre total de partitions physiques.
+En raison de la capacité d’Azure Cosmos DB à paralléliser les requêtes entre les partitions, la latence des requêtes est généralement correctement mise à l’échelle lorsque le système ajoute des [partitions physiques](partitioning-overview.md#physical-partitions). Toutefois, les frais de RU augmenteront considérablement avec le nombre total de partitions physiques.
 
 Lorsque vous exécutez une requête sur plusieurs partitions, vous effectuez essentiellement une requête distincte par partition physique individuelle. Même si les requêtes sur plusieurs partitions utilisent l’index, s’il est disponible, elles ne sont toujours pas aussi efficaces que les requêtes dans une seule partition.
 

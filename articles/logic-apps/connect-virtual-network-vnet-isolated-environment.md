@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369006"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310017"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -95,11 +95,11 @@ Pour vous assurer que votre environnement de service d’intégration est access
    > [!NOTE]
    > Vous pouvez utiliser cette approche pour un environnement ISE unique lorsque votre scénario nécessite de limiter le nombre d’adresses IP qui ont besoin d’un accès. Déterminez si les coûts supplémentaires pour le pare-feu ou l’appliance de réseau virtuel ont un sens pour votre scénario. Découvrez plus en détail la [tarification du Pare-feu Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-* Si vous avez créé un réseau virtuel Azure et des sous-réseaux sans contraintes, vous n'avez pas besoin de configurer des [groupes de sécurité réseau](../virtual-network/security-overview.md#network-security-groups) dans votre réseau virtuel pour contrôler le trafic sur les sous-réseaux.
+* Si vous avez créé un réseau virtuel Azure et des sous-réseaux sans contraintes, vous n'avez pas besoin de configurer des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#network-security-groups) dans votre réseau virtuel pour contrôler le trafic sur les sous-réseaux.
 
-* Pour un réseau virtuel existant, vous pouvez *éventuellement* configurer des [groupes de sécurité réseau (NSG)](../virtual-network/security-overview.md#network-security-groups) en [filtrant le trafic entre sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Si vous souhaitez accéder à cet itinéraire ou si vous utilisez déjà des NSG, veillez à [ouvrir les ports figurant dans ce tableau](#network-ports-for-ise) pour ces NSG.
+* Pour un réseau virtuel existant, vous pouvez *éventuellement* configurer des [groupes de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) en [filtrant le trafic entre sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Si vous souhaitez accéder à cet itinéraire ou si vous utilisez déjà des NSG, veillez à [ouvrir les ports figurant dans ce tableau](#network-ports-for-ise) pour ces NSG.
 
-  Quand vous configurez des [règles de sécurité NSG](../virtual-network/security-overview.md#security-rules), vous devez utiliser *simultanément* les protocoles **TCP** et **UDP**, ou vous pouvez sélectionner **Tous** pour ne pas avoir à créer de règles distinctes pour chaque protocole. Les règles de sécurité de groupe de sécurité réseau décrivent les ports que vous devez ouvrir pour les adresses IP qui doivent accéder à ces ports. Assurez-vous que tous les pare-feu, routeurs ou autres éléments existant entre ces points de terminaison gardent également ces ports accessibles à ces adresses IP.
+  Quand vous configurez des [règles de sécurité NSG](../virtual-network/network-security-groups-overview.md#security-rules), vous devez utiliser *simultanément* les protocoles **TCP** et **UDP**, ou vous pouvez sélectionner **Tous** pour ne pas avoir à créer de règles distinctes pour chaque protocole. Les règles de sécurité de groupe de sécurité réseau décrivent les ports que vous devez ouvrir pour les adresses IP qui doivent accéder à ces ports. Assurez-vous que tous les pare-feu, routeurs ou autres éléments existant entre ces points de terminaison gardent également ces ports accessibles à ces adresses IP.
 
 * Si vous configurez le tunneling forcé via votre pare-feu pour rediriger le trafic Internet, passez en revue les [conditions requises pour le tunneling forcé supplémentaires](#forced-tunneling).
 

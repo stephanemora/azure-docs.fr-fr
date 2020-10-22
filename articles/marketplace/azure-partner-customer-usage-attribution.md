@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261377"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282354"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -268,7 +268,7 @@ Quand vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’insta
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Découvrez les options de support disponibles via la place de marché commerciale dans [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/support.md).
+Découvrez les options de support disponibles via la place de marché commerciale dans [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Comment envoyer une demande de consultation technique
 

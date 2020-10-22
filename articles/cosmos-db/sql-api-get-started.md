@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801509"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278460"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutoriel : Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Parfait ! L’installation étant terminée, nous pouvons passer à l’écritu
     ```
 
    > [!NOTE]
-   > Si la version précédente du SDK .NET vous êtes familière, vous connaissez peut-être les termes *collection* et *document*. Comme Azure Cosmos DB prend en charge plusieurs modèles d’API, la version 3.0 du SDK .NET utilise les termes génériques *conteneur* et *élément*. Un *conteneur* peut être une collection, un graphe ou une table. Un *élément* peut être un document, une arête/un sommet ou une ligne, et il s’agit du contenu situé à l’intérieur d’un conteneur. Pour plus d’informations, consultez [Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB](databases-containers-items.md).
+   > Si la version précédente du SDK .NET vous êtes familière, vous connaissez peut-être les termes *collection* et *document*. Comme Azure Cosmos DB prend en charge plusieurs modèles d’API, la version 3.0 du SDK .NET utilise les termes génériques *conteneur* et *élément*. Un *conteneur* peut être une collection, un graphe ou une table. Un *élément* peut être un document, une arête/un sommet ou une ligne, et il s’agit du contenu situé à l’intérieur d’un conteneur. Pour plus d’informations, consultez [Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Recherchez votre compte Azure Cosmos DB, puis sélectionnez **Clés**.
 
@@ -260,7 +260,7 @@ Une base de données est le conteneur logique d’éléments partitionnés entre
 1. Sélectionnez F5 pour exécuter votre application.
 
    > [!NOTE]
-   > Si vous recevez une erreur « Exception 503 - Service indisponible », il est possible que les [ports](performance-tips.md#networking) nécessaires pour le mode de connectivité directe soient bloqués par un pare-feu. Pour résoudre ce problème, ouvrez les ports nécessaires ou utilisez la connectivité en mode de passerelle, comme indiqué dans le code suivant :
+   > Si vous recevez une erreur « Exception 503 - Service indisponible », il est possible que les [ports](sql-sdk-connection-modes.md#service-port-ranges) nécessaires pour le mode de connectivité directe soient bloqués par un pare-feu. Pour résoudre ce problème, ouvrez les ports nécessaires ou utilisez la connectivité en mode de passerelle, comme indiqué dans le code suivant :
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

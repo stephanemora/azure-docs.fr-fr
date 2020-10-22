@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601303"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312606"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Guide de référence des opérations générales Azure Active Directory
 
@@ -91,7 +91,7 @@ Certains services de gestion des accès et des identités nécessitent que des a
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lectures recommandées pour les journaux des agents locaux
 
 - [Résoudre les problèmes du proxy d’application](../manage-apps/application-proxy-troubleshoot.md)
-- [Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Présentation des connecteurs de proxy d’application Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect : Résoudre les problèmes liés à l’authentification directe](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Résoudre les codes d’erreur liés à l’extension NPS pour Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)

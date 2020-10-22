@@ -4,12 +4,12 @@ description: Découvrez comment configurer une appliance Azure Migrate pour l’
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448073"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314150"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurer une appliance pour les serveurs physiques
 
@@ -122,7 +122,7 @@ Configurez l’appliance pour la première fois.
    
    La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion établie, revenez à l’application web. 
-4. Si le compte d’utilisateur Azure utilisé pour se connecter dispose des [autorisations](tutorial-prepare-physical.md) adéquates sur les ressources Azure créées pendant la génération de la clé, l’inscription de l’appliance est lancée.
+4. Si le compte d’utilisateur Azure utilisé pour se connecter dispose des [autorisations](./tutorial-discover-physical.md) adéquates sur les ressources Azure créées pendant la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l’inscription de l’appliance terminée, vous pouvez consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680718"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146635"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680718"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) peut vous aider à orchestrer des flux de travail entre des services locaux et cloud, une ou plusieurs entreprises et entre divers protocoles. Une application logique commence par un déclencheur, suivi d’une ou plusieurs actions qui peuvent être classées à l’aide de contrôles intégrés comme des conditions et des itérateurs. Cette flexibilité fait de Logic Apps une solution d’IoT idéale pour les scénarios de supervision IoT. Par exemple, l’arrivée de données de télémétrie d’un appareil sur un point de terminaison IoT Hub peut initier des flux de travail d’application logique afin d’entreposer les données dans un objet Blob de Stockage Azure, d’envoyer des alertes par e-mail afin d’informer d’anomalies de données, de planifier la visite d’un technicien si un appareil signale un échec, etc.
+[Azure Logic Apps](../logic-apps/index.yml) peut vous aider à orchestrer des flux de travail entre des services locaux et cloud, une ou plusieurs entreprises et entre divers protocoles. Une application logique commence par un déclencheur, suivi d’une ou plusieurs actions qui peuvent être classées à l’aide de contrôles intégrés comme des conditions et des itérateurs. Cette flexibilité fait de Logic Apps une solution d’IoT idéale pour les scénarios de supervision IoT. Par exemple, l’arrivée de données de télémétrie d’un appareil sur un point de terminaison IoT Hub peut initier des flux de travail d’application logique afin d’entreposer les données dans un objet Blob de Stockage Azure, d’envoyer des alertes par e-mail afin d’informer d’anomalies de données, de planifier la visite d’un technicien si un appareil signale un échec, etc.
 
 ## <a name="what-you-learn"></a>Contenu
 
@@ -104,7 +104,7 @@ Créez un espace de noms et une file d’attente Service Bus. Plus loin dans cet
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Ajouter un point de terminaison personnalisé et une règle d’acheminement à votre IoT Hub
 
-Ajoutez un point de terminaison personnalisé pour la file d’attente Service Bus à votre hub IoT et créez une règle d’acheminement des messages pour diriger les messages contenant une alerte de température à ce point de terminaison, où ils seront récupérés par votre application logique. La règle d’acheminement utilise une requête de routage, `temperatureAlert = "true"`, pour transférer des messages en fonction de la valeur de la propriété d’application `temperatureAlert` définie par le code client exécuté sur l’appareil. Pour en savoir plus, consultez [Requête de routage de messages en fonction des propriétés de message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Ajoutez un point de terminaison personnalisé pour la file d’attente Service Bus à votre hub IoT et créez une règle d’acheminement des messages pour diriger les messages contenant une alerte de température à ce point de terminaison, où ils seront récupérés par votre application logique. La règle d’acheminement utilise une requête de routage, `temperatureAlert = "true"`, pour transférer des messages en fonction de la valeur de la propriété d’application `temperatureAlert` définie par le code client exécuté sur l’appareil. Pour en savoir plus, consultez [Requête de routage de messages en fonction des propriétés de message](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Ajouter un point de terminaison personnalisé
 

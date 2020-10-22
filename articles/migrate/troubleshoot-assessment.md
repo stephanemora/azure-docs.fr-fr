@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576589"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314741"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -26,11 +26,11 @@ Corrigez les problèmes de préparation à l’évaluation comme suit :
 **Problème** | **Correctif**
 --- | ---
 Type de démarrage non pris en charge | Azure ne prend pas en charge les machines virtuelles associées au type de démarrage EFI. Nous vous recommandons de convertir le type de démarrage en BIOS avant d’effectuer une migration. <br/><br/>Vous pouvez utiliser Azure Migrate Server Migration pour gérer la migration de ces machines virtuelles. Celui-ci permet de convertir le type de démarrage de la machine virtuelle en BIOS au cours de la migration.
-Système d’exploitation Windows pris en charge de manière conditionnelle | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](https://aka.ms/WSosstatement). Envisagez de mettre à niveau avant d’effectuer la migration vers Azure.
-Système d’exploitation Windows non pris en charge | Azure ne prend en charge que [certaines versions du système d’exploitation Windows](https://aka.ms/WSosstatement). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure.
-Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure. Pour plus d’informations, voyez également [ici](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
+Système d’exploitation Windows pris en charge de manière conditionnelle | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](/troubleshoot/azure/virtual-machines/server-software-support). Envisagez de mettre à niveau avant d’effectuer la migration vers Azure.
+Système d’exploitation Windows non pris en charge | Azure ne prend en charge que [certaines versions du système d’exploitation Windows](/troubleshoot/azure/virtual-machines/server-software-support). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure.
+Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure. Pour plus d’informations, voyez également [ici](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
 Systèmes d’exploitation Linux non approuvés | La machine peut démarrer dans Azure, mais Azure ne fournit aucune prise en charge du système d’exploitation. Envisagez de mettre à niveau vers une [version approuvée de Linux](../virtual-machines/linux/endorsed-distros.md) avant d’effectuer la migration vers Azure.
-Système d’exploitation inconnu | Le système d’exploitation de la machine virtuelle a été spécifié comme étant du type « Autre » dans vCenter Server. Ce comportement empêche Azure Migrate de vérifier la préparation de la machine virtuelle à Azure. Vérifiez que le système d’exploitation est [pris en charge](https://aka.ms/azureoslist) par Azure avant de procéder à la migration.
+Système d’exploitation inconnu | Le système d’exploitation de la machine virtuelle a été spécifié comme étant du type « Autre » dans vCenter Server. Ce comportement empêche Azure Migrate de vérifier la préparation de la machine virtuelle à Azure. Vérifiez que le système d’exploitation est [pris en charge](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) par Azure avant de procéder à la migration.
 Version de bit non prise en charge | Les machines virtuelles dotées d’un système d’exploitation 32 bits peuvent être démarrées dans Azure. Toutefois, il est recommandé d’effectuer une mise à niveau vers la version 64 bits avant de procéder à la migration vers Azure.
 Nécessite un abonnement Microsoft Visual Studio. | La machine exécute un système d’exploitation client Windows qui est pris en charge uniquement dans un abonnement Visual Studio.
 Nous n’avons pas trouvé de machine virtuelle correspondant au niveau de performance de stockage nécessaire | Les performances de stockage (IOPS et débit) nécessaires à la machine dépassent le niveau de prise en charge Azure. Réduisez les besoins de stockage de la machine avant la migration.
@@ -48,7 +48,7 @@ Impossible de déterminer l’adéquation de la machine virtuelle en raison d’
 Impossible de déterminer l’adéquation d’un ou plusieurs disques en raison d’une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe.
 Impossible de déterminer l’adéquation d’une ou plusieurs cartes réseau en raison d’une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe.
 Aucune taille de machine virtuelle trouvée pour l’instance réservée de devise de l’offre | La machine marquée ne convient pas, car la taille de la machine virtuelle est introuvable pour la combinaison sélectionnée de RI, d’offre et de devise. Modifiez les propriétés d’évaluation et choisissez les combinaisons valides, puis recalculez l’évaluation. 
-Préparé pour le protocole Internet sous conditions | Applicable uniquement aux évaluations Azure VMware Solution (AVS). AVS ne prend actuellement pas en charge le facteur de l’adresse Internet IPv6. Si votre machine est détectée avec IPv6, contactez l’équipe AVS pour obtenir un guide de correction .
+Préparé pour le protocole Internet sous conditions | Applicable uniquement aux évaluations Azure VMware Solution (AVS). AVS ne prend actuellement pas en charge le facteur de l’adresse Internet IPv6.  Si votre machine est détectée avec IPv6, contactez l’équipe AVS pour obtenir un guide de correction .
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>L’outil de migration suggéré dans l’évaluation AVS basée sur l’importation est inconnu
 
@@ -61,7 +61,7 @@ En ce qui concerne les machines virtuelles Hyper-V et VMware, Server Assessment 
 - L’écart l’empêche de détecter la version mineure du système d’exploitation Linux installé sur les machines virtuelles locales.
 - Par exemple, pour RHEL 6.10, Server Assessment ne détecte actuellement que RHEL 6 comme version du système d’exploitation. Cela est dû au fait que le serveur vCenter ainsi que l’hôte Hyper-V ne fournissent pas de version de noyau pour les systèmes d’exploitation de la machine virtuelle Linux.
 -  Dans la mesure où Azure approuve uniquement certaines versions de Linux, les machines virtuelles Linux sont actuellement marquées comme « Prêtes sous condition » dans Server Assessment.
-- Vous pouvez déterminer si le système d’exploitation Linux exécuté sur la machine virtuelle locale est approuvé dans Azure en consultant la [prise en charge de Linux par Azure](https://aka.ms/migrate/selfhost/azureendorseddistros).
+- Vous pouvez déterminer si le système d’exploitation Linux exécuté sur la machine virtuelle locale est approuvé dans Azure en consultant la [prise en charge de Linux par Azure](../virtual-machines/linux/endorsed-distros.md).
 -  Une fois que vous avez vérifié la distribution approuvée, vous pouvez ignorer cet avertissement.
 
 Cet écart peut être résolu en activant la [découverte des applications](./how-to-discover-applications.md) sur les machines virtuelles VMware. Server Assessment utilise le système d'exploitation détecté de la machine virtuelle à l’aide des informations d’identification d’invité fournies. Les données du système d'exploitation identifient les informations correctes sur le système d'exploitation pour les machines virtuelles Windows et Linux.
@@ -107,7 +107,7 @@ Remarque : Si l’un des compteurs de performances est manquant, Azure Migrate�
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Pourquoi la note de confiance de mon évaluation est faible ?
 
-La note de confiance pour les évaluations « En fonction des performances » dépend du pourcentage de [points de données disponibles](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) nécessaires pour calculer l’évaluation. Voici les raisons pour lesquelles une évaluation pourrait obtenir une note de confiance faible :
+La note de confiance pour les évaluations « En fonction des performances » dépend du pourcentage de [points de données disponibles](./concepts-assessment-calculation.md#ratings) nécessaires pour calculer l’évaluation. Voici les raisons pour lesquelles une évaluation pourrait obtenir une note de confiance faible :
 
 - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte et « recalculez » l’évaluation.
  
@@ -115,7 +115,7 @@ La note de confiance pour les évaluations « En fonction des performances » 
 
 - Peu de machines virtuelles ont été créées après que la découverte dans Évaluation de serveur a commencé. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
 
-[Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sur les notes de confiance.
+[Apprenez-en davantage](./concepts-assessment-calculation.md#confidence-ratings-performance-based) sur les notes de confiance.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>La licence du système d'exploitation est-elle incluse dans une évaluation de machine virtuelle Azure ?
 
@@ -126,7 +126,7 @@ Azure Migrate Server Assessment estime le coût de la licence du système d’ex
 Server Assessment recueille les données de performances des machines locales de manière continue, et les utilise pour recommander la référence SKU de machine virtuelle et la référence SKU de disque dans Azure. [Découvrez comment](concepts-assessment-calculation.md#calculate-sizing-performance-based) les données basées sur les performances sont collectées.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Pourquoi mon évaluation affiche-t-elle un avertissement indiquant qu’elle a été créée à l’aide d’une combinaison non valide d’instances réservées, de durée de bon fonctionnement de la machine virtuelle et de remise (%) ?
-Lorsque vous sélectionnez « Instances réservées », les propriétés « Remise (%) » et « Durée de fonctionnement de la machine virtuelle » ne sont pas applicables. Lorsque votre évaluation a été créée avec une combinaison non valide de ces propriétés, les boutons de modification et de recalcul sont désactivés. Créez une stratégie. [Plus d’informations](https://go.microsoft.com/fwlink/?linkid=2131554)
+Lorsque vous sélectionnez « Instances réservées », les propriétés « Remise (%) » et « Durée de fonctionnement de la machine virtuelle » ne sont pas applicables. Lorsque votre évaluation a été créée avec une combinaison non valide de ces propriétés, les boutons de modification et de recalcul sont désactivés. Créez une stratégie. [Plus d’informations](./concepts-assessment-calculation.md#whats-an-assessment)
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Je ne vois pas les données de performances pour certaines cartes réseau sur mes serveurs physiques
 
@@ -161,7 +161,7 @@ Pour les machines virtuelles Windows :
 
     ![État MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent. Reportez-vous à cet autre [guide de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
+Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent. Reportez-vous à cet autre [guide de résolution des problèmes](../azure-monitor/insights/service-map.md#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 

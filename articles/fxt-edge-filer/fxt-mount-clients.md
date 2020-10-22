@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231350"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340510"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutoriel : Monter le cluster
 
@@ -20,6 +20,7 @@ Ce didacticiel vous apprend à monter des clients NFS pour le cluster Azure FXT 
 Ce didacticiel présente :
 
 > [!div class="checklist"]
+>
 > * Les stratégies d’équilibrage de charge pour les clients de toute la plage d’adresses IP exposées aux clients
 > * La méthode de construction d’un chemin de montage à partir d’une adresse IP exposée aux clients et d’une jonction d’espace de noms
 > * Les arguments à utiliser dans une commande mount
@@ -108,6 +109,6 @@ Pour garantir un montage sans interruption du client, passez les paramètres et 
 
 Une fois que vous avez monté des clients, vous pouvez tester votre flux de travail et apprendre à utiliser votre cluster.
 
-Si vous avez besoin de déplacer des données vers un core filer cloud, tirez parti de la structure du cache en utilisant une ingestion des données parallèle. Certaines stratégies sont décrites dans l’article [Déplacement des données vers un cluster vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT pour Azure est un produit basé sur le cloud qui utilise une technologie de mise en cache très similaire à celle d’Azure FXT Edge Filer.)
+Si vous avez besoin de déplacer des données vers un core filer cloud, tirez parti de la structure du cache en utilisant une ingestion des données parallèle. Certaines stratégies sont décrites dans l’article [Déplacement des données vers un cluster vFXT](../avere-vfxt/avere-vfxt-data-ingest.md). (Avere vFXT pour Azure est un produit basé sur le cloud qui utilise une technologie de mise en cache très similaire à celle d’Azure FXT Edge Filer.)
 
 Si vous avez besoin d’aide pour résoudre des problèmes de matériel, veuillez consulter la section [Superviser l’état du matériel Azure FXT Edge Filer](fxt-monitor.md).

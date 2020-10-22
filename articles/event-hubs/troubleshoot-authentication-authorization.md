@@ -3,12 +3,12 @@ title: Résoudre les problèmes d’authentification et d’autorisation - Azure
 description: Cet article fournit des informations sur la résolution des problèmes d’authentification et d’autorisation avec Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566225"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329608"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Résoudre les problèmes d’authentification et d’autorisation - Azure Event Hubs
 L’article [Résoudre les problèmes de connectivité](troubleshooting-guide.md) fournit des conseils pour résoudre les problèmes de connectivité avec Azure Event Hubs. Cet article fournit des conseils et des suggestions sur la résolution des problèmes d’authentification et d’autorisation avec Azure Event Hubs. 
@@ -21,7 +21,7 @@ Si vous utilisez Azure Active Directory (Azure AD) pour vous authentifier et aut
 - [Expéditeur des données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) pour l’accès d’envoi.
 - [Récepteur des données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) pour l’accès de réception.
 
-Pour les rôles intégrés du registre de schémas, consultez [Rôles du registre de schémas](schema-registry-overview.md#role-based-access-control).
+Pour les rôles intégrés du registre de schémas, consultez [Rôles du registre de schémas](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Étendues de ressources
 - **Groupe de consommateurs** : Dans cette étendue, l’attribution de rôle s’applique uniquement à cette entité. Actuellement, le portail Azure ne prend pas en charge l’attribution d’un rôle Azure à un principal de sécurité de ce niveau. 

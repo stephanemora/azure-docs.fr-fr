@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441493"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341836"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -43,7 +43,7 @@ Pour plus d’informations sur la tarification, consultez la page de [tarificati
 
 ## <a name="what-is-the-log-analytics-agent"></a>Qu’est-ce que l’agent Log Analytics ?
 
-Pour superviser les menaces et les failles de sécurité, Azure Security Center dépend de l’[agent Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) ; il s’agit du même agent que celui utilisé par le service Azure Monitor. 
+Pour superviser les menaces et les failles de sécurité, Azure Security Center dépend de l’[agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) ; il s’agit du même agent que celui utilisé par le service Azure Monitor. 
 
 Cet agent est parfois appelé Microsoft Monitoring Agent (ou « MMA »). 
 
@@ -66,7 +66,7 @@ Les machines virtuelles Windows ou Linux IaaS sont retenues dans les cas suivant
 
 - L’extension de l’agent Log Analytics n’est pas actuellement installée sur la machine virtuelle.
 - La machine virtuelle est en cours d’exécution.
-- L’[agent de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) pour Windows ou Linux est installé.
+- L’[agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) pour Windows ou Linux est installé.
 - La machine virtuelle n’est pas utilisée comme pare-feu d’applications web ou comme pare-feu de nouvelle génération.
 
 
@@ -88,7 +88,7 @@ La localisation de l’espace de travail par défaut dépend de votre région Az
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quelles données sont collectées par l’agent Log Analytics ?
 
-Pour obtenir la liste complète des applications et services analysés par l’agent, consultez [Éléments supervisés par Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+Pour obtenir la liste complète des applications et services analysés par l’agent, consultez [Éléments supervisés par Azure Monitor](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Notez que pour certains services, comme Pare-feu Azure, si vous avez activé la journalisation et choisi une ressource bavarde à journaliser (par exemple, en définissant le journal sur *détaillé*), vous pourriez constater des impacts significatifs sur les besoins de stockage de votre espace de travail Log Analytics. 

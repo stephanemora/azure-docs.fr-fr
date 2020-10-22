@@ -3,12 +3,12 @@ title: Découvrir les applications, rôles et fonctionnalités sur des serveurs 
 description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118645"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315207"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -46,7 +46,7 @@ Une fois que l’appliance a été déployée et que vous avez fourni les inform
 
 ## <a name="verify-permissions"></a>Vérification des autorisations
 
-Vous avez [créé un compte vCenter Server en lecture seule](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) pour la découverte et l’évaluation. Le compte en lecture seule exige des privilèges pour **Machines virtuelles** > **Opérations d’invité** afin d’interagir avec la machine virtuelle pour la découverte d’application.
+Vous avez [créé un compte vCenter Server en lecture seule](./tutorial-discover-vmware.md#prepare-vmware) pour la découverte et l’évaluation. Le compte en lecture seule exige des privilèges pour **Machines virtuelles** > **Opérations d’invité** afin d’interagir avec la machine virtuelle pour la découverte d’application.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Ajouter le compte d’utilisateur à l’appliance
 

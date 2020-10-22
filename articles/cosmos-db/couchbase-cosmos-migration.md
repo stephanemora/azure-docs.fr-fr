@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366719"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282470"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrer de Couchbase vers l’API SQL Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Voici les principales fonctionnalités qui opèrent différemment dans Azure Cos
 
 * Azure Cosmos DB a un champ « ID » dans le document, alors que Couchbase a l’ID dans le cadre d’un compartiment. Le champ « ID » est unique dans la partition.
 
-* Azure Cosmos DB évolue à l’aide de la technique de partitionnement. Cela signifie qu’il divise les données en plusieurs partitions. Ces partitions sont créées en fonction de la propriété de clé de partition que vous fournissez. Vous pouvez sélectionner la clé de partition pour optimiser les opérations de lecture et d’écriture ou les opérations de lecture/d’écriture optimisées également. Pour plus d’informations, consultez l’article sur le [partitionnement](./partition-data.md).
+* Azure Cosmos DB évolue à l’aide de la technique de partitionnement. Cela signifie qu’il divise les données en plusieurs partitions. Ces partitions sont créées en fonction de la propriété de clé de partition que vous fournissez. Vous pouvez sélectionner la clé de partition pour optimiser les opérations de lecture et d’écriture ou les opérations de lecture/d’écriture optimisées également. Pour plus d’informations, consultez l’article sur le [partitionnement](./partitioning-overview.md).
 
 * Dans Azure Cosmos DB, il n’est pas nécessaire que la hiérarchie de niveau supérieur désigne la collection, car le nom de celle-ci existe déjà. Cette fonctionnalité simplifie grandement la structure JSON. Voici un exemple qui montre les différences de modèle de données entre Couchbase et Azure Cosmos DB :
 
