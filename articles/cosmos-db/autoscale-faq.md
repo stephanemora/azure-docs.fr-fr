@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567585"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277967"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Supposons, par exemple, que vous disposez d’un conteneur de mise à l’échel
 - Heure 1 : T = 2 : Le conteneur commence à obtenir des requêtes, qui consomment 1 000 RU en 1 seconde. 200 unités de requête de valeur de durée de vie doivent également se produire. L’unité de requête/s facturable est toujours de 1 000 RU/s. Quel que soit le moment où les TTL se produisent, elles n’affectent pas la logique de mise à l’échelle de la mise à l'échelle automatique.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Quel est le mappage entre le nombre maximal de RU/s et les partitions physiques ?
-Quand vous sélectionnez initialement le nombre maximal de RU/s, Azure Cosmos DB provisionne : RU/s max / 10 000 RU/s = nombre de partitions physiques. Chaque [partition physique](partition-data.md#physical-partitions) peut prendre en charge jusqu’à 10 000 RU/s et 50 Go de stockage. À mesure que la taille de stockage augmente, Azure Cosmos DB fractionne automatiquement les partitions pour ajouter des partitions physiques supplémentaires afin de gérer l’augmentation du stockage ou il augmente le niveau de RU/s maximale si le stockage [dépasse la limite associée](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Quand vous sélectionnez initialement le nombre maximal de RU/s, Azure Cosmos DB provisionne : RU/s max / 10 000 RU/s = nombre de partitions physiques. Chaque [partition physique](partitioning-overview.md#physical-partitions) peut prendre en charge jusqu’à 10 000 RU/s et 50 Go de stockage. À mesure que la taille de stockage augmente, Azure Cosmos DB fractionne automatiquement les partitions pour ajouter des partitions physiques supplémentaires afin de gérer l’augmentation du stockage ou il augmente le niveau de RU/s maximale si le stockage [dépasse la limite associée](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 La RU/s maximale de la base de données ou du conteneur est répartie uniformément parmi toutes les partitions physiques. Ainsi, le débit total auquel une partition physique peut être mise à l’échelle est : RU/s max de base de données ou conteneur / nombre de partitions physiques. 
 
@@ -147,5 +147,5 @@ Par exemple, si vous sélectionnez l’option de débit maximal de 20 000 RU/s
 
 * Découvrez comment [activer la mise à l’échelle automatique sur une base de données ou un conteneur Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
 * En savoir plus sur les [avantages du débit approvisionné avec mise à l’échelle automatique](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Apprenez-en davantage sur les [partitions logiques et physiques](partition-data.md).
+* Apprenez-en davantage sur les [partitions logiques et physiques](partitioning-overview.md).
                         

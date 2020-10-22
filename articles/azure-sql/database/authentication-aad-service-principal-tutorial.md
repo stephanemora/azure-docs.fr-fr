@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444170"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367718"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutoriel : Créer des utilisateurs Azure AD avec des applications Azure AD
 
@@ -65,7 +65,7 @@ Dans ce tutoriel, vous allez apprendre à :
     Pour plus d’informations, consultez la page sur la commande [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver).
 
     > [!IMPORTANT]
-    > Si une identité Azure AD est configurée pour le serveur logique Azure SQL, l’autorisation [**Lecteurs de répertoire**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) doit lui être accordée. Nous expliquerons cette étape dans la section suivante. Vous **ne devez pas** ignorer cette étape, car l’authentification Azure AD cesserait de fonctionner.
+    > Si une identité Azure AD est configurée pour le serveur logique Azure SQL, l’autorisation [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) doit lui être accordée. Nous expliquerons cette étape dans la section suivante. Vous **ne devez pas** ignorer cette étape, car l’authentification Azure AD cesserait de fonctionner.
 
     - Si vous avez déjà utilisé la commande [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) avec le paramètre `AssignIdentity` pour créer un serveur SQL, vous devrez exécuter la commande [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) séparément par la suite pour activer cette propriété dans la structure fabric Azure.
 

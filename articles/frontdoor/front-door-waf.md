@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626477"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279218"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutoriel : Mettre à l’échelle et protéger rapidement une application web à l’aide d’Azure Front Door et d’Azure Web Application Firewall (WAF)
 
@@ -36,10 +36,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Les instructions de ce tutoriel utilisent Azure CLI. [Consultez ce guide](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) pour bien démarrer avec Azure CLI.
+- Les instructions de ce tutoriel utilisent Azure CLI. [Consultez ce guide](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) pour bien démarrer avec Azure CLI.
 
   > [!TIP] 
-  > Une méthode simple et rapide pour bien démarrer avec Azure CLI consiste à utiliser [Bash dans Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > Une méthode simple et rapide pour bien démarrer avec Azure CLI consiste à utiliser [Bash dans Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Assurez-vous que l’extension `front-door` est ajoutée à Azure CLI :
 
@@ -48,7 +48,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
    ```
 
 > [!NOTE] 
-> Pour plus d’informations sur les commandes utilisées dans ce tutoriel, consultez [Informations de référence sur Azure CLI pour Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
+> Pour plus d’informations sur les commandes utilisées dans ce tutoriel, consultez [Informations de référence sur Azure CLI pour Front Door](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-an-azure-front-door-resource"></a>Créer une ressource Azure Front Door
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name` : Nom de votre ressource Azure Front Door.
 
-`--resource-group` : Groupe de ressources que vous souhaitez placer au sein de la ressource Azure Front Door. Pour en savoir plus sur les groupes de ressources, consultez [Gérer les groupes de ressources dans Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group` : Groupe de ressources que vous souhaitez placer au sein de la ressource Azure Front Door. Pour en savoir plus sur les groupes de ressources, consultez [Gérer les groupes de ressources dans Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 Dans la réponse que vous recevez lorsque vous exécutez cette commande, recherchez la clé `hostName`. Vous aurez besoin de cette valeur ultérieurement. `hostName` correspond au nom DNS de la ressource Azure Front Door que vous avez créée.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 Le nom de domaine personnalisé de votre application web est celui que les clients utilisent pour faire référence à votre application. Par exemple, contoso.com. Au départ, ce nom de domaine personnalisé pointe vers l’emplacement où il s’exécutait avant l’introduction d’Azure Front Door. Une fois que vous avez ajouté Azure Front Door Service et Azure WAF en première ligne de l’application, l’entrée DNS correspondant à ce domaine personnalisé doit pointer vers la ressource Azure Front Door. Vous pouvez effectuer cette modification en remappant l’entrée de votre serveur DNS vers l’instance Azure Front Door `hostName` que vous avez notée lors de la création de la ressource Azure Front Door.
 
-La procédure spécifique de mise à jour de vos enregistrements DNS dépend de votre fournisseur de services DNS. Si vous utilisez Azure DNS pour héberger votre nom DNS, vous pouvez consulter la documentation relative à la [procédure de mise à jour d’un enregistrement DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) et pointer vers l’instance Azure Front Door `hostName`. 
+La procédure spécifique de mise à jour de vos enregistrements DNS dépend de votre fournisseur de services DNS. Si vous utilisez Azure DNS pour héberger votre nom DNS, vous pouvez consulter la documentation relative à la [procédure de mise à jour d’un enregistrement DNS](../dns/dns-operations-recordsets-cli.md) et pointer vers l’instance Azure Front Door `hostName`. 
 
-Il existe un aspect important à noter si vos clients doivent accéder à votre site web à l’aide de l’apex de la zone (par exemple, contoso.com). Dans ce cas, vous devez utiliser Azure DNS et son [type d’enregistrement d’alias](https://docs.microsoft.com/azure/dns/dns-alias) pour héberger votre nom DNS. 
+Il existe un aspect important à noter si vos clients doivent accéder à votre site web à l’aide de l’apex de la zone (par exemple, contoso.com). Dans ce cas, vous devez utiliser Azure DNS et son [type d’enregistrement d’alias](../dns/dns-alias.md) pour héberger votre nom DNS. 
 
-Vous devez également mettre à jour votre configuration Azure Front Door afin d’y [ajouter le domaine personnalisé](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) pour permettre la prise en compte de ce mappage.
+Vous devez également mettre à jour votre configuration Azure Front Door afin d’y [ajouter le domaine personnalisé](./front-door-custom-domain.md) pour permettre la prise en compte de ce mappage.
 
-Enfin, si vous utilisez un domaine personnalisé pour accéder à votre application web et souhaitez activer le protocole HTTPS, vous devez [configurer les certificats pour votre domaine personnalisé dans Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Enfin, si vous utilisez un domaine personnalisé pour accéder à votre application web et souhaitez activer le protocole HTTPS, vous devez [configurer les certificats pour votre domaine personnalisé dans Azure Front Door](./front-door-custom-domain-https.md). 
 
 ## <a name="lock-down-your-web-application"></a>Verrouiller votre application web
 
-Nous vous recommandons de vous assurer que seuls des périphéries d’Azure Front Door peuvent communiquer avec votre application web. Ainsi, personne ne peut contourner la protection Azure Front Door et accéder directement à votre application. Pour effectuer ce verrouillage, consultez [Comment restreindre l'accès à mon back-end uniquement à Azure Front Door ?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Nous vous recommandons de vous assurer que seuls des périphéries d’Azure Front Door peuvent communiquer avec votre application web. Ainsi, personne ne peut contourner la protection Azure Front Door et accéder directement à votre application. Pour effectuer ce verrouillage, consultez [Comment restreindre l'accès à mon back-end uniquement à Azure Front Door ?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous n’avez plus besoin des ressources utilisées dans ce tutoriel, utilisez la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) pour supprimer le groupe de ressources, Front Door et la stratégie WAF :
+Lorsque vous n’avez plus besoin des ressources utilisées dans ce tutoriel, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) pour supprimer le groupe de ressources, Front Door et la stratégie WAF :
 
 ```azurecli-interactive
   az group delete \

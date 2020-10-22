@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448997"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340017"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)
 
@@ -40,14 +40,14 @@ Pour résoudre ce dilemme, Azure Security Center propose l’accès JAT. Grâce
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Fonctionnement de l’accès JAT avec des groupes de sécurité réseau et Pare-feu Azure
 
-Lorsque vous activez l’accès aux machines virtuelles juste-à-temps, vous pouvez sélectionner les ports de la machine virtuelle vers lesquels le trafic entrant sera bloqué. Security Center garantit que des règles de « refus de tout le trafic entrant » existent pour les ports sélectionnés dans les règles du [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) et de [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/rule-processing). Ces règles restreignent l’accès aux ports de gestion de vos machines virtuelles Azure et les protègent contre les attaques. 
+Lorsque vous activez l’accès aux machines virtuelles juste-à-temps, vous pouvez sélectionner les ports de la machine virtuelle vers lesquels le trafic entrant sera bloqué. Security Center garantit que des règles de « refus de tout le trafic entrant » existent pour les ports sélectionnés dans les règles du [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) et de [Pare-feu Azure](../firewall/rule-processing.md). Ces règles restreignent l’accès aux ports de gestion de vos machines virtuelles Azure et les protègent contre les attaques. 
 
 Si d’autres règles existent déjà pour les ports sélectionnés, celles-ci sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’existe aucune règle sur les ports sélectionnés, alors les nouvelles règles sont prioritaires dans le groupe de sécurité réseau et Pare-feu Azure.
 
-Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) sur cette machine virtuelle. Si la requête est approuvée, Security Center configure les NSG et Pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés à partir de l’adresse IP (ou de la plage d’adresses IP) correspondante, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Les connexions déjà établies ne sont pas interrompues.
+Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) sur cette machine virtuelle. Si la requête est approuvée, Security Center configure les NSG et Pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés à partir de l’adresse IP (ou de la plage d’adresses IP) correspondante, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Les connexions déjà établies ne sont pas interrompues.
 
 > [!NOTE]
-> L’accès JAT ne prend pas en charge les machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
+> L’accès JAT ne prend pas en charge les machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](../firewall-manager/overview.md).
 
 
 

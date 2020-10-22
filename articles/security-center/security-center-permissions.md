@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2a66873d558495049c97b987dfb69bbf83b4e1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439487"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340357"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -62,4 +62,4 @@ Cet article vous a expliqué comment Security Center utilise le contrôle d’ac
 - [Gérer les recommandations de sécurité dans Security Center](security-center-recommendations.md)
 - [Surveiller l’intégrité de la sécurité de vos ressources Azure](security-center-monitoring.md)
 - [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)
-- [Surveiller les solutions de sécurité des partenaires](security-center-partner-solutions.md)
+- [Surveiller les solutions de sécurité des partenaires](./security-center-partner-integration.md)

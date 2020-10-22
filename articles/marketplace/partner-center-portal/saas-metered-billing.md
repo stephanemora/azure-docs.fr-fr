@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378596"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279171"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale
 
@@ -153,7 +153,7 @@ Si vous rencontrez l’un des problèmes suivants, vous pouvez ouvrir un ticket 
 - Un problème qui doit être remonté en raison d’une erreur ou d’un bogue de votre côté (par exemple un événement d’utilisation incorrect).
 - Tout autre problème lié à la facturation à la consommation.
 
-Pour comprendre les options du serveur de publication et ouvrir un ticket de support auprès de Microsoft, suivez les instructions de la section [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](./support.md).
+Pour comprendre les options du serveur de publication et ouvrir un ticket de support auprès de Microsoft, suivez les instructions de la section [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](../support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

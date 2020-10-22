@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272771"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342414"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -64,7 +64,7 @@ Renseignez les informations suivantes :
 
 * **Nom d'utilisateur du contrôleur** : définissez le nom d'utilisateur racine de la machine virtuelle du contrôleur de cluster.
 
-* **Type d'authentification** : choisissez un mot de passe ou une authentification par clé publique SSH pour vous connecter au contrôleur. La méthode d'authentification par clé publique SSH est recommandée. Si vous avez besoin d'aide, consultez [Comment créer et utiliser des clés SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+* **Type d'authentification** : choisissez un mot de passe ou une authentification par clé publique SSH pour vous connecter au contrôleur. La méthode d'authentification par clé publique SSH est recommandée. Si vous avez besoin d'aide, consultez [Comment créer et utiliser des clés SSH](../virtual-machines/linux/ssh-from-windows.md).
 
 * **Mot de passe** ou **Clé publique SSH** : selon le type d'authentification que vous avez sélectionné, vous devez fournir une clé publique RSA ou un mot de passe dans les champs suivants. Ces informations d'identification sont utilisées avec le nom d'utilisateur fourni précédemment.
 

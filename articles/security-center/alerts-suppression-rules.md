@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448472"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342091"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
@@ -139,7 +139,7 @@ Les méthodes HTTP de l’API REST adaptées aux règles de suppression sont les
 
 - **DELETE** : Pour supprimer une règle existante (sans modifier l’état des alertes déjà ignorées par celle-ci).
 
-Pour plus d’informations et des exemples d’utilisation, consultez la [documentation de l’API](https://docs.microsoft.com/rest/api/securitycenter/). 
+Pour plus d’informations et des exemples d’utilisation, consultez la [documentation de l’API](/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

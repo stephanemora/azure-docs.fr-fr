@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 657d3f84a1dd196733ed23dd3b68db92e4b35e25
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279464"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
 
@@ -517,5 +517,5 @@ Découvrez les concepts Azure Cosmos DB suivants :
 - [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Guide pratique pour configurer les écritures multirégion dans vos applications](how-to-multi-master.md).
-- [Partitionnement et distribution des données](partition-data.md)
+- [Partitionnement et distribution des données](partitioning-overview.md)
 - [Indexation dans Azure Cosmos DB](indexing-policies.md)

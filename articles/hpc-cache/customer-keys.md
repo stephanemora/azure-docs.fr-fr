@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092522"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340527"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utiliser des clés de chiffrement gérées par le client pour Azure HPC Cache
 
@@ -58,7 +58,7 @@ Autorisations d’accès au coffre de clés :
 
 * L’utilisateur qui crée le cache Azure HPC Cache doit disposer d’autorisations équivalentes à celles du [rôle Contributeur de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). Les mêmes autorisations sont requises pour configurer et gérer Azure Key Vault.
 
-  Pour plus d’informations, consultez [Sécuriser l’accès à un coffre de clés](../key-vault/key-vault-secure-your-key-vault.md).
+  Pour plus d’informations, consultez [Sécuriser l’accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configurer Azure Key Vault
 
@@ -66,7 +66,7 @@ Vous pouvez configurer un coffre de clés et une clé avant de créer le cache, 
 
 Au moment de la création du cache, vous devez spécifier un coffre, une clé et une version de clé à utiliser pour le chiffrement du cache.
 
-Pour plus d’informations, lisez la [documentation Azure Key Vault](../key-vault/key-vault-overview.md).
+Pour plus d’informations, lisez la [documentation Azure Key Vault](../key-vault/general/overview.md).
 
 > [!NOTE]
 > Le coffre Azure Key Vault doit utiliser le même abonnement et se trouver dans la même région que le cache Azure HPC Cache. Assurez-vous que la région que vous choisissez [prend en charge la fonctionnalité de clés gérées par le client](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ L’utilisateur qui crée le cache doit avoir des privilèges égaux ou supérie
 
 1. Après avoir sélectionné un coffre, sélectionnez la clé individuelle parmi les options disponibles ou créez une nouvelle clé. La clé doit être une clé RSA 2048 bits.
 
-1. Spécifiez la version de la clé sélectionnée. En savoir plus sur le contrôle de version dans la [documentation Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Spécifiez la version de la clé sélectionnée. En savoir plus sur le contrôle de version dans la [documentation Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Poursuivez avec le reste des spécifications et créez le cache comme décrit dans [Créer un cache Azure HPC Cache](hpc-cache-create.md).
 

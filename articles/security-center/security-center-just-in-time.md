@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440729"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342380"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -35,7 +35,7 @@ Cette page vous explique comment inclure l’accès JAT dans votre programme de
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
-|Machines virtuelles prises en charge :|![Oui](./media/icons/yes-icon.png) Machines virtuelles déployées via Azure Resource Manager.<br>![Non](./media/icons/no-icon.png) Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>![Non](./media/icons/no-icon.png) Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Machines virtuelles prises en charge :|![Oui](./media/icons/yes-icon.png) Machines virtuelles déployées via Azure Resource Manager.<br>![Non](./media/icons/no-icon.png) Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>![Non](./media/icons/no-icon.png) Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](../firewall-manager/overview.md)|
 |Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
@@ -215,7 +215,7 @@ Les commandes PowerShell suivantes créent cette configuration JAT :
 
 La fonctionnalité d’accès aux machines virtuelles juste-à-temps peut être utilisée via l’API Azure Security Center. Utilisez cette API pour obtenir des informations sur les machines virtuelles configurées, en ajouter de nouvelles, demander l’accès à une machine virtuelle, et bien plus encore. 
 
-Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -319,7 +319,7 @@ Exécutez la commande suivante dans PowerShell :
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Pour en savoir plus, consultez la [documentation relative aux cmdlets PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Pour en savoir plus, consultez la [documentation relative aux cmdlets PowerShell](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Pour en savoir plus, consultez la [documentation relative aux cmdlets PowerShell
 
 La fonctionnalité d’accès aux machines virtuelles juste-à-temps peut être utilisée via l’API Azure Security Center. Utilisez cette API pour obtenir des informations sur les machines virtuelles configurées, en ajouter de nouvelles, demander l’accès à une machine virtuelle, et bien plus encore. 
 
-Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 

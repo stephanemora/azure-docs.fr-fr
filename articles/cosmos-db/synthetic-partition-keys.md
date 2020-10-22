@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75441216"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279853"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Créer une clé de partition synthétique
 
@@ -58,7 +58,7 @@ Avec cette stratégie, les écritures sont uniformément réparties sur les vale
 
 Pour en savoir plus sur le concept de partitionnement, consultez les articles suivants :
 
-* En savoir plus sur les [partitions logiques](partition-data.md).
+* En savoir plus sur les [partitions logiques](partitioning-overview.md).
 * Découvrez comment [approvisionner le débit sur des conteneurs et bases de données Azure Cosmos](set-throughput.md).
 * Découvrez comment [approvisionner le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 * Découvrez comment [approvisionner le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
