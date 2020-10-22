@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627588"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173784"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installer et utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -243,7 +243,7 @@ Procédez comme suit pour utiliser l’émulateur sur des environnements Linux o
 1. À partir de la machine virtuelle Windows, lancez l’émulateur Azure Cosmos à partir de la ligne de commande avec les options suivantes. Pour plus d’informations sur les paramètres pris en charge par la ligne de commande, consultez l’article [Référence de l’outil en ligne de commande de l’émulateur](emulator-command-line-parameters.md) :
 
    ```bash
-   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 
 1. Enfin, vous devez résoudre le processus d’approbation de certificat entre l’application en cours d’exécution dans l’environnement Linux ou Mac et l’émulateur. Vous pouvez utiliser l’une des deux options suivantes pour résoudre le certificat :

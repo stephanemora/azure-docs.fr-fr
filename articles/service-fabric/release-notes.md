@@ -5,19 +5,19 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 467018e57a0783839cb9495fcc6df89aad9daa8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280605"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313871"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guides de résolution des problèmes</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Suivi des problèmes</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Options de support</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">Versions prises en charge</a> 
+- <a href="/azure/service-fabric/service-fabric-support" target="blank">Options de support</a> 
+- <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versions prises en charge</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Exemples de code</a>
 
 Cet article fournit des informations sur les version et mises à jour les plus récentes du runtime Service Fabric et des Kits de développement logiciel (SDK).
@@ -86,11 +86,11 @@ Nous mettrons également à jour les dates de publication planifiées pour indiq
 Il s’agit de la dernière version de Service Fabric qui est chargée avec des fonctionnalités et améliorations clés.
 
 ### <a name="key-announcements"></a>Principales annonces
- - [**Prise en charge de KeyVaultReference pour les secrets de l’application (préversion)** ](./service-fabric-keyvault-references.md) : Les applications Service Fabric qui ont activé [Identités managées](./concepts-managed-identity.md) peuvent désormais référencer directement une URL de secret Key Vault en tant que variable d’environnement, paramètre d’application ou informations d’identification de référentiel de conteneur. Service Fabric résoudra automatiquement le secret à l’aide de l’identité managée de l’application. 
+ - [**Prise en charge de KeyVaultReference pour les secrets de l’application (préversion)** ](./service-fabric-keyvault-references.md) : Les applications Service Fabric qui ont activé [Identités managées](./concepts-managed-identity.md) peuvent désormais référencer directement une URL de secret Key Vault en tant que variable d’environnement, paramètre d’application ou informations d’identification de référentiel de conteneur. Service Fabric résoudra automatiquement le secret à l’aide de l’identité managée de l’application. 
      
 - **Amélioration de la sécurité de la mise à niveau pour les services sans état** : Pour garantir la disponibilité lors de la mise à niveau d’une application, nous avons introduit de nouvelles configurations pour définir le [nombre minimal d’instances pour les services sans état](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) à considérer comme disponibles. Auparavant, cette valeur était 1 pour tous les services et n’était pas modifiable. Grâce à cette nouvelle vérification de la sécurité par service, vous pouvez vous assurer que vos services conservent un nombre minimal d’instances lors des mises à niveau de l’application, des mises à niveau de cluster et d’autres opérations de maintenance qui s’appuient sur les contrôles d’intégrité et de sécurité de Service Fabric.
   
-- [**Limites des ressources des services utilisateur**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services) : Les utilisateurs peuvent configurer des limites de ressources pour les services utilisateur sur un nœud afin d’éviter des scénarios tels que l’épuisement des ressources des services système Service Fabric. 
+- [**Limites des ressources des services utilisateur**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services) : Les utilisateurs peuvent configurer des limites de ressources pour les services utilisateur sur un nœud afin d’éviter des scénarios tels que l’épuisement des ressources des services système Service Fabric. 
   
 - [**Coût de déplacement de service très élevé**](./service-fabric-cluster-resource-manager-movement-cost.md) pour un type de réplica. Les réplicas avec un coût de déplacement « très élevé » sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon. Reportez-vous au document lié pour plus d’informations sur l’utilisation raisonnable du coût de déplacement « très élevé » et sur les considérations supplémentaires.
   

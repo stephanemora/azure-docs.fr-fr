@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945445"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092798"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application à un déploiement dans Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Azure Spring Cloud fournit des services robustes pour héberger, surveiller, met
 Cet article présente les dépendances, la configuration et le code requis pour exécuter une application .NET Core Steeltoe dans Azure Spring Cloud. Pour plus d'informations sur le déploiement d'une application dans Azure Spring Cloud, consultez [Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md).
 
 >[!Note]
-> La prise en charge d'Azure Spring Cloud par Steeltoe est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d'informations sur le support offert dans le cadre des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou déposez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> La prise en charge d'Azure Spring Cloud par Steeltoe est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d'informations sur le support offert dans le cadre des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou déposez une [demande de support](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ##  <a name="supported-versions"></a>Versions prises en charge
 
@@ -99,7 +99,7 @@ Cet article explique les dépendances nécessaires et comment les ajouter au fic
 
 Seules les applications Spring/Java peuvent s’exécuter dans Azure Spring Cloud.
 
-Azure Spring Cloud prend en charge Java 8 et Java 11. L’environnement d’hébergement contient la dernière version d’Azul Zulu OpenJDK pour Azure. Pour plus d’informations sur Azul Zulu OpenJDK pour Azure, consultez [Installer le JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud prend en charge Java 8 et Java 11. L’environnement d’hébergement contient la dernière version d’Azul Zulu OpenJDK pour Azure. Pour plus d’informations sur Azul Zulu OpenJDK pour Azure, consultez [Installer le JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versions de Spring Boot et de Spring Cloud
 
@@ -305,9 +305,9 @@ Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-
  Vous devez également permettre à une instance Azure Application Insights de fonctionner avec votre instance du service Azure Spring Cloud. Pour plus d’informations sur l’utilisation d’Application Insights avec Azure Spring Cloud, consultez la [documentation sur le suivi distribué](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Voir aussi
-* [Analyser les journaux et les métriques des applications](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Configurer votre serveur de configuration](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Utiliser le suivi distribué avec Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analyser les journaux et les métriques des applications](./diagnostic-services.md)
+* [Configurer votre serveur de configuration](./spring-cloud-tutorial-config-server.md)
+* [Utiliser le suivi distribué avec Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Guide de démarrage rapide Spring](https://spring.io/quickstart)
 * [Documentation Spring Boot](https://spring.io/projects/spring-boot)
 

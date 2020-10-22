@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851665"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281032"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 
@@ -97,6 +97,6 @@ Dans cet article, nous avons vu comment effectuer des tests de performances et d
 
 * [Exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Options de configuration côté client permettant d’améliorer les performances d’Azure Cosmos DB](performance-tips.md)
-* [Guide de partitionnement et de mise à l’échelle dans Azure Cosmos DB](partition-data.md)
+* [Guide de partitionnement et de mise à l’échelle dans Azure Cosmos DB](partitioning-overview.md)
 
 

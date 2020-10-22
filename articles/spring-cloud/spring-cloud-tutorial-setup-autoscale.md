@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905392"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091064"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutoriel : Configurer la mise à l’échelle automatique pour les applications de microservice
 
@@ -25,7 +25,7 @@ La mise à l’échelle automatique est une fonctionnalité intégrée d’Azure
 Pour suivre ces procédures, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Une instance du service Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli).
+* Une instance du service Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](./spring-cloud-quickstart.md).
 * Au moins une application déjà créée dans votre instance de ce service.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Accéder à la page Mise à l’échelle automatique sur le portail Azure
@@ -70,5 +70,5 @@ Si vous êtes au niveau De base et limité par une ou plusieurs de ces restricti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Supervision de la mise à l’échelle automatique avec l’interface Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Supervision de la mise à l’échelle automatique avec l’interface Azure CLI](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

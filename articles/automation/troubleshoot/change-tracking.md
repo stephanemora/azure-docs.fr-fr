@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187232"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205606"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Résoudre les problèmes rencontrés avec Change Tracking et d’inventaire
 
-Cet article décrit comment détecter et résoudre les problèmes liés à la fonctionnalité « Suivi des modifications et inventaire » d’Azure Automation. Pour obtenir des informations générales sur la fonctionnalité « Suivi des modifications et inventaire », consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking.md).
+Cet article décrit comment détecter et résoudre les problèmes liés à la fonctionnalité « Suivi des modifications et inventaire » d’Azure Automation. Pour obtenir des informations générales sur la fonctionnalité « Suivi des modifications et inventaire », consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking/overview.md).
 
 ## <a name="windows"></a>Windows
 
@@ -108,11 +108,11 @@ Pour mieux résoudre ce problème, consultez [Problème : vous ne pouvez pas vo
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>L’agent Log Analytics pour Linux n’est pas configuré correctement
 
-L’agent Log Analytics pour Linux n’est peut-être pas configuré correctement pour la collecte des journaux et des sorties en ligne de commande à l’aide de l’outil Log Collector d’OMS. Consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking.md).
+L’agent Log Analytics pour Linux n’est peut-être pas configuré correctement pour la collecte des journaux et des sorties en ligne de commande à l’aide de l’outil Log Collector d’OMS. Consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking/overview.md).
 
 ##### <a name="fim-conflicts"></a>Conflits FIM
 
-La fonctionnalité FIM d’Azure Security Center peut ne pas valider correctement l’intégrité de vos fichiers Linux. Vérifiez que FIM est opérationnel et correctement configuré pour l’analyse des fichiers Linux. Consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking.md).
+La fonctionnalité FIM d’Azure Security Center peut ne pas valider correctement l’intégrité de vos fichiers Linux. Vérifiez que FIM est opérationnel et correctement configuré pour l’analyse des fichiers Linux. Consultez [Vue d’ensemble de Suivi des modifications et inventaire](../change-tracking/overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

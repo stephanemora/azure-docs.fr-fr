@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines physiques vers Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 187d660c0aa3ce1fa37a706b37102d2e4f9b4d25
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296329"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308502"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -360,7 +360,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
     - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [Plus d’informations](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Pour renforcer la sécurité :
     - Verrouillez et limitez l’accès du trafic entrant avec l’[administration juste-à-temps d’Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/security-overview.md).
+    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :

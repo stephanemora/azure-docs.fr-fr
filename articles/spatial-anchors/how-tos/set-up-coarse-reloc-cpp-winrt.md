@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548286"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097369"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Guide pratique pour créer et localiser des ancres avec la relocalisation approximative en C++/WinRT
 
@@ -31,7 +31,7 @@ Azure Spatial Anchors peut associer des données de capteur de positionnement in
 
 Pour suivre ce guide, veillez à disposer des éléments suivants :
 
-- Connaissances de base sur C++ et les <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">API Windows Runtime</a>.
+- Connaissances de base sur C++ et les <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">API Windows Runtime</a>.
 - Lisez la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
 - Effectuez l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
 - Lisez le [Guide pratique pour la création et la localisation des ancres](../create-locate-anchors-overview.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 073fab4aee084513db4ca05af6c12087c0a8f911
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360954"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206371"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
@@ -412,7 +412,7 @@ Procédez comme suit pour créer un modèle de mot clé, configurer le client As
 
 Dans le code source du client Assistant vocal Windows, examinez les fichiers suivants pour passer en revue le code qui est utilisé pour activer la détection du mot clé :
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) comprend un appel à la méthode [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)du SDK Speech, qui est utilisé pour instancier le modèle à partir d’un fichier local situé sur le disque.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) comprend un appel à la méthode [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest&preserve-view=true#fromfile-string-)du SDK Speech, qui est utilisé pour instancier le modèle à partir d’un fichier local situé sur le disque.
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) comprend un appel à la méthode [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)du SDK Speech, qui active la détection continue du mot clé.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>(Facultatif) Changer la langue et la voix du bot

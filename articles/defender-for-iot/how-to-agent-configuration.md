@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930239"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090843"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutoriel : Configurer des agents de sécurité
 
@@ -118,7 +118,7 @@ Le tableau suivant contient les propriétés contrôlables des agents de sécuri
 Les valeurs par défaut sont disponibles dans le schéma approprié dans [Github](https\://aka.ms/iot-security-module-default).
 
 | Nom| Statut | Valeurs valides| Valeurs par défaut| Description |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Requis : false |Valeurs valides : Durée au format ISO 8601 |Valeur par défaut : PT7M |Intervalle de temps maximale avant l’envoi de messages de priorité élevée.|
 |lowPriorityMessageFrequency |Requis : false|Valeurs valides : Durée au format ISO 8601 |Valeur par défaut : PT5H |Durée maximale avant l’envoi de message de basse priorité.|
 |snapshotFrequency |Requis : false|Valeurs valides : Durée au format ISO 8601 |La valeur par défaut est PT13H |Intervalle de temps pour la création d’instantanés d’état d’appareil.|
@@ -129,7 +129,7 @@ Les valeurs par défaut sont disponibles dans le schéma approprié dans [Github
 ### <a name="supported-security-events"></a>Événements de sécurité pris en charge
 
 |Nom d'événement| PropertyName | Valeur par défaut| Événement de capture instantanée| État des détails  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Événement de diagnostic|eventPriorityDiagnostic| Off| False| Événements de diagnostic liés à l’agent. Utilisez cet événement pour la journalisation détaillée.|
 |Erreur de configuration |eventPriorityConfigurationError |Faible |False |L’agent a échoué à analyser la configuration. Vérifiez la configuration par rapport au schéma.|
 |Statistiques des événements annulés |eventPriorityDroppedEventsStatistics |Faible |True|Statistiques des événements liés à l’agent. |

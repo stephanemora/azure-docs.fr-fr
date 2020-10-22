@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892571"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093036"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -27,7 +27,7 @@ La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser
 Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 > [!TIP]
-> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs) !
+> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs) !
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -38,7 +38,7 @@ Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 ## <a name="metrics"></a>Mesures
 
-Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](./spring-cloud-concept-metrics.md#user-metrics-options).
 
 Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
@@ -110,7 +110,7 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
 > [!NOTE]
 > `==` respecte la casse, mais pas `=~`.
 
-Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](../azure-monitor/log-query/query-language.md).
+Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ### <a name="use-your-storage-account"></a>Utiliser votre compte de stockage
 
@@ -131,7 +131,7 @@ Pour en savoir plus sur l’envoi d’informations de diagnostic à un compte de
 1. Pour consulter les journaux d’application, recherchez un hub d’événements appelé **insights-logs-applicationconsole**.
 1. Pour consulter les métriques des applications, recherchez un hub d’événements appelé **insights-metrics-pt1m**.
 
-Pour en savoir plus sur l’envoi d’informations de diagnostic à un hub d’événements, consultez [Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+Pour en savoir plus sur l’envoi d’informations de diagnostic à un hub d’événements, consultez [Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analyser les journaux
 

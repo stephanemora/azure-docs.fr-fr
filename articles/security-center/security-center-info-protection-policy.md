@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: aa73fed0af0d6cd7154118d8987f42e55814e25a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6991c222590b52ca4dadb2b9f5a9661bf731c4c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448932"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340833"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
@@ -78,8 +78,8 @@ Une fois que votre stratégie de protection des informations est entièrement d�
 
 ## <a name="manage-sql-information-protection-using-azure-powershell"></a>Gérer la protection des informations SQL à l’aide d’Azure PowerShell
 
-- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy) : récupère la stratégie de protection des informations SQL du locataire effective.
-- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy) : définit la stratégie de protection des informations SQL du locataire effective.
+- [Get-AzSqlInformationProtectionPolicy](/powershell/module/az.security/get-azsqlinformationprotectionpolicy) : récupère la stratégie de protection des informations SQL du locataire effective.
+- [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy) : définit la stratégie de protection des informations SQL du locataire effective.
  
 ## <a name="next-steps"></a>Étapes suivantes
  

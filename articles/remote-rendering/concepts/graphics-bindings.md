@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 853c71ed4803f717188568ec051c40c4f73afe95
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802291"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202869"
 ---
 # <a name="graphics-binding"></a>Liaison graphique
 
@@ -248,14 +248,14 @@ else
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [RemoteManagerStatic.StartupRemoteRendering() C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
-* [Classe GraphicsBinding C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
-* [Classe GraphicsBindingWmrD3d11 C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
-* [Classe GraphicsBindingSimD3d11 C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
-* [Struct RemoteRenderingInitialization C++](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
-* [Classe GraphicsBinding C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
-* [Classe GraphicsBindingWmrD3d11 C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
-* [Classe GraphicsBindingSimD3d11 C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
+* [RemoteManagerStatic.StartupRemoteRendering() C#](/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [Classe GraphicsBinding C#](/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [Classe GraphicsBindingWmrD3d11 C#](/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [Classe GraphicsBindingSimD3d11 C#](/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [Struct RemoteRenderingInitialization C++](/cpp/api/remote-rendering/remoterenderinginitialization)
+* [Classe GraphicsBinding C++](/cpp/api/remote-rendering/graphicsbinding)
+* [Classe GraphicsBindingWmrD3d11 C++](/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [Classe GraphicsBindingSimD3d11 C++](/cpp/api/remote-rendering/graphicsbindingsimd3d11)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

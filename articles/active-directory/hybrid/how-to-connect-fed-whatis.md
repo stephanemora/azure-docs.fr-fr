@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a97142e0c512f4f95235ad08c94c852906d3efd8
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660857"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095854"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.
@@ -34,7 +34,7 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | **Options de connexion de l’utilisateur via Azure AD Connect** | |
 | [Présentation des options de connexion de l’utilisateur](plan-connect-user-signin.md) |Découvrez les options de connexion de l’utilisateur et leur impact sur l’expérience de connexion à Azure. |
 | **Installation d’AD FS avec Azure AD Connect** | |
-| [Composants requis](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consultez les conditions préalables à l’installation d’AD FS via Azure AD Connect |
+| [Composants requis](how-to-connect-install-custom.md#ad-fs-configuration-prerequisites) |Consultez les conditions préalables à l’installation d’AD FS via Azure AD Connect |
 | [Configurer une batterie de serveurs AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installation d’une nouvelle batterie de serveurs AD FS avec Azure AD Connect |
 | [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | **Modifier la configuration AD FS** | |

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981330"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201050"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -54,7 +54,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’abonnement avec les réseaux virtuels associés à votre circuit ExpressRoute. Ensuite, recherchez « Network Performance Monitor » dans la liste des services de la **Place de marché**. Dans les résultats, cliquez pour ouvrir la page **Network Performance Monitor**.
 
    >[!NOTE]
-   >Vous pouvez créer un espace de travail ou utiliser un espace de travail existant. Si vous souhaitez utiliser un espace de travail existant, vous devez vérifier qu’il a été migré vers le nouveau langage de requête. [Plus d’informations...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Vous pouvez créer un espace de travail ou utiliser un espace de travail existant. Si vous souhaitez utiliser un espace de travail existant, vous devez vérifier qu’il a été migré vers le nouveau langage de requête. [Plus d’informations...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portail](./media/how-to-npm/3.png)<br><br>
@@ -92,7 +92,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 Nous vous recommandons d’installer au moins deux agents de chaque côté de la connexion ExpressRoute à des fins de redondance (par exemple, localement, réseaux virtuels Azure). L’agent doit être installé sur Windows Server 2008 SP1 ou version ultérieure. La surveillance des circuits ExpressRoute à l’aide du système d’exploitation de bureau Windows et du système d’exploitation Linux n’est pas prise en charge. Pour installer les agents, procédez comme suit :
    
   >[!NOTE]
-  >Les agents envoyés (push) par SCOM (notamment [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) risquent de ne pas parvenir à détecter de manière cohérente leur emplacement, s’ils sont hébergés dans Azure. Nous vous recommandons de ne pas utiliser ces agents dans des réseaux virtuels Azure pour surveiller ExpressRoute.
+  >Les agents envoyés (push) par SCOM (notamment [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) risquent de ne pas parvenir à détecter de manière cohérente leur emplacement, s’ils sont hébergés dans Azure. Nous vous recommandons de ne pas utiliser ces agents dans des réseaux virtuels Azure pour surveiller ExpressRoute.
   >
 
 1. Exécutez **Installation** pour installer l’agent sur chaque serveur que vous souhaitez utiliser pour la surveillance ExpressRoute. Le serveur que vous utilisez pour la surveillance peut être une machine virtuelle ou locale et doit avoir accès à Internet. Vous devez installer au moins un agent localement, et un agent sur chaque segment de réseau que vous souhaitez surveiller dans Azure.
@@ -118,7 +118,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3 : Configurer des paramètres de proxy (facultatif)
 
-Si vous utilisez un proxy web pour accéder à Internet, procédez comme suit pour configurer les paramètres de proxy pour Microsoft Monitoring Agent. Effectuez ces étapes pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Si c’est le cas, consultez [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l’aide d’un script](../log-analytics/log-analytics-windows-agent.md).
+Si vous utilisez un proxy web pour accéder à Internet, procédez comme suit pour configurer les paramètres de proxy pour Microsoft Monitoring Agent. Effectuez ces étapes pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Si c’est le cas, consultez [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l’aide d’un script](../azure-monitor/platform/agent-windows.md).
 
 Pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le Panneau de configuration :
 
@@ -161,7 +161,7 @@ Sur les serveurs d’agent, ouvrez une fenêtre PowerShell avec des privilèges 
 
 Pour surveiller les serveurs d’agent se trouvant dans Azure, vous devez configurer les règles du groupe de sécurité réseau (NSG) pour autoriser le trafic TCP sur un port utilisé par NPM pour les transactions synthétiques. Par défaut, il s’agit du port 8084. Cela permet à un agent de surveillance installé sur une machine virtuelle Azure de communiquer avec un agent de surveillance local.
 
-Pour plus d’informations concernant le groupe de sécurité réseau, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Pour plus d’informations concernant le groupe de sécurité réseau, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Vérifiez que vous avez installé les agents (l’agent de serveur local et l’agent de serveur Azure) et que vous avez exécuté le script PowerShell avant de continuer avec cette étape.

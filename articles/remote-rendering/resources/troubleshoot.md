@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803821"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203668"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -88,7 +88,7 @@ La qualité de la vidéo peut être compromise par la qualité du réseau ou par
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>La vidéo enregistrée avec la fonction MRC ne reflète pas la qualité de l’expérience en direct
 
-Une vidéo peut être enregistrée sur HoloLens par le biais de la fonction [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Toutefois, la vidéo qui en résulte est de moins bonne qualité que l’expérience en direct pour deux raisons :
+Une vidéo peut être enregistrée sur HoloLens par le biais de la fonction [Mixed Reality Capture (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). Toutefois, la vidéo qui en résulte est de moins bonne qualité que l’expérience en direct pour deux raisons :
 * La fréquence d’images vidéo est limitée à 30 Hz au lieu de 60 Hz.
 * Les images vidéo ne passent pas par l’étape de traitement [Reprojection en phase tardive](../overview/features/late-stage-reprojection.md), de sorte que la vidéo semble plus hachée.
 

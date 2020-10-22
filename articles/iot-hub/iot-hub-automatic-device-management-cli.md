@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024963"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147823"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestion automatique des Modules et des appareils IoT avec Azure CLI
 
@@ -36,7 +36,7 @@ Les configurations automatiques s’exécutent pour la première fois peu de tem
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) dans votre abonnement Azure. 
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az –-version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack. 
+* [Azure CLI](/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az –-version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack. 
 
 * [Extension IoT pour Azure CLI](https://github.com/Azure/azure-cli).
 
@@ -136,7 +136,7 @@ Utilisez la commande suivante pour créer une configuration :
 
 * --**hub-name** : nom du hub IoT dans lequel la configuration sera créée. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.
 
-* --**target-condition** : entrez une condition cible pour déterminer quels sont les appareils ou Modules ciblés par cette configuration. Pour une configuration d’appareil automatique, la condition est basée sur les balises de jumeau d’appareil ou sur les propriétés souhaitées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. Pour la configuration de Module automatique, la condition est basée sur les balises ou les propriétés souhaitées d’un jumeau de Module. Par exemple, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition** : entrez une condition cible pour déterminer quels sont les appareils ou Modules ciblés par cette configuration.  Pour une configuration d’appareil automatique, la condition est basée sur les balises de jumeau d’appareil ou sur les propriétés souhaitées du jumeau d’appareil et doit correspondre au format de l’expression.  Par exemple, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`.  Pour la configuration de Module automatique, la condition est basée sur les balises ou les propriétés souhaitées d’un jumeau de Module. Par exemple, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**priority** : entier positif. Si deux ou plusieurs configurations sont ciblées sur le même appareil ou Module, la configuration ayant la valeur numérique la plus élevée pour Priority s’applique.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name** : nom du hub IoT dans lequel la configuration existe. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.
 
-Inspectez la configuration dans la fenêtre de commande. La propriété **metrics** répertorie un nombre pour chaque métrique évaluée par chaque hub :
+Inspectez la configuration dans la fenêtre de commande.  La propriété **metrics** répertorie un nombre pour chaque métrique évaluée par chaque hub :
 
 * **targetedCount** : métrique système qui spécifie le nombre de jumeaux d’appareil ou de Module dans le hub IoT qui correspondent à la condition de ciblage.
 
@@ -235,8 +235,8 @@ Dans cet article, vous avez découvert comment configurer et superviser des appa
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Pour savoir comment utiliser le service d’approvisionnement des appareils IoT Hub afin d’activer l’approvisionnement sans contact et juste-à-temps, consultez : 
 
-* [Service Azure IoT Hub Device Provisioning](/azure/iot-dps)
+* [Service Azure IoT Hub Device Provisioning](../iot-dps/index.yml)

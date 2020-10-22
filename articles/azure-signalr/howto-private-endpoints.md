@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302141"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152328"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Utiliser des points de terminaison privés pour Azure SignalR Service
 
@@ -82,8 +82,8 @@ Le nom de zone DNS recommandé pour les points de terminaison privés de l'insta
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
-- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuration DNS pour les points de terminaison privés](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuration DNS pour les points de terminaison privés](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
 
@@ -198,7 +198,7 @@ Cette contrainte résulte des modifications DNS effectuées lorsqu'Azure SignalR
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Règles de groupe de sécurité réseau pour les sous-réseaux avec des points de terminaison privés
 
-Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../virtual-network/security-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau hébergeant le point de terminaison privé sont appliquées au point de terminaison privé. Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
+Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau hébergeant le point de terminaison privé sont appliquées au point de terminaison privé. Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

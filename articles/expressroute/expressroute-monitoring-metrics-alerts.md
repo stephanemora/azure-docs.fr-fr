@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252627"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206235"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -70,7 +70,7 @@ Vous pouvez consulter la disponibilité du protocole BGP en quasi temps réel su
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilité du protocole ARP : découpage par peering  
 
-Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session ARP de peering privé en haut sur les deux pairs, mais la session complète en bas pour le peering Microsoft sur les peerings. L’agrégation par défaut (moyenne) a été utilisée sur les deux pairs.  
+Vous pouvez consulter la disponibilité du protocole [ARP](./expressroute-troubleshooting-arp-resource-manager.md) en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session ARP de peering privé en haut sur les deux pairs, mais la session complète en bas pour le peering Microsoft sur les peerings. L’agrégation par défaut (moyenne) a été utilisée sur les deux pairs.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="métriques de circuit":::
 

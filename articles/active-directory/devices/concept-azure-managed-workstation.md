@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601382"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093308"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -64,7 +64,7 @@ Tous les utilisateurs et opérateurs peuvent tirer profit de l’utilisation d�
 * Station de travail hautement sensible, telle qu’un terminal de paiement SWIFT
 * Station de travail contenant des secrets industriels
 
-Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), la [feuille de route de Microsoft 365](https://aka.ms/o365secroadmap) et la [feuille de route de sécurisation de l’accès privilégié](https://aka.ms/sparoadmap)).
+Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), la [feuille de route de Microsoft 365](/microsoft-365/security/office-365-security/security-roadmap) et la [feuille de route de sécurisation de l’accès privilégié](/windows-server/identity/securing-privileged-access/securing-privileged-access)).
 
 ## <a name="why-use-dedicated-workstations"></a>Pourquoi utiliser des stations de travail dédiées ?
 

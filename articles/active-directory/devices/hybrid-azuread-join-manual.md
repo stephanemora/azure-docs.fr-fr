@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268551"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093257"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -564,7 +564,7 @@ Voici trois méthodes pour rechercher et vérifier l’état de l’appareil :
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 1. Accédez à la page des appareils à l’aide d’un [lien direct](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Pour plus d’informations sur la localisation d’un appareil, consultez [Gérer les identités de l’appareil à l’aide du portail Microsoft Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Pour plus d’informations sur la localisation d’un appareil, consultez [Gérer les identités de l’appareil à l’aide du portail Microsoft Azure](./device-management-azure-portal.md#manage-devices).
 3. Si la colonne **Inscrit** indique **En attente**, cela signifie que la jonction Azure AD Hybride n’a pas été effectuée complètement. Dans les environnements fédérés, cela peut se produire uniquement si l’inscription a échoué et qu’AAD Connect est configuré pour synchroniser les appareils.
 4. Si la colonne **Inscrit** contient une **date/heure**, cela signifie que la jonction Azure AD Hybride a été effectuée correctement.
 

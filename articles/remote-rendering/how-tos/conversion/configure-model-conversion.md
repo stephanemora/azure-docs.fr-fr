@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575178"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205317"
 ---
 # <a name="configure-the-model-conversion"></a>Configurer la conversion de modèle
 
@@ -258,7 +258,7 @@ Comme nous l’avons vu dans la section [Meilleures pratiques pour les modificat
 ### <a name="texture-sizes"></a>Taille des textures
 
 Selon le type de scénario, la quantité de données de texture peut dépasser la mémoire utilisée pour les données de maillage. Les modèles de photogrammétrie sont des candidats.
-La configuration de la conversion n’offre aucun moyen de réduire automatiquement les textures. Si nécessaire, la diminution des textures doit être effectuée dans une étape de prétraitement côté client. Toutefois, l’étape de conversion sélectionne un [format de compression de texture](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) adapté :
+La configuration de la conversion n’offre aucun moyen de réduire automatiquement les textures. Si nécessaire, la diminution des textures doit être effectuée dans une étape de prétraitement côté client. Toutefois, l’étape de conversion sélectionne un [format de compression de texture](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) adapté :
 
 * `BC1` pour les textures de couleur opaque
 * `BC7` pour les textures de couleur source avec canal alpha

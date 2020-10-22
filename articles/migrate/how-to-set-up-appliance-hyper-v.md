@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate pour Hyper-V
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a12785ea3791366badb907498796a73c2c993623
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448085"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314164"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V
 
@@ -118,7 +118,7 @@ Configurez l’appliance pour la première fois.
    
    La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion établie, revenez à l’application web. 
-4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-hyper-v.md#prepare-azure) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
 
 

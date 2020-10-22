@@ -3,12 +3,12 @@ title: Évaluer un grand nombre de machines virtuelles VMware pour la migration 
 description: Décrit comment évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure à l’aide du service Azure Migrate.
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171910"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314112"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure
 
@@ -26,7 +26,7 @@ Dans cet article, vous apprendrez comment :
 
 
 > [!NOTE]
-> Si vous voulez tester une preuve de concept afin d’évaluer quelques machines virtuelles avant d’effectuer une évaluation à grande échelle, suivez notre [série de tutoriels](tutorial-prepare-vmware.md)
+> Si vous voulez tester une preuve de concept afin d’évaluer quelques machines virtuelles avant d’effectuer une évaluation à grande échelle, suivez notre [série de tutoriels](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planifier l’évaluation
 
@@ -78,7 +78,7 @@ Préparez Azure et VMware pour l’évaluation des serveurs.
 2. Configurez des autorisations pour permettre à votre compte Azure d’interagir avec Azure Migrate.
 3. Préparez VMware pour l’évaluation.
 
-Suivez les instructions de [ce tutoriel](tutorial-prepare-vmware.md) pour configurer ces paramètres.
+Suivez les instructions de [ce tutoriel](./tutorial-discover-vmware.md) pour configurer ces paramètres.
 
 
 ## <a name="create-a-project"></a>Création d’un projet
@@ -96,7 +96,7 @@ Conformément à vos exigences de planification, procédez comme suit :
 1. Passez en revue les évaluations en préparation de la planification de la migration.
 
 
-Suivez les instructions de [ce tutoriel](tutorial-assess-vmware.md) pour configurer ces paramètres.
+Suivez les instructions de [ce tutoriel](./tutorial-assess-vmware-azure-vm.md) pour configurer ces paramètres.
     
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000377"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173930"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -60,6 +60,8 @@ Les instantanés incrémentiels sont stockés dans le compte de stockage de la m
 ## <a name="configure-snapshot-retention"></a>Configurer la rétention des instantanés
 
 ### <a name="using-azure-portal"></a>En passant par le portail Azure
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Dans le portail Azure vous voyez un champ ajouté au volet **Stratégie de sauvegarde de machine virtuelle** sous la section **Restauration instantanée**. Vous pouvez modifier la durée de rétention des captures instantanées à partir du volet **Stratégie de sauvegarde de machine virtuelle** pour toutes les machines virtuelles associées à la stratégie de sauvegarde spécifique.
 

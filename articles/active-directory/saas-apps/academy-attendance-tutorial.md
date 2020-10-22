@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: cc64e36e5fa65a8d6eca117f33be8cac89514177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fd7425169ddc3ebed11ddaf513f0182dd397703
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88538159"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313540"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Academy Attendance
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Academy Attendance à Azure�
 * Autoriser les utilisateurs à se connecter automatiquement à Academy Attendance avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
-    > Academy Attendance prend en charge deux rôles pour les utilisateurs : **Teacher** et **Student**. Configurez ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Reportez-vous à [ce document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) expliquant comment créer des rôles personnalisés dans Azure AD.
+    > Academy Attendance prend en charge deux rôles pour les utilisateurs : **Teacher** et **Student**. Configurez ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Reportez-vous à [ce document](../develop/active-directory-enterprise-app-role-management.md) expliquant comment créer des rôles personnalisés dans Azure AD.
 
 1. En plus de ce qui précède, l’application Academy Attendance s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -152,15 +152,14 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Academy 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Academy Attendance dans le panneau d’accès doit vous connecter automatiquement à l’application Academy Attendance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette Academy Attendance dans le panneau d’accès doit vous connecter automatiquement à l’application Academy Attendance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
 
 - [Essayer Academy Attendance avec Azure AD](https://aad.portal.azure.com/)
-

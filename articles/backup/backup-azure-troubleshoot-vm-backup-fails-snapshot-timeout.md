@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182035"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170285"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -103,7 +103,6 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Sauv
 
 Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Pour plus d’informations, consultez [États de provisionnement](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Si l’extension VMSnapshot est à l’état d’échec, cliquez avec le bouton droit sur l’extension qui a échoué, puis supprimez-la. Déclenchez une sauvegarde à la demande. Cette action réinstalle les extensions et exécute le travail de sauvegarde.  <br>
 - Si une autre extension est à l’état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.
 - Si l’état de provisionnement de machine virtuelle est En cours de mise à jour, il peut interférer avec la sauvegarde. Vérifiez qu’il est sain et réessayez l’opération de sauvegarde.
 

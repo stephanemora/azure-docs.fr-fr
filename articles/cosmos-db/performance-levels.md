@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020879"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281044"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
@@ -82,7 +82,7 @@ Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 20 Go de stockage ?
 
-Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 20 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Azure Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](sql-api-partition-data.md). 
+Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 20 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Azure Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 
@@ -132,6 +132,6 @@ Les clients Contrat Entreprise bénéficieront d’une protection en matière de
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure Cosmos DB, explorez les ressources suivantes :
 
-1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](sql-api-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](partitioning-overview.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
 2.  [Tarification Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
 3.  [Unités de requête](request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.

@@ -3,12 +3,12 @@ title: À propos du processus de restauration de machine virtuelle Azure
 description: Découvrez comment le service Sauvegarde Azure restaure les machines virtuelles Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985335"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171763"
 ---
 # <a name="about-azure-vm-restore"></a>À propos de la restauration de machine virtuelle Azure
 
@@ -32,7 +32,7 @@ Cet article décrit la manière dont le [service Sauvegarde Azure](./backup-over
 - **Disponibilité (types de réplication)**  : le service Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles :
   - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
   - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
-  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le ZRS n’a pas de temps d’arrêt. Vos charges de travail critiques qui requièrent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et ne doivent pas avoir de temps d’arrêt peuvent être sauvegardées dans le ZRS.
+  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](../availability-zones/az-overview.md#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le ZRS n’a pas de temps d’arrêt. Vos charges de travail critiques qui requièrent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et ne doivent pas avoir de temps d’arrêt peuvent être sauvegardées dans le ZRS.
 
 - **Restauration entre régions (CRR)**  : parmi les [options de restauration](./backup-azure-arm-restore-vms.md#restore-options), la restauration entre régions (CRR) vous permet de restaurer des machines virtuelles Azure dans une région secondaire, qui est une [région jumelée Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 

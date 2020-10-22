@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970314"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205147"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
@@ -760,7 +760,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Présentation d’Azure Automation](../../automation/automation-intro.md)
 
-* [Présentation de Change Tracking](../../automation/change-tracking.md)
+* [Présentation de Change Tracking](../../automation/change-tracking/overview.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 

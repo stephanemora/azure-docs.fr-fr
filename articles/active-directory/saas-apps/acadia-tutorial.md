@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: b6bf0736c2887ee19551e2719ec2418bbacdbd1d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708405"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutoriel : Intégration d’Azure Active Directory à Acadia
 
@@ -27,7 +27,7 @@ L’intégration d’Acadia à Azure AD vous offre les avantages suivants :
 * Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Acadia (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -192,12 +192,12 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Acadia. 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Acadia dans le panneau d’accès doit vous connecter automatiquement à l’application Acadia pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette Acadia dans le panneau d’accès doit vous connecter automatiquement à l’application Acadia pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

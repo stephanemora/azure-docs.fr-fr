@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893201"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205640"
 ---
 # <a name="late-stage-reprojection"></a>Reprojection en phase tardive
 
@@ -46,7 +46,7 @@ Planar LSR reprojette de façon optimale les objets qui se trouvent le plus prè
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configurer Planar LSR dans Unity
 
-Les paramètres de plan sont dérivés de ce qui est appelé une *zone de focus*, pour laquelle vous devez fournir chaque frame via `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Pour plus d’informations, consultez [API Unity Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity). Si vous ne définissez pas de zone de focus, une solution de secours sera choisie pour vous. Pour autant, ce point de secours automatique aboutit souvent à des résultats inférieurs.
+Les paramètres de plan sont dérivés de ce qui est appelé une *zone de focus*, pour laquelle vous devez fournir chaque frame via `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Pour plus d’informations, consultez [API Unity Focus Point](/windows/mixed-reality/focus-point-in-unity). Si vous ne définissez pas de zone de focus, une solution de secours sera choisie pour vous. Pour autant, ce point de secours automatique aboutit souvent à des résultats inférieurs.
 
 Vous pouvez calculer vous-même la zone de focus, bien qu’il puisse paraître judicieux de la baser sur celle qui est calculée par l’hôte Remote Rendering. Appelez `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` pour l’obtenir. Il vous est demandé de fournir un cadre de coordonnées dans lequel exprimer la zone de focus. Bien souvent, le résultat obtenu à partir de `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` est suffisant.
 

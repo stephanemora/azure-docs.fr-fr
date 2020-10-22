@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395806"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206968"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Connectez un réseau virtuel à un circuit ExpressRoute à l’aide de PowerShell (classique)
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. To
    * Suivez les instructions pour [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de service de connectivité.
    * Vérifiez que le peering privé Azure est configuré pour votre circuit. Pour obtenir des instructions sur le routage, consultez l’article [Configurer le routage](expressroute-howto-routing-classic.md) .
    * Vérifiez que le peering privé Azure est configuré, et que le peering BGP entre votre réseau et Microsoft est opérationnel pour pouvoir activer la connectivité de bout en bout.
-   * Vous devez disposer d'un réseau virtuel et d’une passerelle de réseau virtuel créés et totalement approvisionnés. Suivez les instructions pour [configurer un réseau virtuel pour ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Vous devez disposer d'un réseau virtuel et d’une passerelle de réseau virtuel créés et totalement approvisionnés. Suivez les instructions pour [configurer un réseau virtuel pour ExpressRoute](./expressroute-howto-add-gateway-portal-resource-manager.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Télécharger les dernières applets de commande PowerShell
 

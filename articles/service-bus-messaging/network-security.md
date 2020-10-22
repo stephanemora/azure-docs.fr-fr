@@ -3,12 +3,12 @@ title: Sécurité réseau pour Azure Service Bus
 description: Cet article décrit les fonctionnalités de sécurité réseau, comme les balises de service, les règles de pare-feu IP, les points de terminaison de service et les points de terminaison privés.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766397"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310459"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sécurité réseau pour Azure Service Bus 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Service Bus : 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 ## <a name="service-tags"></a>Balises de service
 Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
 
-Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **ServiceBus**) dans le champ *source* ou de *destination* approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **ServiceBus**) dans le champ *source* ou de *destination* approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

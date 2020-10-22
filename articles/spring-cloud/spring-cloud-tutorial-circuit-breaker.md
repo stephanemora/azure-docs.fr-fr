@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906886"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088599"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Utiliser le tableau de bord Circuit Breaker avec Azure Spring Cloud
 
@@ -42,7 +42,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>Provisionner votre instance Azure Spring Cloud
-Suivez la procédure [Provisionner une instance de service sur Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli).
+Suivez la procédure [Provisionner une instance de service sur Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud).
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Déployer vos applications sur Azure Spring Cloud
 Ces applications n’utilisant pas de **serveur de configuration**, il n’est pas nécessaire de configurer de **serveur de configuration** pour Azure Spring Cloud.  Procédez à la création et au déploiement comme suit :
@@ -82,6 +82,6 @@ Les flux de métriques Hystrix sont également accessibles à partir de `test-en
 En tant qu’application web, le tableau de bord Hystrix doit fonctionner sur `test-endpoint`. Deux raisons peuvent expliquer son dysfonctionnement éventuel : l’utilisation de `test-endpoint` a changé l’URL de base de `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`, ou l’application web utilise le chemin d’accès absolu de la ressource statique. Pour qu’il fonctionne sur `test-endpoint`, vous devrez peut-être modifier manuellement l’URL de <base> dans les fichiers front-end.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Provisionner une instance de service sur Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
-* [Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Provisionner une instance de service sur Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 ::: zone-end

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ac3d76d8c80947b820d195b9727d1fe50d32899
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044596"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372342"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -453,12 +453,6 @@ Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes 
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Ensuite, supprimez l’inscription d’application Azure AD que vous avez créée pour votre application cliente avec cette commande :
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Pour finir, supprimez le dossier d’exemple de projet que vous avez téléchargé sur votre ordinateur local.

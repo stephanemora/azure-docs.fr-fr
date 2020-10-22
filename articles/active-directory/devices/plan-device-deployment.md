@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563894"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093087"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -62,7 +62,7 @@ Tenez compte des besoins de votre organisation lorsque vous déterminez la strat
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](https://aka.ms/deploymentplans), et que les rôles des parties prenantes soient bien compris. 
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md), et que les rôles des parties prenantes soient bien compris. 
 
 Pour ce plan, ajoutez les parties prenantes suivantes à votre liste :
 

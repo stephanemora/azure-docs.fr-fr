@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269724"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201118"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gérer les ressources Azure et surveiller les coûts en créant des tâches d'automatisation (préversion)
 
@@ -47,7 +47,7 @@ Cet article explique comment accomplir les tâches suivantes :
 
 Actuellement, vous pouvez créer une tâche d'automatisation au niveau des ressources uniquement, examiner l'historique des exécutions de la tâche et modifier le workflow d'application logique sous-jacent de la tâche, qui est alimenté par le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Les tâches d’automatisation sont plus basiques et légères qu’[Azure Automation](../automation/automation-intro.md).
 
-À titre de comparaison, Azure Automation est un service d’automatisation et de configuration cloud qui prend en charge une gestion cohérente de vos environnements Azure et non-Azure. Le service comprend l'[automatisation des processus pour assurer leur orchestration](../automation/automation-intro.md#process-automation) à l'aide de [runbooks](../automation/automation-runbook-execution.md), la gestion de la configuration avec [le suivi et l'inventaire des modifications](../automation/change-tracking.md), la gestion des mises à jour, des fonctionnalités partagées et des fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet lors du déploiement, des opérations et de la désaffectation des charges de travail et des ressources.
+À titre de comparaison, Azure Automation est un service d’automatisation et de configuration cloud qui prend en charge une gestion cohérente de vos environnements Azure et non-Azure. Le service comprend l'[automatisation des processus pour assurer leur orchestration](../automation/automation-intro.md#process-automation) à l'aide de [runbooks](../automation/automation-runbook-execution.md), la gestion de la configuration avec [le suivi et l'inventaire des modifications](../automation/change-tracking/overview.md), la gestion des mises à jour, des fonctionnalités partagées et des fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet lors du déploiement, des opérations et de la désaffectation des charges de travail et des ressources.
 
 ## <a name="prerequisites"></a>Prérequis
 

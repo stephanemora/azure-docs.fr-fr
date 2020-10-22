@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892655"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094056"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -176,12 +176,12 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Bien démarrer avec Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Bien démarrer avec Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
 
-* [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Quotas et plans de service pour Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Quotas et plans de service pour Azure Spring Cloud](./spring-cloud-quotas.md)
